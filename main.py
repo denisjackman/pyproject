@@ -15,23 +15,41 @@ __license__ = "Python"
 import json
 import mysql.connector
 
-credentials = 'client_secrets.json'
-with open(credentials) as f:
-    creds = json.load(f)
 
-username = creds["username"]
-password = creds["password"]
-hostname = creds["hostname"]
-database = 'mydatabase'
+def creds():
+    global username
+    global password
+    global hostname
+    credentials = 'secrets/credentials.json'
+    try:
+        with open(credentials) as f:
+            creds = json.load(f)
+    except OSError as err:
+        print("Danger! Danger! Will Robinson!: {}".format(err))
+    else:
+        print("Secrets loaded OK")
+    username = creds["username"]
+    password = creds["password"]
+    hostname = creds["hostname"]
+    return
 
-try:
-    mydb = mysql.connector.connect(
-                                    host=hostname,
-                                    user=username,
-                                    password=password,
-                                    database=database
-                                    )
-except:
-    print("oops! I did it again")
-else:
-    print("Connected OK")
+
+def opendb(database):
+    global mydb
+    try:
+        mydb = mysql.connector.connect(
+                                        host=hostname,
+                                        user=username,
+                                        password=password,
+                                        database=database
+                                        )
+    except mysql.connector.Error as err:
+        print("oops! I did it again: {}".format(err))
+    else:
+        print("Connected OK")
+    return
+
+
+if __name__ == '__main__':
+    creds()
+    opendb('mydatabase')
