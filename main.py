@@ -57,8 +57,9 @@ def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
     credid = credscheck()
-    use_db = opendb(credid, 'mydatabase')
-    use_db = use_db
+
+    use_db = opendb(credid, 'mydatabase')  # pylint: disable=W0612
+
     print("finishing up and closing down:")
 
 
