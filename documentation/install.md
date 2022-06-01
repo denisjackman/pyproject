@@ -1,4 +1,5 @@
-# Installation Instructions 
+# Installation Instructions
+
 ## Environment
 1. Install [Python](https://www.python.org/)
 2. Install [MySql](https://dev.mysql.com/)

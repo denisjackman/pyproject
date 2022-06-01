@@ -16,28 +16,29 @@ import json
 import mysql.connector
 
 
-def creds():
-    global username
-    global password
-    global hostname
+def credscheck():
+    """ This function gathers the credentials for a user """
+
     credentials = 'secrets/credentials.json'
     try:
-        with open(credentials) as f:
-            creds = json.load(f)
+        with open(credentials) as credsfile:
+            creds = json.load(credsfile)
     except OSError as err:
         print("Danger! Danger! Will Robinson!: {}".format(err))
     else:
         print("Secrets loaded OK")
-    username = creds["username"]
-    password = creds["password"]
-    hostname = creds["hostname"]
-    return
+
+    return (creds["username"], creds["password"], creds["hostname"])
 
 
-def opendb(database):
-    global mydb
+def opendb(credid, database):
+    """ This function opens the databse connection """
+    username = credid[0]
+    password = credid[1]
+    hostname = credid[2]
+
     try:
-        mydb = mysql.connector.connect(
+        myDb = mysql.connector.connect(
                                         host=hostname,
                                         user=username,
                                         password=password,
@@ -47,13 +48,13 @@ def opendb(database):
         print("oops! I did it again: {}".format(err))
     else:
         print("Connected OK")
-    return
+    return myDb
 
 
 def main():
     print("Starting the sequence:")
-    creds()
-    opendb('mydatabase')
+    credid = credscheck()
+    useDB = opendb(credid, 'mydatabase')
     print("finishing up and closing down:")
 
 
