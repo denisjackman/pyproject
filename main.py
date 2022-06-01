@@ -50,6 +50,12 @@ def opendb(database):
     return
 
 
-if __name__ == '__main__':
+def main():
+    print("Starting the sequence:")
     creds()
     opendb('mydatabase')
+    print("finishing up and closing down:")
+
+
+if __name__ == '__main__':
+    main()
