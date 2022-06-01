@@ -21,10 +21,11 @@ def credscheck():
 
     credentials = 'secrets/credentials.json'
     try:
-        with open(credentials) as credsfile:
-            creds = json.load(credsfile)
+        with open(credentials, encoding="utf8") as creds_file:
+            creds = json.load(creds_file)
     except OSError as err:
-        print("Danger! Danger! Will Robinson!: {}".format(err))
+        message = f'Danger! Danger! Will Robinson!: {err}'
+        print(message)
     else:
         print("Secrets loaded OK")
 
@@ -38,23 +39,25 @@ def opendb(credid, database):
     hostname = credid[2]
 
     try:
-        myDb = mysql.connector.connect(
+        my_Db = mysql.connector.connect(
                                         host=hostname,
                                         user=username,
                                         password=password,
                                         database=database
                                         )
     except mysql.connector.Error as err:
-        print("oops! I did it again: {}".format(err))
+        message = f'oops! I did it again: {err}'
+        print(message)
     else:
         print("Connected OK")
-    return myDb
+    return my_Db
 
 
 def main():
+    """ This is the main routine for the program """
     print("Starting the sequence:")
     credid = credscheck()
-    useDB = opendb(credid, 'mydatabase')
+    use_DB = opendb(credid, 'mydatabase')
     print("finishing up and closing down:")
 
 
