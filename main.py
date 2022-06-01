@@ -39,25 +39,26 @@ def opendb(credid, database):
     hostname = credid[2]
 
     try:
-        my_Db = mysql.connector.connect(
-                                        host=hostname,
-                                        user=username,
-                                        password=password,
-                                        database=database
-                                        )
+        my_db = mysql.connector.connect(
+            host=hostname,
+            user=username,
+            password=password,
+            database=database
+        )
     except mysql.connector.Error as err:
         message = f'oops! I did it again: {err}'
         print(message)
     else:
         print("Connected OK")
-    return my_Db
+    return my_db
 
 
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
     credid = credscheck()
-    use_DB = opendb(credid, 'mydatabase')
+    use_db = opendb(credid, 'mydatabase')
+    use_db = use_db
     print("finishing up and closing down:")
 
 
