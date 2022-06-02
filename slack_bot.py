@@ -1,13 +1,16 @@
-# https://www.youtube.com/watch?v=09GG8GzfWhs
-import requests
+"""
+    This is another slackbot module
+    and it is based on  https://www.youtube.com/watch?v=09GG8GzfWhs
+"""
 import argparse
+import requests
 
 
 def send_slack_message(message: str):
     '''
     send message to slack
     '''
-    payload = '{"text": "%s"}' % message
+    payload = f'{"text": "{message}"}'
     response = requests.post(
         'https://hooks.slack.com/services/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',
         data=payload

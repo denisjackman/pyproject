@@ -1,4 +1,8 @@
-# https://www.youtube.com/watch?v=oDoFvpDftBA
+"""
+    This is a slack bot item
+    Based on the tutorial at https://www.youtube.com/watch?v=oDoFvpDftBA
+"""
+
 import logging
 import re
 import json
@@ -42,7 +46,7 @@ def show_random_joke(message, say):
     user_id = message["user"]
 
     joke = pyjokes.get_joke()
-    logger.info(f"Sent joke < {joke} > to user {user_id}")
+    logger.info(f'Sent joke < {joke} > to user {user_id}')
 
     say(text=joke, channel=dm_channel)
 
