@@ -14,6 +14,7 @@ __license__ = "Python"
 
 import json
 import mysql.connector
+from slackclient import SlackClient
 
 
 def credscheck():
@@ -29,14 +30,14 @@ def credscheck():
     else:
         print("Secrets loaded OK")
 
-    return (creds["username"], creds["password"], creds["hostname"])
+    return (creds)
 
 
 def opendb(credid, database):
     """ This function opens the databse connection """
-    username = credid[0]
-    password = credid[1]
-    hostname = credid[2]
+    username = credid["username"]
+    password = credid["password"]
+    hostname = credid["hostname"]
 
     try:
         my_db = mysql.connector.connect(
@@ -60,6 +61,17 @@ def main():
 
     use_db = opendb(credid, 'mydatabase')  # pylint: disable=W0612
 
+    token = credid["SlackOAuthToken"]
+    sc = SlackClient(token)
+    print(sc.api_call("api.test"))
+    print(sc.api_call("channels.info", channel="1234567890"))
+    print(sc.api_call(
+                        "chat.postMessage",
+                        channel="#bottest",
+                        text="Hello from Python! :tada:",
+                        username='pybot',
+                        icon_emoji=':robot_face:'
+                        ))
     print("finishing up and closing down:")
 
 

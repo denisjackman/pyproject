@@ -24,3 +24,4 @@ This sequence will allow you to access anything that needs privileges. And shoul
 
 ## Python Specific Items
 1. Install MySql Module (`pip install mysql-connector-python`)
+2. Install Slack Module (`pip install slack_sdk`)
