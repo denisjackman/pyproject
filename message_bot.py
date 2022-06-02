@@ -1,5 +1,5 @@
 """
-messageBot.py
+message_bot.py
 
 This program is slack bot to post a message to multiple channels
 All this stuff at the top of the script is just optional metadata;
@@ -29,7 +29,7 @@ def credscheck():
     else:
         print("Secrets loaded OK")
 
-    return (creds)
+    return creds
 
 
 credid = credscheck()
@@ -43,6 +43,7 @@ app = App(
 
 @app.command("/kraken")
 def hello_command(ack, body):
+    """ this is a hello command function """
     user_id = body["user_id"]
     ack(f"Hi <@{user_id}>!")
 

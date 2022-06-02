@@ -20,7 +20,7 @@ def credscheck():
     else:
         print("Secrets loaded OK")
 
-    return (creds)
+    return creds
 
 
 credid = credscheck()
@@ -48,6 +48,7 @@ def show_random_joke(message, say):
 
 
 def main():
+    """ This is the main section """
     handler = SocketModeHandler(app, SLACK_APP_TOKEN)
     handler.start()
 
