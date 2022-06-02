@@ -21,6 +21,7 @@ jobs:
         pip install mysql-connector-python
         pip install pyjokes 
         pip install slack_bolt
+        pip install requests 
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
