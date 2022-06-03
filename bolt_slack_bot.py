@@ -9,22 +9,7 @@ import json
 import pyjokes
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
-
-
-def credscheck():
-    """ This function gathers the credentials for a user """
-
-    credentials = 'secrets/credentials.json'
-    try:
-        with open(credentials, encoding="utf8") as creds_file:
-            creds = json.load(creds_file)
-    except OSError as err:
-        message = f'Danger! Danger! Will Robinson!: {err}'
-        print(message)
-    else:
-        print("Secrets loaded OK")
-
-    return creds
+from jackmanimation import credscheck
 
 
 credid = credscheck()

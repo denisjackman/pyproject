@@ -5,22 +5,7 @@
 import argparse
 import json
 import requests
-
-
-def credscheck():
-    """ This function gathers the credentials for a user """
-
-    credentials = 'secrets/credentials.json'
-    try:
-        with open(credentials, encoding="utf8") as creds_file:
-            creds = json.load(creds_file)
-    except OSError as err:
-        message = f'Danger! Danger! Will Robinson!: {err}'
-        print(message)
-    else:
-        print("Secrets loaded OK")
-
-    return creds
+from jackmanimation import credscheck
 
 
 def send_slack_message(message: str):

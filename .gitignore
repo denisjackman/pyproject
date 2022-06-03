@@ -44,3 +44,4 @@ Thumbs.db
 #IDE Generated files #
 ######################
 **/.idea/*
+**/__pycache__/*
