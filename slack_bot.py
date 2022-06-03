@@ -3,8 +3,8 @@
     and it is based on  https://www.youtube.com/watch?v=09GG8GzfWhs
 """
 import argparse
-import requests
 import json
+import requests
 
 
 def credscheck():
@@ -27,10 +27,10 @@ def send_slack_message(message: str):
     '''
     send message to slack
     '''
-    WEB_HOOK = credid["SlackWebHook"]
-    payload = '{"text": "{%s}"}' % message
+    webhook = credid["SlackWebHook"]
+    payload = '{"text": "{%s}"}' % message  # pylint: disable=C0209
     response = requests.post(
-        WEB_HOOK,
+        webhook,
         data=payload
     )
     print(response.text)
