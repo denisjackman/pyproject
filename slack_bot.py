@@ -4,15 +4,33 @@
 """
 import argparse
 import requests
+import json
+
+
+def credscheck():
+    """ This function gathers the credentials for a user """
+
+    credentials = 'secrets/credentials.json'
+    try:
+        with open(credentials, encoding="utf8") as creds_file:
+            creds = json.load(creds_file)
+    except OSError as err:
+        message = f'Danger! Danger! Will Robinson!: {err}'
+        print(message)
+    else:
+        print("Secrets loaded OK")
+
+    return creds
 
 
 def send_slack_message(message: str):
     '''
     send message to slack
     '''
-    payload = f'{"text": "{message}"}'
+    WEB_HOOK = credid["SlackWebHook"]
+    payload = '{"text": "{%s}"}' % message
     response = requests.post(
-        'https://hooks.slack.com/services/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',
+        WEB_HOOK,
         data=payload
     )
     print(response.text)
@@ -26,6 +44,7 @@ def main(message_text: str):
 
 
 if __name__ == '__main__':
+    credid = credscheck()
     parser = argparse.ArgumentParser(description='Send Messages to Slack')
     parser.add_argument('--message', '-m', type=str, default='')
     args = parser.parse_args()
