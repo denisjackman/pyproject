@@ -28,7 +28,7 @@ def send_slack_message(message: str):
     send message to slack
     '''
     webhook = credid["SlackWebHook"]
-    payload = '{"text": "{%s}"}' % message  # pylint: disable=C0209
+    payload = '{"text": "{%s}"}' % message  # pylint: disable=W1203
     response = requests.post(
         webhook,
         data=payload
