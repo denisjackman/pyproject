@@ -46,7 +46,7 @@ def show_random_joke(message, say):
     user_id = message["user"]
 
     joke = pyjokes.get_joke()
-    logger.info(f'Sent joke < {joke} > to user {user_id}')
+    logger.info('Sent joke < %s > to user %s', joke, user_id)
 
     say(text=joke, channel=dm_channel)
 
