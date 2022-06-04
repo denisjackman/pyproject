@@ -22,7 +22,6 @@ jobs:
         pip install pyjokes
         pip install slack_bolt
         pip install requests
-        pip install sqlite3
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
