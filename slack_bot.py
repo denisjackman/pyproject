@@ -3,7 +3,6 @@
     and it is based on  https://www.youtube.com/watch?v=09GG8GzfWhs
 """
 import argparse
-import json
 import requests
 from jackmanimation import credscheck
 

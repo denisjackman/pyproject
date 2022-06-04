@@ -2,6 +2,7 @@
 # this group would typically contain sensitive info
 #####################################################
 credentials.json
+**/data/*
 
 # Compiled source #
 ###################
