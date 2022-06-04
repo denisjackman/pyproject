@@ -7,7 +7,7 @@ All this stuff at the top of the script is just optional metadata;
 """
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
-__version__ = "$Revision: 1.0 $"
+__version__ = "$Revision: 1.10 $"
 __date__ = "$Date: 2022/05/31 00:31:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"

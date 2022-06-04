@@ -8,7 +8,7 @@ All this stuff at the top of the script is just optional metadata;
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 1.0 $"
-__date__ = "$Date: 2022/05/31 00:31:00 $"
+__date__ = "$Date: 2022/06/04 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
@@ -16,7 +16,7 @@ import json
 
 
 def credscheck():
-    """ This function gathers the credentials for a user """
+    """ This function gathers the credentials needed to open anything """
 
     credentials = 'secrets/credentials.json'
     try:
