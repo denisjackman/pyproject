@@ -1,9 +1,11 @@
+"""
+    This is an example using sqlite3
+"""
 import sqlite3
-import re
 
 try:
     conn = sqlite3.connect('data/History')
-except Exception as err:
+except sqlite3.Error as err:
     message = f'oops! I did it again: {err}'
     print(message)
 finally:
@@ -11,7 +13,7 @@ finally:
 
 try:
     c = conn.cursor()
-except Exception as err:
+except sqlite3.Error as err:
     message = f'oops! I did it again: {err}'
     print(message)
 finally:
@@ -19,7 +21,7 @@ finally:
 
 try:
     url_number = c.execute('SELECT count(1) from urls').fetchone()[0]
-except Exception as err:
+except sqlite3.Error as err:
     message = f'oops! I did it again: {err}'
     print(message)
 finally:
