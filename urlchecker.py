@@ -1,6 +1,3 @@
-"""
-    This is an example using sqlite3
-"""
 import sqlite3
 
 try:

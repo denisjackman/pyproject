@@ -23,6 +23,7 @@ jobs:
         pip install slack_bolt
         pip install requests
         pip install tekore
+        pip install discord.py
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
