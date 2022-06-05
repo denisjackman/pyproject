@@ -1,4 +1,8 @@
+"""
+    SQLite example
+"""
 import sqlite3
+
 
 try:
     conn = sqlite3.connect('data/History')
