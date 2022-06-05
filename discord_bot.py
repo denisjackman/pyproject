@@ -1,21 +1,21 @@
 """
     discord_bot.py
 """
-from jackmanimation import credscheck
 import discord
+from jackmanimation import credscheck
 
 
 def main():
     """ this is the main function """
     cred_id = credscheck()
-    TOKEN = cred_id["DiscordToken"]
-    GUILD = cred_id["DiscordGuildname"]
+    discord_token = cred_id["DiscordToken"]
+    discord_guild = cred_id["DiscordGuildname"]
     client = discord.Client()
 
     @client.event
     async def on_ready():
         for guild in client.guilds:
-            if guild.name == GUILD:
+            if guild.name == discord_guild:
                 break
 
         print(
@@ -26,7 +26,7 @@ def main():
         members = '\n - '.join([member.name for member in guild.members])
         print(f'Guild Members:\n - {members}')
 
-    client.run(TOKEN)
+    client.run(discord_token)
 
 
 if __name__ == '__main__':
