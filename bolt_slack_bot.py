@@ -12,7 +12,7 @@ from jackmanimation import credscheck
 
 
 credid = credscheck()
-SLACK_APP_TOKEN = credid["BoltAppToken"]
+SLACK_APP_TOKEN = credid["BoltJokesToken"]
 SLACK_BOT_TOKEN = credid["BoltBotToken"]
 
 app = App(token=SLACK_BOT_TOKEN, name="Joke Bot")
