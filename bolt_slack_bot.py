@@ -19,6 +19,27 @@ app = App(token=SLACK_BOT_TOKEN, name="Joke Bot")
 logger = logging.getLogger(__name__)
 
 
+@app.message(":wave:")
+def say_hello(message, say):
+    """ reponse to reaction """
+    user = message['user']
+    say(f"Hi there, <@{user}>!")
+
+
+@app.message("knock knock")
+def ask_who(message, say):
+    """ KNOCK KNOCK """
+    say("_who's there?_")
+
+
+@app.command("/echo")
+def repeat_text(ack, respond, command):
+    """ echo slash command """
+    # Acknowledge command request
+    ack()
+    respond(f"{command['text']}")
+
+
 @app.message(re.compile("^joke$"))  # type: ignore
 def show_random_joke(message, say):
     """Send a random pyjoke back """
@@ -33,6 +54,13 @@ def show_random_joke(message, say):
     logger.info('Sent joke < %s > to user %s', joke, user_id)
 
     say(text=joke, channel=dm_channel)
+
+
+@app.command("/kraken")
+def hello_command(ack, body):
+    """ this is a hello command function """
+    user_id = body["user_id"]
+    ack(f"Hi <@{user_id}>!")
 
 
 def main():

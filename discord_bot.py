@@ -9,23 +9,21 @@ def main():
     """ this is the main function """
     cred_id = credscheck()
     discord_token = cred_id["DiscordToken"]
-    discord_guild = cred_id["DiscordGuildname"]
     client = discord.Client()
 
     @client.event
     async def on_ready():
-        guild = None
-        for guild in client.guilds:
-            if guild.name == discord_guild:
-                break
-
         print(
-            f'{client.user} has connected to the following guild:\n'
-            f'{guild.name}(ID: {guild.id})'
+            f'{client.user} has connected to chat!\n'
             )
 
-        members = '\n - '.join([member.name for member in guild.members])
-        print(f'Guild Members:\n - {members}')
+    @client.event
+    async def on_message(message):
+        if message.author == client.user:
+            return
+        if message.content.startswith('$hello'):
+            response = "Hello and welcome to the abyss!"
+            await message.channel.send(response)
 
     client.run(discord_token)
 
