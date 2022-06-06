@@ -29,7 +29,8 @@ def say_hello(message, say):
 @app.message("knock knock")
 def ask_who(message, say):
     """ KNOCK KNOCK """
-    say("_who's there?_")
+    user = message['user']
+    say(f"_who's there?_, <@{user}>!")
 
 
 @app.command("/echo")
