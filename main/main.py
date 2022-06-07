@@ -13,10 +13,12 @@ __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 import os
 import sys
-import mysql.connector
-module_path = "../module/"
-sys.path.append(os.path.abspath(module_path))
+
+MODULE_PATH = "../module/"
+sys.path.append(os.path.abspath(MODULE_PATH))
 from jackmanimation import credscheck
+
+import mysql.connector
 
 
 def opendb(credid, database):

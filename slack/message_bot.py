@@ -14,10 +14,12 @@ __license__ = "Python"
 
 import os
 import sys
-from slack_bolt import App
-module_path = "../module/"
-sys.path.append(os.path.abspath(module_path))
+
+MODULE_PATH = "../module/"
+sys.path.append(os.path.abspath(MODULE_PATH))
 from jackmanimation import credscheck
+
+from slack_bolt import App
 
 credid = credscheck()
 app = App(

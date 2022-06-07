@@ -7,13 +7,15 @@ import logging
 import re
 import os
 import sys
+
+MODULE_PATH = "../module/"
+sys.path.append(os.path.abspath(MODULE_PATH))
+from jackmanimation import credscheck
+
+
 import pyjokes
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
-module_path = "../module/"
-sys.path.append(os.path.abspath(module_path))
-from jackmanimation import credscheck
-
 
 credid = credscheck()
 SLACK_APP_TOKEN = credid["BoltJokesToken"]

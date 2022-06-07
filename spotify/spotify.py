@@ -1,9 +1,14 @@
 """
     Spotify API example
 """
+import os
+import sys
+
+MODULE_PATH = "../module/"
+sys.path.append(os.path.abspath(MODULE_PATH))
+from jackmanimation import credscheck
 
 import tekore as tk
-from jackmanimation import credscheck
 
 
 def main():

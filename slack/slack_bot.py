@@ -4,11 +4,13 @@
 """
 import os
 import sys
+
+MODULE_PATH = "../module/"
+sys.path.append(os.path.abspath(MODULE_PATH))
+from jackmanimation import credscheck
+
 import argparse
 import requests
-module_path = "../module/"
-sys.path.append(os.path.abspath(module_path))
-from jackmanimation import credscheck
 
 
 def send_slack_message(message: str):
