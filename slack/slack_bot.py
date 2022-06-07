@@ -4,6 +4,7 @@
 """
 import os
 import sys
+import argparse
 
 #pylint: disable=wrong-import-position
 MODULE_PATH = "../module/"
@@ -11,7 +12,6 @@ sys.path.append(os.path.abspath(MODULE_PATH))
 from jackmanimation import credscheck
 #pylint: enable=wrong-import-position
 
-import argparse
 import requests
 
 
