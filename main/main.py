@@ -11,8 +11,11 @@ __version__ = "$Revision: 1.10 $"
 __date__ = "$Date: 2022/05/31 00:31:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-
+import os
+import sys
 import mysql.connector
+module_path = "../module/"
+sys.path.append(os.path.abspath(module_path))
 from jackmanimation import credscheck
 
 

@@ -18,7 +18,7 @@ import json
 def credscheck():
     """ This function gathers the credentials needed to open anything """
 
-    credentials = 'secrets/credentials.json'
+    credentials = '../secrets/credentials.json'
     try:
         with open(credentials, encoding="utf8") as creds_file:
             creds = json.load(creds_file)

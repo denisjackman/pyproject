@@ -1,7 +1,11 @@
 """
     discord_bot.py
 """
+import os
+import sys
 import discord
+module_path = "../module/"
+sys.path.append(os.path.abspath(module_path))
 from jackmanimation import credscheck
 
 

@@ -12,7 +12,11 @@ __date__ = "$Date: 2022/06/01 00:31:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
+import os
+import sys
 from slack_bolt import App
+module_path = "../module/"
+sys.path.append(os.path.abspath(module_path))
 from jackmanimation import credscheck
 
 credid = credscheck()

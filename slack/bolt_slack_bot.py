@@ -5,9 +5,13 @@
 
 import logging
 import re
+import os
+import sys
 import pyjokes
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
+module_path = "../module/"
+sys.path.append(os.path.abspath(module_path))
 from jackmanimation import credscheck
 
 

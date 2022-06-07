@@ -2,8 +2,12 @@
     This is another slackbot module
     and it is based on  https://www.youtube.com/watch?v=09GG8GzfWhs
 """
+import os
+import sys
 import argparse
 import requests
+module_path = "../module/"
+sys.path.append(os.path.abspath(module_path))
 from jackmanimation import credscheck
 
 
