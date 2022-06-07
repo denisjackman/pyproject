@@ -15,9 +15,11 @@ __license__ = "Python"
 import os
 import sys
 
+#pylint: disable=wrong-import-position
 MODULE_PATH = "../module/"
 sys.path.append(os.path.abspath(MODULE_PATH))
 from jackmanimation import credscheck
+#pylint: enable=wrong-import-position
 
 from slack_bolt import App
 
