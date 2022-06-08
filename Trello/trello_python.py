@@ -1,5 +1,8 @@
 """
 trello_python.py
+based on
+https://owlcation.com/stem/Automated-To-Do-Lists-Creating-Boards-Lists-And-Cards-Using-Python-And-The-Trello-API
+
 """
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
@@ -42,8 +45,11 @@ def create_list(board_id, list_name):
 
 def create_card(list_id, card_name):
     """ trello create card function """
-    url = f"https://api.trello.com/1/cards"
-    querystring = {"name": card_name, "idList": list_id, "key": key, "token": token}
+    url = "https://api.trello.com/1/cards"
+    querystring = {"name": card_name,
+                   "idList": list_id,
+                   "key": key,
+                   "token": token}
     response = requests.request("POST", url, params=querystring)
     card_id = response.json()["id"]
     return card_id
@@ -56,7 +62,7 @@ def main():
         if filename.endswith(".txt"):
             filename = os.path.splitext(filename)[0]
             list_name = create_list(board_id, filename.title())
-            with open(f"{filename}.txt", "r") as txt_file:
+            with open(f"{filename}.txt", "r", encoding="utf8") as txt_file:
                 for card_name in txt_file.readlines():
                     create_card(list_name, card_name)
 
