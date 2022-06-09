@@ -24,6 +24,7 @@ jobs:
         pip install requests
         pip install tekore
         pip install discord.py
+        pip install openpyxl
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')

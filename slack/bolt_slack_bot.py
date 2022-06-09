@@ -41,14 +41,6 @@ def ask_who(message, say):
     say(f"_who's there?_, <@{user}>!")
 
 
-@app.command("/echo")
-def repeat_text(ack, respond, command):
-    """ echo slash command """
-    # Acknowledge command request
-    ack()
-    respond(f"{command['text']}")
-
-
 @app.message(re.compile("^joke$"))  # type: ignore
 def show_random_joke(message, say):
     """Send a random pyjoke back """
@@ -65,11 +57,38 @@ def show_random_joke(message, say):
     say(text=joke, channel=dm_channel)
 
 
+@app.command("/echo")
+def repeat_text(ack, respond, command):
+    """ echo slash command """
+    # Acknowledge command request
+    ack()
+    respond(f"{command['text']}")
+
+
 @app.command("/kraken")
 def hello_command(ack, body):
     """ this is a hello command function """
     user_id = body["user_id"]
     ack(f"Hi <@{user_id}>!")
+
+
+# Example of responding to an external_select options request
+@app.options("menu_selection")
+def show_menu_options(ack):
+    """ menu functions """
+    options = [
+        {
+            "text": {"type": "plain_text", "text": "Option 1"},
+            "value": "1-1",
+        },
+        {
+            "text": {"type": "plain_text", "text": "Option 2"},
+            "value": "1-2",
+        },
+    ]
+    ack(options=options)
+
+
 
 
 def main():

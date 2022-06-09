@@ -27,7 +27,17 @@ def main():
     async def on_message(message):
         if message.author == client.user:
             return
-        if message.content.startswith('$hello'):
+        # convert the message into a string
+        # this allows us to turn into lower case
+        command = message.content
+        command = command.lower()
+        if command.startswith('$help'):
+            #pylint: disable=line-too-long
+            response = "Hello and the jackmanimation bot!\nmy commands are:\n $help - this command \n$hello - a greeting command"
+            #pylint: enable=line-too-long
+            await message.channel.send(response)
+
+        if command.startswith('$hello'):
             response = "Hello and welcome to the abyss!"
             await message.channel.send(response)
 
