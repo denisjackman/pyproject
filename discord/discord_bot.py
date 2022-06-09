@@ -10,6 +10,8 @@ from jackmanimation import credscheck
 #pylint: enable=wrong-import-position
 import discord
 
+VERSION = "01.00 Alpha (Sugar)"
+
 
 def main():
     """ this is the main function """
@@ -32,13 +34,32 @@ def main():
         command = message.content
         command = command.lower()
         if command.startswith('$help'):
-            #pylint: disable=line-too-long
-            response = "Hello and the jackmanimation bot!\nmy commands are:\n $help - this command \n$hello - a greeting command"
-            #pylint: enable=line-too-long
-            await message.channel.send(response)
+            response = """
 
+        Hello and I am the jackmanimation bot!
+            my commands are:
+            - $help - this command
+            - $hello - a greeting command
+            - $about - more about the discord bot
+            - $version - the version information for the bot
+        More commands are being added daily
+
+            """
+            await message.channel.send(response)
+        if command.startswith('$about'):
+            response = r"""
+Jackmanimation Discord Bot
+            Developed by : Denis Jackman
+            Official Website : https://github.com/denisjackman/pyproject
+            Copyright : 2022
+            """
+            await message.channel.send(response)
         if command.startswith('$hello'):
             response = "Hello and welcome to the abyss!"
+            await message.channel.send(response)
+
+        if command.startswith('$version'):
+            response = "Jackmanimation Bot : [Version : " + VERSION + "]"
             await message.channel.send(response)
 
     client.run(discord_token)
