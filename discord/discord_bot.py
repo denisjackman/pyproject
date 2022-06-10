@@ -34,14 +34,14 @@ def main():
         command = message.content
         command = command.lower()
         if command.startswith('$help'):
-            response = """
+            response = r"""
 
         Hello and I am the jackmanimation bot!
             my commands are:
-            - $help - this command
-            - $hello - a greeting command
-            - $about - more about the discord bot
-            - $version - the version information for the bot
+            - **$help** - this command
+            - **$hello** - a greeting command
+            - **$about** - more about the discord bot
+            - **$version** - the version information for the bot
         More commands are being added daily
 
             """
@@ -49,9 +49,9 @@ def main():
         if command.startswith('$about'):
             response = r"""
 Jackmanimation Discord Bot
-            Developed by : Denis Jackman
+            Developed by : **Denis Jackman**
             Official Website : https://github.com/denisjackman/pyproject
-            Copyright : 2022
+            Copyright : **2022**
             """
             await message.channel.send(response)
         if command.startswith('$hello'):
@@ -59,7 +59,7 @@ Jackmanimation Discord Bot
             await message.channel.send(response)
 
         if command.startswith('$version'):
-            response = "Jackmanimation Bot : [Version : " + VERSION + "]"
+            response = "Jackmanimation Bot : [Version : **" + VERSION + "**]"
             await message.channel.send(response)
 
     client.run(discord_token)
