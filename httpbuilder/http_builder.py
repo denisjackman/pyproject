@@ -14,36 +14,36 @@ __license__ = "Python"
 
 def html_init():
     """ this is the initiator for a webpage """
-    '''
+    print('''
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
      "http://www.w3.org/TR/html4/strict.dtd">
-    '''
-    '<HTML>'
+    ''')
+    print('<HTML>')
 
 
 def html_head():
     """ this publishes the html header """
-    '<HEAD>'
-    '</HEAD>'
+    print('<HEAD>')
+    print('</HEAD>')
     title = "this is my test web page"
     html_title(title)
 
 
 def html_body():
     """ this is the html body """
-    '<BODY>'
-    '<P>Hello world!'
-    '</BODY>'
+    print('<BODY>')
+    print('<P>Hello world!')
+    print('</BODY>')
 
 
 def html_finish():
     """ this is the finish of the web page """
-    '</HTML>'
+    print('</HTML>')
 
 
 def html_title(http_title):
     """ this publishes the title """
-    '<TITLE>My first HTML document</TITLE>'
+    print('<TITLE>' + http_title + '</TITLE>')
 
 
 def main():
