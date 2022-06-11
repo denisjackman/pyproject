@@ -38,10 +38,6 @@ def show_release_the_kraken(message, say):
     broadcast = message["text"][6:]
     for channel_id in ['CJJ5NE54G', 'G0CNSJKED', 'C0CNN2UQM', 'C0CNNJEH5']:
         say(f"{broadcast}", channel=channel_id)
-        app.client.files.upload({
-        file: sample.pdf,
-        channels: channel_id})
-
 
 
 def main():
@@ -50,6 +46,7 @@ def main():
     handler = SocketModeHandler(app, SLACK_APP_TOKEN)
     handler.start()
     print("released the Kraken")
+
 
 if __name__ == "__main__":
     main()
