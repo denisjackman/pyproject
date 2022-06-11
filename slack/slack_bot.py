@@ -43,12 +43,12 @@ def send_slack_file(file: str, channels: str):
     Send file function
     """
     response = client.files_upload(
-                channels='#Random',
-                filetype='pdf',
-                filename='sampleReport.pdf',
-                title='Sample Report',
-                file='sample.pdf')
-assert response["ok"]    return
+             channels='#Random',
+             filetype='pdf',
+             filename='sampleReport.pdf',
+             title='Sample Report',
+             file='sample.pdf')
+
 
 def main():
     '''
@@ -68,7 +68,7 @@ def main():
             print('Give me a message!')
     else:
         print(args.file)
-        send_slack_file(file=arg.file)
+        send_slack_file(file=args.file)
 
 
 if __name__ == '__main__':

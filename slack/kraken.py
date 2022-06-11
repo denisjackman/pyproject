@@ -19,7 +19,7 @@ MODULE_PATH = "../module/"
 sys.path.append(os.path.abspath(MODULE_PATH))
 from jackmanimation import credscheck
 #pylint: enable=wrong-import-position
-import pyjokes
+
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
