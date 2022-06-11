@@ -2,8 +2,6 @@
     This is another slackbot module
     and it is based on  https://www.youtube.com/watch?v=09GG8GzfWhs
 """
-import os
-import sys
 import argparse
 import json
 import requests
@@ -42,12 +40,14 @@ def send_slack_file(file: str, channels: str):
     """
     Send file function
     """
-    response = client.files_upload(
-             channels='#Random',
-             filetype='pdf',
-             filename='sampleReport.pdf',
-             title='Sample Report',
-             file='sample.pdf')
+    # response = client.files_upload(
+    #          channels='#Random',
+    #          filetype='pdf',
+    #          filename='sampleReport.pdf',
+    #          title='Sample Report',
+    #          file='sample.pdf')
+    print(file)
+    print(channels)
 
 
 def main():
@@ -68,7 +68,7 @@ def main():
             print('Give me a message!')
     else:
         print(args.file)
-        send_slack_file(file=args.file)
+        send_slack_file(file=args.file, channels=channelslist)
 
 
 if __name__ == '__main__':
