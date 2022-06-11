@@ -5,43 +5,71 @@
 import os
 import sys
 import argparse
-
-#pylint: disable=wrong-import-position
-MODULE_PATH = "../module/"
-sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import credscheck
-#pylint: enable=wrong-import-position
-
+import json
 import requests
 
 
-def send_slack_message(message: str):
+def channelload():
+    """ This function gathers the credentials needed to open anything """
+
+    webhooks = 'credentials.json'
+    try:
+        with open(webhooks, encoding="utf8") as channels_file:
+            channels = json.load(channels_file)
+    except OSError as err:
+        message = f'Danger! Danger! Will Robinson!: {err}'
+        print(message)
+    else:
+        print("Secrets loaded OK")
+
+    return channels
+
+
+def send_slack_message(message: str, channels: str):
     '''
     send message to slack
     '''
-    webhook = credid["SlackWebHook"]
-    payload = '{"text": "{%s}"}' % message  # pylint: disable=C0209
-    response = requests.post(
-        webhook,
-        data=payload
-    )
-    print(response.text)
+    for webhook in channels["Channels"]:
+        payload = '{"text": "{%s}"}' % message  # pylint: disable=C0209
+        response = requests.post(
+            webhook["Webhook"],
+            data=payload
+            )
+        print(response.text)
 
 
-def main(message_text: str):
+def send_slack_file(file: str, channels: str):
+    """
+    Send file function
+    """
+    response = client.files_upload(
+                channels='#Random',
+                filetype='pdf',
+                filename='sampleReport.pdf',
+                title='Sample Report',
+                file='sample.pdf')
+assert response["ok"]    return
+
+def main():
     '''
     Main function for our logic
     '''
-    send_slack_message(message=message_text)
+    channelslist = channelload()
+    parser = argparse.ArgumentParser(description='Send Messages to Slack')
+    parser.add_argument('--message', '-m', type=str, default='')
+    parser.add_argument('--file', '-f', type=str, default='')
+    args = parser.parse_args()
+
+    msg = args.message
+    if args.file == '':
+        if len(msg) > 0:
+            send_slack_message(message=msg, channels=channelslist)
+        else:
+            print('Give me a message!')
+    else:
+        print(args.file)
+        send_slack_file(file=arg.file)
 
 
 if __name__ == '__main__':
-    credid = credscheck()
-    parser = argparse.ArgumentParser(description='Send Messages to Slack')
-    parser.add_argument('--message', '-m', type=str, default='')
-    args = parser.parse_args()
-    msg = args.message
-    if len(msg) > 0:
-        main(message_text=msg)
-    else:
-        print('Give me a message!')
+    main()

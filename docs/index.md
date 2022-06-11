@@ -27,7 +27,7 @@ This is a an example of python interatcting with trello
 
 ## GitHub actions
 ### PyLint
-I have pylint double check the code when it is checked in and I act on the result to keep this green.
+I have pylint doublecheck the code when it is checked in and I act on the results to keep this project green.
 
 ### pages-guild-deployment
 This action builds these pages when they are committed.
