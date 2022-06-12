@@ -20,7 +20,7 @@ sys.path.append(os.path.abspath(MODULE_PATH))
 from jackmanimation import credscheck
 #pylint: enable=wrong-import-position
 
-cred_id = credscheck()
+cred_id = credscheck('../secrets/credentials.json')
 key = cred_id["TrelloAPIKey"]
 token = cred_id["TrelloToken"]
 

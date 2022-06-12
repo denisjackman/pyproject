@@ -23,7 +23,7 @@ from jackmanimation import credscheck
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
-credid = credscheck()
+credid = credscheck('../secrets/credentials.json')
 SLACK_APP_TOKEN = credid["BoltKrakenToken"]
 SLACK_BOT_TOKEN = credid["BoltKrakenBotToken"]
 

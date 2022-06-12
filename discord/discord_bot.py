@@ -15,7 +15,7 @@ VERSION = "01.00 Alpha (Sugar)"
 
 def main():
     """ this is the main function """
-    cred_id = credscheck()
+    cred_id = credscheck('../secrets/credentials.json')
     discord_token = cred_id["DiscordToken"]
     client = discord.Client()
 

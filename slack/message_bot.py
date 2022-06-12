@@ -23,7 +23,7 @@ from jackmanimation import credscheck
 
 from slack_bolt import App
 
-credid = credscheck()
+credid = credscheck('../secrets/credentials.json')
 app = App(
           token=credid["BotToken"],
           signing_secret=credid["SigningSecret"])

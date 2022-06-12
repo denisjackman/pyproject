@@ -46,7 +46,7 @@ def opendb(credid, database):
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
-    credid = credscheck()
+    credid = credscheck('../secrets/credentials.json')
 
     use_db = opendb(credid, 'mydatabase')  # pylint: disable=W0612
     print("finishing up and closing down:")

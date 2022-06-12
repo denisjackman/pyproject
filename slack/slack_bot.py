@@ -6,21 +6,14 @@ import argparse
 import json
 import requests
 
+import os
+import sys
 
-def channelload():
-    """ This function gathers the credentials needed to open anything """
-
-    webhooks = 'credentials.json'
-    try:
-        with open(webhooks, encoding="utf8") as channels_file:
-            channels = json.load(channels_file)
-    except OSError as err:
-        message = f'Danger! Danger! Will Robinson!: {err}'
-        print(message)
-    else:
-        print("Secrets loaded OK")
-
-    return channels
+#pylint: disable=wrong-import-position
+MODULE_PATH = "../module/"
+sys.path.append(os.path.abspath(MODULE_PATH))
+from jackmanimation import credscheck
+#pylint: enable=wrong-import-position
 
 
 def send_slack_message(message: str, channels: str):
@@ -54,7 +47,7 @@ def main():
     '''
     Main function for our logic
     '''
-    channelslist = channelload()
+    channelslist = credscheck('credentials.json')
     parser = argparse.ArgumentParser(description='Send Messages to Slack')
     parser.add_argument('--message', '-m', type=str, default='')
     parser.add_argument('--file', '-f', type=str, default='')

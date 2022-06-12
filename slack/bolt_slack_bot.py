@@ -17,7 +17,7 @@ import pyjokes
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
-credid = credscheck()
+credid = credscheck('../secrets/credentials.json')
 SLACK_APP_TOKEN = credid["BoltJokesToken"]
 SLACK_BOT_TOKEN = credid["BoltBotToken"]
 

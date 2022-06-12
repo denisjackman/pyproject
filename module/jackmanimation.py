@@ -15,10 +15,10 @@ __license__ = "Python"
 import json
 
 
-def credscheck():
+def credscheck(file_details):
     """ This function gathers the credentials needed to open anything """
 
-    credentials = '../secrets/credentials.json'
+    credentials = file_details
     try:
         with open(credentials, encoding="utf8") as creds_file:
             creds = json.load(creds_file)

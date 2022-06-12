@@ -15,7 +15,7 @@ import tekore as tk
 
 def main():
     """ This is the main function """
-    cred_id = credscheck()
+    cred_id = credscheck('../secrets/credentials.json')
     # client_id = cred_id["SpotifyClientID"]
     # client_secret = cred_id["SpotifyClientSecret"]
     # redirect_uri = "https://github.com/denisjackman/pyproject"
