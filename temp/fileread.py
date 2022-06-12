@@ -14,9 +14,9 @@ __license__ = "Python"
 def fileread(filename):
     """ this is a file read function """
     result = []
-    inputfile = open(filename, 'r',  encoding="utf8")
-    for item in inputfile:
-        result.append(item)
+    with open(filename, 'r',  encoding="utf8") as inputfile:
+        for item in inputfile:
+            result.append(item)
     inputfile.close()
     return result
 

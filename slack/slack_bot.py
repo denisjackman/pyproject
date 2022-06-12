@@ -2,12 +2,11 @@
     This is another slackbot module
     and it is based on  https://www.youtube.com/watch?v=09GG8GzfWhs
 """
-import argparse
-import json
-import requests
-
 import os
 import sys
+import argparse
+import requests
+
 
 #pylint: disable=wrong-import-position
 MODULE_PATH = "../module/"
