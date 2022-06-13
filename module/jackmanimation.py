@@ -11,9 +11,7 @@ __version__ = "$Revision: 1.0 $"
 __date__ = "$Date: 2022/06/04 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-
 import json
-import sys
 
 
 def credscheck(file_details):
@@ -31,6 +29,7 @@ def credscheck(file_details):
 
     return creds
 
+
 def fileread(filename):
     """ this is a file read function """
     result = []
@@ -45,7 +44,7 @@ def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
     testcreds = credscheck("credtest.json")
-    if (testcreds["checkTest"]=="test") and (len(fileread("test.txt"))==5):
+    if (testcreds["checkTest"] == "test") and (len(fileread("test.txt")) == 5):
         print('All systems nominal')
     print("finishing up and closing down:")
 
