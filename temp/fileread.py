@@ -9,6 +9,7 @@ __version__ = "$Revision: 1.00 $"
 __date__ = "$Date: 2022/06/11 08:31:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
+import sys
 
 
 def fileread(filename):
@@ -22,3 +23,4 @@ def fileread(filename):
 
 
 print(len(fileread('example.txt')))
+print(sys.path)

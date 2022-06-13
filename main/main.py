@@ -11,12 +11,12 @@ __version__ = "$Revision: 1.10 $"
 __date__ = "$Date: 2022/05/31 00:31:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
+
 import os
 import sys
 #pylint: disable=wrong-import-position
 MODULE_PATH = "../module/"
 sys.path.append(os.path.abspath(MODULE_PATH))
-
 from jackmanimation import credscheck
 #pylint: enable=wrong-import-position
 import mysql.connector
