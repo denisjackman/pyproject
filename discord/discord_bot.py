@@ -1,3 +1,4 @@
+#!usr/bin/python
 """
     discord_bot.py
 """

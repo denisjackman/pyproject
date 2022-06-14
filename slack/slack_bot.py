@@ -1,3 +1,4 @@
+#!usr/bin/python
 """
     This is another slackbot module
     and it is based on  https://www.youtube.com/watch?v=09GG8GzfWhs
