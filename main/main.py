@@ -1,4 +1,4 @@
-#!usr/bin/python
+cd #!/usr/bin/python
 """
 main.py
 

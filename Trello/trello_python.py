@@ -1,4 +1,4 @@
-#!usr/bin/python
+#!/usr/bin/python
 """
 trello_python.py
 based on
