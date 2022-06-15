@@ -37,14 +37,17 @@ SCREEN_WIDTH = 500
 SCREEN_HEIGHT = 500
 
 
-# Define a Player object by extending pygame.sprite.Sprite
-# The surface drawn on the screen is now an attribute of 'player'
-class Player(pygame.sprite.Sprite):
+class Player(pygame.sprite.Sprite):  # pylint: disable=R0903
+    '''
+        this is a class to handle player sprites
+        Define a Player object by extending pygame.sprite.Sprite
+        The surface drawn on the screen is now an attribute of 'player'
+    '''
     def __init__(self):
         '''
             this initiates the player class
         '''
-        super(Player, self).__init__()
+        super().__init__()
         self.surf = pygame.Surface((75, 25))
         self.surf.fill(WHITE)
         self.rect = self.surf.get_rect()
@@ -78,14 +81,17 @@ class Player(pygame.sprite.Sprite):
         #    self.rect.bottom = SCREEN_HEIGHT
 
 
-# Define the enemy object by extending pygame.sprite.Sprite
-# The surface you draw on the screen is now an attribute of 'enemy'
-class Enemy(pygame.sprite.Sprite):
+class Enemy(pygame.sprite.Sprite):  # pylint: disable=R0903
+    '''
+        this is a class to handle player sprites
+        Define the enemy object by extending pygame.sprite.Sprite
+        The surface you draw on the screen is now an attribute of 'enemy'
+    '''
     def __init__(self):
         '''
             this initiates the enemy class
         '''
-        super(Enemy, self).__init__()
+        super().__init__()
         self.surf = pygame.Surface((20, 10))
         self.surf.fill((255, 255, 255))
         self.rect = self.surf.get_rect(
@@ -144,21 +150,27 @@ def main():
     running = True
     while running:
         for event in pygame.event.get():
-            if event.type == QUIT:
-                running = False
-            elif event.type == KEYDOWN:
+            if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     running = False
+
+            elif event.type == QUIT:
+                running = False
+
             # Add a new enemy?
             elif event.type == add_enemy:
                 # Create the new enemy and add it to sprite groups
                 new_enemy = Enemy()
                 enemies.add(new_enemy)
                 all_sprites.add(new_enemy)
+
         # Get the set of keys pressed and check for user input
         pressed_keys = pygame.key.get_pressed()
         # Update the player sprite based on user keypresses
         player.update(pressed_keys)
+        # Update enemy position
+        enemies.update()
+
         screen.fill((BLACK))
 
         # Draw all sprites
