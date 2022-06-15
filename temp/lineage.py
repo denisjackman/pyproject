@@ -55,6 +55,50 @@ def population_decline(population,
     return int(decline)
 
 
+def fed(population, food_units):
+    '''
+        This works out the fed factor of a population
+        divide the population by 1000 rounding out
+        if this is more than the available food units
+        Then the population is fed.
+
+        send back the fed factor and the new food units available
+    '''
+    population_check = population / 1000
+    factor = food_units / population_check
+    fed_description = ""
+    fed_factor = 0
+    if factor == 0:
+        fed_description = "wrong answer"
+        fed_factor = 0
+    elif 0 < factor < .33:
+        fed_description = "Starving"
+        fed_factor = -10
+    elif .33 <= factor < .50:
+        fed_description = "Malnourished"
+        fed_factor = -5
+    elif .50 <= factor < 1:
+        fed_description = "Underfed"
+        fed_factor = -4
+    elif 1 <= factor < 2:
+        fed_description = "Fed"
+        fed_factor = 3
+    elif 2 <= factor < 3:
+        fed_description = "Average"
+        fed_factor = 5
+    elif 3 <= factor < 4:
+        fed_description = "Medium"
+        fed_factor = 7
+    elif 4 <= factor < 5:
+        fed_description = "Well"
+        fed_factor = 9
+    elif factor >= 5:
+        fed_description = "Overfed"
+        fed_factor = 10
+    food_units = int(max(food_units - population_check, 0))
+    return(fed_factor, fed_description, food_units)
+
+
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
@@ -67,6 +111,9 @@ def main():
         print(f"   {loop} : {nation} : {new_growth}    : {new_decline} ")
         nation = nation + new_growth - new_decline
         loop = loop + 1
+    print("Fed Function : ")
+    check = fed(10, 1)
+    print(check)
     print("finishing up and closing down:")
 
 
