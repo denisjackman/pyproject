@@ -20,23 +20,23 @@ from jackmanimation import number_generator
 #pylint: enable=wrong-import-position
 
 # Measure of Memory
-KiloByte = 1024
-MegaByte = 1024 * KiloByte
-GigaByte = 1024 * MegaByte
-TeraByte = 1024 * GigaByte
-PetaByte = 1024 * TeraByte
-ExaByte = 1024 * PetaByte
-ZettaByte = 1024 * ExaByte
-YottaByte = 1024 * ZettaByte
+KILOBYTE = 1024
+MEGABYTE = 1024 * KILOBYTE
+GIGABYTE = 1024 * MEGABYTE
+TERABYTE = 1024 * GIGABYTE
+PETABYTE = 1024 * TERABYTE
+EXABYTE = 1024 * PETABYTE
+ZETTABYTE = 1024 * EXABYTE
+YOTTABYTE = 1024 * ZETTABYTE
 
 # Time Items
-MonthsInYear = 12
-WeeksInYear = 52
-DaysInWeek = 7
-HoursInDay = 24
-MinutesInHour = 60
-SecondsInMinutes = 60
-MillsecondsInSeconds = 1000
+MONTHS_IN_A_YEAR = 12
+WEEKS_IN_A_YEAR = 52
+DAYS_IN_A_WEEK = 7
+HOURS_IN_A_DAY = 24
+MINUTES_IN_A_HOUR = 60
+SECONDS_IN_A_MINUTE = 60
+MILLISECONDS_IN_A_SECOND = 1000
 
 # Tuples
 DAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", " Saturday",
