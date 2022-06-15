@@ -16,7 +16,6 @@ import sys
 #pylint: disable=wrong-import-position
 MODULE_PATH = "../module/"
 sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import dice
 from jackmanimation import number_generator
 #pylint: enable=wrong-import-position
 
