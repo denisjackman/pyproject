@@ -13,6 +13,8 @@ __license__ = "Python"
 from random import randint
 import os
 import sys
+import math
+
 #pylint: disable=wrong-import-position
 MODULE_PATH = "../module/"
 sys.path.append(os.path.abspath(MODULE_PATH))
@@ -150,12 +152,52 @@ def insult_generator():
     return result
 
 
+def dist(pont1, pont2):
+    '''
+    Measure the distance between two spots
+    '''
+    res = 0
+    res = math.sqrt((pont1[0] - pont2[0]) ** 2 + (pont1[1] - pont2[1]) ** 2)
+    return res
+
+
+def collide(pos1, pos2, rad1, rad2):
+    '''
+        check for a collision between two objects
+    '''
+    result = False
+    object1 = dist(pos1, pos2)
+    object2 = rad1 + rad2
+    result = object1 <= object2
+    return result
+
+
+def rating(total_rating, player_wins, player_losses, player_games):
+    '''
+    This is a function to return a performance rating for a player
+    you pass the total rating for the players played
+    the number of wins
+    number of losses
+    number of games
+    and it calculates and return the new rating
+    a win  - rating(1000,1,0,1) should return 1400
+    a draw - rating(1000,0,0,1)
+    a win against 2 players (2 * 1000) rating(2000,2,0,2)) should return 1400
+    '''
+    rating_new = (total_rating) + 400
+    rating_new = rating_new * (player_wins - player_losses)
+    rating_new = rating_new / player_games
+    return rating_new
+
+
 def main():
     '''
         this is the main module
     '''
     print("starting")
-    playera = 500
+
+    print("ELO Rating test")
+    playera = 1000
     playerb = 1000
     print(" A (" + str(playera) + ") vs B (" + str(playerb) + ")")
     oplayera = new_rating(playera,  playerb, "Win")
@@ -168,14 +210,29 @@ def main():
     playera = oplayera
     playerb = oplayerb
     print(" A (" + str(playera)+") vs B (" + str(playerb) + ")")
+    print("Random Name Generator")
     kernu = generate_name(20)
     mernu = generate_name(20)
     print("Greetings Earthfolk, I am", kernu, " of the planet", mernu)
+    print("Insult generator test")
     loop = 0
     while loop < 101:
         print(str(loop) + ": " + insult_generator())
         loop = loop + 1
-
+    print("Object Distance test")
+    check1 = dist([10, 0], [0, 0])
+    check2 = dist([0, 0], [100, 100])
+    print("dist([10,0],[0,0]),10", check1, 10, check1 == 10)
+    print("dist([0,0],[100,100]),141.421356237", check2,
+          141.4213562373095, check2 == 141.4213562373095)
+    print("Rating test check")
+    print("Win  (1000) :  1400 " + str(rating(1000, 1, 0, 1)))
+    print("Draw (1000) : 1000 " + str(rating(1000, 0, 0, 1)))
+    print("Win 2 * 1000 : 1400 " + str(rating(2000, 2, 0, 2)))
+    print("----")
+    print("player 1 (1000 wins) " + str(rating(1000, 1, 0, 1)))
+    print("player 2 (1000 loses) " + str(rating(1000, 0, 1, 1)))
+    print("player 1 (600 wins again) " + str(rating(600, 1, 0, 1)))
     print("finishing")
 
 
