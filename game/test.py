@@ -6,6 +6,7 @@ test.py
 
 References:
  https://realpython.com/pygame-a-primer/
+ https://github.com/realpython/pygame-primer
  https://stackoverflow.com/questions/18067219/pygame-image-screen-fill
 
 """
@@ -37,6 +38,22 @@ SKY_BLUE = (135, 206, 250)
 SCREEN_WIDTH = 500
 SCREEN_HEIGHT = 500
 
+# Setup for sounds. Defaults are good.
+pygame.mixer.init()
+pygame.init()
+
+# Load and play background music
+# Sound source: http://ccmixter.org/files/Apoxode/59262
+# License: https://creativecommons.org/licenses/by/3.0/
+pygame.mixer.music.load("Apoxode_-_Electric_1.mp3")
+pygame.mixer.music.play(loops=-1)
+
+# Load all sound files
+# Sound sources: Jon Fincher
+move_up_sound = pygame.mixer.Sound("Rising_putter.ogg")
+move_down_sound = pygame.mixer.Sound("Falling_putter.ogg")
+collision_sound = pygame.mixer.Sound("Collision.ogg")
+
 
 class Player(pygame.sprite.Sprite):  # pylint: disable=R0903
     '''
@@ -60,8 +77,10 @@ class Player(pygame.sprite.Sprite):  # pylint: disable=R0903
         '''
         if pressed_keys[K_UP]:
             self.rect.move_ip(0, -5)
+            move_up_sound.play()
         if pressed_keys[K_DOWN]:
             self.rect.move_ip(0, 5)
+            move_down_sound.play()
         if pressed_keys[K_LEFT]:
             self.rect.move_ip(-5, 0)
         if pressed_keys[K_RIGHT]:
@@ -71,7 +90,6 @@ class Player(pygame.sprite.Sprite):  # pylint: disable=R0903
         self.rect.right = min(self.rect.right, SCREEN_WIDTH)
         self.rect.top = max(self.rect.top, 0)
         self.rect.bottom = min(self.rect.bottom, SCREEN_HEIGHT)
-
 
 
 class Enemy(pygame.sprite.Sprite):  # pylint: disable=R0903
@@ -123,7 +141,6 @@ class Cloud(pygame.sprite.Sprite):  # pylint: disable=R0903
             )
         )
 
-
     def update(self):
         '''
         Move the cloud based on a constant speed
@@ -138,8 +155,9 @@ def main():
     '''
         this is the main routine
     '''
-    pygame.init()
-    # image = pygame.image.load("oreg.PNG")
+    print(move_up_sound)
+    print(move_down_sound)
+    print(collision_sound)
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -203,11 +221,19 @@ def main():
         if pygame.sprite.spritecollideany(player, enemies):
             # If so, then remove the player and stop the loop
             player.kill()
+            # Stop any moving sounds and play the collision sound
+            move_up_sound.stop()
+            move_down_sound.stop()
+            collision_sound.play()
+            clock.tick(90)
             running = False
 
         pygame.display.flip()
         # Ensure program maintains a rate of 30 frames per second
         clock.tick(30)
+    # All done! Stop and quit the mixer.
+    pygame.mixer.music.stop()
+    pygame.mixer.quit()
 
 
 if __name__ == '__main__':
