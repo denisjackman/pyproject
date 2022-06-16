@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+pytest -#!/usr/bin/env python
 """
 test_bed.py
     this is a test bed for trying pytest out prior to folding it

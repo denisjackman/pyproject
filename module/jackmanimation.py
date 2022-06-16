@@ -18,8 +18,8 @@ import random
 
 def dice(sides=6, rolls=1):
     '''
-    Rolls a dice which has 'sides' sides (default is six (6))
-    for 'rolls' number of times (default is one (1))
+        Rolls a dice which has 'sides' sides (default is six (6))
+        for 'rolls' number of times (default is one (1))
     '''
     result = 0
     loop = 0
@@ -31,13 +31,15 @@ def dice(sides=6, rolls=1):
 
 def number_generator(number=100):
     '''
-    Generates a random number between 1 and number
+        Generates a random number between 1 and number
     '''
     return random.randint(1, number)
 
 
 def credscheck(file_details):
-    """ This function gathers the credentials needed to open anything """
+    """
+        This function gathers the credentials needed to open anything
+    """
 
     credentials = file_details
     try:
@@ -48,12 +50,14 @@ def credscheck(file_details):
         print(message)
     else:
         print("Secrets loaded OK")
-
+    creds_file.close()
     return creds
 
 
 def fileread(filename):
-    """ this is a file read function """
+    """
+        this is a file read function
+    """
     result = []
     with open(filename, 'r',  encoding="utf8") as inputfile:
         for item in inputfile:
@@ -63,7 +67,9 @@ def fileread(filename):
 
 
 def main():
-    """ This is the main routine for the program """
+    """
+        This is the main routine for the program
+    """
     print("Starting the sequence:")
     testcreds = credscheck("credtest.json")
     if (testcreds["checkTest"] == "test") and (len(fileread("test.txt")) == 5):
