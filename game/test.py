@@ -124,14 +124,14 @@ class Cloud(pygame.sprite.Sprite):  # pylint: disable=R0903
         )
 
 
-def update(self):
-    '''
+    def update(self):
+        '''
         Move the cloud based on a constant speed
         Remove the cloud when it passes the left edge of the screen
-    '''
-    self.rect.move_ip(-5, 0)
-    if self.rect.right < 0:
-        self.kill()
+        '''
+        self.rect.move_ip(-5, 0)
+        if self.rect.right < 0:
+            self.kill()
 
 
 def main():
