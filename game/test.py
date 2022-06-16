@@ -28,7 +28,6 @@ from pygame.locals import (
 )
 
 
-
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
@@ -51,7 +50,6 @@ class Player(pygame.sprite.Sprite):  # pylint: disable=R0903
         self.surf = pygame.Surface((75, 25))
         self.surf.fill(WHITE)
         self.rect = self.surf.get_rect()
-
 
     # Move the sprite based on user keypresses
     def update(self, pressed_keys):
