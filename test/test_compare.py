@@ -14,27 +14,27 @@ __version__ = "$Revision: 0.0 $"
 __date__ = "$Date: 2022/06/16 15:17:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-import math
 
 
-def test_sqrt():
+def test_greater():
     '''
         a test function
     '''
-    num = 25
-    assert math.sqrt(num) == 5
+    num = 100
+    assert num > 100
 
 
-def testsquare():
+def test_greater_equal():
     '''
-        another test function
+        a test function
     '''
-    num = 7
-    assert num * num == 40
+    num = 100
+    assert num >= 100
 
 
-def tesequality():
+def test_less():
     '''
-        one last test function
+        a test function
     '''
-    assert 10 == 11  # pylint: disable=R0133
+    num = 100
+    assert num < 200
