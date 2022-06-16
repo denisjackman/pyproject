@@ -26,6 +26,7 @@ jobs:
         pip install discord.py
         pip install openpyxl
         pip install pygame
+        pip install pytest
     - name: Analysing the code with pylint
       run: |
         pylint --rcfile=pylint.rc $(git ls-files '*.py')
