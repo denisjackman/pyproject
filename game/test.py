@@ -41,9 +41,12 @@ def main():
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    running = True
+
     # Setup the clock for a decent framerate
     clock = pygame.time.Clock()
-    running = True
+    colour = WHITE
+    # pygame.title("Test Bed Pygame Primer")
     while running:
         for event in pygame.event.get():
             if event.type == KEYDOWN:
@@ -53,7 +56,7 @@ def main():
             elif event.type == QUIT:
                 running = False
 
-        screen.fill((SKY_BLUE))
+        screen.fill((colour))
 
         pygame.display.flip()
         # Ensure program maintains a rate of 30 frames per second
