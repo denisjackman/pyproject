@@ -24,7 +24,7 @@ female_trainer = [my_spritesheet.parse_sprite('f_trainer1.png'),
                   my_spritesheet.parse_sprite('f_trainer4.png'),
                   my_spritesheet.parse_sprite('f_trainer5.png')]
 
-INDEX = 0
+INDEX_COUNTER = 0
 
 while RUNNING:
     # CHECK PLAYER INPUT
@@ -34,11 +34,11 @@ while RUNNING:
         if event.type == pygame.KEYDOWN:
             # UPDATE SPRITE IF SPACE IS PRESSED
             if event.key == pygame.K_SPACE:
-                INDEX = (INDEX + 1) % len(trainer)
+                INDEX_COUNTER = (INDEX_COUNTER + 1) % len(trainer)
 
     # UPDATE WINDOW AND DISPLAY
     canvas.fill((255, 255, 255))
-    canvas.blit(trainer[INDEX], (0, DISPLAY_H - 128))
-    canvas.blit(female_trainer[INDEX], (128, DISPLAY_H - 128))
+    canvas.blit(trainer[INDEX_COUNTER], (0, DISPLAY_H - 128))
+    canvas.blit(female_trainer[INDEX_COUNTER], (128, DISPLAY_H - 128))
     window.blit(canvas, (0, 0))
     pygame.display.update()
