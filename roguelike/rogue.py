@@ -48,27 +48,27 @@ def game_main():
     '''
         this is the main routine
     '''
-
+    # set the loop boolean
     running = True
+    # display the title on the game window
     pygame.display.set_caption('Rogue')
     # Setup the clock for a decent framerate
-    colour = WHITE
-    # pygame.title("Test Bed Pygame Primer")
+    colour = BLUE
+    # initial code loop
     while running:
         for event in pygame.event.get():
-            if event.type == KEYDOWN:
+            if event.type == QUIT:
+                running = False
+            elif event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     running = False
-
-            elif event.type == QUIT:
-                running = False
-
+        # fill the screen with colour
         screen.fill((colour))
-
+        # display the new image on screen
         pygame.display.flip()
         # Ensure program maintains a rate of 30 frames per second
         clock.tick(30)
-    # All done! Stop and quit the mixer.
+    # Stop and quit the mixer.
     pygame.mixer.music.stop()
 
 
