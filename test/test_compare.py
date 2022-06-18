@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-test_bed.py
+test_compare.py
     this is a test bed for trying pytest out prior to folding it
     in elsewhere.
 
@@ -11,7 +11,7 @@ References:
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 0.0 $"
-__date__ = "$Date: 2022/06/16 15:17:00 $"
+__date__ = "$Date: 2022/06/17 06:17:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
