@@ -17,29 +17,30 @@ __license__ = "Python"
 
 import pygame
 from pygame.locals import (
-    K_ESCAPE,
     KEYDOWN,
+    K_ESCAPE,
     QUIT,
 )
 
-WHITE = (255, 255, 255)
+SKY_BLUE = (135, 206, 250)
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
-SKY_BLUE = (135, 206, 250)
+WHITE = (255, 255, 255)
 
-SCREEN_WIDTH = 500
-SCREEN_HEIGHT = 500
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 800
 
 # Setup for sounds. Defaults are good.
 pygame.mixer.init()
 pygame.init()
-# Here we load the image we want to
-# use
+# Here we load the image we want to use as an icon
 Icon = pygame.image.load('icon.png')
 
 # We use set_icon to set new icon
 pygame.display.set_icon(Icon)
+# Set up the screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+# set the game clock goings
 clock = pygame.time.Clock()
 
 
