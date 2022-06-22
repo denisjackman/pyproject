@@ -27,6 +27,7 @@ jobs:
         pip install openpyxl
         pip install pygame
         pip install pytest
+        pip install selenium
     - name: Analysing the code with pylint
       run: |
         pylint --rcfile=pylint.rc $(git ls-files '*.py')
