@@ -28,6 +28,7 @@ jobs:
         pip install pygame
         pip install pytest
         pip install selenium
+        pip install matplotlib
     - name: Analysing the code with pylint
       run: |
         pylint --rcfile=pylint.rc $(git ls-files '*.py')
