@@ -1,5 +1,5 @@
 '''
-    test bed selenium p ython script 
+    test bed selenium p ython script
 '''
 
 from selenium import webdriver
