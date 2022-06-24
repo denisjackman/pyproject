@@ -29,4 +29,5 @@ urllib3==1.26.9
 wrapt==1.14.1
 wsproto==1.1.0
 yarl==1.7.2
+pylint
 pygame
