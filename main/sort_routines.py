@@ -106,12 +106,12 @@ def selectionSort(input_list):
         selection sort routine
     '''
     result = input_list
-    for item in range(len(result)):
+    for item in range(len(result)):  # pylint: disable C0200
         minimum = item
         for count in range(item + 1, len(result)):
-            if(result[count] < result[minimum]):
+            if result[count] < result[minimum]:
                 minimum = count
-        if (minimum != item):
+        if minimum != item:
             result[item], result[minimum] = result[minimum], result[item]
     return result
 
@@ -161,7 +161,7 @@ def bubbleSort(sort_list):
     length = len(sort_list)
     for i in range(length - 1):
         for j in range(length-1-i):
-            if (sort_list[j] > sort_list[j+1]):
+            if sort_list[j] > sort_list[j+1]:
                 sort_list[j], sort_list[j+1] = sort_list[j+1], sort_list[j]
     return sort_list
 
