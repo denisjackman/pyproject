@@ -106,7 +106,7 @@ def selectionSort(input_list):
         selection sort routine
     '''
     result = input_list
-    for item in range(len(result)):  # pylint: disable C0200
+    for item in range(len(result)):
         minimum = item
         for count in range(item + 1, len(result)):
             if result[count] < result[minimum]:
