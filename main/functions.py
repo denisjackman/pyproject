@@ -3,11 +3,12 @@
 '''
 
 
-def get mean(input_list):
+def get_mean(input_list):
     '''
         given a list get the mean from the list and return it
     '''
     result = 0
+    result = sum(input_list)/len(input_list)
     return result
 
 
@@ -16,14 +17,30 @@ def get_median(input_list):
         given a list get the median from the list and return it
     '''
     result = 0
+    work_list = input_list
+    work_list.sort()
+    if len(work_list) % 2 == 0:
+        mid_one = work_list[len(work_list)//2]
+        mid_two = work_list[len(work_list)//2 - 1]
+        result = (mid_one + mid_two) / 2
+    else:
+        result = work_list[len(work_list)//2]
     return result
 
 
 def get_mode(input_list):
     '''
-        givena list get the mode and return it
+        given a list get the mode and return it
     '''
     result = 0
+    frequency = {}
+    for item in input_list:
+        frequency.setdefault(item,0)
+        frequency[item] += 1
+    frequent = max(frequency.values())
+    for item, content in frequency.items():
+        if content == frequent:
+            result = item
     return result
 
 
@@ -68,11 +85,17 @@ def main():
     '''
     print("Starting now : ")
     print("fib function")
-    print("fib test 1 :",get_fib(1,0)==0)
-    print("fib test 2 :",get_fib(1,1)==1)
-    print("fib test 3 :",get_fib(5,1)==5)
+    print("fib test 1  :",get_fib(1,0)==0)
+    print("fib test 2  :",get_fib(1,1)==1)
+    print("fib test 3  :",get_fib(5,1)==5)
+    test_list  = [12, 16, 20, 20, 12, 30, 25, 23, 24, 20]
+    print("Mean function")
+    print("Mean test 1 :", get_mean(test_list) == 20.2)
+    print("median function")
+    print("Median test 1 :", get_median(test_list) == 20.0 )
+    print("mode function")
+    print("Mode test 1   :", get_mode(test_list) == 20)
     print("Ending now")
-
 
 if __name__ == '__main__':
     main()
