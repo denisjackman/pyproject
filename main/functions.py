@@ -1,6 +1,30 @@
 '''
-    get the nth fibonacci number
+    a list of useful functions buily in python
 '''
+
+
+def get mean(input_list):
+    '''
+        given a list get the mean from the list and return it
+    '''
+    result = 0
+    return result
+
+
+def get_median(input_list):
+    '''
+        given a list get the median from the list and return it
+    '''
+    result = 0
+    return result
+
+
+def get_mode(input_list):
+    '''
+        givena list get the mode and return it
+    '''
+    result = 0
+    return result
 
 
 def get_fib(number, start):
@@ -42,9 +66,12 @@ def main():
     '''
         main routine
     '''
-    print(get_fib(1,0)==0)
-    print(get_fib(1,1)==1)
-    print(get_fib(5,1)==5)
+    print("Starting now : ")
+    print("fib function")
+    print("fib test 1 :",get_fib(1,0)==0)
+    print("fib test 2 :",get_fib(1,1)==1)
+    print("fib test 3 :",get_fib(5,1)==5)
+    print("Ending now")
 
 
 if __name__ == '__main__':
