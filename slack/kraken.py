@@ -16,7 +16,7 @@ import os
 import sys
 
 #pylint: disable=wrong-import-position
-MODULE_PATH = "../module/"
+MODULE_PATH = "../jackmanimation/"
 sys.path.append(os.path.abspath(MODULE_PATH))
 from jackmanimation import credscheck
 #pylint: enable=wrong-import-position

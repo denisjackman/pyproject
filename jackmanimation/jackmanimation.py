@@ -45,9 +45,10 @@ def credscheck(file_details):
     try:
         with open(credentials, encoding="utf8") as creds_file:
             creds = json.load(creds_file)
-    except OSError as err:
+    except Exception as err:
         message = f'Danger! Danger! Will Robinson!: {err}'
         print(message)
+        return []
     else:
         print("Secrets loaded OK")
     creds_file.close()
