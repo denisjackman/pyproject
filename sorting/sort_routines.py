@@ -3,21 +3,75 @@
 '''
 
 
-def radixSort(inputArray):
+def heapify(arr, n, i):
+    '''
+        heapify routine
+    '''
+    # Find largest among root and children
+    largest = i
+    l = 2 * i + 1
+    r = 2 * i + 2
+    if l < n and arr[i] < arr[l]:
+        largest = l
+    if r < n and arr[largest] < arr[r]:
+        largest = r
+    # If root is not largest, swap with largest and continue heapifying
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+
+def heapSort(input_list):
+    '''
+        Heap sort routine
+    '''
+    arr = input_list
+    n = len(arr)
+    # Build max heap
+    for i in range(n//2, -1, -1):
+        heapify(arr, n, i)
+    for i in range(n-1, 0, -1):
+        # Swap
+        arr[i], arr[0] = arr[0], arr[i]
+        # Heapify root element
+        heapify(arr, i, 0)
+    return arr
+
+
+def quickSort(input_list):
+    """ Quicksort a list
+
+    :type input_list: list
+    :param input_list: List to sort
+    :returns: list -- Sorted list
+    """
+    result = []
+    arr = input_list
+    if not arr:
+        return []
+
+    pivots = [x for x in arr if x == arr[0]]
+    lesser = quickSort([x for x in arr if x < arr[0]])
+    greater = quickSort([x for x in arr if x > arr[0]])
+    result = lesser + pivots + greater
+    return result
+
+
+def radixSort(input_list):
     '''
         radix sort routine
     '''
-    # Find the maximum element in the inputArray
-    maxEl = max(inputArray)
+    # Find the maximum element in the input_list
+    maxEl = max(input_list)
 
     countArrayLength = maxEl+1
 
     # Initialize the countArray with (max+1) zeros
     countArray = [0] * countArrayLength
 
-    # Step 1 -> Traverse the inputArray and increase
+    # Step 1 -> Traverse the input_list and increase
     # the corresponding count for every element by 1
-    for el in inputArray:
+    for el in input_list:
         countArray[el] += 1
 
     # Step 2 -> For each element in the countArray,
@@ -29,10 +83,10 @@ def radixSort(inputArray):
 
     # Step 3 -> Calculate element position
     # based on the countArray values
-    outputArray = [0] * len(inputArray)
-    i = len(inputArray) - 1
+    outputArray = [0] * len(input_list)
+    i = len(input_list) - 1
     while i >= 0:
-        currentEl = inputArray[i]
+        currentEl = input_list[i]
         countArray[currentEl] -= 1
         newPosition = countArray[currentEl]
         outputArray[newPosition] = currentEl
@@ -52,11 +106,11 @@ def getNextGap(gap):
     return gap
 
 
-def combSort(arr):
+def combSort(input_list):
     '''
         comb sort routine
     '''
-    result = arr
+    result = input_list
     note = len(result)
 
     # Initialize gap
@@ -116,11 +170,11 @@ def selectionSort(input_list):
     return result
 
 
-def mergeSort(sort_list):
+def mergeSort(input_list):
     '''
         this is a merge sort routine
     '''
-    my_list = sort_list
+    my_list = input_list
     if len(my_list) > 1:
         mid = len(my_list) // 2
         left = my_list[:mid]
@@ -154,16 +208,16 @@ def mergeSort(sort_list):
     return my_list
 
 
-def bubbleSort(sort_list):
+def bubbleSort(input_list):
     '''
         bubblesort routine
     '''
-    length = len(sort_list)
+    length = len(input_list)
     for i in range(length - 1):
         for j in range(length-1-i):
-            if sort_list[j] > sort_list[j+1]:
-                sort_list[j], sort_list[j+1] = sort_list[j+1], sort_list[j]
-    return sort_list
+            if input_list[j] > input_list[j+1]:
+                input_list[j], input_list[j+1] = input_list[j+1], input_list[j]
+    return input_list
 
 
 def main():
@@ -186,6 +240,10 @@ def main():
     print("radix Sort      : ", list3, radixSort(list3) == list4)
     print("comb Sort       : ", list1, combSort(list1) == list2)
     print("comb Sort       : ", list3, combSort(list3) == list4)
+    print("heap Sort       : ", list1, heapSort(list1) == list2)
+    print("heap Sort       : ", list3, heapSort(list3) == list4)
+    print("quick Sort      : ", list1, quickSort(list1) == list2)
+    print("quick Sort      : ", list3, quickSort(list3) == list4)
 
 
 if __name__ == '__main__':
