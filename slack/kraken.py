@@ -15,14 +15,14 @@ import re
 import os
 import sys
 
+from slack_bolt import App
+from slack_bolt.adapter.socket_mode import SocketModeHandler
+
 #pylint: disable=wrong-import-position
 MODULE_PATH = "../jackmanimation/"
 sys.path.append(os.path.abspath(MODULE_PATH))
 from jackmanimation import credscheck
 #pylint: enable=wrong-import-position
-
-from slack_bolt import App
-from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 credid = credscheck('../secrets/credentials.json')
 SLACK_APP_TOKEN = credid["BoltKrakenToken"]

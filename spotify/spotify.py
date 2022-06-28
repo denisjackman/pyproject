@@ -5,13 +5,13 @@
 import os
 import sys
 
+import tekore as tk
+
 #pylint: disable=wrong-import-position
 MODULE_PATH = "../jackmanimation/"
 sys.path.append(os.path.abspath(MODULE_PATH))
 from jackmanimation import credscheck
 #pylint: enable=wrong-import-position
-
-import tekore as tk
 
 
 def main():
