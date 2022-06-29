@@ -189,7 +189,7 @@ class Player(pygame.sprite.Sprite):
 
         if self.hidden and (pygame.time.get_ticks() - self.hide_timer) > 1000:
             self.hidden = False
-	        self.rect.centerx = WIDTH / 2
+            self.rect.centerx = WIDTH / 2
 	        self.rect.bottom = HEIGHT - 10
 
         if self.power >= 2 and pygame.time.get_ticks() - self.power_time > POWERUP_TIME:

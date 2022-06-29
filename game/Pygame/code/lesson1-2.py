@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+'''
+    lesson 1-2
+'''
 import pygame
 import random
 from pygame.locals import *
@@ -25,6 +28,9 @@ img_folder = os.path.join(game_folder, "img")
 
 
 class Player(pygame.sprite.Sprite):
+    '''
+        player class
+    '''
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((50,50))
@@ -33,12 +39,17 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = (WIDTH/2, HEIGHT/2)
 
     def update(self):
+        '''
+            update method
+        '''
         self.rect.x += 5
         if self.rect.left > WIDTH:
             self.rect.right = 0
 
 def main():
-    # initialise pygame and set up the screen
+    '''
+        initialise pygame and set up the screen
+    '''
     pygame.init()
     pygame.mixer.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))

@@ -1,7 +1,10 @@
-import pygame
+'''
+    bejewel game
+'''
+
 import random
-import time
 import sys
+import pygame
 from pygame.locals import *
 
 pygame.init()
@@ -26,8 +29,9 @@ STAR = pygame.image.load("images/star.png")
 STAR2 = pygame.image.load("images/star2.png")
 TRIANGLE = pygame.image.load("images/triangle.png")
 SHAPES_LIST = [CIRCLE, DIAMOND, HEXAGON, SQUARE, STAR, STAR2, TRIANGLE]
+
 for x in xrange(len(SHAPES_LIST) - NUM_SHAPES):
-    del(SHAPES_LIST[0])
+    del SHAPES_LIST[0]
 
 EXPLOSION_1 = pygame.image.load("images/explosion1.png")
 EXPLOSION_2 = pygame.image.load("images/explosion2.png")
@@ -58,6 +62,9 @@ DISPLAY_SURFACE = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), DOUBLEB
 pygame.display.set_caption("Bilging Puzzle")
 
 def main():
+    '''
+        main routine
+    '''
     global score
     global selector
 
@@ -74,7 +81,7 @@ def main():
     blit_score(score)
     blit_time(0)
     draw_selector(selector)
-
+    moveDelay = 0
     while True:
         for event in pygame.event.get():
             if event.type == KEYUP:
@@ -111,22 +118,34 @@ def main():
         FPS_CLOCK.tick(FPS)
 
 def generate_random_board():
+    '''
+        generate random board
+    '''
     return[ [SHAPES_LIST[random.randrange(0, len(SHAPES_LIST))] for i in range(PUZZLE_COLUMNS)] for x in range(PUZZLE_ROWS) ]
 
-#Time in seconds since last move
 def blit_time(time):
+    '''
+        blit time
+        Time in seconds since last move
+    '''
     font = pygame.font.Font(None, FONT_SIZE)
     text = font.render("Move Timer: " + str(time / 60) + ":" + str(time % 60).zfill(2), True, BLACK)
     textPosition = text.get_rect()
     DISPLAY_SURFACE.blit(text, (TEXT_OFFSET, WINDOW_HEIGHT - (FONT_SIZE * 2)))
 
 def blit_score(score):
+    '''
+        blit score
+    '''
     font = pygame.font.Font(None, FONT_SIZE)
     text = font.render("Score: " + str(score), True, BLACK)
     textPosition = text.get_rect()
     DISPLAY_SURFACE.blit(text, (TEXT_OFFSET, WINDOW_HEIGHT - FONT_SIZE))
 
 def blit_board(board):
+    '''
+        blit board
+    '''
     DISPLAY_SURFACE.blit(BACKGROUND, (0, 0))
     rowNum = 0
     for row in board:
@@ -136,39 +155,51 @@ def blit_board(board):
             columnNum += 1
         rowNum += 1
 
-#Accepts a tuple indicating the position of the left shape in the selector relative to the board (as an array) (row, column)
 def draw_selector(position):
+    '''
+        Accepts a tuple indicating the position of the left shape in the
+        selector relative to the board (as an array) (row, column)
+    '''
     topLeft = (position[0] * SHAPE_WIDTH, position[1] * SHAPE_HEIGHT)
     topRight = (topLeft[0] + SHAPE_WIDTH * 2, topLeft[1])
     bottomLeft = (topLeft[0], topLeft[1] + SHAPE_HEIGHT)
     bottomRight = (topRight[0], topRight[1] + SHAPE_HEIGHT)
     pygame.draw.lines(DISPLAY_SURFACE, WHITE, True, [topLeft, topRight, bottomRight, bottomLeft], 3)
 
-#Accepts a tuple indicating the position of the selector
 def swap_pieces(position, board):
-    x, y = position
-    board[y][x + 1], board[y][x] = board[y][x], board[y][x + 1]
+    '''
+        Accepts a tuple indicating the position of the selector
+    '''
+    pos_x, pos_y = position
+    board[pos_y][pos_x + 1], board[pos_y][pos_x] = board[pos_y][pos_x], board[pos_y][pos_x + 1]
 
-def remove_matches(board, selector):
+def remove_matches(board, match_selector):
+    '''
+        match removal
+    '''
     matches = find_matches(board)
 
     while matches:
         explosion_animation(board, matches)
-        score_matches(board, selector, matches)
+        score_matches(board, match_selector, matches)
         clear_matches(board, matches)
         refill_columns(board)
         matches = find_matches(board)
-        selector = (0, 0) #So subsequent matches won't be counted as player matches
+        match_selector = (0, 0)
+        #So subsequent matches won't be counted as player matches
 
-def score_matches(board, selector, matches):
+def score_matches(board, score_selector, matches):
+    '''
+        score
+    '''
     global score
     playerMatches = []
 
-    selector = (selector[1], selector[0])
+    score_selector = (score_selector[1], score_selector[0])
 
     for match in matches:
         for position in match:
-            if (position == selector or position == (selector[0], selector[1] + 1)) and (not match in playerMatches):
+            if (position == score_selector or position == (score_selector[0], score_selector[1] + 1)) and (not match in playerMatches):
                 playerMatches.append(match)
 
     if len(playerMatches) == 1:
@@ -186,6 +217,9 @@ def score_matches(board, selector, matches):
             score += RANDOM_POINTS
 
 def find_matches(board):
+    '''
+        find matches
+    '''
     clearList = []
 
     #First scan the columns for matches
@@ -234,14 +268,19 @@ def find_matches(board):
 
     return clearList
 
-#Accepts list of positions to clear
 def clear_matches(board, matches):
+    '''
+        Accepts list of positions to clear
+    '''
     for match in matches:
         for position in match:
             row, column = position
             board[row][column] = BLANK
 
 def refill_columns(board):
+    '''
+        refill columns
+    '''
     for column in xrange(PUZZLE_COLUMNS):
         for row in xrange(PUZZLE_ROWS):
             if board[row][column] == BLANK:
@@ -259,7 +298,11 @@ def refill_columns(board):
                     except:
                         board[blankRow][column] = SHAPES_LIST[random.randrange(0, len(SHAPES_LIST))]
 
+
 def explosion_animation(board, matches):
+    '''
+        animation
+    '''
     for frame in EXPLOSION_LIST:
         for match in matches:
             for position in match:

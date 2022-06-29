@@ -13,12 +13,14 @@ __license__ = "Python"
 
 import os
 import pygame
-import random
-from settings import *
+from settings import (WIDTH, HEIGHT, FPS, BLACK)
 
 CAPTION = "audioplayer"
 
 class Game():
+    '''
+        game class
+    '''
     def __init__(self):
         # game initialise
         self.running = True
@@ -30,11 +32,16 @@ class Game():
         self.clock = pygame.time.Clock()
 
     def new(self):
+        '''
+            new method
+        '''
         self.all_sprites = pygame.sprite.Group()
         self.run()
 
     def run(self):
-        # game loop
+        '''
+            game loop
+        '''
         self.playing = True
         while self.playing:
             self.clock.tick(FPS)
@@ -43,9 +50,15 @@ class Game():
             self.draw()
 
     def update(self):
+        '''
+            update method
+        '''
         self.all_sprites.update()
 
     def events(self):
+        '''
+            events method
+        '''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 if self.playing:
@@ -53,7 +66,9 @@ class Game():
                 self.running = False
 
     def draw(self):
-        # render
+        '''
+            render
+        '''
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
 
@@ -61,13 +76,20 @@ class Game():
         pygame.display.flip()
 
     def show_start_screen(self):
-        pass
+        '''
+            start screen
+        '''
 
     def show_go_screen(self):
-        pass
+        '''
+            go screen
+        '''
 
 
 def main():
+    '''
+        main routine
+    '''
     target = ".wav"
     directory = '/Users/username/Documents/workspace/Resources/audio'
     file_list = []

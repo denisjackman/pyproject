@@ -1,5 +1,5 @@
 '''
-    game settings 
+    game settings
 '''
 # Basic Constants
 WIDTH = 360

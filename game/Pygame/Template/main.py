@@ -3,7 +3,7 @@
     template for a py game
 '''
 import pygame
-from settings import *
+from settings import (WIDTH, HEIGHT, CAPTION, FPS, BLACK)
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 1.0 $"
@@ -75,13 +75,12 @@ class Game():
         '''
             start screen
         '''
-        pass
 
     def show_go_screen(self):
         '''
             go screen
         '''
-        pass
+
 
 def main():
     '''

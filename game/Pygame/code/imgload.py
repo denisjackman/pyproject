@@ -54,8 +54,8 @@ map_tile.append(img.subsurface(Rect(240, 40, 40, 39)))
 map_tile.append(img.subsurface(Rect(280, 40, 40, 39)))
 
 
-print "width  : ", img.get_rect().size[0]
-print "height : ", img.get_rect().size[1]
+print("width  : ", img.get_rect().size[0])
+print("height : ", img.get_rect().size[1])
 
 x = 50
 y = 50
