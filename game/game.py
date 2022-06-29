@@ -1,10 +1,31 @@
+'''
+    sample game class
+'''
 class Game:
+    '''
+        game glass
+    '''
+
     def __init__(self):
+        '''
+            init
+        '''
         self.running = True
+
     def mainloop(self):
-        print "Starting"
-        print "Finished"
-                
+        '''
+            main loop
+        '''
+        print("Starting")
+        print("Finished")
+
+    def game_running(self):
+        '''
+            is it running
+        '''
+        return self.running
+
+
 if __name__ == '__main__':
-    g = Game()
-    g.mainloop()
+    game = Game()
+    game.mainloop()
