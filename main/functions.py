@@ -1,6 +1,25 @@
 '''
     a list of useful functions buily in python
 '''
+import math
+
+
+def dist(p, q):
+    '''
+    Measure the distance between two spots
+    '''
+    return math.sqrt((p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2)
+
+
+def collide(pos1, pos2, rad1, rad2):
+    '''
+        check for a collision between two objects
+    '''
+    result = False
+    a = dist(pos1, pos2)
+    b = rad1 + rad2
+    result = a <= b
+    return result
 
 
 def get_mean(input_list):
@@ -95,7 +114,15 @@ def main():
     print("Median test 1 :", get_median(test_list) == 20.0 )
     print("mode function")
     print("Mode test 1   :", get_mode(test_list) == 20)
+
+    x1 = dist([10, 0], [0, 0])
+    x2 = dist([0, 0], [100, 100])
+    print("dist([10,0],[0,0]),10", x1, 10, x1 == 10)
+    print("dist([0,0],[100,100]),141.4213562373095", x2,
+          141.4213562373095, x2 == 141.4213562373095)
+
     print("Ending now")
+
 
 if __name__ == '__main__':
     main()

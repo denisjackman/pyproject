@@ -1,0 +1,100 @@
+import pygame
+from pygame.locals import *
+import os
+
+
+pygame.init()
+running = True
+black = (0, 0, 0)
+white = (255, 255, 255)
+img = []
+fly = []
+
+game_window = pygame.display.set_mode((1100, 900))
+pygame.display.set_caption("Adventure Game")
+
+flyload = pygame.image.load('test/sprites/frame-1.png').convert()
+imgload = pygame.image.load('test/sprites/e_000.png').convert()
+
+img.append(pygame.image.load('test/sprites/e_000.png').convert())
+img.append(pygame.image.load('test/sprites/e_001.png').convert())
+img.append(pygame.image.load('test/sprites/e_002.png').convert())
+img.append(pygame.image.load('test/sprites/e_003.png').convert())
+img.append(pygame.image.load('test/sprites/e_004.png').convert())
+img.append(pygame.image.load('test/sprites/e_005.png').convert())
+img.append(pygame.image.load('test/sprites/e_006.png').convert())
+img.append(pygame.image.load('test/sprites/e_007.png').convert())
+img.append(pygame.image.load('test/sprites/e_008.png').convert())
+img.append(pygame.image.load('test/sprites/e_009.png').convert())
+img.append(pygame.image.load('test/sprites/e_010.png').convert())
+img.append(pygame.image.load('test/sprites/e_011.png').convert())
+img.append(pygame.image.load('test/sprites/e_012.png').convert())
+img.append(pygame.image.load('test/sprites/e_013.png').convert())
+img.append(pygame.image.load('test/sprites/e_014.png').convert())
+img.append(pygame.image.load('test/sprites/e_015.png').convert())
+img.append(pygame.image.load('test/sprites/e_016.png').convert())
+img.append(pygame.image.load('test/sprites/e_017.png').convert())
+img.append(pygame.image.load('test/sprites/e_018.png').convert())
+img.append(pygame.image.load('test/sprites/e_019.png').convert())
+img.append(pygame.image.load('test/sprites/e_020.png').convert())
+img.append(pygame.image.load('test/sprites/e_021.png').convert())
+img.append(pygame.image.load('test/sprites/e_022.png').convert())
+img.append(pygame.image.load('test/sprites/e_023.png').convert())
+img.append(pygame.image.load('test/sprites/e_024.png').convert())
+img.append(pygame.image.load('test/sprites/e_025.png').convert())
+img.append(pygame.image.load('test/sprites/e_026.png').convert())
+img.append(pygame.image.load('test/sprites/e_027.png').convert())
+img.append(pygame.image.load('test/sprites/e_028.png').convert())
+img.append(pygame.image.load('test/sprites/e_029.png').convert())
+img.append(pygame.image.load('test/sprites/e_030.png').convert())
+img.append(pygame.image.load('test/sprites/e_031.png').convert())
+img.append(pygame.image.load('test/sprites/e_032.png').convert())
+img.append(pygame.image.load('test/sprites/e_033.png').convert())
+img.append(pygame.image.load('test/sprites/e_034.png').convert())
+img.append(pygame.image.load('test/sprites/e_035.png').convert())
+img.append(pygame.image.load('test/sprites/e_036.png').convert())
+
+fly.append(pygame.image.load('test/sprites/frame-1.png').convert())
+fly.append(pygame.image.load('test/sprites/frame-2.png').convert())
+fly.append(pygame.image.load('test/sprites/frame-3.png').convert())
+fly.append(pygame.image.load('test/sprites/frame-4.png').convert())
+fly.append(pygame.image.load('test/sprites/frame-5.png').convert())
+fly.append(pygame.image.load('test/sprites/frame-6.png').convert())
+fly.append(pygame.image.load('test/sprites/frame-7.png').convert())
+fly.append(pygame.image.load('test/sprites/frame-8.png').convert())
+
+print os.getcwd()
+
+
+def sprite(sx, sy):
+    game_window.blit(imgload, (sx, sy))
+
+
+counter = 0
+looper = 0
+
+while running:
+
+    x = 0
+    y = 0
+
+    # imgload = img[counter]
+    # counter += 1
+    # if counter == 37:
+    #   counter = 0
+
+    imgload = fly[looper]
+    imgload = pygame.transform.scale(imgload, (110, 90))
+    imgload.set_colorkey(black)
+    looper += 1
+    if looper == 8:
+        looper = 0
+    game_window.fill(white)
+    sprite(x, y)
+
+    pygame.display.update()
+
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            running = False
+            pygame.quit()
