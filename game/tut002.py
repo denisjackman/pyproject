@@ -20,21 +20,21 @@ background.fill((255,255,255))     #fill the background white color (red,green,b
 background = background.convert()  #convert Surface object to make blitting faster
 screen.blit(background, (0,0))     #draw the background on screen
 clock = pygame.time.Clock()        #create a pygame clock object
-mainloop = True
+MAINLOOP = True
 FPS = 30 # desired framerate in frames per second. try out other values !
-playtime = 0.0 # how many seconds the "game" is played
-while mainloop:
+PLAYTIME = 0.0 # how many seconds the "game" is played
+while MAINLOOP:
     milliseconds = clock.tick(FPS) # do not go faster than this framerate
-    playtime += milliseconds / 1000.0 # add seconds to playtime
+    PLAYTIME += milliseconds / 1000.0 # add seconds to PLAYTIME
     print("%i milliseconds passed since last frame" % milliseconds ) # brackets for python3.x
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            mainloop = False # pygame window closed by user
+            MAINLOOP = False # pygame window closed by user
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                mainloop = False # user pressed ESC
-    # print the framerate and playtime into the pygame window title
-    pygame.display.set_caption("frame rate: %.2f frames per second, playtime: %.2f seonds" % (clock.get_fps(), playtime))
+                MAINLOOP = False # user pressed ESC
+    # print the framerate and PLAYTIME into the pygame window title
+    pygame.display.set_caption(f"frame rate: {clock.get_fps} frames per second, PLAYTIME: {PLAYTIME} seconds")
     pygame.display.flip()          # flip the screen like in a flip book
-print("This 'game' was played for %.2f seconds" % playtime)
+print(f"This 'game' was played for {PLAYTIME} seconds")
 pygame.quit() # idle-friendly quit method

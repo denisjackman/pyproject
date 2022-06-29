@@ -1,59 +1,187 @@
+#!/usr/bin/env python
 '''
-    ###
-    # boids_display.py
-    #
-    # author: Kristina Striegnitz
-    #
-    # version: 1/31/2010
-    #
-    # A simple pygame display for a list of boids.
-    #
-    ###
+    Boid implementation in Python using PyGame
+    Ben Dowling - www.coderholic.com
 '''
+
+import sys
+import random
 import math
 import pygame
 
-# This function takes a list of boids (specified as a list with 5
-# elements: x and y position, x and y velocity, and the color), a
-# function describing how the boids get updated each frame and the
-# width and the height of the display window. It then creates a pygame
-# window, displays the boids and calls the update function in every
-# frame.
+pygame.init()
 
+size = width, height = 800, 600
+black = 0, 0, 0
 
-def run_display(boids, update_function, WIDTH, HEIGHT):
+MAXVELOCITY = 10
+NUMBOIDS = 50
+boids = []
+
+class Boid:
     '''
-        display the instance
+        boid class
     '''
-    pygame.init()
-    width = WIDTH
-    height = HEIGHT
-    screen = pygame.display.set_mode((width,height))
-    clock = pygame.time.Clock()
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.velocityX = random.randint(1, 10) / 10.0
+        self.velocityY = random.randint(1, 10) / 10.0
 
-    keepGoing = True
-    while keepGoing:
 
-        dt = clock.tick()
+    def distance(self, distance_boid):
+        '''
+            Return the distance from another boid
+        '''
+        distX = self.x - distance_boid.x
+        distY = self.y - distance_boid.y
+        return math.sqrt(distX * distX + distY * distY)
 
-        # go through all events that happened and check ...
-        for event in pygame.event.get():
-            # ... whether the event was a quit event
-            if event.type == pygame.QUIT:
-                keepGoing = False
+    def moveCloser(self, mc_boids):
+        '''
+            Move closer to a set of boids"
+        '''
+        if len(mc_boids) < 1:
+            return
+        # calculate the average distances from the other boids
+        avgX = 0
+        avgY = 0
+        for mc_boid in mc_boids:
+            if mc_boid.x == self.x and mc_boid.y == self.y:
+                continue
 
-        # update boids
-        update_function(boids, dt)
+            avgX += (self.x - mc_boid.x)
+            avgY += (self.y - mc_boid.y)
 
-        # draw everything
-        screen.fill((25,25,112))
+        avgX /= len(mc_boids)
+        avgY /= len(mc_boids)
 
-        for b in boids:
-            pygame.draw.circle(screen,b[4],(int(round(b[0])),int(round(b[1]))),10)
-            point_x = b[0] + float(b[2]) / math.sqrt(b[2]**2 + b[3]**2) * 20
-            point_y = b[1] + float(b[3]) / math.sqrt(b[2]**2 + b[3]**2) * 20
-            pygame.draw.line(screen,b[4],(int(b[0]),int(b[1])),(point_x, point_y), 3)
+        # set our velocity towards the others
+        mc_distance = math.sqrt((avgX * avgX) + (avgY * avgY)) * -1.0
 
-        pygame.display.update()
+        self.velocityX -= (avgX / 100)
+        self.velocityY -= (avgY / 100)
 
-    pygame.quit()
+
+    def moveWith(self, mw_boids):
+        '''
+            Move with a set of boids
+        '''
+        if len(mw_boids) < 1:
+            return
+        # calculate the average velocities of the other boids
+        avgX = 0
+        avgY = 0
+
+        for mw_boid in mw_boids:
+            avgX += mw_boid.velocityX
+            avgY += mw_boid.velocityY
+
+        avgX /= len(mw_boids)
+        avgY /= len(mw_boids)
+
+        # set our velocity towards the others
+        self.velocityX += (avgX / 40)
+        self.velocityY += (avgY / 40)
+
+
+    def moveAway(self, ma_boids, minDistance):
+        '''
+            Move away from a set of boids. This avoids crowding
+        '''
+        if len(ma_boids) < 1:
+            return
+
+        distanceX = 0
+        distanceY = 0
+        numClose = 0
+
+        for ma_boid in ma_boids:
+            ma_distance = self.distance(ma_boid)
+            if  ma_distance < minDistance:
+                numClose += 1
+                xdiff = (self.x - ma_boid.x)
+                ydiff = (self.y - ma_boid.y)
+
+                if xdiff >= 0:
+                    xdiff = math.sqrt(minDistance) - xdiff
+                elif xdiff < 0:
+                    xdiff = -math.sqrt(minDistance) - xdiff
+
+                if ydiff >= 0:
+                    ydiff = math.sqrt(minDistance) - ydiff
+                elif ydiff < 0:
+                    ydiff = -math.sqrt(minDistance) - ydiff
+
+                distanceX += xdiff
+                distanceY += ydiff
+
+        if numClose == 0:
+            return
+
+        self.velocityX -= distanceX / 5
+        self.velocityY -= distanceY / 5
+
+
+    def move(self):
+        '''
+            Perform actual movement based on our velocity
+        '''
+        if abs(self.velocityX) > MAXVELOCITY or abs(self.velocityY) > MAXVELOCITY:
+            scaleFactor = MAXVELOCITY / max(abs(self.velocityX), abs(self.velocityY))
+            self.velocityX *= scaleFactor
+            self.velocityY *= scaleFactor
+
+        self.x += self.velocityX
+        self.y += self.velocityY
+
+screen = pygame.display.set_mode(size)
+
+ball = pygame.image.load("ball.png")
+ballrect = ball.get_rect()
+
+# create boids at random positions
+for i in range(NUMBOIDS):
+    boids.append(Boid(random.randint(0, width), random.randint(0, height)))
+
+while 1:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+
+    for boid in boids:
+        closeBoids = []
+        for otherBoid in boids:
+            if otherBoid == boid:
+                continue
+            distance = boid.distance(otherBoid)
+            if distance < 200:
+                closeBoids.append(otherBoid)
+
+
+        boid.moveCloser(closeBoids)
+        boid.moveWith(closeBoids)
+        boid.moveAway(closeBoids, 20)
+
+        # ensure they stay within the screen space
+        # if we roubound we can lose some of our velocity
+        BORDER = 25
+        if boid.x < BORDER and boid.velocityX < 0:
+            boid.velocityX = -boid.velocityX * random.random()
+        if boid.x > width - BORDER and boid.velocityX > 0:
+            boid.velocityX = -boid.velocityX * random.random()
+        if boid.y < BORDER and boid.velocityY < 0:
+            boid.velocityY = -boid.velocityY * random.random()
+        if boid.y > height - BORDER and boid.velocityY > 0:
+            boid.velocityY = -boid.velocityY * random.random()
+
+        boid.move()
+
+    screen.fill(black)
+    for boid in boids:
+        boidRect = pygame.Rect(ballrect)
+        boidRect.x = boid.x
+        boidRect.y = boid.y
+        screen.blit(ball, boidRect)
+    pygame.display.flip()
+    pygame.time.delay(10)

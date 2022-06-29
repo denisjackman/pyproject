@@ -12,13 +12,15 @@ __copyright__ = "Copyright (c) 2018 Denis J Jackman"
 __license__ = "Python"
 
 import os
-# import pygame
-# import random
-from settings import *
+import pygame
+from settings import (WIDTH, HEIGHT, FPS, BLACK)
 
 CAPTION = "audioplayer"
 
 class Game():
+    '''
+        game class
+    '''
     def __init__(self):
         # game initialise
         self.running = True
@@ -30,10 +32,16 @@ class Game():
         self.clock = pygame.time.Clock()
 
     def new(self):
+        '''
+            new method
+        '''
         self.all_sprites = pygame.sprite.Group()
         self.run()
 
     def run(self):
+        '''
+            run method
+        '''
         # game loop
         self.playing = True
         while self.playing:
@@ -43,9 +51,15 @@ class Game():
             self.draw()
 
     def update(self):
+        '''
+            update method
+        '''
         self.all_sprites.update()
 
     def events(self):
+        '''
+            events method
+        '''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 if self.playing:
@@ -53,7 +67,9 @@ class Game():
                 self.running = False
 
     def draw(self):
-        # render
+        '''
+            render
+        '''
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
 
@@ -61,13 +77,20 @@ class Game():
         pygame.display.flip()
 
     def show_start_screen(self):
-        pass
+        '''
+            show start screen
+        '''
 
     def show_go_screen(self):
-        pass
+        '''
+            show go screen
+        '''
 
 
 def main():
+    '''
+        main routine
+    '''
     target = ".wav"
     directory = '/Users/jackmand/Documents/workspace/Resources/audio'
     file_list = []
@@ -77,7 +100,7 @@ def main():
             # print os.path.join(directory, filename)
 
     for _ in file_list:
-        print _
+        print(_)
 
     # g = Game()
     # g.show_start_screen()
