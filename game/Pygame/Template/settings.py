@@ -1,3 +1,6 @@
+'''
+    game settings 
+'''
 # Basic Constants
 WIDTH = 360
 HEIGHT = 480

@@ -1,6 +1,8 @@
 #!/usr/bin/env python
+'''
+     this is a template
+'''
 import pygame
-import random
 from pygame.locals import *
 # This is a pygame template skeleton for a pygame project
 
@@ -19,7 +21,9 @@ BLUE = (0, 0, 255)
 
 
 def main():
-    # initialise pygame and set up the screen
+    '''
+        initialise pygame and set up the screen
+    '''
     pygame.init()
     pygame.mixer.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))

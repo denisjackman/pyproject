@@ -1,7 +1,10 @@
 #!/usr/bin/env python
-import pygame
+'''
+    shmup py game
+'''
 import random
 import os
+import pygame
 
 # Basic Constants
 WIDTH = 480
@@ -44,8 +47,10 @@ player_mini_img.set_colorkey(BLACK)
 meteor_img = pygame.image.load(os.path.join(img_dir, "meteorSmall.png")).convert()
 bullet_img = pygame.image.load(os.path.join(img_dir, "laserRed.png")).convert()
 meteor_images = []
-meteor_list = ["meteorBrown_big1.png", "meteorBrown_big2.png", "meteorBrown_big3.png", "meteorBrown_big4.png",
-               "meteorBrown_med1.png", "meteorBrown_med3.png", "meteorBrown_small1.png", "meteorBrown_small2.png",
+meteor_list = ["meteorBrown_big1.png", "meteorBrown_big2.png",
+               "meteorBrown_big3.png", "meteorBrown_big4.png",
+               "meteorBrown_med1.png", "meteorBrown_med3.png",
+               "meteorBrown_small1.png", "meteorBrown_small2.png",
                "meteorBrown_tiny1.png", "meteorBrown_tiny2.png"]
 for img in meteor_list:
     meteor_images.append(pygame.image.load(os.path.join(img_dir, img)).convert())
@@ -91,6 +96,9 @@ font_name = pygame.font.match_font('arial')
 
 
 def newmob():
+    '''
+        new mob
+    '''
     if len(mobs) < 8:
         m = Mob()
         all_sprites.add(m)
@@ -98,6 +106,9 @@ def newmob():
 
 
 def draw_text(surf, text, size, x, y):
+    '''
+        draw text
+    '''
     font = pygame.font.Font(font_name, size)
     text_surface = font.render(text, True, WHITE)
     text_rect = text_surface.get_rect()
@@ -106,6 +117,9 @@ def draw_text(surf, text, size, x, y):
 
 
 def draw_shield_bar(surf, x, y, pct):
+    '''
+        draw shield bar
+    '''
     if pct < 0:
         pct = 0
     BAR_LENGTH = 100
@@ -117,16 +131,21 @@ def draw_shield_bar(surf, x, y, pct):
     pygame.draw.rect(surf, WHITE, outline_rect, 2)
 
 
-def draw_lives(surf, x, y, lives, img):
-    for i in range(lives):
-        img_rect = img.get_rect()
-        img_rect.x = x + 30 * i
+def draw_lives(surf, x, y, lives, img_life):
+    '''
+        draw lives
+    '''
+    for item in range(lives):
+        img_rect = img_life.get_rect()
+        img_rect.x = x + 30 * item
         img_rect.y = y
-        surf.blit(img, img_rect)
+        surf.blit(img_life, img_rect)
 
 
-# Class for the player
 class Player(pygame.sprite.Sprite):
+    '''
+        player class
+    '''
     # initialise the class
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -147,8 +166,10 @@ class Player(pygame.sprite.Sprite):
         self.power_time = pygame.time.get_ticks()
 
 
-    # Define the method for the update
     def update(self):
+        '''
+            update method
+        '''
         # Move the player
         self.speedx = 0
         keystate = pygame.key.get_pressed()
@@ -167,16 +188,19 @@ class Player(pygame.sprite.Sprite):
 	    # unhide if hidden
 
         if self.hidden and (pygame.time.get_ticks() - self.hide_timer) > 1000:
-	            self.hidden = False
-	            self.rect.centerx = WIDTH / 2
-	            self.rect.bottom = HEIGHT - 10
+            self.hidden = False
+	        self.rect.centerx = WIDTH / 2
+	        self.rect.bottom = HEIGHT - 10
 
         if self.power >= 2 and pygame.time.get_ticks() - self.power_time > POWERUP_TIME:
             self.power -= 1
             self.power_time = pygame.time.get_ticks()
 
-    # Define the method for handling shooting
+
     def shoot(self):
+        '''
+            Define the method for handling shooting
+        '''
         now = pygame.time.get_ticks()
         if now - self.last_shot > self.shoot_delay:
             self.last_shot = now
@@ -195,17 +219,25 @@ class Player(pygame.sprite.Sprite):
                 shoot_sound.play()
 
     def hide(self):
-        # hide the player temporarily
+        '''
+            hide the player temporarily
+        '''
         self.hidden = True
         self.hide_timer = pygame.time.get_ticks()
         self.rect.center = (WIDTH / 2, HEIGHT + 200)
 
     def powerup(self):
+        '''
+            power up
+        '''
         self.power += 1
         self.power_time = pygame.time.get_ticks()
 
-# Enemy Class
 class Mob(pygame.sprite.Sprite):
+    '''
+        Enemy Class
+    '''
+
     # initialise the class
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -223,6 +255,9 @@ class Mob(pygame.sprite.Sprite):
         self.last_update = pygame.time.get_ticks()
 
     def rotate(self):
+        '''
+            rotate
+        '''
         now = pygame.time.get_ticks()
         if now - self.last_update > 50:
             self.last_update = now
@@ -235,6 +270,9 @@ class Mob(pygame.sprite.Sprite):
 
     # Define the method for the update
     def update(self):
+        '''
+            update
+        '''
         self.rotate()
         self.rect.y += self.speedy
         self.rect.x += self.speedx
@@ -246,6 +284,9 @@ class Mob(pygame.sprite.Sprite):
 
 
 class Bullet(pygame.sprite.Sprite):
+    '''
+        bullet class
+    '''
     # initialise the class
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
@@ -256,8 +297,10 @@ class Bullet(pygame.sprite.Sprite):
         self.rect.centerx = x
         self.speedy = -10
 
-    # Define the method for the update
     def update(self):
+        '''
+            Define the method for the update
+        '''
         self.rect.y += self.speedy
         # kill it if it moves off the top of the screen
         if self.rect.bottom < 0:
@@ -265,6 +308,9 @@ class Bullet(pygame.sprite.Sprite):
 
 
 class Explosion(pygame.sprite.Sprite):
+    '''
+        explosion
+    '''
     def __init__(self, center, size):
         pygame.sprite.Sprite.__init__(self)
         self.size = size
@@ -276,6 +322,9 @@ class Explosion(pygame.sprite.Sprite):
         self.frame_rate = 50
 
     def update(self):
+        '''
+            update method
+        '''
         now = pygame.time.get_ticks()
         if now - self.last_update > self.frame_rate:
             self.last_update = now
@@ -290,6 +339,9 @@ class Explosion(pygame.sprite.Sprite):
 
 
 class Pow(pygame.sprite.Sprite):
+    '''
+        POW class
+    '''
     def __init__(self, center):
         pygame.sprite.Sprite.__init__(self)
         self.type = random.choice(['shield', 'gun'])
@@ -300,12 +352,18 @@ class Pow(pygame.sprite.Sprite):
         self.speedy = 2
 
     def update(self):
+        '''
+            update method
+        '''
         self.rect.y += self.speedy
         # kill if it moves off the bottom of the screen
         if self.rect.top > HEIGHT:
             self.kill()
 
 def main():
+    '''
+        Main game routine
+    '''
     # initialise pygame and set up the screen
     game_over = True
     running = True
@@ -320,8 +378,8 @@ def main():
     score = 0
     pygame.mixer.music.play(loops=-1)
     # add the mobs
-    for i in range(8):
-       newmob()
+    for game_item in range(8):
+        newmob()
 
     # main game loop
     while running:
@@ -376,7 +434,7 @@ def main():
                 if player.shield >= 100:
                     player.shield = 100
             if hit.type == 'gun':
-                    player.powerup()
+                player.powerup()
 
 
         # render
@@ -393,10 +451,9 @@ def main():
 
 
 if __name__ == "__main__":
+    # TODO: add a title screen
+    # TODO: add credits screen
+    # TODO: add sound
+    # TODO: extra stuff
     # run the main routine
     main()
-
-# TODO: add a title screen
-# TODO: add credits screen
-# TODO: add sound
-# TODO: extra stuff

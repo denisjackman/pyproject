@@ -1,6 +1,8 @@
 #!/usr/bin/env python
+'''
+    template for a py game
+'''
 import pygame
-import random
 from settings import *
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
@@ -10,6 +12,9 @@ __copyright__ = "Copyright (c) 2018 Denis J Jackman"
 __license__ = "Python"
 
 class Game():
+    '''
+        game class
+    '''
     def __init__(self):
         # game initiailise
         self.running = True
@@ -21,10 +26,16 @@ class Game():
         self.clock = pygame.time.Clock()
 
     def new(self):
+        '''
+            new method
+        '''
         self.all_sprites = pygame.sprite.Group()
         self.run()
 
     def run(self):
+        '''
+            game loop
+        '''
         # game loop
         self.playing = True
         while self.playing:
@@ -34,9 +45,15 @@ class Game():
             self.draw()
 
     def update(self):
+        '''
+            update method
+        '''
         self.all_sprites.update()
 
     def events(self):
+        '''
+            handle events
+        '''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 if self.playing:
@@ -44,6 +61,9 @@ class Game():
                 self.running = False
 
     def draw(self):
+        '''
+            render method
+        '''
         # render
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
@@ -52,17 +72,26 @@ class Game():
         pygame.display.flip()
 
     def show_start_screen(self):
+        '''
+            start screen
+        '''
         pass
 
     def show_go_screen(self):
+        '''
+            go screen
+        '''
         pass
 
 def main():
-    g = Game()
-    g.show_start_screen()
-    while g.running:
-        g.new()
-        g.show_go_screen()
+    '''
+        main routine
+    '''
+    game = Game()
+    game.show_start_screen()
+    while game.running:
+        game.new()
+        game.show_go_screen()
     pygame.quit()
 
 

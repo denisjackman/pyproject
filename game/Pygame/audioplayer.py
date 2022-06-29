@@ -77,7 +77,7 @@ def main():
             # print os.path.join(directory, filename)
 
     for _ in file_list:
-        print _
+        print(_)
 
     # g = Game()
     # g.show_start_screen()
