@@ -53,19 +53,22 @@ img.append(pygame.image.load('test/sprites/e_034.png').convert())
 img.append(pygame.image.load('test/sprites/e_035.png').convert())
 img.append(pygame.image.load('test/sprites/e_036.png').convert())
 
+
 def sprite(sx, sy):
     '''
         sprite function
     '''
     game_window.blit(imgload, (sx, sy))
 
+
 COUNTER = 0
 LOOPER = 0
 LIMIT = len(img)
 clock = pygame.time.Clock()
+SPRITE_X = 82
+SPRITE_Y = 64
+
 while RUNNING:
-    SPRITE_X = 82
-    SPRITE_Y = 64
     imgload = img[COUNTER]
     COUNTER += 1
     if COUNTER == LIMIT:

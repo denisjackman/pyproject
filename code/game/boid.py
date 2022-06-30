@@ -136,8 +136,10 @@ class Boid:
         self.y += self.velocityY
 
 screen = pygame.display.set_mode(size)
+pygame.display.set_caption("Boids")
 
 ball = pygame.image.load("ball.png")
+pygame.display.set_icon(ball)
 ballrect = ball.get_rect()
 
 # create boids at random positions
