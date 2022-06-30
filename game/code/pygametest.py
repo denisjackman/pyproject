@@ -1,19 +1,18 @@
+'''
+    A test for a pygame
+'''
 import pygame
-from pygame.locals import *
-import os
-
+from pygame.locals import QUIT
 
 pygame.init()
-running = True
+RUNNING = True
 black = (0, 0, 0)
 white = (255, 255, 255)
 img = []
-fly = []
 
-game_window = pygame.display.set_mode((1100, 900))
-pygame.display.set_caption("Adventure Game")
+game_window = pygame.display.set_mode((300, 300))
+pygame.display.set_caption("Sample Game")
 
-flyload = pygame.image.load('test/sprites/frame-1.png').convert()
 imgload = pygame.image.load('test/sprites/e_000.png').convert()
 
 img.append(pygame.image.load('test/sprites/e_000.png').convert())
@@ -54,47 +53,31 @@ img.append(pygame.image.load('test/sprites/e_034.png').convert())
 img.append(pygame.image.load('test/sprites/e_035.png').convert())
 img.append(pygame.image.load('test/sprites/e_036.png').convert())
 
-fly.append(pygame.image.load('test/sprites/frame-1.png').convert())
-fly.append(pygame.image.load('test/sprites/frame-2.png').convert())
-fly.append(pygame.image.load('test/sprites/frame-3.png').convert())
-fly.append(pygame.image.load('test/sprites/frame-4.png').convert())
-fly.append(pygame.image.load('test/sprites/frame-5.png').convert())
-fly.append(pygame.image.load('test/sprites/frame-6.png').convert())
-fly.append(pygame.image.load('test/sprites/frame-7.png').convert())
-fly.append(pygame.image.load('test/sprites/frame-8.png').convert())
-
-print os.getcwd()
-
-
 def sprite(sx, sy):
+    '''
+        sprite function
+    '''
     game_window.blit(imgload, (sx, sy))
 
-
-counter = 0
-looper = 0
-
-while running:
-
-    x = 0
-    y = 0
-
-    # imgload = img[counter]
-    # counter += 1
-    # if counter == 37:
-    #   counter = 0
-
-    imgload = fly[looper]
-    imgload = pygame.transform.scale(imgload, (110, 90))
+COUNTER = 0
+LOOPER = 0
+LIMIT = len(img)
+clock = pygame.time.Clock()
+while RUNNING:
+    SPRITE_X = 82
+    SPRITE_Y = 64
+    imgload = img[COUNTER]
+    COUNTER += 1
+    if COUNTER == LIMIT:
+        COUNTER = 0
     imgload.set_colorkey(black)
-    looper += 1
-    if looper == 8:
-        looper = 0
     game_window.fill(white)
-    sprite(x, y)
 
-    pygame.display.update()
+    sprite(SPRITE_X, SPRITE_Y)
 
+    pygame.display.flip()
+    clock.tick(30)
     for event in pygame.event.get():
         if event.type == QUIT:
-            running = False
+            RUNNING = False
             pygame.quit()
