@@ -7,6 +7,8 @@ All this stuff at the top of the script is just optional metadata;
 
 """
 
+
+
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 1.10 $"
 __date__ = "$Date: 2022/05/31 00:31:00 $"
@@ -25,7 +27,7 @@ from jackmanimation import credscheck
 
 
 def opendb(credid, database):
-    """ This function opens the databse connection """
+    """ This function opens the database connection """
     username = credid["username"]
     password = credid["password"]
     hostname = credid["hostname"]
@@ -48,7 +50,7 @@ def opendb(credid, database):
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
-    credid = credscheck('../secrets/credentials.json')
+    credid = credscheck('y:/pyproject/secrets/credentials.json')
 
     use_db = opendb(credid, 'mydatabase')  # pylint: disable=W0612
     print("finishing up and closing down:")
