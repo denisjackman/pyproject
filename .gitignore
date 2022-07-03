@@ -4,6 +4,7 @@
 credentials.json
 **/data/*
 sample.pdf
+**/secrets/*
 
 # Compiled source #
 ###################

@@ -6,18 +6,31 @@ This is a module for all the game items for the lineage game
 """
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
-__version__ = "$Revision: 0.0 $"
+__version__ = "$Revision: 0.1 $"
 __date__ = "$Date: 2022/06/14 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
+import random
 
-import os
-import sys
-#pylint: disable=wrong-import-position
-MODULE_PATH = "../jackmanimation/"
-sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import number_generator
-#pylint: enable=wrong-import-position
+
+def dice(sides=6, rolls=1):
+    '''
+        Rolls a dice which has 'sides' sides (default is six (6))
+        for 'rolls' number of times (default is one (1))
+    '''
+    result = 0
+    loop = 0
+    while loop < rolls:
+        result = result + random.randrange(1, sides+1)
+        loop = loop + 1
+    return result
+
+
+def number_generator(number=100):
+    '''
+        Generates a random number between 1 and number
+    '''
+    return random.randint(1, number)
 
 
 def population_birth(population,
@@ -113,6 +126,19 @@ def main():
     print("Fed Function : ")
     check = fed(10, 1)
     print(check)
+    loop = 0
+    count = 0
+    dice_count = 0
+    while loop < 101:
+        dice_count = dice_count + dice()
+        count = count + number_generator()
+        loop = loop + 1
+    print(" Average Dice roll           : " + str(int(dice_count/101)))
+    print(" Average Number generator    : " + str(int(count/101)))
+    print(" Dice roll one six sided     : " + str(dice()))
+    print(" Dice roll one hundred sided : " + str(dice(100)))
+    print(" Dice roll five six sided    : " + str(dice(rolls=5)))
+    print(" Dice roll ten four sided    : " + str(dice(4, 10)))
     print("finishing up and closing down:")
 
 
