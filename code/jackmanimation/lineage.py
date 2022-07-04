@@ -13,6 +13,54 @@ __license__ = "Python"
 import random
 
 
+def gold_to_silver(amount):
+    '''
+        convert gold to silver
+    '''
+    result = amount * 10
+    return result
+
+
+def gold_to_copper(amount):
+    '''
+        convert gold to copper
+    '''
+    result = amount * 100
+    return result
+
+
+def silver_to_copper(amount):
+    '''
+        convert silver to copper
+    '''
+    result = amount * 10
+    return result
+
+
+def silver_to_gold(amount):
+    '''
+        convert silver to gold
+    '''
+    result = amount / 10
+    return result
+
+
+def copper_to_gold(amount):
+    '''
+        convert copper to gold
+    '''
+    result = amount / 100
+    return result
+
+
+def copper_to_silver(amount):
+    '''
+        convert copper to silver
+    '''
+    result = amount / 10
+    return result
+
+
 def dice(sides=6, rolls=1):
     '''
         Rolls a dice which has 'sides' sides (default is six (6))
@@ -139,6 +187,16 @@ def main():
     print(" Dice roll one hundred sided : " + str(dice(100)))
     print(" Dice roll five six sided    : " + str(dice(rolls=5)))
     print(" Dice roll ten four sided    : " + str(dice(4, 10)))
+    print('running a test on currency ')
+    print('Test 1 : 1 gold = ' + str(gold_to_silver(1)) + \
+          ' Silver =  ' + str(gold_to_copper(1)) + ' Copper')
+    print('Test 2 : 10 silver = ' + str(silver_to_copper(10)) \
+          + ' Copper =  ' + str(silver_to_gold(10)) + ' Gold')
+    print('Test 3 : 100 copper = ' + str(copper_to_silver(100)) + \
+          ' Silver =  ' + str(copper_to_gold(100)) + ' Gold')
+    print('Test 4 : .5 gold ' + str(gold_to_silver(.5)) + ' Silver =  ' + \
+          str(gold_to_copper(.5)) + ' Copper')
+
     print("finishing up and closing down:")
 
 

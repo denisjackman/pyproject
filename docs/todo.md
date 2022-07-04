@@ -9,3 +9,5 @@
 * ![Projects Easy](projects-easy.jpeg)
 * ![Projects Medium](projects-medium.jpeg)
 * ![Projects Hard](projects-hard.jpeg)
+* [Data Science Projects](https://python.plainenglish.io/85-data-science-projects-c03c8750599e)
+* 
