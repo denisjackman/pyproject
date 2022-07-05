@@ -4,19 +4,32 @@
     Ben Dowling - www.coderholic.com
 '''
 
-import sys
+# import sys
 import random
 import math
 import pygame
+from pygame.locals import (
+    K_ESCAPE,
+    KEYDOWN,
+    QUIT,
+)
 
 pygame.init()
 
 size = width, height = 800, 600
-black = 0, 0, 0
+BLACK = 0, 0, 0
+WHITE = (255, 255, 255)
+NEAR_BLACK = (10, 10, 10)
 
 MAXVELOCITY = 10
-NUMBOIDS = 50
+NUMBOIDS = 100
 boids = []
+
+screen = pygame.display.set_mode(size)
+screen_r = screen.get_rect()
+pygame.display.set_caption("Boids")
+font = pygame.font.SysFont("Courier", 40)
+clock = pygame.time.Clock()
 
 class Boid:
     '''
@@ -135,55 +148,150 @@ class Boid:
         self.x += self.velocityX
         self.y += self.velocityY
 
-screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Boids")
 
-ball = pygame.image.load("ball.png")
-pygame.display.set_icon(ball)
-ballrect = ball.get_rect()
-
-# create boids at random positions
-for i in range(NUMBOIDS):
-    boids.append(Boid(random.randint(0, width), random.randint(0, height)))
-
-while 1:
+def game_keypress():
+    '''
+        check for key-press
+    '''
+    result = True
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
-
-    for boid in boids:
-        closeBoids = []
-        for otherBoid in boids:
-            if otherBoid == boid:
-                continue
-            distance = boid.distance(otherBoid)
-            if distance < 200:
-                closeBoids.append(otherBoid)
+        if event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                result = False
+            elif event.type == QUIT:
+                result = False
+    return result
 
 
-        boid.moveCloser(closeBoids)
-        boid.moveWith(closeBoids)
-        boid.moveAway(closeBoids, 20)
+def boid_title():
+    '''
+        this is the titles for the boid program
+    '''
+    TITLE_RUNNING = True
+    while TITLE_RUNNING:
+        TITLE_RUNNING = game_keypress()
+        screen.fill(WHITE)
+        pygame.display.flip()
+        pygame.time.delay(60)
 
-        # ensure they stay within the screen space
-        # if we roubound we can lose some of our velocity
-        BORDER = 25
-        if boid.x < BORDER and boid.velocityX < 0:
-            boid.velocityX = -boid.velocityX * random.random()
-        if boid.x > width - BORDER and boid.velocityX > 0:
-            boid.velocityX = -boid.velocityX * random.random()
-        if boid.y < BORDER and boid.velocityY < 0:
-            boid.velocityY = -boid.velocityY * random.random()
-        if boid.y > height - BORDER and boid.velocityY > 0:
-            boid.velocityY = -boid.velocityY * random.random()
 
-        boid.move()
+def boid_main():
+    '''
+        main boid routine
+    '''
 
-    screen.fill(black)
-    for boid in boids:
-        boidRect = pygame.Rect(ballrect)
-        boidRect.x = boid.x
-        boidRect.y = boid.y
-        screen.blit(ball, boidRect)
-    pygame.display.flip()
-    pygame.time.delay(10)
+    ball = pygame.image.load("ball.png")
+    leader = pygame.image.load("boid.png")
+    boid_image = pygame.image.load("greenboid.png")
+    pygame.display.set_icon(ball)
+    ballrect = boid_image.get_rect()
+
+    # create boids at random positions
+    for i in range(NUMBOIDS):
+        boids.append(Boid(random.randint(0, width), random.randint(0, height)))
+    BOID_RUNNING = True
+    while BOID_RUNNING:
+        BOID_RUNNING = game_keypress()
+                # sys.exit()
+
+        for boid in boids:
+            closeBoids = []
+            for otherBoid in boids:
+                if otherBoid == boid:
+                    continue
+                distance = boid.distance(otherBoid)
+                if distance < 200:
+                    closeBoids.append(otherBoid)
+
+
+            boid.moveCloser(closeBoids)
+            boid.moveWith(closeBoids)
+            boid.moveAway(closeBoids, 20)
+
+            # ensure they stay within the screen space
+            # if we rebound we can lose some of our velocity
+            BORDER = 25
+            if boid.x < BORDER and boid.velocityX < 0:
+                boid.velocityX = -boid.velocityX * random.random()
+            if boid.x > width - BORDER and boid.velocityX > 0:
+                boid.velocityX = -boid.velocityX * random.random()
+            if boid.y < BORDER and boid.velocityY < 0:
+                boid.velocityY = -boid.velocityY * random.random()
+            if boid.y > height - BORDER and boid.velocityY > 0:
+                boid.velocityY = -boid.velocityY * random.random()
+
+            boid.move()
+
+        screen.fill(BLACK)
+        for boid in boids:
+            boidRect = pygame.Rect(ballrect)
+            boidRect.x = boid.x
+            boidRect.y = boid.y
+            screen.blit(boid_image, boidRect)
+        pygame.display.flip()
+        pygame.time.delay(10)
+
+
+def end_titles():
+    '''
+        end-titles function
+    '''
+    end_titles_running = True
+    credit_list = ["CREDITS",
+                   " ",
+                   "Jackmanimation Design Studio",
+                   " ",
+                   "Denis Jackman - Project Lead",
+                   "Marian Jackman - Project Director",
+                   "Liam Jackman - Designer",
+                   "Aidan Jackman - Designer",
+                   "Xavier Jackman - Designer",
+                   "Frankie and Sugar - Moral support and encouragement"
+                   " ",
+                   "(C) Jackmanimation 2022"]
+
+    texts = []
+    # we render the text once, since it's easier to work with surfaces
+    # also, font rendering is a performance killer
+    for item, line in enumerate(credit_list):
+        screen_credit = font.render(line, 1, WHITE)
+        # we also create a Rect for each Surface.
+        # whenever you use rects with surfaces,
+        # it may be a good idea to use sprites instead
+        # we give each rect the correct starting position
+        render = screen_credit.get_rect(centerx=screen_r.centerx,
+                                   y=screen_r.bottom + item * 45)
+        texts.append((render, screen_credit))
+
+    while end_titles_running:
+        end_titles_running = game_keypress()
+
+        screen.fill(NEAR_BLACK)
+
+        for render, screen_credit in texts:
+            # now we just move each rect by one pixel each frame
+            render.move_ip(0, -1)
+            # and drawing is as simple as this
+            screen.blit(screen_credit, render)
+
+        # if all rects have left the screen, we exit
+        if not screen_r.collidelistall([render for (render, _) in texts]):
+            return
+
+        # only call this once so the screen does not flicker
+        pygame.display.flip()
+
+        # cap framerate at 60 FPS
+        clock.tick(60)
+
+
+def main():
+    '''
+        Main Routine
+    '''
+    boid_title()
+    boid_main()
+    end_titles()
+
+if __name__ == '__main__':
+    main()
