@@ -13,6 +13,7 @@ from pygame.locals import (
     KEYDOWN,
     QUIT,
 )
+import cv2
 
 pygame.init()
 
@@ -167,13 +168,31 @@ def boid_title():
     '''
         this is the titles for the boid program
     '''
+    video = cv2.VideoCapture("clock.mp4")
+    img = pygame.image.load("jackmanimation.png")
+    success, video_image = video.read()
+    fps = video.get(cv2.CAP_PROP_FPS)
+    run = True
+    while run:
+        clock.tick(fps)
+        run = game_keypress()
+        success, video_image = video.read()
+        if success:
+            video_surf = pygame.image.frombuffer(
+                video_image.tobytes(), video_image.shape[1::-1], "BGR")
+            video_surf = pygame.transform.scale(video_surf, size)
+        else:
+            run = False
+        screen.blit(video_surf, (0, 0))
+        pygame.display.flip()
+
     TITLE_RUNNING = True
     while TITLE_RUNNING:
         TITLE_RUNNING = game_keypress()
         screen.fill(WHITE)
+        screen.blit(img, (240, 140))
         pygame.display.flip()
         pygame.time.delay(60)
-
 
 def boid_main():
     '''
@@ -239,14 +258,21 @@ def end_titles():
     end_titles_running = True
     credit_list = ["CREDITS",
                    " ",
+                   " ",
+                   " ",
                    "Jackmanimation Design Studio",
+                   " ",
+                   " ",
                    " ",
                    "Denis Jackman - Project Lead",
                    "Marian Jackman - Project Director",
                    "Liam Jackman - Designer",
                    "Aidan Jackman - Designer",
                    "Xavier Jackman - Designer",
-                   "Frankie and Sugar - Moral support and encouragement"
+                   "Frankie - Moral Support",
+                   "Sugar - Encouragement",
+                   " ",
+                   " ",
                    " ",
                    "(C) Jackmanimation 2022"]
 

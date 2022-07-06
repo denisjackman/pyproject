@@ -34,3 +34,5 @@ pygame
 pandas
 plotly
 statsmodels
+moviepy
+opencv-python
