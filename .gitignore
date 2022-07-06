@@ -1,10 +1,9 @@
 # Specific Project files
 # this group would typically contain sensitive info
 #####################################################
-credentials.json
 **/data/*
-sample.pdf
 **/secrets/*
+credentials.json
 
 # Compiled source #
 ###################

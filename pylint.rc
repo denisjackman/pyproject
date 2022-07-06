@@ -26,7 +26,6 @@ ignore=CVS
 # regex matches against paths and can be in Posix or Windows format.
 # ignore the virtual environment directory
 ignore-paths=^pyproject-env/.*$,
-             ^code/game/.*$,
              ^code/temp/.*$,
              ^code/test/.*$
 
