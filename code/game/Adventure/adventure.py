@@ -23,7 +23,7 @@ from creature import Creature
 
 # variable defaults
 player_class = ["Warrior", "Mage"]
-PLAYER_NAME = ''
+
 PLAYER_STATS = ''
 
 def main():
@@ -33,12 +33,12 @@ def main():
     print(' --- MAIN --- ')
     game_start()
     PLAYER_NAME = input("Please Enter your name: ")
-    generate_player()
+    generate_player(PLAYER_NAME)
     # print the introduction
-    game_intro()
+    game_intro(PLAYER_NAME)
     game_main()
     # exit the game
-    game_end()
+    game_end(PLAYER_NAME)
     print('--- END ---')
 
 
@@ -49,12 +49,12 @@ def game_start():
     print('--- GAME START ---')
 
 
-def game_intro():
+def game_intro(input_name):
     '''
         game intoduction function
     '''
     print('--- GAME INTRO ---')
-    print(PLAYER_NAME, "here we go!")
+    print(input_name, "here we go!")
 
     print('--- loading weapons --- ')
     wpn=[]
@@ -124,18 +124,20 @@ def game_intro():
     creatures.append(Creature("Bees"))
 
 
-def game_end():
+def game_end(input_name):
     '''
         game end function
     '''
-    print(PLAYER_NAME, " goodbye and thanks for playing !O")
+    print(input_name, " goodbye and thanks for playing !O")
     print('--- GAME OVER ---')
 
 
-def generate_player():
+def generate_player(input_name):
     '''
         generate player function
     '''
+    print('--- GENERATING THE PLAYER ---')
+    print(input_name, " here you go.")
     # TODO: generate the player statistics
     # TODO: choose the class and race
     # TODO: Display the Player data to the player

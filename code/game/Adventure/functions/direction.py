@@ -1,4 +1,12 @@
+'''
+    direction function
+'''
+
+
 def direction(player_input):
+    '''
+        direction function
+    '''
     check = player_input[0].upper()
     if check == 'N':
         result = "Go North!"
@@ -13,8 +21,8 @@ def direction(player_input):
     return result
 
 
-print direction("North")
-print direction("s")
-print direction("eastern")
-print direction("WWWW")
-print direction("xxx")
+print(direction("North"))
+print(direction("s"))
+print(direction("eastern"))
+print(direction("WWWW"))
+print(direction("xxx"))
