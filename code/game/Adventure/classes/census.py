@@ -9,14 +9,17 @@ class Person:
     name = "Rolf"
     favorite_foods = ['beets','turnips','weisswurst']
 
+    def __str__(self):
+        return self.name
+
     def birth_year(self):
         '''
             birth year
         '''
-        return 2022 - age
+        return 2022 - self.age
 
 people = [Person(), Person(), Person() ]
-sum = 0
+TOTAL_SUM = 0
 for person in people:
-    sum = sum + person.age
-print("average age is : " + str(sum/len(people)))
+    TOTAL_SUM +=  person.age
+print("average age is : " + str(TOTAL_SUM/len(people)))

@@ -3,7 +3,7 @@
     template for a py game
 '''
 import pygame
-from settings import (WIDTH, HEIGHT, CAPTION, FPS, BLACK)
+# from settings import (WIDTH, HEIGHT, CAPTION, FPS, BLACK)
 from game import Game
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"

@@ -94,7 +94,11 @@ disable=raw-checker-failed,
         consider-using-enumerate,
         broad-except,
         unused-variable,
-        too-many-statements
+        too-many-statements,
+        too-many-arguments,
+        too-many-branches,
+        too-many-instance-attributes
+
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option

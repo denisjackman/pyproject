@@ -3,7 +3,6 @@
      this is a template
 '''
 import pygame
-from pygame.locals import *
 # This is a pygame template skeleton for a pygame project
 
 # Basic Constants

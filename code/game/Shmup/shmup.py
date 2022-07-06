@@ -60,16 +60,16 @@ explosion_anim['lg'] = []
 explosion_anim['sm'] = []
 explosion_anim['player'] = []
 
-for i in range(9):
-    filename = 'regularExplosion0{}.png'.format(i)
-    img = pygame.image.load(os.path.join(img_dir, filename)).convert()
+for item in range(9):
+    FILENAME = f'regularExplosion0{item}.png'
+    img = pygame.image.load(os.path.join(img_dir, FILENAME)).convert()
     img.set_colorkey(BLACK)
     img_lg = pygame.transform.scale(img, (75, 75))
     explosion_anim['lg'].append(img_lg)
     img_sm = pygame.transform.scale(img, (32, 32))
     explosion_anim['sm'].append(img_sm)
-    filename = 'sonicExplosion0{}.png'.format(i)
-    img = pygame.image.load(os.path.join(img_dir, filename)).convert()
+    FILENAME = f'sonicExplosion0{item}.png'
+    img = pygame.image.load(os.path.join(img_dir, FILENAME)).convert()
     img.set_colorkey(BLACK)
     explosion_anim['player'].append(img)
 
@@ -120,8 +120,7 @@ def draw_shield_bar(surf, x, y, pct):
     '''
         draw shield bar
     '''
-    if pct < 0:
-        pct = 0
+    pct = max(pct, 0)
     BAR_LENGTH = 100
     BAR_HEIGHT = 10
     fill = pct
@@ -135,9 +134,9 @@ def draw_lives(surf, x, y, lives, img_life):
     '''
         draw lives
     '''
-    for item in range(lives):
+    for item_lives in range(lives):
         img_rect = img_life.get_rect()
-        img_rect.x = x + 30 * item
+        img_rect.x = x + 30 * item_lives
         img_rect.y = y
         surf.blit(img_life, img_rect)
 
@@ -177,10 +176,8 @@ class Player(pygame.sprite.Sprite):
             self.speedx = -5
         if keystate[pygame.K_RIGHT]:
             self.speedx = 5
-        if self.rect.right > WIDTH:
-            self.rect.right = WIDTH
-        if self.rect.left < 0:
-            self.rect.left = 0
+        self.rect.right = min(self.rect.right, WIDTH)
+        self.rect.left = max(self.rect.left, 0)
         self.rect.x += self.speedx
         # Shoot the gun
         if keystate[pygame.K_SPACE]:
@@ -305,6 +302,12 @@ class Bullet(pygame.sprite.Sprite):
         if self.rect.bottom < 0:
             self.kill()
 
+    def current_speed(self):
+        '''
+            return current speed
+        '''
+        return self.speedy
+
 
 class Explosion(pygame.sprite.Sprite):
     '''
@@ -337,7 +340,13 @@ class Explosion(pygame.sprite.Sprite):
                 self.rect.center = center
 
 
-class Pow(pygame.sprite.Sprite):
+    def current_frame_rate(self):
+        '''
+            current frame rate
+        '''
+        return self.frame_rate
+
+class PowPow(pygame.sprite.Sprite):
     '''
         POW class
     '''
@@ -358,6 +367,13 @@ class Pow(pygame.sprite.Sprite):
         # kill if it moves off the bottom of the screen
         if self.rect.top > HEIGHT:
             self.kill()
+
+
+    def current_speed(self):
+        '''
+            return current speed
+        '''
+        return self.speedy
 
 def main():
     '''
@@ -409,7 +425,7 @@ def main():
 
         # if the player died and the explosion has finished playing
         if player.lives == 0 and not death_explosion.alive():
-	        running = False
+            running = False
 
         # check to see if a bullet hits a mob
         hits = pygame.sprite.groupcollide(mobs, bullets, True, True)
@@ -420,9 +436,9 @@ def main():
             expl = Explosion(hit.rect.center, 'lg')
             all_sprites.add(expl)
             if random.random() > 0.9:
-                pow = Pow(hit.rect.center)
-                all_sprites.add(pow)
-                powerups.add(pow)
+                powpow = PowPow(hit.rect.center)
+                all_sprites.add(powpow)
+                powerups.add(powpow)
             newmob()
 
         # check to see if player hit a powerup
@@ -430,8 +446,7 @@ def main():
         for hit in hits:
             if hit.type == 'shield':
                 player.shield += random.randrange(10, 30)
-                if player.shield >= 100:
-                    player.shield = 100
+                player.shield = min(player.shield, 100)
             if hit.type == 'gun':
                 player.powerup()
 
@@ -447,6 +462,11 @@ def main():
         pygame.display.flip()
 
     pygame.quit()
+
+def show_go_screen():
+    '''
+        show go screen
+    '''
 
 
 if __name__ == "__main__":
