@@ -1,11 +1,27 @@
+'''
+    placeholder for equipment class
+'''
+
 class Equipment:
+    '''
+        equipment class
+    '''
     def __init__(self, name, weight, cost):
-        self.name = name 
-        self.weight = weight 
-        self.cost = cost 
-        
+        self.name = name
+        self.weight = weight
+        self.cost = cost
+
     def __str__(self):
+        '''
+            return the item name
+        '''
         return self.name
+
+    def weigh(self):
+        '''
+            return the weight of the item in WU
+        '''
+        return self.weight
 
 # equipment is listed as name, weight (in wu), cost (in gp)
 # Name , Weight (in wu), Cost (in GP)

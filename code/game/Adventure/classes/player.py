@@ -1,9 +1,25 @@
+'''
+    player class
+'''
 class Player:
+    '''
+        player class
+    '''
     def __init__(self):
         raise NotImplementedError("Do not create raw Player Objects")
 
     def __str__(self):
+        '''
+            what is my name
+        '''
         return self.name
+
+    def amount(self):
+        '''
+            how much gold do I have
+        '''
+        return self.gold
+
     name = ""
     type = ""  # this will be the professions (Warrior, wizard, rogue etc)
     race = ""  # Kin: Race: This will one of the racial types as outlines in the race list

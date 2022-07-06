@@ -1,5 +1,4 @@
 def direction(player_input):
-    result = ""
     check = player_input[0].upper()
     if check == 'N':
         result = "Go North!"

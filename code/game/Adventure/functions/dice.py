@@ -25,17 +25,20 @@ def dice(sides=6, rolls=1):
 
 
 def numgen(number=100):
+    '''
+        number generator
+    '''
     return random.randint(1, number)
 
 
 if __name__ == '__main__':
-    print " Dice roll one six sided     : " + str(dice())
-    print " Dice roll one hundred sided : " + str(dice(100))
-    print " Dice roll five six sided    : " + str(dice(rolls=5))
-    print " Dice roll ten four sided    : " + str(dice(4, 10))
+    print(" Dice roll one six sided     : " + str(dice()))
+    print(" Dice roll one hundred sided : " + str(dice(100)))
+    print(" Dice roll five six sided    : " + str(dice(rolls=5)))
+    print(" Dice roll ten four sided    : " + str(dice(4, 10)))
     for _ in range(1, 1000):
         jolder = dice()
         if jolder > 6:
-            print " oops"
+            print(" oops")
         if jolder < 1:
-            print " whhooops"
+            print(" whhooops")

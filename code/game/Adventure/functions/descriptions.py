@@ -28,7 +28,6 @@ adventure_game = \
 ['4F','You keep walking. Make your saving roll on Luck (20 - Lk), four times. If you make all four saving rolls, take the numbers you rolled as experience points and go to 11C. If you missed one or more saving rolls, go to 6B.'],\
 ['4G','The Goblins have Constitutions of 8. For each one that you have killed, take 22 experience points. The survi- vors split and swim in different directions. As you are savoring your triumph there in the bloody water, a mighty tentacle wraps around your legs and drags you underwa- ter. Go to 11F and start reading with the second sentence.'],\
 ['4H','Battered unconscious, the breathing reflex takes over. Sorrowfully, we turn our eyes from your waterlogged little corpse. Go to 12E.'],\
-
 ['12E','Hello. I thought I\'d take this opportunity to speak to you personally. You are likely to read this paragraph a lot, as I believe in dangerous dungeons and that\'s going to kill a lot of characters. I want to ask you to help me in a little experiment. Please drop me a postcard telling me what kind of character you were playing, which paragraph killed it, the character name, and how you like this dungeon on the whole. Yes, I\'m keeping statistics. I\'ll be hoping to hear from you. My address is: Ken St. Andre,3421 E. Yale,Phoenix, AZ 86008']
 
 
