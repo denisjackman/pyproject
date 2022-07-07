@@ -17,12 +17,14 @@ class Game():
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption(CAPTION)
         self.clock = pygame.time.Clock()
+        self.all_sprites = pygame.sprite.Group()
+        self.playing = False
 
     def new(self):
         '''
             new method
         '''
-        self.all_sprites = pygame.sprite.Group()
+        self.playing = True
         self.run()
 
     def run(self):
@@ -30,7 +32,6 @@ class Game():
             run method
         '''
         # game loop
-        self.playing = True
         while self.playing:
             self.clock.tick(FPS)
             self.events()
