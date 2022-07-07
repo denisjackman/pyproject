@@ -1,8 +1,9 @@
 #!/usr/bin/env python
-import pygame
-import random
-from pygame.locals import *
+'''
+    lesson 1-2
+'''
 import os
+import pygame
 
 # This is a pygame template skeleton for a pygame project
 
@@ -25,27 +26,35 @@ img_folder = os.path.join(game_folder, "img")
 
 
 class Player(pygame.sprite.Sprite):
+    '''
+        player class
+    '''
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load(os.path.join(img_folder, "p1_jump.png")).convert()
-        self.image.set_colorkey(BLACK)
+        self.image = pygame.Surface((50,50))
+        self.image.fill(GREEN)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH/2, HEIGHT/2)
-        self.y_speed = 5
-
 
     def update(self):
+        '''
+            update method
+        '''
         self.rect.x += 5
-        self.rect.y += self.y_speed
-        if self.rect.bottom > HEIGHT  - 200:
-            self.y_speed = - 5
-        if self.rect.top < 200:
-            self.y_speed = 5
         if self.rect.left > WIDTH:
             self.rect.right = 0
 
+    def location(self):
+        '''
+            return current location
+        '''
+        return self.rect.center
+
+
 def main():
-    # initialise pygame and set up the screen
+    '''
+        initialise pygame and set up the screen
+    '''
     pygame.init()
     pygame.mixer.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))

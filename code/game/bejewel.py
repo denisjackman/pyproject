@@ -60,45 +60,45 @@ DELAY_PENALTY_POINTS = .5
 FPS_CLOCK = pygame.time.Clock()
 DISPLAY_SURFACE = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), DOUBLEBUF)
 pygame.display.set_caption("Bilging Puzzle")
+SCORE = 0.0
+SELECTOR = (0, 0)
 
 def main():
     '''
         main routine
     '''
-    global score
-    global selector
 
     bilgeBoard = generate_random_board()
-    selector = (0, 0)
-    score = 0.0
+    SELECTOR = (0, 0)
+    SCORE = 0.0
     lastMoveTime = pygame.time.get_ticks()
 
     blit_board(bilgeBoard)
-    draw_selector(selector)
-    remove_matches(bilgeBoard, selector)
+    draw_SELECTOR(SELECTOR)
+    remove_matches(bilgeBoard, SELECTOR)
 
     blit_board(bilgeBoard)
-    blit_score(score)
+    blit_score(SCORE)
     blit_time(0)
-    draw_selector(selector)
+    draw_SELECTOR(SELECTOR)
     moveDelay = 0
     while True:
         for event in pygame.event.get():
             if event.type == KEYUP:
-                if event.key == K_RIGHT and selector[0] < (PUZZLE_COLUMNS - 2):
-                    selector = (selector[0] + 1, selector[1])
-                if event.key == K_LEFT and selector [0] > 0:
-                    selector = (selector[0] - 1, selector[1])
-                if event.key == K_DOWN and selector[1] < (PUZZLE_ROWS - 1):
-                    selector = (selector[0], selector[1] + 1)
-                if event.key == K_UP and selector[1] > 0:
-                    selector = (selector[0], selector[1] - 1)
+                if event.key == K_RIGHT and SELECTOR[0] < (PUZZLE_COLUMNS - 2):
+                    SELECTOR = (SELECTOR[0] + 1, SELECTOR[1])
+                if event.key == K_LEFT and SELECTOR [0] > 0:
+                    SELECTOR = (SELECTOR[0] - 1, SELECTOR[1])
+                if event.key == K_DOWN and SELECTOR[1] < (PUZZLE_ROWS - 1):
+                    SELECTOR = (SELECTOR[0], SELECTOR[1] + 1)
+                if event.key == K_UP and SELECTOR[1] > 0:
+                    SELECTOR = (SELECTOR[0], SELECTOR[1] - 1)
                 if event.key == K_SPACE:
                     lastMoveTime = pygame.time.get_ticks()
 
-                    score -= 1
-                    swap_pieces(selector, bilgeBoard)
-                    remove_matches(bilgeBoard, selector)
+                    SCORE -= 1
+                    swap_pieces(SELECTOR, bilgeBoard)
+                    remove_matches(bilgeBoard, SELECTOR)
 
                     if moveDelay / (DELAY_PENALTY_SECONDS * 1000) >= 1:
                         score -= DELAY_PENALTY_POINTS * (moveDelay / (DELAY_PENALTY_SECONDS * 1000))
@@ -110,9 +110,9 @@ def main():
         moveDelay = pygame.time.get_ticks() - lastMoveTime
 
         blit_board(bilgeBoard)
-        blit_score(score)
+        blit_score(SCORE)
         blit_time(moveDelay / 1000)
-        draw_selector(selector)
+        draw_SELECTOR(SELECTOR)
 
         pygame.display.update()
         FPS_CLOCK.tick(FPS)
@@ -133,12 +133,12 @@ def blit_time(time):
     textPosition = text.get_rect()
     DISPLAY_SURFACE.blit(text, (TEXT_OFFSET, WINDOW_HEIGHT - (FONT_SIZE * 2)))
 
-def blit_score(score):
+def blit_score(display_score):
     '''
         blit score
     '''
     font = pygame.font.Font(None, FONT_SIZE)
-    text = font.render("Score: " + str(score), True, BLACK)
+    text = font.render("Score: " + str(display_score), True, BLACK)
     textPosition = text.get_rect()
     DISPLAY_SURFACE.blit(text, (TEXT_OFFSET, WINDOW_HEIGHT - FONT_SIZE))
 
@@ -155,10 +155,10 @@ def blit_board(board):
             columnNum += 1
         rowNum += 1
 
-def draw_selector(position):
+def draw_SELECTOR(position):
     '''
         Accepts a tuple indicating the position of the left shape in the
-        selector relative to the board (as an array) (row, column)
+        SELECTOR relative to the board (as an array) (row, column)
     '''
     topLeft = (position[0] * SHAPE_WIDTH, position[1] * SHAPE_HEIGHT)
     topRight = (topLeft[0] + SHAPE_WIDTH * 2, topLeft[1])
@@ -168,12 +168,12 @@ def draw_selector(position):
 
 def swap_pieces(position, board):
     '''
-        Accepts a tuple indicating the position of the selector
+        Accepts a tuple indicating the position of the SELECTOR
     '''
     pos_x, pos_y = position
     board[pos_y][pos_x + 1], board[pos_y][pos_x] = board[pos_y][pos_x], board[pos_y][pos_x + 1]
 
-def remove_matches(board, match_selector):
+def remove_matches(board, match_SELECTOR):
     '''
         match removal
     '''
@@ -181,18 +181,17 @@ def remove_matches(board, match_selector):
 
     while matches:
         explosion_animation(board, matches)
-        score_matches(board, match_selector, matches)
+        score_matches(board, match_SELECTOR, matches)
         clear_matches(board, matches)
         refill_columns(board)
         matches = find_matches(board)
-        match_selector = (0, 0)
+        match_SELECTOR = (0, 0)
         #So subsequent matches won't be counted as player matches
 
 def score_matches(board, score_selector, matches):
     '''
         score
     '''
-    global score
     playerMatches = []
 
     score_selector = (score_selector[1], score_selector[0])
@@ -203,18 +202,18 @@ def score_matches(board, score_selector, matches):
                 playerMatches.append(match)
 
     if len(playerMatches) == 1:
-        score += SINGLE_POINTS
+        SCORE += SINGLE_POINTS
     elif len(playerMatches) == 2:
-        score += DOUBLE_POINTS
+        SCORE += DOUBLE_POINTS
     elif len(playerMatches) == 3:
-        score += TRIPLE_POINTS
+        SCORE += TRIPLE_POINTS
 
     for match in playerMatches:
-        score += (len(match) - MINIMUM_MATCH) * EXTRA_LENGTH_POINTS
+        SCORE += (len(match) - MINIMUM_MATCH) * EXTRA_LENGTH_POINTS
 
     for match in matches:
         if not match in playerMatches:
-            score += RANDOM_POINTS
+            SCORE += RANDOM_POINTS
 
 def find_matches(board):
     '''

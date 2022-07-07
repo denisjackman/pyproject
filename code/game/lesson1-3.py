@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 '''
-    lesson 1-2
+    pygame lesson 1-3
 '''
-import pygame
-import random
-from pygame.locals import *
 import os
+import pygame
 
 # This is a pygame template skeleton for a pygame project
 
@@ -25,7 +23,7 @@ BLUE = (0, 0, 255)
 # set up assets folders
 game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, "img")
-
+img_file = 'Y:/pyproject/code/game/Shmup/img/p1_jump.png'
 
 class Player(pygame.sprite.Sprite):
     '''
@@ -33,23 +31,37 @@ class Player(pygame.sprite.Sprite):
     '''
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((50,50))
-        self.image.fill(GREEN)
+        self.image = pygame.image.load(img_file).convert()
+        self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH/2, HEIGHT/2)
+        self.y_speed = 5
+
 
     def update(self):
         '''
-            update method
+            update self
         '''
         self.rect.x += 5
+        self.rect.y += self.y_speed
+        if self.rect.bottom > HEIGHT  - 200:
+            self.y_speed = - 5
+        if self.rect.top < 200:
+            self.y_speed = 5
         if self.rect.left > WIDTH:
             self.rect.right = 0
 
+    def location(self):
+        '''
+            where am I?
+        '''
+        return self.rect.center
+
 def main():
     '''
-        initialise pygame and set up the screen
+        main routine
     '''
+    # initialise pygame and set up the screen
     pygame.init()
     pygame.mixer.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
