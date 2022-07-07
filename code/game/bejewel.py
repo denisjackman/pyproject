@@ -5,7 +5,14 @@
 import random
 import sys
 import pygame
-from pygame.locals import *
+from pygame.locals import (KEYUP,
+                           K_LEFT,
+                           DOUBLEBUF,
+                           K_RIGHT,
+                           K_DOWN,
+                           K_UP,
+                           QUIT,
+                           K_SPACE)
 
 pygame.init()
 
@@ -30,7 +37,7 @@ STAR2 = pygame.image.load("images/star2.png")
 TRIANGLE = pygame.image.load("images/triangle.png")
 SHAPES_LIST = [CIRCLE, DIAMOND, HEXAGON, SQUARE, STAR, STAR2, TRIANGLE]
 
-for x in xrange(len(SHAPES_LIST) - NUM_SHAPES):
+for x in range(len(SHAPES_LIST) - NUM_SHAPES):
     del SHAPES_LIST[0]
 
 EXPLOSION_1 = pygame.image.load("images/explosion1.png")
@@ -39,7 +46,8 @@ EXPLOSION_3 = pygame.image.load("images/explosion3.png")
 EXPLOSION_4 = pygame.image.load("images/explosion4.png")
 EXPLOSION_5 = pygame.image.load("images/explosion5.png")
 EXPLOSION_6 = pygame.image.load("images/explosion6.png")
-EXPLOSION_LIST = [EXPLOSION_1, EXPLOSION_2, EXPLOSION_3, EXPLOSION_4, EXPLOSION_5, EXPLOSION_6]
+EXPLOSION_LIST = [EXPLOSION_1, EXPLOSION_2, EXPLOSION_3, EXPLOSION_4,
+                  EXPLOSION_5, EXPLOSION_6]
 
 BLANK = pygame.image.load("images/blank.png")
 WHITE = (255, 255, 255)
@@ -222,16 +230,16 @@ def find_matches(board):
     clearList = []
 
     #First scan the columns for matches
-    for column in xrange(PUZZLE_COLUMNS):
+    for column in range(PUZZLE_COLUMNS):
         length = 1
-        for row in xrange(1, PUZZLE_ROWS):
+        for row in range(1, PUZZLE_ROWS):
             if board[row][column] == board[row - 1][column]:
                 length += 1
 
             if not board[row][column] == board[row - 1][column]:
                 if length >= MINIMUM_MATCH:
                     match = []
-                    for clearRow in xrange(row - length, row):
+                    for clearRow in range(row - length, row):
                         match.append((clearRow, column))
                     clearList.append(match)
                 length = 1
@@ -239,21 +247,21 @@ def find_matches(board):
             if row == PUZZLE_ROWS - 1:
                 if length >= MINIMUM_MATCH:
                     match = []
-                    for clearRow in xrange(row - (length - 1), row + 1):
+                    for clearRow in range(row - (length - 1), row + 1):
                         match.append((clearRow, column))
                     clearList.append(match)
 
     #Next scan the rows for matches
-    for row in xrange(PUZZLE_ROWS):
+    for row in range(PUZZLE_ROWS):
         length = 1
-        for column in xrange(1, PUZZLE_COLUMNS):
+        for column in range(1, PUZZLE_COLUMNS):
             if board[row][column] == board[row][column - 1]:
                 length += 1
 
             if not board[row][column] == board[row][column - 1]:
                 if length >= MINIMUM_MATCH:
                     match = []
-                    for clearColumn in xrange(column - length, column):
+                    for clearColumn in range(column - length, column):
                         match.append((row, clearColumn))
                     clearList.append(match)
                 length = 1
@@ -261,7 +269,7 @@ def find_matches(board):
             if column == PUZZLE_COLUMNS - 1:
                 if length >= MINIMUM_MATCH:
                     match = []
-                    for clearColumn in xrange(column - (length - 1), column + 1):
+                    for clearColumn in range(column - (length - 1), column + 1):
                         match.append((row, clearColumn))
                     clearList.append(match)
 
@@ -280,8 +288,8 @@ def refill_columns(board):
     '''
         refill columns
     '''
-    for column in xrange(PUZZLE_COLUMNS):
-        for row in xrange(PUZZLE_ROWS):
+    for column in range(PUZZLE_COLUMNS):
+        for row in range(PUZZLE_ROWS):
             if board[row][column] == BLANK:
                 test = 0
                 length = 0
@@ -291,7 +299,7 @@ def refill_columns(board):
                     length += 1
                     test += 1
 
-                for blankRow in xrange(row, PUZZLE_ROWS):
+                for blankRow in range(row, PUZZLE_ROWS):
                     try:
                         board[blankRow][column] = board[blankRow + length][column]
                     except:

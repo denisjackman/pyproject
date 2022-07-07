@@ -17,7 +17,9 @@ red = (255, 0, 0)
 
 
 def recursive_draw(x, y, width, height, count):
-    # Draw the rectangle
+    '''
+        raw the rectangle
+    '''
     # pygame.draw.rect(screen,black,[x,y,width,height],1)
     pygame.draw.line(screen,
                      black,
@@ -56,21 +58,21 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Fractals")
 
 # Loop until the user clicks the close button.
-done = False
+DONE = False
 
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
 
 # -------- Main Program Loop -----------
-while not done:
+while not DONE:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            done = True
+            DONE = True
     # Set the screen background
     screen.fill(white)
     # ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
-    fractal_level = 3
-    recursive_draw(0, 0, 700, 700, fractal_level)
+    FRACTAL_LEVEL = 3
+    recursive_draw(0, 0, 700, 700, FRACTAL_LEVEL)
     # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
     # Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
