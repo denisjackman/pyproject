@@ -2,7 +2,6 @@
 '''
     lesson 1-2
 '''
-import os
 import pygame
 
 # This is a pygame template skeleton for a pygame project

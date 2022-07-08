@@ -1,5 +1,5 @@
 '''
-    jumpy settings 
+    jumpy settings
 '''
 # Basic Constants
 WIDTH = 360

@@ -1,10 +1,15 @@
 #!/usr/bin/env python
+'''
+    jumpy game
+'''
 import pygame
-import random
-from settings import *
+from settings import (WIDTH, HEIGHT, FPS, CAPTION, BLACK)
 
 
 class Game():
+    '''
+        Game Class
+    '''
     def __init__(self):
         # game initiailise
         self.running = True
@@ -14,12 +19,20 @@ class Game():
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption(CAPTION)
         self.clock = pygame.time.Clock()
+        self.all_sprites = pygame.sprite.Group()
+        self.playing = True
 
     def new(self):
+        '''
+            new instance methid
+        '''
         self.all_sprites = pygame.sprite.Group()
         self.run()
 
     def run(self):
+        '''
+            game loop
+        '''
         # game loop
         self.playing = True
         while self.playing:
@@ -29,9 +42,15 @@ class Game():
             self.draw()
 
     def update(self):
+        '''
+            udate method
+        '''
         self.all_sprites.update()
 
     def events(self):
+        '''
+            methods
+        '''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 if self.playing:
@@ -39,6 +58,9 @@ class Game():
                 self.running = False
 
     def draw(self):
+        '''
+            render
+        '''
         # render
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
@@ -47,12 +69,20 @@ class Game():
         pygame.display.flip()
 
     def show_start_screen(self):
-        pass
+        '''
+            start screen
+        '''
 
     def show_go_screen(self):
-        pass
+        '''
+            go screen
+        '''
+
 
 def main():
+    '''
+        main routine
+    '''
     g = Game()
     g.show_start_screen()
     while g.running:
