@@ -1,33 +1,75 @@
 '''
     sample game class
 '''
+import pygame
+from settings import (WIDTH, HEIGHT, CAPTION, FPS, BLACK)
 
-
-class Game:
+class Game():
     '''
-        game glass
+        game class
     '''
-
     def __init__(self):
-        '''
-            init
-        '''
+        # game initialise
         self.running = True
+        # initialise pygame and set up the screen
+        pygame.init()
+        pygame.mixer.init()
+        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        pygame.display.set_caption(CAPTION)
+        self.clock = pygame.time.Clock()
+        self.all_sprites = pygame.sprite.Group()
+        self.playing = False
 
-    def mainloop(self):
+    def new(self):
         '''
-            main loop
+            new method
         '''
-        print("Starting")
-        print("Finished")
+        self.playing = True
+        self.run()
 
-    def game_running(self):
+    def run(self):
         '''
-            is it running
+            run method
         '''
-        return self.running
+        # game loop
+        while self.playing:
+            self.clock.tick(FPS)
+            self.events()
+            self.update()
+            self.draw()
 
+    def update(self):
+        '''
+            update method
+        '''
+        self.all_sprites.update()
 
-if __name__ == '__main__':
-    game = Game()
-    game.mainloop()
+    def events(self):
+        '''
+            events method
+        '''
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                if self.playing:
+                    self.playing = False
+                self.running = False
+
+    def draw(self):
+        '''
+            render
+        '''
+        self.screen.fill(BLACK)
+        self.all_sprites.draw(self.screen)
+
+        # flip the display always do this last
+        pygame.display.flip()
+
+    def show_start_screen(self):
+        '''
+            show start screen
+        '''
+
+    def show_go_screen(self):
+        '''
+            show go screen
+        '''
