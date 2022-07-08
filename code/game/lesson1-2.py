@@ -8,10 +8,10 @@ import pygame
 # This is a pygame template skeleton for a pygame project
 
 # Basic Constants
-WIDTH = 800
-HEIGHT = 600
-FPS = 30
-CAPTION = "Sprite Example"
+WIDTH = 900
+HEIGHT = 500
+FPS = 40
+CAPTION = "New Sprite Example"
 
 # Color Constants
 WHITE = (255, 255, 255)
@@ -19,11 +19,6 @@ BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
-
-# set up assets folders
-game_folder = os.path.dirname(__file__)
-img_folder = os.path.join(game_folder, "img")
-
 
 class Player(pygame.sprite.Sprite):
     '''
@@ -38,7 +33,7 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         '''
-            update method
+            update method for self
         '''
         self.rect.x += 5
         if self.rect.left > WIDTH:
@@ -46,7 +41,7 @@ class Player(pygame.sprite.Sprite):
 
     def location(self):
         '''
-            return current location
+            return my real current location
         '''
         return self.rect.center
 
@@ -54,25 +49,26 @@ class Player(pygame.sprite.Sprite):
 def main():
     '''
         initialise pygame and set up the screen
+        run the main program
     '''
     pygame.init()
     pygame.mixer.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption(CAPTION)
     clock = pygame.time.Clock()
-    running = True
+    main_running = True
     all_sprites = pygame.sprite.Group()
     player = Player()
     all_sprites.add(player)
 
     # main game loop
-    while running:
-        # keep loop running at the right speed
+    while main_running:
+        # keep loop main_running at the right speed
         clock.tick(FPS)
         # process input
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
+                main_running = False
         # update
         all_sprites.update()
 

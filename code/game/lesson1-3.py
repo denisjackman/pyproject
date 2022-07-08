@@ -23,7 +23,7 @@ BLUE = (0, 0, 255)
 # set up assets folders
 game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, "img")
-img_file = 'Y:/pyproject/code/game/Shmup/img/p1_jump.png'
+IMG_FILE = 'Y:/pyproject/code/game/Shmup/img/p1_jump.png'
 
 class Player(pygame.sprite.Sprite):
     '''
@@ -31,7 +31,7 @@ class Player(pygame.sprite.Sprite):
     '''
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load(img_file).convert()
+        self.image = pygame.image.load(IMG_FILE).convert()
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH/2, HEIGHT/2)

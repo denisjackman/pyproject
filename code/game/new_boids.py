@@ -1,13 +1,13 @@
-###
-# boids_display.py
-#
-# author: Kristina Striegnitz
-#
-# version: 1/31/2010
-#
-# A simple pygame display for a list of boids.
-#
-###
+'''
+ boids_display.py
+
+ author: Kristina Striegnitz
+
+ version: 1/31/2010
+
+ A simple pygame display for a list of boids.
+
+'''
 import math
 import pygame
 
@@ -21,10 +21,13 @@ WIDTH = 800
 HEIGHT = 300
 
 
-def run_display(boids, update_function, WIDTH, HEIGHT):
+def run_display(boids, update_function, SWIDTH, SHEIGHT):
+    '''
+        display the boids
+    '''
     pygame.init()
-    width = WIDTH
-    height = HEIGHT
+    width = SWIDTH
+    height = SHEIGHT
     screen = pygame.display.set_mode((width,height))
     clock = pygame.time.Clock()
 

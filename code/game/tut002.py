@@ -26,7 +26,8 @@ PLAYTIME = 0.0 # how many seconds the "game" is played
 while MAINLOOP:
     milliseconds = clock.tick(FPS) # do not go faster than this framerate
     PLAYTIME += milliseconds / 1000.0 # add seconds to PLAYTIME
-    print("%i milliseconds passed since last frame" % milliseconds ) # brackets for python3.x
+    print(f"{milliseconds} milliseconds passed since last frame")
+    # brackets for python3.x
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             MAINLOOP = False # pygame window closed by user

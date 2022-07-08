@@ -25,3 +25,9 @@ words = ["spam", "egg", "spam", "sausage"]
 print("spam" in words)
 print("egg" in words)
 print("tomato" in words)
+
+N = int(input())
+new_result = 0
+for item in range(1, N + 1):
+    new_result += item
+print(new_result)

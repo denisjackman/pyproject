@@ -30,4 +30,4 @@ class Game:
 
 if __name__ == '__main__':
     game = Game()
-    game.mainloop()cd code
+    game.mainloop()
