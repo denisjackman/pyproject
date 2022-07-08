@@ -75,7 +75,8 @@ def main():
     '''
         main routine
     '''
-
+    global SCORE
+    global SELECTOR
     bilgeBoard = generate_random_board()
     SELECTOR = (0, 0)
     SCORE = 0.0
@@ -189,17 +190,18 @@ def remove_matches(board, match_SELECTOR):
 
     while matches:
         explosion_animation(board, matches)
-        score_matches(board, match_SELECTOR, matches)
+        score_matches(match_SELECTOR, matches)
         clear_matches(board, matches)
         refill_columns(board)
         matches = find_matches(board)
         match_SELECTOR = (0, 0)
         #So subsequent matches won't be counted as player matches
 
-def score_matches(board, score_selector, matches):
+def score_matches(score_selector, matches):
     '''
         score
     '''
+    global SCORE
     playerMatches = []
 
     score_selector = (score_selector[1], score_selector[0])
@@ -302,8 +304,9 @@ def refill_columns(board):
                 for blankRow in range(row, PUZZLE_ROWS):
                     try:
                         board[blankRow][column] = board[blankRow + length][column]
-                    except:
+                    except Exception as err:
                         board[blankRow][column] = SHAPES_LIST[random.randrange(0, len(SHAPES_LIST))]
+                        print(f' error {err}')
 
 
 def explosion_animation(board, matches):
