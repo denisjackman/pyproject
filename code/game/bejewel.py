@@ -75,8 +75,8 @@ def main():
     '''
         main routine
     '''
-    global SCORE
-    global SELECTOR
+    global SCORE  # pylint: disable=W0603
+    global SELECTOR  # pylint: disable=W0603
     bilgeBoard = generate_random_board()
     SELECTOR = (0, 0)
     SCORE = 0.0
@@ -201,14 +201,16 @@ def score_matches(score_selector, matches):
     '''
         score
     '''
-    global SCORE
+    global SCORE  # pylint: disable=W0603
     playerMatches = []
 
     score_selector = (score_selector[1], score_selector[0])
 
     for match in matches:
         for position in match:
-            if (position == score_selector or position == (score_selector[0], score_selector[1] + 1)) and (not match in playerMatches):
+            # if (position == score_selector or position == (score_selector[0], score_selector[1] + 1)) and (not match in playerMatches):
+            #    playerMatches.append(match)
+            if position in (score_selector, score_selector[0], score_selector[1] + 1) and (not match in playerMatches):
                 playerMatches.append(match)
 
     if len(playerMatches) == 1:

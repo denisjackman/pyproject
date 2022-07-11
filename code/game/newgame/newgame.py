@@ -4,8 +4,8 @@
 from os import environ
 environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 
-import pygame
-from pygame.locals import (QUIT, KEYDOWN, K_ESCAPE)
+import pygame  # pylint: disable=C0413
+from pygame.locals import (QUIT, KEYDOWN, K_ESCAPE)  # pylint: disable=C0413
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
