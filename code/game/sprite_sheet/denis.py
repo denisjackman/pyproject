@@ -6,10 +6,12 @@ import pygame
 from spritesheet import Spritesheet
 
 pygame.init()
-DISPLAY_W, DISPLAY_H = 480, 270
+DISPLAY_W = 480
+DISPLAY_H = 270
 canvas = pygame.Surface((DISPLAY_W, DISPLAY_H))
 window = pygame.display.set_mode(((DISPLAY_W, DISPLAY_H)))
 RUNNING = True
+WHITE = (255, 255, 255)
 
 my_spritesheet = Spritesheet('trainer_sheet_two.png')
 trainer = [my_spritesheet.parse_sprite('trainer1.png'),
@@ -37,7 +39,7 @@ while RUNNING:
                 INDEX_COUNTER = (INDEX_COUNTER + 1) % len(trainer)
 
     # UPDATE WINDOW AND DISPLAY
-    canvas.fill((255, 255, 255))
+    canvas.fill(WHITE)
     canvas.blit(trainer[INDEX_COUNTER], (0, DISPLAY_H - 128))
     canvas.blit(female_trainer[INDEX_COUNTER], (128, DISPLAY_H - 128))
     window.blit(canvas, (0, 0))

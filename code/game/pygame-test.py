@@ -5,7 +5,7 @@
 # https://stackoverflow.com/questions/18067219/pygame-image-screen-fill
 import pygame
 pygame.init()
-img = pygame.image.load("oreg.PNG")
+img = pygame.image.load("y:/pyproject/resources/oreg.PNG")
 white = (255, 255, 255)
 WIDTH = 843
 HEIGHT = 798
