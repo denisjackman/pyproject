@@ -23,12 +23,12 @@ pygame.init()
 game_screen = pygame.display.set_mode(SCREEN_SIZE)
 icon = pygame.image.load(ICON_FILE)
 imgload = pygame.image.load(IMG_FILE).convert()
-#img_one = imgload.get_rect(0, 0, 30, 30)
 
 pygame.display.set_caption(CAPTION)
 pygame.display.set_icon(icon)
 
 clock = pygame.time.Clock()
+
 
 def sprite(sprite_surface, sx, sy):
     '''
@@ -37,42 +37,55 @@ def sprite(sprite_surface, sx, sy):
     game_screen.blit(sprite_surface, (sx, sy))
 
 
+def sprite_load(source_surface,
+                sprite_position,
+                sprite_size):
+    '''
+        new sprite image
+    '''
+    new_sprite = pygame.Surface(sprite_size)
+    new_sprite.set_colorkey(BLACK)
+    new_sprite.blit(source_surface,
+                    (0, 0),
+                    sprite_position)
+    return new_sprite
+
+
+def check_status():
+    '''
+        this checks the status of the game and return True is it should keep
+        running False is not.
+        There are no parameters to be passed and it returns a boolean as a
+        response.
+    '''
+    result = True
+    for event in pygame.event.get():
+        if event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                result = False
+        elif event.type == QUIT:
+            result = False
+    return result
+
+
 def main():
     '''
         main routine
     '''
     imgload.set_colorkey(BLACK)
-    sprite_img = pygame.Surface((30, 30))
-    sprite_img.set_colorkey(BLACK)
-    sprite_img.blit(imgload, (0, 0), (5, 5, 35, 35))
-
-    sprite_img2 = pygame.Surface((30, 30))
-    sprite_img2.set_colorkey(BLACK)
-    sprite_img2.blit(imgload, (0, 0), (5, 170, 35, 170 + 35))
-
-    sprite_img3 = pygame.Surface((30, 30))
-    sprite_img3.set_colorkey(BLACK)
-    sprite_img3.blit(imgload, (0, 0), (35 + 2, 5, 37+30, 35))
-
+    sprite_img = sprite_load(imgload, (5, 5, 35, 35), (30, 30))
+    sprite_img2 = sprite_load(imgload, (5, 170, 35, 205), (30, 30))
+    sprite_img3 = sprite_load(imgload, (37, 5, 67, 35), (30, 30))
 
     RUNNING = True
-
     while RUNNING:
+        RUNNING = check_status()
         game_screen.fill(WHITE)
         sprite(sprite_img, 0, 0)
         sprite(sprite_img2, 60, 0)
         sprite(sprite_img3, 90, 0)
-
-        #game_screen.blit(sprite_img, (0, 0))
         pygame.display.flip()
         clock.tick(30)
-
-        for event in pygame.event.get():
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                    RUNNING = False
-            elif event.type == QUIT:
-                RUNNING = False
     pygame.quit()
 
 
