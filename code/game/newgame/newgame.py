@@ -36,6 +36,7 @@ def sprite(sprite_surface, sprite_position):
     '''
         sprite function
     '''
+    sprite_surface.set_colorkey(BLACK)
     game_screen.blit(sprite_surface, sprite_position)
 
 
@@ -74,7 +75,6 @@ def main():
     '''
         main routine
     '''
-    imgload.set_colorkey(BLACK)
 
     start_posx = 0
     start_posy = 0
@@ -118,7 +118,7 @@ def main():
 
     while RUNNING:
         RUNNING = check_status()
-        game_screen.fill(BLACK)
+        game_screen.fill(WHITE)
         row = 0
         screen_x = 0
         screen_y = 0

@@ -78,13 +78,13 @@ fly.append(pygame.image.load('y:/pyproject/resources/test/sprites/frame-8.png').
 newfly = []
 for flyitem in fly:
     newfly.append(pygame.transform.scale(flyitem, (64, 64)))
-
 imgload = pygame.image.load(IMG_FILE).convert()
 
 def sprite(sprite_surface, sprite_position):
     '''
         sprite function
     '''
+    sprite_surface.set_colorkey(BLACK)
     game_screen.blit(sprite_surface, sprite_position)
 
 
@@ -95,7 +95,7 @@ def sprite_load(source_surface,
         new sprite image
     '''
     new_sprite = pygame.Surface(sprite_size)
-    new_sprite.set_colorkey(BLACK)
+    new_sprite.set_colorkey(WHITE)
     new_sprite.blit(source_surface,
                     (0, 0),
                     sprite_position)
@@ -123,7 +123,6 @@ def main():
     '''
         main routine
     '''
-    imgload.set_colorkey(BLACK)
 
     start_posx = 0
     start_posy = 0
@@ -156,26 +155,24 @@ def main():
     count = 0
     counter = 0
     looper = 0
+    sprite_timer = 0
 
     while RUNNING:
         RUNNING = check_status()
-        game_screen.fill(BLACK)
+        game_screen.fill(WHITE)
         sprite(sprite_list[count], screen_position)
         sprite(newimg[counter], (100, 300))
         sprite(newfly[looper],(200, 300))
         looper += 1
         if looper >= len(fly):
             looper = 0
-        count += 1
-        if count >= len(sprite_list):
+        sprite_timer += FPS
+        if sprite_timer >= 240:
+            count += 1
+            sprite_timer = 0
+        if count >= 4:
             count = 0
         counter += 1
         if counter >= len(img):
             counter = 0
-        pygame.display.flip()
-        clock.tick(FPS)
-    pygame.quit()
-
-
-if __name__ == '__main__':
-    main()
+        pygame.d
