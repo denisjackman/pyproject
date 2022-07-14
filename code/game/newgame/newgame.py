@@ -18,6 +18,14 @@ IMG_FILE_2 = 'y:/pyproject/resources/match3_tiles_px.png'
 ICON_FILE = 'y:/pyproject/resources/icon.png'
 SPRITE_X = 0
 SPRITE_Y = 0
+START_POSX = 0
+START_POSY = 0
+SPRITE_WIDTH = 40
+SPRITE_HEIGHT = 40
+sprite_size = (SPRITE_WIDTH, SPRITE_HEIGHT)
+NU_SPRITE_WIDTH = 16
+NU_SPRITE_HEIGHT = 16
+nu_sprite_size = (NU_SPRITE_WIDTH, NU_SPRITE_HEIGHT)
 
 pygame.init()
 
@@ -42,11 +50,11 @@ def sprite(sprite_surface, sprite_position):
 
 def sprite_load(source_surface,
                 sprite_position,
-                sprite_size):
+                new_sprite_size):
     '''
         new sprite image
     '''
-    new_sprite = pygame.Surface(sprite_size)
+    new_sprite = pygame.Surface(new_sprite_size)
     new_sprite.set_colorkey(BLACK)
     new_sprite.blit(source_surface,
                     (0, 0),
@@ -76,41 +84,35 @@ def main():
         main routine
     '''
 
-    start_posx = 0
-    start_posy = 0
-    sprite_width = 40
-    sprite_height = 40
-    sprite_size = (sprite_width, sprite_height)
+
 
     sprite_list = []
-    cur_posx = start_posx
-    cur_posy = start_posy
+    cur_posx = START_POSX
+    cur_posy = START_POSY
 
     for _ in range(2):
         for _ in range(8):
             sprite_pos = (cur_posx,
                           cur_posy,
-                          sprite_width + cur_posx,
-                          sprite_height + cur_posy )
+                          SPRITE_WIDTH + cur_posx,
+                          SPRITE_HEIGHT + cur_posy )
             sprite_list.append(sprite_load(imgload, sprite_pos, sprite_size))
-            cur_posx += sprite_width
-        cur_posy += sprite_height
+            cur_posx += SPRITE_WIDTH
+        cur_posy += SPRITE_HEIGHT
         cur_posx = 0
-    cur_posx = start_posx
-    cur_posy = start_posy
-    nu_sprite_width = 16
-    nu_sprite_height = 16
-    nu_sprite_size = (nu_sprite_width, nu_sprite_height)
+    cur_posx = START_POSX
+    cur_posy = START_POSY
+
     for _ in range(16):
         for _ in range(6):
             sprite_pos = (cur_posx,
                           cur_posy,
-                          nu_sprite_width + cur_posx,
-                          nu_sprite_height + cur_posy )
+                          NU_SPRITE_WIDTH + cur_posx,
+                          NU_SPRITE_HEIGHT + cur_posy )
             sprite_img2 = sprite_load(second_set, sprite_pos, nu_sprite_size)
             sprite_list.append(pygame.transform.scale(sprite_img2, (40, 40)))
-            cur_posx += nu_sprite_width
-        cur_posy += nu_sprite_height
+            cur_posx += NU_SPRITE_WIDTH
+        cur_posy += NU_SPRITE_HEIGHT
         cur_posx = 0
 
 
@@ -128,12 +130,12 @@ def main():
             if row == 8:
                 row = 0
                 screen_x = offset
-                screen_y += sprite_height
+                screen_y += SPRITE_HEIGHT
 
 
             screen_position = (screen_x, screen_y)
             sprite(item, screen_position)
-            screen_x += sprite_width
+            screen_x += SPRITE_WIDTH
             row += 1
             if screen_y > HEIGHT:
                 screen_y = 0
