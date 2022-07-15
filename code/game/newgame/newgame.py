@@ -87,33 +87,33 @@ def game_main():
 
 
     sprite_list = []
-    cur_posx = START_POSX
-    cur_posy = START_POSY
+    nu_cur_posx = START_POSX
+    nu_cur_posy = START_POSY
 
     for _ in range(2):
         for _ in range(8):
-            sprite_pos = (cur_posx,
-                          cur_posy,
-                          SPRITE_WIDTH + cur_posx,
-                          SPRITE_HEIGHT + cur_posy )
+            sprite_pos = (nu_cur_posx,
+                          nu_cur_posy,
+                          SPRITE_WIDTH + nu_cur_posx,
+                          SPRITE_HEIGHT + nu_cur_posy )
             sprite_list.append(sprite_load(imgload, sprite_pos, sprite_size))
-            cur_posx += SPRITE_WIDTH
-        cur_posy += SPRITE_HEIGHT
-        cur_posx = 0
-    cur_posx = START_POSX
-    cur_posy = START_POSY
+            nu_cur_posx += SPRITE_WIDTH
+        nu_cur_posy += SPRITE_HEIGHT
+        nu_cur_posx = 0
+    nu_cur_posx = START_POSX
+    nu_cur_posy = START_POSY
 
     for _ in range(16):
         for _ in range(6):
-            sprite_pos = (cur_posx,
-                          cur_posy,
-                          NU_SPRITE_WIDTH + cur_posx,
-                          NU_SPRITE_HEIGHT + cur_posy )
+            sprite_pos = (nu_cur_posx,
+                          nu_cur_posy,
+                          NU_SPRITE_WIDTH + nu_cur_posx,
+                          NU_SPRITE_HEIGHT + nu_cur_posy )
             sprite_img2 = sprite_load(second_set, sprite_pos, nu_sprite_size)
             sprite_list.append(pygame.transform.scale(sprite_img2, (40, 40)))
-            cur_posx += NU_SPRITE_WIDTH
-        cur_posy += NU_SPRITE_HEIGHT
-        cur_posx = 0
+            nu_cur_posx += NU_SPRITE_WIDTH
+        nu_cur_posy += NU_SPRITE_HEIGHT
+        nu_cur_posx = 0
 
 
     RUNNING = True
