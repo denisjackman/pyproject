@@ -50,36 +50,36 @@ def sprite(sprite_surface, sprite_position):
 
 def sprite_load(source_surface,
                 sprite_position,
-                new_sprite_size):
+                nu_sprite_size):
     '''
         new sprite image
     '''
-    new_sprite = pygame.Surface(new_sprite_size)
-    new_sprite.set_colorkey(BLACK)
-    new_sprite.blit(source_surface,
+    nu_sprite = pygame.Surface(nu_sprite_size)
+    nu_sprite.set_colorkey(BLACK)
+    nu_sprite.blit(source_surface,
                     (0, 0),
                     sprite_position)
-    return new_sprite
+    return nu_sprite
 
 
-def check_status():
+def check_game_status():
     '''
         this checks the status of the game and return True is it should keep
         running False is not.
         There are no parameters to be passed and it returns a boolean as a
         response.
     '''
-    result = True
+    game_result = True
     for event in pygame.event.get():
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
-                result = False
+                game_result = False
         elif event.type == QUIT:
-            result = False
-    return result
+            game_result = False
+    return game_result
 
 
-def main():
+def game_main():
     '''
         main routine
     '''
@@ -119,7 +119,7 @@ def main():
     RUNNING = True
 
     while RUNNING:
-        RUNNING = check_status()
+        RUNNING = check_game_status()
         game_screen.fill(WHITE)
         row = 0
         screen_x = 0
@@ -146,4 +146,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    game_main()

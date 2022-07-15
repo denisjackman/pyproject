@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-    dumping stuff into yaml format 
+    dumping stuff into yaml format
 '''
 import yaml
 
