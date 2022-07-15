@@ -50,11 +50,11 @@ def sprite(sprite_surface, sprite_position):
 
 def sprite_load(source_surface,
                 sprite_position,
-                nu_sprite_size):
+                nir_sprite_size):
     '''
         new sprite image
     '''
-    nu_sprite = pygame.Surface(nu_sprite_size)
+    nu_sprite = pygame.Surface(nir_sprite_size)
     nu_sprite.set_colorkey(BLACK)
     nu_sprite.blit(source_surface,
                     (0, 0),
