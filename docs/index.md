@@ -22,6 +22,9 @@ This is the beginning of a slack bot. My aim here is to make a bot which will br
 ## Spotify
 This is an example of using the web api to control spotify
 
+## YAML
+* [Python YAML](https://zetcode.com/python/yaml/)
+
 ## Trello
 This is a an example of python interatcting with trello
 

@@ -36,3 +36,5 @@ plotly
 statsmodels
 moviepy
 opencv-python
+pyyaml
+yamllint
