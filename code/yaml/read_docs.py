@@ -3,8 +3,7 @@
     read the yaml file
 '''
 import yaml
-
-with open('data.yaml', 'r', encoding='utf8') as f:
+with open('y:/pyproject/resources/yaml/data.yaml', 'r', encoding='utf8') as f:
 
     docs = yaml.load_all(f, Loader=yaml.FullLoader)
 

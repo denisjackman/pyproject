@@ -8,6 +8,9 @@ import pygame  # pylint: disable=C0413
 from pygame.locals import (QUIT, KEYDOWN, K_ESCAPE)  # pylint: disable=C0413
 
 BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
 WHITE = (255, 255, 255)
 WIDTH = 800
 HEIGHT = 600
@@ -84,62 +87,15 @@ def game_main():
         main routine
     '''
 
-
-
-    sprite_list = []
-    nu_cur_posx = START_POSX
-    nu_cur_posy = START_POSY
-
-    for _ in range(2):
-        for _ in range(8):
-            sprite_pos = (nu_cur_posx,
-                          nu_cur_posy,
-                          SPRITE_WIDTH + nu_cur_posx,
-                          SPRITE_HEIGHT + nu_cur_posy )
-            sprite_list.append(sprite_load(imgload, sprite_pos, sprite_size))
-            nu_cur_posx += SPRITE_WIDTH
-        nu_cur_posy += SPRITE_HEIGHT
-        nu_cur_posx = 0
-    nu_cur_posx = START_POSX
-    nu_cur_posy = START_POSY
-
-    for _ in range(16):
-        for _ in range(6):
-            sprite_pos = (nu_cur_posx,
-                          nu_cur_posy,
-                          NU_SPRITE_WIDTH + nu_cur_posx,
-                          NU_SPRITE_HEIGHT + nu_cur_posy )
-            sprite_img2 = sprite_load(second_set, sprite_pos, nu_sprite_size)
-            sprite_list.append(pygame.transform.scale(sprite_img2, (40, 40)))
-            nu_cur_posx += NU_SPRITE_WIDTH
-        nu_cur_posy += NU_SPRITE_HEIGHT
-        nu_cur_posx = 0
-
-
     RUNNING = True
 
     while RUNNING:
         RUNNING = check_game_status()
         game_screen.fill(WHITE)
-        row = 0
-        screen_x = 0
-        screen_y = 0
-        offset = 0
-
-        for item in sprite_list:
-            if row == 8:
-                row = 0
-                screen_x = offset
-                screen_y += SPRITE_HEIGHT
-
-
-            screen_position = (screen_x, screen_y)
-            sprite(item, screen_position)
-            screen_x += SPRITE_WIDTH
-            row += 1
-            if screen_y > HEIGHT:
-                screen_y = 0
-                offset += 160
+        pygame.draw.line(game_screen, BLACK, (100,100), (200,200))
+        pygame.draw.line(game_screen, RED, (110,100), (210,200))
+        pygame.draw.line(game_screen, GREEN, (120,100), (220,200))
+        pygame.draw.line(game_screen, BLUE, (130,100), (230,200))
         pygame.display.flip()
         clock.tick(30)
     pygame.quit()
