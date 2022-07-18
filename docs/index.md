@@ -8,6 +8,7 @@ I use a couple of github actions (see below). And I will add to this as I find e
 * Excel
 * Slack
 * Spotify
+* YAML
 * Trello
 
 ### Discord
@@ -19,13 +20,13 @@ This is an example of writing to and reading from MS Excel Spreadsheets and work
 ### Slack
 This is the beginning of a slack bot. My aim here is to make a bot which will broadcast to a umber of channels on demand.
 
-## Spotify
+### Spotify
 This is an example of using the web api to control spotify
 
-## YAML
+### YAML
 * [Python YAML](https://zetcode.com/python/yaml/)
 
-## Trello
+### Trello
 This is a an example of python interatcting with trello
 
 ## GitHub actions

@@ -3,6 +3,7 @@
 #####################################################
 **/data/*
 **/secrets/*
+**/.pytest_cache/*
 credentials.json
 
 # Compiled source #
