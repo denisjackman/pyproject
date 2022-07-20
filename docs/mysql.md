@@ -1,3 +1,16 @@
+
+# MYSQL
+
+## References
+* [tutorial](https://www3.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Beginner.html)
+* [Official Tutorial](https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/)
+* [Example Data](https://electrictoolbox.com/mysql-example-table/)
+* [example database](https://www.mysqltutorial.org/mysql-sample-database.aspx)
+* [Example database 2](https://dev.mysql.com/doc/employee/en/)
+* [Example database 3](https://www3.ntu.edu.sg/home/ehchua/programming/sql/SampleDatabases.html)
+* [example database 4](https://www.sqlservertutorial.net/sql-server-sample-database/)
+
+## Code
 create database test;
 GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT  on *.* TO 'jackmanimation'@'Gerialt.lan' WITH GRANT OPTION;
 GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT  on test TO 'jackmanimation'@*;
