@@ -37,24 +37,61 @@ __version__ = "$Revision: 0.00 $"
 __date__ = "$Date: 2022/07/17 09:27:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-# colours
-GREEN = (0, 255, 0)
-WHITE = (255, 255, 255)
-GRAY = (127, 127, 127)
 
+import pygame
+from djgamemodule import colours as gc
+
+def imageload(load_color, size, position):
+    result_surface = pygame.Surface(size)
+    result_surface.fill(load_color)
+    result_rect = result_surface.get_rect()
+    result_rect.center = position
+    return result_surface
 
 def snake_main():
     '''
         main routine for the snake game
     '''
+    pygame.init()
+    pygame.mixer.init()
+    clock = pygame.time.Clock()
+    main_running = True
     numberofsquares = 540
     numberinrow = 20
     squaresize = 16
+    WIDTH = 800
+    HEIGHT = 500
+    FPS = 60
     score = 0
-    squarecolour = GRAY
-    snakecolour = WHITE
-    foodcolour = GREEN
+    game_title = "Snake"
+    squarecolour = gc.DIM_GRAY
+    snakecolour = gc.WHITE
+    foodcolour = gc.DARK_GREEN
+    # Square
 
+    square_image = imageload(squarecolour,(squaresize, squaresize), (0, 0))
+    snake_image = imageload(snakecolour,(squaresize, squaresize), (0, 0))
+    food_image = imageload(foodcolour,(squaresize, squaresize), (0, 0))
+
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption(game_title)
+    # main game loop
+    while main_running:
+        # keep loop main_running at the right speed
+        clock.tick(FPS)
+        # process input
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                main_running = False
+
+
+        # render
+        screen.fill(gc.BLACK)
+
+        # flip the display always do this last
+        pygame.display.flip()
+
+    pygame.quit()
 
 if __name__ == '__main__':
     snake_main()

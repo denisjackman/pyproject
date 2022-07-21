@@ -7,23 +7,14 @@ All this stuff at the top of the script is just optional metadata;
 
 """
 
-
-
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 1.10 $"
 __date__ = "$Date: 2022/05/31 00:31:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
-import os
-import sys
 import mysql.connector
-
-# pylint: disable=wrong-import-position
-MODULE_PATH = "../jackmanimation/"
-sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import credscheck
-# pylint: enable=wrong-import-position
+from djgamemodule import security as sec
 
 
 def opendb(credid, database):
@@ -50,8 +41,7 @@ def opendb(credid, database):
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
-    credid = credscheck('y:/pyproject/secrets/credentials.json')
-
+    credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
     use_db = opendb(credid, 'mydatabase')  # pylint: disable=W0612
     print("finishing up and closing down:")
 
