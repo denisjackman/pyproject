@@ -4,24 +4,18 @@
 """
 import os
 import sys
-
 import tekore as tk
-
-#pylint: disable=wrong-import-position
-MODULE_PATH = "../jackmanimation/"
-sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import credscheck
-#pylint: enable=wrong-import-position
+from djgamemodule import security as sec
 
 
 def main():
     """ This is the main function """
-    cred_id = credscheck('../secrets/credentials.json')
+    credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
     # client_id = cred_id["SpotifyClientID"]
     # client_secret = cred_id["SpotifyClientSecret"]
     # redirect_uri = "https://github.com/denisjackman/pyproject"
     # conf = (client_id, client_secret, redirect_uri)
-    token = cred_id["SpotifyToken"]
+    token = credid["SpotifyToken"]
     spotify = tk.Spotify(token)
     tracks = spotify.current_user_top_tracks()
     count = 1

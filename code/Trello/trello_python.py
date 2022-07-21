@@ -14,14 +14,11 @@ __license__ = "Python"
 import os
 import sys
 import requests
+from djgamemodule import security as sec
 
-#pylint: disable=wrong-import-position
-MODULE_PATH = "../jackmanimation/"
-sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import credscheck
-#pylint: enable=wrong-import-position
-
-cred_id = credscheck('../secrets/credentials.json')
+filelist = ["y:/pyproject/resources/work.txt",
+            "y:/pyproject/resources/chores.txt",]
+cred_id = sec.credscheck('y:/pyproject/secrets/credentials.json')
 key = cred_id["TrelloAPIKey"]
 token = cred_id["TrelloToken"]
 
@@ -59,11 +56,12 @@ def create_card(list_id, card_name):
 def main():
     """ Main function here """
     board_id = create_board("Jackmanimation test")
-    for filename in os.listdir():
+    for fileitem in filelist:
+        filename = fileitem
         if filename.endswith(".txt"):
             filename = os.path.splitext(filename)[0]
             list_name = create_list(board_id, filename.title())
-            with open(f"{filename}.txt", "r", encoding="utf8") as txt_file:
+            with open(fileitem, "r", encoding="utf8") as txt_file:
                 for card_name in txt_file.readlines():
                     create_card(list_name, card_name)
 

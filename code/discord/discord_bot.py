@@ -4,19 +4,15 @@
 """
 import os
 import sys
-#pylint: disable=wrong-import-position
-MODULE_PATH = "../jackmanimation/"
-sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import credscheck
-#pylint: enable=wrong-import-position
 import discord
+from djgamemodule import security as sec
 
 VERSION = "01.00 Alpha (Sugar)"
 
 
 def main():
     """ this is the main function """
-    cred_id = credscheck('../secrets/credentials.json')
+    cred_id = sec.credscheck('../secrets/credentials.json')
     discord_token = cred_id["DiscordToken"]
     client = discord.Client()
 

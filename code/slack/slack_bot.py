@@ -7,13 +7,7 @@ import os
 import sys
 import argparse
 import requests
-
-
-#pylint: disable=wrong-import-position
-MODULE_PATH = "../jackmanimation/"
-sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import credscheck
-#pylint: enable=wrong-import-position
+from djgamemodule import security as sec
 
 
 def send_slack_message(message: str, channels: str):
@@ -47,7 +41,7 @@ def main():
     '''
     Main function for our logic
     '''
-    channelslist = credscheck('credentials.json')
+    channelslist = sec.credscheck('y:/pyproject/secrets/credentials.json')
     parser = argparse.ArgumentParser(description='Send Messages to Slack')
     parser.add_argument('--message', '-m', type=str, default='')
     parser.add_argument('--file', '-f', type=str, default='')

@@ -42,6 +42,9 @@ import pygame
 from djgamemodule import colours as gc
 
 def imageload(load_color, size, position):
+    '''
+        image load function 
+    '''
     result_surface = pygame.Surface(size)
     result_surface.fill(load_color)
     result_rect = result_surface.get_rect()

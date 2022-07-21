@@ -11,14 +11,10 @@ import sys
 import pyjokes
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
-#pylint: disable=wrong-import-position
-MODULE_PATH = "../jackmanimation/"
-sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import credscheck
-#pylint: enable=wrong-import-position
+from djgamemodule import security as sec
 
 
-credid = credscheck('../secrets/credentials.json')
+credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
 SLACK_APP_TOKEN = credid["BoltJokesToken"]
 SLACK_BOT_TOKEN = credid["BoltBotToken"]
 

@@ -1,0 +1,10 @@
+To do list:
+
+1 code/game/NewGame.py:15:4: C0206: Consider iterating with .items() (consider-using-dict-items)
+2 code/game/snake/snake.py:51:0: R0914: Too many local variables (18/15) (too-many-locals)
+3 code/main/testcostants.py:28:4: C0206: Consider iterating with .items() (consider-using-dict-items)
+4 code/main/tester.py:16:0: C0206: Consider iterating with .items() (consider-using-dict-items)
+5 code/utilities/colconvert.py:5:11: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
+6 code/utilities/colconvert.py:6:11: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
+7 code/utilities/colconvert.py:7:15: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
+8 code/utilities/colconvert.py:8:15: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)

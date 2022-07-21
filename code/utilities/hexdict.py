@@ -1,4 +1,7 @@
-COLOURS_HEX_LIST = {,
+'''
+    hex colors as a dictionary
+'''
+COLOURS_HEX_LIST = {
 "﻿BLACK" : ('0x0', '0x', '0x'),
 "NAVY" : ('0x80', '0x', '0x'),
 "MEDIUM_BLUE" : ('0x00', '0x00', '0xCD'),

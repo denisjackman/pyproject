@@ -15,16 +15,11 @@ __license__ = "Python"
 
 import os
 import sys
-
 from slack_bolt import App
-#pylint: disable=wrong-import-position
-MODULE_PATH = "../jackmanimation/"
-sys.path.append(os.path.abspath(MODULE_PATH))
-from jackmanimation import credscheck
-#pylint: enable=wrong-import-position
+from djgamemodule import security as sec
 
+credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
 
-credid = credscheck('../secrets/credentials.json')
 app = App(
           token=credid["BotToken"],
           signing_secret=credid["SigningSecret"])
