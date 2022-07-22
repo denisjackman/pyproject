@@ -38,4 +38,3 @@ moviepy
 opencv-python
 pyyaml
 yamllint
-djgamemodule
