@@ -2,8 +2,6 @@
 """
     discord_bot.py
 """
-import os
-import sys
 import discord
 from djgamemodule import security as sec
 

@@ -3,8 +3,6 @@
     This is another slackbot module
     and it is based on  https://www.youtube.com/watch?v=09GG8GzfWhs
 """
-import os
-import sys
 import argparse
 import requests
 from djgamemodule import security as sec

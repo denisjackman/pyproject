@@ -12,7 +12,6 @@ __date__ = "$Date: 2022/06/08 07:14:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 import os
-import sys
 import requests
 from djgamemodule import security as sec
 

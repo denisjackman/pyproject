@@ -12,9 +12,6 @@ __license__ = "Python"
 
 import logging
 import re
-import os
-import sys
-
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from djgamemodule import security as sec

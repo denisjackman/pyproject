@@ -2,8 +2,6 @@
 """
     Spotify API example
 """
-import os
-import sys
 import tekore as tk
 from djgamemodule import security as sec
 

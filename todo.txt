@@ -1,0 +1,12 @@
+
+
+4 code/slack/bolt_slack_bot.py:9:0: W0611: Unused import os (unused-import)
+5 code/slack/bolt_slack_bot.py:10:0: W0611: Unused import sys (unused-import)
+6 code/slack/kraken.py:15:0: W0611: Unused import os (unused-import)
+7 code/slack/kraken.py:16:0: W0611: Unused import sys (unused-import)
+8 code/slack/message_bot.py:16:0: W0611: Unused import os (unused-import)
+9 code/slack/message_bot.py:17:0: W0611: Unused import sys (unused-import)
+10 code/slack/slack_bot.py:6:0: W0611: Unused import os (unused-import)
+11 code/slack/slack_bot.py:7:0: W0611: Unused import sys (unused-import)
+12 code/spotify/spotify.py:5:0: W0611: Unused import os (unused-import)
+13 code/spotify/spotify.py:6:0: W0611: Unused import sys (unused-import)
