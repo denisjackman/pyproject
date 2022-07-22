@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-testconstants.py
+testcolour.py
     this is a scratch utility for trying stuff out prior to folding it
     in elsewhere.
 """
@@ -13,5 +13,5 @@ __license__ = "Python"
 from djgamemodule import colours
 
 print(colours.WHITE)
-for color in colours.COLOURS_RGB_LIST:
-    print(color, colours.COLOURS_RGB_LIST[color])
+for color, rgbcode in colours.COLOURS_RGB_LIST.items():
+    print(color, rgbcode)

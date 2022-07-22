@@ -25,8 +25,8 @@ def main():
     for season in cn.SEASONS:
         print(f"This season is {season}")
 
-    for letter in cn.PHONETIC_ALPHABET:
-        print(cn.PHONETIC_ALPHABET[letter])
+    for letter, phonetic in cn.PHONETIC_ALPHABET.items():
+        print(phonetic)
 
 if __name__ == '__main__':
     main()

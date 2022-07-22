@@ -12,8 +12,8 @@ def MainGame():
     screen = pygame.display.set_mode((640,480))     # Set screen size of pygame window
     background = pygame.Surface(screen.get_size())  # Create empty pygame surface
     colorlist = []
-    for color in gc.COLOURS_RGB_LIST:
-        colorlist.append(gc.COLOURS_RGB_LIST[color])
+    for colour_name, color in gc.COLOURS_RGB_LIST.items():
+        colorlist.append(color)
     loop = 0
     mainloop = True
     clock = pygame.time.Clock()

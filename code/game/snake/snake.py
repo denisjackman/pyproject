@@ -41,9 +41,24 @@ __license__ = "Python"
 import pygame
 from djgamemodule import colours as gc
 
+pygame.init()
+pygame.mixer.init()
+clock = pygame.time.Clock()
+
+NUMBEROFSQUARES = 540
+NUMBERINROW = 20
+SQUARESIZE = 16
+WIDTH = 800
+HEIGHT = 500
+FPS = 60
+GAME_TITLE = "Snake"
+SQUARECOLOUR = gc.DIM_GRAY
+SNAKECOLOUR = gc.WHITE
+FOODCOLOUR = gc.DARK_GREEN
+
 def imageload(load_color, size, position):
     '''
-        image load function 
+        image load function
     '''
     result_surface = pygame.Surface(size)
     result_surface.fill(load_color)
@@ -55,29 +70,15 @@ def snake_main():
     '''
         main routine for the snake game
     '''
-    pygame.init()
-    pygame.mixer.init()
-    clock = pygame.time.Clock()
-    main_running = True
-    numberofsquares = 540
-    numberinrow = 20
-    squaresize = 16
-    WIDTH = 800
-    HEIGHT = 500
-    FPS = 60
     score = 0
-    game_title = "Snake"
-    squarecolour = gc.DIM_GRAY
-    snakecolour = gc.WHITE
-    foodcolour = gc.DARK_GREEN
-    # Square
+    main_running = True
 
-    square_image = imageload(squarecolour,(squaresize, squaresize), (0, 0))
-    snake_image = imageload(snakecolour,(squaresize, squaresize), (0, 0))
-    food_image = imageload(foodcolour,(squaresize, squaresize), (0, 0))
+    square_image = imageload(SQUARECOLOUR,(SQUARESIZE, SQUARESIZE), (0, 0))
+    snake_image = imageload(SNAKECOLOUR,(SQUARESIZE, SQUARESIZE), (0, 0))
+    food_image = imageload(FOODCOLOUR,(SQUARESIZE, SQUARESIZE), (0, 0))
 
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption(game_title)
+    pygame.display.set_caption(GAME_TITLE)
     # main game loop
     while main_running:
         # keep loop main_running at the right speed
@@ -86,7 +87,6 @@ def snake_main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 main_running = False
-
 
         # render
         screen.fill(gc.BLACK)
