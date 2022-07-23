@@ -1,0 +1,668 @@
+# ---------------------------------------------------
+# Last Update: verified by Valminder Feb 28, 2006.
+# ---------------------------------------------------
+#
+# Plot Ideas
+#
+# Copyright 2000 by Bruce A. Gulke
+#
+# Modified by Valminder April 2002
+#    I modified the "START" line.
+#    I added some links to these other tables:
+#        Countries.Land
+#        Creatures.Animal
+#        Creatures.Fantastic
+#        Formal Names.Start
+#        Magic Weapon Names.Generate
+#        Names Generator.NAME Random
+#        Religion.Deities
+#
+# Modified by Valminder, Nov 2005
+#        Removed header from [Start]
+# Modified by Valminder, Feb 2006
+#        Added "Alternate" subtable.
+# Modified by Valminder, July 2010
+#        Added 100 Epic Adventure Ideas (Epic Level Handbook)
+#        Added 101 Planar Adventure Ideas
+#        Added 100 Adventure Ideas from the Dungeon Master's Guide
+#        Added link to "ADV Adventure Seed Generator" and move it to "~Reference Misc"
+#
+
+%A%,0
+
+:Start
+1,{Status~Bruce A. Gulke 2000, Valminder 2002,2010}[Generate]
+
+;Generate
+1,<u><b>General</u>:</b> [GeneralPlot]<br><br>
+_{Color~Purple,EPIC:} [EpicAdventureIdeas_ELH]<br><br>
+_{Color~Purple,PS:} [PlanarAdventureIdeas]
+
+;GeneralPlot
+6,{Cap~[Opening]} [Directive] [Action]. {Cap~[Reward+%A%]}.
+1,[DMGAdventureIdeas]
+3,[ADV Adventure Seed Generator.Generate]
+
+# No reward
+:Alternate
+1,[Opening] [Directive] [Action]
+
+:Opening
+1,the party is
+2,the PCs are
+3,the group is
+
+:Directive
+1-7,hired by [Director] to|A=-2|
+8-9,ordered by [Director] to|A=7|
+10-11,blackmailed by [Director] to|A=8|
+12,asked by [Director] to|A=8|
+
+:Director
+1-3,[Leader]
+4-5,a mysterious stranger
+6,a foreign noble
+7-8,the {Cap~[Guild Types]} Guild
+9,the temple of [~Religion.Deities(2)]
+10,a [Person]
+11,a barbarian chieftain
+12,a non-human being
+
+:Guild Types
+1,thieves
+2,mages
+3,merchants
+4,assassins
+5,alchemists
+6,mercenaries
+
+:Person
+1,adventurer
+2,thief
+3,explorer
+4,noble
+5,child
+6,priest
+7,sage
+8,military officer
+9,knight
+10,wizard
+11,merchant
+12,spy
+
+:Leader
+1,[Male Leader]
+2,[Female Leader]
+
+:Male Titles
+1-25,Lord
+26-47,Baron
+48-64,Count
+65-78,Duke
+79-86,Prince
+87-90,King
+91,Emperor
+92-100,High Priest
+
+:Female Titles
+1-25,Lady
+26-47,Baroness
+48-64,Countess
+65-78,Duchess
+79-86,Princess
+87-90,Queen
+91,Empress
+92-100,High Priestess
+
+:Male Leader
+1-3,the [Male Titles]
+4-5,[Male Titles] [~Names Generator.NAME Random]
+6,[Male Titles] [~Formal Names.Start]
+
+:Female Leader
+1-3,the [Female Titles]
+4-5,[Female Titles] [~Names Generator.NAME Random]
+6,[Female Titles] [~Formal Names.Start]
+
+:Action
+1,[Actions I]
+2,[Actions II]
+3,[Actions III]
+4,[Actions IV]
+
+:Actions I
+1,[Raid]
+2,[Destroy]
+3,[Kill]
+4,[Overthrow]
+
+:Actions II
+1,[Build]
+2,[Deliver]
+3,[Escort]
+4,[Protect]
+5,[Rescue]
+
+:Actions III
+1,[Explore]
+2,[Find]
+3,[Investigate]
+
+:Actions IV
+1,[Assassinate]
+2,[Capture]
+3,[Smuggle]
+4,[Spy]
+5,[Steal]
+
+:Capture
+1,capture {AorAn~[Person]} in [Place]
+2,kidnap the [Relative] of [Leader]
+
+:Destroy
+1,destroy {AorAn~[Item]} in [Place]
+2,destroy [Building] in [Place]
+
+:Kill
+1,kill {AorAn~[~Creatures.Fantastic]} in some [Wilderness]
+2,hunt {AorAn~[~Creatures.Animal]} in some [Wilderness]
+
+:Overthrow
+1,overthrow [Leader] in [Place]
+
+:Raid
+1,raid a {AorAn~[Settlement]} in [Place]
+2,raid a barbarian tribe in some [Wilderness]
+3,raid a non-human tribe in some [Wilderness]
+
+:Build
+1,build {AorAn~[Building]} in [Place] for [Leader]
+2,build them {AorAn~[Building]}
+3,build {AorAn~[Building]} in [Place] for them
+
+:Deliver
+1,deliver {AorAn~[Item]} from [Place] to [Place]
+2,deliver {AorAn~[Item]} from [Place] to [Place] within {AorAn~[Timeframe]}
+
+:Escort
+1,escort {AorAn~[Person]} from [Place] to [Place]
+2,escort their [Relative] from [Place] to [Place]
+
+:Protect
+1,protect {AorAn~[Person]} in [Place] from [Threat]
+2,protect {AorAn~[Item]} in [Place] from [Threat]
+3,protect a [Settlement] in [Place] from [Threat]
+4,protect them from [Threat]
+
+:Rescue
+1,rescue {AorAn~[Person]} from [Place]
+2,rescue {AorAn~[Person]} from [Threat-2] in [Place]
+3,retrieve {AorAn~[Item]} from [Threat-2] in [Place]
+4,recover {AorAn~[Item]} from {AorAn~[Building]} in [Place]
+
+:Explore
+1,explore some [Wilderness] for them
+2,explore some [Wilderness] for {AorAn~[Person]}
+
+:Find
+1,find {AorAn~[Person]} in [Place] for [Leader]
+2,find {AorAn~[Item]} in [Place] for {AorAn~[Person]}
+3,find their [Relative] in [Place]
+4,find their [Relative] in some [Wilderness]
+5,find {AorAn~[Item]} in some [Wilderness]
+
+:Investigate
+1,investigate stories about a haunted [Building]
+2,investigate local rumors about [Threat-2]
+
+:Assassinate
+1,assassinate [Leader] in [Place]
+
+:Smuggle
+1,smuggle {AorAn~[Person]} [Direction] [Place]
+2,smuggle {AorAn~[Item]} [Direction] [Place]
+
+:Spy
+1,spy on {AorAn~[Person]} for them
+2,spy on [Place] for {AorAn~[Person]}
+3,spy on {AorAn~[Person]} for {AorAn~[Person]}
+4,spy on [Place] for [Place]
+
+:Steal
+1,steal {AorAn~[Item]} from {AorAn~[Person]} in [Place]
+2,steal {AorAn~[Item]} from [Place]
+3,steal {AorAn~[Item]} from {AorAn~[Leader]} in [Place]
+
+;Place
+1,Ilmara
+1,Ulthia
+1,Yar
+1,Damaristan
+10,the woods
+10,the desert
+10,the hills
+1,Zeldora
+1,Rhijad
+1,Gothmoor
+1,Aelorea
+1,Spÿre
+1,Talîsmarr
+1,Shesada
+1,Al'Sharaq
+1,Ran Jheru
+50,[~Countries.Land]
+
+;Item
+1,weapon
+1,item of jewelry
+1,enchanted item
+1,egg
+1,statue
+1,gem
+1,book
+1,scroll
+1,idol
+1,chest
+10,[~Magic Weapon Names.Generate]
+
+:Wilderness
+1,woodlands
+2,hills
+3,mountains
+4,desert regions
+5,islands
+6,jungle
+7,ruins
+8,caverns
+9,swamplands
+
+:Threat
+1,thieves
+2,a demon
+3,bandits
+4,assassins
+5,orcs
+6,a necromancer
+7,an enemy army
+8,the Undead
+9,destruction
+10,discovery
+
+:Direction
+1,into
+2,out of
+
+:Relative
+1-4,son
+5-8,daughter
+9-10,brother
+11-12,sister
+13,mother
+14,father
+15,spouse
+
+:Settlement
+1-3,hamlet
+4-5,village
+6,town
+7,city
+8,[Building]
+
+:Building
+1,castle
+2,tower
+3,stronghold
+4,manor
+5,monastery
+6,temple
+7,inn
+8,crypt
+9,prison
+
+:Timeframe
+1-4,week
+5-7,month
+8,year
+
+:Reward
+1-3,they will be rewarded with [Treasure]
+4-6,the party will receive [Treasure] for their trouble
+7,in return, the party will not be killed
+8,no reward will be given
+
+:Treasure
+1-4,a large sum of silver
+5-7,a large sum of gold
+8-9,a powerful magic item
+10,a number of magic items
+
+# Epic Adventure Ideas from the Epic Level Handbook (ELH) D&D 3E
+
+:EpicAdventureIdeas_ELH
+1,A 31st-level balor sorcerer imprisons old friends of the player characters, holding them hostage in return for a service.
+2,A band of epic death slaadi rogues and sorcerers begins to waylay all planar travelers who chance through their recently claimed turf on the Astral Plane.
+3,A [~Miscellaneous.ClassPC] hero recognized around the world begins to organize a group of explorers for reasons unknown.
+4,A bard college develops a style of music that charms and dominates any that listen to it too long.
+5,A beholder cluster made up of paragon beholders begins to war with lesser beholder communities, apparently all seeking a beholder artifact.
+6,A prominent deity ([~Religion.Deities2(1)]) sickens and will die if the cause of its divine malady is not discovered.
+7,A beloved prophecy long accepted as true fails to occur because of the characters’ meddling, and the world turns against them.
+8,A blinding, yellow haze seeps down from the sky, covering the world.
+9,A celestial tree hundreds of miles long reaches its roots down and begins to grow on the world’s surface. Creatures from other worlds live in the heights of the tree.
+10,A child is born who prophecy indicates will one day ascend to godhood.
+11,A circle of brown blights the forest, killing all vegetation as it continues to expand without limit at an everaccelerating rate.
+12,A clan of psionic militants breaks away from the kingdom — literally. A huge chunk of land hundreds of acres wide floats up and away (taking with it many terrified nonpsionic people).
+13,A conjunction of parallel planes ([~Countries.Planes] and [~Countries.Planes]) somehow energizes a lowly peasant to the power of a greater deity — but only until the conjunction ends.
+14,A crosstime catastrophe has cut off the Material Plane from all others.
+15,A dragon kills the ruler of the largest nation and takes over, calling itself the Dragon King.
+16,A flaw in a true resurrection spell leaves one player character undead by night and alive by day.
+17,A floating city arrives from across the sea, apparently fleeing the depredations of the Warlord, an epic [~Miscellaneous.ClassPC].
+18,A flock of chichimecs is ravaging across the continent.
+19,A Giantmoot is called by a 25th-level storm giant blackguard. Powerful giants from around the world (and other worlds) begin to congregate.
+20,A glorious gemstone in which the first light of creation still lingers is purportedly languishing in an ancient, crumbling demiplane.
+21,A great chase ensues through endless parallel dimensions as wizard researchers follow the faint trail of the long-vanished elder elves.
+22,A group of gargoyle paragons claims the Cathedral of [~Religion.Deities2(1)] as its own new home.
+23,A hero of renown (a quasi-deity, really; maybe [~Countries.Heros]) is to be wed to an elven prince, but the prince’s royal family claims the prince is under a spell.
+24,A hole is gouged in the veil separating life and death. As the tide of life pours out into the void, all creatures everywhere begin to die as they accumulate negative levels. The hole must be mended.
+25,A hecatoncheires and two of its siblings emerge from a red-lit crevice in the earth.
+26,A lesser deity ([~Religion.Deities2(1)]) declares the PCs as its mortal enemies, enjoining all its worshipers and allies to find and slay them.
+27,A longstanding illusion is pierced, revealing that the king of [~Countries.Land] is nowhere to be found, and that all dictates of the kingdom have been actually flowing from the thieves’ guild.
+28,A new deity decides to leave the Outer Planes to set up its palace on the face of the Material Plane. Once it arrives, it demands worshipers and servitors.
+29,A phane has determined how to destroy the past (and therefore the present). Unless it can be stopped, time itself will unravel.
+30,A planar conjunction will soon come to pass, allowing the legions of hell (or worse) direct access to a selected part of the Material Plane for 24 hours. It can’t be stopped, but epic characters may attempt to defend key cities or strongholds from the onslaught.
+31,A player character’s heart is stolen and replaced with a magical gem or a strange alchemical creation. Who knows how long the replacement will last?
+32,A powerful wizards’ guild ([~Group Designer.StartArcane]) enters all-out war with the dominant religious order of the world.
+33,A quasi-deity wants an escort as it ventures into the Abyss to release a companion quasi-deity from bondage.
+34,A rogue moon threatens to crash down upon the world, ending all life.
+35,A sentient spell-virus is raging out of control among spellcasters. All who fall victim to it become part of one unified mind controlled by a malign intelligence.
+36,A species of “fish” introduced from another plane (maybe [~Countries.Planes]) has provided good eating and relief from famine over the last year. Now, thousands (millions?) of the fishlike creatures begin a sudden growth spurt, transforming en masse into terribly powerful and bloodthirsty predators.
+37,A splinter community of humans evolves into a subrace sporting strange and variant powers.
+38,A syndicate of assassins dramatically expands its membership by introducing a mind-control potion into a city’s water supply.
+39,A team of brachyuruses draws a chariot driven by a powerful [~Miscellaneous.ClassPC] into the city.
+40,A titan seeks those brave enough to release it from its age-long bondage; its rescuers may face the wrath of higher deities.
+41,A vampire scion from another plane (maybe [~Countries.Planes]) begins to conquer world after world with the help of a reforged artifact of legend, Midnight’s Heart.
+42,A volcano erupts. In the aftermath, a portal to the City of Brass on the Elemental Plane of Fire remains open permanently.
+43,A well-known wizards’ guild’s ([~Group Designer.StartArcane]) magical dumping ground of failed experiments and stale spell components becomes sentient.
+44,A wizard ([~Names Generator.NAME Random]) attempting to summon a powerful devil slips up and somehow summons an abomination instead: an infernal.
+45,A wizard ([~Names Generator.NAME Random]) claims to have developed an epic spell ritual that, if cast, will slay a deity.
+46,All magic items crafted from a particular city begin to bestow negative levels on their owners with each use.
+47,All who fall asleep on a selected world cannot be awakened and eventually die in their sleep. Dream larvae are suspected.
+48,An adventuring party stumbles upon the tomb prison of an atropal and releases it.
+49,An antimagic plague is released by an unknown agency, causing sickness and eventually death to any who prepare or cast arcane spells.
+50,An artifact belonging to one of the characters must be destroyed, lest some great catastrophe, which has secretly been gathering, come to pass.
+51,An artifact capable of dominating all red dragons everywhere is discovered.
+52,An enclave of gnomes customizes an iron colossus into a walking war platform.
+53,A group of epic NPCs known for good deeds suddenly embarks on a death spree, murdering merchants and their envoys.
+54,A group of epic NPCs decides to destroy the PC adventurers, for reasons that are initially obscure.
+55,A sentient, free roaming, self-casting disintegrate spell breaks loose from a wizard’s laboratory.
+56,An epic paladin ([~Names Generator.NAME FormalGen]) leads a crusade to hell.
+57,An interdimensional caravan must float on the River Styx through the dangers of several lower planes.
+58,Anaxims begin to manifest from machines as complicated as simple steam-powered wheels — is it a warning from the gods of the forge to desist?
+59,Angry epic druids raise the beasts, animals, and dire animals of the wild, intent on beginning a new world order in which nature comes first.
+60,As the world ages, frequent earthquakes threaten to plunge the major nations under the sea.
+61,Blue-skinned merchants begin to sell enormously popular items composed of dreamstuff — “mined from the very dreams of a deity,” claim the merchants.
+62,Deeper than the Underdark, the world is discovered to be hollow. Hanging in that vast opening is an unknown, uncharted inner world of strangeness.
+63,Dwarf miners follow a vein of adamantine to a hinged valve sealed with divine magic of an age older than any of the current deities.
+64,Epic rogues steal the Scepter of All Power from the Dragon King.
+65,Evil opportunists slay the Guardian of the Flame of Destiny, hoping to remold the Law of Reality to their own liking.
+66,Ghosts of every sort begin to rise again, and they won’t recognize their own undead state.
+67,Mind flayers successfully gain control of a surface nation, plunging the region into permanent darkness.
+68,Jade pyramids of prodigious size rise from the earth. Sounds unlike any heard before echo faintly from within their stony cores.
+69,Constructlike creatures of insane complexity called “machines” move across the land, preparing the way for a larger invasion of automated entities.
+70,Magic begins to fail, supposedly because it is being “used up” faster than it naturally regenerates.
+71,Mercenary half-dragons who ride force dragons as steeds sell their swords (and spells) to an evil empire.
+72,Newborns begin to be born without souls.
+73,Offplane raiders begin to steal people away for use as slaves and food.
+74,Once every ten years a small cave provides access into a magical, underground world where all living beings give off colorful light, ruled by mysterious fey lords with mysterious agendas.
+75,One of the player characters learns about his or her real mother or father — in fact, that parent was a demon, and that demon has come calling.
+76,Planetars and solars bring heaven’s war to the Material Plane, slaying any and all they deem evil or immoral.
+77,Prismatic dragons decide that their “species” is the only true draconic race, and they begin a campaign of genocide against all other dragon types.
+78,Several well-known cities and all their inhabitants suddenly disappear without a trace. More could follow.
+79,Someone is breaking the Seven Seals that maintain the integrity of the multiverse.
+80,The ancient Great Library has secret vaults where the Words Once Spoken are supposedly inscribed in the Book of Sleep. To speak them again would remake the universe.
+81,The Clock that Rules the Universe is under attack by insane gnome alchemists, who are raiding it for parts.
+82,The End Times threaten to begin.
+83,The gods of Law put all humanoid races on trial for their excesses.
+84,The Lord High Priest of [~Religion.Deities2] denounces her deity and faith.
+85,The most feared and reviled weapon of legend, an artifact sword that drains life energy with a touch, is lost by,its owner.
+86,The Mother of Spiders (monstrous Colossal spider paragon) emerges from her Cocoon of a Million Years to find a mate for her next spawning.
+87,A vast necropolis undergoes a mystical transformation. Now, each coffin, sarcophagus, and mausoleum leads to separate cemetery dimensions and realms of death. 
+88,The PCs’ stronghold mysteriously gains new extradimensional halls and rooms of unknown origin, content, and extent.
+89,The populace decides that they want one of the PCs as their new ruler, which doesn’t please the current ruler.
+90,The secret texts of a prominent religion ([~Religion.Deities2]), recently discovered, call into question the church’s real goal, its actual origin, and the agenda of its god.
+91,The souls of a good queen and her family ([~Countries.Land]) are drawn into the Abyss by an unknown demonic agency.
+92,The spirits of the dead begin to possess the bodies of the living at an ever-accelerating rate.
+93,The sun is infested with moon-sized parasites, and may soon fail like so many other stars have fallen to this celestial infestation.
+94,The winter, which was overly cold, lasts too long — a xixecal is implicated.
+95,The woods begin to grow without bound, invading field, plain, and city.
+96,The yuan-ti attempt to awaken the Slumbering Serpent, a little-known abomination born of their own race and a god of serpents.
+97,Twenty percent of all astral travelers begin to disappear in mid-trip. Mid-travel diversion spells are suspected.
+98,Two parallel planes ([~Countries.Planes] and [~Countries.Planes]) move too close to each other, and denizens and objects of one constantly slip onto the other, and vice versa.
+99,Unless stopped, an ancient demilich will inject itself onto the Negative Energy Plane, where it can possess any undead anywhere in the multiverse.
+100,When a friend or a respected associate is resurrected, the soul returned to the body has different memories from the original. Whence does this soul come?
+101,Some enemy of the characters hires the Garrote (Epic Organization of assassins ELH p232) to eliminate them. (NOTE: Dangerous encounter.)
+102,Some action on the part of the PCs draws the Garrote’s attention (Epic Organization of assassins ELH p232). Drawing the Garrote’s attention (and probably its ire) can happen in a number of ways. The characters might be freelancing on this organization’s turf, which never makes a guildmaster happy. Alternatively, the characters might have some sort of vested interest in a target the Garrote is going after, especially if they are members of the Order of the Shield (ELH p40). (NOTE: Dangerous encounter.)
+103,The characters might come into possession of something the Gleaners (Epic Organizations ELH p234) want.
+104,The Gleaners (Epic Organizations ELH p234) may contact the characters about possible work.
+105,Both the heroes and the Gleaners (Epic Organizations ELH p234) want some item. Perhaps the characters need to find some artifact that allows them to solve a quest, or maybe they just stumbled across some particularly powerful item they want. Either way, if a member of the Gleaners shows up asking for the item, things are bound to get interesting. The Gleaners may be slow to try drastic measures, which means you can keep this particular issue as a minor thorn in the characters’ sides, but the Gleaners are nothing if not patient, and they can easily become a longterm adversary for the heroes.
+106,The Gleaners (Epic Organizations ELH p234) may approach the characters for aid in tracking down one of their goodies. This may occur purely because of the PCs’ reputations, or it may be because of the characters’ affiliation will one or another of the other epic organizations, such as the Planar Cartographic Society (ELH p242). Gleaners commonly employ Surveyors to help them find obscure locales and survive hostile regions.
+107,The former owners of something the Gleaners (Epic Organizations ELH p234) successfully retrieved rail about losing their precious possession and seek to regain it, perhaps through the services of the Order of the Shield (ELH p240) and member characters.
+108,The characters create, acquire, or even witness the use of a new and unusual spell the order doesn’t have yet (Order of the Book ELH p238).
+109,The Order of the Book has a need for powerful epic characters to chase down a needed spell (Order of the Book ELH p238).
+110,The characters become in conflict with the Order of the Book (Epic Organizations ELH p238). There is a plot in such a way that the PCs get involved with some extremist group that believes the Order of the Book will bring about the downfall of the multiverse if it is allowed to complete the project it is working on.
+
+# 101 Planar Adventure Ideas
+# By Monte Cook, Wolfgang Baur, Colin McComb, and Ray Vallese
+# We say that the planes are full of possibilities. 
+#    To celebrate the release of the new planar sourcebook Beyond Countless Doorways,
+#    we decided to put our money where our mouths are. So here are 101 adventure hooks
+#    to jump-start your planar campaign. Some are stand-alone ideas, while others work
+#    with the planes of Beyond Countless Doorways.
+
+;PlanarAdventureIdeas
+1,Adventurers find a key that opens a planar portal in mid-air; once the door is opened, the Ten Courts of Hell have an entrance to the plane. Adventurers try to close the door (see "Ten Courts of Hell" in Beyond Countless Doorways (BCD)).
+2,A civilized lizardfolk ([~Names Generator.NAME Lizardfolk]) visits with a polite request for mammalian slaves to display in a circus (see "Lizard Kingdoms" in Beyond Countless Doorways (BCD))
+3,A band of planar mercenaries is recruiting new members from various planes. 
+4,A visiting planar scholar ([~Names Generator.NAME Random]) follows locals around taking notes on "native behavior". He won't leave and becomes incorporeal when threatened.
+5,A plague of planar (from [~Countries.Planes]) refugees arrives and creates a tent city in a local town.
+6,An aasimar paladin or champion of light ([~Names Generator.Celestial Names]) visits and demands that someone help him banish demons from a temple in the Nexus (see "Nexus" in Beyond Countless Doorways (BCD)).
+7,A sailor of the Ethereal Sea ([~NPC Appearance.GenerateQuick5]) (see Beyond Countless doorways (BCD)) is washed up in an inn. He is pursued by vengeful cultists for theft of a sacred idol of solid emerald.
+8,Locals are stalked by planar cat people who haunt the night, stealing food, mounts, and treasure.
+9,A recruiter ([~NPC Appearance.GenerateQuick5]) for a successful privateer needs a druid or weather wizard for a raid; he does not mention that the ship is a flying boat on another plane (see "Uomo" in Beyond Countless Doorways (BCD)).
+10,A flying pirate ship slips through a planar portal and crash lands (see "Venomheart" in Beyond Countless Doorways (BCD)).
+11,A group of pilgrims ([Group Designer.Generate(5)]) seeks help getting to Mother Ocean (see "Uomo" in Beyond Countless Doorways (BCD)).
+12,A group of evil psionicists ([Group Designer.Generate(5)]) approaches local mercenaries asking for help destroying a party of pilgrims to Mother Ocean (see "Uomo" in Beyond Countless Doorways (BCD)).
+13,A talking horse claims to be from another plane, and that it can carry riders across planar boundaries. In fact, it is a trap, a shapeshifting yamado (see "The Ten Courts of Hell" in Beyond Countless Doorways (BCD)).
+14,A hell judge ([~Names Generator.Demonic Names]) wants to retire and sends a letter to a mortal for help (see "The Ten Courts of Hell" in Beyond Countless Doorways (BCD)).
+15,A wizard's experiment goes horribly wrong, releasing elemental spirits and fiery salamanders throughout the land. To gather them up, someone must find or make a spirit bottle.
+16,A trogolodyte planar merchant ([~Troglodyte Names.Start]) arrives with exotic metal goods and tall tales. He might be willing to hire some guards, cheap (see "Lizard Kingsdoms" in Beyond Countless Doorways (BCD)).
+17,The inhabitant of a prison plane has escaped.
+18,A rare planar conjunction is near, and adventurers from many planes are gathering at the Nexus to jump through a portal (see "Nexus" in Beyond Countless Doorways (BCD)).
+19,A formian hive needs a new translator, as their old one has died. They kidnap someone from another plane ([~Countries.Planes]) and begin training him in their language.
+20,A bottle washes up on the shore. Inside, a tiny figure moves and gestures for help. If released, it is a djinni lord who seeks to corrupt all those around himself -- and offers to take its rescuers with it to its elemental homeland.
+21,A wayward meteor shivers Carrigmoor's dome (see "Carrigmoor"  in Beyond Countless Doorways (BCD)).
+22,A caravan is lost in the Underlands (see Beyond Countless Doorways (BCD)).
+23,A group of mages called the Isolationists (or [Group Designer.Generate(5)]) has been attempting to sever planar connections. What effect will this have?
+24,Rumors of wars on peaceful planes come just as others spread rumors of peace on war-torn planes.
+25,The dead have begun to walk in the land of Spring. (see "Faraenyl" in Beyond Countless Doorways (BCD))
+26,A mischievous mage ([~Names Generator.NAME Random]) opens a shifting portal to the various elemental planes, bringing floods, earthquakes, tornadoes, and firestorms to the world.
+27,Planar gates begin redirecting spontaneously -- even permanent links have gone awry.
+28,Priests stop receiving communications from good-aligned deities. Has the plane been cut off from communication with the heavens?
+29,An assassin ([~NPC Appearance.GenerateQuick5]) has begun moving through parallel worlds, eliminating a powerful ruler in each, attempting to bring them all in line with a single, grand vision (see "Through the Looking Glass" in Beyond Countless Doorways (BCD)).
+30,A god ([~Religion.Deities2(1)]) puts aside its divinity for a day -- and is promptly kidnapped.
+31,A representative of the Ten Courts comes to Faraenyl to discuss a mutually satisfactory bargain with Winter. (see "Faraenyl", "Ten Courts of Hell" in Beyond Countless Doorways (BCD)).
+32,Hide and Seek: Time freezes on a plane ([~Countries.Planes]), except for a few select inhabitants -- and their enemies.
+33,A plain-looking weapon surfaces, but suddenly the possessors are the focus of a planes-wide manhunt ([~Countries.Planes]).
+34,Cave-ins occur in the Underlands as a buried, sleeping creature wakes! (see Beyond Countless Doorways (BCD))
+35,A world built on the tomb of an imprisoned archdevil slides toward Hell as the fiendish lord begins to break free.
+36,A child priest ([~Names Generator.NAME Random] of [~Religion.Deities2(1)]), rumored to be an avatar of a god, slips away from the temple and beseeches anyone for help.
+37,A mote of chaos escapes a laboratory in a city of perfect order; confusion (and hilarity) result. 
+38,A nation of good-aligned living dead comes under attack from an army of priests of [~Religion.Deities2(1)].
+39,An elder being inadvertently opens an alien gate on a rural hamlet. Someone must close it without drawing the alien beasts' attention.
+40,A demon ([~Names Generator.Demonic Names]) is attempting to redirect the gate from Chaos to his home plane, so that the world will fall under demonic control. (see "Mountains of the Five Winds" in Beyond Countless Doorways (BCD)).
+41,Local villagers kidnapped by grahlus slavers (see "Yragon" in Beyond Countless Doorways (BCD)).
+42,Newly active volcano opens a planar rift to the Elemental Plane of Fire. 
+43,Mysterious gem that serves as keystone to emperor's tomb is actually an object of great power on their plane, say planar travelers. 
+44,Lawful good benevolent planar travelers are marooned on your plane; unfortunately for them, they look just like bugbears.
+45,A local prince ([~Names Generator.NAME FormalGen]) is tried in the Ten Courts of Hell and sentenced to the Hungry Prison (see "Ten Courts of Hell" in Beyond Countless Doorways (BCD)).
+46,Only cure to plague ravishing the countryside is a plant that grows on Curnorost (see "Realm of Dead Angels" in Beyond Countless Doorways (BCD)).
+47,Planar traveler returns from Kin-Li'in -- or is it actually his shadow-form creature ? (see "Burning Shadows of Kin-Li'in" in Beyond Countless Doorways (BCD))
+48,Trio of quasits arrives on your campaign world as scouts for a potential invasion, but the right argument can convince them to recommend the demon army go elsewhere.
+49,Hound archon ([~Names Generator.Celestial Names]) appears and aids nearby town in time of peril but then requires heroes to accompany it to another plane ([~Countries.Planes]) in return. 
+50,Planar gate opens up and out pours a steady gout of water from the Elemental Plane of Water -- right inside the local lord's castle.
+51,Interplanar merchant ([~Names Generator.NAME FormalGen]) needs guards for a trip through a dangerous series conjunction (see Beyond Countless Doorways (BCD p15)).
+52,Plane-traveling showman appears ([~NPC Appearance.GenerateQuick5]), willing to pay huge sums for dangerous beasts for interplanar circus. 
+53,Sleep pirates appear to steal sleep from local lord's family (see "Venomheart" in Beyond Countless Doorways (BCD)).
+54,The last line of an important prophecy can be found only in a specific tome in a library on a faraway plane ([~Countries.Planes]).
+55,Local wizard ([~Names Generator.NAME Random]) needs a party to obtain a rare spell from an arcane hermit on another plane ([~Countries.Planes]).
+56,Planar travelers arrive in a mining town seeking guides through the caverns to something called the Underlands (see Beyond Countless Doorways (BCD)).
+57,A swarm of giant insects arrives to plague a town, followed closely by a flock of giant birds to eat them. What's next?
+58,Well-known sorcerer's outsider patron wants her to come to his plane to serve in his court, but she doesn't want to go.
+59,Planar traveler ([~NPC Appearance.GenerateQuick5]) leaves a package at a local inn, saying someone will be along to pick it up. The package turns out to be an egg, which hatches before anyone comes to claim it.
+60,Succubus ([~Names Generator.Demonic Names]) in disguise introduces a new drug ([~Drug and Tobacco Generator.DrugNames]) from another plane ([~Countries.Planes]) to locals.
+61,Dormant bioleche contraptions suddenly start working again (see "Palpatur" in Beyond Countless Doorways (BCD)).
+62,A swallowed legion of baatezu emerges from the groundflesh and assaults nearby cromungi (see "Palpatur" in Beyond Countless Doorways (BCD)).
+63,A cromungus seemingly gains sentience and issues frightening prophecies (see "Palpatur" in Beyond Countless Doorways (BCD)).
+64,All forms of weather become more random, wild, and deadly than usual (see "Palpatur" in Beyond Countless Doorways (BCD)).
+65,Tiefling tribes choose sides in a brewing holy war over matters of faith (see "Palpatur" in Beyond Countless Doorways (BCD)).
+66,The sentient plane finally awakens but now is demented and murderous (see "Palpatur" in Beyond Countless Doorways (BCD)).
+67,The formians try to cover up the recent death of their queen so as not to embolden the aranea (see "Dendri" in Beyond Countless Doorways (BCD)).
+68,Slaadi arrive through a crater lake portal to fight the formians in the name of chaos (see "Dendri" in Beyond Countless Doorways (BCD)).
+69,Aranea elders seek an alliance with offworld driders who worship a spider queen god (see "Dendri" in Beyond Countless Doorways (BCD)).
+70,Disgruntled shrubgoblins begin to turn against their formian masters (see "Dendri" in Beyond Countless Doorways (BCD)).
+71,The formians finally invade the Murk (see "Dendri" in Beyond Countless Doorways (BCD)).
+72,Treants throw a hive-city into chaos by animating its pronewood buildings (see "Dendri" in Beyond Countless Doorways (BCD)).
+73,A half-human, half-lizard creature gains followers by calling for peace among the races (see "The Lizard Kingdoms" in Beyond Countless Doorways (BCD)).
+74,The Second Court is thrown into turmoil when its Yama King goes missing (see "The Ten Courts of Hell" in Beyond Countless Doorways (BCD)).
+75,A planar traveler ([~NPC Appearance.GenerateQuick5]) converts to the worship of Mother Ocean and is compelled to found a new monastery (see "Ouno" in Beyond Countless Doorways (BCD)).
+76,The town's "village idiot" ([~Names Generator.NAME Random]) discovers the hidden entrance to Prince Mazzarut's castle (see "The Maze" in Beyond Countless Doorways (BCD)).
+77,Spontaneous alterations strike residents of the five cities (see "Mountains of the Five Winds" in Beyond Countless Doorways (BCD)).
+78,The Summer King discovers the underground Grand Cycle of the Seasons, but he refuses to sacrifice himself afterward (see "Faraenyl" in Beyond Countless Doorways (BCD)).
+79,House Cavendish plies mercenaries with mind-altering substances to get them to discover the secret documents of the Door Openers' Guild (see "Carrigmoor" in Beyond Countless Doorways (BCD)).
+80,In a parallel world, sleepers can dream things into reality (see "Through the Looking Glass" in Beyond Countless Doorways (BCD)).
+81,A purveyor of dichotomy championing the cause of cold is trying to gain a foothold in your plane, which has attracted a horde of fire creatures to battle his minions.
+82,A child who is clearly planetouched arrives in town claiming to be the son (or daughter) of a leading citizen.
+83,A "Planar Express" delivery courier is being chased by foes who mortally wound him before he can deliver his message. With his dying breath he asks some adventurers to bring it to their king to stave off interplanar war.
+84,A planar conjunction causes strange weather on two different worlds.
+85,A traveler ([~NPC Appearance.GenerateQuick5]) from another plane ([~Countries.Planes]) asks for some guides to show him around as he gathers material for the book he is writing.
+86,A strange being from another plane ([~Countries.Planes]) arrives in a local town and no one can speak its language. Furthermore, it seems immune to any spells that might help translate. It seems to have something urgent to say, however.
+87,A purveyor of elemental air appears, seeking recruits to help her on this plane -- but would the plane really be better off if she gained control?
+88,An earthquake frees a demon ([~Names Generator.Demonic Names]) long held prisoner within a magical prison, and now it seeks vengeance.
+89,An inmate ([~NPC Appearance.GenerateQuick5]) in an asylum insists that the strange voices he hears actually belong to ethereal creatures only he can hear.
+90,A craftsman of legendary repute ([~Names Generator.NAME Random]) is looking for help getting to the site of a forge needed to create his latest treasure. Unfortunately, the site is on an elemental plane of fire.
+91,Angels come to the mortal world seeking volunteers to help them retrieve a stolen item from a plane from which their kind is eternally prohibited by a powerful spell.
+92,A powerful lord goes to a parallel world and hires his enemies' parallel counterparts to hunt and slay them (see Through the Looking Glass in Beyond Countless Doorways (BCD)).
+93,A magical <i>sending</i> goes awry and the message goes to the wrong plane ([~Countries.Planes]).
+94,A golem guarding a powerful treasure is accidentally caught halfway through a planar portal. Now half the construct is on one plane, and half on another. It can still move around and take actions -- but only with half its body.
+95,An entire temple disappears ([~Religion.Deities2(2)]), stolen away by raiders on another plane ([~Countries.Planes]) using a magical device that rips chunks of other planes into theirs.
+96,A paladin seeking atonement ([~Names Generator.NAME FormalGen]) for a misdeed must travel into a hellish plane but seeks help finding a way to get there.
+97,All contact (including the use of spells like <i>summon monster</i>) between one plane and all other planes ceases.
+98,The king's champion ([~Names Generator.NAME FormalGen]), who has never lost a challenge, is rumored to actually be a devil in disguise.
+99,A child, missing for over 30 years, reappears the at same age she was when she left, claiming to have been trapped in a dimension where time has no meaning.
+100,Items made from a new, virtually magic-proof stone being to appear in the hands of various locals. Rumors of a merchant from another plane abound ([~Countries.Planes]).
+101,Strange music begins to spread throughout an entire plane ([~Countries.Planes]), the source of which is a complete mystery.
+
+# 100 Adventure Ideas
+# From the Dungeon Master'S Guide by WotC
+
+:DMGAdventureIdeas
+1,Thieves steal the crown jewels (of [~Countries.Land]).
+2,A dragon flies into a town and demands tribute.
+3,The tomb of an old wizard ([~Names Generator.NAME Random]) has been discovered.
+4,Wealthy merchants (of [~Countries.Land]) are being killed in their homes.
+5,The statue in the town square is found to be a petrified paladin ([~Names Generator.NAME FormalGen]).
+6,A caravan of important goods is about to leave for a trip through a dangerous area.
+7,Cultists are kidnapping potential sacrifices.
+8,Goblins riding spider eaters have been attacking the outskirts of a town.
+9,Local bandits have joined forces with a tribe of bugbears ([~Orc Tribes.Generate]).
+10,A blackguard ([~Names Generator.NAME FormalGen]) is organizing monsters in an area ([~Countries.Regions]).
+11,A gate to the lower planes threatens to bring more demons to the world.
+12,Miners have accidentally released something awful that once was buried deep.
+13,A wizards’ guild ([~Group Designer.StartArcane]) challenges the ruling council (of [~Countries.Land]).
+14,Racial tensions rise between humans and elves.
+15,A mysterious fog brings ghosts into town.
+16,The holy symbol of a high priest ([~Religion.Deities2(1)]) is missing.
+17,An evil wizard ([~Names Generator.NAME Random]) has developed a new kind of golem.
+18,Someone in town is a werewolf.
+19,Slavers continue to raid a local community.
+20,A fire elemental escapes from a wizard’s lab ([~Names Generator.NAME Random]).
+21,Bugbears are demanding a toll on a well-traveled bridge.
+22,A mirror of opposition has created an evil duplicate of a hero  ([~Countries.Heros]).
+23,Two orc tribes wage a bloody war  ([~Orc Tribes.Generate] vs [~Orc Tribes.Generate]).
+24,New construction reveals a previously unknown underground tomb.
+25,A nearby kingdom ([~Countries.Land]) launches an invasion.
+26,Two well-known heroes fight a duel ([~Countries.Heros] vs [~Countries.Heros]).
+27,An ancient sword must be recovered to defeat a ravaging monster.
+28,A prophecy foretells of coming doom unless an artifact is recovered.
+29,Ogres kidnap the mayor’s daughter.
+30,A wizard ([~Names Generator.NAME Random]) is buried in a trap-filled tomb with her powerful magic items.
+31,An enchanter is compelling others to steal for him.
+32,A shapechanged mind flayer is gathering mentally controlled servitors.
+33,A plague brought by wererats threatens a community in [~Countries.Land].
+34,The keys to disarming all the magic traps in a wizard’s ([~Names Generator.NAME Random]) tower have gone missing.
+35,Sahuagin are being driven out of the sea to attack coastal villages.
+36,Gravediggers discover a huge, ghoul-filled catacomb under the cemetery.
+37,A wizard ([~Names Generator.NAME Random]) needs a particularly rare spell component found only in the deep jungle.
+38,A map showing the location of an ancient magic forge is discovered.
+39,Various monsters have long preyed upon people from within the sewers of a major city ([~Countries.Land]).
+40,An emissary going into a hostile kingdom ([~Countries.Land]) needs an escort.
+41,Vampires are preying upon a small town in ([~Countries.Land]).
+42,A haunted tower in [~Countries.Land] is reputed to be filled with treasure.
+43,Barbarians begin tearing up a village in a violent rage.
+44,Giants steal cattle from local farmers.
+45,Unexplained snowstorms bring winter wolves into an otherwise peaceful area.
+46,A lonely mountain pass is guarded by a powerful sphinx denying all passage.
+47,Evil mercenaries begin constructing a fortress not far from a community in [~Countries.Land].
+48,An antidote to a magic poison must be found before the duke of [~Countries.Regions] dies.
+49,A druid needs help defending her grove against goblins.
+50,An ancient curse is turning innocent people into evil murderers.
+51,Gargoyles are killing giant eagles in the mountains.
+52,Mysterious merchants sell faulty magic items in town and then attempt to slink away.
+53,A recently recovered artifact causes arcane spellcasters’ powers to go awry.
+54,An evil noble ([~Names Generator.NAME FormalGen]) puts a price on a good noble’s head ([~Names Generator.NAME FormalGen]).
+55,Adventurers exploring a dungeon have not returned in a week.
+56,The funeral for a good fighter ([~Names Generator.NAME FormalGen]) is disrupted by enemies he made while alive.
+57,Colossal vermin are straying out of the desert to attack settlements.
+58,An evil tyrant outlaws nonofficially sanctioned magic use.
+59,A huge dire wolf, apparently immune to magic, is organizing the wolves in the wood.
+60,A community of gnomes builds a flying ship.
+61,An island at the center of the lake is actually the top of a strange, submerged fortress.
+62,Buried below the Tree of the World lies the Master Clock of Time.
+63,A child wanders into a vast necropolis, and dusk approaches quickly.
+64,All the dwarves in an underground city have disappeared.
+65,A strange green smoke billows out of a cave near a mysterious ruin in ([~Countries.Land]).
+66,Mysterious groaning sounds come from a haunted wood at night.
+67,Thieves steal a great treasure and flee into Mordenkainen's magnificent mansion.
+68,A sorcerer ([~Names Generator.NAME Random]) attempts to travel ethereally but disappears completely in the process.
+69,A paladin’s ([~Names Generator.NAME FormalGen]) quest for atonement leads her to a troll lair too well defended for her to tackle alone.
+70,A kingdom known for its wizards prepares for war.
+71,The high priest ([~Religion.Deities2(1)]) is an illusion.
+72,A new noble seeks to clear a patch of wilderness of all monsters.
+73,A bulette is tearing apart viable farmland.
+74,An infestation of stirges drives yuan-ti closer to civilized lands.
+75,Treants in the woods are threatened by a huge fire of mysterious origin.
+76,Clerics (of [~Religion.Deities2(1)]) who have resurrected a long-dead hero discover she’s not what they thought.
+77,A sorrowful bard tells a tale of his imprisoned companions.
+78,Evil nobles create an adventurers’ guild to monitor and control adventurers.
+79,A halfling caravan must traverse an ankheg-infested wilderness.
+80,All the doors in the king’s castle are suddenly arcane locked and fire trapped.
+81,An innocent man, about to be hanged, pleads for someone to help him.
+82,The tomb of a powerful wizard ([~Names Generator.NAME Random]), filled with magic items, has sunk into the swamp.
+83,Someone is sabotaging wagons and carts to come apart when they travel at high speed.
+84,A certain kind of frogs, found only in an isolated valley, fall like rain on a major city.
+85,A jealous rival ([~Names Generator.NAME Random]) threatens to stop a well-attended wedding.
+86,A woman ([~Names Generator.NAME Random]) who mysteriously vanished years ago is seen walking on the surface of a lake.
+87,An earthquake uncovers a previously unknown dungeon.
+88,A wronged person ([~NPC Appearance.GenerateQuick5]) needs a champion to fight for her in a gladiatorial trial.
+89,At the eye of the storm that tears across the land lies a floating citadel.
+90,People grow suspicious of half-orc merchants peddling gold dragon parts in the market.
+91,An absentminded wizard ([~Names Generator.NAME Random]) lets her rod of wonder fall into the wrong hands.
+92,Undead shadows hex a large library, especially an old storeroom long left undisturbed.
+93,The door into an abandoned house in the middle of town turns out to be a magic portal.
+94,Barge pirates make a deal with a covey of hags and exact a high toll to use the river.
+95,Two parts of a magic item are in the hands of bitter enemies; the third piece is lost.
+96,A flight of wyverns is preying upon sheep as well as shepherds.
+97,Evil clerics ([~Religion.Evil Gods]) gather in secret to summon a monstrous god to the world.
+98,A city (of [~Countries.Land]) faces a siege by a force of humans, duergar, and gnolls.
+99,A huge gemstone supposedly lies within a ruined monastery ([~Group Designer.StartMystic]).
+100,Lizardfolk riding dragon turtles sell their services as mercenaries to the highest bidder.
+ 

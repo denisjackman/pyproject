@@ -1,0 +1,128 @@
+
+# Magical Weapons for WFRP
+
+:Start
+1-20,Magical [Weapon_Type]
+21-70,[Weapon_Type] with [Ability]
+71-90,[Weapon_Type] with {Loop~2,[Ability],}
+91-95,[Weapon_Type] with {Loop~3,[Ability],}
+96-99,[Weapon_Type] with {Loop~4,[Ability],}
+100,[Weapon_Type] with {Loop~5,[Ability],}
+
+;Weapon_Type
+2,Buckler
+2,Cutlass
+10,Dagger/knife
+2,Flail
+1,Foil
+1,Garotte
+2,Halberd
+3,Hand-and-a-half sword
+20,Hand axe
+2,Horseman's axe
+1,Hook
+2,Knuckle duster
+2,Lance
+20,Mace
+2,Military pick
+2,Morning star
+1,Net
+1,Quarter staff
+1,Rapier
+5,Spear
+20,Sword
+2,Sword-breaker
+3,Two-handed axe
+2,Two-handed flail
+3,Two-handed mace
+3,Two-handed sword
+3,Two-handed warhammer
+20,Warhammer
+2,Whip
+10,Wooden club
+
+:!Ability
+1-25,[Aditional_Damage]
+26-40,[Characteristic_Gain]
+41-50,[Characteristic_Drain]
+51-60,Bane vs [Magic Item.Bane_Type]
+61,Flame Attack
+62,Poison Attack
+63,Degeneration Attack
+64,Freeze Attack
+65,Warp Attack
+66,Sleep
+67,Flight
+68,Breathe Underwater
+69,Confusion
+70-71,Fear
+72-73,Instability
+74-75,[Protection]
+76,Resist Fire
+77,Animated
+78,Invisibility
+79,Magic Damper
+80-81,Berserk
+82-83,Repel Undead
+84-85,Repel Demons
+86,Destroy Magical Weapon
+87-88,Spell Absorption
+89-90,Mighty Strike
+91-100,Rune of [Rune]
+
+:!Aditional_Damage
+1-50,+1 Damage
+51-75,+2 Damage
+76-90,+3 Damage
+91-95,+4 Damage
+96-98,double normal damage
+99-100,double normal damage +4
+
+:!Characteristic_Gain
+1-9,WS +10
+10-18,S +1
+19-27,T +1
+28-36,I +10
+37-45,A +1
+46-54,Ld +10
+55-63,Int +10
+64-72,Cl +10
+73-81,WP +10
+82-84,WS +{Dice~d3*10}
+85-86,S +{Dice~d3}
+87-88,T +{Dice~d3}
+89-90,I +{Dice~d3*10}
+91-92,A +{Dice~d3}
+93-94,Ld +{Dice~d3*10}
+95-96,Int +{Dice~d3*10}
+97-98,Cl +{Dice~d3*10}
+99-100,WP +{Dice~d3*10}
+
+:!Characteristic_Drain
+1-15,WS -10
+16-30,S -1
+31-45,T -1
+46-56,I -10
+57-67,Ld -10
+68-78,Int -10
+79-89,Cl -10
+90-100,WP -10
+
+:!Protection
+1-75,+1 Armour to all areas
+76-90,+2 Armour to all areas
+91-95,+3 Armour to all areas
+96-98,1 attack per round parried, no loss of attacks
+99-100,2 attacks per round parried, no loss of attacks
+
+;!Rune
+7,Spells
+20,Protection
+20,Cutting and Smashing
+20,Swiftness
+20,Renewal
+5,Flight
+5,Return
+1,Lesser Death against [Magic Item.Bane_Type]
+2,Minor Death against [Magic Item.Bane_Type]
+

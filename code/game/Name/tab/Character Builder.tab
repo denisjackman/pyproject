@@ -1,0 +1,6244 @@
+# Building Believable Characters by Marc McCutcheon, 1996
+#
+# TableSmith version designed by Pablo A. Bermudez, 2010
+
+:Start
+1,Name: . . . [name]<br>
+_Age: . . . [age]<br>
+_<br>
+_Male Height: . . . [maleheight]<br>
+_Female Height: . . . [femaleheight]<br>
+_Male Weight: . . . [maleweight]<br>
+_Female Weight: . . . [femaleweight]<br>
+_<br>
+_Body Type: . . . [bodytype]<br>
+_Complexion and/or Skin Type: . . . [skin]<br>
+_Physical Condition (Fit, unfit or something in between?):<br>
+_<br>
+_Eye Color: . . .  [eyecolor]<br>
+_Eye Type: . . .  [eyetype]<br>
+_<br>
+_Hair Color: . . .  [haircolor]<br>
+_Hair Texture: . . .  [hairtext]<br>
+_Hair Style: . . .  [hairstyle]<br>
+_<br>
+_Distinguishing Features:<br>
+_[features]
+_<br>
+_Physical Imperfections/Would Like Most to Change:<br>
+_[blemishes]
+_<br>
+_Characteristic Gestures:<br>
+_1.<br>
+_2.<br>
+_<hr />
+_Race:<br>
+_Ethnic Group: . . . [ethnic]<br>
+_Religion: . . . [religion]<br>
+_Family Background/Lineage:<br>
+_<br>
+_Years of Schooling:<br>
+_Major and Minor Studies in College:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Degrees: . . . [degree]<br>
+_Grades Achieved in School:<br>
+_Special Occupational Training:<br>
+_<hr />
+_Occupation: . . . [occupation]<br>
+_<br>
+_Past Occupations:<br>
+_[pastjobs]<br>
+_<br>
+_Skills, Abilities, and Talents:<br>
+_[skills]<br>
+_<br>
+_Areas of Expertise:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Military Experience:<br>
+_<hr />
+_Personality Type: . . . [personality]<br>
+_Introvert/Extrovert: . . . [vert]<br>
+_<br>
+_Eccentricities:<br>
+_[eccentrics]
+_<hr />
+_IQ: {1d202}<br>
+_Method of Handling Anger or Rage:<br>
+_<br>
+_Bad Habits/Vice:<br>
+_[habits]<br>
+_<br>
+_Prejudices:<br>
+_[prejudices]<br>
+_<br>
+_Pet Peeves and Gripes:<br>
+_[peeves]<br>
+_<br>
+_Most Painful Things in One's Life:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Ever Been Arrested?:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Political or Social Issues Most Important To You:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_4.<br>
+_<hr />
+_Political Party: . . . [party]<br>
+_Liberal, Conservative, Middle of the Road, Radical:<br>
+_Income: . . . [income]<br>
+_<hr />
+_Fears:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Phobias:<br>
+_[phobias]<br>
+_<br>
+_Manias:<br>
+_[manias]<br>
+_<br>
+_Physical Illnesses or Afflictions:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Mental Disturbances:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Hobbies:<br>
+_[hobbies]<br>
+_<br>
+_Pets:<br>
+_Interests:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Sports:<br>
+_[sports]<br>
+_<br>
+_Favorite Pastime:<br>
+_Favorite TV Genres:<br>
+_[genres]<br>
+_<br>
+_Favorite Movies Genres:<br>
+_[movies]<br>
+_<br>
+_Favorite Books:<br>
+_[books]<br>
+_<br>
+_Favorite Travel Destination:<br>
+_<hr />
+_Drinks Alcohol? (How often?):<br>
+_Favorite Alcoholic Drink:<br>
+_Favorite Meal:<br>
+_<br>
+_Diet:<br>
+_Favorite Restaurant/Ethnic Food:<br>
+_<hr />
+_Favorite Physical Attributes in Opposite Sex:<br>
+_[attribites]<br>
+_<br>
+_Attributes About Character That Turn On Opposite Sex:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Sexual Turn-Ons:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Sexual Turn-Offs:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<br>
+_Traumas/Psychological Scars from the Past:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<hr />
+_Clothing Styles/Favorite Outfit:<br>
+_<br>
+_Speaking Style: . . . [voice]<br>
+_Favorite Pet Sayings, Words/Idiolect:<br>
+_1.<br>
+_2.<br>
+_3.<br>
+_<hr />
+_Philosophy of Life:<br>
+_<br>
+_Type and Number of Close Friends:<br>
+_Best Friend:<br>
+_Other Friends:<br>
+_<br>
+_Most Crucial Experience:<br>
+_<br>
+_Home:<br>
+_Neighborhood:<br>
+_Car:<br>
+_Color:<br>
+_Drive Fast or Slow/Obey Traffic Laws:<br>
+
+:name
+1,[sex] [last]
+
+:sex
+1,[male]
+2,[male] [male]
+3,[female]
+4,[female] [female]
+
+:male
+1,JAMES
+2,JOHN
+3,ROBERT
+4,MICHAEL
+5,WILLIAM
+6,DAVID
+7,RICHARD
+8,CHARLES
+9,JOSEPH
+10,THOMAS
+11,CHRISTOPHER
+12,DANIEL
+13,PAUL
+14,MARK
+15,DONALD
+16,GEORGE
+17,KENNETH
+18,STEVEN
+19,EDWARD
+20,BRIAN
+21,RONALD
+22,ANTHONY
+23,KEVIN
+24,JASON
+25,MATTHEW
+26,GARY
+27,TIMOTHY
+28,JOSE
+29,LARRY
+30,JEFFREY
+31,FRANK
+32,SCOTT
+33,ERIC
+34,STEPHEN
+35,ANDREW
+36,RAYMOND
+37,GREGORY
+38,JOSHUA
+39,JERRY
+40,DENNIS
+41,WALTER
+42,PATRICK
+43,PETER
+44,HAROLD
+45,DOUGLAS
+46,HENRY
+47,CARL
+48,ARTHUR
+49,RYAN
+50,ROGER
+51,JOE
+52,JUAN
+53,JACK
+54,ALBERT
+55,JONATHAN
+56,JUSTIN
+57,TERRY
+58,GERALD
+59,KEITH
+60,SAMUEL
+61,WILLIE
+62,RALPH
+63,LAWRENCE
+64,NICHOLAS
+65,ROY
+66,BENJAMIN
+67,BRUCE
+68,BRANDON
+69,ADAM
+70,HARRY
+71,FRED
+72,WAYNE
+73,BILLY
+74,STEVE
+75,LOUIS
+76,JEREMY
+77,AARON
+78,RANDY
+79,HOWARD
+80,EUGENE
+81,CARLOS
+82,RUSSELL
+83,BOBBY
+84,VICTOR
+85,MARTIN
+86,ERNEST
+87,PHILLIP
+88,TODD
+89,JESSE
+90,CRAIG
+91,ALAN
+92,SHAWN
+93,CLARENCE
+94,SEAN
+95,PHILIP
+96,CHRIS
+97,JOHNNY
+98,EARL
+99,JIMMY
+100,ANTONIO
+101,DANNY
+102,BRYAN
+103,TONY
+104,LUIS
+105,MIKE
+106,STANLEY
+107,LEONARD
+108,NATHAN
+109,DALE
+110,MANUEL
+111,RODNEY
+112,CURTIS
+113,NORMAN
+114,ALLEN
+115,MARVIN
+116,VINCENT
+117,GLENN
+118,JEFFERY
+119,TRAVIS
+120,JEFF
+121,CHAD
+122,JACOB
+123,LEE
+124,MELVIN
+125,ALFRED
+126,KYLE
+127,FRANCIS
+128,BRADLEY
+129,JESUS
+130,HERBERT
+131,FREDERICK
+132,RAY
+133,JOEL
+134,EDWIN
+135,DON
+136,EDDIE
+137,RICKY
+138,TROY
+139,RANDALL
+140,BARRY
+141,ALEXANDER
+142,BERNARD
+143,MARIO
+144,LEROY
+145,FRANCISCO
+146,MARCUS
+147,MICHEAL
+148,THEODORE
+149,CLIFFORD
+150,MIGUEL
+151,OSCAR
+152,JAY
+153,JIM
+154,TOM
+155,CALVIN
+156,ALEX
+157,JON
+158,RONNIE
+159,BILL
+160,LLOYD
+161,TOMMY
+162,LEON
+163,DEREK
+164,WARREN
+165,DARRELL
+166,JEROME
+167,FLOYD
+168,LEO
+169,ALVIN
+170,TIM
+171,WESLEY
+172,GORDON
+173,DEAN
+174,GREG
+175,JORGE
+176,DUSTIN
+177,PEDRO
+178,DERRICK
+179,DAN
+180,LEWIS
+181,ZACHARY
+182,COREY
+183,HERMAN
+184,MAURICE
+185,VERNON
+186,ROBERTO
+187,CLYDE
+188,GLEN
+189,HECTOR
+190,SHANE
+191,RICARDO
+192,SAM
+193,RICK
+194,LESTER
+195,BRENT
+196,RAMON
+197,CHARLIE
+198,TYLER
+199,GILBERT
+200,GENE
+201,MARC
+202,REGINALD
+203,RUBEN
+204,BRETT
+205,ANGEL
+206,NATHANIEL
+207,RAFAEL
+208,LESLIE
+209,EDGAR
+210,MILTON
+211,RAUL
+212,BEN
+213,CHESTER
+214,CECIL
+215,DUANE
+216,FRANKLIN
+217,ANDRE
+218,ELMER
+219,BRAD
+220,GABRIEL
+221,RON
+222,MITCHELL
+223,ROLAND
+224,ARNOLD
+225,HARVEY
+226,JARED
+227,ADRIAN
+228,KARL
+229,CORY
+230,CLAUDE
+231,ERIK
+232,DARRYL
+233,JAMIE
+234,NEIL
+235,JESSIE
+236,CHRISTIAN
+237,JAVIER
+238,FERNANDO
+239,CLINTON
+240,TED
+241,MATHEW
+242,TYRONE
+243,DARREN
+244,LONNIE
+245,LANCE
+246,CODY
+247,JULIO
+248,KELLY
+249,KURT
+250,ALLAN
+251,NELSON
+252,GUY
+253,CLAYTON
+254,HUGH
+255,MAX
+256,DWAYNE
+257,DWIGHT
+258,ARMANDO
+259,FELIX
+260,JIMMIE
+261,EVERETT
+262,JORDAN
+263,IAN
+264,WALLACE
+265,KEN
+266,BOB
+267,JAIME
+268,CASEY
+269,ALFREDO
+270,ALBERTO
+271,DAVE
+272,IVAN
+273,JOHNNIE
+274,SIDNEY
+275,BYRON
+276,JULIAN
+277,ISAAC
+278,MORRIS
+279,CLIFTON
+280,WILLARD
+281,DARYL
+282,ROSS
+283,VIRGIL
+284,ANDY
+285,MARSHALL
+286,SALVADOR
+287,PERRY
+288,KIRK
+289,SERGIO
+290,MARION
+291,TRACY
+292,SETH
+293,KENT
+294,TERRANCE
+295,RENE
+296,EDUARDO
+297,TERRENCE
+298,ENRIQUE
+299,FREDDIE
+300,WADE
+301,AUSTIN
+302,STUART
+303,FREDRICK
+304,ARTURO
+305,ALEJANDRO
+306,JACKIE
+307,JOEY
+308,NICK
+309,LUTHER
+310,WENDELL
+311,JEREMIAH
+312,EVAN
+313,JULIUS
+314,DANA
+315,DONNIE
+316,OTIS
+317,SHANNON
+318,TREVOR
+319,OLIVER
+320,LUKE
+321,HOMER
+322,GERARD
+323,DOUG
+324,KENNY
+325,HUBERT
+326,ANGELO
+327,SHAUN
+328,LYLE
+329,MATT
+330,LYNN
+331,ALFONSO
+332,ORLANDO
+333,REX
+334,CARLTON
+335,ERNESTO
+336,CAMERON
+337,NEAL
+338,PABLO
+339,LORENZO
+340,OMAR
+341,WILBUR
+342,BLAKE
+343,GRANT
+344,HORACE
+345,RODERICK
+346,KERRY
+347,ABRAHAM
+348,WILLIS
+349,RICKEY
+350,JEAN
+351,IRA
+352,ANDRES
+353,CESAR
+354,JOHNATHAN
+355,MALCOLM
+356,RUDOLPH
+357,DAMON
+358,KELVIN
+359,RUDY
+360,PRESTON
+361,ALTON
+362,ARCHIE
+363,MARCO
+364,WM
+365,PETE
+366,RANDOLPH
+367,GARRY
+368,GEOFFREY
+369,JONATHON
+370,FELIPE
+371,BENNIE
+372,GERARDO
+373,ED
+374,DOMINIC
+375,ROBIN
+376,LOREN
+377,DELBERT
+378,COLIN
+379,GUILLERMO
+380,EARNEST
+381,LUCAS
+382,BENNY
+383,NOEL
+384,SPENCER
+385,RODOLFO
+386,MYRON
+387,EDMUND
+388,GARRETT
+389,SALVATORE
+390,CEDRIC
+391,LOWELL
+392,GREGG
+393,SHERMAN
+394,WILSON
+395,DEVIN
+396,SYLVESTER
+397,KIM
+398,ROOSEVELT
+399,ISRAEL
+400,JERMAINE
+401,FORREST
+402,WILBERT
+403,LELAND
+404,SIMON
+405,GUADALUPE
+406,CLARK
+407,IRVING
+408,CARROLL
+409,BRYANT
+410,OWEN
+411,RUFUS
+412,WOODROW
+413,SAMMY
+414,KRISTOPHER
+415,MACK
+416,LEVI
+417,MARCOS
+418,GUSTAVO
+419,JAKE
+420,LIONEL
+421,MARTY
+422,TAYLOR
+423,ELLIS
+424,DALLAS
+425,GILBERTO
+426,CLINT
+427,NICOLAS
+428,LAURENCE
+429,ISMAEL
+430,ORVILLE
+431,DREW
+432,JODY
+433,ERVIN
+434,DEWEY
+435,AL
+436,WILFRED
+437,JOSH
+438,HUGO
+439,IGNACIO
+440,CALEB
+441,TOMAS
+442,SHELDON
+443,ERICK
+444,FRANKIE
+445,STEWART
+446,DOYLE
+447,DARREL
+448,ROGELIO
+449,TERENCE
+450,SANTIAGO
+451,ALONZO
+452,ELIAS
+453,BERT
+454,ELBERT
+455,RAMIRO
+456,CONRAD
+457,PAT
+458,NOAH
+459,GRADY
+460,PHIL
+461,CORNELIUS
+462,LAMAR
+463,ROLANDO
+464,CLAY
+465,PERCY
+466,DEXTER
+467,BRADFORD
+468,MERLE
+469,DARIN
+470,AMOS
+471,TERRELL
+472,MOSES
+473,IRVIN
+474,SAUL
+475,ROMAN
+476,DARNELL
+477,RANDAL
+478,TOMMIE
+479,TIMMY
+480,DARRIN
+481,WINSTON
+482,BRENDAN
+483,TOBY
+484,VAN
+485,ABEL
+486,DOMINICK
+487,BOYD
+488,COURTNEY
+489,JAN
+490,EMILIO
+491,ELIJAH
+492,CARY
+493,DOMINGO
+494,SANTOS
+495,AUBREY
+496,EMMETT
+497,MARLON
+498,EMANUEL
+499,JERALD
+500,EDMOND
+
+:female
+1,MARY
+2,PATRICIA
+3,LINDA
+4,BARBARA
+5,ELIZABETH
+6,JENNIFER
+7,MARIA
+8,SUSAN
+9,MARGARET
+10,DOROTHY
+11,LISA
+12,NANCY
+13,KAREN
+14,BETTY
+15,HELEN
+16,SANDRA
+17,DONNA
+18,CAROL
+19,RUTH
+20,SHARON
+21,MICHELLE
+22,LAURA
+23,SARAH
+24,KIMBERLY
+25,DEBORAH
+26,JESSICA
+27,SHIRLEY
+28,CYNTHIA
+29,ANGELA
+30,MELISSA
+31,BRENDA
+32,AMY
+33,ANNA
+34,REBECCA
+35,VIRGINIA
+36,KATHLEEN
+37,PAMELA
+38,MARTHA
+39,DEBRA
+40,AMANDA
+41,STEPHANIE
+42,CAROLYN
+43,CHRISTINE
+44,MARIE
+45,JANET
+46,CATHERINE
+47,FRANCES
+48,ANN
+49,JOYCE
+50,DIANE
+51,ALICE
+52,JULIE
+53,HEATHER
+54,TERESA
+55,DORIS
+56,GLORIA
+57,EVELYN
+58,JEAN
+59,CHERYL
+60,MILDRED
+61,KATHERINE
+62,JOAN
+63,ASHLEY
+64,JUDITH
+65,ROSE
+66,JANICE
+67,KELLY
+68,NICOLE
+69,JUDY
+70,CHRISTINA
+71,KATHY
+72,THERESA
+73,BEVERLY
+74,DENISE
+75,TAMMY
+76,IRENE
+77,JANE
+78,LORI
+79,RACHEL
+80,MARILYN
+81,ANDREA
+82,KATHRYN
+83,LOUISE
+84,SARA
+85,ANNE
+86,JACQUELINE
+87,WANDA
+88,BONNIE
+89,JULIA
+90,RUBY
+91,LOIS
+92,TINA
+93,PHYLLIS
+94,NORMA
+95,PAULA
+96,DIANA
+97,ANNIE
+98,LILLIAN
+99,EMILY
+100,ROBIN
+101,PEGGY
+102,CRYSTAL
+103,GLADYS
+104,RITA
+105,DAWN
+106,CONNIE
+107,FLORENCE
+108,TRACY
+109,EDNA
+110,TIFFANY
+111,CARMEN
+112,ROSA
+113,CINDY
+114,GRACE
+115,WENDY
+116,VICTORIA
+117,EDITH
+118,KIM
+119,SHERRY
+120,SYLVIA
+121,JOSEPHINE
+122,THELMA
+123,SHANNON
+124,SHEILA
+125,ETHEL
+126,ELLEN
+127,ELAINE
+128,MARJORIE
+129,CARRIE
+130,CHARLOTTE
+131,MONICA
+132,ESTHER
+133,PAULINE
+134,EMMA
+135,JUANITA
+136,ANITA
+137,RHONDA
+138,HAZEL
+139,AMBER
+140,EVA
+141,DEBBIE
+142,APRIL
+143,LESLIE
+144,CLARA
+145,LUCILLE
+146,JAMIE
+147,JOANNE
+148,ELEANOR
+149,VALERIE
+150,DANIELLE
+151,MEGAN
+152,ALICIA
+153,SUZANNE
+154,MICHELE
+155,GAIL
+156,BERTHA
+157,DARLENE
+158,VERONICA
+159,JILL
+160,ERIN
+161,GERALDINE
+162,LAUREN
+163,CATHY
+164,JOANN
+165,LORRAINE
+166,LYNN
+167,SALLY
+168,REGINA
+169,ERICA
+170,BEATRICE
+171,DOLORES
+172,BERNICE
+173,AUDREY
+174,YVONNE
+175,ANNETTE
+176,JUNE
+177,SAMANTHA
+178,MARION
+179,DANA
+180,STACY
+181,ANA
+182,RENEE
+183,IDA
+184,VIVIAN
+185,ROBERTA
+186,HOLLY
+187,BRITTANY
+188,MELANIE
+189,LORETTA
+190,YOLANDA
+191,JEANETTE
+192,LAURIE
+193,KATIE
+194,KRISTEN
+195,VANESSA
+196,ALMA
+197,SUE
+198,ELSIE
+199,BETH
+200,JEANNE
+201,VICKI
+202,CARLA
+203,TARA
+204,ROSEMARY
+205,EILEEN
+206,TERRI
+207,GERTRUDE
+208,LUCY
+209,TONYA
+210,ELLA
+211,STACEY
+212,WILMA
+213,GINA
+214,KRISTIN
+215,JESSIE
+216,NATALIE
+217,AGNES
+218,VERA
+219,WILLIE
+220,CHARLENE
+221,BESSIE
+222,DELORES
+223,MELINDA
+224,PEARL
+225,ARLENE
+226,MAUREEN
+227,COLLEEN
+228,ALLISON
+229,TAMARA
+230,JOY
+231,GEORGIA
+232,CONSTANCE
+233,LILLIE
+234,CLAUDIA
+235,JACKIE
+236,MARCIA
+237,TANYA
+238,NELLIE
+239,MINNIE
+240,MARLENE
+241,HEIDI
+242,GLENDA
+243,LYDIA
+244,VIOLA
+245,COURTNEY
+246,MARIAN
+247,STELLA
+248,CAROLINE
+249,DORA
+250,JO
+251,VICKIE
+252,MATTIE
+253,TERRY
+254,MAXINE
+255,IRMA
+256,MABEL
+257,MARSHA
+258,MYRTLE
+259,LENA
+260,CHRISTY
+261,DEANNA
+262,PATSY
+263,HILDA
+264,GWENDOLYN
+265,JENNIE
+266,NORA
+267,MARGIE
+268,NINA
+269,CASSANDRA
+270,LEAH
+271,PENNY
+272,KAY
+273,PRISCILLA
+274,NAOMI
+275,CAROLE
+276,BRANDY
+277,OLGA
+278,BILLIE
+279,DIANNE
+280,TRACEY
+281,LEONA
+282,JENNY
+283,FELICIA
+284,SONIA
+285,MIRIAM
+286,VELMA
+287,BECKY
+288,BOBBIE
+289,VIOLET
+290,KRISTINA
+291,TONI
+292,MISTY
+293,MAE
+294,SHELLY
+295,DAISY
+296,RAMONA
+297,SHERRI
+298,ERIKA
+299,KATRINA
+300,CLAIRE
+301,LINDSEY
+302,LINDSAY
+303,GENEVA
+304,GUADALUPE
+305,BELINDA
+306,MARGARITA
+307,SHERYL
+308,CORA
+309,FAYE
+310,ADA
+311,NATASHA
+312,SABRINA
+313,ISABEL
+314,MARGUERITE
+315,HATTIE
+316,HARRIET
+317,MOLLY
+318,CECILIA
+319,KRISTI
+320,BRANDI
+321,BLANCHE
+322,SANDY
+323,ROSIE
+324,JOANNA
+325,IRIS
+326,EUNICE
+327,ANGIE
+328,INEZ
+329,LYNDA
+330,MADELINE
+331,AMELIA
+332,ALBERTA
+333,GENEVIEVE
+334,MONIQUE
+335,JODI
+336,JANIE
+337,MAGGIE
+338,KAYLA
+339,SONYA
+340,JAN
+341,LEE
+342,KRISTINE
+343,CANDACE
+344,FANNIE
+345,MARYANN
+346,OPAL
+347,ALISON
+348,YVETTE
+349,MELODY
+350,LUZ
+351,SUSIE
+352,OLIVIA
+353,FLORA
+354,SHELLEY
+355,KRISTY
+356,MAMIE
+357,LULA
+358,LOLA
+359,VERNA
+360,BEULAH
+361,ANTOINETTE
+362,CANDICE
+363,JUANA
+364,JEANNETTE
+365,PAM
+366,KELLI
+367,HANNAH
+368,WHITNEY
+369,BRIDGET
+370,KARLA
+371,CELIA
+372,LATOYA
+373,PATTY
+374,SHELIA
+375,GAYLE
+376,DELLA
+377,VICKY
+378,LYNNE
+379,SHERI
+380,MARIANNE
+381,KARA
+382,JACQUELYN
+383,ERMA
+384,BLANCA
+385,MYRA
+386,LETICIA
+387,PAT
+388,KRISTA
+389,ROXANNE
+390,ANGELICA
+391,JOHNNIE
+392,ROBYN
+393,FRANCIS
+394,ADRIENNE
+395,ROSALIE
+396,ALEXANDRA
+397,BROOKE
+398,BETHANY
+399,SADIE
+400,BERNADETTE
+401,TRACI
+402,JODY
+403,KENDRA
+404,JASMINE
+405,NICHOLE
+406,RACHAEL
+407,CHELSEA
+408,MABLE
+409,ERNESTINE
+410,MURIEL
+411,MARCELLA
+412,ELENA
+413,KRYSTAL
+414,ANGELINA
+415,NADINE
+416,KARI
+417,ESTELLE
+418,DIANNA
+419,PAULETTE
+420,LORA
+421,MONA
+422,DOREEN
+423,ROSEMARIE
+424,ANGEL
+425,DESIREE
+426,ANTONIA
+427,HOPE
+428,GINGER
+429,JANIS
+430,BETSY
+431,CHRISTIE
+432,FREDA
+433,MERCEDES
+434,MEREDITH
+435,LYNETTE
+436,TERI
+437,CRISTINA
+438,EULA
+439,LEIGH
+440,MEGHAN
+441,SOPHIA
+442,ELOISE
+443,ROCHELLE
+444,GRETCHEN
+445,CECELIA
+446,RAQUEL
+447,HENRIETTA
+448,ALYSSA
+449,JANA
+450,KELLEY
+451,GWEN
+452,KERRY
+453,JENNA
+454,TRICIA
+455,LAVERNE
+456,OLIVE
+457,ALEXIS
+458,TASHA
+459,SILVIA
+460,ELVIRA
+461,CASEY
+462,DELIA
+463,SOPHIE
+464,KATE
+465,PATTI
+466,LORENA
+467,KELLIE
+468,SONJA
+469,LILA
+470,LANA
+471,DARLA
+472,MAY
+473,MINDY
+474,ESSIE
+475,MANDY
+476,LORENE
+477,ELSA
+478,JOSEFINA
+479,JEANNIE
+480,MIRANDA
+481,DIXIE
+482,LUCIA
+483,MARTA
+484,FAITH
+485,LELA
+486,JOHANNA
+487,SHARI
+488,CAMILLE
+489,TAMI
+490,SHAWNA
+491,ELISA
+492,EBONY
+493,MELBA
+494,ORA
+495,NETTIE
+496,TABITHA
+497,OLLIE
+498,JAIME
+499,WINIFRED
+500,KRISTIE
+
+:last
+1,SMITH
+2,JOHNSON
+3,WILLIAMS
+4,JONES
+5,BROWN
+6,DAVIS
+7,MILLER
+8,WILSON
+9,MOORE
+10,TAYLOR
+11,ANDERSON
+12,THOMAS
+13,JACKSON
+14,WHITE
+15,HARRIS
+16,MARTIN
+17,THOMPSON
+18,GARCIA
+19,MARTINEZ
+20,ROBINSON
+21,CLARK
+22,RODRIGUEZ
+23,LEWIS
+24,LEE
+25,WALKER
+26,HALL
+27,ALLEN
+28,YOUNG
+29,HERNANDEZ
+30,KING
+31,WRIGHT
+32,LOPEZ
+33,HILL
+34,SCOTT
+35,GREEN
+36,ADAMS
+37,BAKER
+38,GONZALEZ
+39,NELSON
+40,CARTER
+41,MITCHELL
+42,PEREZ
+43,ROBERTS
+44,TURNER
+45,PHILLIPS
+46,CAMPBELL
+47,PARKER
+48,EVANS
+49,EDWARDS
+50,COLLINS
+51,STEWART
+52,SANCHEZ
+53,MORRIS
+54,ROGERS
+55,REED
+56,COOK
+57,MORGAN
+58,BELL
+59,MURPHY
+60,BAILEY
+61,RIVERA
+62,COOPER
+63,RICHARDSON
+64,COX
+65,HOWARD
+66,WARD
+67,TORRES
+68,PETERSON
+69,GRAY
+70,RAMIREZ
+71,JAMES
+72,WATSON
+73,BROOKS
+74,KELLY
+75,SANDERS
+76,PRICE
+77,BENNETT
+78,WOOD
+79,BARNES
+80,ROSS
+81,HENDERSON
+82,COLEMAN
+83,JENKINS
+84,PERRY
+85,POWELL
+86,LONG
+87,PATTERSON
+88,HUGHES
+89,FLORES
+90,WASHINGTON
+91,BUTLER
+92,SIMMONS
+93,FOSTER
+94,GONZALES
+95,BRYANT
+96,ALEXANDER
+97,RUSSELL
+98,GRIFFIN
+99,DIAZ
+100,HAYES
+101,MYERS
+102,FORD
+103,HAMILTON
+104,GRAHAM
+105,SULLIVAN
+106,WALLACE
+107,WOODS
+108,COLE
+109,WEST
+110,JORDAN
+111,OWENS
+112,REYNOLDS
+113,FISHER
+114,ELLIS
+115,HARRISON
+116,GIBSON
+117,MCDONALD
+118,CRUZ
+119,MARSHALL
+120,ORTIZ
+121,GOMEZ
+122,MURRAY
+123,FREEMAN
+124,WELLS
+125,WEBB
+126,SIMPSON
+127,STEVENS
+128,TUCKER
+129,PORTER
+130,HUNTER
+131,HICKS
+132,CRAWFORD
+133,HENRY
+134,BOYD
+135,MASON
+136,MORALES
+137,KENNEDY
+138,WARREN
+139,DIXON
+140,RAMOS
+141,REYES
+142,BURNS
+143,GORDON
+144,SHAW
+145,HOLMES
+146,RICE
+147,ROBERTSON
+148,HUNT
+149,BLACK
+150,DANIELS
+151,PALMER
+152,MILLS
+153,NICHOLS
+154,GRANT
+155,KNIGHT
+156,FERGUSON
+157,ROSE
+158,STONE
+159,HAWKINS
+160,DUNN
+161,PERKINS
+162,HUDSON
+163,SPENCER
+164,GARDNER
+165,STEPHENS
+166,PAYNE
+167,PIERCE
+168,BERRY
+169,MATTHEWS
+170,ARNOLD
+171,WAGNER
+172,WILLIS
+173,RAY
+174,WATKINS
+175,OLSON
+176,CARROLL
+177,DUNCAN
+178,SNYDER
+179,HART
+180,CUNNINGHAM
+181,BRADLEY
+182,LANE
+183,ANDREWS
+184,RUIZ
+185,HARPER
+186,FOX
+187,RILEY
+188,ARMSTRONG
+189,CARPENTER
+190,WEAVER
+191,GREENE
+192,LAWRENCE
+193,ELLIOTT
+194,CHAVEZ
+195,SIMS
+196,AUSTIN
+197,PETERS
+198,KELLEY
+199,FRANKLIN
+200,LAWSON
+201,FIELDS
+202,GUTIERREZ
+203,RYAN
+203,SCHMIDT
+205,CARR
+206,VASQUEZ
+207,CASTILLO
+208,WHEELER
+209,CHAPMAN
+210,OLIVER
+211,MONTGOMERY
+212,RICHARDS
+213,WILLIAMSON
+214,JOHNSTON
+215,BANKS
+216,MEYER
+217,BISHOP
+218,MCCOY
+219,HOWELL
+220,ALVAREZ
+221,MORRISON
+222,HANSEN
+223,FERNANDEZ
+224,GARZA
+225,HARVEY
+226,LITTLE
+227,BURTON
+228,STANLEY
+229,NGUYEN
+230,GEORGE
+231,JACOBS
+232,REID
+233,KIM
+234,FULLER
+235,LYNCH
+236,DEAN
+237,GILBERT
+238,GARRETT
+239,ROMERO
+240,WELCH
+241,LARSON
+242,FRAZIER
+243,BURKE
+244,HANSON
+245,DAY
+246,MENDOZA
+247,MORENO
+248,BOWMAN
+249,MEDINA
+250,FOWLER
+251,BREWER
+252,HOFFMAN
+253,CARLSON
+254,SILVA
+255,PEARSON
+256,HOLLAND
+257,DOUGLAS
+258,FLEMING
+259,JENSEN
+260,VARGAS
+261,BYRD
+262,DAVIDSON
+263,HOPKINS
+264,MAY
+265,TERRY
+266,HERRERA
+267,WADE
+268,SOTO
+269,WALTERS
+270,CURTIS
+271,NEAL
+272,CALDWELL
+273,LOWE
+274,JENNINGS
+275,BARNETT
+276,GRAVES
+277,JIMENEZ
+278,HORTON
+279,SHELTON
+280,BARRETT
+281,OBRIEN
+282,CASTRO
+283,SUTTON
+284,GREGORY
+285,MCKINNEY
+286,LUCAS
+287,MILES
+288,CRAIG
+289,RODRIQUEZ
+290,CHAMBERS
+291,HOLT
+292,LAMBERT
+293,FLETCHER
+294,WATTS
+295,BATES
+296,HALE
+297,RHODES
+298,PENA
+299,BECK
+300,NEWMAN
+301,HAYNES
+302,MCDANIEL
+303,MENDEZ
+304,BUSH
+305,VAUGHN
+306,PARKS
+307,DAWSON
+308,SANTIAGO
+309,NORRIS
+310,HARDY
+311,LOVE
+312,STEELE
+313,CURRY
+314,POWERS
+315,SCHULTZ
+316,BARKER
+317,GUZMAN
+318,PAGE
+319,MUNOZ
+320,BALL
+321,KELLER
+322,CHANDLER
+323,WEBER
+324,LEONARD
+325,WALSH
+326,LYONS
+327,RAMSEY
+328,WOLFE
+329,SCHNEIDER
+330,MULLINS
+331,BENSON
+332,SHARP
+333,BOWEN
+334,DANIEL
+335,BARBER
+336,CUMMINGS
+337,HINES
+338,BALDWIN
+339,GRIFFITH
+340,VALDEZ
+341,HUBBARD
+342,SALAZAR
+343,REEVES
+344,WARNER
+345,STEVENSON
+346,BURGESS
+347,SANTOS
+348,TATE
+349,CROSS
+350,GARNER
+351,MANN
+352,MACK
+353,MOSS
+354,THORNTON
+355,DENNIS
+356,MCGEE
+357,FARMER
+358,DELGADO
+359,AGUILAR
+360,VEGA
+361,GLOVER
+362,MANNING
+363,COHEN
+364,HARMON
+365,RODGERS
+366,ROBBINS
+367,NEWTON
+368,TODD
+369,BLAIR
+370,HIGGINS
+371,INGRAM
+372,REESE
+373,CANNON
+374,STRICKLAND
+375,TOWNSEND
+376,POTTER
+377,GOODWIN
+378,WALTON
+379,ROWE
+380,HAMPTON
+381,ORTEGA
+382,PATTON
+383,SWANSON
+384,JOSEPH
+385,FRANCIS
+386,GOODMAN
+387,MALDONADO
+388,YATES
+389,BECKER
+390,ERICKSON
+391,HODGES
+392,RIOS
+393,CONNER
+394,ADKINS
+395,WEBSTER
+396,NORMAN
+397,MALONE
+398,HAMMOND
+399,FLOWERS
+400,COBB
+401,MOODY
+402,QUINN
+403,BLAKE
+404,MAXWELL
+405,POPE
+406,FLOYD
+407,OSBORNE
+408,PAUL
+409,MCCARTHY
+410,GUERRERO
+411,LINDSEY
+412,ESTRADA
+413,SANDOVAL
+414,GIBBS
+415,TYLER
+416,GROSS
+417,FITZGERALD
+418,STOKES
+419,DOYLE
+420,SHERMAN
+421,SAUNDERS
+422,WISE
+423,COLON
+424,GILL
+425,ALVARADO
+426,GREER
+427,PADILLA
+428,SIMON
+429,WATERS
+430,NUNEZ
+431,BALLARD
+432,SCHWARTZ
+433,MCBRIDE
+434,HOUSTON
+435,CHRISTENSEN
+436,KLEIN
+437,PRATT
+438,BRIGGS
+439,PARSONS
+440,MCLAUGHLIN
+441,ZIMMERMAN
+442,FRENCH
+443,BUCHANAN
+444,MORAN
+445,COPELAND
+446,ROY
+447,PITTMAN
+448,BRADY
+449,MCCORMICK
+450,HOLLOWAY
+451,BROCK
+452,POOLE
+453,FRANK
+454,LOGAN
+455,OWEN
+456,BASS
+457,MARSH
+458,DRAKE
+459,WONG
+460,JEFFERSON
+461,PARK
+462,MORTON
+463,ABBOTT
+464,SPARKS
+465,PATRICK
+466,NORTON
+467,HUFF
+468,CLAYTON
+469,MASSEY
+470,LLOYD
+471,FIGUEROA
+472,CARSON
+473,BOWERS
+474,ROBERSON
+475,BARTON
+476,TRAN
+477,LAMB
+478,HARRINGTON
+479,CASEY
+480,BOONE
+481,CORTEZ
+482,CLARKE
+483,MATHIS
+484,SINGLETON
+485,WILKINS
+486,CAIN
+487,BRYAN
+488,UNDERWOOD
+489,HOGAN
+490,MCKENZIE
+491,COLLIER
+492,LUNA
+493,PHELPS
+494,MCGUIRE
+495,ALLISON
+496,BRIDGES
+497,WILKERSON
+498,NASH
+499,SUMMERS
+500,ATKINS
+
+:eyetype
+1,almond (almond-shaped)
+2,banjo (wide, circular eyes)
+3,beady (small and round)
+4,bug (protuding)
+5,bulging
+6,bullish (a descriptive term; fierce)
+7,button (small and round or large and round)
+8,close-set (eyes that are set close together but not quite crossed)
+9,crescent (half-moon shaped, either naturally or when grinning)
+10,cross-eyed
+11,cue ball (very large, bulging eyes)
+12,deep-set (set deeply into the skull, most pronounced with a prominent forehead ridge)
+13,dewdrop (the shape of a teardrop)
+14,egg-shaped (large ovoid)
+15,esotropic (a form of strabismus in which one eye is turned or crossed inward toward the nose)
+16,exophthalmic (eyes that bulge from their sockets, usually due to a thyroid condition)
+17,exotropic (a form of strabismus in which one eye is turned or crossed outward, away from the nose)
+18,falcon (a descriptive term; a small, round dark eye; bird-like)
+19,feline (cat-like, with lentil-shaped pupils)
+20,fish (glassy and emotionless)
+21,gimlet (piercing; penetrating)
+22,glassy (dull)
+23,goggle (prominent or bulging; also rolling eyes)
+24,hollowed eye sockets (a descriptive term for deep-set eyes, most likely to appear in people who are anorexic or malnourished)
+26,hooded (lids covering part of half of the eyes; sleepy-eyed or bored eyes)
+27,kidney-shaped (reniform, occurring naturally when smiling)
+28,lentil, lenticular (shaped like a lentil or bioconvex lens; the most common eye shape)
+29,luminous (a descriptive term for an animal's eyes when reflecting light at night; the reflective eye layer itself is called the <i>tapetum</i>)
+31,lunulate (crescent-shaped)
+32,Oriental (slanted)
+33,owlish (wide, round and alert)
+34,pea (tiny and round)
+35,pop (protuberant or bulging)
+36,puffin-like (in the shape of a teardrop)
+37,rheumy (watery, moist)
+38,saucer (large or goggle-like)
+39,shark-like (cold and indifferent)
+40,slanty (Oriental)
+41,slits (narrow)
+42,sloe (large and dark, or almond-shaped)
+43,spaniel (round and moist)
+44,squinty (near-sighted or far-sighted)
+45,strabismus (the condition of squinting)
+46,sunken (deep eye sockets, an effect that accompanies anorexia or malnourishment)
+47,walleyed (large, glossy eyes; also, an eye that turns outward, or a whitish or light-colored iris)
+48,wide-set (set far apart under the forehead)
+
+:eyecolor
+1,acorn (weathered nut-brown)
+2,autumn leaf (reddish-brown to brown)
+3,biscuit (light toasted brown)
+4,bronze (reddish-brown or coppery brown)
+5,burnt almond (dark brown)
+6,camel (medium brown)
+7,Congo (muddy or dark brown, after the African river)
+8,dun (dull grayish-brown)
+9,dusky (dark, shadowy, as in deepening twilight)
+10,dusty road (light brown if dry, dark brown after a rain shower)
+11,earth (broad variability, the entire spectrum of brown)
+12,ebony (very dark brown or black)
+13,elk (medium to dark brown)
+14,fawn (pale, yellowish-brown)
+15,fox (reddish-brown)
+16,Grand Canyon (broad variability, from light to dark browns to reddish-browns)
+17,grizzly bear (variable; brownish, grayish or yellowish)
+18,gunmetal (black)
+19,hawk brown (yellowish-brown, medium brown or grayish-brown)
+20,hazel (reddish-brown or yellowish-brown, usually flocked with green or gray)
+21,honey (yellowish-brown or golden brown)
+22,humus (rich soil brown; dark brown or black)
+23,kelp (seaweed brown)
+24,leather (medium to dark brown; reddish-brown)
+25,lentil (light to medium brown)
+26,lignite (brownish-black)
+27,mahogany (dark reddish-brown or yellowish-brown)
+28,mill pond (deep brown or black)
+29,mink (dark brown)
+30,Mississippi (muddy brown, as found in parts of the river)
+31,mocassin (same as leather; medium to dark brown; reddish-brown)
+32,molasses (usually dark brown)
+33,mottled (flecked, streaked, spotty or blotchy)
+34,mud (broad variability, from light to dark red)
+35,Nubian (medium brown)
+36,nut-brown (broad variability, from eyllowish-brown to dark brown)
+37,obsidian (very dark or black)
+38,olive (dark brown or black)
+39,otter (medium to dark brown)
+40,raisin (reddish-brown or black)
+41,raven (black)
+42,Rio Grande (muddy)
+43,russet (yellowish-, or reddish-brown)
+44,sandy (yellowish, grayish or medium brown)
+45,sienna (yellowish-brown; burnt sienna is reddish-brown)
+46,soot (grayish-brown or black)
+47,sorrel (light brown or light reddish-brown; dried autumn leaf)
+48,sparrow brown (grayish-brown)
+49,tarnished penny (reddish-brown)
+50,taupe (dark brownish-gray; moleskin)
+51,tawny (brownish-yellow or tan)
+52,umber (the color of shadow)
+53,weathered acorn (medium brown)
+54,apple green (light green)
+55,azure (sky blue)
+56,baby blue (very light to very pale greenish- or purplish-blue)
+57,bittersweet nightshade (purplish-blue, similar to pasisonflower)
+58,blueberry (light to medium blue)
+59,blue jay (light blue)
+60,bottle green (dark to grayish-green)
+61,celestial blue (sky blue)
+62,cobalt (deep, vivid blue; also strong greenish-blue)
+63,cornflower (blue or purple)
+64,denim (the color of jeans)
+65,dove gray (grayish-blue or grayish-brown)
+66,electric blue (bright neon blue)
+67,emerald (strong yellowish-green)
+68,gentian (blue)
+69,grape (blue or purple)
+70,holly green (medium to dark green)
+71,hyacinth (deep purplish-blue to vivid violet)
+72,ice (very light blue)
+73,indigo (dark blue to grayish, purplish-blue)
+74,iridescent (having rainbow-like or shifting colors, depending on the angle they're seen from)
+75,iris (light purple)
+76,jade (pale green)
+7,jungle (leaf green)
+78,kingfisher (blue-gray)
+79,lagoon blue (broad variability, from light, crystal blue to dark blue)
+80,lagoon green (broad variability,  from light to dark green)
+81,lapis lazuli (sky blue to deep blue)
+82,larkspur (blue to medium blue)
+83,lavender (pale to light purple or very light, very pale violet)
+84,lightning (thunderbolt blue; light, silvery blue)
+85,lilac (pale or light to medium purple)
+86,mauve (brilliant violet or purple, or medium reddish-purple)
+87,midnight blue (very dark blue)
+88,misty blue (very light blue)
+89,morning glory (purplish-blue)
+90,moss (medium to dark green)
+91,Nordic blue (light to medium blue)
+92,olive green (light to medium green)
+93,passionflower (purplish-blue)
+94,peacock blue (medium to dark or strong greenish-blue)
+95,pea green (yellowish-green)
+96,periwinkle (purplish-blue)
+97,plum (dark blue to deep reddish-purple)
+98,powder blue (medium to pale blue, or purplish-blue)
+99,Prussian blue (medium to dark blue)
+100,rainforest green (misty leaf green)
+101,royal purple (medium to strong violet, or deep purple)
+102,sapphire (blue)
+103,sea green (broad variability, medium to very dark green)
+104,sea smoke (very light silvery blue or gray)
+105,sky blue (also known as azure)
+106,slate (dark gray to bluish-gray)
+107,smoke (gray-blue)
+108,smoked glass (gray or dark gray)
+109,snow shadow (shadowy blue)
+110,star (twinkling light blue or green)
+111,steel (dark gray to purplish-gray)
+112,storm sea (very dark blue to dark gray)
+113,teal (medium or dark bluish-green to greenish-blue)
+114,terre verte (French term for "green earth"; an olive green)
+115,twilight (dark purple)
+116,violet (reddish-blue to purplish-blue)
+117,Virginia bluebell (blue to purplish-blue)
+118,wild lupine (light to medium blue)
+119,wisteria blue (purplish)
+
+:haircolor
+1,acorn
+2,alabaster
+3,ash
+4,ash blond
+5,auburn
+6,black
+7,bleach blond
+8,blond
+9,blue-gray
+10,bone
+11,brown
+12,brunette
+13,buckskin
+14,burnt almond
+15,cafe au lait
+16,caramel
+17,carrot
+18,chestnut
+19,chocolate
+20,cinnamon
+21,coal black
+22,cocoa
+23,coffee
+24,copper
+25,dusky
+26,fair-haired
+27,fawn
+28,fiery
+29,flaming
+30,flaxen
+31,flint
+32,fox
+33,golden
+34,gray
+35,girzzled
+36,henna
+37,hoary
+38,honey
+39,ivory
+40,jet-black
+41,lily
+42,magnolia
+43,mahogany
+44,maple sugar
+45,mocha
+46,nut-brown
+47,nutmeg
+48,peroxide blond
+49,platinum blond
+50,polished wood
+51,premature gray
+52,raven
+53,russet
+54,rust
+55,sable
+56,salmon
+57,salt and pepper
+58,sandalwood
+59,sandy
+60,silver
+61,smoke
+62,snowy
+63,straw
+64,strawberry blond
+65,tarnished sunset
+66,tawny
+67,technicolor (dyed punk)
+68,titian
+69,tow-headed
+70,vanilla
+71,violent red
+72,washed-out
+73,white
+
+:hairtext
+1,billowing
+2,bird's nest
+3,bouncy
+4,bristly
+5,bushy
+6,coarse
+7,cornsilk
+8,crimped
+9,crinkly
+10,dollish
+11,downy
+12,eiderdown
+13,fine (baby fine)
+14,fleecy
+15,flowing
+16,flyaway
+17,frazzled
+18,frizzy
+19,fuzzy
+20,greasy
+21,kinky
+22,knotted
+23,lacquered
+24,listless
+25,lustrous
+26,luxurious
+27,matted
+28,nappy
+29,oily
+30,rat's nest
+31,rigid
+32,ropey
+33,satiny
+34,shaggy
+35,shocked
+36,silky
+37,snarled
+38,spiky
+39,stringy (like twine)
+40,thatched
+41,wiry
+42,wispy
+43,woolly
+
+:hairstyle
+1,Afro (a kinky, bushy style of the 1960s and eaerly 1970s)
+2,Afro puffs (kinky, bushy puffs worn on either side of the head)
+3,American Indian (long and straight; parted in the middle, braided or worn in a ponytail)
+4,bangs (a fringe of hair falling over the forehead)
+5,Beatle cut (the classic bowl-like cut that reached the height of popularity in the 1960s; also known as the Moe (Three Stooges) cut)
+6,beaver tail (a flat loop of hair worn over the nape of the neck, originating in 1865; also known as a banging chignon)
+7,beehive (a very tall, dome-like style reminiscent of a beehive; popularly worn from the late 1950s to early 1960s)
+8,bob (a woman's or child's short haircut with or without bangs)
+9,bouffant (a full, puffed-out style dependent on copious amounts of hairspray to keep it together)
+10,boyish bob (a woman's very short haircut shingled in the back)
+11,braids (plaited hair; may be worn down the back, to the sides, or wound around the head)
+12,brushed back severely (brushed abruptly away from the face)
+13,bun (a tight roll held fast near the top of the head or near the nape of the neck; also known as a French roll)
+14,chignon (a knot or roll twisted into a circle or figure either at the back of the head)
+15,China doll (short and straight with bangs)
+16,Cleopatra (long and straight down the sides)
+17,coiled (a coil of plaits, worn on back, to the side, or on top of the head)
+18,corkscrew curls (long, dangling curls resembling corkscrews)
+19,cornrows (a style in which hair is braided into tight rows close to the head)
+20,crew cut (a flattop or buzz cut, usually only worn by men)
+21,dreadlocks (tight, dangling, shoulder-length braids originally worn by the Rastafarians of Jamaica)
+22,ducktail (a classic 1950s style in which the hair was oiled, combed back over the ears, and molded up in back to form what looked like the tai lof a duck; also known as a DA (duck's ass))
+23,earmuffs (braids worn in circles over the ears)
+24,elflocks (tangled or matted hair)
+25,empire cone (a style, revived by Madonna, in which the hair is pulled through a cone-like contrivance and worn as a ponytail from the top of the head)
+26,fade (also known as the gumby or the slope, a flattop cut at a slant, sometimes with shaved lines or designs through it, a popular style among men in the 1990s)
+27,feather cut (a women's layered, slightly curled bob, popular in the 1960s and early 1970s)
+28,fishbone braid (a braid, reminiscent of the spine of a fish, worn down the back; also known as a French braid)
+29,flattop (crew cut, buzz cut)
+30,flip (a woman's cut in which the hair ends in curls on the sides, usually worn with bangs)
+31,French braid (a braid, reminiscent of the spine of a fish, worn down the back)
+32,hardened with hairspray (overly sprayed, giving a brittle or lacquered look)
+33,Mandinko (a look popularized by the television hero, Mr. T., comprised of a Mohawk haircut worn with a beard, mustache, and sideburns)
+34,marcel wave (tight waves arranged around the head with a curling iron, originating in the 1890s)
+35,Mohawk (a shaved head with a brush of hair one to six inches high running down the middle of the scalp; originally worn by Mohawk Indians but revived by punk rockers in the 1980s)
+36,pageboy (a style featuring bangs and hair falling straight to the sides with ends turned under)
+37,pigtails (braids hanging on either side of the head)
+38,pixie (a short cut characterized by points around the forehead and face)
+39,pompadour (a style in which hair is swept up high from the forehead, popular in the early 1900s as the "Gibson Girl" look and revived in slightly different modes since)
+40,poodle cut (a short, curly haircut, similar to a poodle's coat)
+41,porcupine (a punk haircut characterized by long spikes or strands of hair standing on end down the middle of the head)
+42,pulled back (a style in which the hair is pulled back and tied with a ribbon or held with barrette)
+43,punk (any Mohawk, porcupine, dyed, shaved, sculpted or spiked hair)
+44,receding hairline (progressive balding, from front to back)
+45,roach (hair brushed back to form a roll)
+46,rooster mane (male cut characterized by hair gathered at the top from front to back, or a Mohawk style)
+47,scupltured (hair styled with shaved-in designs, logos, or initials; also moused hair arranged in various fashions)
+48,shag (a shaggy bob worn with bangs)
+49,shock (bushy mass)
+50,skinhead (a shaved head)
+51,spikes (a punk style characterized by long spikes of moussed or gelled hair, sometimes dyed)
+52,spit curl (a curl of hair kept together and attached to the face with saliva)
+53,tail (style of the late)
+54,tonsure (a fringed circle of hair surrounding a bald crown)
+55,topknot (a knot tied at the crown of the head)
+56,Veronica Lake (popular in the 1940s and again in the 1960s, a style characterized by the hair parted to one side to partially cover one eye; named after the actress who originated the look)
+57,wedge (the wildly popular Dorothy Hamill look of the 1970s; the hair on the front and sides is the same length, with the back tapered close to the head)
+58,widow's peak (hair tapering to a point on the forehead)
+
+:bodytype
+1,Attractive: [attract]
+2,Big: [big]
+3,Aged: [aged]
+4,[misc]
+
+:attract
+1,athletic
+2,buxom
+3,compact
+4,curvaceous
+5,delicate
+6,diminutive
+7,fit
+8,full-figured
+9,hourglass
+10,iron-muscled
+11,lean
+12,leggy
+13,lissome
+14,lithe
+15,petite
+16,rippling
+17,rock-hard
+18,rugged
+19,sinewy
+20,sleek
+21,slim
+22,slinky
+23,split high (long-legged)
+24,stacked
+25,statuesque
+26,strapping
+27,svelte
+28,tall
+29,thin
+30,toned
+31,waspish (wasp-waisted)
+32,willowy
+33,wiry
+
+:big
+1,Amazonian
+2,barrel-chested
+3,barrel-shaped
+4,beefy
+5,big as a bull
+6,big as a draft horse
+7,big as an ox
+8,big as a a refrigerator
+9,big-boned
+10,blubbery
+11,bovine
+12,brawny
+13,broad in the beam
+14,Brobdingnagian (gigantic, as inthe fabled inhabitants of Brobdingnag in Swift's <i>Gulliver's Travels</i>)
+15,burly
+16,chubby
+17,colossal
+18,corpulent
+19,deplorably fat
+20,disgracefully fat
+21,doughy
+22,dumpling
+23,elephantine
+24,fleshy
+25,full-figured
+26,Humpty Dumpty
+27,lavishly endowed
+28,lumpy
+29,obese
+30,paunchy
+31,pear-shaped
+32,plump
+33,portly
+34,pot-bellied
+35,pudgy
+36,roly-poly
+37,spherical
+38,squat
+39,stocky
+40,sumo wrestler
+41,thickset
+42,unequivocably fat
+43,wrestler
+
+:aged
+1,asthenic
+2,bow-spined
+3,dowager's hump
+4,edema (swelling in lower legs and feet)
+5,gaunt
+6,gnarled (rheumatoid arthritis)
+7,haggard
+8,hunched
+9,malnourished
+10,osteoporotic (osteoporosis is characterized by brittle bones, often resulting in brokn hips in older women)
+11,palsied
+12,reedy
+13,rickety
+14,shriveled
+15,spindly
+16,stooped
+17,withered
+
+:misc
+1,anorexic
+2,bullnecked
+3,deformed
+4,dwarf
+5,fire-plug
+6,gangling
+7,hunchbacked
+8,alnky
+9,midget
+10,muscular and compact as a pit bull
+11,muscular as lingine
+12,oafish
+13,runty
+14,scrawny
+15,slight (could slip through a flute and not sound a note)
+16,spare
+17,stubby
+18,thin as a broomstick
+19,towering
+20,whippet thin
+
+:voice
+1,bass
+2,bellowing
+3,booming
+4,breathy
+5,cackling
+6,childlike
+7,cracking (adolescent/pubescent)
+8,croaking
+9,cultured
+10,deep
+11,drawling
+12,droning
+13,falsetto
+14,faltering
+15,feeble
+16,flat
+17,fluting
+18,gravel
+19,guttural
+20,harsh
+21,hoarse
+22,hoarse flute
+23,hollow
+24,husky
+25,inflectionless
+26,lilting
+27,lisping
+28,megaphonic
+29,monotone
+30,nasal twang
+31,piercing
+32,ponderous
+33,ponticelle (boy's change of voice at puberty)
+34,powerful
+35,purring
+36,quavering
+37,rasping
+38,reedy
+39,resonant
+40,robust
+41,scabrous
+42,sensuous
+43,Shakespearean actor's
+44,sharp
+45,shrill
+46,sing-song
+47,soothing
+48,spluttering
+49,squawking
+50,squeaky
+51,stentorian (from Stentor, a Greek herald celebrated for his powerful voice)
+52,subterranean
+53,sultry
+54,thick
+55,thin
+56,throaty
+57,thunderous
+58,tobacco-roughened
+59,tremulous
+60,velvety
+61,warbling
+62,wheezing
+63,whining
+64,whiskey-voiced
+
+:vert
+1,Introvert: [introvert]
+2,Extrovert: [extrovert]
+
+:introvert
+1,prefersone's own company to others
+2,would rather read a book than attend party
+3,holds back when placed in new situations and proceeds cautiously
+4,quiet
+5,enjoys and seeks out solitude
+6,introspective
+7,doesn't like being in spotlight
+8,withdrawn
+9,wary
+10,reserved
+11,aloof
+12,unexpressive
+13,independent
+14,autonomous
+15,discreet
+16,unassuming
+17,inhibited
+18,isolated
+19,monastic
+20,private
+21,nonverbal
+22,shy
+23,soft-spoken
+24,self-effacing
+25,self-conscious
+26,analytical
+27,has and wants only one or two close friends
+28,needs time to think
+29,philosophical
+30,deep-thinking
+
+:extrovert
+1,friendly
+2,gregarious
+3,outgoing
+4,party-goer
+5,warm
+6,confident
+7,loquacious
+8,verbal
+9,expressive
+10,animated
+11,assertive
+12,show-offy
+13,exhibitionistic
+14,immodest
+15,uninhibited
+16,has and needs many friends
+17,loud
+18,vocal
+19,doesn't like being alone
+20,seeks out social events
+21,spontaneous
+22,conversational
+
+:blemishes
+1,1. [blemish]<br>
+2,1. [blemish]<br>
+_2. [blemish]<br>
+3,1. [blemish]<br>
+_2. [blemish]<br>
+_3. [blemish]<br>
+4,1. No imperfections.<br>
+
+:!blemish
+1,Age spots (brown spots on the face and hands, occurring in the elderly; also known as liver spots)
+2,Chloasma (also known as the "mask of pregnancy," brown patched that frequently appear on the skin of pregnant women; it sometimes forms a simple, false mustache over the upper lip)
+3,Dermatitis (any inflamed skin)
+4,Eczema (skin inflammation characterized by redness, crusting, and the formation of pimple and vesicles)
+5,Lentigo (a brownish spot unrelated to a freckle)
+6,Liver spots (yellowish-brown, red or black spots or patches on the skin, often appearing in the elderly and formerly attributed to liver disfunction; also known as age spots)
+7,Lupus erythematosus (a skin disease characterized by a scaly rash, often a butterfly pattern over the nose and cheeks)
+8,Nevus (any birthmark)
+9,Piebald skin (a mysterious skin condition characterized by patches of skin lacking pigment; also known as vitiligo)
+10,Port wine stain (a wine-colored birthmark, as on the forehead of former Soviet leader Mikhail Gorbachev)
+11,Rosacea (an inflammatory skin disorder characterized by small pimples and the dilation of facial capillaries, giving a raw, red appearance; often found onthe nose and sometimes on other parts of the face; the disorder is common among people originating from the British Isles, alcoholics, and people who blush easily)
+12,Strawberry birthmark (a common birthmark, reminiscent of a strawberry)
+13,Zits (slang for pimples, acne)
+14,Bloodshot eyes (red and irrated)
+15,Cataracts (a clouding of the lens)
+16,Glass eye (a false eye of any color)
+17,Helerochroma iridis (the condition of having one brown eye and one blue eye; it occurs in approximately 1 in every 1,000 people)
+18,Nystagmus (a disorder in which one or both eyes jerk or move involuntarily, caused by brain lesions, inflammation, alcohol or drug abuse; sometimes present congenitally)
+19,Variegated eyes (flecked with various colors)
+20,Walleyed (having a whitish or grayish eye or eyes)
+21,Yellowed scleras (yellowed whites of the eyes, sometimes seen in older people)
+
+:features
+1,1. [feature]<br>
+2,1. [feature]<br>
+_2. [feature]<br>
+3,1. [feature]<br>
+_2. [feature]<br>
+_3. [feature]<br>
+4,1. No distinguishing features.<br>
+
+:!feature
+1,[nose]
+2,[beard]
+3,[mustache]
+4,[head]
+5,[mouth]
+6,[chin]
+7,[cheeks]
+8,[teeth]
+9,[face]
+
+:nose
+1,Aquiline nose (hooked or curved, like an eagle's beak)
+2,Arabian nose (long and broad)
+3,Bob nose (knoblike)
+4,Boxer's nose (broken, misshapen)
+5,Bulbous nose (large, shaped like a bulb)
+6,Button nose (round and small)
+7,Chisled nose (giving the appearance of plastic surgery)
+8,Corrected and pampered nose (formed by a plastic surgeon)
+9,English nose (long and narrow)
+10,Eskimo nose (broad and narrow)
+11,Flaring nose (flaring nostrils)
+12,Gourdlike nose (misshapen, warty or gnarled, like a gourd)
+13,Gumdrop nose (small and dainty)
+14,Hawk nose (aquiline)
+15,Hog-nosed nose (like a pig's snout)
+16,Hooked nose (curved, aquiline)
+17,Jewish nose (prominent)
+18,Negroid nose (broad, with flaring nostrils)
+19,Potato nose (very large and misshapen, like an Idaho potato)
+20,Prissy nose (high-cut nostrils)
+21,Pug nose (short, flattened and somewhat turned up at the end)
+22,Retrousse nose (turned up at the tip)
+23,Rhinophyma nose (a red and grossly enlarged nose; a disorder of alcoholics and people from the British Isles; also known as rum nose, rummy nose, toper's nose, and whiskey nose)
+24,Roman nose (having a high, distinctive bridge)
+25,Rosacea nose (a skin condition causing reddening of the nose, most commonly found in alcoholics, people from the British Isles, and people who flush easily)
+26,Ruddy nose (reddish-colored)
+27,Skewed nose (crooked)
+28,Snub nose (short and turned up; pug)
+29,Turned-up nose (retrousse; turned up at the tip)
+30,Whiskey nose (a red and grossly enlarged nose; a disorder of alcoholics and people from the British Isles; also known as rum nose, rummy nose, and toper's nose)
+
+:beard
+1,A la Souvaroff beard (a mustache/beard in which the mustache is joined to the sideburns and the chin is left clean-shaven)
+2,Anchor beard (a short, pointed beard worn at the edge of the chin with a fringe extending up to the center of the bottom lip)
+3,Assyrian beard (a long beard with plaits or spiral curls)
+4,Barbiche beard (a small tuft of hair under the bottom lip; also known as a barbula)
+5,Belgrave beard (a neatly groomed, medium-length beard that may be cut round, square, or with a point)
+6,Burnside beard (the mustache joined with the sideburns and the jaw left clean-shaven; named after General Ambrose Burnside in the nineteenth century)
+7,Cadiz beard (a pointed, medium-length beard, originating in Spain)
+8,Cathedral beard (a full, blowing beard that splits like a fish tail at the bottom, worn by the clergy in mid sixteenth to the seventeenth centuries)
+9,Ducktail beard (a long, slender, neatly-trimmed beard, reminiscent of the tail of a duck)
+10,Dundreary whiskers (sideburns grown long and left to hand off the sides of the face while the chin is left clean-shaven)
+11,Fish-tail beard (a full, blowing beard that splits like a fish tail at the bottom, worn by the clergy in mid sixteenth to the seventeenth centuries)
+12,Five o'clock shadow (subtle or light stubble growth found on most men's faces at the end of the day)
+13,Forked beard (a beard cut or combed into two branches or wisps; also known as a swallowtail)
+14,Goatee (a small, pointed beard, resembling that of a goat)
+15,Grizzled, or grizzly beard (gray or flecked with gray)
+16,Imperial beard (a long tuft of hair extending down from beneath the lowerlip; made famous by Napoleon III in 1839)
+17,Jewish beard (a long, full, untrimmed beard, as that prescribed in the book of Leviticus; also known as a Hebraic beard)
+18,Lincolnesque beard (a medium-length beard worn with sideburns but no mustache; made famous by Abraham Lincoln)
+19,Miami Vice beard (the unshaven look, more than five o'clock shadow but less than a beard, popularized by the 1980s cop show)
+20,Muttonchops (thick sideburns trimmed to resemble mutton chops)
+21,Old Dutch beard (a short, square-cut beard with a clean-shaven upper and lower lip)
+22,Olympian beard (a very long, thick beard)
+23,Paintbrush beard (a very small, pointed beard worn on the botton of the chin, reminiscent of the tip of a paintbrush)
+24,Peach fuzz (light, pubescent whiskers)
+25,Pencil beard (a pencil-width of whiskers extending from the bottom lip to the chin)
+26,Raleigh beard (a pointed beard with the facial portion closely cropped; named after Sir Walter Raleigh)
+27,Rat's nest beard (a descriptive term for an uncombed or ungroomed beard; also described as a bird's nest)
+28,Roman T beard (a small, rectangular chin tuft that, in conjunction with a rectangular mustache, forms the configuration of the letter T)
+29,Satyric tuft (a chin tuft, named after Satyr, the half-goat, half-man from Greek mythology)
+30,Screw beard (a short, slender beard that is twisted or twined, popular in the seventeenth century; may be used to denote any twisted beard)
+31,Shenandoah beard (a spade-shaped beard)
+32,Spade beard (a pointed or rounded beard, reminiscent of the shape of a spade)
+33,Square-cut beard (a medium of long beard cut square or flat on the bottom)
+34,Steel wool beard (a descriptive tern for a tough, wiry beard)
+35,Stiletto beard (a long, slender, pointed beard)
+36,Swallowtail beard (a forked beard, reminiscent of the tail of a swallow)
+37,Tile beard (a long or short square-cut beard)
+38,Trojan beard (a thick, curly beard of medium length)
+39,Uncle Sam beard (the beard sytle worn by the U.S. cartoon figure)
+40,Van Dyke beard (a short, pointed beard without sideburns)
+41,Viking beard (any long, flowing beard reminiscent of the ancient Norsemen)
+
+:mustache
+1,A la Souvaroff mustache (a style characterized by a clean-shaven chin and a mustache joined to the sideburns)
+2,Boxcar mustache (a rectangular style with square ends, like a railroad car)
+3,Chevron mustache (an inverted V)
+4,Clark Gable mustache (a neat, thin line)
+5,Cookie duster mustache (humorous descriptive term for a mustache)
+6,Fu Mancho mustache (long, thin drooping mustache worn with a narrow beard)
+7,Handlebar mustache (a long, thick mustache with ends turned up to resemble the handlebars of a bicycle)
+8,Hindenburg mustache (a very long, thick mustache with turned-up ends)
+9,Horseshoe mustache (an inverted <i>U</i> or horseshoe-like mustache that droops down over the chin)
+10,Kaiser mustache (a mustache with turned-up ends; popularized by Germany's Kaiser in 1914)
+11,Mistletoe mustache (a narrow mustache in the configuration of two crescents, reminiscent of mistle leaves)
+12,Pencil line mustache (a very narrow mustache, sometimes divided with a space at the center of the lip)
+13,Pyramid mustache (a triangular mustache)
+14,Rat's nest mustache (descriptive term for an unkempt mustache)
+15,Regent mustache (a neat mustache resembling the letter <i>M</i> with rounded peaks)
+16,Roman T mustache (s style comprised of a rectangular mustache and a narrow chin tuft, forming the configuration of the letter <i>T</i>)
+17,Soupstrainer mustache (a thick, huge mustache allowed to grow over the upper, and sometimes even the lower, lip)
+18,Squarebutton mustache (a short square or rectangle of bristles, as worn by Adoplh Hitler and Charlie Chaplin)
+19,Toothbrush mustache (a short square or rectangle of bristles, as worn by Adoplh Hitler and Charlie Chaplin)
+20,Walrus mustache (a thick, huge mustache allowed to grow over the upper, and sometimes even the lower, lip; humorously known as a soupstrainer)
+21,Waxed mustache (any mustache with curled tips, twiddled and held together with wax)
+22,Wings mustache (a neatly trimmed mustache resembling the wings of a bird)
+23,Wings of a B-52 mustache (a broad inverted <i>V</i>, like the wings of the classic bomber)
+
+:head
+1,Bullet-headed
+2,Egg-shaped head
+3,Gibbous head
+4,High-domed head
+5,High forehead
+6,Hydrocephalic head
+7,Inverted pear head
+8,Low forehead
+9,Macrocephalic head
+10,Microcephalic head
+11,Moon head
+12,Oval head
+13,Pinhead
+14,Protuding brow ridges
+15,Round head
+
+:mouth
+1,Cruel mouth
+2,Cupid's bow-like mouth
+3,Dour mouth
+4,Dry lined mouth
+5,Firm mouth
+6,Fishy mouth
+7,Full ripe lips
+8,Humorous mouth
+9,Misshapen mouth
+10,Pallid mouth
+11,Plum mouth
+12,Protuding lips
+13,Puckered mouth
+14,Rosebud mouth
+15,Sensual mouth
+16,A mouth set in a permanent frown
+17,A mouth set in permanent disapproval
+18,Veal-colored lips
+
+:chin
+1,Cleft chin
+2,Double chin
+3,Heavy jaw
+4,Lantern jaw
+5,Neanderthal jaw
+6,Receding chin
+7,Round firm chin
+8,Slack-jawed chin
+9,Square jaw
+10,Wattled chin
+
+:cheeks
+1,Apple cheeks
+2,Flabby cheeks
+3,High cheekbones
+4,High Slavic cheekbones
+5,Hollow cheeks
+6,Leathery cheeks
+7,Pendulous jowls
+8,Pouchy cheeks
+9,Rosy cheeks
+10,Ruddy cheeks
+
+:teeth
+1,Buck teeth
+2,Chiclet Teeth
+3,Corn-kerneled teeth
+4,Crooked teeth
+5,Dentures
+6,Gap-toothed
+7,Horse-like teeth
+8,Ill-fitted dentures
+9,Jagged teeth
+10,Pearly teeth
+11,Teeth pitted with cavities
+12,Saw-toothed
+13,Small glistening white teeth
+14,Snaggle-toothed
+15,Tobacco-stained teeth
+16,Yellow teeth
+
+:face
+1,[oddface]
+2,[bigface]
+3,[attractface]
+4,[agedface]
+
+:oddface
+1,Aristocratic face
+2,Baboon face
+3,Beaver face
+4,Bird-like face
+5,Bloodhound face
+6,Borgnine (Ernest) face
+7,Cadaverous face
+8,Cesar Romero face
+9,Chinless face
+10,Chipmunk face
+11,Craggy face
+12,Cro-Magnon (primitive) face
+13,Cupid face
+14,Deformed face
+15,Disfigured face
+16,Dour face
+17,Droopy face
+18,Eskimo face
+19,Ethereal face
+20,Exotic face
+21,Fierce face
+22,Fish face
+23,Gallic face
+24,Ghoulish face
+25,Gorilla face
+26,Hag face
+27,Hariddan face
+28,Hideous face
+29,Homely face
+30,Insect-like face
+31,Lincolnesque face
+32,Long English face
+33,Misshapen face
+34,Monkey face
+35,Mousy face
+36,Neanderthal (protuding brow ridges and havey jaw) face
+37,Oriental face
+38,Other-worldly face
+39,Owlish face
+40,Pig-nosed
+41,Plain face
+42,Polynesian face
+43,Pop-eyed
+44,Prim face
+45,Puckish face
+46,Quasimodo face
+47,Rat-faced
+48,Regal face
+49,Repulsive face
+50,Slack-jawed face
+51,Sleepy-eyed face
+52,Face as ugly as a gourd
+53,Vole-faced
+
+:bigface
+1,Beefy face
+1,Blowsy face
+2,Bulldog face
+3,Bullfrog face
+4,Double-chinned
+5,Doughy face
+6,Dumpling face
+7,Falstaffian face
+8,Fleshy face
+9,Fleshy wattle under the chin
+10,Heavy-jowled
+11,Horse face
+12,Long-jawed
+13,Meaty face
+14,Moon face
+15,Plump face
+16,Pouchy chipmunk cheeks
+17,Round face
+18,Spherical face
+
+:attractface
+1,Adonis face
+2,Angelic face
+3,Aphrodite face
+4,Apollo face
+5,Baby-faced
+6,Bonny face
+7,Boyish face
+8,Cherubic face
+9,Chiseled face
+10,Comely face
+11,Delicate face
+12,Distinguished face
+13,Doll face
+14,Elegant face
+15,Ethereal (other-wordly) face
+16,Feline face
+17,Girlish face
+18,Handsome face
+19,Heart-shaped face
+20,High cheekbones
+21,Nordic face
+22,Nymph face
+23,Pixie-faced
+24,Sculpted face
+25,Square-jawed
+26,Sweetly expressive face
+27,Symmetrical face
+
+:agedface
+1,Cadaverous face
+2,Careworn face
+3,Corn-kernel teeth
+4,Crow's feet
+5,Fleshy wattle
+6,Furrowed brow
+7,Gap-toothed face
+8,Gaunt face
+9,Haggard face
+10,Hair sprouting from ears
+11,Hair sprouting from moles
+12,Hollowed cheekbones
+13,Hollows around the eyes
+14,Ill-fitting dentures
+15,Jaundiced face
+16,Laugh lines
+17,Leathery complexion
+18,A face lined like old show leather
+19,Liver-spotted face
+20,Mirthful crinkles about the eyes
+21,Mottled complexion
+22,A face with parchment skin
+23,Pendulous skin folds around the face
+24,Prune-faced
+25,Rawboned face
+26,Rheumy eyes
+27,Sagging Jowls
+28,Scalded-milk skin
+29,Skullish grin
+30,Squint lines
+31,Sunken eye sockets
+32,Timeworn face
+33,Toothless pucker
+34,Tremulous jaw
+35,Weathered complexion
+36,Withered face
+37,Wizened face
+38,Yellowed scleras
+
+:age
+1,Adolescent: {1d3+11}
+2,Young Adult: {1d13+14}
+3,Mature: {1d13+27}
+4,Middle-Aged: {1d9+40}
+5,Old: {2d12+48}
+
+:maleheight
+1,{2d10+58} inches
+
+:femaleheight
+1,{2d10+53} inches
+
+:maleweight
+1,{Calc~{2d10}*{2d4}+{120}} lbs.
+
+:femaleweight
+1,{Calc~{2d10}*{2d4}+{85}} lbs.
+
+:ethnic
+1,African
+2,Alaska Native
+3,Albanian
+4,Algerian
+5,Jew
+6,American
+7,Chinese
+8,Arab
+9,Armenian
+10,Ashkenazi Jew
+11,Asian Pacific
+12,Assyrian
+13,Australian
+14,Austrian
+15,Azerbaijani
+16,Bahamian
+17,Bangladeshi
+18,Barbadian
+19,Basque
+20,Belarusian
+21,Belgian
+22,Belizean
+23,Black Dutch
+24,Black Indian
+25,Bolivian
+26,Bosnian
+27,Brass
+28,Brazilian
+29,British
+30,Bulgarian
+31,Burmese
+32,Cajun
+33,Cambodian
+34,Canadian
+35,Cape Verdean
+36,Catalan
+37,Chicano
+38,Chilean
+39,Circassians
+40,Colombian
+41,Congolese
+42,Cornish
+43,Costa Rican
+44,Croatian
+45,Cuban
+46,Cypriot
+47,Czech
+48,Danish
+49,Deaf
+50,Dominican
+51,Dutch
+52,Ecuadorian
+53,Egyptian
+54,English
+55,Estonian
+56,Ethiopian
+57,European
+58,Filipino
+59,Finnish
+60,French
+61,Frisian
+62,Georgian
+63,German
+64,Ghanaian
+65,Greek
+66,Guatemalan
+67,Guyanese
+68,Haitian
+69,Han Chinese
+70,Hispanic
+71,Hmong
+72,Hungarian
+73,Icelandic
+74,Igbo
+75,Indian
+76,Indo-Caribbean
+77,Indonesian
+78,Iranian
+79,Iraqi
+80,Irish
+81,Isleño
+82,Issei
+83,Italian
+84,Iu Mien
+85,Jamaican
+86,Japanese
+87,Jordanian
+88,Kalmyk
+89,Kannada
+90,Kenyan
+91,Korean
+92,Kurdish
+93,Laotian
+94,Laotian Chinese
+95,Latino
+96,Latvian
+97,Laxsgiik
+98,Lemkos
+99,Liberian
+100,Lithuanian
+101,Louisiana Creole
+102,Lumbee
+103,Luso
+104,Luxembourg
+105,Macedonian
+106,Maltese
+107,Melungeon
+108,Mestizo
+109,Mexican
+110,Montenegrin
+111,Native American
+112,Native Hawaiian
+113,Nepalese
+114,New Zealand
+115,Nicaraguan
+116,Nigerian
+117,Nisei
+118,Nepali
+119,Norwegian
+120,Pacific Islander
+121,Pakistani
+122,Panamanian
+123,Paraguayan
+124,Pennsylvania Dutch
+125,Peruvian
+126,Plaçage
+127,Polish
+128,Polynesian
+129,Portuguese
+130,Redbone
+131,Romanian
+132,Russian
+133,Rusyn
+134,Salvadoran
+135,Sansei
+136,Saudi
+137,Scotch-Irish
+138,Scottish
+139,Senegalese
+140,Serbian
+141,Sicilian
+142,Sierra Leonean
+143-200,[ethnic] American
+
+:religion
+1,Bábism
+2,Bahá'í Faith
+3,Christianity
+4,Catholicism
+5,Protestantism
+6,Gnosticism
+7,Islam
+8,Judaism
+9,Rastafari movement
+10,Mandaeans and Sabians
+11,Samaritanism
+12,Unitarian Universalism
+13,Ayyavazhi
+14,Buddhism
+15,Din-i-Ilahi
+16,Hinduism
+17,Jainism
+18,Sikhism
+19,Confucianism
+20,Shinto
+21,Taoism
+22,Batuque
+23,Candomblé
+24,Dahomey mythology
+25,Haitian mythology
+26,Kumina
+27,Macumba
+28,Mami Wata
+29,Obeah
+30,Oyotunji
+31,Quimbanda
+32,Santería (Lukumi)
+33,Umbanda[6]
+34,Vodou
+35,New Age
+36,Esotericism and mysticism
+37,Occult and magical (or magickal)
+38,Left-Hand Path
+39,Creativity
+40,Shinshukyo
+41-60,No religion.
+
+:degree
+1,Bachelor of Arts
+2,Bachelor's degree
+3,Bachelor of Agricutlure
+4,Bachelor of Applied Mathematics
+5,Bachelor of Architecture
+6,Bachelor of Business Administration
+7,Bachelor of Divinity
+8,Bachelor of Education
+9,Bachelor of Engineering
+10,Bachelor of Forestry
+11,Bachelor of Fine Arts
+12,Bachelor of Journalism
+13,Bachelor of Literature
+14,Bachelor of Liberal Studies
+15,Bachelor of Library Science
+16,Bachelor of Medicine
+17,Bachelor of Music
+18,Bachelor of Nursing
+19,Bachelor of Science
+20,Bachelor of Philosophy
+21,Civil Engineer
+22,Chemical Engineer
+23,Cum Laude (graduating with honors)
+24,Doctor of Dental Science
+25,Doctor of Laws
+26,Doctor of Juristic Science
+27,Doctor of Library Science
+28,Doctor of Dental Medicine
+29,Doctor of Medical Science
+30,Doctor of Medicine
+31,Doctor of Osteopathy
+32,Doctor of Social Welfare
+33,Doctor of Theology
+34,Doctor of Veterinary Medicine
+35,Doctor of Eduaction
+36,Doctor of Optometry
+37,Doctor of Philosophy
+38,Electrical Engineer
+39,Honorary degree (recognition of achievement, not schooling)
+40,Master of Arts
+41,Magna Cum Laude (graduating with great honor or praise)
+42,Master of Business Administration
+43,Master of Computer Science
+44,Master of Divinity
+45,Master of Engineering
+46,Master of Education
+47,Master of Fine Arts
+48,Master of Library Science
+49,Master of Music
+50,Master of Nursing
+51,Master of Science
+52,Master of Social Work
+53,Master of Theology
+54,Doctor of Judicial Science
+55,Doctor of Social Science
+56,Summa Cum Laude (graduating with highest honors)
+57-100, No formal schooling.
+
+:!occupation
+1,abortionist
+2,accountant
+3,actor/actress
+4,acupuncture
+5,advertising sales
+6,aerobics instructor
+7,allergist
+8,amusement park owner
+9,amusement park ride operator
+10,anesthesiologist
+11,antique dealer
+12,appliance repair
+13,appraiser, real estate
+14,architect
+15,armored car driver
+16,art gallery owner
+17,artist, graphic
+18,artist, painter
+19,artist, sculptor
+20,artist, sign
+21,astrologist
+22,astronomer
+23,attorney, district
+24,attorney/lawyer, criminal
+25,attorney/lawyer, divorce
+26,attorney/lawyer, personal injury
+27,attorney/lawyer, probate
+28,auctioneer
+29,auditor, IRS
+30,auto body repair
+31,automobile salesman
+32,bagel maker
+33,bagger, grocery
+34,baker
+35,bank teller
+36,barber
+37,bar owner
+38,bartender
+39,minor baseball player
+40,major baseball player
+41,beaty salon owner/operator
+42,bed and breakfast inn operator
+43,boatbuilder
+44,boat charter operator
+45,bookseller
+46,boutique owner
+47,bowling alley owner
+48,boxer, professional
+49,bridal shop owner
+50,building contractor
+51,busboy
+52,bus driver
+53,butcher
+54,butler
+55,cabdriver
+56,cabinetmaker
+57,cardiologist
+58,carpenter
+59,carpet/rug cleaner
+60,cartographer
+61,cartoonist
+62,carwash attendant
+63,cashier
+64,caterer
+65,chef/cook
+66,chemist
+67,chief executive officer (CEO) of Fortune 500 company
+68,child-care worker
+69,chimney sweeper
+70,chiropractor
+71,circus performer
+72,city council member
+73,city manager
+74,clerk, store
+75,clock maker/repair
+76,coast guard personnel
+77,comic
+78,computer programmer
+79,computer repair
+80,congressman/woman
+81,construction laborer
+82,contractor, general construction
+83,copywriter
+84,coroner
+85,cosmetologist
+86,counselor, marriage
+87,dance instructor
+88,data processor
+89,dating service operator
+90,delicatessen operator
+91,dental hygienist
+92,dentist
+93,dermatologist
+94,detective
+95,dishwasher
+96,diver
+97,dogcatcher/animal control officer
+98,door-to-door
+99,drilling and blasting specialist
+100,drive-in theater owner
+101,driver’s ed. instructor
+102,drug dealer
+103,dry cleaner
+104,editor, book
+105,editor, magazine
+106,editor, newspaper
+107,electrician
+108,embalmer
+109,emergency medical technician (EMT)
+110,engineer
+111,farmer, diary
+112,farmer, grain and vegetable
+113,farner, poultry and livestock
+114,farrier
+115,fashion designer
+116,fireman
+117,fish and game warden
+118,fisherman
+119,fisherman, lobster
+120,fisherman, shrimp
+121,flight attendant
+122,florist
+123,football player, professional
+124,funeral director
+125,furrier
+126,gastroenterologist
+127,geologist
+128,geophysicist
+129,golfer, professional
+130,grifter
+131,guide, backwoods hunting
+132,gunsmith
+133,gyneologist
+134,hairdresser
+135,handyman
+136,heavy equipment operator (bulldozer, backhoe, etc.)
+137,hockey player, professional
+138,homeless shelter operator
+139,horse breeder/trainer
+140,hypnotist
+141,infertility specialist
+142,insurance adjuster
+143,insurance agent
+144,interior decorator
+145,inventor
+146,janitor
+147,jeweler
+148,judge
+149,junk dealer
+150,justice of the peace
+151,landlord
+152,librarian
+153,lifeguard
+154,limousine driver
+155,loan shark
+156,lobbyist
+157,locksmith
+158,lumberjack
+159,machinist
+160,magician, professional
+161,maid
+162,marina owner/operator
+163,mason
+164,masseuse/masseur
+165,mayor
+166,mechanic, airplane
+167,mechanic, auto
+168,messenger, cross-town
+169,meteorologist
+170,midwife
+171,military personnel
+172,mime
+173,minister
+174,mortician
+175,motel owner/operator
+176,mover
+177,movie director
+178,movie producer
+179,museum curator
+180,musician, street
+181,musician, studio
+182,musician, touring
+183,neurologist
+184,newscaster/anchor
+185,nuclear physicist
+186,nurse, geriatric
+187,nurse, in doctor’s office
+188,nurse, labor and delivery
+189,nurse, pediatric
+190,nurse practitioner
+191,nurse, surgical
+192,nutritionist
+193,obstetrician
+194,oncologist
+195,ophthalmologist
+196,optometrist
+197,orthodontist
+198,orthopedist
+199,otolaryngologist (ear, nose and throat doctor)
+200,painter
+201,paleontologist
+202,palm reader/psychic
+203,panhandler
+204,paperboy/girl
+205,paralegal
+206,paramedic
+207,parapsychologist
+208,paving contractor
+209,PBX operator
+210,pediatrician
+
+
+:skills
+1,1. [skill]
+2,1. [skill]<br>
+_2. [skill]
+3,1. [skill]<br>
+_2. [skill]<br>
+_3. [skill]
+4,1. [skill]<br>
+_2. [skill]<br>
+_3. [skill]<br>
+_4. [skill]
+
+:!skill
+1,Accuracy
+2,Achievement
+3,Action oriented
+4,Adaptability to university policies
+5,Administrative skills
+6,Analytical skills
+7,Appearance
+8,Approachability
+9,Attendance
+10,Budgeting/fiscal management
+11,Building effective teams
+12,Career ambition
+13,Caring about direct reports
+14,Coachability, acceptance and use of feedback
+15,Coaching skills
+16,Comfort around higher management
+17,Communication, interpersonal
+18,Communication, oral
+19,Communication, written
+20,Compassion
+21,Competency
+22,Composure
+23,Computer skills
+24,Concentration
+25,Confidentiality
+26,Conflict management
+27,Confronting direct reports
+28,Conscientious
+29,Continuous improvement
+30,Cooperative
+31,Creativity
+32,Critical thinking
+33,Customer focus
+34,Dealing with ambiguity
+35,Decision-making
+36,Delegating
+37,Demonstrated Christian Commitment
+38,Dependability
+39,Developing direct reports
+40,Directing others
+41,Discretion
+42,Drive for results
+43,Empathy
+44,Enthusiasm
+45,Ethics
+46,Evaluation of staff
+47,Fairness to direct reports
+48,Flexibility/adaptability
+49,Following instructions
+50,Follow-up skills
+51,Goal orientation
+52,Hiring and staffing
+53,Honesty and integrity
+54,Humor
+55,Initiative
+56,Innovation
+57,Interpersonal relations
+58,Job knowledge
+59,Judgment
+60,Knowledge of work
+61,Knowledge of/compliance with policies
+62,Leadership
+63,Learning ability
+64,Listening
+65,Loyalty
+66,Management skills
+67,Managing change
+68,Managing diversity
+69,Maturity
+70,Motivating others
+71,Need for supervision
+72,Negotiating
+73,Openness to change
+74,Organizational skills
+75,Patience
+76,Peer/co-worker relationships
+77,Performance under pressure
+78,Perseverance
+79,Perspective
+80,Persuasiveness
+81,Planning
+82,Potential
+83,Presentation skills
+84,Prioritizing
+85,Problem solving
+86,Process management
+87,Productivity
+88,Professionalism
+89,Public relations
+90,Quality focused
+91,Quality service
+92,Quantity of work
+93,Resourcefulness
+94,Responsible
+95,Responsive
+96,Self-development
+97,Self-motivation
+98,Service orientation
+99,Setting high standards
+100,Social skills
+101,Strategic thinking
+102,Stress management
+103,Supervisory skills
+104,Supportiveness
+105,Tact and diplomacy
+106,Team skills
+107,Technical skills
+108,Thoroughness
+109,Time management
+110,Understanding others
+111,University knowledge
+112,Values diversity
+113,Versatility
+114,Vision
+115,Work/life balance
+
+:pastjobs
+1,1. [occupation]
+2,1. [occupation]<br>
+_2. [occupation]
+3,1. [occupation]<br>
+_2. [occupation]<br>
+_3. [occupation]
+
+:!personality
+1,undemonstrative
+2,stiffens when touched
+3,shrinks from one's touch
+4,aloof
+5,distant
+6,remote
+7,detached
+8,emotionless
+9,humorless
+10,speaks in monotone
+11,unsmiling
+12,dour
+13,thick-skinned
+14,rude
+15,forbidding
+16,hard, pinched facial expression
+17,grim
+18,misanthropic
+19,stony-faced
+20,needs extra body space
+21,unforgiving
+22,uncompassionate
+23,heartless
+24,brutal
+25,indifferent
+26,hands bunched into fists
+27,no eye contact
+28,piercing, impolite eye contact
+29,finishes sentences for others
+30,interrupts frequently
+31,stands intimidatingly close to others when speaking (no respect for body space of others)
+32,glaring
+33,withering stare
+34,swaggers
+35,macho posturing
+36,imperious body language
+37,peers down nose imperiously
+38,loud
+39,barks orders
+40,take-over, officious manner
+41,verbally or physically abusive
+42,disrespects underlings
+43,scathing insults at underlings
+44,bossy
+45,dogmatic
+46,willful
+47,pigheaded
+48,stubborn
+49,rules with an iron first
+50,high-handed
+51,lordly
+52,messianic
+53,suffers from “expertisis,” will not listen to advice of others and eventually suffers consequences
+54,enjoys making people feel uncomfortable and seeing them intimidated
+55,coughs, clears throat a lot
+56,fidgets
+57,runs hands through hair a lot
+58,clenches jaw a lot
+59,darts eyes back and forth
+60,saucer-eyed
+61,voice strained
+62,trembling
+63,facial tics
+64,jangles change in pocket
+65,deferential
+66,smiling
+67,overly polite
+68,blushes easily
+69,stutters
+70,stammers
+71,voice croaks
+72,palms and underarms sweaty
+73,averts eyes, avoids eye contact
+74,blink a lot
+75,affects an elaborately casual manner
+76,affects an elaborately nonchalant manner
+77,apologetic
+78,equivocal
+79,fawning
+80,mealy-mouthed
+81,wishy-washy
+82,solicitous
+83,insecure
+84,sensitive
+85,over-sensitive
+86,self-conscious
+87,mopes
+88,hang-dog expression
+89,sighs a lot
+90,slouches
+91,slumps in chair
+92,“poor-me” martyr attitude
+93,“life stinks” attitude
+94,low self-esteem
+95,pessimistic
+96,never happy unless miserable
+97,dissatisfied
+98,cheerless
+99,pained expression
+100,pensive look
+101,somber
+102,cynical
+103,unsmiling
+104,wistful
+105,stick-in-the-mud
+106,sullen
+107,maudlin
+108,morbid
+109,thinks too much about death
+110,humorless
+111,glum
+112,see the bad in everything
+113,skeptical
+114,discerning
+115,analytical
+116,logical
+117,thoughtful
+118,insightful
+119,creative
+120,suspicious
+121,well-read
+122,rational
+123,perceptive
+124,shrewd
+125,inquisitive
+126,accomplished
+127,artful
+128,cerebral
+129,bookish
+130,cautious
+131,clever
+132,prepared
+133,versatile
+134,savvy
+135,not easily fooled
+136,cynical
+137,worldly
+138,great insight into one’s own and others’ behavior
+139,experienced
+140,well-schooled
+141,inventive
+142,wise
+143,discriminating
+144,open-minded
+145,far-sighted
+146,deep
+147,complex
+148,questions authority
+149,unaffected by peer pressure
+150,bovine
+151,bumbling
+152,gullible
+153,naïve
+154,does not question authority
+155,affected by peer pressure
+156,easily fooled
+157,illiterate
+158,thinks reading is for nerds
+159,dropped out of school
+160,believes wholeheartedly in astrology, psychics, UFOs, etc.
+161,little insight into one’s own or others’ behavior
+162,easily taken in by cons or sales gimmicks
+163,taken advantage of by others
+164,sophomoric sense of humor
+165,oblivious
+166,inarticulate
+167,uses street language, unpolished speech
+168,doesn’t think things through
+169,doesn’t always think of consequences for actions
+170,opinions of politics and current events based on faulty or deficient information
+171,unthinkingly prejudiced
+172,unthinkingly racist
+173,unthinkingly sexist/chauvinistic
+174,impulsive
+175,reckless
+176,incautious, unaware of natural hazards of everyday life
+177,artless
+178,doesn’t think before speaking
+179,gives glib, facile advice
+180,talks endlessly about oneself
+181,hogs conversation
+182,talks about things others cannot relate to
+183,babbles
+184,doesn’t listen
+185,is oblivious to the social cues of others
+186,taciturn
+187,doesn’t talk at all
+188,brags about accomplishments of self and family members
+189,uniformed about current events
+190,has no opinions
+191,wishy-washy
+192,mealy-mouthed
+193,speaks in monotone
+194,no sense of humor
+195,one-dimensional
+196,tiresome
+197,dresses in one-color, conservative clothing day after day
+198,never changes routine
+199,eats at the same restaurants, orders the same dish every time
+200,afraid of change
+201,afraid to take risks
+202,maintains the same routine for a lifetime
+203,overly agreeable
+204,avoids conflict
+205,never raises voice
+206,never gets angry or passionate about anything
+207,nonconforming
+208,weird
+209,original
+210,individualistic
+211,doesn’t care what others think
+212,wears wild or unconventional clothing
+213,walks or rides bicycle everywhere
+214,odd beliefs
+215,does what others are afraid to do
+216,radical
+217,fanatical
+218,mad
+219,insane
+220,crazed
+221,deranged
+222,psychotic
+223,neurotic
+224,obsessed
+225,manic
+226,excessive
+227,extravagant
+228,quirky
+229,wild-eyed
+230,scatterbrained
+231,enjoys shocking people with unconventional behavior
+232,attention-seeking behavior
+233,believes his is sane behavior in an insane world
+234,hermit-like
+235,suave
+236,debonair
+237,gracious
+238,knows what to do in every social situation (savoir faire)
+239,makes people feel at ease
+240,makes people feel good about themselves
+241,polite
+242,smooth
+243,poise of worldly experience
+244,gentlemanly
+245,ladylike
+246,tactful
+247,confident
+248,warm
+249,friendly
+250,unobjectionably flirtatious
+251,complimentary
+252,flattering
+253,congenial
+254,convivial
+255,personable
+256,romantic
+257,likes to touch
+258,disarming
+259,captivating
+260,good-humored
+261,diplomatic
+262,charismatic
+263,well-groomed
+264,clean and neat
+265,fashionable
+266,sexually attractive
+267,winning smile
+268,steady but warm eye contact
+269,thoughtful
+270,considerate
+271,plotting
+272,wily
+273,pulling strings
+274,venomous
+275,unprincipled
+276,false
+277,fraudulent
+278,artful
+279,underhanded
+280,manipulative
+281,lying
+282,backstabbing
+283,acts angelic/saintly/innocent
+284,wide-eyed innocence
+285,two-faced
+286,sneaky
+287,self-serving
+288,evasive
+289,power-hungry
+290,avaricious
+291,gold-digging
+292,disarming charm
+293,charismatic
+294,Svengali-like charisma
+295,smoldering sexuality
+296,opposite sex finds despicable—but is inexplicably attracted to sexually
+297,womanizing
+298,cheats on spouse
+299,suspicious of the actions of others
+300,traitorous
+301,uses people
+302,paranoid
+303,shameless
+304,corrupt
+305,deceitful
+306,unsympathetic to others
+307,lacking conscience
+308,sociopathic
+309,ruthless
+310,can locate the chink in the strongest person’s armor
+311,predatory expression
+312,hungry look
+313,stalking look
+314,confident
+315,bold
+316,controlling
+317,dominant
+318,know-it-all
+319,sarcastic
+320,sardonic
+321,stick-in-the-mud
+322,gloomy Gus
+323,wet blanket
+324,cracks jokes at expense of other people
+325,tells offensive jokes in mixed company
+326,vulgar
+327,flirtatious in offensive manner
+328,harasses others sexually
+329,tattletale
+330,whining
+331,whining nasal voice
+332,shallow
+333,insensitive to the feelings of others
+334,inconsiderate
+335,sophomoric behavior
+336,loud
+337,macho posturing
+338,catty
+339,politically correct
+340,gossipy
+341,smug
+342,self-righteous
+343,holier-than-thou
+344,judgmental
+345,glib
+346,rude
+347,discourteous
+348,inappropriate
+349,wise-assed
+350,insincere
+351,pretentious
+352,phony
+353,affected
+354,talks about oneself constantly
+355,hogs conversation
+356,doesn’t listen
+357,interrupts
+358,outshines everyone in room
+359,hogs the spotlight
+360,corrects others constantly
+361,overly proper
+362,anal retentive
+363,does everything by the book
+364,prudish
+365,Victorian
+366,puritanical
+367,officious
+368,nosy
+369,offers advice when none wanted or called for
+370,critical
+371,nagging
+372,needling
+373,badgering
+374,second-guessing
+375,Monday-morning quarterbacking
+376,blaming everyone but oneself for troubles
+377,unjust sense of entitlement because society has hurt one in some way
+378,goody-goody
+379,politically correct
+380,feels superior to others
+381,sees others as immoral heathens
+382,scrupulously moral
+383,well-mannered
+384,upright
+385,chaste
+386,squeaky clean
+387,stiff
+388,rigid
+389,religious
+390,overly religious
+391,overly guided by Bible
+392,blinded by the authority of the church
+393,holier-than-thou
+394,self-righteous
+395,sanctimonious
+396,quotes Bible or etiquette book chapter and verse
+397,starchy
+398,conservative
+399,wears drab, conservative, unsexy clothes
+400,prim
+401,refuses to laugh at risqué humor
+402,strict
+403,stern
+404,judgmental
+405,prissy
+406,modest
+407,law-abiding
+408,hard-working
+409,ethical
+410,honest
+411,goes to church every Sunday
+412,doesn’t drink alcohol, smoke cigarettes, or have sex in broad daylight
+413,knows what’s best for others
+414,easily offended or shocked
+415,believes in censorship
+416,thinks people who smoke or drink are bad
+417,good-humored
+418,easygoing
+419,joking
+420,eyes are mirthful crescents
+421,laughs easily
+422,funny
+423,face aglow with good cheer
+424,lighthearted
+425,relaxed
+426,smiling, grinning
+427,friendly
+428,warm
+429,cheerful
+430,optimistic
+431,buoyant
+432,jaunty
+433,devil-may-care
+434,happy-go-lucky
+435,childlike
+436,silly
+437,fun-loving
+438,contented
+439,doesn’t let bad news get him down
+440,philosophical about let-downs
+441,doesn’t dwell on negative
+442,“live and let live” attitude
+443,playful
+444,blithe
+445,carefree
+446,live-for-today
+447,animated
+448,effervescent
+449,bubbly
+450,vivacious
+451,energetic
+452,bright-eyed
+453,robust health
+454,sings
+455,whistles
+456,hums
+457,hostile
+458,hard-driving
+459,impatient
+460,cynical
+461,thinks everyone else is stupid
+462,hates being late, shows up early
+463,can’t tolerate when others are late
+464,hot reacting
+465,fast driving
+466,angry, frustrated driver
+467,easily stressed
+468,irritable
+469,fidgety
+470,unable to relax
+471,drums fingers impatiently
+472,aggressive
+473,easily aggravated
+474,belligerent
+475,pugnacious
+476,fuming
+477,hot-blooded
+478,short-fused
+479,volcanic temper
+480,temperamental
+481,restless
+482,hyper
+483,relaxed laid-back
+484,easygoing
+485,long-fused
+486,patient
+487,cold-headed
+488,mild
+489,even-tempered
+490,unaggressive
+491,noncombative
+492,passive
+493,pacifistic
+494,sedate
+495,devil-may-care
+496,carefree
+497,calm
+498,delusional
+499,suffers from hallucinations
+500,irrational behavior
+501,glassy-eyed from psychotropic drugs
+502,manic-depressive
+503,hyper
+504,depressed
+505,neurotic
+506,obsessive
+507,compulsive
+508,insanely jealous
+509,phobic
+510,unstable
+511,homicidal
+512,sociopathic
+513,delusions of grandeur
+514,thinks he is Christ
+515,thanks he is endowed with superhuman powers
+516,paranoid
+517,believes he is being persecuted
+518,believes he is being followed
+519,believes CIA is bugging telephone
+520,believes he is receiving messages over television
+521,believes he is an alien
+522,panic attacks
+523,anorexic
+524,bulimic
+525,suicidal
+526,in denial about substance abuse
+527,denies being addicted
+528,thoughts center around booze or drugs
+529,hiding booze or drugs in several locations to ensure never to be without
+530,sickly
+531,fights with spouse about addiction
+532,dysfunctional
+533,irresponsible
+534,steals in order to buy drugs
+535,secretive
+536,hangs out at bars
+537,drinks alone
+538,eyes often red and bloodshot
+539,slurred speech
+540,dull expression
+541,slinky body language
+542,scorching eye contact
+543,cow eyes
+544,demure
+545,coy
+546,suggestive talk or behavior
+547,uses double entendres
+548,touches a lot
+549,dresses provocatively
+550,teasing behavior
+551,promiscuous
+552,sophomoric sense of humor
+553,silly
+554,giggling
+555,immature
+556,irresponsible
+557,fun-loving
+558,impulsive
+559,poor judgment
+560,fickle
+561,callow
+562,naïve
+563,innocent
+564,wide-eyed
+565,unrealistic
+566,shortsighted
+567,melodramatic
+568,ruled by peer pressure
+569,know-it-all
+570,kooky
+571,infantile
+572,practical jokes
+573,clowning
+574,reckless
+575,risk-taking
+576,false bravado
+577,risk-taking
+578,adventurous
+579,stoic
+580,won’t admit pain
+581,unblinking
+582,unflinching
+583,thick-skinned
+584,virile
+585,manly
+586,macho
+587,courageous
+588,gritty
+588,daring
+589,brash
+590,powerful
+591,doesn’t quit in the face of adversity
+592,heroic
+593,self-esteem depends on outward show of strength
+594,disgusted by weakness
+595,leadership skills
+596,won’t admit softer feelings
+597,not in touch with softer feelings
+598,won’t admit fear
+
+:eccentrics
+1,1. [eccentric]
+2,1. [eccentric]<br>
+_2. [eccentric]
+3,1. [eccentric]<br>
+_2. [eccentric]<br>
+_3. [eccentric]
+
+:!eccentric
+1,nonconforming
+2,weird
+3,original
+4,individualistic
+5,doesn’t care what others think
+6,wears wild or unconventional clothing
+7,walks or rides bicycle everywhere
+8,odd beliefs
+9,does what others are afraid to do
+10,radical
+11,fanatical
+12,mad
+13,insane
+14,crazed
+15,deranged
+16,psychotic
+17,neurotic
+18,obsessed
+19,manic
+20,excessive
+21,extravagant
+22,quirky
+23,wild-eyed
+24,scatterbrained
+25,enjoys shocking people with unconventional behavior
+26,attention-seeking behavior
+27,believes his is sane behavior in an insane world
+28,hermit-like
+
+:habits
+1,1. [habit]
+2,1. [habit]<br>
+_2. [habit]
+3,1. [habit]<br>
+_2. [habit]<br>
+_3. [habit]
+4,1. [habit]<br>
+_2. [habit]<br>
+_3. [habit]<br>
+_4. [habit]
+
+:!habit
+1,oversleeps
+2,overworks
+3,drinks too much
+4,smokes
+5,bites fingernails
+6,picks nose in public
+7,eats with mouth open
+8,leaves toenail clippings all over floor
+9,shaves and leaves whiskers in sink
+10,doesn’t put the toilet seat down
+11,doesn’t flush the toilet
+12,farts in public
+13,interrupts people talking
+14,grinds teeth
+15,cracks knuckles
+16,smokes pot
+17,sniffs cocaine
+18,smokes crack
+19,does heroin
+20,obsessed with sex
+21,drools
+22,laughs too loud when nervous
+23,laughs too much when nervous
+24,whistles when nervous
+25,hums when nervous
+26,leaves dirty clothes all over floor
+27,falls asleep in clothes
+28,gambles
+29,drums fingers when impatient
+30,speeds in car
+31,ignores yield signs
+32,tailgates
+33,clears throat too much when nervous
+34,leaves lights and TV on when leaving house
+35,has to check stove or iron five times to make sure they’re turned off
+36,takes nap in middle of work day
+37,cracks jokes at expense of other people
+38,forgets a lot
+39,loses keys often
+40,eats too often at fast-food restaurants
+41,eats soups and other foods straight out of the can without heating
+42,neglects pets
+43,forgets to comb hair before going out
+44,doesn’t always brush teeth
+45,picks fights
+46,wears too much perfume or cologne
+47,checks self in mirror too much
+48,shouts at and debates with the TV
+49,watches too much TV
+50,watches too much sports
+51,talks on the pone too much
+52,kicks the cat when angry
+53,swears too much
+54,drinks milk out of container
+55,stands people up
+56,fishes for compliments
+57,fishes for sympathy for numerous physical ailments
+58,tips too much
+59,doesn’t tip at all
+60,eats greasy foods with fingers
+61,wolfs down food
+62,burps loudly in public
+63,coughs without covering mouth
+64,finishes everyone else’s meal for them
+65,snacks too much
+66,chews gum too much
+67,rolls over and goes to sleep after sex
+68,litters
+69,shoplifts small items
+70,parks in handicapped space
+71,nags people
+72,plays “one-upsmanship” with others
+73,hogs conversation
+74,apologizes for everything
+75,thanks people too much
+
+:skin
+1,alabaster: pale yellowish-pink to yellowish-gray
+2,albino: lacking in skin pigmentation.  Also known as achromasia
+3,alligator: a descriptive term for rough, coarse or scaly skin
+4,apple blossom: silky white
+5,black: pitch black
+6,blanched: white or pale, as if bleached out, occurring naturally or as a result of fear or trauma
+7,blue-black: a variation of black
+8,blush: rosiness or redness, as from embarrassment
+9,bronze: reddish-brown
+10,brown: color
+11,burlap: rough, coarse; also, the color of burlap
+12,cadaverous: corpse-like; leaden, cyanotic or colorless
+13,café noir: the color of black coffee
+14,caramel: light or medium brown
+15,chalky: white, gray or yellowish; the color of someone who is sick or deathly ill
+16,charcoal: dark gray
+17,chestnut: rich brown
+18,China doll: white
+19,China silk: silky
+20,cinnamon: yellowish-brown
+21,coal: black
+22,cocoa: brown
+23,cratered: pitted or rough from acne or chicken pox
+24,cream: creamy white
+25,crimson: deep red
+26,cyanotic: blue or bluish tinge cased by lack of oxygen in the blood
+27,doughy: the color of bread dough, or resembling the consistency of it
+28,downy: very soft and smooth
+29,ebony: dark or black
+30,eggshell: white or light brown
+31,fair: light-colored and unblemished
+32,florid: flushed red, pink or rosy
+33,flush: to become red in the face;; blush
+34,freckled: ginger speckles or spots
+35,ginger: sandy or reddish-brown
+36,glowing: flushed; healthy
+37,golden: yellowish or yellowish-brown
+38,greasy: oily
+39,hay: golden brown or tan
+40,honey: golden brown or silky-smooth
+41,humus: the color of rich, black soil
+42,ivory: creamy white
+43,jaundiced: a yellowish complexion (it also affects the eyeballs) caused by hepatitis or other medical condition
+44,leaden: the color of lead.  Sometimes who is very sick or suffering from a heart attack may be described as having a leaden complexion
+45,leathery: a tough, brown, hide-like skin, as a farmer might have from years of sun exposure
+46,lentil: light or medium brown
+47,lily-white: white
+48,livid: grayish-blue or lead-colored, or black and blue, as a bruise.  Corpses are livid in color due to pooled, oxygen-depleted blood
+49,lobster: severely sunburned
+50,magnolia: white or pink
+51,midnight: dark or black
+52,milky: white or smooth
+53,molasses: brown
+54,moled: having moles
+55,mottled: blotchy
+56,nubby: rough
+57,nut-brown: broad variability, from light to dark brown
+58,ocher: dark yellow or reddish-brown
+59,olive: dark brown or black
+60,pale: blanched, white
+61,pallid: pale, faint or wan
+62,pasty: like paste in color or texture
+63,peach: orange-yellow
+64,pink: color
+65,pitch: black
+66,pitted: from acne, chicken pox, etc.
+67,pizza-faced: slang term for one with sever acne
+68,pocked: cratered, pitted skin, from acne, chicken pox, etc.
+69,pustuled: acne
+70,razor-burned: red, irritated skin from shaving
+71,red as a cardinal: descriptive red
+72,rosy: descriptive red
+73,ruddy: healthy red
+74,russet: yellowish-brown or reddish-brown
+75,rust: orange, reddish-brown or reddish-yellow
+76,saffron: orange-yellow
+77,sallow: sickly yellow or pale yellow
+78,sandalwood: light brown
+79,sandpaper: rough, coarse
+80,scarlet: very bright red
+81,scarred: cut, marred, disfigured
+82,scrubbed: fresh-faced, or red from scrubbing too hard
+83,sepia: dark reddish-brown
+84,sole of an old army boot: descriptive line for rough, as-though-treaded-on, skin
+85,splotchy: irregular, blotchy
+86,strawberries and cream: creamy, with red cheeks
+87,sun-browned: suntanned
+88,sunburned: red
+89,swarthy: a dark complexion
+90,tar: black
+91,teakwood: yellowish-brown
+92,wan: pale
+93,warty: having warts
+94,waxy: pasty, cadaverous, greasy or oily
+95,weather-beaten: weathered by years in the sun; leathery or lined like an old boot
+96,wheat: tannish or brown
+97,withered: dried up, weathered, shriveled; without vigor or freshness
+98,wizened: dried up, weathered, shriveled; without vigor or freshness
+
+:prejudices
+1,1. [prejudice]
+2,1. [prejudice]<br>
+_2. [prejudice]
+3,1. [prejudice]<br>
+_2. [prejudice]<br>
+_3. [prejudice]
+
+:!prejudice
+1,Race
+2,Culture
+3,Sex
+4,Sexual orientation
+5,Sexual Preferences
+6,Too Old
+7,Too Young
+8,Too Thin
+9,Too Fat
+10,Too Ugly
+11,Too Beautiful
+12,Too Stupid
+13,Too Smart
+14,Nose too big
+15,Eyes too far apart
+16,Eyes too close together
+17,Hair Color
+18,Hair Length
+19,Hair Style
+20,Natural lack of hair
+21,Lack of hair by choice
+22,Pierced ears
+23,Pierced nose
+24,Pierced tongue
+25,Pierced (never mind, you get the idea)
+26,Occupation
+27,Lack of Occupation
+28,Hobbies
+29,Type of car you drive
+30,Lack of car
+31,Where your home is located
+32,Lack of a home
+33,Liking Heavy Metal
+34,Liking Rap
+35,Liking Pop
+36,Liking Country
+37,Believing Disco is not dead, it's only sleeping
+38,Believing golf is a spectator sport
+39,Watching Bowling on TV
+40,Believing Pro wrestling is real
+41,Thinking mud wrestling should be an Olympic Event
+42,Believing when your team wins, you've done something
+43,Is a Leafs fan
+44,Believing the Leafs will win the Cup again someday
+45,Arguing that if Quebec separates,the Montreal Canadians will have to change their name
+46,Caring that if Quebec separates,the Montreal Canadians will have to change their name
+47,Using a power lawn mower before noon on Sunday
+48,Owning a power lawn mower
+49,Dumping toxic chemicals all over your front lawn, then wondering why there are less birds
+50,Watering and fertilizing your lawn, then complaining about having to cut it.
+51,Buying a house on a ravine, then calling the city when raccoons get in your garbage
+52,Condemning hunting while munching on a steak
+53,Talking with a mouth full of food
+54,Talking all through the movie at the theatre
+55,Having stupid bumper stickers on your car
+56,Thinking Stop on Red is an option
+57,Using the eight item or less checkout with twenty items
+58,Having Tattoos
+59,Location of tattoos
+60,Type of Tattoo
+61,Owning a dog
+62,Not cleaning up after your dog has crapped in the park
+63,Not owning a dog
+64,Owning a cat
+65,Not owning a cat
+66,People who treat their pets like children, and expect you to do the same
+67,Wearing dead animals
+68,Wearing polyester
+69,Wearing t-shirts with stupid sayings on them
+70,Wearing t-shirts with crude sayings on them
+71,Buying personalized licence plates for yourself
+72,Buying personalized licence plates as a gift
+73,Paying an extra $50 for a licence plate sport sticker, when a bumper sticker costs 50 cents.
+74,Wearing Socks with Sandals
+75,Wearing Jeans on "Casual Fridays"
+76,Wearing Jeans that are too short (flood pants)
+77,Wearing White Shoes after Labor Day
+78,Wearing toques
+79,Wearing baseball caps
+80,Wearing baseball caps Backwards
+81,Thinking life is like a TV show
+82,Thinking TV shows are like life
+83,Thinking TV is in any way related to reality
+84,Choice of favorite TV shows
+85,Watching TV at all
+86,Making lots of money
+87,Making no money
+88,Believing casinos are there for you to win money
+89,Believing all politicians are honest, trustworthy and always keep their promises
+90,Believing all politicians are lying scum
+91,Being a Capitalist
+92,Being a Communist
+93,Being a Fascist
+94,Being a Liberal
+95,Being a Conservative
+96,Being an Anarchist
+97,Believing Preston Manning can save this country
+98,Believing in life after death
+99,Believing in death after life
+100,Believing in God
+101,Not believing in God
+
+:peeves
+1,1. [peeve]
+2,1. [peeve]<br>
+_2. [peeve]
+3,1. [peeve]<br>
+_2. [peeve]<br>
+_3. [peeve]
+
+:!peeve
+1,Drivers who don't use a turn signal.
+2,People who read out loud what they're typing in an email or letter.
+3,Kids who tease dogs through a fence.
+4,People who drink directly out of the milk/orange juice container.
+5,Couples who sit on the same side of the booth when there is no one on the other side.
+6,Parents who bring their young kids to R rated films.
+7,People that don't use coasters.
+8,People who blame anything but themselves for THEIR failure.
+9,People who sit next to you on public transportation even when there are other seats available.
+10,Noisy eaters.
+11,Students who prolong class by asking the most inane questions.
+12,Women who wear jewelry that clinks and clacks and makes noise when they're at their desk or keyboard. When people take 20 napkins, use one, then throw them all away.
+13,Going through the drive thru, then having to go back when they screw your order up.
+14,People walking around in ridiculous 'fashionable' shoes that are clearly hurting their feet.
+15,Whenever anyone says "Ya know what I'm sayin"...
+16,Using speaker phones in public areas at work.
+17,Roadmaps that aren't folded correctly.
+18,Finding a shoe and not finding its mate next to it
+19,Made up car names that are not even real words.
+20,People who are mean to animals.
+21,When a person makes a sucking noise with a straw when the cup becomes almost empty.
+22,People with bad table manners.
+23,People that snoop.
+24,People who read the paper while driving.
+25,People that interrupt you when your telling a story and then they continue to tell you their story and then ask you in an uninterested tone to continue on with your story when they are finished talking.
+26,Drivers who won't turn right on red.
+27,Vulgar talk at the dinner table.
+28,People who chat online (instant messaging) while I'm on the phone with them.
+29,Not having enough quarters to do laundry.
+30,Couples that own a dog together and call themselves mommy and daddy.
+31,When drivers bring their car to the wrong side of the gas pump.
+32,When you genuinely ask someone what's wrong (when there obviously is something wrong) and they respond half-heartedly, "hmmm? oh nothing..."
+33,People who ignore yield signs.
+34,Double negatives.
+35,Conspiracy theories.
+36,Being asked my telephone number/account number AFTER I already entered in using the keypad on my phone. I thought I was supposed enter that info to "better assist me".
+37,Not washing hands after using the bathroom.
+38,People who push alcohol at social functions.
+39,The noise people make when they rub their fingers on balloons.
+40,When your spouse/roommate uses the butter to put on their toast, and leaves crumbs in the container.
+41,People who don't perform their duties at work.
+42,Guys who leave the toilet seat up.
+43,Celebrities claiming to be environmentalists.
+44,Dining with a picky eater (they can never order off the menu without customizing every aspect of the meal).
+45,Tapping.
+46,Men on trains who insist on sitting with their legs spread wide like they got something there.
+47,When ice cream drips out of the bottom of a sugar cone.
+48,Dirty keyboards.
+49,People who zigzag in and out of lanes on the expressway.
+50,People who ride their bikes in the road when a sidewalk is right there.
+51,When people don't send thank you notes.
+52,When somebody tosses something toward a garbage can, like they think they're a basketball star, then leave it on the ground after they miss!
+53,People who take forever to order food while I'm in line.
+54,When you open the DVD case and it is empty or a different movie is in it.
+55,Car alarms that signal that they are on by honking.
+56,People who walk their dogs and let them poop indiscriminately (like on someone's lawn), and does not pick it up.
+57,The way people walk in flip flops.
+58,Someone standing over my shoulder reading the computer screen.
+59,People who write "Noone" instead of "No one".
+60,Explanations that begin with the word "Again".
+61,People who don't cover their mouth while sneezing or coughing.
+62,Dirty dishes in the sink.
+63,People who habitually need favors.
+64,How opening any cheap electronic item these days requires cutting up your finger with cheap impossible to open plastic molding covering.
+65,When you're eating candy and someone asks if they can have a red one.
+66,Airline speak (like: "The lavatories ARE equipped with smoke detectors, so DO refrain...")
+67,When you bite into a jelly bean and it's a different flavor than what you thought it was.
+68,Having to go to a UPS / FEDEX office to pickup a package.
+69,Uncomfortable chairs.
+70,Chasing after a ping pong ball.
+71,Jerks who take up 2 parking spaces.
+72,Films censored and cut (for length) to be put on television.
+73,When something I've been into for a long time becomes popular.
+74,People who overuse quotes from movies or TV.
+75,People who act like they're in their own living room at an event (concert, ballgame, play, movies or a restaurant).
+76,People who give their kids weird names
+77,People that don't list prices on websites, stores, and infomercials.
+78,The creepers at red lights. You know, those people that start inching forward in their cars “slowly” until the light turns green.
+79,People who clear their throats in a disgusting way.
+80,People that pop and smack their chewing gum.
+81,When people leave the cap off the toothpaste.
+82,People who style their hair during Mass.
+83,People who invite you out somewhere then cancel.
+84,Women who wear too much perfume.
+85,Relying on someone else to take a picture because I want to be in it, and it ends up coming out off-centered and out-of-focus.
+86,Cutesy intentional misspellings: “lite,” “kwik,” “R” for are.
+87,You know when you ask someone a simple, straightforward question and they spend ten solid minutes rambling on about everything in the world EXCEPT the answer to your simple, straightforward question? I hate that.
+88,When you order a salad at a restaurant and they bring it to you at the same time as your dinner.
+89,Children's hand prints on the windows in car.
+90,People who don't know the difference between its/it’s and they’re/their/there.
+91,People who carry a one sided conversation
+92,When you can't tell if someone is male or female.
+93,People who leave the door open when they go to the bathroom.
+94,Sick people who cough near you.
+95,People who talk, whistle or sing to themselves at work.
+96,People putting their feet out of car windows.
+97,Greeting cards that throw sparkles, sequins or confetti on the hapless recipient
+98,Having to use more than one remote control (one for TV, DVD player, cable box, TIVO, etc.)
+99,Paying a lot of money for a meal and getting a baby sitter only to have someone else’s kids screaming.
+100,When you're invited to a party (or any event) with people you have never met, and the host doesn't introduce you to anyone.
+101,When you find a really cute piece of clothing on the rack and they have like twenty in size XS, two in size 3X, and not a single one in your size.
+102,People who throw cigarette butts on the beach.
+103,Saying "Let there be light" every time any light switch is flipped on.
+104,When people say "What's up?" instead of saying "hi or hello".
+105,People who leave shopping carts in the parking lot instead of taking them back to the corral.
+106,People who go the wrong way in a parking lot.
+107,People who write "Keep in touch!" in your yearbook but never talk to you again.
+108,Unexpected company.
+109,When someone with a full cart of groceries gets into the 10 items or less line.
+110,Cats and dogs that are inconsiderate of their human's sleeping habits, and decide to romp, play, and destroy stuff at 4 AM.
+111,People letting their dogs use my yard as their toilet.
+112,Ignorant people.
+113,People who read over your shoulder on public transportation.
+114,Driving somewhere and having the sun in my eyes.
+115,Not knowing if you've taken two pictures with a camera or there are just two left
+116,When you adjust the volume of the TV and the volume display blocks the subtitles during an important dialogue.
+117,People who think that they are the only one with correct background for understanding an issue.
+118,Being the first one at any party.
+119,People throwing trash into a recycle bin.
+120,The naming of celebrity couples (Bennifer, TomKat, etc.)
+121,Movie sequels that are unnecessary.
+122,Litterbugs.
+123,Drivers who tailgate.
+124,Anyone—male or female—who says “We’re pregnant.”  Are they sharing a uterus?
+125,The "yes but" people.
+126,When you have an itch on the bottom of your foot and you can't scratch it because you have shoes on.
+127,When someone leaves their phone number at the end of a long message and they say it so fast you can't understand it and have to listen multiple times to figure it out.
+128,People who don't dress their age
+129,Suburban kids who think they are gangstas.
+130,People who chew with their mouth open
+131,When they clean the tables nearby with a bleach solution. While I am glad they are sanitary, the smell of bleach can really squelch my appetite.
+132,People having obviously PRIVATE conversations on their cell phone in public places.
+133,When people put the spoons/forks in the wrong section of the utensil separator.
+134,People who let dogs that jump up on everyone loose in public.
+135,Clipping your nails at work.
+136,When your eating something and a person will just steal a little bit of it.
+137,Retail clerks that ignore the live customer to help somebody that interrupts by phone
+138,People who don't pick up after themselves.
+139,People who use the word "gay" to mean "lame".
+140,When people refuse to be the decision maker about something simple (which restaurant to eat at, what movie to see, etc.).
+141,When people say 'supposebly' instead of 'supposedly'.
+142,In an obviously crowded restaurant, people who linger long after receiving their check.
+143,When you pull a string hanging from your shirt and it doesn't break, but only becomes longer.
+144,People who put salt on everything without tasting it first.
+145,Not Washing Hands After Using the Restroom
+146,Skinny jeans on men
+147,No toilet paper or paper towels in public bathrooms.
+148,When you will be talking to someone, and their replies seem to be limited to "ya", "cool", and "ok".
+149,When somebody turns off the lights when you are still in the room.
+150,People who can't complete a sentence without saying "you know".
+151,When people don't clear the microwave numbers.
+152,Finding the end of the program hasn't taped after sitting riveted for almost two hours.
+153,People who say "It's always in the last place you look".
+154,When people ask me for advice and do the opposite of what I tell them.
+155,When people don't RSVP to an event.
+156,People who will write something borderline mean, but then follow it up with a smiley face :)
+157,People who don't control their bratty children.
+158,People who refer to themselves in the third person.
+159,People who leave their children in their cars while they run into the store.
+160,People who snap their gum.
+161,Caps Lock in text or in email, when PEOPLE SHOUT.
+162,Girls who wear way too much make up.
+163,People who always have to be right and have the last word.
+164,People that cannot simply take their trash to the trash bin in places such as fast food restaurants, shopping malls etc.
+165,People who no matter what relate to something you have done and try to "one up" you.
+166,When someone is writing on a chalkboard and then they erase it to write something new, but they don't erase all of it, so you still see half of a letter here and there.
+167,People that tailgate when your driving.
+168,People who whistle when they are happy.
+169,Fax machines that call my home number.
+170,Rappers who thank God at awards ceremonies.
+171,Mumbling, then annoyed saying "Forget it!" when people don't hear you.
+172,People who use a calculator to figure out the tip at a restaurant.
+173,Drivers who signal after they make a lane change.
+174,People who spell "you're" as "your."
+175,People who don't cash checks you give them in a timely manner.
+176,The noise Styrofoam makes when you rub it together.
+177,People who blow their horn at you the nanosecond the light changes to green.
+178,When the garbage man turns my can upside down after dumping MOST of the garbage in it into the garbage truck. I go to collect the can and when I turn it right side up, the remaining garbage spills out on the sidewalk.
+179,People who don't use deodorant.
+180,When people continue to stare after they ask you a question, as if they need you to expand more on your answer.
+181,Ice cream with freezer burn.
+182,When the person who takes the last of something puts the empty package back.
+183,Flakes! People that cancel plans constantly.
+184,Hair strands left on shower walls.
+185,When you first meet someone and can't remember the person's name by the end of the conversation.
+186,Taking forever to leave a parking space while others are clearly waiting for it
+187,Business buzz words: synergistic, globalize, paradigm shift, etc.
+188,When people are using armrests on both sides of you.
+189,Bosses who think your job is your life.
+190,People sitting at a red light and continuing to sit there when the light turns green because they're on their cell phone.
+191,Grocery clerks that want to bundle the receipt with my change. Hand me the money separately so I can put it in my pocket, and then hand me the receipt or place it in the bag.
+192,People who dress their pets.
+193,People who buy animals, only to get rid of them a week later because it was harder to take care of them than they thought.
+194,People who mumble.
+195,Whistling out of tune.
+196,Conversational High-Fives: High-fiving at any time other than when one is actively playing a sport
+197,People who are always late.
+198,When there are no hot dog buns left and you have to eat your hot dog on a folded piece of bread.
+199,Men who ogle or whistle at women who walk down the street.
+200,People who honk in front of a house instead of getting out of the car and ringing the doorbell.
+201,Annoying nervous (forced sounding) laughs.
+202,When you are asleep at a hotel and the alarm clock goes off in the middle of the night because the person who was there before you set it and never turned it off.
+203,When you have to walk out of the shower naked because you forgot to bring a towel with you.
+204,Needless meetings.
+205,People who don't look at you when they are talking, or you are talking to them.
+206,People who turn their stereos up full blast in their apartment building and have no consideration of others.
+207,When you're driving down the road and a cigarette butt comes out the window of a car in front of you and it bounces off your car.
+208,People who stare.
+209,People who use the phrase "110%" (or even more % sometimes).
+210,People who leave food that can spoil (milk, butter, etc.) out too long, instead of putting it back in the fridge when they are done.
+211,People who put their feet up on the seat in front of them in movie theaters.
+212,People who say the time like "Eight AM in the morning".
+213,People who won't take their kid out of a restaurant when they are crying, screaming, etc.
+214,Having to dress up for work just to have it downpour when you step outside.
+215,When the host/hostess at a restaurant totally underestimates how long a wait there will be.
+216,When people interrupt you.
+217,Guys who wear wife-beaters (and nothing else for a shirt) in public.
+218,Forks whose tines don't stand up in a perfectly straight line
+219,The sound of too much spit in someone's mouth when they talk.
+220,Athletes who point to the sky after scoring.
+221,Someone opening a cabinet door or drawer and leaving it open.
+222,People say "carmel" instead of "caramel". Is it really that hard to pronounce that extra letter?
+223,Bathroom stalls with a mirror so you can see your whole self while seated
+224,Drivers who make u-turns where they are not allowed to.
+225,In mini golf when you miss the hole three times in a row less than a foot away.
+226,When someone starts to watch a show or movie in the middle of it and expect you to tell them what's happening.
+227,People who think the seat next to them is a place to plunk down their gym bag/back pack on a crowded bus.
+228,Clipping toenails in bed.
+229,People who ask "Can I ask you a question?"
+230,People who leave farts in elevators that I subsequently enter. Then the next person thinks it's me.
+231,Commercials in movie theaters.
+232,Keeping your Christmas lights up until February.
+233,Overuse of the word "Like"
+234,People who read a story, and purposely skip pages so that it ends quicker.
+235,When you score a goal on yourself in foosball or air hockey.
+236,People who drive past me on a crosswalk.
+237,When the toilet paper roll is backwards.
+238,People who ask you what time it is.
+239,People with poor umbrella etiquette.
+240,When other people sleep on my pillow.
+241,When you are hanging out with someone and they make plans to do something else right in front of you.
+242,When people scratch their fingernails on a blackboard.
+243,People who can't wait to file a lawsuit in order to get rich quick.
+244,Wet, dirty, stinky, slimy dishrags left in a heap in the bottom of the sink.
+245,Websites with horizontal scrolling.
+246,People who use unnecessary abbreviations, like w/e (whatever), w/o (without) and j/k (just kidding).
+247,People at Wal*Mart Supercenter who enter thru the exit and exit thru the enter.
+248,Getting fruit in your bag on Halloween.
+249,Going to a restaurant within the last hour before closing and everyone is cleaning, sweeping and slamming stuff around to get out of their quickly and at buffet the food is gone or old and dried up.
+250,Walking into spider webs.
+251,When the cashier gives you the change with the coins on top of the bills and for a moment you look like a fool jamming a large wad of cash into your pocket.
+252,People who use self checkout lanes but don’t know how to use them and slow us all down.
+253,Hearing classic songs that I grew up with...pimping products on commercials.
+254,Stomping on the floor to simulate knocking on a door.
+255,Using your finger as a gun.
+256,Telemarketers.
+257,Waiters/waitress who put their fingers on the top of the glass (where you drink from) when they deliver it to you.
+258,Bars where the music is too loud.
+259,People that don't answer e-mail.
+260,People who are clearly unhappy and yet pretend like everything is just fine.
+261,Failing to take a backpack into account when turning or backing into people
+262,Yelling "drop it" the moment a conversation veers into an unwanted direction.
+263,Cell Phone Drivers
+264,Lawn ornaments.
+265,People who borrow stuff and never give it back.
+266,When people call me but are talking to someone else when I answer and I have to wait till they stop talking.
+267,When you sit down at a restaurant and the waiter/waitress spends time cleaning other tables, when there are lots of empty tables, instead of taking your order.
+268,When the tracking system for delivery isn't up-to-date.
+269,Gray snow that won't melt; piled up on the side of the road
+270,Bad breath.
+271,People who refuse to expand their musical horizons.
+272,People who complain out loud while waiting in a long line at the store.
+273,People who say "Bra" or "bro" when it's not their brother.
+274,When people put (sp?) after words when the spell check button is right there in front of them.
+275,People who can't seem to see any faults in their kids or their mothers.
+276,Piling up clothes in the corner of the room instead of putting them in the hamper.
+277,Hair on the soap.
+278,Mispronunciation of words.
+279,People who are stingy with money when they clearly have a lot of it.
+280,People who cook for you, and use the same spoon multiple times to taste what they are cooking while cooking it, like for pasta sauce or soup.
+281,Having a drawer full of unknown cords, transformers, adapters, etc.
+282,I hate it when people take healthy food and fry it up in butter and eat it because it's "good for them".
+283,Loud motorcycles.
+284,When people trip over your their foot in the hallway and start running to pretend like they meant to do it.
+285,When you ask for LOTS of ketchup and they give you only two or three packets.
+286,Shopping carts with a broken wheel.
+287,The sound of somebody playing with silverware on a plate.
+288,Going out to dinner with a big group, eating $10 worth of food and having to split the whole bill and ending up paying much more than you ate.
+289,When the waiter/waitress asks whether you want dessert, but smiles in a way that means she is clearly judging you.
+290,Sitting in the movies and hearing someone eating popcorn.
+291,Bathing suit tops as clothing.
+292,People who pick their nose in public.
+293,Car passengers that throw their doors wide open without first checking to make sure it is safe to do so.
+294,Lazy people.
+295,People who talk about their favorite sports team and say "WE" like they are a part of the team.
+296,People who love to point out how wrong everyone else is while they are a walking train wreck
+297,People who don't care what's going on in our country.
+298,People who are over age 21 who say the word "dude".
+299,People who spit on the ground and don't look first to see if anybody is around.
+300,People who use their caller ID like an answering service. Example: "Hello?" "Yeah, someone call me from this number?" "Umm, who are you?" "Who is this?" "You called this number. Did you get a message?" "I haven't checked my messages. This number just came up". Etc..
+301,Being put on the speakerphone without warning
+302,Obnoxious doorbell ringers.
+303,Adware, spyware, popups, viruses and other things that download themselves and install automatically
+304,When people say the word huge incorrectly by dropping the 'H' and pronouncing it Uge.
+305,When people change the TV channel without asking
+306,People who make you take off your shoes when you go into their house.
+307,People at a store/supermarket who wait in a long checkout line, and then when they finally need to pay they take forever to find their checkbook/cash/credit card.
+308,Stores/companies that charge extra if you pay by credit card.
+309,I hate slow people walking in front of me.
+310,People who stop at the top or bottom of an escalator.
+311,At a restaurant, when they clean the tables nearby with a bleach solution, smelling up my area.
+312,People who point at their wrist while asking for the time.
+313,Dog poop on the sidewalk.
+314,When those little hinges on the CD case break, and now you can't open and close it.
+315,I know they have to do this, but I hate having servers recite the specials to me. Because I have never ordered a special, and hate having to feign interest in them.
+316,The use of redundant statements like ATM Machine or PIN Number
+317,Hair in the shower drain.
+318,Men who refer to “babysitting” their own children.
+319,People who are late.
+320,People who don't use their turn signal, tailgate, and cut you off
+321,How hard it is to open a new music CD.
+322,Pee anywhere other than in a toilet.
+323,Watching people put their contacts in.
+324,How commercials are so much louder than the TV shows.
+325,People who don't want to learn anything new because they know it all.
+326,When you bend over to pick something up and miss the object multiple times, and the final attempt is a violent grab as if to say it was the object's fault.
+327,Feeling a little juvenile when the waitress sees your drawings on the table at the Macaroni Grille and you're over the age of eight.
+328,When you get out of the pool and your bathing suit sticks to you and exposes your crotch.
+329,Singing along with the music when you don't actually know the words.
+330,People who write checks during check-out. I hate waiting.
+331,Men who talk down to women.
+332,Email with no subject.
+333,Grocery shopping carts with a bad wheel.
+334,How clothes hangers get all tangled with each other
+335,Double dippers.
+336,When people don't pick up their feet to walk and you hear the scuff... scuff... scuff.
+337,People who brag about how trashed they got the night before.
+338,Unsolicited advice.
+339,Co-workers that try to sell stuff to you at work.
+340,Trying to get assistance over the telephone, only to be directed to "press this number", umpteen times.
+341,When adults cuss in front of children.
+342,At a restaurant, bread cut only halfway, instead of into slices.
+343,People who say I can't, without even trying.
+344,People who leave their pets in their hot cars in the summer.
+345,Speed bumps.
+346,People who constantly get up in movie theaters.
+347,When you are changing the TV channel and it goes black of a second before the channel comes up.
+348,Dogs running around on a flatbed truck, which is going highway speed.
+349,Parents who have their children on leashes.
+350,PeOpLe WhO tYpE LiKe ThIs.
+351,Restaurants that put too much ice in your drink.
+352,Anti-climactic ends to long lists.
+353,People who double park.
+354,People who people park a shopping cart in the middle of the aisle in Wal-Mart or grocery store, blocking the way for others and then walking away to gather items.
+355,When people use the word "literally" inappropriately. I.e. "I literally almost jumped out of my skin."
+356,People who make out in public.
+357,Babies sitting on laps in cars.
+358,People who bring their babies to the movies.
+359,People who stick their USED gum just about anywhere (under a table or chair, on the ground, etc.)
+360,Dried toothpaste in the sink.
+361,Junk mail.
+362,People who talk on their cell phone at the movies.
+363,When someone blows their nose in your presence and then proceeds to look at what just filled their tissue/handkerchief.
+364,When people don't rinse their dishes before they put them in the sink.
+365,Not letting things go the first time someone says stop.
+366,People who don't accelerate fast enough at a stop light, especially if you're in the left lane.
+367,People who stop right in front of you when your walking through town.
+368,People that do not flush the toilet in public restrooms.
+369,When you apply too much deodorant and you have to make a running-in-place type of motion.
+370,I hate people who have no idea what "personal space" is.
+371,Pants on men that are too short.
+372,Dirty restaurant bathrooms. It makes me wonder how clean the kitchen is.
+373,People who don't stop at stop signs.
+374,People who smoke right outside the door of a nonsmoking establishment, getting smoke all over everybody who enters/leaves.
+375,People who don't listen when you are talking to them. How many times have you said a few sentences to someone only to have them suddenly say "what did you just say? I wasn't paying attention."
+376,People that don't return your phone calls.
+377,Referring to any government agency as "the Fed".
+378,If you are able to drink everything but one little drop of milk or juice, whatever...DON'T put it back in the fridge! Just finish it.
+379,Air Guitar. Don’t do it. You look like a dork.
+380,Dull pencils.
+381,People who can't decide on one radio/TV station, and constantly flip back and forth.
+382,The habit of tossing dirty silverware into garbage disposal part of the sink
+383,Getting behind someone that will not drive up to the speed limit.
+384,People who straddle multiple lines at the drug store.
+385,When you're with a group of people and you think nobody saw that you just tripped, and you think you're in the clear. But the one person who did see it points it out to everybody else.
+386,Family members who do not talk to you for years, but when they need or want something, act like nothing happened.
+387,I hate it when people tickle me.
+388,Gossip.
+389,People who blow their nose at the dinner table or in the kitchen when you're eating or cooking.
+390,Things sticking out of drawers
+391,Utility/Cable service people that don't show up on time.
+392,When someone is giving a speech in class and they won't stop looking at you as they speak.
+393,A dirty stove top. When finished cooking, all food particles should be cleaned off the stove.
+394,Using the toilet paper down to the last few squares without getting a new roll
+395,Restaurants that have a no smoking section which is only several feet away from the smoking section.
+396,People who don't move to the back of the bus when there is plenty of room to do so.
+397,People who write on dirty car windshields
+398,When shirts shrink in the dryer.
+399,When you are trying to wax something, and you pull hard but nothing comes off and yet you still feel the pain.
+400,Cussing in public, especially in front of senior citizens.
+401,People who don't hold the elevator for you.
+402,When you're trying to walk in the mall and there's a kiosk and they hound you to try their cell phone service or whatever.
+403,People that say they don't like a certain food before they try it, and refuse to eat it .
+404,People abbreviating words when they speak.
+405,Barbecue restaurants with happy pigs on the sign.
+406,Motel pillows.
+407,Making me talk to your boyfriend/girlfriend who I have never actually met when I call you on the phone, saying something like, "oh here - talk to [---]".
+408,Used grocery bags that aren't folded correctly.
+409,Pieces of fat on meat.
+410,Companies that outsource their customer service to India, but then those support reps don't have full access to all the needed info, so eventually they transfer you back to a manager in the US to deal with it.
+411,Water stains on the cutlery (from the dishwasher).
+412,Cracking your knuckles.
+413,Speed Bumps.
+414,People who tell you "Oh! You have to try this! It's the best thing ever!" And when you do try it and it sucks.
+415,Drivers who drive slow in the left lane.
+416,People who eat while talking on the phone to me.
+417,People that fart in public.
+418,People who invade my seat space, like on airplanes or in movie theaters.
+419,People that make tons and tons of noise while working out.
+420,Women who are obviously bottle blondes who still blame their stupidity on being blonde, as in: “Oh, no! I’m having a blonde moment!”
+421,People/kids who tap their pencil during a test.
+422,Sneezing in your hand and shaking someone's hand afterward.
+423,Kids with baggy pants hanging below their ass.
+424,Movie talkers
+425,People who always look to start a fight.
+426,When a utility sends you a letter about a rate increase that opens with: "In order to serve you better."
+427,People who spit when they talk.
+428,When men you don't know very well at all assume it is okay to call you "Hun" or "babe."
+429,When people bite their nails in the dead of silence and you hear them eating it.
+430,Water running while brushing teeth.
+431,Women who use PMS as an excuse to be bitchy.
+432,People who finish my sentences for you.
+433,People who constantly sniffle.
+434,People who interrupt you to correct your grammar/speech, paying no attention to the point your are trying to make.
+435,People who make up words.
+436,Tangled phone cords
+437,Using a napkin for eating messy food & leaving it on the table throughout the meal
+438,When people say "you and I" when it should be "you and me".
+439,When the string on the hood of your sweatshirt goes inside the hood.
+440,People trying to enter an elevator when people IN the elevator haven't left yet.
+441,When you have to go to the bathroom really bad after getting out of the shower and you don't dry off all the way, making the toilet seat all slippery.
+442,People who are always negative.
+443,If you pee on the seat, wipe it off.
+444,Driveways that make cars bottom out.
+445,Clicking pens.
+446,People who assume far too much.
+447,An unmade bed.
+448,Barking dogs when I am trying to sleep.
+449,People that realize that a lane of traffic is backed up so they go into the next lane over because it is moving quicker and they go up to the front and expect someone to just let them back over in that lane.
+450,Having to explain the same thing more than once.
+451,People who wear sunglasses indoors.
+452,People who don't say "thank you" or even acknowledge you when you hold the door for them.
+453,People who bite their nails.
+454,When people cough in front of you without covering their mouth.
+455,People who quote movies just because they can.
+456,Getting stuck at red lights, while nobody is going the other direction.
+457,People who don’t put two spaces after a period when they type.
+458,When people don't flush the toilet.
+459,Broken spines on paperback books.
+460,Restaurants that give you rolls, but never enough butter to go with them.
+461,A well done steak or burger when it was ordered "rare"
+462,When people that say that they read something at a certain site but don't add the link.
+463,People who whistle through their noses while just breathing.
+464,When I'm having a conversation with someone, & I'm in the middle of telling a story and some rude idiot comes walking up and starts a conversation with the person I'm talking to...as if I'm not even there!
+465,People that wait until the last minute.
+466,Incorrect use of apostrophe's.
+467,Parents who plead with toddlers.
+468,People that burp loudly in public.
+469,Wobbly tables.
+470,People who text during a movie.
+471,When it's raining and you turn your car off before you turn the wipers off, and they stop in the middle of the windshield, so you turn the car back on, the wipers off, and then the car off.
+472,Chewing gum on the sidewalk.
+473,Free offer that always have a catch.
+474,When someone tries to talk to you when you have headphones on.
+475,People who respond to my emails but don't include the text of the previous email in their email.
+476,Men who refer to their wife as “the wife”- a wife is not an object.
+477,When coffee spills out of the top drinking hole of lids on to-go coffee cups.
+478,How commercialized the holidays are.
+479,People who pick their teeth in public.
+480,Snorting when you laugh.
+481,Hypocrites (yeah, you know who your are)
+482,People who interrupt you and direct the conversation to themselves.
+483,People who make small talk with a cashier when there’s a long line behind them.
+484,Stores with TV monitors at the checkouts that play commercials.
+485,Spit flying out of people's mouth by accident.
+486,TV shows and commercials ads with ringing doorbells or phones, which make you into thinking the sound is coming from your house.
+487,I hate when restaurant staff starts clearing dishes away when not everyone has finished eating -- leaving the one person at a table of four to feel bad they haven't finished yet.
+488,People who can't seem to understand that " red eyes" are possible to remove in photos.
+489,Improper use of the word ironic
+490,Waiters/waitresses with dirty fingernails.
+491,People who scrape their fork around the plate.
+492,Backwash.
+493,Eating in bed and leaving crumbs
+494,Spammers.
+495,Fake laughter.
+496,People who call but don't leave a message.
+497,Wasting food, like when a person takes a full plateful of food and then eat two bites.
+498,People who don't vote and then complain about the results.
+499,People who try to talk to you when you are going to the bathroom.
+500,When you're wearing a hat, after a while it feels like it's not there. When you take it off, it feels like it's still there.
+501,Famous people name their kids strange names.
+502,Tables at restaurants that are next to or in the direct line of view of the restrooms. I don't want to look at and think about people going to the bathroom while I eat.
+503,People who say, "Goddamnit" or "Jesus Christ" when they're angry.
+
+:party
+1,National Action Party
+2,People's Action Party
+3,Agrarian Party
+4,National Alliance
+5,New Alliance Party
+6,Centre Party
+7,Christian Democratic Party and Christian Democratic Union
+8,Christian People's Party
+9,Civic Democratic Party
+10,Colorado Party
+11,International Communist League
+12,Worker Communist Party
+13,Revolutionary Communist Party
+14,Conservative People's Party
+15,Union of Democratic Forces
+16,Free Democratic Party
+17,Freethinking Democratic Party and Freethinking Democratic League
+18,Democratic Labour Party
+19,Liberal Democratic Party
+20,National Democratic Party and National Democratic Congress
+21,New Democratic Party
+22,Democratic People's Party
+23,Progressive Democratic Party
+24,Radical Democratic Party
+25,Social Democratic Party
+26,Social Democratic Union
+27,Democratic Socialist Party
+28,United Democratic Party
+29,Equality Party
+30,Fatherland Party and Fatherland Union
+31,Union of Democratic Forces
+32,Free Democratic Party
+33,Freedom Party
+34,Free-thinking Democratic Party
+35,Independence Party
+36,Democratic Labour Party
+37,Socialist Labour Party
+38,United Left
+39,Liberal Democratic Party
+40,Liberal Republican Party (United States)
+41,National Liberal Party
+42,Progressive Liberal Party
+43,Radical Liberal Party
+44,Social Liberal Party
+45,Libertarian Party
+46,Motherland Party
+47,National Alliance
+48,National Democratic Party and National Democratic Congress
+49,National Liberal Party
+50,New National Party
+51,National Socialist Party
+52,National Unity Party
+53,New Alliance Party
+54,New Democratic Party
+55,New National Party
+56,Christian People's Party
+57,Conservative People's Party
+58,Democratic People's Party
+59,Liberal People's Party
+60,Republican People's Party
+61,Popular Party and Popular Alliance
+62,Progressive Democratic Party
+63,Radical Democratic Party
+64,Left Radical Party
+65,Reform Party
+66,Republican People's Party
+67,Revolutionary Communist Party
+68,Social Democratic Party
+69,Social Democratic Union
+70,Democratic Socialist Party
+71,Socialist Labour Party
+72,National Socialist Party
+73,Socialist Workers Party
+74,World Socialist Party
+75,Unionist Party
+76,United Left
+77,National Unity Party
+78,United Democratic Party
+79,United Workers' Party
+80,Socialist Workers' Party
+81,United Workers' Party
+82,Worker Communist Party
+83,Workers League
+84-100,No political affliation.
+
+:income
+1,under $10,000
+2,$10,000- $25,000
+3,$25,000 - $50,000
+4,$50,000 - $75,000
+5,$75,000 - $100,000
+6,$100,000 - $200,000
+7,$200,000 or more
+
+:phobias
+1,1. [phobia]
+2,1. [phobia]<br>
+_2. [phobia]
+3,1. [phobia]<br>
+_2. [phobia]<br>
+_3. [phobia]
+4,No known phobias.
+
+:!phobia
+1,13, number- Triskadekaphobia.
+2,666, number- Hexakosioihexekontahexaphobia
+3,8, number- Octophobia.
+4,Abuse: sexual- Contreltophobia.
+5,Accidents- Dystychiphobia.
+6,Air- Anemophobia.
+7,Air swallowing- Aerophobia.
+8,Airborne noxious substances- Aerophobia.
+9,Airsickness- Aeronausiphobia.
+10,Alcohol- Methyphobia or Potophobia.
+11,Alone, being- Autophobia or Monophobia.
+12,Alone, being or solitude- Isolophobia.
+13,Amnesia- Amnesiphobia.
+14,Anger- Angrophobia or Cholerophobia.
+15,Angina- Anginophobia.
+16,Animals- Zoophobia.
+17,Animals, skins of or fur- Doraphobia.
+18,Animals, wild- Agrizoophobia.
+19,Ants- Myrmecophobia.
+20,Anything new- Neophobia.
+21,Asymmetrical things- Asymmetriphobia
+22,Atomic Explosions- Atomosophobia.
+23,Automobile, being in a moving- Ochophobia.
+24,Automobiles- Motorphobia.
+25,Bacteria- Bacteriophobia.
+25,Bald people- Peladophobia.
+26,Bald, becoming- Phalacrophobia.
+27,Bathing- Ablutophobia.
+28,Bats- Chiroptophobia.
+29,Beards- Pogonophobia.
+30,Beaten by a rod or instrument of punishment, or of being severely criticized- Rhabdophobia.
+31,Beautiful women- Caligynephobia.
+32,Beds or going to bed- Clinophobia.
+33,Bees- Apiphobia or Melissophobia.
+34,Belly buttons- Omphalophobia.
+35,Bicycles- Cyclophobia.
+36,Birds- Ornithophobia.
+37,Black- Melanophobia.
+38,Blindness in a visual field- Scotomaphobia.
+39,Blood- Hemophobia, Hemaphobia or Hematophobia.
+40,Blushing or the color red- Erythrophobia, Erytophobia or Ereuthophobia.
+41,Body odors- Osmophobia or Osphresiophobia.
+42,Body, things to the left side of the body- Levophobia.
+43,Body, things to the right side of the body- Dextrophobia.
+44,Bogeyman or bogies- Bogyphobia.
+45,Bolsheviks- Bolshephobia.
+46,Books- Bibliophobia.
+47,Bound or tied up- Merinthophobia.
+48,Bowel movements: painful- Defecaloesiophobia.
+49,Brain disease- Meningitophobia.
+50,Bridges or of crossing them- Gephyrophobia.
+51,Buildings: being close to high buildings- Batophobia.
+52,Bullets- Ballistophobia.
+53,Bulls- Taurophobia.
+54,Bums or beggars- Hobophobia.
+55,Burglars, or being harmed by wicked persons- Scelerophobia.
+56,Buried alive, being or cemeteries- Taphephobia or Taphophobia.
+57,Cancer- Cancerophobia, Carcinophobia.
+58,Car or vehicle, riding in- Amaxophobia.
+59,Cats- Aclurophobia, Ailurophobia, Elurophobia, Felinophobia, Galeophobia, or Gatophobia.
+60,Celestial spaces- Astrophobia.
+61,Cemeteries- Coimetrophobia.
+62,Cemeteries or being buried alive- Taphephobia or Taphophobia.
+63,Ceremonies, religious- Teleophobia.
+64,Changes, making; moving- Tropophobia or Metathesiophobia.
+65,Chickens- Alektorophobia.
+66,Child, bearing a deformed; deformed people- Teratophobia.
+67,Childbirth- Maleusiophobia, Tocophobia, Parturiphobia, or Lockiophobia.
+68,Children- Pedophobia.
+69,Chinese or Chinese culture- Sinophobia.
+70,Chins- Geniophobia.
+71,Choking or being smothered- Pnigophobia or Pnigerophobia.
+72,Choking- Anginophobia.
+73,Cholera- Cholerophobia.
+74,Chopsticks- Consecotaleophobia.
+75,Church- Ecclesiophobia.
+76,Clocks- Chronomentrophobia.
+77,Clocks or time- Chronophobia.
+78,Clothing- Vestiphobia.
+79,Clouds- Nephophobia.
+80,Clowns- Coulrophobia.
+81,Coitus- Coitophobia.
+82,Cold or cold things- Frigophobia.
+83,Cold: extreme, ice or frost- Cryophobia.
+84,Cold- Cheimaphobia, Cheimatophobia, Psychrophobia or Psychropophobia.
+85,Color purple- Porphyrophobia.
+86,Color red or blushing- Erythrophobia, Erytophobia or Ereuthophobia.
+87,Color yellow- Xanthophobia.
+88,Color white- Leukophobia.
+89,Colors- Chromophobia or Chromatophobia.
+90,Comets- Cometophobia.
+91,Computers or working on computers- Cyberphobia.
+92,Confined spaces- Claustrophobia.
+93,Constipation- Coprastasophobia.
+94,Contamination, dirt or infection- Molysmophobia or Molysomophobia.
+95,Contamination with dirt or germs- Misophobia or Mysophobia.
+96,Cooking- Mageirocophobia.
+97,Corpses- Necrophobia.
+98,Cosmic Phenomenon- Kosmikophobia.
+99,Creepy, crawly things- Herpetophobia.
+100,Criticized severely, or beaten by rod or instrument of punishment- Rhabdophobia.
+101,Criticism- Enissophobia.
+102,Crosses or the crucifix- Staurophobia.
+103,Crossing streets- Agyrophobia or Dromophobia.
+104,Crowded public places like markets- Agoraphobia.
+105,Crowds or mobs- Enochlophobia, Demophobia or Ochlophobia.
+106,Crucifix, the or crosses- Staurophobia.
+107,Crystals or glass- Crystallophobia.
+108,Dampness, moisture or liquids- Hygrophobia.
+109,Dancing- Chorophobia.
+110,Dark or night- Nyctophobia.
+111,Dark place, being in- Lygophobia.
+112,Darkness- Achluophobia or Myctophobia, or Scotophobia.
+113,Dawn or daylight- Eosophobia.
+114,Daylight or sunshine- Phengophobia.
+115,Death or dying- Thanatophobia.
+116,Death or dead things- Necrophobia.
+117,Decaying matter- Seplophobia.
+118,Decisions: making decisions- Decidophobia.
+119,Defeat- Kakorrhaphiophobia.
+120,Deformed people or bearing a deformed child- Teratophobia.
+121,Deformity or unattractive body image- Dysmorphophobia.
+122,Demons- Demonophobia or Daemonophobia.
+123,Dental surgery- Odontophobia.
+124,Dentists- Dentophobia.
+125,Dependence on others- Soteriophobia.
+126,Depth- Bathophobia.
+127,Diabetes- Diabetophobia.
+128,Dining or dinner conversations- Deipnophobia.
+129,Dirt, contamination or infection- Molysmophobia or Molysomophobia.
+130,Dirt or germs, being contaminated with- Misophobia or mysophobia.
+131,Dirt or filth- Rhypophobia or Rupophobia.
+132,Dirty, being dirty or personal filth- Automysophobia.
+133,Disease- Nosophobia, Nosemaphobia or Pathophobia.
+134,Disease and suffering- Panthophobia.
+135,Disease, a definite- Monopathophobia.
+136,Disease, brain- Meningitophobia.
+137,Disease: kidney- Albuminurophobia.
+138,Disease, rectal- Rectophobia.
+139,Disorder or untidiness- Ataxophobia.
+140,Dizziness or vertigo when looking down- Illyngophobia.
+141,Dizziness or whirlpools- Dinophobia.
+142,Doctor, going to the- Iatrophobia.
+143,Doctrine, challenges to or radical deviation from official- Heresyphobia or Hereiophobia.
+144,Dogs or rabies- Cynophobia.
+145,Dolls- Pediophobia.
+146,Double vision- Diplophobia.
+147,Drafts- Aerophobia or Anemophobia.
+148,Dreams, wet- Oneirogmophobia.
+149,Dreams- Oneirophobia.
+150,Drinking- Dipsophobia.
+151,Drugs, new- Neopharmaphobia.
+152,Drugs or taking medicine- Pharmacophobia.
+153,Dryness- Xerophobia.
+154,Dust- Amathophobia or Koniophobia.
+155,Dust- Amathophobia.
+156,Duty or responsibility, neglecting- Paralipophobia.
+157,Dying or death- Thanatophobia.
+158,Eating or swallowing- Phagophobia.
+159,Eating or food- Sitophobia or Sitiophobia.
+160,Eating or swallowing or of being eaten- Phagophobia.
+161,Eight, the number- Octophobia.
+162,Electricity- Electrophobia.
+163,Englishness- Anglophobia.
+164,Erect penis- Medorthophobia.
+165,Erection, losing an- Medomalacuphobia.
+166,Everything- Panophobia, Panphobia, Pamphobia, or Pantophobia.
+167,Eyes- Ommetaphobia or Ommatophobia.
+168,Eyes, opening one's- Optophobia.
+169,Fabrics, certain- Textophobia.
+170,Failure- Atychiphobia or Kakorrhaphiophobia.
+171,Fainting- Asthenophobia.
+172,Fatigue- Kopophobia.
+173,Fearful situations: being preferred by a phobic- Counterphobia.
+174,Feathers or being tickled by feathers- Pteronophobia.
+175,Fecal matter, feces- Coprophobia or Scatophobia.
+176,Female genitals- Kolpophobia.
+177,Female genitalia- Eurotophobia.
+178,Fever- Febriphobia, Fibriphobia, Fidriophobia or Pyrexiophobia.
+179,Filth or dirt- Rhypophobia.
+180,Fire- Arsonphobia or Pyrophobia.
+181,Firearms- Hoplophobia.
+182,Fish- Ichthyophobia.
+183,Flashes- Selaphobia.
+184,Flogging or punishment- Mastigophobia.
+185,Floods- Antlophobia.
+186,Flowers- Anthrophobia or Anthophobia.
+187,Flutes- Aulophobia.
+188,Flying- Aviophobia or Aviatophobia or Pteromerhanophobia.
+189,Fog- Homichlophobia or Nebulaphobia.
+190,Food or eating- Sitophobia or Sitiophobia.
+191,Food- Cibophobia.
+192,Foreigners or strangers- Xenophobia.
+193,Foreign languages- Xenoglossophobia.
+194,Forests or wooden objects- Xylophobia.
+195,Forests- Hylophobia.
+196,Forests, dark wooded area, of at night- Nyctohylophobia
+197,Forgetting or being forgotten- Athazagoraphobia.
+198,France or French culture- Francophobia, Gallophobia or Galiphobia.
+199,Freedom- Eleutherophobia.
+200,Friday the 13th- Paraskavedekatriaphobia.
+201,Frogs- Batrachophobia.
+202,Frost, ice or extreme cold- Cryophobia.
+203,Frost or ice- Pagophobia.
+204,Functioning or work: surgeon's fear of operating- Ergasiophobia.
+205,Fur or skins of animals- Doraphobia.
+206,Gaiety- Cherophobia.
+207,Garlic- Alliumphobia.
+208,Genitals, particularly female- Kolpophobia.
+209,Genitalia, female- Eurotophobia.
+210,Germans or German culture- Germanophobia or Teutophobia.
+211,Germs or dirt, being contaminated with- Misophobia or mysophobia.
+212,Germs- Verminophobia.
+213,Ghosts or specters- Spectrophobia.
+214,Ghosts- Phasmophobia.
+215,Girls, young or virgins- Parthenophobia.
+216,Glass or crystals- Crystallophobia.
+217,Glass- Hyelophobia, Hyalophobia or Nelophobia.
+218,Gloomy place, being in- Lygophobia.
+219,God or gods- Zeusophobia.
+220,Gods or religion- Theophobia.
+221,Gold- Aurophobia.
+222,Good news, hearing good news- Euphobia.
+223,Gravity- Barophobia.
+224,Greek or Greek culture- Hellophobia.
+225,Greek terms- Hellenologophobia.
+226,Hair- Chaetophobia, Trichopathophobia, Trichophobia, or Hypertrichophobia.
+227,Halloween- Samhainophobia.
+228,Hands- Chirophobia.
+229,Handwriting- Graphophobia.
+230,Harmed by wicked persons; bad men or burglars- Scelerophobia.
+231,Heart- Cardiophobia.
+232,Heat- Thermophobia.
+233,Heaven- Ouranophobia or Uranophobia.
+234,Heights- Acrophobia, Altophobia, Batophobia, Hypsiphobia or Hyposophobia.
+235,Hell- Hadephobia, Stygiophobia or Stigiophobia.
+236,Heredity- Patroiophobia.
+237,Holy things- Hagiophobia.
+238,Home- Ecophobia.
+239,Home surroundings or a house- Oikophobia.
+240,Home, returning- Nostophobia.
+241,Home surroundings- Eicophobia.
+242,Homosexuality or of becoming homosexual- Homophobia.
+243,Horses- Equinophobia or Hippophobia.
+244,Hospitals- Nosocomephobia.
+245,House or home surroundings- Oikophobia.
+246,Houses or being in a house- Domatophobia.
+247,Hurricanes and tornadoes- Lilapsophobia.
+248,Hypnotized, being or of sleep- Hypnophobia.
+249,Ice or frost- Pagophobia.
+250,Ice, frost or extreme cold- Cryophobia.
+251,Ideas- Ideophobia.
+252,Ignored, being- Athazagoraphobia.
+253,Imperfection- Atelophobia.
+254,Inability to stand- Basiphobia or Basophobia.
+255,Infection, contamination or dirt- Molysmophobia or Molysomophobia.
+256,Infinity- Apeirophobia.
+257,Injections- Trypanophobia.
+258,Injury- Traumatophobia.
+259,Insanity, dealing with- Lyssophobia.
+260,Insanity- Dementophobia or Maniaphobia.
+261,Insects- Acarophobia or Entomophobia or Insectophobia.
+262,Insects that eat wood- Isopterophobia.
+263,Insects that cause itching- Acarophobia.
+264,Itching- Acarophobia.
+265,Japanese or Japanese culture- Japanophobia.
+266,Jealousy- Zelophobia.
+267,Jews- Judeophobia.
+268,Joint immobility- Ankylophobia.
+269,Jumping from high and low places- Catapedaphobia.
+270,Justice- Dikephobia.
+271,Kidney disease- Albuminurophobia.
+272,Kissing- Philemaphobia or Philematophobia.
+273,Knees- Genuphobia.
+274,Knowledge- Gnosiophobia or Epistemophobia.
+275,Lakes- Limnophobia.
+276,Large things- Megalophobia.
+277,Laughter- Geliophobia.
+278,Lawsuits- Liticaphobia.
+279,Learning- Sophophobia.
+280,Left-handed; objects at the left side of the body- Sinistrophobia.
+281,Leprosy- Leprophobia or Lepraphobia.
+282,Lice- Pediculophobia or Phthiriophobia.
+283,Light- Photophobia.
+284,Light flashes- Selaphobia.
+285,Lightning and thunder- Brontophobia or Karaunophobia.
+286,Lights, glaring- Photoaugliaphobia.
+287,Liquids, dampness or moisture- Hygrophobia.
+288,Locked in an enclosed place- Cleithrophobia, Cleisiophobia, or Clithrophobia.
+289,Lockjaw or tetanus- Tetanophobia.
+290,Loneliness or of being oneself- Eremophobia or Eremiphobia.
+291,Looking up- Anablephobia or Anablepophobia.
+292,Loud noises- Ligyrophobia.
+293,Love, sexual love- Erotophobia.
+294,Love play- Malaxophobia or Sarmassophobia.
+295,Love, falling or being in- Philophobia.
+296,Machines- Mechanophobia.
+297,Mad, becoming- Lyssophobia.
+298,Many things- Polyphobia.
+299,Marriage- Gamophobia.
+300,Materialism- Hylephobia.
+301,Matter, decaying- Seplophobia.
+302,Meat- Carnophobia.
+303,Medicine, taking; or drugs- Pharmacophobia.
+304,Medicines, mercurial- Hydrargyophobia.
+305,Medicine, prescribing by a doctor- Opiophobia.
+306,Memories- Mnemophobia.
+307,Men, bad or burglars or being harmed by wicked persons- Scelerophobia.
+308,Men- Androphobia or Arrhenphobia or Hominophobia.
+309,Menstruation- Menophobia.
+310,Mercurial medicines- Hydrargyophobia.
+311,Metal- Metallophobia.
+312,Meteors- Meteorophobia.
+313,Mice- Musophobia, Murophobia or Suriphobia.
+314,Microbes- Bacillophobia or Microbiophobia.
+315,Mind- Psychophobia.
+316,Mirrors or seeing oneself in a mirror- Eisoptrophobia.
+317,Mirrors- Catoptrophobia.
+318,Missiles- Ballistophobia.
+319,Mobs or crowds- Demophobia, Enochlophobia or Ochlophobia.
+320,Moisture, dampness or liquids- Hygrophobia.
+321,Money- Chrometophobia or Chrematophobia.
+322,Moon- Selenophobia.
+323,Mother-in-law- Pentheraphobia.
+324,Moths- Mottephobia.
+325,Motion or movement- Kinetophobia or Kinesophobia.
+326,Moving or making changes- Tropophobia.
+327,Moving automobile or vehicle, being in- Ochophobia.
+328,Muscular incoordination (Ataxia)- Ataxiophobia.
+329,Mushrooms- Mycophobia.
+330,Music- Melophobia.
+331,Myths or stories or false statements- Mythophobia.
+332,Names or hearing a certain name- Onomatophobia.
+333,Names- Nomatophobia.
+334,Narrow things or places- Stenophobia.
+335,Narrowness- Anginophobia.
+336,Needles- Aichmophobia or Belonephobia.
+337,New, anything or novel- Kainophobia, Kainolophobia, Cenophobia, Centophobia, or Neophobia.
+338,Newness- Cainophobia, Cenophobia, Centophobia, or Cainotophobia.
+339,News: hearing good news- Euphobia.
+340,Night or dark- Nyctophobia.
+341,Night- Noctiphobia.
+342,Noise- Acousticophobia.
+343,Noises, loud- Ligyrophobia.
+344,Noises or voices, speaking aloud, or telephones- Phonophobia.
+345,Northern lights- Auroraphobia.
+346,Nosebleeds- Epistaxiophobia.
+347,Novelty or anything new- Kainophobia or Kainolophobia.
+348,Novelty- Cainophobia or Cainotophobia.
+349,Nuclear weapons- Nucleomituphobia.
+350,Nudity- Gymnophobia or Nudophobia.
+351,Number 8- Octophobia.
+352,Number 13- Triskadekaphobia.
+353,Numbers- Arithmophobia or Numerophobia.
+354,Objects, small- Tapinophobia.
+355,Ocean or sea- Thalassophobia.
+356,Odor, personal- Bromidrosiphobia, Bromidrophobia, Osmophobia or Osphresiophobia.
+357,Odor, that one has a vile odor- Autodysomophobia.
+358,Odors or smells- Olfactophobia.
+359,Official doctrine, challenges to or radical deviation from- Heresyphobia or Hereiophobia.
+360,Old people- Gerontophobia.
+361,Old, growing- Gerascophobia or Gerontophobia.
+362,Open spaces- Agoraphobia.
+363,Open high places- Aeroacrophobia.
+364,Operation, surgical- Tomophobia.
+365,Opinions- Allodoxaphobia.
+366,Opinions, expressing- Doxophobia.
+367,Others, dependence on- Soteriophobia.
+368,Otters- Lutraphobia.
+369,Outer space- Spacephobia.
+370,Pain- Algiophobia, Ponophobia, Odynophobia or Odynephobia.
+371,Paper- Papyrophobia.
+372,Parasites- Parasitophobia.
+373,Parents-in-law- Soceraphobia.
+374,Peanut butter sticking to the roof of the mouth- Arachibutyrophobia.
+375,Pellagra- Pellagrophobia.
+376,Penis, erect- Medorthophobia.
+377,Penis, esp erect- Phallophobia.
+378,Penis, erect: seeing, thinking about or having- Ithyphallophobia.
+379,Penis, losing an erection- Medomalacuphobia.
+380,People- Anthropophobia.
+381,People in general or society- Sociophobia.
+382,People, deformed or bearing a deformed child- Teratophobia.
+383,Philosophy- Philsosphobia.
+384,Phobias- Phobophobia.
+385,Phobic prefering fearful situations- Counterphobia.
+386,Pins and needles- Belonephobia.
+387,Pins- Enetophobia.
+388,Place: locked in an enclosed place- Cleithrophobia, Cleisiophobia, or Clithrophobia.
+389,Place, being in a dark or gloomy- Lygophobia.
+390,Places, certain- Topophobia.
+391,Places, crowded public- Agoraphobia.
+392,Places, open high- Aeroacrophobia.
+393,Places or things, narrow- Stenophobia.
+394,Plants- Botanophobia.
+395,Pleasure, feeling- Hedonophobia.
+396,Poetry- Metrophobia.
+397,Pointed objects- Aichmophobia.
+398,Poison- Iophobia.
+399,Poisoned, being- Toxiphobia, Toxophobia, or Toxicophobia.
+400,Poliomyelitis, contracting- Poliosophobia.
+401,Politicians- Politicophobia.
+402,Pope- Papaphobia.
+403,Poverty- Peniaphobia.
+404,Praise, receiving- doxophobia.
+405,Precipices- Cremnophobia.
+406,Prescribing medicine for patients by a doctor- Opiophobia.
+407,Priests or sacred things- Hierophobia.
+408,Progress- Prosophobia.
+409,Property- Orthophobia.
+410,Prostitutes or venereal disease- Cypridophobia, Cypriphobia, Cyprianophobia, or Cyprinophobia.
+411,Punishment or flogging- Mastigophobia.
+412,Punishment by a rod or other instrument, or of being severely criticized- Rhabdophobia.
+413,Punishment- Poinephobia.
+414,Puppets- Pupaphobia.
+415,Purple, color- Porphyrophobia.
+416,Rabies- Cynophobia, Hydrophobophobia, Hydrophobia, Kynophobia, or Lyssophobia.
+417,Radiation or x-rays- Radiophobia.
+418,Railroads or train travel- Siderodromophobia.
+419,Rain- Ombrophobia or Pluviophobia.
+420,Rape- Virginitiphobia.
+421,Razors- Xyrophobia.
+422,Rat, great mole- Zemmiphobia.
+423,Rectum or rectal diseases- Proctophobia or Rectophobia.
+424,Red color or blushing- Erythrophobia, Erytophobia or Ereuthophobia.
+425,Relatives- Syngenesophobia.
+426,Religion or gods- Theophobia.
+427,Religious ceremonies- Teleophobia.
+428,Reptiles- Herpetophobia.
+429,Responsibility or duty, neglecting- Paralipophobia.
+430,Responsibility- Hypengyophobia or Hypegiaphobia.
+431,Ridiculed, being- Catagelophobia or Katagelophobia.
+432,Riding in a car- Amaxophobia.
+433,Right side, things on the right side of the body- Dextrophobia.
+434,Rivers- Potamphobia or Potamophobia.
+435,Road travel or travel- Hodophobia.
+436,Robbers or being robbed- Harpaxophobia.
+437,Rooms, empty- Cenophobia or Centophobia.
+438,Rooms- Koinoniphobia.
+439,Ruin- Atephobia.
+440,Running water- Potamophobia.
+441,Russians- Russophobia.
+442,Sacred things or priests- Hierophobia.
+443,Satan- Satanophobia.
+444,Scabies- Scabiophobia.
+445,School, going to school- Didaskaleinophobia.
+446,School- Scolionophobia.
+447,Scientific terminology, complex- Hellenologophobia.
+448,Scratches or being scratched- Amychophobia.
+449,Sea or ocean- Thalassophobia.
+450,Self, seeing oneself in a mirror- Eisoptrophobia.
+451,Self, personal odor- Bromidrosiphobia or Bromidrophobia.
+452,Self, being alone- Autophobia, Eremophobia, Eremiphobia or Isolophobia.
+453,Self, being dirty- Automysophobia.
+454,Self, being oneself- Autophobia.
+455,Self, being seen or looked at- Scopophobia or Scoptophobia.
+456,Self, being touched- Aphenphosmphobia.
+457,Self, that one has a vile odor- Autodysomophobia.
+458,Semen- Spermatophobia or Spermophobia.
+459,Sermons- Homilophobia.
+460,Sex- Genophobia.
+461,Sex, opposite- Heterophobia or Sexophobia.
+462,Sexual abuse- Agraphobia or Contreltophobia.
+463,Sexual intercourse- Coitophobia.
+464,Sexual love or sexual questions- Erotophobia.
+465,Sexual perversion- Paraphobia.
+466,Shadows- Sciophobia or Sciaphobia.
+467,Sharks- Selachophobia.
+468,Shellfish- Ostraconophobia.
+469,Shock- Hormephobia.
+470,Sin or of having committted an unpardonable sin- Enosiophobia or Enissophobia.
+471,Sin- Hamartophobia.
+472,Single: staying single- Anuptaphobia.
+473,Sinning- Peccatophobia.
+474,Sitting down- Kathisophobia.
+475,Sitting- Cathisophobia or Thaasophobia.
+476,Situations, certain- Topophobia.
+477,Skin disease- Dermatosiophobia.
+478,Skin lesions- Dermatophobia.
+479,Skin of animals, fur- Doraphobia.
+480,Sleep- Somniphobia.
+481,Sleep or being hypnotized- Hypnophobia.
+482,Slime- Blennophobia or Myxophobia.
+483,Slopes, steep- Bathmophobia.
+484,Small things- Microphobia, Mycrophobia.
+485,Smells or odors- Olfactophobia.
+486,Smothered, being or choking- Pnigophobia or Pnigerophobia.
+487,Snakes- Ophidiophobia or Snakephobia.
+488,Snow- Chionophobia.
+489,Social (fear of being evaluated negatively in social situations)- Social Phobia.
+490,Society or people in general- Anthropophobia or Sociophobia.
+491,Solitude- Monophobia.
+492,Sounds- Acousticophobia.
+493,Sourness- Acerophobia.
+494,Space, closed or locked in an enclosed space- Cleithrophobia, Cleisiophobia, Clithrophobia.
+495,Space, outer- Spacephobia.
+496,Spaces, confined- Claustrophobia.
+497,Spaces, empty- Cenophobia, Centophobia or Kenophobia.
+498,Spaces, open- Agoraphobia.
+499,Speak, trying to- Glossophobia.
+500,Speaking- Laliophobia or Lalophobia.
+501,Speaking aloud, voices or noises, or telephones- Phonophobia.
+502,Speaking in public- Glossophobia.
+503,Specters or ghosts- Spectrophobia.
+504,Speed- Tachophobia.
+505,Spiders- Arachnephobia or Arachnophobia.
+506,Spirits- Pneumatiphobia.
+507,Stage fright- Topophobia.
+508,Stairs or climbing stairs- Climacophobia.
+509,Stairways- Bathmophobia.
+510,Stand, inability to- Basiphobia or Basophobia.
+511,Standing upright- Basistasiphobia or Basostasophobia.
+512,Standing up- Stasiphobia.
+513,Standing up and walking- Stasibasiphobia.
+514,Stared at, being- Ophthalmophobia.
+515,Stars- Siderophobia or Astrophobia.
+516,Statements, false or myths or stories- Mythophobia.
+517,Staying single- Anuptaphobia.
+518,Stealing- Cleptophobia or Kleptophobia.
+519,Step-father- Vitricophobia.
+520,Steep slopes- Bathmophobia.
+521,Step-mother- Novercaphobia.
+522,Stings- Cnidophobia.
+523,Stooping- Kyphophobia.
+524,Stories or myths or false statements- Mythophobia.
+525,Strangers or foreigners- Xenophobia.
+526,Streets, crossing streets- Dromophobia.
+527,Streets- Agyrophobia.
+528,String- Linonophobia.
+529,Storm, thunder- Brontophobia.
+530,Stuttering- Psellismophobia.
+531,Suffering and disease- Panthophobia.
+532,Sun or sunlight- Heliophobia.
+533,Sunshine or daylight- Phengophobia.
+534,Surgeon's fear of operating: work or functioning- Ergasiophobia.
+535,Surgical operations- Tomophobia.
+536,Swallowing or eating- Phagophobia.
+537,Symbolism- Symbolophobia.
+538,Symmetry- Symmetrophobia.
+539,Syphillis (lues)- Luiphobia or Syphilophobia.
+540,Tapeworms- Taeniophobia.
+541,Taste- Geumaphobia or Geumophobia.
+542,Technology- Technophobia.
+543,Teenagers- Ephebiphobia.
+544,Teeth- Odontophobia.
+545,Telephones, noises or voices, or speaking aloud- Phonophobia.
+546,Telephones- Telephonophobia.
+547,Termites- Isopterophobia.
+548,Tests, taking- Testophobia.
+549,Tetanus or lockjaw- Tetanophobia.
+550,Theaters- Theatrophobia.
+551,Theology- Theologicophobia.
+552,Things, many- Polyphobia.
+553,Things, large- Megalophobia.
+554,Things or places, narrow- Stenophobia.
+555,Things, small- Microphobia or Mycrophobia.
+556,Thinking- Phronemophobia.
+557,Thunder- Ceraunophobia.
+558,Thunder and lightning- Astraphobia, Astrapophobia, Brontophobia or Keraunophobia.
+559,Tickled by feathers or feathers- Pteronophobia.
+560,Tied or bound up- Merinthophobia.
+561,Time or clocks- Chronophobia.
+562,Toads- Bufonophobia.
+563,Tombstones- Placophobia.
+564,Tornadoes and hurricanes- Lilapsophobia.
+565,Touched, being touched- Aphenphosmphobia, Haphephobia or Haptephobia or Chiraptophobia.
+566,Trains, railroads or train travel- Siderodromophobia.
+567,Travel or road travel- Hodophobia.
+568,Trees- Dendrophobia.
+569,Trembling- Ttremophobia.
+570,Trichinosis- Trichinophobia.
+571,Tuberculosis- Phthisiophobia or Tuberculophobia.
+572,Tyrants- Tyrannophobia.
+573,Ugliness- Cacophobia.
+574,Undressing in front of someone- Dishabillophobia.
+575,Urine or urinating- Urophobia.
+576,Vaccination- Vaccinophobia.
+577,Vegetables- Lachanophobia.
+578,Venereal disease or prostitutes- Cypridophobia, Cypriphobia, Cyprianophobia, or Cyprinophobia.
+579,Ventriloquist's dummy- Automatonophobia.
+580,Vertigo or dizziness when looking down- Illyngophobia.
+581,Virginity, losing one's- Primeisodophobia.
+582,Virgins or young girls- Parthenophobia.
+583,Vision: double vision- Diplophobia.
+584,Voices or noises, speaking aloud or telephones- Phonophobia.
+585,Voids or empty spaces- Kenophobia.
+586,Vomiting secondary to airsickness- Aeronausiphobia.
+587,Vomiting- Emetophobia.
+588,Waits, long- Macrophobia.
+589,Walking, standing up and- Stasibasiphobia.
+590,Walking- Ambulophobia, Basistasiphobia or Basostasophobia.
+591,Washing- Ablutophobia.
+592,Wasps- Spheksophobia.
+593,Water- Hydrophobia.
+594,Waves or wave like motions- Cymophobia or Kymophobia.
+595,Wax statues- Automatonophobia.
+596,Weakness- Asthenophobia.
+597,Wealth- Plutophobia.
+598,Weapons, nuclear- Nucleomituphobia.
+599,Weight, gaining- Obesophobia or Pocrescophobia.
+600,Wet dreams- Oneirogmophobia.
+601,Whirlpools or dizzyness- Dinophobia.
+602,White, the color- Leukophobia.
+603,Wild animals- Agrizoophobia.
+604,Wind- Ancraophobia or Anemophobia.
+605,Wine- Oenophobia.
+606,Witches and Witchcraft- Wiccaphobia.
+607,Women- Gynephobia or Gynophobia.
+608,Women, beautiful- Caligynephobia or Venstraphobia.
+609,Wooden objects or forests- Xylophobia.
+610,Words- Logophobia or Verbophobia.
+611,Words, long- Hippopotomonstrosesquipedaliophobia or Sesquipedalophobia.
+612,Work or functioning; surgeon's fear of operating- Ergasiophobia.
+613,Work- Ergophobia or Ponophobia.
+614,Worms- Scoleciphobia.
+615,Worms, being infested with- Helminthophobia.
+616,Wrinkles, getting- Rhytiphobia.
+617,Writing- Graphophobia.
+618,Writing in public- Scriptophobia.
+619,X-rays or radiation- Radiophobia.
+620,Yellow color- Xanthophobia.
+
+:manias
+1,1. [mania]
+2,1. [mania]<br>
+_2. [mania]
+3,1. [mania]<br>
+_2. [mania]<br>
+_3. [mania]
+4,No known manias.
+
+:!mania
+1,ablutomania, mania for washing oneself
+2,aboulomania, pathological indecisiveness
+3,agromania, intense desire to be in open spaces
+4,andromania, nymphomania
+5,anglomania, craze or obsession with England and the English
+6,anthomania, obsession with flowers
+7,aphrodisiomania, abnormal sexual interest
+8,arithmomania, obsessive preoccupation with numbers
+9,balletomania, abnormal fondness for ballet
+10,bibliomania, craze for books or reading
+11,bruxomania, compulsion for grinding teeth
+12,cacodemomania, pathological belief that one is inhabited by an evil spirit
+13,catapedamania, obsession with jumping from high places
+14,chinamania, obsession with collecting china
+15,choreomania, dancing mania or frenzy
+16,clinomania, excessive desire to stay in bed
+17,copromania, obsession with feces
+18,cytheromania, nymphomania
+19,dacnomania, obsession with killing
+20,demonomania, pathological belief that one is possessed by demons
+21,dinomania, mania for dancing
+22,dipsomania, abnormal craving for alcohol
+23,discomania, obsession for disco music
+24,doramania, obsession with owning furs
+25,doromania, obsession with giving gifts
+26,drapetomania, intense desire to run away from home
+27,dromomania, compulsive longing for travel
+28,ecdemomania, abnormal compulsion for wandering
+29,egomania, irrational self-centered attitude or self-worship
+30,eleutheromania, manic desire for freedom
+31,empleomania, mania for holding public office
+32,enosimania, pathological belief that one has sinned
+33,entheomania, abnormal belief that one is divinely inspired
+34,epomania, craze for writing epics
+35,ergasiomania, excessive desire to work; ergomania
+36,ergomania, excessive desire to work; workaholism
+37,erotomania, abnormally powerful sex drive
+38,etheromania, craving for ether
+39,ethnomania, obsessive devotion to one's own people
+40,eulogomania, obsessive craze for eulogies
+41,flagellomania, abnormal enthusiasm for flogging
+42,florimania, craze for flowers
+43,francomania, craze or obsession with France and the French
+44,gallomania, craze or obsession with France and the French
+45,gamomania, obsession with issuing odd marriage proposals
+46,Graecomania, obsession with Greece and the Greeks
+47,graphomania, obsession with writing
+48,gynaecomania, abnormal sexual obsession with women
+49,habromania, insanity featuring cheerful delusions
+50,hagiomania, mania for sainthood
+51,Hellenomania, obsession with Greece and the Greeks; Graecomania
+52,hexametromania, mania for writing in hexameter
+53,hieromania, pathological religious visions or delusions
+54,hippomania, obsession with horses
+55,hydromania, irrational craving for water
+56,hylomania, excessive tendency towards materialism
+57,hypermania, severe mania
+58,hypomania, minor mania
+59,hysteromania, nymphomania
+60,iconomania, obsession with icons or portraits
+61,idolomania, obsession or devotion to idols
+62,infomania, excessive devotion to accumulating facts
+63,islomania, craze or obsession for islands
+64,Italomania, obsession with Italy or Italians
+65,kleptomania, irrational predilection for stealing
+66,klopemania, kleptomania
+67,logomania, pathological loquacity
+68,lypemania, extreme pathological mournfulness
+69,macromania, delusion that objects are larger than natural size
+70,megalomania, abnormal tendency towards grand or grandiose behaviour
+71,melomania, craze for music
+72,methomania, morbid craving for alcohol
+73,metromania, insatiable desire for writing verse
+74,micromania, pathological self-deprecation or belief that one is very small
+75,monomania, abnormal obsession with a single thought or idea
+76,morphinomania, habitual craving or desire for morphine
+77,musomania, obsession with music
+78,mythomania, lying or exaggerating to an abnormal extent
+79,narcomania, uncontrollable craving for narcotics
+80,necromania, sexual obsession with dead bodies; necrophilia
+81,nosomania, delusion of suffering from a disease
+82,nostomania, abnormal desire to go back to familiar places
+83,nymphomania, excessive or crazed sexual desire
+84,oenomania, obsession or craze for wine
+85,oligomania, obsession with a few thoughts or ideas
+86,oniomania, mania for making purchases
+87,onomamania, mania for names
+88,onomatomania, irresistible desire to repeat certain words
+89,onychotillomania, compulsive picking at the fingernails
+90,opiomania, craving for opium
+91,opsomania, abnormal love for one kind of food
+92,orchidomania, abnormal obsession with orchids
+93,parousiamania, obsession with the second coming of Christ
+94,pathomania, moral insanity
+95,peotillomania, abnormal compulsion for pulling on the penis
+96,phagomania, excessive desire for food or eating
+97,phaneromania, habit of biting one’s nails
+98,pharmacomania, abnormal obsession with trying drugs
+99,phonomania, pathological tendency to murder
+100,photomania, pathological desire for light
+101,phyllomania, excessive or abnormal production of leaves
+102,phytomania, obsession with collecting plants
+103,planomania, abnormal desire to wander and disobey social norms
+104,plutomania, mania for money
+105,polemomania, mania for war
+106,politicomania, mania for politics
+107,polkamania, craze for polka dancing
+108,polymania, mania affecting several different mental faculties
+109,poriomania, abnormal compulsion to wander
+110,pornomania, obsession with pornography
+111,potichomania, craze for imitating Oriental porcelain
+112,potomania, abnormal desire to drink alcohol
+113,pseudomania, irrational predilection for lying
+114,pteridomania, passion for ferns
+115,pyromania, craze for starting fires
+116,rhinotillexomania, compulsive nose picking
+117,rinkomania, obsession with skating
+118,satyromania, abnormally great male sexual desire; satyriasis
+119,scribbleomania, obsession with scribbling
+120,sebastomania, religious insanity
+121,sitiomania, morbid aversion to food
+122,sophomania, delusion that one is incredibly intelligent
+123,squandermania, irrational propensity for spending money wastefully
+124,stampomania, obsession with stamp-collecting
+125,syphilomania, pathological belief that one is afflicted with syphilis
+126,technomania, craze for technology
+127,Teutomania, obsession with Teutonic or German things
+128,thanatomania, belief that one has been affected by death magic, and resulting illness
+129,theatromania, craze for going to plays
+130,theomania, belief that one is a god
+131,timbromania, craze for stamp collecting
+132,tomomania, irrational predilection for performing surgery
+133,toxicomania, morbid craving for poisons
+134,trichotillomania, neurosis where patient pulls out own hair
+135,tulipomania, obsession with tulips
+136,typhomania, delirious state resulting from typhus fever
+137,typomania, craze for printing one’s lucubrations
+138,uranomania, obsession with the idea of divinity
+139,verbomania, craze for words
+140,xenomania, inordinate attachment to foreign things
+141,zoomania, insane fondness for animals
+
+:hobbies
+1,1. [hobby]
+2,1. [hobby]<br>
+_2. [hobby]
+3,1. [hobby]<br>
+_2. [hobby]<br>
+_3. [hobby]
+
+:!hobby
+1,Aircraft Spotting
+2,Airbrushing
+3,Acting
+4,Aeromodeling
+5,Amateur Astronomy
+6,Amateur Radio
+7,Animals/pets/dogs
+8,Arts
+9,Astrology
+10,Astronomy
+11,Backgammon
+12,Badminton
+13,Baseball
+14,Basketball
+15,Beach/Sun tanning
+16,Beachcombing
+17,Beadwork
+18,Beatboxing
+19,Becoming A Child Advocate
+20,Bell Ringing
+21,Belly Dancing
+22,Bicycling
+23,Bird watching
+24,Birding
+25,BMX
+26,Blacksmithing
+27,Blogging
+28,BoardGames
+29,Boating
+30,Body Building
+31,Bonsai Tree
+32,Bowling
+33,Brewing Beer
+34,Bridge
+35,Bringing Food To The Disabled
+36,Building A House For Habitat For Humanity
+37,Building Dollhouses
+38,Butterfly Watching
+39,Button Collecting
+40,Calligraphy
+41,Calligraphy
+42,Camping
+43,Candle Making
+44,Canoeing
+45,Car Racing
+46,Casino Gambling
+47,Cave Diving
+48,Cheerleading
+49,Chess
+50,Church/church activities
+51,Cigar Smoking
+52,Cloud Watching
+53,Coin Collecting
+54,Collecting
+55,Collecting Antiques
+56,Collecting Artwork
+57,Compose Music
+58,Computer activities
+59,Cooking
+60,Cosplay
+61,Crafts
+62,Crafts (unspecified)
+63,Crochet
+64,Crocheting
+65,Cross-Stitch
+66,Crossword Puzzles
+67,Dancing
+68,Darts
+69,Diecast Collectibles
+70,Digital Photography
+71,Dolls
+72,Dominoes
+73,Drawing
+74,Dumpster Diving
+75,Eating out
+76,Educational Courses
+77,Electronics
+78,Embroidery
+79,Entertaining
+80,Exercise (aerobics, weights)
+81,Fast cars
+82,Fencing
+83,Fishing
+84,Football
+85,Four Wheeling
+86,Freshwater Aquariums
+87,Frisbee Golf - Frolf
+88,Games
+89,Gardening
+90,Garage Saleing
+91,Genealogy
+92,Geocaching
+93,Ghost Hunting
+94,Glowsticking
+95,Going to movies
+96,Golf
+97,Go Kart Racing
+98,Grip Strength
+99,Guitar
+100,Handwriting Analysis
+101,Hang gliding
+102,Hiking
+103,Home Brewing
+104,Home Repair
+105,Home Theater
+106,Horse riding
+107,Hot air ballooning
+108,Hula Hooping
+109,Hunting
+110,Illusion
+111,Internet
+112,Jet Engines
+113,Jewelry Making
+114,Jigsaw Puzzles
+115,Juggling
+116,Keep A Journal
+117,Kitchen Chemistry
+118,Knitting
+119,Knotting
+120,Lasers
+121,Lawn Darts
+122,Learn to Play Poker
+123,Learning A Foreign Language
+124,Learning An Instrument
+125,Learning To Pilot A Plane
+126,Legos
+127,Listening to music
+128,Macramé
+129,Magic
+130,Making Model Cars
+131,Matchstick Modeling
+132,Meditation
+133,Microscopy
+134,Metal Detecting
+135,Model Rockets
+136,Modeling Ships
+137,Models
+138,Motorcycles
+139,Mountain Biking
+140,Mountain Climbing
+141,Musical Instruments
+142,Needlepoint
+143,Owning An Antique Car
+144,Origami
+145,Painting
+146,Paintball
+147,Papermaking
+148,Papermache
+149,Parachuting
+150,People Watching
+151,Photography
+152,Piano
+153,Pinochle
+154,Playing music
+155,Playing team sports
+156,Pottery
+157,Puppetry
+158,Pyrotechnics
+159,Quilting
+160,Rafting
+161,Railfans
+162,R/C Boats
+163,R/C Cars
+164,R/C Helicopters
+165,R/C Planes
+166,Reading
+167,Reading To The Elderly
+168,Relaxing
+169,Renting movies
+170,Rescuing Abused Or Abandoned Animals
+171,Robotics
+172,Rock Collecting
+173,Rockets
+174,Rocking AIDS Babies
+175,Running
+176,Saltwater Aquariums
+177,Scrapbooking
+178,Scuba Diving
+179,Sewing
+180,Shark Fishing
+181,Skeet Shooting
+182,Shopping
+183,Singing In Choir
+184,Skateboarding
+185,Sketching
+186,Sky Diving
+187,Sleeping
+188,Smoking Pipes
+189,Snorkeling
+190,Soap Making
+191,Soccer
+192,Socializing with friends/neighbors
+193,Spelunkering
+194,Spending time with family/kids
+195,Stamp Collecting
+196,Storytelling
+197,String Figures
+198,Surf Fishing
+199,Swimming
+200,Tea Tasting
+201,Tennis
+202,Tesla Coils
+203,Tetris
+204,Texting
+205,Textiles
+206,Tombstone Rubbing
+207,Tool Collecting
+208,Toy Collecting
+209,Train Collecting
+210,Train Spotting
+211,Travel
+212,Traveling
+213,Treasure Hunting
+214,Trekkie
+215,Tutoring Children
+216,TV watching
+217,Urban Exploration
+218,Video Games
+219,Volunteer
+220,Walking
+221,Warhammer
+222,Watching sporting events
+223,Windsurfing
+224,Wine Making
+225,Woodworking
+226,Working In A Food Pantry
+227,Working on cars
+228,Writing
+229,Yoga
+230,YoYo
+
+:sports
+1,1. [sport]
+2,1. [sport]<br>
+_2. [sport]
+3,1. [sport]<br>
+_2. [sport]<br>
+_3. [sport]
+4,No interest in sports.
+
+:!sport
+1,Adventure
+2,Archery
+3,Athletics
+4,AFL
+5,Badminton
+6,Baseball
+7,Basketball
+8,Boxing
+9,Canoe/Kayak
+10,Cricket
+11,Cycling
+12,Disc Sports
+13,Diving
+14,Equestrian
+15,Fencing
+16,Football (Gridiron)
+17,Football (soccer)
+18,Golf
+19,Gymnastics
+20,Handball
+21,Hockey
+22,Horse Racing
+23,Ice Hockey
+24,Lawn Bowls
+25,Martial Arts
+26,Motorsports
+27,Netball
+28,Orienteering
+29,Rogaining
+30,Rowing
+31,Rugby League
+32,Rugby Union
+33,Sailing
+34,Shooting
+35,Soccer
+36,Softball
+37,Surfing
+38,Swimming
+39,Table Tennis
+40,Tennis
+41,Tenpin Bowling
+42,Triathlon
+43,Volleyball
+44,Waterpolo
+45,Weightlifting
+46,Winter Sports
+47,Wresting
+
+:movies
+1,1. [movie]
+2,1. [movie]<br>
+_2. [movie]
+3,1. [movie]<br>
+_2. [movie]<br>
+_3. [movie]
+4,No interest in movies.
+
+:!movie
+1,80's “teen” flick
+2,action
+3,action / adventure
+4,adaptation  
+5,adventure / romance
+6,anime
+7,anti-war
+8,apocalyptic
+9,Aussie movie
+10,bio-pic
+11,black & white
+12,British
+13,character study [e.g. seven samurai]
+14,“chick” flick
+15,children’s film
+16,Chinese film
+17,college
+18,comedy
+19,coming of age
+20,computer animated
+21,contemporary drama
+22,cops & robbers
+23,costume drama
+24,courtroom
+25,crime
+26,dancing movie
+27,detective
+28,documentary
+29,drama [several sub-genres]
+30,drug movie
+31,education
+32,epic
+33,erotic
+34,family
+35,fantasy
+36,film noir
+37,foreign
+38,French film
+39,gangster
+40,gay / lesbian
+41,Greenaway film
+42,guilty pleasure
+43,heist-gone-wrong
+44,high school
+45,Hitchcock
+46,horror
+47,horror ‘film’
+48,iconic [e.g. casablanca]
+49,institutional
+50,intellectual
+51,Italian film
+52,Kevin Bacon movie
+53,love, existential
+54,love, tragic
+55,love, doomed
+56,Merchant-Ivory
+57,midnight movie
+58,military
+59,monkey / ape movie
+60,movie largely reliant on computerized effects
+61,musical [several sub-genres]
+62,mystery
+63,mystery / suspense
+64,native american movie
+65,nc-17 rated movie
+66,neo-noir
+67,New Zealand movie
+68,obsessive
+69,period piece
+70,Plot Number One
+71,prison
+72,pulp violence [e.g. pulp fiction]
+73,road trip
+74,romance
+75,romantic comedy
+76,sci fi
+77,science fiction
+78,semi-fictional biography
+79,shakespeare
+80,shark movie
+81,silent
+82,social criticism
+83,spoof
+84,sports
+85,suburban angst
+86,sword & sorcery
+87,tear jerker
+88,teen angst
+89,thriller
+90,vampire movie
+91,vaudeville
+92,war
+93,western
+94,Woody Allen
+95,xmas
+96,zombie movie
+
+:genres
+1,1. [genre]
+2,1. [genre]<br>
+_2. [genre]
+3,1. [genre]<br>
+_2. [genre]<br>
+_3. [genre]
+4,Doesn't like to watch TV.
+
+:!genre
+1,Action Series
+2,Adventure
+3,Animesque
+4,Animated Anthology
+5,Animated Series
+6,A Hallmark Presentation
+7,Black Comedy
+8,Brit Com
+9,British Conspiracy Thriller
+10,Christmas Special
+11,Christmas Episode 
+12,Cop Show
+13,Costume Drama
+14,Dead Baby Comedy
+15,Docu Drama
+16,Docu Soap
+17,Dom Com
+18,No Exit 
+19,Dorama
+20,Dramedy
+21,Edutainment Show
+22,Family Drama
+23,Fighting Series
+24,Gag Series
+25,Game Show
+26,Gekiga
+27,Government Conspiracy
+28,Government Procedural
+29,Halloween Special
+30,Halloween Episode 
+31,Heroic Fantasy
+32,Historical Fantasy 
+33,Heroic Pet
+34,Horror
+35,Jiggle Show
+36,Kid Com
+37,Kitchen Sink Drama
+38,Lifetime Movie Of The Week
+39,Matchmaker Game
+40,Medical Drama
+41,Mind Screw
+42,The Walrus Was Paul 
+43,Noughties Drama Series
+44,Mix And Match
+45,Pantomime
+46,Paranormal Investigation
+47,The Parody
+48,Affectionate Parody
+49,Narrow Parody
+50,News Parody 
+51,Pilot Movie
+52,Prime Time Soap
+53,Reality Show
+54,Reality TV
+55,Rescue
+56,Reunion Show
+57,Romantic Comedy
+58,Comedy Of Remarriage 
+59,Sadist Show
+60,Series Franchise
+61,Soap Opera
+62,Special
+63,Spy Couple
+64,Spy Fiction
+65,Stop Motion
+66,Super Hero
+67,Supernatural Soap Opera
+68,Teen Drama
+69,Two Fisted Tales
+70,Toku
+71,The Western
+72,Canadian Western
+73,Space Western
+74,Spaghetti Western 
+75,Widget Series
+76,Work Com 
+77,News Broadcast 
+78,Award Show
+79,Biography
+80,Cooking Show
+81,Companion Show
+82,Documentary
+83,Educational Short
+84,Scare Em Straight 
+85,Gearhead Show
+86,Home And Garden
+87,I Love The Exties
+88,Magazine Show
+89,Nature Documentary
+90,Political Programmes
+91,Election Night 
+92,Science Show
+93,Talk Show
+94,Travelogue Show
+95,Back To You Dave
+96,B Roll
+97,B Roll Rebus 
+98,Could This Happen To You
+99,Dateline
+100,Delusions Of Local Grandeur
+101,Film At Eleven
+102,Human Interest Story
+103,Intrepid Reporter (when they have an "Eye On" segment)
+104,Local Angle
+105,Media Scrum
+106,Ms Fanservice (especially on cable)
+107,Self Promotion Disguised As News
+108,The Slug
+109,Vox Pops
+110,Weather Report
+111,Witty Banter
+112,Yet Another Baby Panda
+113,Anime Genres
+114,Crime And Punishment
+115,Index Of The Week
+116,Professional Wrestling
+117,Sit Com
+118,Speculative Fiction
+119,Tragedy
+
+:books
+1,1. [book]
+2,1. [book]<br>
+_2. [book]
+3,1. [book]<br>
+_2. [book]<br>
+_3. [book]
+4,Only reads newspapers.
+5,Only reads magazines.
+6,Doesn't like to read.
+
+:!book
+1,Action / Adventure
+2,Chick Lit
+3,Children's Literature
+4,Classics
+5,Comedy
+6,General Fiction
+7,Graphic Novel
+8,Historical Fiction
+9,Mystery and Suspense
+10,Poetry, Plays & Screenplays
+11,Romance
+12,Science Fiction/Fantasy
+13,Art and Architecture
+14,Biography and Memoirs
+15,Family and Relationships
+16,Food and Drink
+17,Health and Well-Being
+18,History
+19,How-To / Instruction
+20,Mathematics and Economy
+21,Music and Entertainment
+22,Reference and Language
+23,Religion and Spirituality
+24,Science and Nature
+25,Social and Cultural Studies
+26,Sports
+27,Travel and Adventure
+28,True Crime
+29,Comedy
+30,Politics / Political Commentary
+
+:attribites
+1,1. [attribite]
+2,1. [attribite]<br>
+_2. [attribite]
+3,1. [attribite]<br>
+_2. [attribite]<br>
+_3. [attribite]
+
+:!attribite
+1,eye color
+2,hair color
+3,hairstyle
+4,bodytype: [attract]
+5,nose
+6,mouth
+7,cheeks
+8,face
+9,breasts
+10,voice: [voice]
+11,legs
+12,derrière

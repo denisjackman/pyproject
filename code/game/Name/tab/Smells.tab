@@ -1,0 +1,241 @@
+﻿#
+# Smells
+#
+
+;Start
+1,[Modifier] [Odor]
+1,[Odor]
+
+;Strength
+1,Strong
+1,Very Strong
+1,Mild
+1,Weak
+1,Hint of
+1,Slight
+1,Penetrating
+1,Heavy
+
+;Modifier
+1,[Modifierp]
+1,[Modifiern]
+
+;Modifiern
+1,Bitter
+1,Medicinal
+1,Sharp
+1,Sour
+1,Rancid
+1,Sulfurous
+1,Acidic
+1,Dry
+
+;Modifierp
+1,Fruity
+1,Sweet
+1,Citrus
+1,Floral
+1,Spicy
+1,Minty
+1,Woody
+1,Herbal
+1,Aromatic
+1,Bright
+1,Earthy
+1,Tropical
+
+
+;Odor
+1,[Positive]
+1,[Negative]
+1,[Neutral]
+
+;Positive
+1,Almond
+1,Butter
+1,Nutty
+1,Apple
+1,Pineapple
+1,Lemon
+1,Orange
+1,Rose
+1,Vanilla
+1,Chocolate
+1,Raspberries
+1,Pear
+1,Cloves
+1,Bay Leaves
+1,Peppermint
+1,Spearmint
+1,Caraway
+1,Cinnamon
+1,Violet
+1,Herb
+1,Cocoa
+1,Sweet
+1,Grape
+1,Strawberry
+1,Tomato
+1,Cream
+1,Wine
+1,Banana
+1,Truffle
+1,Bread
+1,Popcorn
+1,Nuts
+1,Baked
+1,Cooked Potato
+1,Geranium
+1,Biscuit
+1,Roasted Nut
+1,Peanut Butter
+1,Black Currant
+1,Coffee
+1,Pine
+1,Marshmallow
+1,Caramel
+1,Dill
+1,Hawthorne
+1,Honey
+1,Melon
+1,Cologne
+1,Maple
+1,Lettuce
+1,Cucumber
+1,Lavender
+1,Warm
+1,Moss
+1,Hyacinth
+1,Lilac
+1,Pea
+1,Carrot
+1,Chamomile
+1,Celery
+1,Blood Orange
+1,Anise
+1,Watermelon
+1,Coriander
+1,Coconut
+1,Basil
+1,Fennel
+1,Grapefruit
+1,Peach
+1,Plum
+1,Lily
+1,Magnolia
+1,Jasmine
+1,Candy
+1,Apricot
+1,Butterscotch
+1,Aniseed
+1,Brandy
+1,Brown Sugar
+1,Camembert
+1,Cherry
+1,Chive
+1,Corn
+1,Elderberry
+1,Cress
+1,Hazelnut
+1,Lime
+1,Macadamia
+1,Mango
+1,Mocha
+1,Molasses
+1,Peanut
+1,Rhubarb
+1,Sage
+
+
+;Negative
+1,Vinegar
+1,Rotting Flesh
+1,Rotten Eggs
+1,Medicinal
+1,Putrid
+1,Feces
+1,Burnt
+1,Skunk
+1,Raw Onion
+1,Rotten Fish
+1,Ammonia
+1,Garlic
+1,Raw Fish
+1,Cabbage
+1,Solvent
+1,Paint
+1,Camphor
+1,Sweat
+1,Cat
+1,Musty
+1,Fried
+1,Horseradish
+1,Urine
+1,Mothball
+1,Blue Cheese
+1,Burnt Coffee
+1,Burnt Rubber
+1,Burnt Milk
+1,Soot
+1,Chlorine
+1,Chokingly Repulsive
+1,Fermented
+1,Manure
+1,Pickled
+
+;Neutral
+1,Cheese
+1,Ether
+1,Whiskey
+1,Woody
+1,Smoky
+1,Spearmint
+1,Cooked Onion
+1,Meaty
+1,Hay
+1,Malt
+1,Plastic
+1,Metal
+1,Cooked Vegetable
+1,Balsamic
+1,Grass
+1,Earth
+1,Leaves
+1,Raw Potato
+1,Yeast
+1,Soap
+1,Roasted Meat
+1,Mushroom
+1,Broth
+1,Pepper
+1,Spice
+1,Broccoli
+1,Seaweed
+1,Dust
+1,Hot Milk
+1,Licorice
+1,Tobacco
+1,Straw
+1,Wax
+1,Beet
+1,Cardboard
+1,Paper
+1,Alcohol
+1,Asparagus
+1,Radish
+1,Bell Pepper
+1,Beans
+1,Charred Paper
+1,Chicken
+1,Cloth
+1,Bacon
+1,Curry
+1,Grain
+1,Cider
+1,Leather
+1,Leek
+1,Mustard
+1,Oatmeal
+1,Parmesan
+1,Rum
+1,Yogurt

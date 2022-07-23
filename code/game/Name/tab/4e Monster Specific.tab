@@ -1,0 +1,767 @@
+﻿#
+# 4e Monster Specific by Krystian12@hotmail.com
+#
+
+:Start
+1,[Pwr]
+
+;Skll
+1,[111]
+1,[111] * [112]
+1,[111] * [112] * [113]
+
+;111
+1,Intimidate
+1,Insight
+1,Perception
+
+;112
+1,Linguist
+1,Diplomacy
+1,Acrobatics
+
+;113
+1,Athletics
+1,Stealth
+
+:Mona
+1,[1] * [2] * [3] * [4]
+
+;Mona2
+1,[1] * [2] * [3] * [4] * [1]
+
+;Mona3
+1,[1] * [2] * [3] * [4] *[1] * [2] * [3] * [4]
+
+;1
+1,Hard to Kill or stop
+1,Rise Again
+1,Blood Drain
+5,Impale
+5,Stomp
+5,Pounce
+1,Disease
+5,Trample
+5,Kick
+1,Rage
+1,More powerfull in numbers
+1,Stench
+1,Paralyzing
+1,Fear
+1,Alarm
+1,Hurl large objects
+1,Multi headed
+1,Web Spinner
+1,Warlock Power
+
+;2
+1,Arcane Spell
+1,Resistant to forced movement
+1,Knock Prone
+1,Snatch
+1,Spit
+1,Special Movements
+1,Warlord like powers
+1,Concealment
+1,Darkness
+1,Speed
+1,Curse
+1,Regeneration
+5,Swallow
+1,Clamping Jaw
+1,Voice
+1,Projectile Magical
+1,Projectile non magical
+1,Lure
+1,Moan
+
+;3
+1,Entrapping Attack
+5,Thick Hide
+5,Breath
+5,Multiple Attack
+1,Tremble Ground
+1,Second Wind
+5,Bite
+1,Enervation
+5,Charge
+5,Gore
+1,Special Defense
+1,Sneak Attack
+1,Absorb
+1,Entangle
+1,Spittle
+1,Close
+1,Area
+1,Arcane
+1,Divine
+1,Martial
+1,Elemental
+1,Ki
+1,Primal
+1,Psionic
+1,Shadow
+5,Acid
+5,Cold
+5,Fire
+5,Force
+5,Lighting
+5,Necrotic
+5,Poison
+5,Psychic
+5,Radiant
+5,Thunder
+1,Charm
+1,Conjuration
+1,Fear
+1,Healing
+1,Illusion
+1,Polymorph
+1,Reliable
+1,Sleep
+1,Stance
+1,Teleportation
+1,Zone
+1,Change Shape (Polymorph)
+1,Combat Advantage
+1,Deceptive Veil (Illusion)
+1,Gaseous Form
+1,Insubstantial
+1,Regeneration
+1,Phasing
+1,Telepathy
+1,Threatening Reach
+5,Weapons
+5,Tentacle
+
+;4
+1,Mucus
+1,Slime
+1,Orb
+1,Dominate
+1,Invisibility
+5,Slam
+5,Claw
+1,Shroud
+1,Burst
+1,Gaze
+5,Touch
+5,Ray
+1,Storm
+1,Time
+1,Aura
+1,Mark
+1,Defensive Magic
+1,Offensive Magic
+1,On death attack
+1,On bloodied attack
+1,Petrify
+5,Tail
+1,Swoop
+5,Spikes/Thorns
+1,Graber
+1,Trample
+1,Extra Reach
+
+;Alnm
+1,Unaligned
+1,Evil
+1,Chaotic Evil
+
+;Rl
+2,Artillery
+2,Brute
+2,Controller
+2,Lurker
+2,Skirmisher
+2,Soldier
+2,Leader
+
+;Sz
+1,Tiny
+2,Small
+3,Medium
+2,Large
+1,Huge
+1,Gargantuan
+
+;Org
+1,Aberrant
+1,Elemental
+1,Fey
+1,Immortal
+1,Natural
+1,Shadow
+
+;Typ
+1,Animate [anin1]
+1,Beast [beast1]
+2,Humanoid [human]
+1,Magical Beast [beast2]
+
+;human
+1,Orc like
+1,Goblin like
+1,Ogre like
+1,Neandertal like
+1,Ape like
+1,Reptilian like
+1,Insect like
+1,Frog like
+1,Salamander like
+1,Plant like
+1,Fungus like
+
+:beast2
+1,that is [mag1] and also [mag2]
+1,that is [mag1] and also [mag2] and [mag3]
+
+;mag1
+1,Wolf shape
+1,Lion shape
+1,Ox shape
+1,Bull shape
+1,Hyena shape
+1,Fox shape
+1,Dolphin shape
+1,Whale shape
+1,Greater Ape shape
+1,Monkey shape
+1,Rabbit shape
+1,Mouse shape
+1,Rat shape
+1,Pelican shape
+1,Elephant shape
+1,Giraffe shape
+1,Deer shape
+1,Bat shape
+1,Platypus shape
+1,Marsupial shape
+1,Rhino shape
+1,Anteater Shape
+1,Hippo Shape
+1,Seal Shape
+1,Walrus Shape
+1,Tapir shape
+1,Camel shape
+1,Weasel shape
+1,Bear shape
+1,Porcupine shape
+1,Raccon shape
+1,Ardvark shape
+
+;mag2
+1,Armadillo shape
+1,Ram shape
+1,Goat shape
+1,Squirl shape
+1,Beaver shape
+2,Mole shape
+2,Salamander shape
+2,Snake shape
+2,Frog shape
+2,Toad shape
+2,Tortise shape
+2,Lizard shape
+2,Iguana shape
+2,Chameleon shape
+2,Crocodile/Alligator shape
+2,Gecko shape
+2,Eel Shape
+2,Shark shape
+2,Mantis shape
+2,Sturgeon shape
+2,Gar shape
+2,Trout shape
+2,Pike shape
+2,Bass shape
+2,Catfish shape
+1,Swallow shape
+1,Humming bird shape
+1,Crane shape
+1,Ostrich shape
+1,Chicken shape
+1,Turkey shape
+1,Dove shape
+1,Duck shape
+1,Goose shape
+1,Parrot shape
+1,Woodpecker shape
+1,Owl shape
+1,Stork shape
+1,Sea Gull shape
+
+;mag3
+1,Eagle shape
+1,Hawk shape
+1,Penguin shape
+1,Vulture shape
+1,Bird of paradise shape
+1,Peacock shape
+2,Lamprey shape
+2,Puffer shape
+2,Sailfish shape
+2,Spider shape
+2,Roach shape
+2,Beetle shape
+2,Fly shape
+2,Bug shape
+2,Ant shape
+2,Dragonfly Shape
+2,Tick shape
+2,Locust shape
+2,Catipillar shape
+2,Larval insect shape
+2,Bee shape
+2,Wasp shape
+2,Butterfly shape
+2,Flea shape
+1,Tucan shape
+1,Wobbler/Finch shape
+
+;beast1
+1,Wolf shape
+1,Lion shape
+1,Ox shape
+1,Bull shape
+1,Hyena shape
+1,Fox shape
+1,Dolphin shape
+1,Whale shape
+1,Greater Ape shape
+1,Monkey shape
+1,Rabbit shape
+1,Mouse shape
+1,Rat shape
+1,Elephant shape
+1,Giraffe shape
+1,Deer shape
+1,Bat shape
+1,Platypus shape
+1,Marsupial shape
+1,Rhino shape
+1,Anteater Shape
+1,Hippo Shape
+1,Seal Shape
+1,Walrus Shape
+1,Tapir shape
+1,Camel shape
+1,Weasel shape
+1,Bear shape
+1,Porcupine shape
+1,Raccon shape
+1,Ardvark shape
+1,Armadillo shape
+1,Ram shape
+1,Goat shape
+1,Squirl shape
+1,Beaver shape
+2,Mole shape
+2,Salamander shape
+2,Snake shape
+2,Frog shape
+2,Toad shape
+2,Tortise shape
+2,Lizard shape
+2,Iguana shape
+2,Chameleon shape
+2,Crocodile/Alligator shape
+2,Gecko shape
+2,Eel Shape
+2,Shark shape
+2,Mantis shape
+2,Sturgeon shape
+2,Gar shape
+2,Trout shape
+2,Pike shape
+2,Bass shape
+2,Catfish shape
+1,Swallow shape
+1,Humming bird shape
+1,Crane shape
+1,Ostrich shape
+1,Chicken shape
+1,Turkey shape
+1,Dove shape
+1,Duck shape
+1,Goose shape
+1,Parrot shape
+1,Woodpecker shape
+1,Owl shape
+1,Stork shape
+1,Sea Gull shape
+1,Eagle shape
+1,Hawk shape
+1,Penguin shape
+1,Vulture shape
+1,Bird of paradise shape
+1,Peacock shape
+2,Lamprey shape
+2,Puffer shape
+2,Sailfish shape
+2,Spider shape
+2,Roach shape
+2,Beetle shape
+2,Fly shape
+2,Bug shape
+2,Ant shape
+2,Dragonfly Shape
+2,Tick shape
+2,Locust shape
+2,Catipillar shape
+2,Larval insect shape
+2,Bee shape
+2,Wasp shape
+2,Butterfly shape
+2,Flea shape
+1,Tucan shape
+1,Wobbler/Finch shape
+1,Crab shape
+1,Squid shape
+1,Lobster shape
+1,Shrimp shape
+
+;anin1
+1,Golem
+1,Clockwork Creature
+1,Animated Magical Object
+1,Living Spell
+
+;Key
+1,Acid
+1,Air
+1,Angel
+1,Aquatic
+1,Charm
+1,Cold
+1,Conjuration
+1,Construct
+1,Demon
+1,Devil
+1,Disease
+1,Dragon
+1,Earth
+1,Fear
+1,Fire
+1,Force
+1,Gaze
+1,Giant
+1,Healing
+1,Homunculus
+1,Illusion
+1,Lightning
+1,Mount
+1,Necrotic
+1,Ooze
+1,Poison
+1,Polymorph
+1,Plant
+1,Psychic
+1,Radiant
+1,Shapechanger
+1,Sleep
+1,Swarm
+1,Teleportation
+1,Thunder
+1,Undead
+1,Water
+1,Zone (aura or area of effect)
+
+;Sen
+6,Normal
+1,All-Around Vision
+1,Blind
+1,Blindsight
+1,Darkvision
+3,Low-Light Vision
+1,Tremorsense
+1,Truesight
+
+;Spd
+10,Normal Movement {Dice~1d4+4}
+1,Burrow/Tunneling {Dice~1d4+4}
+1,Climb {Dice~1d4+4}
+1,Spider Climb {Dice~1d4+4}
+1,Earth Walk {Dice~1d4+4}
+1,Fly Altitude Limit {Dice~1d4+4}
+1,Fly Clumsy {Dice~1d4+4}
+1,Fly Hover {Dice~1d4+4}
+1,Fly Overland Flight {Dice~1d4+4}
+1,Forest Walk {Dice~1d4+4}
+1,Ice Walk {Dice~1d4+4}
+1,Swamp Walk {Dice~1d4+4}
+1,Swim {Dice~1d4+4}
+
+;Pwr
+1,<b>Minion</b> {CarRet~} [Min] {CarRet~} <b>Standard Creature</b> [Std1] {CarRet~} <b>Elite</b> [Elite1] {CarRet~} <b>Solo</b> [Solo1] {CarRet~}
+
+
+;sken
+1,rhino like
+1,scaled
+1,plated
+1,hairy
+1,feathery
+1,spiny
+1,slimy
+1,smooth
+1,shell
+1,rock like
+1,boney plated
+1,bark like
+1,metallic
+1,sponge
+1,thick mucus
+
+;Color
+1,Blue (and Indigo)
+1,Aqua
+1,Aquamarine
+1,Azure
+1,Royal blue
+1,Sapphire
+1,Sky blue
+1,Spark blue (electric blue)
+1,Turquoise blue
+1,Ultramarine
+1,Blue-black
+1,Dark blue
+1,Indigo
+1,Navy blue
+1,Brown
+1,Auburn
+1,Bronze
+1,Chestnut
+1,Chocolate
+1,Cinnamon
+1,Hazel
+1,Liver-colored
+1,Mahogany
+1,Nut brown
+1,Ochre
+1,Puce
+1,Sepia
+1,Tan
+1,Toast
+1,Umber
+1,Clear
+1,Crystalline
+1,Translucent
+1,Transparent
+1,Gray
+1,Ash-gray
+1,Blue-gray
+1,Chiaroscuro
+1,Dingy
+1,Dove gray
+1,Drab
+1,Dun
+1,Dusky
+1,Iron-gray
+1,Lead/leaden
+1,Pearl gray
+1,Pewter
+1,Salt & pepper
+1,Silver
+1,Slate
+1,Smoke
+1,Stone
+1,Green
+1,Apple-green
+1,Aquamarine
+1,Beryl
+1,Wine Bottle-green
+1,Emerald
+1,Grass-green
+1,Leaf-green
+1,Lime
+1,Malachite
+1,Moss-green
+1,Olive
+1,Pea-green
+1,Pine-green
+1,Sage
+1,Sea-green
+1,Spinach-green
+1,Slime-green
+1,Turquoise
+1,Opalescence—Color
+1,Play
+1,Iridescence
+1,Luminous
+1,Pearlesent
+1,Phosphorescent
+1,Radiant
+1,Scintillating
+1,Sheen
+1,Striated
+1,Rainbow
+1,Orange
+1,Apricot
+1,Bright rust
+1,Burnt orange
+1,Carrot-orange
+1,Coral
+1,Flame
+1,Peach
+1,Red-yellow
+1,Salmon
+1,Tangerine
+1,Purple
+1,Amethyst
+1,Blue-red
+1,Eggplant
+1,Lavender
+1,Lilac
+1,Magenta
+1,Mauve
+1,Plum
+1,Puce
+1,Violet
+1,Red
+1,Beet-red
+1,Blood-red
+1,Brick-red
+1,Burgundy
+1,Carbuncle-red
+1,Cardinal
+1,Carnation
+1,Cherry
+1,Crimson
+1,Fuchsia
+1,Magenta
+1,Pink
+1,Raspberry
+1,Red ochre
+1,Rose
+1,Rouge
+1,Ruby
+1,Ruddy
+1,Rust-red
+1,Sanguine
+1,Scarlet
+1,Strawberry
+1,Terra cotta
+1,Wine-red
+1,Red-Brown
+1,Bronze
+1,Copper
+1,Khaki
+1,Maroon
+1,Russet
+1,Rust
+1,White
+1,Chalk
+1,Ivory
+1,Lily
+1,Milk
+1,Paper
+1,Platinum
+1,Silver
+1,Snow
+1,Yellow
+1,Amber
+1,Banana
+1,Beige
+1,Chrome yellow
+1,Cream-colored
+1,Gold
+1,Golden
+1,Honey
+1,Lemon
+1,Saffron
+1,Sandy
+1,Straw-yellow
+1,Sulfur
+1,Topaz
+1,Yellow ocher
+
+;Shade
+1,Bright
+1,Brilliant
+1,Clear
+1,Deep
+1,Intense
+1,Pure
+1,Sharp
+1,Vibrant
+1,Vivid
+1,Glittering
+1,Glossy
+1,Metallic
+1,Shining
+1,Dark
+1,Dull
+1,Dusty
+1,Muddy
+1,Muted
+1,Pale
+1,Shade
+1,Tint
+1,Undertone
+1,Watery
+1,Blotched
+1,Mottled
+1,Spattered
+1,Stained
+1,Streaked
+1,Striped
+1,Leopard spotted
+
+
+;Min
+1,<b>{Color~#000080,Type of Attack:}</b> Area Basic Standard At-Will {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~}
+1,<b>{Color~#000080,Type of Attack:}</b> Close Basic Standard At-Will {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~}
+3,<b>{Color~#000080,Type of Attack:}</b> Melee Basic Standard At-Will {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~}
+2,<b>{Color~#000080,Type of Attack:}</b> Ranged Basic Standard At-Will {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~}
+1,<b>{Color~#000080,Type of Attack:}</b> Area Standard At-Will {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~}
+1,<b>{Color~#000080,Type of Attack:}</b> Close Standard At-Will {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~}
+1,<b>{Color~#000080,Type of Attack:}</b> Melee Standard At-Will {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~}
+1,<b>{Color~#000080,Type of Attack:}</b> Ranged Standard At-Will {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~}
+
+;Std1
+1,Standard At will melee {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other] {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other] {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other]  {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other] {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~} <b>{Color~#000080, Potential Abilities (4)::}</b> [Mona] {CarRet~}
+
+;Elite1
+1,Standard At will melee  {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other] {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other] {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other] {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other]  {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other]  {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~} <b>{Color~#000080, Potential Abilities (5)::}</b> [Mona2] {CarRet~}
+
+;Solo1
+1,Standard At will melee  {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other]  {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other] {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other]  {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other]  {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other]  {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other]  {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other] {CarRet~} <b>{Color~#000080, Type of Attack:}</b> [Eff] [Ac] [Rc] [Other] {CarRet~} <b>{Color~#000080, Role:}</b> [Rl] {CarRet~} <b>{Color~#000080, Size:}</b> [Sz] {CarRet~} <b>{Color~#000080, Origin:}</b> [Org] {CarRet~} <b>{Color~#000080, Type:}</b> [Typ] {CarRet~} <b>{Color~#000080, Coloration:}</b>[Color] with [Shade] shade - Skin texture is [sken] {CarRet~} <b>{Color~#000080, Keyword:}</b> [Key] {CarRet~} <b>{Color~#000080, Senses:}</b> [Sen] {CarRet~} <b>{Color~#000080, Speed:}</b> [Spd] {CarRet~} <b>{Color~#000080, Alignment:}</b> [Alnm] {CarRet~} <b>{Color~#000080, Skills:}</b> [Skll] {CarRet~} <b>{Color~#000080, Potential Abilities (8)::}</b> [Mona3] {CarRet~}
+
+;Other
+8,<b>{Color~#000080, Immediate Physical Effect:}</b> None
+1,<b>{Color~#000080, Immediate Physical Effect:}</b> Pull
+1,<b>{Color~#000080, Immediate Physical Effect:}</b> Push
+1,<b>{Color~#000080, Immediate Physical Effect:}</b> Slide
+1,<b>{Color~#000080, Immediate Physical Effect:}</b> Sustain
+1,<b>{Color~#000080, Immediate Physical Effect:}</b> Ongoing Damage
+1,<b>{Color~#000080, Immediate Physical Effect:}</b> Secondary Attack
+1,<b>{Color~#000080, Immediate Physical Effect:}</b> Half Damage miss
+
+;Eff
+1,Area Basic
+1,Close Basic
+1,Melee Basic
+1,Ranged Basic
+1,Area
+1,Close
+1,Melee
+1,Ranged
+
+;Ac
+1,<b>{Color~#000080, Action:}</b> Free
+1,<b>{Color~#000080, Action:}</b> Immediate Interrupt
+1,<b>{Color~#000080, Action:}</b> Immediate Reaction
+1,<b>{Color~#000080, Action:}</b> Minor
+1,<b>{Color~#000080, Action:}</b> Move
+1,<b>{Color~#000080, Action:}</b> Standard
+
+;Rc
+1,<b>{Color~#000080, Recharge:}</b> At-will
+1,<b>{Color~#000080, Recharge:}</b> Encounter
+1,<b>{Color~#000080, Recharge:}</b> Daily
+1,<b>{Color~#000080, Recharge:}</b> Recharge 2-6
+1,<b>{Color~#000080, Recharge:}</b> Recharge 3-6
+1,<b>{Color~#000080, Recharge:}</b> Recharge 4-6
+1,<b>{Color~#000080, Recharge:}</b> Recharge 5-6
+1,<b>{Color~#000080, Recharge:}</b> Recharge 6

@@ -1,0 +1,477 @@
+# Caravans, their masters, their cargo, their workers, their guards, and their destinations
+#
+# Adapted from a Tablemaster table created by Wintertree Software
+# The beginning of the table, and the portion that generates the goods
+# is therefore...
+# Copyright 1995, Wintertree Software 
+#
+# The portion of the table that adds laborers, animal handlers and
+# guards is completely new.
+#
+# Requires the tables "Townfolk.tab" and "Town Names.tab"
+# Fixed for TS 5.0 by Ashon
+# Added Events for the Caravan
+
+%amount%,0
+%gamount%,0
+%num_carriers%,0
+%actual_qty%,0
+%set_size%,5
+%size%,0
+%type%,0
+%animal_type%,0
+%size_factor%,0
+%cargo%,0
+%skill%,0
+%type_name%,0
+%more_rolls%,0
+%temp%,0
+%carry_capacity%,0
+%temp2%,0
+%a_handlers%,0
+%laborers%,0
+%guards%,0
+%value_factor%,0
+%guard_number%,0
+%guard_type%,0
+%mount%,0
+%ac%,10
+%leader_type%,0
+%leader_level%,0
+%guard_race%,0
+
+# Parameters
+@set_size,5,Enter the size of the caravan you want generated,Small,Medium,Large,Huge,Random
+
+:Start
+1,{Reset~GenerateGoods}{Reset~GenerateGuards}|animal_type= 0|
+_[Define_Size=%set_size%][Set_Type]
+_[Size=%size%] caravan (%num_carriers% %type_name%s) led by [Names Generator.NAME For All],  
+_[~Skilled] [LRace] caravan leader, on the way to [Town Names.Start].<br><br>
+_<b>Caravan Goods:</b><br>|temp=%num_carriers%|
+_[Load]<br>
+_<b>Traveling Events</b><br>
+_[Events]
+_<b>Caravan Workers:</b><br>
+_[Laborers]
+_[AnimalHandlers]<br><br>
+_<b>Caravan Guards:</b><br>[Guards]<hr>
+
+# ----------
+# Event Generating Section
+# ----------
+:Events
+1,[Weather]<br>
+_[Violent]<br>
+_<br>
+
+;EventLoop
+1,[Weather]
+2,[Violent]
+3,[Other]
+
+;Weather
+5,No weather conditions impeded the caravan.
+1,A flood on the road delayed the caravan for {Dice~3d6} days.
+1,A blizzard shut down a mountain pass for {Dice~3d6} days.
+1,Rain slowed the caravan by {Dice~2d2} days.
+1,Tornados ripped across the plains and forced the caravan to find shelter for {Dice~2d3} days.
+1,Windstorms slowed the caravan by {Dice~3d2} days.
+
+;Violent
+3,No violent actions beset the caravan.
+1,Attacked by {Dice~1d100} {Plural~[~Creatures.Start]}.
+1,A raiding party of {Dice~4d10} {Plural~[~Creatures.Humanoid]}.
+1,A roving band of {Plural~[~Creatures.Monsters]}.
+1,The [~Organizations.Start] raided the caravan.
+
+# ----------
+# This section defines the size and type of the caravan
+# ----------
+
+:Define_Size
+1,[Set_Size=%set_size%]
+
+:Set_Type
+2,[Type=1][Foot_Size=%size%]
+3,[Type=2][Pack_Size=%size%]
+3,[Type=3][Wagon_Size=%size%]
+
+:Foot_Size
+1,|num_carriers={Dice~3d6+2}||size_factor=.75||laborers=0||a_handlers=0||guards=0|
+2,|num_carriers={Dice~3d11+17}||size_factor=1||laborers=1||a_handlers=1||guards=1|
+3,|num_carriers={Dice~2d21+38}||size_factor=1.5||laborers=1||a_handlers=1||guards=1|
+4,|num_carriers={Dice~4d50+66}||size_factor=2||laborers=2||a_handlers=1||guards=2|
+
+:Pack_Size
+1,|num_carriers={Dice~3d6+2}||size_factor=.75||laborers=1||a_handlers=2||guards=1|
+2,|num_carriers={Dice~3d11+17}||size_factor=1||laborers=2||a_handlers=3||guards=2|
+3,|num_carriers={Dice~2d21+28}||size_factor=1.5||laborers=3||a_handlers=4||guards=3|
+4,|num_carriers={Dice~4d50+46}||size_factor=2||laborers=4||a_handlers=5||guards=4|
+
+:Wagon_Size
+1,|num_carriers={Dice~2d4}||size_factor=.75||laborers=%num_carriers%||a_handlers=1||guards=2|
+2,|num_carriers={Dice~3d6+2}||size_factor=1||laborers=%num_carriers%||a_handlers=1||guards=3|
+3,|num_carriers={Dice~3d11+17}||size_factor=1.5||laborers=%num_carriers%||a_handlers=2||guards=4|
+4,|num_carriers={Dice~2d21+28}||size_factor=2||laborers=%num_carriers%||a_handlers=3||guards=5|
+
+:Set_Size
+1,|size=1|
+2,|size=2|
+3,|size=3|
+4,|size=4|
+
+:Size
+1,A small
+2,A medium
+3,A large
+4,A huge
+
+:Type
+1,|type_name=bearer||carry_capacity=8|{Lockout~GenerateGoods,24-32}
+2,[Set_Animal_Type]
+3,|type_name=wagon||carry_capacity=160|
+
+;Set_Animal_Type
+1,|type_name=mule||carry_capacity=40|{Lockout~GenerateGoods,24-32}
+1,|type_name=horse||carry_capacity=32|{Lockout~GenerateGoods,24-31}
+1,|type_name=donkey||carry_capacity=24|{Lockout~GenerateGoods,24-32}
+
+# ----------
+# A loop used to generate the individual caravan goods
+# ----------
+
+:Load
+1,{If~%temp% > 0 ? [Loop]}
+
+:Loop
+1,[GenerateGoods]
+_|amount*%size_factor%|
+_|amount>1|
+_|amount<%temp%|
+_|actual_qty={Round~0,%amount%}||actual_qty*%carry_capacity%||actual_qty/8|
+_<li>{Round~0,%amount%} %type_name%s carrying [Cargo_X=%cargo%] (%actual_qty% units)</li><br>
+_|temp-%amount%|[Load]
+
+# ----------
+# Determines the race and skill level of the caravan leader
+# ----------
+
+;LRace
+20,human
+5,half-elven
+5,half-orc
+1,elven
+1,dwarven
+1,gnome
+1,halfling
+
+:Skilled
+1,[Skill_Rating=%size%]
+
+;Skill_Rating
+1,[Skill_Rating1]
+2,[Skill_Rating2]
+3,[Skill_Rating3]
+4,[Skill_Rating4]
+
+:Skill_Rating1
+9,apprentice (level {Dice~1d2} expert)
+7,average (level {Dice~2d2} expert)
+4,skilled (level {Dice~3d4+1} expert)
+1,master (level {Dice~4d4+3} expert)
+
+:Skill_Rating2
+1,apprentice (level {Dice~1d2} expert)
+15,average (level {Dice~2d2} expert)
+4,skilled (level {Dice~3d4+1} expert)
+2,master (level {Dice~4d4+3} expert)
+
+:Skill_Rating3
+11,average (level {Dice~2d2} expert)
+5,skilled (level {Dice~3d4+1} expert)
+3,master (level {Dice~4d4+3} expert)
+
+:Skill_Rating4
+6,average (level {Dice~2d2} expert)
+7,skilled (level {Dice~3d4+1} expert)
+5,master (level {Dice~4d4+3} expert)
+
+# ----------
+# This section generates the specific goods carried by the caravan
+# ----------
+
+:!GenerateGoods
+1,|cargo=1||amount={Dice~2d20+5}|
+2,|cargo=2||amount={Dice~2d20+5}|
+3,|cargo=3||amount={Dice~2d20+5}|
+4,|cargo=4||amount={Dice~2d20}|
+5,|cargo=5||amount={Dice~2d20}|
+6,|cargo=6||amount={Dice~2d20}|
+7,|cargo=7||amount={Dice~2d10}|
+8,|cargo=8||amount={Dice~4d5}|
+9,|cargo=9||amount={Dice~3d5}|
+10,|cargo=10||amount={Dice~3d5}|
+11,|cargo=11||amount={Dice~1d10}|
+12,|cargo=12||amount={Dice~1d10}|
+13,|cargo=13||amount={Dice~2d10}|
+14,|cargo=14||amount={Dice~3d6}|
+15,|cargo=15||amount={Dice~3d5}|
+16,|cargo=16||amount={Dice~3d5}|
+17,|cargo=17||amount={Dice~2d6}|
+18,|cargo=18||amount={Dice~2d6}|
+19,|cargo=19||amount={Dice~2d6}|
+20,|cargo=20||amount={Dice~2d6}|
+21,|cargo=21||amount={Dice~1d8}|
+22,|cargo=22||amount={Dice~2d20}|
+23,|cargo=23||amount={Dice~5d20}|
+24,|cargo=24||amount={Dice~5d20}|
+25,|cargo=25||amount={Dice~5d20}|
+26,|cargo=26||amount={Dice~2d12}|
+27,|cargo=27||amount={Dice~2d8}|
+28,|cargo=28||amount={Dice~2d8}|
+29,|cargo=29||amount={Dice~2d10}|
+30,|cargo=30||amount={Dice~1d10}|
+31,|cargo=31||amount={Dice~2d20}|
+32,|cargo=27||amount={Dice~2d8}|
+
+:Cargo
+1,wheat
+2,rye
+3,barley
+4,raw wool
+5,raw flax
+6,raw cotton
+7,raw hemp
+8,woolen cloth
+9,linen cloth
+10,cotton cloth
+11,luxury cloth
+12,furs
+13,skins & leather
+14,iron ingots
+15,copper ingots
+16,tin ingots
+17,lead ingots
+18,bronze forge-bars
+19,brass forge-bars
+20,iron forge-bars
+21,steel forge-bars
+22,lumber
+23,marble
+24,limestone
+25,granite
+26,ale
+27,wine
+28,pickled fish
+29,dried fish
+30,salt
+31,tobacco
+32,spices
+ 
+:Cargo_X
+1,sacks of wheat
+2,sacks of rye
+3,sacks of barley
+4,bales of raw wool
+5,bales of raw flax
+6,bales of raw cotton
+7,bales of raw hemp
+8,bolts of woolen cloth
+9,bolts of linen cloth
+10,bolts of cotton cloth
+11,bolts of luxury cloth
+12,bundles of furs
+13,bundles of skins & leather
+14,iron ingots
+15,copper ingots
+16,tin ingots
+17,lead ingots
+18,bronze forge-bars
+19,brass forge-bars
+20,iron forge-bars
+21,steel forge-bars
+22,lumber
+23,blocks of marble
+24,blocks of limestone
+25,blocks of granite
+26,kegs of ale
+27,casks of wine
+28,barrels of pickled fish
+29,sacks of dried fish
+30,sacks of salt
+31,bales of tobacco
+32,baskets of spices
+
+# ----------
+# This section calculates the number of laborers and animal handlers for the caravan
+# ----------
+
+:Laborers
+1,<li>Laborers: 
+_|laborers*%num_carriers%||laborers\3||laborers\2|
+_|laborers>1|
+_|laborers<%num_carriers%|
+_{Round~0,%laborers%}</li>
+
+:AnimalHandlers
+1,<li>Animal Handlers: 
+_|a_handlers*%num_carriers%||a_handlers\4|
+_|a_handlers>1|
+_|a_handlers<%num_carriers%|
+_{Round~0,%a_handlers%}</li>
+
+# ----------
+# This section generates the guards for the caravan
+# ----------
+
+:Guards
+1,|guard_number={Calc~%guards%+%size_factor%}|
+_|temp2=%num_carriers%|
+_|temp2\5|
+_|temp2>1|
+_|guard_number*%temp2%|
+_Total: %guard_number%[WRace]{If~%guard_number% > 8 ? [GuardLeader]}
+_{Reset~GenerateGuards}[StartGuardLoop]
+
+:StartGuardLoop
+1,{While~%guard_number%, [GuardLoop]}
+
+:GuardLoop
+1,[GenerateGuards]
+_|gamount>1|
+_|gamount<%guard_number%|
+_<li>(<b>{Round~0,%gamount%}</b>)  
+_[WLevel] level [LRace] warriors [WTransport] wearing 
+_{If~%mount% = 0 ? [Armor={Dice~1d11}]/[Armor={Dice~1d6+5}]} (AC=%ac%) and  
+_carrying {If~%mount% = 0 ? [WeaponTypeF=%guard_type%] / [WeaponTypeM=%guard_type%]}.</li>
+_|guard_number-%gamount%|
+
+:!GenerateGuards
+1-2,|guard_type=1||gamount={Dice~6d6+4}|
+3-4,|guard_type=2||gamount={Dice~6d6+4}|
+5-6,|guard_type=3||gamount={Dice~6d6+4}|
+7-8,|guard_type=4||gamount={Dice~6d6+4}|
+9-10,|guard_type=5||gamount={Dice~6d6+4}|
+11-12,|guard_type=6||gamount={Dice~6d6+4}|
+13-14,|guard_type=7||gamount={Dice~6d6+4}|
+15-16,|guard_type=8||gamount={Dice~6d6+4}|
+
+:WeaponTypeF
+1,halberds
+2,pikes
+3,spears and shortswords
+4,spears and longswords
+5,shortswords and shortbows
+6,shortswords and crossbows
+7,shortswords and longbows
+8,longswords and crossbows
+
+:WeaponTypeM
+1,light lances and shortswords
+2,light lances and longswords
+3,spears and shortswords
+4,spears and longswords
+5,shortswords and shortbows
+6,shortswords and crossbows
+7,longswords and shortbows
+8,longswords and crossbows
+
+:WeaponTypeL
+1,light lance and shortsword
+2,light lance and longsword
+3,spear and shortsword
+4,spear and longsword
+5,shortsword and shortbow
+6,shortsword and crossbow
+7,longsword and shortbow
+8,longsword and crossbow
+
+;WRace
+20,|guard_race=human|
+5,|guard_race=half-elven|
+5,|guard_race=half-orc|
+1,|guard_race=elven|
+1,|guard_race=dwarven|
+
+:WTransport
+1-7,on foot|mount=0|
+8-9,mounted on [WarriorMounts]|mount=1|
+
+:WarriorMounts
+1-7,light war horses
+8,heavy war horses
+
+;WLevel
+400,1st
+25,2nd
+5,3rd
+3,4th
+1,5th
+
+# ----------
+# This section generates the leader of the guard (if any) for the caravan
+# ----------
+
+:GuardLeader
+1,<li>The guards' leader is a [WLeaderLevelCalc1] %leader_level% level %guard_race% [LeaderType] 
+_mounted on a [LeaderMount] wearing [Armor={Dice~1d64+5}] (AC=%ac%) and 
+_armed with a [WeaponTypeL]</li><br><br>
+#_|guard_number-1|
+
+:LeaderType
+9,warrior
+10,fighter
+
+:WLeaderLevelCalc1
+1,{If~guard_number < 12 ? [WLeaderLevel=1] / [WLeaderLevelCalc2]}
+
+:WLeaderLevelCalc2
+1,{If~%guard_number% < 20 ? [WLeaderLevel={Random~1d2}]/ [WLeaderLevelCalc3]}
+
+:WLeaderLevelCalc3
+1,{If~%guard_number% < 50 ? [WLeaderLevel={Dice~2d2}]/ [WLeaderLevelCalc4]}
+
+:WLeaderLevelCalc4
+1,{If~%guard_number% < 75 ? [WLeaderLevel={Dice~2d2+1}]/ [WLeaderLevelCalc5]}
+
+:WLeaderLevelCalc5
+1,{If~%guard_number% < 100 ? [WLeaderLevel={Dice~2d4}]/ [WLeaderLevelCalc6]}
+
+:WLeaderLevelCalc6
+1,{If~%guard_number% < 125 ? [WLeaderLevel={Dice~2d4+1}]/ [WLeaderLevelCalc7]}
+
+:WLeaderLevelCalc7
+1,{If~%guard_number% >= 125 ? [WLeaderLevel={Dice~3d3+1}]}
+
+:WLeaderLevel
+1,|leader_level=2nd||leader_type=1|
+2,|leader_level=3rd||leader_type={Dice~1d10}|
+3,|leader_level=4th||leader_type={Dice~1d10+1}|
+4,|leader_level=5th||leader_type={Dice~1d10+2}|
+5,|leader_level=6th||leader_type={Dice~1d10+3}|
+6,|leader_level=7th||leader_type={Dice~1d10+4}|
+7,|leader_level=8th||leader_type={Dice~1d10+5}|
+8,|leader_level=9th||leader_type={Dice~1d10+6}|
+9,|leader_level=10th||leader_type={Dice~1d10+7}|
+10,|leader_level=11th||leader_type={Dice~1d10+8}|
+
+;LeaderMount
+66,light war horse
+33,heavy war horse
+1,hippogriff
+1,griffon
+1,pegasus
+
+;Armor
+1,padded armor|ac=11|
+2,leather armor|ac=12|
+3,studded leather armor|ac=13|
+4,hide armor|ac=13|
+5,chain shirts|ac=14|
+6,chainmail|ac=15|
+7,scale mail|ac=14|
+8,breastplates|ac=15|
+9,banded armor|ac=16|
+10,half-plate mail|ac=17|
+11,full-plate mail|ac=18|

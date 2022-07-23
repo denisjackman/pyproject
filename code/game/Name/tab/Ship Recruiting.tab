@@ -1,0 +1,179 @@
+# ---------------------------------------------------
+# Last Update: verified by Valminder July 2010.
+# ---------------------------------------------------
+#
+# Recruiting Sailor's
+#
+# Copyright 2001 by Christian Loidl
+#
+# Modified by Valminder, Nov 2005.
+#    Changed old functions for TSv5.
+#    Transfered in "~Reference Misc" folder.
+#
+# Modified by Valminder, Sep 2009/MJuly 2010.
+#    Corrected some Errors
+#
+
+%Nationality of Port%,1
+%Output%,1
+%Quality Mod%,0
+
+@Nationality of Port,1,Nationality of Port:,English,French,Dutch,Danish,Portuguese,Spanish
+@Output,1,Output Format:,Sentence,Table
+
+:Start
+1,<tr><td width="500">{If~%Nationality of Port% != 6? [Nationality]} {If~%Nationality of Port% = 6 ? [Nationality Spanish Port]}</td><td width="500">[Skill Quality+%Quality Mod%]</td></tr>
+
+#:Start
+#1,[Nationality] [Skill Quality]<br>
+
+:Nationality
+1-35,{If~%Nationality of Port%=1? [English]}
+_{If~%Nationality of Port%=2? [French]}
+_{If~%Nationality of Port%=3? [Dutch]}
+_{If~%Nationality of Port%=4? [Danish]}
+_{If~%Nationality of Port%=5? [Portuguese]}
+_{If~%Nationality of Port%=6? [Spanish]}
+36-50,|Quality Mod=5|[French]
+51-65,|Quality Mod=10|[English]
+66-70,[Other European]
+71-80,|Quality Mod=10|[Dutch]
+81-85,[Portuguese]
+86-90,[Danish]
+91-95,[Negro]
+96-99,[Spanish]
+100,Special 
+
+;Nationality Spanish Port
+75,[Spanish]
+15,[French]
+5,[Portuguese]
+5,[Negro]
+1,Special 
+
+:Skill Quality
+1-15,Landsman </td><td width="500"> [Landsman Special Skill]
+15-70,Ordinary Seaman </td><td width="500"> [Ordinary Seaman Special Skill]
+71-98,Able Seaman </td><td width="500"> [Able Seaman Special Skill]
+99-100, Master Mariner </td><td width="500"> [Master Mariner Special Skill]
+
+:Landsman Special Skill
+1-5,Tailor
+6-10,Cobbler
+11-15,Mason
+16-20,Native Tanner
+21-25,Carpenter
+26-30,Clerk
+31-35,Farmer
+36-40,Planter
+41-45,Ironmonger
+46-50,Laborer
+51-55,Houseservant
+56-60,Soldier
+61-65,Petty Criminal
+66-70,Brewer
+71-75,Indentured Servant
+76-80,Herdsman
+81-85,Gentleman Dandy
+86-90,Butcher
+91-95,Entertainer
+96-100,GM Choice
+
+
+:Ordinary Seaman Special Skill
+1-10,Sailmaker
+11-20,Fisherman
+21-30,Gunner
+31-40,Gambler
+41-50,Sculler
+51-60,Piper
+61-70,Loblolly Boy
+71-80,Manager
+81-90,Sea-Lawyer
+91-100,GM's Choice
+
+:Able Seaman Special Skill
+1-10,Boson's Mate
+11-20,Gunner's Mate
+21-30,Cockswain
+31-40,Steward
+41-50,Quarter-Gunner
+51-60,Topman
+61-70,Foremast-Jack
+71-80,Carpenter's Mate
+81-90,Afterguard
+91-100,GM's Choice
+
+:Master Mariner Special Skill
+1-10,Helmsman
+11-20,Quartermaster
+21-30,Bosun
+31-40,Master Gunner
+41-50,Master's Mate
+51-60,Catch Captain
+61-70,Captain-of-the-Tops
+71-80,Carpenter
+81-90,Captain of the Foc'sle
+91-100,GM's Choice
+
+:English
+1,[~Real English.Male Name] {If~%Output%=2? [Next Cell]} an <font color=red>English <font color=black>
+
+:French
+1,[~Real French.Male Name] {If~%Output%=2? [Next Cell]} a <font color=blue>French <font color=black>
+
+:Dutch
+1,[~Real Dutch.Male Name] {If~%Output%=2? [Next Cell]} a <font color=green>Dutch <font color=black>
+
+:Danish
+1,[~Real Danish.Male Name] {If~%Output%=2? [Next Cell]} a <font color=FF3333>Danish <font color=black>
+
+:Portuguese
+1,[~Real Portuguese.Male Name] {If~%Output%=2? [Next Cell]} a <font color=660000>Portuguese <font color=black>
+
+:Spanish
+1,[~Real Spanish.Male Name] {If~%Output%=2? [Next Cell]} a <font color=orange>Spanish <font color=black>
+
+:Negro
+70, [Slave Name] {If~%Output%=2? [Next Cell]} an Escaped Slave 
+30, [Slave Name] {If~%Output%=2? [Next Cell]} a Negro 
+
+;Slave Name
+25,{If~%Nationality of Port%=1? [~Real English.Male First Name]}
+_{If~%Nationality of Port%=2? [~Real French.Male First Name]}
+_{If~%Nationality of Port%=3? [~Real Dutch.Male First Name]}
+_{If~%Nationality of Port%=4? [~Real Danish.Male First Name]}
+_{If~%Nationality of Port%=5? [~Real Danish.Male First Name]}
+_{If~%Nationality of Port%=6? [~Real Spanish.Male First Name]}
+15,[~Real English.Male First Name]
+15,[~Real French.Male First Name]
+10,[~Real Dutch.Male First Name]
+3,[~Real Danish.Male First Name]
+2,[~Real Portuguese.Male First Name]
+20,[~Real Spanish.Male First Name]
+30,[~Real Swahli.Male Name]
+
+:Special
+
+;Other European
+1,[~Real Irish.Male Name] {If~%Output%=2? [Next Cell]} a Irish 
+1,[~Real Scottish.Male Name] {If~%Output%=2? [Next Cell]} a Scottish 
+1,[~Real Italian.Male Name] {If~%Output%=2? [Next Cell]} a Florentine  
+1,[~Real Italian.Male Name] {If~%Output%=2? [Next Cell]} a Napolitian 
+1,[~Real Italian.Male Name] {If~%Output%=2? [Next Cell]} a Milan 
+1,[~Real Italian.Male Name] {If~%Output%=2? [Next Cell]} a Genoese 
+1,[~Real Italian.Male Name] {If~%Output%=2? [Next Cell]} a Venician 
+1,[~Real Greek.Male Name] {If~%Output%=2? [Next Cell]} a Greek 
+2,[~Real Turkish.Male Name] {If~%Output%=2? [Next Cell]} a Turkish 
+3,Moorish 
+2,[~Real Polish.Male Name] {If~%Output%=2? [Next Cell]} a Polish 
+1,[~Real Russian.Male Name] {If~%Output%=2? [Next Cell]} a Lithuanian 
+1,[~Real Russian.Male Name] {If~%Output%=2? [Next Cell]} a Estonian 
+1,[~Real Russian.Male Name] {If~%Output%=2? [Next Cell]} a Russian 
+1,[~Real German.Male Name] {If~%Output%=2? [Next Cell]} a Prussian 
+3,[~Real German.Male Name] {If~%Output%=2? [Next Cell]} a German 
+1,[~Real German.Male Name] {If~%Output%=2? [Next Cell]} a Swiss 
+2,[~Real Swedish.Male Name] {If~%Output%=2? [Next Cell]} a Swedish 
+
+:Next Cell
+1,</td><td width="500">

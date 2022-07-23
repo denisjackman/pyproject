@@ -1,0 +1,79 @@
+#Goblinoid.tab
+#by Dawn M. Burge (fantasy@xecu.net) (2004)
+#for Dungeons & Dragons 2nd Edition
+%t%,troll
+
+;Start
+1,bugbear
+1,gnoll
+1,[Goblin]
+1,[Hobgoblin]
+1,[Kobold]
+1,mongrelman
+1,[Orc]
+1,[Ogre]
+1,[Troll] %t%
+
+;Gnoll
+1,gnoll
+1,flind 
+
+;Goblin
+1,goblin
+1,gobpry 
+
+;Hobgoblin
+1,hobgoblin
+1,koalinth 
+
+;Kobold
+1,kobold
+1,trobold
+1,urd 
+
+;Orc
+1,ogrillion
+1,ondonti
+1,orog
+1,scro
+1,[Neo Orog] neo orog
+
+;Neo Orog
+1,black
+1,red 
+
+;Ogre
+1,ogre
+1,ogre mage
+1,merrow
+1,ogrillion
+1,[Orog] orog
+
+;Orog
+1,neo
+1,black
+1,red 
+
+;Troll
+1,troll|t=|
+1,desert
+1,freshwater
+1,giant
+1,ice
+1,saltwater
+1,snow
+1,spectral
+1,[Throglin] throglin|t=|
+1,[Tralg] tralg|t=|
+1,trobold|t=|
+1,two-headed 
+ 
+;Throglin
+1,freshwater
+1,saltwater 
+
+;Tralg
+1,arctic
+1,desert
+1,two-headed 
+ 

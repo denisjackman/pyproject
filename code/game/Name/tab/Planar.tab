@@ -1,0 +1,157 @@
+#Planar.tab
+#by Dawn M. Burge (fantasy@xecu.net) (2004)
+#for Dungeons & Dragons 2nd Edition
+;Start
+1,[Aasimon] (aasimon)
+1,[Baatezu] (baatezu)
+1,[Eledrin] (eledrin)
+1,[Guardinal] (guardinal)
+1,[Genie] (genie)
+1,[Grue] grue
+1,[Mephit] mephit
+1,[Modron] modron
+1,[Rilmani] (rilmani)
+1,[Slaad] slaad
+1,[Tanarri] (tanar'ri)
+1,[Yugoloth] (yugoloth)
+
+;Aasimon
+1,agathinon
+1,deva
+1,light
+1,planetar
+1,solar
+;Baatezu
+1,abishai
+1,amnizu
+1,barbazu
+1,cornugon
+1,erinyes
+1,gelugon
+1,hamatula
+1,lenure
+1,nuppheribo
+1,osyluth
+1,pit fiend
+1,spinagon
+;Eledrin
+1,bralani
+1,coure
+1,firre
+1,ghaele
+1,noviere
+1,shiere
+1,tulani
+;Guardinal
+1,avoral
+1,cervidal
+1,equinal
+1,leonal
+1,lupinal
+1,ursinal
+
+;Genie
+1,dao
+1,djinni
+1,efreeti
+1,jann
+1,marid
+1,[Tasked] tasked
+
+;Tasked
+1,minor
+1,administrator
+1,deceiver
+1,messenger
+1,oathbinder
+1,administrator
+
+;Grue
+1,earth
+1,fire
+1,air
+1,water
+;Mephit
+1,air
+1,ash
+1,dust
+1,earth
+1,fire
+1,ice
+1,lightning
+1,magma
+1,mineral
+1,mist
+1,ooze
+1,radiant
+1,salt
+1,smoke
+1,steam
+1,water
+;Modron
+1,monodrone
+1,duodrone
+1,tridrone
+1,quadrone
+1,pentadrone
+1,decaton
+1,nonaton
+1,octon
+1,septon
+1,hexton
+1,quinton
+1,quarton
+1,tertian
+1,secundi
+1,primus
+;Rilmani
+1,abiorach
+1,argenach
+1,auramach
+1,cuprilach
+1,ferrumach
+1,plumach
+;Slaad
+1,red
+1,blue
+1,green
+1,gray
+1,death
+;Tanarri
+1,alu-fiend
+1,babau
+1,balor
+1,bar-lgura
+1,cambian
+1,chasme
+1,dratch
+1,glabrezu
+1,hezrou
+1,mane
+1,marilith
+1,molydeus
+1,nabassu
+1,nalfeshnee
+1,rutterkin
+1,succubis
+1,vrock
+1,wastrilith
+1,alkilith
+1,bulezau
+1,maurezhi
+1,uridezu
+1,yochlol
+;Yugoloth
+1,arcanaloth
+1,canoloth
+1,dergholoth
+1,least guardian
+1,lesser guardian
+1,greater guardian
+1,hydroloth
+1,lesser - marraenoloth
+1,messoloth
+1,nycaloth
+1,piscoloth
+1,ultroloth
+1,yagnoloth

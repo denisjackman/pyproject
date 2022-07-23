@@ -1,0 +1,1796 @@
+<data>
+<record>
+<name>XXX</name>
+<probability>1</probability>
+<power>XXX</power>
+<value>XXX</value>
+<aura>XXX</aura>
+<align>XXX</align>
+<hint>XXX</hint>
+<modify>XXX</modify>
+<roll>XXX</roll>
+<bonus>XXX</bonus>
+<dmdescrip>XXX</dmdescrip>
+</record>
+<record>
+<name>adaptation</name>
+<probability>1</probability>
+<power>medium</power>
+<value>9000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The magic of this %Item% wraps the wearer in a shell of fresh air, making %GenderObj% immune to all harmful vapors and gases (such as cloudkill and stinking cloud effects, as well as inhaled poisons) and allowing %GenderObj% to breathe, even underwater or in a vacuum.</dmdescrip>
+</record>
+<record>
+<name>arachnida</name>
+<probability>1</probability>
+<power>medium</power>
+<value>14000</value>
+<aura>faint conjuration</aura>
+<align>CLNGE</align>
+<hint>arachnid</hint>
+<modify>special</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% gives the wearer the ability to climb as if a spider climb spell had been placed upon him. In addition, it grants %GenderObj% immunity to entrapment by web spells or webs of any sort; %GenderSub% can actually move in webs at half his normal speed. Once per day, the wearer of this %Item% can cast web. {Cap~%GenderSub%} also gains a +2 luck bonus on all Fortitude saves against poison from spiders.</dmdescrip>
+</record>
+<record>
+<name>armor</name>
+<probability>1</probability>
+<power>minor</power>
+<value>1000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>1</roll>
+<bonus>AC</bonus>
+<dmdescrip>The {Cap~%Item%} of Armor surrounds the user with an invisible but tangible field of force, granting %GenderObj% an armor bonus of +1, just as though %GenderSub% were wearing armor.</dmdescrip>
+</record>
+<record>
+<name>armor</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>2</roll>
+<bonus>AC</bonus>
+<dmdescrip>The {Cap~%Item%} of Armor surrounds the user with an invisible but tangible field of force, granting %GenderObj% an armor bonus of +2, just as though %GenderSub% were wearing armor.</dmdescrip>
+</record>
+<record>
+<name>armor</name>
+<probability>1</probability>
+<power>medium</power>
+<value>9000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>3</roll>
+<bonus>AC</bonus>
+<dmdescrip>The {Cap~%Item%} of Armor surrounds the user with an invisible but tangible field of force, granting %GenderObj% an armor bonus of +3, just as though %GenderSub% were wearing armor.</dmdescrip>
+</record>
+<record>
+<name>armor</name>
+<probability>1</probability>
+<power>medium</power>
+<value>9000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>4</roll>
+<bonus>AC</bonus>
+<dmdescrip>The {Cap~%Item%} of Armor surrounds the user with an invisible but tangible field of force, granting %GenderObj% an armor bonus of +4, just as though %GenderSub% were wearing armor.</dmdescrip>
+</record>
+<record>
+<name>armor</name>
+<probability>1</probability>
+<power>medium</power>
+<value>25000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>5</roll>
+<bonus>AC</bonus>
+<dmdescrip>The {Cap~%Item%} of Armor surrounds the user with an invisible but tangible field of force, granting %GenderObj% an armor bonus of +5, just as though %GenderSub% were wearing armor.</dmdescrip>
+</record>
+<record>
+<name>armor</name>
+<probability>1</probability>
+<power>major</power>
+<value>36000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>6</roll>
+<bonus>AC</bonus>
+<dmdescrip>The {Cap~%Item%} of Armor surrounds the user with an invisible but tangible field of force, granting %GenderObj% an armor bonus of +6, just as though %GenderSub% were wearing armor.</dmdescrip>
+</record>
+<record>
+<name>armor</name>
+<probability>1</probability>
+<power>major</power>
+<value>49000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>7</roll>
+<bonus>AC</bonus>
+<dmdescrip>The {Cap~%Item%} of Armor surrounds the user with an invisible but tangible field of force, granting %GenderObj% an armor bonus of +7, just as though %GenderSub% were wearing armor.</dmdescrip>
+</record>
+<record>
+<name>armor</name>
+<probability>1</probability>
+<power>major</power>
+<value>64000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>8</roll>
+<bonus>AC</bonus>
+<dmdescrip>The {Cap~%Item%} of Armor surrounds the user with an invisible but tangible field of force, granting %GenderObj% an armor bonus of +8, just as though %GenderSub% were wearing armor.</dmdescrip>
+</record>
+<record>
+<name>blasting</name>
+<probability>1</probability>
+<power>medium</power>
+<value>20000</value>
+<aura>moderate evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% appears to be a normal %Item%. But if the command word is spoken and the %Item% is then %Use%, it deals 5d6 points of sonic damage to creatures within a 40-foot cone and causes them to be deafened for 2d6 rounds (a DC 16 Fortitude save reduces the damage by half and negates the deafening). Crystalline objects and creatures take 7d6 points of sonic damage, with no save unless they're held, worn, or carried by creatures (Will DC 16 negates). If a {Cap~%Item%} of Blasting is used magically more than once in a given day, there is a 20 percent cumulative chance with each extra use that it explodes and deals 10d6 points of damage to the person using it.</dmdescrip>
+</record>
+<record>
+<name>blasting</name>
+<probability>1</probability>
+<power>major</power>
+<value>70000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% appears to be a normal %Item%. But if the command word is spoken and the %Item% is then %Use%, it deals 10d6 points of sonic damage, stuns creatures for 1 round, and deafens them for 4d6 rounds to creatures within a 40-foot cone (a DC Fortitude reduces the damage by half and negates the stunning and deafening). Crystalline objects and creatures take 16d6 points of sonic damage, with no save unless they're held, worn, or carried by creatures (Will DC 16 negates). If a {Cap~%Item%} of blasting is used magically more than once in a given day, there is a 20 percent cumulative chance with each extra use that it explodes and deals 10d6 points of damage to the person using it.</dmdescrip>
+</record>
+<record>
+<name>blending</name>
+<probability>1</probability>
+<power>major</power>
+<value>30000</value>
+<aura>moderate illusion</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>bonus</modify>
+<roll>10</roll>
+<bonus>hide</bonus>
+<dmdescrip>This magic %Item% enables its user to appear to be part of his surroundings. This allows %GenderObj% a +10 competence bonus on Hide checks. The user can adopt the appearance of another creature, as with the disguise self spell, at will. All creatures acquainted with and friendly to the user see %GenderObj% normally.</dmdescrip>
+</record>
+<record>
+<name>blessing</name>
+<probability>1</probability>
+<power>minor</power>
+<value>600</value>
+<aura>moderate enchantment</aura>
+<align>CLNG</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This magic %Item% enables its owner to cast a Bless spell. Usable once per day by anyone that can cast divine spells.</dmdescrip>
+</record>
+<record>
+<name>bodily health</name>
+<probability>1</probability>
+<power>medium</power>
+<value>27500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +1 to his Constitution score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>bodily health</name>
+<probability>1</probability>
+<power>major</power>
+<value>55000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +2 to his Constitution score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>bodily health</name>
+<probability>1</probability>
+<power>major</power>
+<value>82500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +3 to his Constitution score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>bodily health</name>
+<probability>1</probability>
+<power>major</power>
+<value>110000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +4 to his Constitution score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>bodily health</name>
+<probability>1</probability>
+<power>major</power>
+<value>137500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +5 to his Constitution score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>brightness</name>
+<probability>1</probability>
+<power>medium</power>
+<value>13000</value>
+<aura>faint evocation</aura>
+<align>CLNG</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>Upon utterance of a command word, the %Item% emits bright light of one of three sorts.  One command word causes the %Type% to shed light as a hooded lantern. This use of the %Type% does not expend any charges.  Another command word causes The {Cap~%Item%} of Brightness to send out a bright ray 1 foot in diameter and 50 feet long. This strikes as a ranged touch attack, and any creature struck by this beam is blinded for 1d4 rounds unless it makes a DC 14 Fortitude save. This use of the %Type% expends 1 charge.  The third command word causes the %Item% to flare in a blinding flash of light that fills a 30-foot cone. Although this glare lasts but a moment, any creature within the cone must make a DC 14 Fortitude save or be blinded for 1d4 rounds. This use expends 5 charges. The %Item% has up to 50 charges. When all its charges are expended, the %Item% becomes nonmagical.</dmdescrip>
+</record>
+<record>
+<name>building</name>
+<probability>1</probability>
+<power>medium</power>
+<value>13000</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>craftsman</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>If the proper notes are %Use%, a single use of this %Item% negates any attacks made against all inanimate construction (walls, roof, floor, and so on) within 300 feet. This includes the effects of a horn of blasting, a disintegrate spell, or an attack from a ram or similar siege weapon. The %Item% can be used in this way once per day, with the protection lasting for 30 minutes. The %Item% is also useful with respect to building. Once a week the %Type% can be %Use% so as to produce sounds that magically construct buildings, mines, tunnels, ditches, or whatever. The effect produced in but 30 minutes of playing is equal to the work of 100 humans laboring for three days. Each hour after the first, a character playing the %Item% must make a DC 18 Perform (musical instruments) check. If it fails, %GenderSub% must stop and cannot play the %Item% again for this purpose until a week has passed.</dmdescrip>
+</record>
+<record>
+<name>chaos</name>
+<probability>1</probability>
+<power>major</power>
+<value>160000</value>
+<aura>strong various</aura>
+<align>C</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The %Item% grants its possessor the following powers: Confusion, lesser; Magic circle against law; Word of chaos; Cloak of chaos.  Each power is usable 1d4 times per day. This is rolled for each power individually and the character does not know the results. A nonchaotic character who possesses a {Cap~%Item%} of Chaos gains one negative level. Although this level never results in actual level loss, it remains as long as the %Item% is in the character's possession and cannot be overcome in any way (including restoration spells).</dmdescrip>
+</record>
+<record>
+<name>charisma</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4000</value>
+<aura>moderate transmutation</aura>
+<align>CLNG</align>
+<hint>enchanting creature</hint>
+<modify>bonus ability</modify>
+<roll>2</roll>
+<bonus>cha</bonus>
+<dmdescrip>When in a character's possession, the %Item% adds a +2 enhancement bonus to his Charisma score.</dmdescrip>
+</record>
+<record>
+<name>charisma</name>
+<probability>1</probability>
+<power>medium</power>
+<value>16000</value>
+<aura>moderate transmutation</aura>
+<align>CLNG</align>
+<hint>enchanting creature</hint>
+<modify>bonus ability</modify>
+<roll>4</roll>
+<bonus>cha</bonus>
+<dmdescrip>When in a character's possession, the %Item% adds a +4 enhancement bonus to his Charisma score.</dmdescrip>
+</record>
+<record>
+<name>charisma</name>
+<probability>1</probability>
+<power>major</power>
+<value>36000</value>
+<aura>moderate transmutation</aura>
+<align>CLNG</align>
+<hint>enchanting creature</hint>
+<modify>bonus ability</modify>
+<roll>6</roll>
+<bonus>cha</bonus>
+<dmdescrip>When in a character's possession, the %Item% adds a +6 enhancement bonus to his Charisma score.</dmdescrip>
+</record>
+<record>
+<name>charming</name>
+<probability>1</probability>
+<power>medium</power>
+<value>7500</value>
+<aura>faint enchantment</aura>
+<align>CLNGE</align>
+<hint>enchanting creature</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>When played this %Item% enables the performer to work one suggestion (as the spell, Will DC 14 negates) into the music for each 10 minutes of playing if %GenderSub% can succeed on a DC 14 Perform (musical instruments) check. If the check fails, the audience cannot be affected by any further performances from the player for 24 hours.</dmdescrip>
+</record>
+<record>
+<name>clear thought</name>
+<probability>1</probability>
+<power>medium</power>
+<value>27500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains instruction on improving memory and logic, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +1 to her Intelligence score. Once the book is read, the magic disappears from the pages and it becomes a normal book. Because the tome of clear thought provides an inherent bonus, the reader will earn extra skill points when %GenderSub% attains a new level.</dmdescrip>
+</record>
+<record>
+<name>clear thought</name>
+<probability>1</probability>
+<power>major</power>
+<value>55000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains instruction on improving memory and logic, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +2 to her Intelligence score. Once the book is read, the magic disappears from the pages and it becomes a normal book. Because the tome of clear thought provides an inherent bonus, the reader will earn extra skill points when %GenderSub% attains a new level.</dmdescrip>
+</record>
+<record>
+<name>clear thought</name>
+<probability>1</probability>
+<power>major</power>
+<value>82500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains instruction on improving memory and logic, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +3 to her Intelligence score. Once the book is read, the magic disappears from the pages and it becomes a normal book. Because the tome of clear thought provides an inherent bonus, the reader will earn extra skill points when %GenderSub% attains a new level.</dmdescrip>
+</record>
+<record>
+<name>clear thought</name>
+<probability>1</probability>
+<power>major</power>
+<value>110000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains instruction on improving memory and logic, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +4 to her Intelligence score. Once the book is read, the magic disappears from the pages and it becomes a normal book. Because the tome of clear thought provides an inherent bonus, the reader will earn extra skill points when %GenderSub% attains a new level.</dmdescrip>
+</record>
+<record>
+<name>clear thought</name>
+<probability>1</probability>
+<power>major</power>
+<value>137500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains instruction on improving memory and logic, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +5 to her Intelligence score. Once the book is read, the magic disappears from the pages and it becomes a normal book. Because the tome of clear thought provides an inherent bonus, the reader will earn extra skill points when %GenderSub% attains a new level.</dmdescrip>
+</record>
+<record>
+<name>dexterity</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>bonus ability</modify>
+<roll>2</roll>
+<bonus>dex</bonus>
+<dmdescrip>The {Cap~%Item%} of Dexterity adds to the owner's Dexterity score in the form of an enhancement bonus of +2.</dmdescrip>
+</record>
+<record>
+<name>dexterity</name>
+<probability>1</probability>
+<power>medium</power>
+<value>16000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>bonus ability</modify>
+<roll>4</roll>
+<bonus>dex</bonus>
+<dmdescrip>The {Cap~%Item%} of Dexterity adds to the owner's Dexterity score in the form of an enhancement bonus of +4.</dmdescrip>
+</record>
+<record>
+<name>dexterity</name>
+<probability>1</probability>
+<power>major</power>
+<value>36000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>bonus ability</modify>
+<roll>6</roll>
+<bonus>dex</bonus>
+<dmdescrip>The {Cap~%Item%} of Dexterity adds to the owner's Dexterity score in the form of an enhancement bonus of +6.</dmdescrip>
+</record>
+<record>
+<name>disguise</name>
+<probability>1</probability>
+<power>minor</power>
+<value>1800</value>
+<aura>faint illusion</aura>
+<align>CNE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This piece of %Type% allows the owner to alter her appearance as with a disguise self spell. As part of the disguise, the %Item% can be altered to look unassuming or quite extravagant.</dmdescrip>
+</record>
+<record>
+<name>displacement</name>
+<probability>1</probability>
+<power>medium</power>
+<value>24000</value>
+<aura>faint illusion</aura>
+<align>CNE</align>
+<hint>shadow</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This item appears to be a normal %Item%, but when worn by a character its magical properties distort and warp light waves. This displacement works similar to the displacement spell except that it only grants a 20 percent miss chance on attacks against the wearer. It functions continually.</dmdescrip>
+</record>
+<record>
+<name>displacement</name>
+<probability>1</probability>
+<power>major</power>
+<value>50000</value>
+<aura>moderate illusion</aura>
+<align>CNE</align>
+<hint>shadow</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This item appears to be a normal %Item%, but on command its magical properties distort and warp light waves. This displacement works just like the displacement spell and lasts for a total of 15 rounds per day, which the wearer can divide up as %GenderSub% sees fit.</dmdescrip>
+</record>
+<record>
+<name>doom</name>
+<probability>1</probability>
+<power>medium</power>
+<value>25000</value>
+<aura>moderate necromancy</aura>
+<align>NE</align>
+<hint>evil outsider</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The {Cap~%Item%} of Doom, when %Use%, enables the character to cast doom upon those around %GenderObj% (one target per round) as a gaze attack, but as a standard action. Those merely looking at the character are not affected. Those failing a DC 11 Will save are affected as by the doom spell. Additionally the owner of the %Item% has a continual deathwatch effect and can use fear (Will DC 16 partial) as a normal gaze attack once per week. The user's eyes will momentarily glow red when the doom or fear power is used.</dmdescrip>
+</record>
+<record>
+<name>dwarvenkind</name>
+<probability>1</probability>
+<power>medium</power>
+<value>14900</value>
+<aura>moderate divination</aura>
+<align>CLNGE</align>
+<hint>dwarf</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% gives the user a +4 competence bonus on Charisma checks and Charisma based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halflings, and a -2 competence penalty on similar checks when dealing with anyone else. The wearer can understand, speak, and read Dwarven. If the wearer is not a dwarf, %GenderSub% gains 60-foot darkvision, dwarven stonecunning, a +2 enhancement bonus to Constitution, and a +2 resistance bonus on saves against poison, spells, or spell-like effects. *These bonus should be added to the character as required by the encounter*</dmdescrip>
+</record>
+<record>
+<name>eagle</name>
+<probability>1</probability>
+<power>minor</power>
+<value>2500</value>
+<aura>faint divination</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>bonus</modify>
+<roll>5</roll>
+<bonus>spot</bonus>
+<dmdescrip>The {Cap~%Item%} of the Eagle improves a characters eye sight and grants a +5 competence bonus on Spot checks.</dmdescrip>
+</record>
+<record>
+<name>escape</name>
+<probability>1</probability>
+<power>minor</power>
+<value>5200</value>
+<aura>faint conjuration</aura>
+<align>CNE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>Hidden within secret pockets of this unassuming %Item% are lockpicks that provide a +4 competence bonus on Open Lock checks. The %Item% also grants its wearer a +6 competence bonus on Escape Artist checks.</dmdescrip>
+</record>
+<record>
+<name>etherealness</name>
+<probability>1</probability>
+<power>major</power>
+<value>55000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>When the %Item% is %Use% and the command word spoken, the %Item% makes the character ethereal (as the ethereal jaunt spell). The effect is dismissible. The %Item% works for a total of up to 10 minutes per day. This duration need not be continuous.</dmdescrip>
+</record>
+<record>
+<name>evil</name>
+<probability>1</probability>
+<power>minor</power>
+<value>6500</value>
+<aura>faint abjuration</aura>
+<align>E</align>
+<hint>evil outsider</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The {Cap~%Item%} of Evil will only function for character of evil alignment. If the owner is not evil, the %Item% has no power whatsoever. When the %Item% is %Use% and the command word spoken, the %Item% produces a magic circle against good which last for 1 hour. The %Item% can be used once per day.</dmdescrip>
+</record>
+<record>
+<name>faith</name>
+<probability>1</probability>
+<power>major</power>
+<value>76000</value>
+<aura>strong abjuration</aura>
+<align>G</align>
+<hint>good outsider</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This holy garment, worn over normal clothing, grants the wearer DR 5/on melee atacks from evil aligned creatures.</dmdescrip>
+</record>
+<record>
+<name>corruption</name>
+<probability>1</probability>
+<power>major</power>
+<value>76000</value>
+<aura>strong abjuration</aura>
+<align>E</align>
+<hint>evil outsider</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This unholy garment, worn over normal clothing, grants the wearer DR 5/on melee atacks from good aligned creatures.</dmdescrip>
+</record>
+<record>
+<name>gainful exercise</name>
+<probability>1</probability>
+<power>medium</power>
+<value>27500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>powerful animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +1 to his Strength score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>gainful exercise</name>
+<probability>1</probability>
+<power>major</power>
+<value>55000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>powerful animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +2 to his Strength score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>gainful exercise</name>
+<probability>1</probability>
+<power>major</power>
+<value>82500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>powerful animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +3 to his Strength score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>gainful exercise</name>
+<probability>1</probability>
+<power>major</power>
+<value>110000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>powerful animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +4 to his Strength score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>gainful exercise</name>
+<probability>1</probability>
+<power>major</power>
+<value>137500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>powerful animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on health and fitness, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +5 to his Strength score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>giant strength</name>
+<probability>1</probability>
+<power>major</power>
+<value>36000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>giantkind</hint>
+<modify>bonus ability</modify>
+<roll>6</roll>
+<bonus>str</bonus>
+<dmdescrip>This %Item% adds to the wearer's Strength score in the form of an enhancement bonus of +6.</dmdescrip>
+</record>
+<record>
+<name>golembane</name>
+<probability>1</probability>
+<power>minor</power>
+<value>2500</value>
+<aura>moderate divination</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% allows its user to detect any golem within 60 feet, although %GenderSub% must concentrate (a standard action) in order for the detection to take place. The %Item% also enables its possessor to combat golems with weapons, unarmed attacks, or natural weapons as if those golems had no damage reduction.</dmdescrip>
+</record>
+<record>
+<name>good</name>
+<probability>1</probability>
+<power>minor</power>
+<value>6500</value>
+<aura>faint abjuration</aura>
+<align>G</align>
+<hint>good outsider</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The {Cap~%Item%} of Good will only function for character of good alignment. If the owner is not good, the %Item% has no power whatsoever. When the %Item% is %Use% and the command word spoken, the %Item% produces a magic circle against evil which last for 1 hour. The %Item% can be used once per day.</dmdescrip>
+</record>
+<record>
+<name>good luck</name>
+<probability>1</probability>
+<power>medium</power>
+<value>20000</value>
+<aura>faint evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The {Cap~%Item%} of Good Luck appears to be a normal %Item%. Its possessor gains a +1 luck bonus on saving throws, ability checks, and skill checks.</dmdescrip>
+</record>
+<record>
+<name>healing</name>
+<probability>1</probability>
+<power>medium</power>
+<value>9000</value>
+<aura>faint conjuration</aura>
+<align>LNG</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This magic %Item% enables its owner to cast his choice of cure serious wounds, remove blindness or deafness, or remove disease.</dmdescrip>
+</record>
+<record>
+<name>health</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4000</value>
+<aura>moderate transmutation</aura>
+<align>LNG</align>
+<hint>powerful animal</hint>
+<modify>bonus ability</modify>
+<roll>2</roll>
+<bonus>con</bonus>
+<dmdescrip>This enchanted item grants the owner an enhancement bonus to Constitution of +2.</dmdescrip>
+</record>
+<record>
+<name>health</name>
+<probability>1</probability>
+<power>medium</power>
+<value>16000</value>
+<aura>moderate transmutation</aura>
+<align>LNG</align>
+<hint>powerful animal</hint>
+<modify>bonus ability</modify>
+<roll>4</roll>
+<bonus>con</bonus>
+<dmdescrip>This enchanted item grants the owner an enhancement bonus to Constitution of +4.</dmdescrip>
+</record>
+<record>
+<name>health</name>
+<probability>1</probability>
+<power>major</power>
+<value>36000</value>
+<aura>moderate transmutation</aura>
+<align>LNG</align>
+<hint>powerful animal</hint>
+<modify>bonus ability</modify>
+<roll>6</roll>
+<bonus>con</bonus>
+<dmdescrip>This enchanted item grants the owner an enhancement bonus to Constitution of +6.</dmdescrip>
+</record>
+<record>
+<name>holding</name>
+<probability>1</probability>
+<power>minor</power>
+<value>1500</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>craftsman</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This appears to be a common %Item%. The %Item% of holding opens into a nondimensional space: Its inside is larger than its outside dimensions. Regardless of what is put into it, it weighs the same: %Item% weight: 5lbs. Weight Limit: 100lbs. Volume Limit: 12cu. ft.</dmdescrip>
+</record>
+<record>
+<name>holding</name>
+<probability>1</probability>
+<power>minor</power>
+<value>2500</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>craftsman</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This appears to be a common %Item%. The %Item% of holding opens into a nondimensional space: Its inside is larger than its outside dimensions. Regardless of what is put into it, it weighs the same: %Item% weight: 15lbs. Weight Limit: 250lbs. Volume Limit: 30cu. ft.</dmdescrip>
+</record>
+<record>
+<name>holding</name>
+<probability>1</probability>
+<power>minor</power>
+<value>5000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>craftsman</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This appears to be a common %Item%. The %Item% of holding opens into a nondimensional space: Its inside is larger than its outside dimensions. Regardless of what is put into it, it weighs the same: %Item% weight: 25lbs. Weight Limit: 500lbs. Volume Limit: 70cu. ft.</dmdescrip>
+</record>
+<record>
+<name>holding</name>
+<probability>1</probability>
+<power>minor</power>
+<value>7400</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>craftsman</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This appears to be a common %Item%. The %Item% of holding opens into a nondimensional space: Its inside is larger than its outside dimensions. Regardless of what is put into it, it weighs the same: %Item% weight: 35lbs. Weight Limit: 1000lbs. Volume Limit: 150cu. ft.</dmdescrip>
+</record>
+<record>
+<name>holding</name>
+<probability>1</probability>
+<power>medium</power>
+<value>10000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>craftsman</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This appears to be a common %Item%. The %Item% of holding opens into a nondimensional space: Its inside is larger than its outside dimensions. Regardless of what is put into it, it weighs the same: %Item% weight: 60lbs. Weight Limit: 1500lbs. Volume Limit: 250cu. ft.</dmdescrip>
+</record>
+<record>
+<name>holding</name>
+<probability>1</probability>
+<power>medium</power>
+<value>18000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>craftsman</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This appears to be a common %Item%. The %Item% of holding opens into a nondimensional space: Its inside is larger than its outside dimensions. Regardless of what is put into it, it weighs the same: %Item% weight: 150lbs. Weight Limit: 3000lbs. Volume Limit: 500cu. ft.</dmdescrip>
+</record>
+<record>
+<name>holding</name>
+<probability>1</probability>
+<power>major</power>
+<value>28000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This appears to be a common %Item%. The %Item% of holding opens into a nondimensional space: Its inside is larger than its outside dimensions. Regardless of what is put into it, it weighs the same: %Item% weight: 150lbs. Weight Limit: 6000lbs. Volume Limit: 1000cu. ft.</dmdescrip>
+</record>
+<record>
+<name>intellect</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item%, when worn adds to the wearer's Intelligence score in the form of an enhancement bonus of +2. This enhancement bonus does not earn the wearer extra skill points when a new level is attained; use the unenhanced Intelligence bonus to determine skill points.</dmdescrip>
+</record>
+<record>
+<name>intellect</name>
+<probability>1</probability>
+<power>medium</power>
+<value>16000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item%, when worn adds to the wearer's Intelligence score in the form of an enhancement bonus of +4. This enhancement bonus does not earn the wearer extra skill points when a new level is attained; use the unenhanced Intelligence bonus to determine skill points.</dmdescrip>
+</record>
+<record>
+<name>intellect</name>
+<probability>1</probability>
+<power>major</power>
+<value>36000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item%, when worn adds to the wearer's Intelligence score in the form of an enhancement bonus of +6. This enhancement bonus does not earn the wearer extra skill points when a new level is attained; use the unenhanced Intelligence bonus to determine skill points.</dmdescrip>
+</record>
+<record>
+<name>interruption</name>
+<probability>1</probability>
+<power>medium</power>
+<value>16800</value>
+<aura>moderate evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This instrument can be %Use% once every 10 minutes, and its effects last for 3 full minutes. While the notes are resonating, no spell requiring a verbal component can be cast within a 30-foot radius of it unless the caster can make a Concentration check (DC 15 + the spell's level).</dmdescrip>
+</record>
+<record>
+<name>karma</name>
+<probability>1</probability>
+<power>medium</power>
+<value>20000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The character possessing the {Cap~%Item%} of Karma casts his spells at +4 caster level. Effect lasts 10 minutes.</dmdescrip>
+</record>
+<record>
+<name>leadership and influence</name>
+<probability>1</probability>
+<power>medium</power>
+<value>27500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains details suggestions for persuading and inspiring others, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +1 to her Charisma score. Once the book is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>leadership and influence</name>
+<probability>1</probability>
+<power>major</power>
+<value>55000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains details suggestions for persuading and inspiring others, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +2 to her Charisma score. Once the book is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>leadership and influence</name>
+<probability>1</probability>
+<power>major</power>
+<value>82500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains details suggestions for persuading and inspiring others, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +3 to her Charisma score. Once the book is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>leadership and influence</name>
+<probability>1</probability>
+<power>major</power>
+<value>110000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains details suggestions for persuading and inspiring others, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +4 to her Charisma score. Once the book is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>leadership and influence</name>
+<probability>1</probability>
+<power>major</power>
+<value>137500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% contains details suggestions for persuading and inspiring others, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +5 to her Charisma score. Once the book is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>levitation</name>
+<probability>1</probability>
+<power>medium</power>
+<value>7500</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>When %Use% and the command word spoken, the %Item% allows the user to levitate as if %GenderSub% had cast levitate on herself.</dmdescrip>
+</record>
+<record>
+<name>mental prowess</name>
+<probability>1</probability>
+<power>major</power>
+<value>175000</value>
+<aura>strong conjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% resembles an ordinary full sized %Item%. The possessor who knows the proper commands can cause it to perform as follows.  *Read the thoughts of any creature reflected therein, as long as the owner is within 25 feet, even if those thoughts are in an unknown language.  *View other places as if with clairvoyance, but vision extends even onto other planes if the viewer is sufficiently familiar with them.  *Use it as a portal to visit other places. The user first views the place with the clairvoyance function, then steps into the %Item%; others can follow. An invisible portal remains on the other side, and %GenderSub% can return through it. Once %GenderSub% returns, the portal closes. The portal closes on its own after 24 hours (trapping the user if %GenderSub%'s still in the other place), and the user can also close it with a command word. Creatures with Intelligence of 12 or higher might notice the portal just as they might notice a magical sensor from a scrying spell. Any creature who steps through the portal appears in front of the %Item%.  *Once per week the %Item% accurately answers one short question regarding a creature whose image is shown on its surface (giving answers similar to those from the legend lore spell).</dmdescrip>
+</record>
+<record>
+<name>minute seeing</name>
+<probability>1</probability>
+<power>minor</power>
+<value>1250</value>
+<aura>faint divination</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>When the command word is spoken, the {Cap~%Item%} of Minute Seeing allows it possesor to see much better than normal at distances of 1 foot or less, granting her a +5 competence bonus on Search checks to find secret doors, traps, and similar concealed objects.</dmdescrip>
+</record>
+<record>
+<name>monk</name>
+<probability>1</probability>
+<power>medium</power>
+<value>13000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% confers great ability in unarmed combat. The wearer's AC and unarmed damage is treated as a monk of five levels higher. If donned by a character with the Stunning Fist feat, the belt lets her make one additional stunning attack per day. If the character is not a monk, %GenderSub% gains the AC and unarmed damage of a 5th-level monk. This AC bonus functions just like the monk's AC bonus. *These bonus should be added to the character as required by the encounter*</dmdescrip>
+</record>
+<record>
+<name>mountebank</name>
+<probability>1</probability>
+<power>medium</power>
+<value>10080</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>On command, the {Cap~%Item%} of the Mountebank allows the wearer to use the magic of the dimension door spell once per day. When %GenderSub% disappears, %GenderSub% leaves behind a cloud of smoke, appearing in a similar fashion at his destination.</dmdescrip>
+</record>
+<record>
+<name>natural armor</name>
+<probability>1</probability>
+<power>minor</power>
+<value>2000</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>1</roll>
+<bonus>AC</bonus>
+<dmdescrip>This enchanted item toughens the wearer's body and flesh giving the owner an enhancement bonus to his natural armor bonus of +1.</dmdescrip>
+</record>
+<record>
+<name>natural armor</name>
+<probability>1</probability>
+<power>medium</power>
+<value>8000</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>2</roll>
+<bonus>AC</bonus>
+<dmdescrip>This enchanted item toughens the wearer's body and flesh giving the owner an enhancement bonus to his natural armor bonus of +2.</dmdescrip>
+</record>
+<record>
+<name>natural armor</name>
+<probability>1</probability>
+<power>medium</power>
+<value>18000</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>3</roll>
+<bonus>AC</bonus>
+<dmdescrip>This enchanted item toughens the wearer's body and flesh giving the owner an enhancement bonus to his natural armor bonus of +3.</dmdescrip>
+</record>
+<record>
+<name>natural armor</name>
+<probability>1</probability>
+<power>major</power>
+<value>32000</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>4</roll>
+<bonus>AC</bonus>
+<dmdescrip>This enchanted item toughens the wearer's body and flesh giving the owner an enhancement bonus to his natural armor bonus of +4.</dmdescrip>
+</record>
+<record>
+<name>natural armor</name>
+<probability>1</probability>
+<power>major</power>
+<value>50000</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>hearty animal</hint>
+<modify>bonus</modify>
+<roll>5</roll>
+<bonus>AC</bonus>
+<dmdescrip>This enchanted item toughens the wearer's body and flesh giving the owner an enhancement bonus to his natural armor bonus of +5.</dmdescrip>
+</record>
+<record>
+<name>non detection</name>
+<probability>1</probability>
+<power>major</power>
+<value>35000</value>
+<aura>moderate abjuration</aura>
+<align>CLNGE</align>
+<hint>shadow</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This enchanted item protects the owner from scrying and magical location just as a nondetection spell does. If a divination spell is attempted against the owner, the caster of the divination must succeed on a caster level check (1d20 + caster level) against a DC of 19 (as if the caster had cast nondetection on himself ).</dmdescrip>
+</record>
+<record>
+<name>ogre strength</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4000</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>powerful animal</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>A {Cap~%Item%} of Ogre Strength grants the wearer great strength, adding a +2 enhancement bonus to his Strength score.</dmdescrip>
+</record>
+<record>
+<name>opening</name>
+<probability>1</probability>
+<power>minor</power>
+<value>3000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>A {Cap~%Item%} of Opening, when struck, sends forth magical vibrations that cause locks, lids, doors, valves, and portals to open. The device functions against normal bars, shackles, chains, bolts, and so on. A chime of opening also automatically dispels a hold portal spell or even an arcane lock cast by a wizard of lower than 15th level. The %Item% must be within 10 feet of the item or gate to be loosed or opened (which must be visible and known to the user). The %Item% is then struck, a clear tone rings forth, and in 1 round the target lock is unlocked, the shackle is loosed, the secret door is opened, or the lid of the chest is lifted. Each sounding only opens one form of locking, so if a chest is chained, padlocked, locked, and arcane locked, it takes four uses to get it open. A silence spell negates the power of the device. A brand-new {Cap~%Item%} of Opening can be used a total of ten times before it cracks and becomes useless.</dmdescrip>
+</record>
+<record>
+<name>pain</name>
+<probability>1</probability>
+<power>medium</power>
+<value>12000</value>
+<aura>faint enchantment</aura>
+<align>CNE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The {Cap~%Item%} of Pain appears like a normal %Type% with nothing to reveal its true nature. When played by someone who succeeds on a DC 15 Perform (musical instrument) check, the %Item% create a wondrous melody. All within 30 feet must make a DC 14 Will save or be fascinated by the sound. (This is a mind-affecting sonic compulsion.) As soon as the %Item% stops, all those affected are stricken by intense pain at even the slightest noise. Unless a character is in a totally silent area, %GenderSub% takes 1d4 points of damage per round for 2d4 rounds. During this time, damage from sonic attacks is doubled. Thereafter, the least noise causes an affected character to become shaken (except when %GenderSub% is in a totally silent area). This hypersensitivity is a curse and therefore hard to remove (see the bestow curse spell).</dmdescrip>
+</record>
+<record>
+<name>panic</name>
+<probability>1</probability>
+<power>major</power>
+<value>30000</value>
+<aura>moderate necromancy</aura>
+<align>CNE</align>
+<hint>evil outsider</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>When a command word is spoken and the {Cap~%Item%} of Panic %Use%, all creatures within 120 feet (with the exception of those within a 20-foot-radius safe zone around the %Item%) are affected as by a fear spell (Will DC 16 partial). The %Item% can be used once per day.</dmdescrip>
+</record>
+<record>
+<name>persuasion</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4500</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% grants a +3 competence bonus on the wearer's Charisma-based checks.</dmdescrip>
+</record>
+<record>
+<name>planes</name>
+<probability>1</probability>
+<power>major</power>
+<value>120000</value>
+<aura>strong conjuration</aura>
+<align>CLNGE</align>
+<hint>outsider</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This enchanted %Item% holds a black circular lens, although any character looking closely at it sees a dark, moving swirl of color. The %Item% allows its user to utilize plane shift. However, this is a difficult item to master. The user must make a DC 15 Intelligence check in order to get the it take %GenderObj% to the plane (and the specific location on that plane) that %GenderSub% wants. If %GenderSub% fails, the enchanted item transports %GenderObj% and all those traveling with %GenderObj% to a random location on that plane (1-60 d100) or to a random plane (61-100 d100).</dmdescrip>
+</record>
+<record>
+<name>arcane</name>
+<probability>1</probability>
+<power>minor</power>
+<value>7400</value>
+<aura>moderate abjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% is a standard book for wizard's spells. All such books are durable and if closed, cannot be harmed by water, acid, fire or electricity. The book is also locked (Arcane Lock) and cannot be opened unless the command word is spoken. A wizard can fill the 1,000 pages of the {Cap~%Item%} of the Arcane as any spell book. This book is never found as randomly generated treasure with spells already inscribed in it.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>minor</power>
+<value>1000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any one spell that %GenderSub% had prepared and then cast. The spell is then prepared again, just as if it had not been cast. The spell must be of 1st level. It can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any one spell that %GenderSub% had prepared and then cast. The spell is then prepared again, just as if it had not been cast. The spell must be of 2nd level. It can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>medium</power>
+<value>9000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any one spell that %GenderSub% had prepared and then cast. The spell is then prepared again, just as if it had not been cast. The spell must be of 3rd level. It can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>medium</power>
+<value>16000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any one spell that %GenderSub% had prepared and then cast. The spell is then prepared again, just as if it had not been cast. The spell must be of 4th level. It can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>medium</power>
+<value>25000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any one spell that %GenderSub% had prepared and then cast. The spell is then prepared again, just as if it had not been cast. The spell must be of 5th level. It can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>major</power>
+<value>36000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any one spell that %GenderSub% had prepared and then cast. The spell is then prepared again, just as if it had not been cast. The spell must be of 6th level. It can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>major</power>
+<value>49000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any one spell that %GenderSub% had prepared and then cast. The spell is then prepared again, just as if it had not been cast. The spell must be of 7th level. It can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>major</power>
+<value>64000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any one spell that %GenderSub% had prepared and then cast. The spell is then prepared again, just as if it had not been cast. The spell must be of 8th level. It can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>major</power>
+<value>81000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any one spell that %GenderSub% had prepared and then cast. The spell is then prepared again, just as if it had not been cast. The spell must be of 9th level. It can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>power</name>
+<probability>1</probability>
+<power>major</power>
+<value>70000</value>
+<aura>strong transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This seemingly normal %Item% is a potent aid to all spellcasters who prepare spells (clerics, druids, rangers, paladins, and wizards). Once per day on command, a {Cap~%Item%} of Power enables the possessor to recall any 2 spells that %GenderSub% had prepared and then cast. The spells are then prepared again, just as if they had not been cast. The spells must be of 6th level or lower. The %Item% can only be used once per day.</dmdescrip>
+</record>
+<record>
+<name>protection</name>
+<probability>1</probability>
+<power>major</power>
+<value>38000</value>
+<aura>strong abjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The {Cap~%Item%} of Protection appears to be a normal %Item%. If it is held for 1 round, an inscription appears on its surface letting the holder know that it is a protective device. The possessor gains spell resistance 20. The %Item% can also absorb energy-draining attacks, death effects, and negative energy effects. Upon absorbing twelve such attacks, the %Item% turns to powder and is destroyed.</dmdescrip>
+</record>
+<record>
+<name>quickness in action</name>
+<probability>1</probability>
+<power>medium</power>
+<value>27500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on coordination exercises and balance, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +1 to his Dexterity score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>quickness in action</name>
+<probability>1</probability>
+<power>major</power>
+<value>55000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on coordination exercises and balance, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +2 to his Dexterity score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>quickness in action</name>
+<probability>1</probability>
+<power>major</power>
+<value>82500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on coordination exercises and balance, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +3 to his Dexterity score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>quickness in action</name>
+<probability>1</probability>
+<power>major</power>
+<value>110000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on coordination exercises and balance, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +4 to his Dexterity score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>quickness in action</name>
+<probability>1</probability>
+<power>major</power>
+<value>137500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on coordination exercises and balance, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +5 to his Dexterity score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>resistance</name>
+<probability>1</probability>
+<power>minor</power>
+<value>1000</value>
+<aura>faint abjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% offer magic protection in the form of a +1 resistance bonus on all saving throws (Fortitude, Reflex, and Will).</dmdescrip>
+</record>
+<record>
+<name>resistance</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4000</value>
+<aura>faint abjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% offer magic protection in the form of a +2 resistance bonus on all saving throws (Fortitude, Reflex, and Will).</dmdescrip>
+</record>
+<record>
+<name>resistance</name>
+<probability>1</probability>
+<power>medium</power>
+<value>9000</value>
+<aura>faint abjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% offer magic protection in the form of a +3 resistance bonus on all saving throws (Fortitude, Reflex, and Will).</dmdescrip>
+</record>
+<record>
+<name>resistance</name>
+<probability>1</probability>
+<power>medium</power>
+<value>16000</value>
+<aura>faint abjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% offer magic protection in the form of a +4 resistance bonus on all saving throws (Fortitude, Reflex, and Will).</dmdescrip>
+</record>
+<record>
+<name>resistance</name>
+<probability>1</probability>
+<power>medium</power>
+<value>25000</value>
+<aura>faint abjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% offer magic protection in the form of a +5 resistance bonus on all saving throws (Fortitude, Reflex, and Will).</dmdescrip>
+</record>
+<record>
+<name>scrying</name>
+<probability>1</probability>
+<power>major</power>
+<value>42000</value>
+<aura>moderate divination</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>A character can use the {Cap~%Item%} of Scrying to see over virtually any distance or into other planes of existence, as with the spell scrying (Will DC 16 negates).</dmdescrip>
+</record>
+<record>
+<name>searing light</name>
+<probability>1</probability>
+<power>minor</power>
+<value>6480</value>
+<aura>faint evocation</aura>
+<align>LNG</align>
+<hint>good outsider</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>On command, this %Item% projects a blast of searing light (3d8 points of damage) once per day.</dmdescrip>
+</record>
+<record>
+<name>searing light</name>
+<probability>1</probability>
+<power>medium</power>
+<value>23760</value>
+<aura>strong evocation</aura>
+<align>LNG</align>
+<hint>good outsider</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>On command, this %Item% projects a blast of searing light (5d8 maximized for 40 points of damage) once per day.</dmdescrip>
+</record>
+<record>
+<name>seeing</name>
+<probability>1</probability>
+<power>major</power>
+<value>75000</value>
+<aura>moderate divination</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This finely cut %Item% is indistinguishable from an ordinary jewel in appearance. When it is gazed through, the %Item% of seeing enables the user to see as though %GenderSub% were affected by the true seeing spell. A {Cap~%Item%} of Seeing can be used for as much as 30 minutes a day, divided up into periods of minutes or rounds as the user sees fit.</dmdescrip>
+</record>
+<record>
+<name>sirines</name>
+<probability>1</probability>
+<power>medium</power>
+<value>15300</value>
+<aura>moderate abjuration</aura>
+<align>CLNGE</align>
+<hint>sea creature</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This normal-seeming %Item% if clasped firmly in hand or held to the breast while the possessor attempts actions related to the %Item%'s powers, %GenderSub% understands and is able to employ the item. The %Item% enables its possessor to breathe in water as if %GenderSub% were in clean, fresh air. {Cap~%GenderSub%} swim speed is 60 feet, and %GenderSub% can cast spells and act underwater without hindrance.</dmdescrip>
+</record>
+<record>
+<name>smiting</name>
+<probability>1</probability>
+<power>medium</power>
+<value>16800</value>
+<aura>various</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The {Cap~%Item%} of Smiting allows the possessor to cast chaos hammer, holy smite, order's wrath, or unholy blight (Will DC 17 partial). Usable once per day by anyone that can cast divine spells.</dmdescrip>
+</record>
+<record>
+<name>speed</name>
+<probability>1</probability>
+<power>medium</power>
+<value>12000</value>
+<aura>moderate transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>As a free action, the wearer can activate the %Item%, enabling her to act as though affected by a haste spell for up to 10 rounds each day. The duration of the haste effect need not be consecutive rounds.</dmdescrip>
+</record>
+<record>
+<name>spell resistance</name>
+<probability>1</probability>
+<power>major</power>
+<value>90000</value>
+<aura>moderate abjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This normal looking %Item% grants the wearer spell resistance 21.</dmdescrip>
+</record>
+<record>
+<name>spider climbing</name>
+<probability>1</probability>
+<power>minor</power>
+<value>4800</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>arachnid</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>When worn, the %Item% enables movement on vertical surfaces or even upside down along ceilings at a speed of 20, leaving the wearer's hands free. The %Item% will not grant spider climbing on severely slippery surfaces-icy, oiled, or greased surfaces. The %Item% can be used for 10 minutes per day, split up as the wearer chooses.</dmdescrip>
+</record>
+<record>
+<name>storms</name>
+<probability>1</probability>
+<power>major</power>
+<value>48000</value>
+<aura>various</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The possessor of the {Cap~%Item%} of Storms can call forth all manner of weather, even supernaturally destructive storms. Once per day %GenderSub% can call upon the orb to use a control weather spell, Once per month, %GenderSub% can conjure a storm of vengeance. The possessor of the %Item% is continually protected by an endure elements effect.</dmdescrip>
+</record>
+<record>
+<name>swimming and climbing</name>
+<probability>1</probability>
+<power>minor</power>
+<value>6250</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The {Cap~%Item%} of Swimming and Climbing grant a +5 competence bonus on Swim checks and Climb checks.</dmdescrip>
+</record>
+<record>
+<name>telepathy</name>
+<probability>1</probability>
+<power>medium</power>
+<value>27000</value>
+<aura>faint divination</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The wearer can use detect thoughts at will. Furthermore, %GenderSub% can send a telepathic message to anyone whose surface thoughts %GenderSub% is reading (allowing two-way communication). Once per day, the wearer of the %Item% can implant a suggestion (as the spell, Will DC 14 negates) along with his telepathic message.</dmdescrip>
+</record>
+<record>
+<name>teleportation</name>
+<probability>1</probability>
+<power>major</power>
+<value>73500</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>A character wearing the %Item% may teleport three times per day, exactly as if %GenderSub% had cast the spell of the same name.</dmdescrip>
+</record>
+<record>
+<name>thoughts</name>
+<probability>1</probability>
+<power>medium</power>
+<value>12000</value>
+<aura>faint divination</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This appears to be a normal %Item%. The %Item% allows the wearer to read the thoughts of others, as with the spell detect thoughts.</dmdescrip>
+</record>
+<record>
+<name>undead turning</name>
+<probability>1</probability>
+<power>medium</power>
+<value>11000</value>
+<aura>moderate necromancy</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% is a boon to any character able to turn undead, allowing %GenderObj% to do so as if his class level were four levels higher than it actually is.</dmdescrip>
+</record>
+<record>
+<name>undeadbane</name>
+<probability>1</probability>
+<power>minor</power>
+<value>2500</value>
+<aura>moderate divination</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This %Item% allows its user to detect any undead within 60 feet, although %GenderSub% must concentrate (a standard action) in order for the detection to take place. The %Item% also enables its possessor to combat undead with weapons, unarmed attacks, or natural weapons as if the undead had no damage reduction.</dmdescrip>
+</record>
+<record>
+<name>understanding</name>
+<probability>1</probability>
+<power>medium</power>
+<value>27500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on improving instinct and perception, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +1 to his Wisdom score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>understanding</name>
+<probability>1</probability>
+<power>major</power>
+<value>55000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on improving instinct and perception, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +2 to his Wisdom score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>understanding</name>
+<probability>1</probability>
+<power>major</power>
+<value>82500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on improving instinct and perception, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +3 to his Wisdom score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>understanding</name>
+<probability>1</probability>
+<power>major</power>
+<value>110000</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on improving instinct and perception, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +4 to his Wisdom score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>understanding</name>
+<probability>1</probability>
+<power>major</power>
+<value>137500</value>
+<aura>strong evocation</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>This thick %Type% contains tips on improving instinct and perception, but entwined within the words is a powerful magical effect. If anyone reads this book, which takes a total of 48 hours over a minimum of six days, %GenderSub% gains an inherent bonus of +5 to his Wisdom score. Once the %Item% is read, the magic disappears from the pages and it becomes a normal book.</dmdescrip>
+</record>
+<record>
+<name>underwater action</name>
+<probability>1</probability>
+<power>major</power>
+<value>57000</value>
+<aura>faint transmutation</aura>
+<align>CLNGE</align>
+<hint>sea creature</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The wearer of this %Item% can see underwater. A magical field covers the wearer's eyes allowing %GenderObj% to see five times farther than water and light conditions would allow for normal human vision. (Weeds, obstructions, and the like block vision in the usual manner.) If the command word is spoken, the {Cap~%Item%} of Underwater Action creates a globe of air around the wearer's head and maintains it until the command word is spoken again, enabling %GenderObj% to breathe freely.</dmdescrip>
+</record>
+<record>
+<name>wound closure</name>
+<probability>1</probability>
+<power>medium</power>
+<value>15000</value>
+<aura>moderate conjuration</aura>
+<align>CLNGE</align>
+<hint>nil</hint>
+<modify>nil</modify>
+<roll>nil</roll>
+<bonus>nil</bonus>
+<dmdescrip>The wearer of this %Item% automatically becomes stable if %GenderPoss% hit points drop to between -1 and -9 inclusive. The %Item% doubles the wearer's normal rate of healing or allows normal healing of wounds that would not do so normally. Hit point damage that involves bleeding is negated for the wearer of the %Item%, but %GenderSub% is still susceptible to damage from bleeding that causes Constitution loss, such as that dealt by a wounding weapon.</dmdescrip>
+</record>
+</data>

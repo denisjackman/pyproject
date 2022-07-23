@@ -1,0 +1,152 @@
+#Undead.tab
+#by Dawn M. Burge (fantasy@xecu.net) (2004)
+#for Dungeons & Dragons 2nd Edition
+;Start
+4,[Table 1]
+2,[Table 2]
+
+;Table 1
+1,[Banshee]
+1,[Undead Beholder]
+1,[Crypt Thing]
+1,[Death Knight]
+1,[Geist]
+1,[Ghost]
+1,[Ghoul]
+1,[Ghul]
+1,[Krag]
+1,[Lich]
+1,[Mummy]
+1,phantom
+1,poltergeist
+1,[Shadow]
+1,[Skeleton]
+1,[Spectre]
+1,[Vampire]
+1,wight
+1,[Wraith]
+1,zombie
+
+;Banshee
+1,banshee
+1,racked spirit
+
+;Undead Beholder
+1,undead beholder
+1,doomsphere
+1,kasharin
+
+;Crypt Thing
+1,crypt thing
+1,crypt servant
+1,chosen one
+1,coffer corpse
+1,meorty
+1,undead dwarf
+
+;Death Knight
+1,death knight
+1,banedead
+1,dread warrior
+1,undead dragon slayer
+
+;Geist
+1,geist
+1,greater geist
+
+;Ghost
+1,ghost
+1,casura
+1,dhaot
+1,ker
+1,ghost dragon
+
+;Ghoul
+1,ghoul
+1,lacendon
+1,ghast
+
+;Ghul
+1,great ghul
+1,soultaker ghul-kin
+1,witherer ghul-kin
+
+;Krag
+1,krag
+1,kragling
+
+;Lich
+1,lich
+1,dracolich
+1,psionic lich
+1,baelnorm
+1,bane lich
+1,kaisharga
+1,suel
+1,alhoon
+1,inquisitor
+
+;Mummy
+1,bog mummy
+1,mummy
+1,greater mummy
+1,crypt cat
+1,large crypt cat
+1,animal mummy
+1,monster mummy
+
+;Shadow
+1,shadow
+1,arch-shadow
+1,demi-shade
+
+;Skeleton
+1,skeleton
+1,animal skeleton
+1,monster skeleton
+1,giant skeleton
+1,warrior
+1,baneguard
+1,blazing bones
+1,bone naga
+1,bonebat
+1,dread
+1,flame skull
+1,[SkelVar] skeleon
+
+;SkelVar
+1,dust
+1,spike
+1,obsidian
+
+;Spectre
+1,spectre
+1,spectral wizard
+
+;Vampire
+1,vampire
+1,eastern vampire
+1,nosferatu
+1,cerebral
+1,vampiric wolf
+
+;Wraith
+1,wraith
+1,shimmering wraith
+1,wraith spider
+1,athasian wraith
+
+;Table 2
+1,arcane head
+1,crust
+1,ephemeral
+1,fael
+1,haunt
+1,hecuva
+1,kholidathra
+1,meorty
+1,raaig
+1,Ravenloft siren
+1,revenant
+1,tuyewara
+1,undead lakemonster

@@ -1,0 +1,362 @@
+# -----------------------------------------------------------
+# Last Update; Valminder July 2010.
+# -----------------------------------------------------------
+#
+# ADV Adventure Seed Generator
+#
+# by Larry Cormier Nov 20, 2007
+# (Adapted for TableSmith from Random Fantasy Adventure Generator by Gareth-Michael Skarka)
+#
+# Modified by Valminder, July 2010.
+#    Added this table to "ADV Plot Ideas" and moved it to "~Reference Misc"
+#    Modified "Chanceof" in Generate.
+#
+# Define Variables
+%Chance%,0
+
+:Start
+1,{Status~by Larry Cormier}[Generate]
+
+:Generate
+1, The main characters must [~Do] [~Something] [~Location], and must contend with [~Complications]
+_[Chanceof]{If~%Chance%<50? / while being confronted by [~Opposition]}.
+
+:Chanceof
+1,|Chance={Dice~1d100}|
+
+:Distance
+1,distant
+2,local
+3,foreign
+4,nearby
+
+;!Do
+1,assassinate
+1,combat
+1,guide
+1,chase
+1,disguise
+1,move
+1,conceal
+1,strike
+1,assist
+1,discover
+1,avenge
+1,quest for
+1,travel with
+1,track
+1,obliterate
+1,reveal
+1,find
+1,protect
+1,liberate
+1,escort
+1,deliver
+1,aid
+1,encounter
+1,beset
+1,retrieve
+1,attack
+1,foil
+1,rescue
+1,defeat
+1,assault
+1,oppose
+1,shield
+1,race
+1,serve
+1,guard
+1,meet
+1,investigate
+1,get past
+1,speak with
+1,contend with
+1,negotiate with
+1,defend
+1,explore
+1,resist
+1,support
+1,fight
+1,observe
+1,infiltrate
+1,join
+1,take
+1,journey [Chanceof]{If~%Chance%>50?to/with}
+1,repel
+1,destroy
+1,protect
+1,fight
+1,kill
+1,steal
+1,escape from
+1,create
+1,safeguard
+1,battle
+1,trap
+1,locate
+1,save
+
+;!Something
+1,an angel
+1,a princess
+1,a thief
+1,a friend
+1,a magical beast
+1,[Chanceof]{If~%Chance%>50? a soldier/ some soldiers}
+1,a bard
+1,a monk
+1,a demon
+1,a magical event
+1,an organization
+1,a giant
+1,an enemy
+1,undead
+1,a villain
+1,a rogue
+1,treasure
+1,a barbarian
+1,a merchant
+1,a secret
+1,a warlord
+1,[Chanceof]{If~%Chance%>50?a gem/a jewel}
+1,some [Chanceof]{If~%Chance%>50? gems/jewels}
+1,an ally
+1,a village
+1,a wizard
+1,a warrior
+1,a stranger
+1,a woman
+1,an item
+1,a secret
+1,a rival
+1,[Chanceof]{If~%Chance%>50? a peasant/ some peasants}
+1,[Chanceof]{If~%Chance%>50? a God/ a Godess}
+1,a magical object
+1,an artifact
+1,a noble
+1,a man
+1,a construct
+1,a priest
+1,an oracle
+1,an army
+1,a dragon
+1,a dungeon
+1,a kingdom
+1,a child
+1,a creature
+1,a ruler
+1,a map
+1,a monster
+1,[Chanceof]{If~%Chance%>50? a guard/ some guards}
+1,a humanoid
+1,a castle
+1,a weapon
+1,an animal
+1,a magic-item
+1,a monster
+1,a new race
+1,a government
+1,an aberration
+1,an outsider
+1,a love interest
+1,[Chanceof]{If~%Chance%>50? a sorcerer/ a sorceress}
+1,a humanoid
+1,a prophecy
+
+;!Location
+1,[Chanceof]{If~%Chance%>50?at a mountain/in the mountains}
+1,in the north
+1,in another plane ([~Countries.Planes])
+1,[Chanceof]{If~%Chance%>50?at/in} some [Distance] ruins
+1,at a bazaar
+1,on a road
+1,in the underworld
+1,[Chanceof]{If~%Chance%>50?at/in} a citadel
+1,in a jungle
+1,[Chanceof]{If~%Chance%>50?at/in} a castle
+1,in a distant kingdom ([~Countries.Countries Uncommon])
+1,in a [Distance] village ([~Town Names.Generate])
+1,[Chanceof]{If~%Chance%>50?at/in} a keep
+1,[Chanceof]{If~%Chance%>50?at/in} a hamlet
+1,on a trade route
+1,in the south
+1,on a battlefield
+1,[Chanceof]{If~%Chance%>50?at/in} a villain's lair
+1,[Chanceof]{If~%Chance%>50?at/in} a wizard's tower
+1,in the outlands
+1,[Chanceof]{If~%Chance%>50?at/in} a temple
+1,[Chanceof]{If~%Chance%>50?at/in} a fort
+1,in the woods
+1,in a cavern
+1,on the frontier
+1,in the desert
+1,on a ship ([~Ship Name Generator.Generate])
+1,in a secret location
+1,in a foreign land ([~Countries.Countries Rare])
+1,[Chanceof]{If~%Chance%>50?at/in} a cave
+1,in the hills
+1,in the west
+1,[Chanceof]{If~%Chance%>50?at/in} a wasteland
+1,on the ocean
+1,[Chanceof]{If~%Chance%>50?at/in} a city
+1,in a forest
+1,in an evil land
+1,[Chanceof]{If~%Chance%>50?at/in} a subterranean city
+1,[Chanceof]{If~%Chance%>50?at/in} a fane
+1,[Chanceof]{If~%Chance%>50?at/in} a manor
+1,[Chanceof]{If~%Chance%>50?at/in} a fortress
+1,[Chanceof]{If~%Chance%>50?at/in} a dungeon
+1,[Chanceof]{If~%Chance%>50?at/in} a cavern
+1,[Chanceof]{If~%Chance%>50?at/in} a palace
+1,[Chanceof]{If~%Chance%>50?at/in} a tavern
+1,at the border
+1,[Chanceof]{If~%Chance%>50?at/in} a town
+1,in the catacombs
+1,[Chanceof]{If~%Chance%>50?at/in} a city
+1,on the plains
+1,[Chanceof]{If~%Chance%>50?at/in} a monster's lair
+1,[Chanceof]{If~%Chance%>50?at/in} a swamp
+1,[Chanceof]{If~%Chance%>50?at/in} a guild hall
+1,[Chanceof]{If~%Chance%>50?at/in} a sepulcher
+1,across the sea
+1,in the east
+1,underground
+1,in a [Distance] kingdom
+1,[Chanceof]{If~%Chance%>50?at/in} a stronghold
+1,[Chanceof]{If~%Chance%>50?at/in} a tomb
+1,[Chanceof]{If~%Chance%>50?at/in} a dungeon
+1,[Chanceof]{If~%Chance%>50?at/in} a lost city
+1,in the sky
+1,[Chanceof]{If~%Chance%>50?at/in} a vault
+
+;!Complications
+1,{AorAn~[Complications]} and {AorAn~[Complications]}
+1,a government official
+1,a creature
+1,a ruler
+1,a former ally
+1,a humanoid
+1,a dragon
+1,a fanatic
+1,a friend
+1,a barbarian
+1,an enemy
+1,a shadowy figure
+1,a stranger
+1,a priest
+1,a war
+1,a conspiracy
+1,a mastermind
+1,a gang
+1,a villain
+1,a wizard
+1,a watchman
+1,a thief
+1,an enemy
+1,a nation
+1,a hazardous environment
+1,a mercenary
+1,a criminal
+1,a warrior
+1,a military individual
+1,a magic-user
+1,a monster
+1,a magical beast
+1,an artifact
+1,a spy
+1,a dragon
+1,a humanoid
+1,a veteran
+1,[Chanceof]{If~%Chance%>50?demon/devil}
+1,a lunatic
+1,an adventurer
+1,a puzzle
+1,a sorcerer
+1,an outsider
+1,a warlord
+1,a prophet
+1,a merchant
+1,a recurring NPC
+1,an enemy
+1,a champion
+1,a construct
+1,an assassin
+1,an undead creature
+1,a giant
+1,an invader
+1,[Chanceof]{If~%Chance%>50? a God/ a Godess}
+1,a humanoid
+1,an immortal
+1,a guild
+1,a monster
+1,an aberration
+1,an outlaw
+1,a traitor
+1,a cult
+1,a time dilemma
+
+;!Opposition
+1,jealousy
+1,travel issues
+1,magical complications
+1,mistaken identity
+1,language difficulties
+1,interference
+1,monsters
+1,spies
+1,betrayal
+1,squabbling
+1,race
+1,a power struggle
+1,a battle
+1,unwanted attention
+1,getting lost
+1,legal trouble
+1,rivalry
+1,distractions
+1,natural obstacles
+1,[Chanceof]{If~%Chance%>50? an enemy/enemies}
+1,the weather
+1,exploration
+1,a red herring
+1,the lack of trust
+1,a trap
+1,an abduction
+1,politics
+1,a royalty issue
+1,side-tracking
+1,equipment failure
+1,a disaster
+1,desperation
+1,a loyal influence
+1,barriers
+1,theft
+1,[Chanceof]{If~%Chance%>50? a criminal/criminals}
+1,misdirection
+1,military influence
+1,guild influence
+1,a love interest
+1,a magical event
+1,a war
+1,a mystery
+1,a superstition
+1,bureaucracy
+1,[Chanceof]{If~%Chance%<25? Gods/a God}
+1,[Chanceof]{If~%Chance%>50? an interested party/interested parties}
+1,puzzles
+1,trickery
+1,diplomacy
+1,a vendetta
+1,drug problems
+1,insanity
+1,an invasion
+1,a recurring NPC
+1,a double-cross
+1,religion
+1,an ambush
+1,fear
+1,a construct
+1,enemies
+1,money
+1,differing PC motivations
+1,riddles

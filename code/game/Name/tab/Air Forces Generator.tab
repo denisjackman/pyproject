@@ -1,0 +1,87 @@
+﻿#
+# Air Forces Generator
+#
+
+:Start
+1,<b>Unit Strength:</b> [Unit Strength]{CR~}
+_<b>Morale:</b> [Morale]{CR~}
+_<b>Power:</b> [Power]{CR~}
+_<b>Movement:</b> [Movement]{CR~}
+
+:Unit Strength
+1-4,[Division] (Air Division)
+5-12,[Brigade] (Wing)
+13-28,[Battalion] (Squadron)
+29-60,[Company] (Flight)
+
+:Division
+1,4,000 (10% of 40,000)
+2,5,000 (10% of 50,000)
+3,6,000 (10% of 60,000)
+4,7,000 (10% of 70,000)
+5,8,000 (10% of 80,000)
+6,9,000 (10% of 90,000)
+7,10,000 (10% of 100,000)
+
+:Brigade
+1,200 (10% of 2,000)
+2,300 (10% of 3,000)
+3,400 (10% of 4,000)
+4,500 (10% of 5,000)
+5,600 (10% of 6,000)
+6,700 (10% of 7,000)
+7,800 (10% of 8,000)
+8,900 (10% of 9,000)
+9,1,000 (10% of 10,000)
+10,1,100 (10% of 11,000)
+11,1,200 (10% of 12,000)
+12,1,300 (10% of 13,000)
+13,1,400 (10% of 14,000)
+14,1,500 (10% of 15,000)
+15,1,600 (10% of 16,000)
+16,1,700 (10% of 17,000)
+17,1,800 (10% of 18,000)
+18,1,900 (10% of 19,000)
+19,2,000 (10% of 20,000)
+
+:Battalion
+1,10 (10% of 100)
+2,20 (10% of 200)
+3,30 (10% of 300)
+4,40 (10% of 400)
+5,50 (10% of 500)
+
+:Company
+1,5 (10% of 50)
+2,6 (10% of 60)
+3,7 (10% of 70)
+4,8 (10% of 80)
+5,9 (10% of 90)
+6,10 (10% of 100)
+
+:Morale
+1,50 (Conscript){CR~}<b>Skills and Characteristics:</b> 20
+2,60 (Volunteer){CR~}<b>Skills and Characteristics:</b> 30
+3,80 (Professional){CR~}<b>Skills and Characteristics:</b> 40
+4,90 (Veteran){CR~}<b>Skills and Characteristics:</b> 50
+5,100 (Elite){CR~}<b>Skills and Characteristics:</b> 60
+
+:Power
+1,5 (Air Forces Base Power 8: Light Modifier -2: Tech-Level Modifier -1) Attack: 4d10+5, Armour: 10 (Power Level x2)
+2,7 (Air Forces Base Power 8: Medium Modifier 0: Tech-Level Modifier -1) Attack: 4d10+7, Armour: 14 (Power Level x2)
+3,9 (Air Forces Base Power 8: Heavy Modifier +2: Tech-Level Modifier -1) Attack: 4d10+9, Armour: 18 (Power Level x2)
+4,6 (Air Forces Base Power 8: Light Modifier -2: Tech-Level Modifier 0) Attack: 4d10+6, Armour: 12 (Power Level x2)
+5,8 (Air Forces Base Power 8: Medium Modifier 0: Tech-Level Modifier 0) Attack: 4d10+8, Armour: 16 (Power Level x2)
+6,10 (Air Forces Base Power 8: Heavy Modifier +2: Tech-Level Modifier 0) Attack: 4d10+10, Armour: 20 (Power Level x2)
+7,7 (Air Forces Base Power 8: Light Modifier -2: Tech-Level Modifier +1) Attack: 4d10+7, Armour: 14 (Power Level x2)
+8,9 (Air Forces Base Power 8: Medium Modifier 0: Tech-Level Modifier +1) Attack: 4d10+9, Armour: 18 (Power Level x2)
+9,11 (Air Forces Base Power 8: Heavy Modifier +2: Tech-Level Modifier +1) Attack: 4d10+11, Armour: 22 (Power Level x2)
+10,8 (Air Forces Base Power 8: Light Modifier -2: Tech-Level Modifier +2) Attack: 4d10+8, Armour: 16 (Power Level x2)
+11,10 (Air Forces Base Power 8: Medium Modifier 0: Tech-Level Modifier +2) Attack: 4d10+10, Armour: 20 (Power Level x2)
+12,12 (Air Forces Base Power 8: Heavy Modifier +2: Tech-Level Modifier +2) Attack: 4d10+12, Armour: 24 (Power Level x2)
+13,9 (Air Forces Base Power 8: Light Modifier -2: Tech-Level Modifier +3) Attack: 4d10+9, Armour: 18 (Power Level x2)
+14,11 (Air Forces Base Power 8: Medium Modifier 0: Tech-Level Modifier +3) Attack: 4d10+11, Armour: 22 (Power Level x2)
+15,13 (Air Forces Base Power 8: Heavy Modifier +2: Tech-Level Modifier +3) Attack: 4d10+13, Armour: 26 (Power Level x2)
+
+:Movement
+1,2400 km

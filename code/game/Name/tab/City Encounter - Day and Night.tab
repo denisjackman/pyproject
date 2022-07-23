@@ -1,0 +1,519 @@
+#
+# D&D 3e City Encounters
+#
+# This table's largely self-supporting but does call on a table called 'Wordy2' to generate a name.
+# You can replace this with a call to your favourite Name gen table or remove it
+# The races, gods and nations obviously are for my world, edit to suit.
+# Hugh Foster hugh@ace-dog.com 2010
+#
+
+%Num%,0
+%Num2%,0
+
+:Start
+1,<h1>Daytime Encounters</h1><ol><li>[Day]<li>[Day]<li>[Day]<li>[Day]<li>[Day]<li>[Day]<li>[Day]<li>[Day]<li>[Day]<li>[Day]</ol><h1>Nighttime Encounters</h1><ol><li>[Night]<li>[Night]<li>[Night]<li>[Night]<li>[Night]<li>[Night]<li>[Night]<li>[Night]<li>[Night]<li>[Night]</ol>
+
+:Day
+1,[MainDay] ([!Wordy2.Word], {Lcase~[GenTraits], [Mannerisms]})
+
+:Night
+1,[MainNight] ([!Wordy2.Word], {Lcase~[GenTraits], [Mannerisms]})
+
+:MainDay
+1-7,     {Cap~[JustRaceC]} Assassin; [hashlevel] {Dice~1d3} on business.
+8-22,      Bandit; generally low-key.
+23-61,     Beggar; {Dice~1d2}{If~{Dice~1d10} <= 1 ? is a thief L{Dice~1d6}/}.
+62-68,     Brigand; as bandit.
+69-99,   {Cap~[JustRaceC]} City guard; {Dice~2d8} mercenaries, {Dice~1d3} leaders at L{Dice~1d4+1} & a sorcerer L{Dice~1d4}
+100-122, {Cap~[JustRaceC]} {If~{Dice~1d10} <= 9 ?minor/senior} city official. Guard of {Dice~1d4+1}, L{Dice~1d4}.
+123-145, {Cap~[JustRaceC]} City watchman; 5 men & L{Dice~1d3} sergeant & L{Dice~1d4+1} cleric.
+146-175, {Cap~[JustRaceC]} Cleric; [hashlevel], {Dice~1d6} assistants @ L{Dice~1d4}.
+176-183,   Doppleganger; appears as [MainDay].
+184-213, {Cap~[JustRaceC]} Druid; [hashlevel], with {If~{Dice~1d10} <= 5 ?{Dice~1d4} druids @ L{Dice~1d4}/{Dice~1d4} fighters @ L{Dice~1d4}}
+214-225, {Cap~[JustRaceC]} Drunk; {Dice~1d4} bums
+226-236, {Cap~[JustRaceC]} Drunk; [MainDay]
+237-267, {Cap~[JustRaceC]} Fighter; [hashlevel] & {Dice~1d4} henchmen @ L{Dice~1d4}.
+268-297, {Cap~[JustRaceC]} {If~{Dice~1d10} <= 2 ?Gentlewoman/Gentleman} Ari L{Dice~2d6}
+298-328, Rats; {Dice~2d4} {If~{Dice~1d10} <= 7 ?normal/giant} rats.
+329-358, {Cap~[JustRaceC]} Goodwife.
+359-381, {Cap~[JustRaceC]} {If~{Dice~1d10} <= 2 ?houri L{Dice~1d6+1}/harlot{If~{Dice~1d10} <= 2 ? connected thieves' guild/}}
+382-404, {Cap~[JustRaceC]} Illusionist; [hashlevel], {Dice~1d4} {If~{Dice~1d10} <= 2 ?apprentices/fighters} L{Dice~1d4}
+405-442, {Cap~[JustRaceC]} {If~{Dice~1d2} = 1 ?Labourer; {Dice~3d4} rough workers/Peddlar; 1 travelling tinker}.
+443-458, {Cap~[JustRaceC]} Wizard; [hashlevel]; {Dice~d4} henchmen {If~{Dice~1d10} <= 2 ?wizards L{Dice~1d6}/fighters L{Dice~1d6}}.
+459-473, {Cap~[JustRaceC]} Sorcerer; [hashlevel]; {Dice~d4} henchmen {If~{Dice~1d10} <= 2 ?sorcerers L{Dice~1d6}/fighters L{Dice~1d6}}.
+474-503, {Cap~[JustRaceC]} Mercenaries; {Dice~3d4} 0-level soldiers. {Dice~1d3} L Party Level-{Dice~2d10} leaders.
+504-541, {Cap~[JustRaceC]} {If~{Dice~1d10} <= 1 ?Rich /}[Merchant]; {Dice~1d3}; {If~{Dice~1d10} <= 1 ?rich/} {Dice~1d3} 0-level guards.
+542-550, {Cap~[JustRaceC]} Monk; [hashlevel] travelling
+551-557, {Cap~[JustRaceC]} Bard; [hashlevel] {If~{Dice~1d10} <= 5 ?looking for employ/entertaining on spec}
+558-580, {Cap~[JustRaceC]} Noble{If~{Dice~1d100} <= 25 ?woman/man}; Ari [hashlevel]. {Dice~d4+1} guards of L{Dice~2d6}. Retinue, {Dice~2d6} L{Dice~1d4} courtiers.
+581-603, {Cap~[JustRaceC]} Paladin; [hashlevel]. Indistinguishable from fighter.
+604-625, {Cap~[JustRaceC]} Pilgrim; |Num={Dice~3d4}|%Num%. 1 classed per 4.
+626-648, {If~{Dice~1d100} <= 25 ?Drunken rake/Rake}; {Dice~d4+1} young gentlemen. Rude.
+649-671, {Cap~[JustRaceC]} Ranger; [hashlevel]. Indistiguishable from fighter.
+672-687, Ruffian; {Dice~d6+6} L2 shabby ftrs. {If~{Dice~1d100} <= 5 ? one L{Dice~1d4+4} assassin./}
+688-702, {Cap~[JustRaceC]} Thief; [hashlevel], {If~{Dice~1d3} <= 1 ?passing through or freelance/guilded with {Dice~1d3} apprentices of L{Dice~1d4}}.
+703-740, {Cap~[JustRaceC]} [Craftsman]; {Dice~2d4}
+741-745, Knight of an Order; {Dice~1d6} [hashlevel] paladins. 1 squire each of L0.
+746-750, Knight of an Order; {Dice~1d6} [hashlevel] rangers. 1 squire each of L0.
+750-755, Knight of an Order; {Dice~1d6} [hashlevel] fighters. 1 squire each of L0.
+756-770, Courier/Messenger; {Dice~d4+1}. L2, leader L{Dice~d6+3}.
+771-793, Local soldier; {Dice~2d6} 0-level local troops. 1 L{Dice~1d3+1} NCO.
+794-824, {Cap~[JustRaceC]} Debt collectors; {If~{Dice~1d10} <= 6 ?{Dice~1d4+1} at L0/{Dice~1d4} L{Dice~1d4+1} thieves with L{Dice~1d4+1} ftr}.
+825-839, {Cap~[JustRaceC]} Fortune teller{If~{Dice~1d100} <= 25 ? with actual talent./.}
+840-854, {Cap~[JustRaceC]} Loony; Improvise.
+855-862, {Cap~[JustRaceC]} Leper; previously [MainDay].
+863-877, {Cap~[JustRaceC]} Damsel in Distress; The usual. Kidnap, rape, robbery etc. Com {Dice~d6+12}. If aided, family will reward 100gp per social bracket. If kidnapped, ransom is the same -d4x10 per bracket.
+878-893, Duel; 2 opponents or parties, fighting hand to hand. No interest in others. [MainDay] vs [MainDay]
+894-923, {Cap~[JustRaceC]} Blackguard; [hashlevel], 1 crippled or retarded squire @ L0.
+924-938,   Barbarian; [hashlevel]
+939-946, {Cap~[JustRaceC]} Acrobat; {Dice~1d6} [hashlevel]
+947-977, {Cap~[JustRaceC]} Smith; Warsmith [hashlevel]
+978-999, {Cap~[JustRaceC]} Healer; 1 at [hashlevel], {Dice~1d4+1} apprentices @ L{Dice~1d3}
+1000,    Other (DM's panic option)
+
+:MainNight
+1-20,    {Cap~[JustRaceC]} Assassin; [hashlevel] {Dice~1d3} on business.
+21-41,   Bandit; {If~{Dice~1d10} <= 4 ?a few individuals/large party}
+42-69,   Beggar; {Dice~1d2}{If~{Dice~1d10} <= 1 ? is a thief L{Dice~1d6}/}.
+70-90,   Brigand; {If~{Dice~1d10} <= 4 ?a few individuals/large party}
+91-111,  {Cap~[JustRaceC]} City guard; {Dice~3d8} mercenaries, {Dice~1d3} leaders at L{Dice~1d4+1} & a sorcerer L{Dice~1d4}
+112-118, {Cap~[JustRaceC]} {If~{Dice~1d10} <= 9 ?minor/senior} city official. Guard of {Dice~1d4+1}, L{Dice~1d4}.
+119-146, {Cap~[JustRaceC]} City watchman; 10 men & L{Dice~1d3} sergeant & L{Dice~1d4+1} cleric.
+147-174, {Cap~[JustRaceC]} Cleric; [hashlevel], {Dice~1d6} assistants @ L{Dice~1d4}.
+175-202, {Cap~[JustRaceC]} Druid; [hashlevel], with {If~{Dice~1d10} <= 5 ?{Dice~1d4} druids @ L{Dice~1d4}/{Dice~1d4} fighters @ L{Dice~1d4}}
+203-215, {Cap~[JustRaceC]} Drunk; {Dice~1d4} bums
+216-230, {Cap~[JustRaceC]} Drunk; [MainDay]
+231-258, {Cap~[JustRaceC]} Fighter; [hashlevel] & {Dice~1d4} henchmen @ L{Dice~1d4}.
+259-272, {Cap~[JustRaceC]} {If~{Dice~1d10} <= 2 ?Gentlewoman/Gentleman} Ari L{Dice~2d6}
+273-307, Rats; {Dice~2d4} {If~{Dice~1d10} <= 7 ?normal/giant} rats.
+308-335, {Cap~[JustRaceC]} Goodwife.
+336-363, {Cap~[JustRaceC]} {If~{Dice~1d10} <= 2 ?houri L{Dice~1d6+1}/harlot{If~{Dice~1d10} <= 2 ? connected thieves' guild/}}
+364-384, {Cap~[JustRaceC]} Illusionist; [hashlevel], {Dice~1d4} {If~{Dice~1d10} <= 2 ?apprentices/fighters} L{Dice~1d4}
+385-412, {Cap~[JustRaceC]} {If~{Dice~1d2} = 1 ?Labourer; {Dice~3d4} rough workers/Peddlar; 1 travelling tinker}.
+413-426, {Cap~[JustRaceC]} Wizard; [hashlevel]; {Dice~d4} henchmen {If~{Dice~1d10} <= 2 ?wizards L{Dice~1d6}/fighters L{Dice~1d6}}.
+427-440, {Cap~[JustRaceC]} Sorcerer; [hashlevel]; {Dice~d4} henchmen {If~{Dice~1d10} <= 2 ?sorcerers L{Dice~1d6}/fighters L{Dice~1d6}}.
+441-475, {Cap~[JustRaceC]} Mercenaries; {Dice~3d4} 0-level soldiers. {Dice~1d3} L Party Level-{Dice~2d10} leaders.
+476-496, {Cap~[JustRaceC]} {If~{Dice~1d10} <= 1 ?Rich /}[Merchant]; {Dice~1d3}; {If~{Dice~1d10} <= 1 ?rich/} {Dice~1d3} 0-level guards.
+597-503, {Cap~[JustRaceC]} Monk; [hashlevel] travelling
+504-510, {Cap~[JustRaceC]} Bard; [hashlevel] {If~{Dice~1d10} <= 5 ?looking for employ/entertaining on spec}
+511-524, {Cap~[JustRaceC]} Noble{If~{Dice~1d100} <= 10 ?woman/man}; Ari [hashlevel]. {Dice~d4+1} guards of L{Dice~2d6}. Retinue, {Dice~2d6} L{Dice~1d4} courtiers.
+525-545, {Cap~[JustRaceC]} Paladin; [hashlevel]. Indistinguishable from fighter.
+546-559, {Cap~[JustRaceC]} Pilgrim; |Num={Dice~3d4}|%Num%. 1 classed per 4.
+560-587, {If~{Dice~1d100} <= 25 ?Drunken rake/Rake}; {Dice~d4+1} young gentlemen. Rude.
+588-608, {Cap~[JustRaceC]} Ranger; [hashlevel]. Indistiguishable from fighter.
+609-629, Ruffian; {Dice~d6+6} L2 shabby ftrs. {If~{Dice~1d100} <= 5 ? one L{Dice~1d4+4} assassin./}
+630-657, {Cap~[JustRaceC]} Thief; [hashlevel], {If~{Dice~1d3} <= 1 ?passing through or freelance/guilded with {Dice~1d3} apprentices of L{Dice~1d4}}.
+658-678, {Cap~[JustRaceC]} [Craftsman]; {Dice~2d4}
+679-681, Knight of an Order; {Dice~1d6} [hashlevel] paladins. 1 squire each of L0.
+682-683, Knight of an Order; {Dice~1d6} [hashlevel] rangers. 1 squire each of L0.
+684-685, Knight of an Order; {Dice~1d6} [hashlevel] fighters. 1 squire each of L0.
+686-692, Courier/Messenger; {Dice~d4+1}. L2, leader L{Dice~d6+3}.
+693-713, Local soldier; {Dice~2d8} 0-level local troops. 1 L{Dice~1d3+1} NCO.
+714-727, {Cap~[JustRaceC]} Debt collectors; {If~{Dice~1d10} <= 6 ?{Dice~1d4+1} at L0/{Dice~1d4} L{Dice~1d4+1} thieves with L{Dice~1d4+1} ftr}.
+728-741, {Cap~[JustRaceC]} Fortune teller{If~{Dice~1d100} <= 25 ? with actual talent./.}
+742-755, {Cap~[JustRaceC]} Loony; Improvise.
+756-762, {Cap~[JustRaceC]} Leper; previously [MainDay].
+763-769, Fae Mhor; In emergency, {Dice~1d4+1} male Ftr/Wiz L Party Level-{Dice~1d10}, 1 female Clr/Ftr/Wiz of [hashlevel]. Armour & arms magic +(Party Level-{Dice~1d4}).
+770-776, {Cap~[JustRaceC]} Slave traders; looking for stragglers, drunks etc. {Dice~4d4} L{Dice~1d4+1} Ftrs{If~{Dice~1d10} <= 4 ?, Sorcerer L{Dice~1d4+2}/}
+777-783, {Cap~[JustRaceC]} Damsel in Distress; The usual. Kidnap, rape, robbery etc. Com 12+d6.             If aided, family rewards for 100gp/social bracket. If kidnapped, ransom is              same -d4X10 per bracket.
+784-804, Duel; 2 opponents or parties, fighting hand to hand. No interest in others. [MainNight] vs [MainNight]
+805-825, {Cap~[JustRaceC]} Blackguard; [hashlevel], 1 crippled or retarded squire @ L0.
+826-839, Barbarian; [hashlevel]
+840-860, {Cap~[JustRaceC]} Acrobat; {Dice~1d6} [hashlevel]
+861-874, {Cap~[JustRaceC]} Smith; Warsmith [hashlevel]
+875-881, {Cap~[JustRaceC]} Healer; 1 at [hashlevel], {Dice~1d4+1} apprentices @ L{Dice~1d3}
+882-888, Necromancer; [hashlevel]. Attempting concealment, disguised as [MainNight]
+889-1000,  Monster (see separate tables)
+
+:JustRaceC
+01-72,[humanrace]
+73-82,dwarf
+83-87,elf
+88-92,half-orc
+93,orc
+94-98,lizardman
+99-100,eastlander/curst/other
+
+:humanrace
+01-70,Local human
+71-100,[humanother] human
+
+:humanother
+1-108,Dalaghendan
+113-257,Tarlanoran
+258-438,New Tellaran
+439-547,Kordasan
+548-655,Enninger
+656-764,Stryran
+765-873,Nhasedan
+874-963,Erlyid
+964-1000,Red Dust Nomad
+
+:hashlevel
+1,L Party Level+{Dice~1d10}
+2,L Party Level-{Dice~1d10}
+
+:Merchant
+1,Herbs, incense & oils merchant
+2,Nautical supplies merchant (if landlocked, saddlry & tack)
+3-4,Fruits & vegetables merchant
+5,Salted & died meats merchant
+6-7,Pottery merchant
+8,Astrologer
+9-10,Physician/embalmer {If~{Dice~1d10} <= 1 ?(Actual Healer)/}
+11-12,Fence, [Fence]
+13,Moneylender/moneychanger
+14,Sweetshop/sweetmeats merchant
+15,Barber/beautician
+16,Toy merchant
+17,Potions & drugs merchant (Alchemy +{Dice~1d20})
+18,Livestock merchant
+19,Novelties merchant
+20,Imported weapons & armour merchant
+
+:Fence
+1-60,guild-connected
+61-80,pays cut to guild
+81-100,freelance
+
+:Craftsman
+1,Candlemaker
+2,Smithy (iron/copper basic metal only)
+3,Carpenter
+4,Weaver
+5,Jeweler/whitesmith
+6,Smithy (armourer)
+7,Smithy (weaponsmith)
+8,Wainwright
+9,Baker
+10,Mapmaker/surveyor
+11,Tailor
+12,Sailmaker (if landlocked, treat as 8, Wainwright)
+13,Ropemaker
+14,Stone mason
+15,Scribe (see NPC Scribe class)
+16,Brewer/vinter
+17,Shoe/bootmaker
+18,Soap maker
+19,Net maker (if landlocked, treat as 8, Wainwright)
+20,Leather worker
+
+
+# --------------------------------------------------------------------------------
+#	Traits
+# --------------------------------------------------------------------------------
+:Traits
+1,|Temp=[GenTraits]#|
+_|Temp&[GenTraits]#|
+_|Temp&[GenTraits]|
+_{Cap~{CommaReplace~1,#,{Replace~#,# ,{OrderAsc~"#",%Temp%}}}}
+
+:GenTraits
+1,[GenTraitsLNC]
+2,[GenTraitsGNE]
+
+:GenTraitsLNC
+1,[ChaoticTraits]
+2-3,[NeutralTraits]
+4,[LawfulTraits]
+
+:GenTraitsGNE
+1,[EvilTraits]
+2-3,[NeutralTraits]
+4,[GoodTraits]
+
+;!LawfulTraits
+1,aloof
+1,articulate
+1,calm
+1,cautious
+1,dependable
+1,diplomatic
+1,dogmatic
+1,honorable
+1,humble
+1,just
+1,loyal
+1,obsequious
+1,orderly
+1,patient
+1,pious
+1,pragmatic
+1,respectful
+1,temperate
+1,thoughtful
+1,thrifty
+1,well-mannered
+
+;!ChaoticTraits
+1,argumentative
+1,boastful
+1,capricious
+1,carefree
+1,deceitful
+1,disrespectful
+1,flippant
+1,godless
+1,iconoclastic
+1,impatient
+1,impulsive
+1,indulgent
+1,open-minded
+1,overbearing
+1,reckless
+1,sloppy
+1,spendthrift
+1,tactless
+1,thoughtless
+1,unreliable
+1,untrustworthy
+
+;!GoodTraits
+1,altruistic
+1,cheerful
+1,compassionate
+1,considerate
+1,courageous
+1,courteous
+1,forgiving
+1,friendly
+1,generous
+1,helpful
+1,honest
+1,innocent
+1,loving
+1,merciful
+1,optimist
+1,optimistic
+1,peaceful
+1,sympathetic
+1,trusting
+1,virtuous
+
+;!EvilTraits
+1,bigoted towards [Bigotry Target]
+1,callous
+1,covetous
+1,cowardly
+1,cruel
+1,deceitful
+1,depraved
+1,harsh
+1,hateful
+1,morose
+1,pessimist
+1,pessimistic
+1,rude
+1,sadistic
+1,selfish
+1,suspicious
+1,unfeeling
+1,unfriendly
+1,vengeful
+1,violent
+
+:!NeutralTraits
+1,aesthetic
+2,aggressive
+3,antagonistic
+4,arrogant{Lockout~NeutralTraits,27}
+5,clumsy
+6,compulsive
+7,condescending
+8,cunning{Lockout~NeutralTraits,17}
+9,curious
+10,cynical
+11,dreamy
+12,egotistical{Lockout~NeutralTraits,27}
+13,enthusiastic
+14,extravagent
+15,extroverted{Lockout~NeutralTraits,24}
+16,fatalistic
+17,foolish{Lockout~NeutralTraits,8}
+18,gullible{Lockout~NeutralTraits,42}
+19,haughty
+20,hedonistic
+21,imaginative
+22,industrious
+23,inquisitive
+24,introverted{Lockout~NeutralTraits,15}
+25,lazy
+26,mischievous
+27,modest{Lockout~NeutralTraits,4,12,35}
+28,narcissistic
+29,nervous
+30,obsessive
+31,paranoid{Lockout~NeutralTraits,44}
+32,passionate
+33,patronizing
+34,perceptive
+35,proud{Lockout~NeutralTraits,27}
+36,quiet
+37,romantic
+38,sarcastic
+39,secretive
+40,self-confident{Lockout~NeutralTraits,41}
+41,self-doubting{Lockout~NeutralTraits,40}
+42,suspicious{Lockout~NeutralTraits,18,44}
+43,taciturn
+44,trusting{Lockout~NeutralTraits,31,42}
+45,zealous ([Subject])
+46,zealous (religion - [Religion])
+
+;Bigotry Target
+1,[Human Culture]
+1,[Kingdom]
+1,[People]
+1,[NonHuman Race]
+
+;Human Culture
+1,Northmen
+1,Erlyid
+1,Stryrans
+1,Nhased
+
+;Kingdom
+1,Dalaghendor
+1,New Tellare
+1,Enning
+1,Tarlanor
+1,Kordasa
+1,Belamir
+1,Gloiran
+1,Kobur
+1,Nisur
+1,Belegond
+1,Stryre
+1,Nhased
+1,Empire
+
+;People
+1,adventurers
+1,barbarians
+1,bards
+1,clergy
+1,commoners
+1,intellectuals
+1,laborers
+1,merchants
+1,monks
+1,nobles
+1,rangers
+1,sorcerers
+1,warriors
+1,wizards
+
+;NonHuman Race
+1,lizardmen
+1,orcs
+1,half-orcs
+1,dwarves
+1,elves
+1,curst
+
+;Subject
+1,animals
+1,anti-magic
+1,anti-slavery
+1,atheism
+1,food
+1,gambling
+1,geography
+1,history
+1,jewelry
+1,magic
+1,nature
+1,peace
+1,politics
+1,sailing
+1,warfare
+1,wines and spirits
+
+;Religion
+1,[EvilGods]
+1,[NeutralGods]
+1,[GoodGods]
+
+;EvilGods
+1,Abbathor
+4,Gonvan
+1,Lolth
+1,Tiamat
+4,Karrath
+
+;NeutralGods
+1,Aderra
+1,Ehlonna
+1,Karlan
+1,Lilyx
+1,Olidammara
+1,Hobushu
+1,Shushkrah
+1,Belisama
+1,Taranis
+1,Lyr
+
+;GoodGods
+1,Morganna
+1,Diruc
+1,Pelor
+
+
+# --------------------------------------------------------------------------------
+#	Mannerisms
+# --------------------------------------------------------------------------------
+:Mannerisms
+1-5,No notable mannerisms
+6-7,{Cap~[Mannerism List]}
+8,{Cap~[Mannerism List]}, [Mannerism List]
+
+;!Mannerism List
+1,absent-minded
+1,clumsy
+1,constantly interrupts whoever is speaking
+1,constantly looks over shoulders
+1,constantly whines/complains
+1,doesn't like to be touched
+1,enuciates very clearly
+1,facial twitch
+1,fond of rural/colloquial expressions
+1,graceful
+1,always chewing on a toothpick
+1,laconic
+1,laughs when inappropriate
+1,mumbles
+1,plays a [Musical Instrument]
+1,prefers to dress in the color [Miscellaneous.Color]
+1,prone to tangents when speaking
+1,refers to people by "pet" names ("honey", "buddy", "dear", etc)
+1,snorting laugh
+1,speaks with hands
+1,spits often
+1,stutters
+1,talkative
+1,talks to self
+1,talks very fast
+1,talks very slowly
+1,vegetarian
+1,whistles when nervous
+1,[Voice] voice
+
+;Musical Instrument
+1,harp
+1,recorder
+1,lute
+1,dulcimer
+
+;!Voice
+1,gutteral
+1,heavily accented
+1,high-pitched
+1,lispy
+1,loud
+1,monotone
+1,mute
+1,nasally
+1,wheezy
+1,whiny
+1,whispery
+

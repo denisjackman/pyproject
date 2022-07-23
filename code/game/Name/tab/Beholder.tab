@@ -1,0 +1,18 @@
+#Beholder.tab
+#by Dawn M. Burge (fantasy@xecu.net) (2004)
+#for Dungeons & Dragons 2nd Edition
+%b%,beholder
+;Start
+1,[Gen] %b%
+;Gen
+1,beholder|b=|
+1,death kiss
+1,eye of the deep
+1,gauth
+1,spectator
+1,hive mother
+1,director
+1,examiner
+1,lensman
+1,overseer
+1,watcher 

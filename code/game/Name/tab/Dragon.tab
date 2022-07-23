@@ -1,0 +1,98 @@
+#Dragon.tab
+#by Dawn M. Burge (fantasy@xecu.net) (2004)
+#for Dungeons & Dragons 2nd Edition
+
+%d%,dragon
+%b%,basilisk
+%h%,hydra
+
+;!Start
+6,[Table 1] %d%
+3,[Table 2]
+
+;Table 1
+1,amethyst
+1,black
+1,blue
+1,brass
+1,brine
+1,bronze
+1,brown
+1,cloud
+1,copper
+1,crystal
+1,deep
+1,electrum
+1,emerald
+1,fang
+1,ghost
+1,gold
+1,green
+1,mercury
+1,mist
+1,prismatic
+1,radiant
+1,red
+1,sapphire
+1,shadow
+1,silver
+1,steel
+1,topaz
+1,white
+1,yellow
+1,Cerillian
+1,[Linnorm] Linnorm
+1,[Neutral] neutral
+
+;Linnorm
+1,dread
+1,flame
+1,forrest
+1,frost
+1,gray
+1,land
+1,Midguard
+1,rain
+1,sea
+
+:Neutral
+1,amber
+1,jacinth
+1,jade
+1,moonstone
+1,pearl
+
+;Table 2
+1,lesser %b%
+1,greater %b%
+1,dracolisk (%b%)
+1,chimera
+1,cockatrice
+1,pyrolisk (cockatrice)
+1,dragonne
+1,gorynych
+1,hydra
+1,lemaean %h%
+1,pyrohydra (%h%)
+1,cryohydra (%h%)
+1,gulgutghhydra
+1,[Thessalamonster] (thessalamonster)
+1,salamander
+1,scalamagdrion
+1,wyvern
+1,%d%-kin
+1,half-%d%
+1,were%d%
+1,dracolich
+1,[Dragonet] (%d%et)
+
+;Dragonet
+1,faerie %d%
+1,firedrake
+1,pseudo%d%
+
+;Thessalamonster
+1,thessalhydra
+1,thessalmerro
+1,thessalgorgen
+1,thessaltrice

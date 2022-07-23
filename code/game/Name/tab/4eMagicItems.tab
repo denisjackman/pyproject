@@ -1,0 +1,943 @@
+#4e Magic Weapon Random Generator
+#by Jake H
+#Includes magic items from the following sources:
+#PHB,DMG,Dragon Magazines (364,365)
+
+%Level%,1
+
+@Level,1,Enter the level of the magic item to generate
+
+:Start
+1,Level %Level%: [LevelItem=%Level%]
+
+:LevelItem
+1,[1]
+2,[2]
+3,[3]
+4,[4]
+5,[5]
+6,[6]
+7,[7]
+8,[8]
+9,[9]
+10,[10]
+11,[11]
+12,[12]
+13,[13]
+14,[14]
+15,[15]
+16,[16]
+17,[17]
+18,[18]
+19,[19]
+20,[20]
+21,[21]
+22,[22]
+23,[23]
+24,[24]
+25,[25]
+26,[26]
+27,[27]
+28,[28]
+29,[29]
+30,[30]
+
+# LEVEL ONE
+;1
+1,Armor, Magic +1 360 Any
+1,Staff, Magic staff +1 360
+1,Orb, Magic orb +1 360
+1,Rod, Magic rod +1 360
+1,Weapon, Magic +1 360 Any
+1,Wand, Magic wand +1 360
+1,Holy Symbol, Magic holy symbol +1 360
+1,Hand, Burglar’s gloves 360
+1,Neck, Amulet of protection +1 360
+1,Head, Cannith Goggles 360 (Dragon 365 p15)
+
+# LEVEL TWO
+;2
+1,Armor, Dwarven +1 520 Chain, Scale, Plate
+1,Arm Slot, Bracers of mighty striking (heroic tier) 520
+1,Holy Symbol, Symbol of life +1 520
+1,Weapon, Resounding +1 520 Hammer, Flail,Mace, Sling, Staff
+1,Weapon, Vicious +1 520 Any
+1,Waist, Belt of vigor (heroic tier) 520
+1,Feet Slot, Acrobat boots 520
+1,Staff, Staff of fiery might +1 520
+1,Rod, Rod of dark reward +1 520
+1,Neck, Cloak of resistance +1 520
+1,Armor, Razor +1 520 Scale
+1,Implement(Rod), Rod of Deadly Casting +1 520 (Dragon 365 p14)
+1,Weapon, Relentless Weapon +1 520 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of Excellence +1 520 (Dragon 365 p57)
+1,Implement(Staff), Staff of Expansion +1 520 (Dragon 365 p57)
+
+# LEVEL THREE
+;3
+1,Wand, Wand of (power level 1) +1 680
+1,Wand, Wand of ray of enfeeblement +1 680
+1,Wand, Wand of witchfire +1 680
+1,Feet Slot, Catstep boots 680
+1,Arm Slot, Shield of protection (heroic tier) 680
+1,Weapon, Thundering +1 680 Any
+1,Weapon, Duelist’s +1 680 Light Blade
+1,Neck, Amulet of health +1 680
+1,Weapon, Frost +1 680 Any
+1,Weapon, Flameburst +1 680 Any ranged
+1,Armor, Delver’s +1 680 Any
+1,Weapon, Pact Blade +1 680 Light Blade
+1,Rod, Rod of corruption +1 680
+1,Staff, Staff of the war mage +1 680
+1,Orb, Orb of inevitable continuance +1 680
+1,Holy Symbol, Symbol of hope +1 680
+1,Hand, Gloves of piercing 680
+1,Armor, Fireburst +1 680 Cloth
+1,Armor, Eladrin +1 680 Chain
+1,Neck, Safewing amulet +1 680
+1,Armor, Sylvan +1 680 Cloth, Leather, Hide
+1,Armor, Curseforged +1 680 Chain, Scale
+1,Arm Slot, Bracers of the perfect shot (heroic tier) 680
+1,Weapon, Vitriolic Weapon +1 680 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Staff), Staff of Verdant Growth +1 680 (Dragon 365 p57)
+1,Wondrous Item, Flask of the Dragon's Breath 680 (Dragon 365 p60)
+
+# LEVEL FOUR
+;4
+1,Feet Slot, Wavestrider boots 840
+1,Armor, Darkleaf +1 840 Cloth, Leather, Hide
+1,Armor, Black Iron +1 840 Scale, Plate
+1,Armor, Bloodcut +1 840 Leather, Hide
+1,Staff, Staff of winter +1 840
+1,Weapon, Thunderburst +1 840 Any ranged
+1,Weapon, Terror +1 840 Axe, Hammer,Heavy Blade
+1,Wondrous Item, Everlasting provisions 840
+1,Weapon, Myrdroon's Shard +1 840 Spear (Dragon 364 p24)
+1,Holy Symbol, Symbol of Turning +1 840 (Dragon 364 p44)
+1,Armor, Dragonclaw Armor +1 840 Leather, Hide (Dragon 365 p55)
+1,Weapon, Impaling Weapon +1 840 Pick, Spear (Dragon 365 p55)
+1,Implement(Rod), Rod of Draconic Fury +1 840 (Dragon 365 p57)
+
+# LEVEL FIVE
+;5
+1,Armor, Battleforged +1 1,000 Plate
+1,Hand, Gauntlets of ogre power 1,000
+1,Arm Slot, Bashing shield (heroic tier) 1,000
+1,Weapon, Flaming +1 1,000 Any
+1,Feet Slot, Boots of spider climbing 1,000
+1,Holy Symbol, Symbol of battle +1 1,000
+1,Staff, Staff of storms +1 1,000
+1,Armor, Deathcut +1 1,000 Leather, Hide
+1,Armor, Exalted +1 1,000 Chain
+1,Orb, Orb of sanguinary repercussions +1 1,000
+1,Armor, Barkskin +1 1,000 Hide, Scale
+1,Armor, Bloodthread +1 1,000 Cloth
+1,Waist, Ironskin belt (heroic tier) 1,000
+1,Weapon, Lightning +1 1,000 Any
+1,Rod, Rod of reaving +1 1,000
+1,Weapon, Lifedrinker +1 1,000 Any melee
+1,Wondrous Item, Bag of holding 1,000
+1,Weapon, Final Word Weapon +1 1,000 Axe, Heavy Blade (Dragon 365 p55)
+1,Implement(Staff), Staff of Draconic Power +1 1,000 (Dragon 365 p57)
+
+# LEVEL SIX
+;6
+1,Holy Symbol, Magic holy symbol +2 1,800
+1,Hand, Shadowfell gloves (heroic tier) 1,800
+1,Weapon, Magic +2 1,800 Any
+1,Neck, Amulet of protection +2 1,800
+1,Wand, Magic wand +2 1,800
+1,Rod, Magic rod +2 1,800
+1,Armor, Magic +2 1,800 Any
+1,Staff, Magic staff +2 1,800
+1,Orb, Magic orb +2 1,800
+1,Head, Horned helm (heroic tier) 1,800
+1,Hands, Reparation Apparatus 1,800 (Dragon 365 p15)
+
+# LEVEL SEVEN
+;7
+1,Staff, Staff of fiery might +2 2,600
+1,Orb, Orb of indisputable gravity +2 2,600
+1,Feet Slot, Dwarven greaves 2,600
+1,Weapon, Vicious +2 2,600 Any
+1,Arm Slot, Bracers of defense (heroic tier) 2,600
+1,Rod, Rod of dark reward +2 2,600
+1,Holy Symbol, Symbol of life +2 2,600
+1,Armor, Sunleaf +2 2,600 Cloth, Leather, Hide
+1,Weapon, Resounding +2 2,600 Hammer, Flail,Mace, Sling, Staff
+1,Holy Symbol, Symbol of power +2 2,600
+1,Armor, Dwarven +2 2,600 Chain, Scale, Plate
+1,Neck, Elven cloak +2 2,600
+1,Armor, Razor +2 2,600 Scale
+1,Neck, Cloak of resistance +2 2,600
+1,Waist, Belt of sacrifice (heroic tier) 2,600
+1,Head, Circlet of authority 2,600
+1,Implement(Rod), Rod of Deadly Casting +2 2,600 (Dragon 365 p14)
+1,Armor, Immolating Armor +2 2,600 Chain, Scale (Dragon 365 p55)
+1,Weapon, Homing Weapon +2 2,600 Bow, Crossbow (Dragon 365 p55)
+1,Weapon, Relentless Weapon +2 2,600 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of Excellence +2 2,600 (Dragon 365 p57)
+1,Implement(Staff), Staff of Expansion +2 2,600 (Dragon 365 p57)
+1,Arms, Bracers of Escape 2,600 (Dragon 365 p57)
+
+# LEVEL EIGHT
+;8
+1,Armor, Fireburst +2 3,400 Cloth
+1,Weapon, Flameburst +2 3,400 Any ranged
+1,Wand, Wand of icy rays +2 3,400
+1,Hand, Gauntlets of the ram 3,400
+1,Neck, Amulet of health +2 3,400
+1,Armor, Curseforged +2 3,400 Chain, Scale
+1,Head, Diadem of acuity 3,400
+1,Weapon, Pact Blade +2 3,400 Light Blade
+1,Holy Symbol, Symbol of hope +2 3,400
+1,Neck, Safewing amulet +2 3,400
+1,Weapon, Duelist’s +2 3,400 Light Blade
+1,Weapon, Thundering +2 3,400 Any
+1,Weapon, Frost +2 3,400 Any
+1,Staff, Staff of the war mage +2 3,400
+1,Arm Slot, Shield of defiance (heroic tier) 3,400
+1,Orb, Orb of inevitable continuance +2 3,400
+1,Armor, Delver’s +2 3,400 Any
+1,Staff, Thunderwave staff +2 3,400
+1,Rod, Rod of first blood +2 3,400
+1,Wand, Wand of fiery bolt +2 3,400
+1,Armor, Eladrin +2 3,400 Chain
+1,Wand, Wand of shield +2 3,400
+1,Armor, Sylvan +2 3,400 Cloth, Leather, Hide
+1,Wand, Wand of (power level 3 or lower) +2 3,400
+1,Armor, Mountain +2 3,400 Plate
+1,Rod, Rod of corruption +2 3,400
+1,Armor, Elven battle +2 3,400 Leather, Hide
+1,Wand, Wand of eldritch rain +2 3,400
+1,Wand, Wand of ray of enfeeblement +2 3,400
+1,Wand, Wand of witchfire +2 3,400
+1,Weapon, Disrupting +1 3,400  Flail, Hammer, Mace (Dragon 364 p44)
+1,Implement(Rod), Rod of Runic Resistance +2 3,400 (Dragon 365 p14)
+1,Armor, Stonemeld Armor +2 3,400 Cloth, Leather (Dragon 365 p15)
+1,Weapon, Vitriolic Weapon +2 3,400 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Orb), Orb of Inexplicable Contention +2 3,400 (Dragon 365 p57)
+1,Implement(Staff), Staff of Verdant Growth +2 3,400 (Dragon 365 p57)
+1,Waist, Belt of Lucky Strikes 3,400 (Dragon 365 p60)
+
+# LEVEL NINE
+;9
+1,Weapon, Terror +2 4,200 Axe, Hammer,Heavy Blade
+1,Armor, Darkleaf +2 4,200 Cloth, Leather, Hide
+1,Orb, Orb of reversed polarities +2 4,200
+1,Armor, Black Iron +2 4,200 Scale, Plate
+1,Holy Symbol, Symbol of victory +2 4,200
+1,Head, Helm of battle (heroic tier) 4,200
+1,Staff, Staff of winter +2 4,200
+1,Feet Slot, Boots of striding 4,200
+1,Neck, Cloak of survival +2 4,200
+1,Armor, Bloodcut +2 4,200 Leather, Hide
+1,Waist, Dynamic belt (heroic tier) 4,200
+1,Armor, Ghostphase +2 4,200 Cloth
+1,Neck, Amulet of false life +2 4,200
+1,Weapon, Thunderburst +2 4,200 Any ranged
+1,Weapon, Dragonslayer +2 4,200 Any
+1,Weapon, Myrdroon's Shard +2 4,200 Spear (Dragon 364 p24)
+1,Holy Symbol, Symbol of Turning +2 4,200 (Dragon 364 p44)
+1,Weapon, Wolfen Weapon +2 4,200 Heavy Blade, Light Blade (Dragon 364 p52)
+1,Armor, Dragonclaw Armor +2 4,200 Leather, Hide (Dragon 365 p55)
+1,Armor, Fortified Armor +2 4,200 Plate (Dragon 365 p55)
+1,Weapon, Impaling Weapon +2 4,200 Pick, Spear (Dragon 365 p55)
+1,Implement(Holy Symbol), Symbol of Courage +2 4,200 (Dragon 365 p56)
+1,Implement(Rod), Rod of Draconic Fury +2 4,200 (Dragon 365 p57)
+
+# LEVEL TEN
+;10
+1,Wondrous Item, Handy haversack 5,000
+1,Arm Slot, Guardian shield (heroic tier) 5,000
+1,Weapon, Lightning +2 5,000 Any
+1,Armor, Battleforged +2 5,000 Plate
+1,Staff, Staff of storms +2 5,000
+1,Head, Helm of heroes (heroic tier) 5,000
+1,Wondrous Item, Rope of climbing 5,000
+1,Armor, Barkskin +2 5,000 Hide, Scale
+1,Orb, Orb of sanguinary repercussions +2 5,000
+1,Weapon, Lifedrinker +2 5,000 Any melee
+1,Weapon, Flaming +2 5,000 Any
+1,Holy Symbol, Symbol of battle +2 5,000
+1,Rod, Rod of reaving +2 5,000
+1,Rod, Rod of the pyre +2 5,000
+1,Armor, Deathcut +2 5,000 Leather, Hide
+1,Weapon, Berserker +2 5,000 Axe, Heavy Blade
+1,Armor, Bloodthread +2 5,000 Cloth
+1,Armor, Exalted +2 5,000 Chain
+1,Weapon, Wraithblade +2 5,000 Light Blade (Dragon 364 p44)
+1,Weapon, Final Word Weapon +2 5,000 Axe, Heavy Blade (Dragon 365 p55)
+1,Implement(Staff), Staff of Draconic Power +2 5,000 (Dragon 365 p57)
+
+# LEVEL ELEVEN
+;11
+1,Armor, Magic +3 9,000 Any
+1,Neck, Amulet of protection +3 9,000
+1,Orb, Magic orb +3 9,000
+1,Wondrous Item, Sending stones (pair) 9,000
+1,Rod, Magic rod +3 9,000
+1,Wondrous Item, Ritual candle 9,000
+1,Holy Symbol, Magic holy symbol +3 9,000
+1,Staff, Magic staff +3 9,000
+1,Weapon, Magic +3 9,000 Any
+1,Wand, Magic wand +3 9,000
+1,Feet Slot, Elven boots 9,000
+1,Armor, Dragonrider Armor +3 9,000 Scale (Dragon 365 p55)
+
+# LEVEL TWELVE
+;12
+1,Holy Symbol, Symbol of life +3 13,000
+1,Neck, Cloak of resistance +3 13,000
+1,Arm Slot, Shield of deflection (paragon tier) 13,000
+1,Armor, Sunleaf +3 13,000 Cloth, Leather, Hide
+1,Weapon, Resounding +3 13,000 Hammer, Flail,Mace, Sling, Staff
+1,Armor, Razor +3 13,000 Scale
+1,Orb, Orb of indisputable gravity +3 13,000
+1,Holy Symbol, Symbol of power +3 13,000
+1,Weapon, Vicious +3 13,000 Any
+1,Wondrous Item, Keoghtom’s ointment 13,000
+1,Hand, Rogue’s gloves 13,000
+1,Armor, Dwarven +3 13,000 Chain, Scale, Plate
+1,Waist, Belt of vigor (paragon tier) 13,000
+1,Head, Helm of the eagle 13,000
+1,Arm Slot, Bracers of mighty striking (paragon tier) 13,000
+1,Neck, Elven cloak +3 13,000
+1,Feet Slot, Battlestrider greaves 13,000
+1,Staff, Staff of fiery might +3 13,000
+1,Rod, Rod of dark reward +3 13,000
+1,Head, Skull Helm 13,000 (Dragon 364 p45)
+1,Feet, Greaves of Maideen 13,000 (Dragon 364 p 52)
+1,Implement(Rod), Rod of Deadly Casting +3 13,000 (Dragon 365 p14)
+1,Armor, Immolating Armor +3 13,000 Chain, Scale (Dragon 365 p55)
+1,Armor, Rimewrought Armor +3 13,000 Scale, Plate (Dragon 365 p55)
+1,Weapon, Homing Weapon +3 13,000 Bow, Crossbow (Dragon 365 p55)
+1,Weapon, Relentless Weapon +3 13,000 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of Excellence +3 13,000 (Dragon 365 p57)
+1,Implement(Rod), Rod of Baleful Geas +3 13,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Expansion +3 13,000 (Dragon 365 p57)
+1,Feet, Quickstride Boots 13,000 (Dragon 365 p59)
+
+# LEVEL THIRTEEN
+;13
+1,Neck, Periapt of wisdom +3 17,000
+1,Armor, Mountain +3 17,000 Plate
+1,Wand, Wand of witchfire +3 17,000
+1,Armor, Sylvan +3 17,000 Cloth, Leather, Hide
+1,Wand, Wand of shield +3 17,000
+1,Arm Slot, Bracers of the perfect shot (paragon tier) 17,000
+1,Wand, Wand of ray of enfeeblement +3 17,000
+1,Weapon, Thundering +3 17,000 Any
+1,Armor, Curseforged +3 17,000 Chain, Scale
+1,Orb, Orb of inevitable continuance +3 17,000
+1,Wand, Wand of fiery bolt +3 17,000
+1,Weapon, Flameburst +3 17,000 Any ranged
+1,Rod, Rod of corruption +3 17,000
+1,Neck, Safewing amulet +3 17,000
+1,Orb, Orb of drastic resolutions +3 17,000
+1,Wondrous Item, Dust of appearance 17,000
+1,Holy Symbol, Symbol of hope +3 17,000
+1,Weapon, Duelist’s +3 17,000 Light Blade
+1,Feet Slot, Winged boots 17,000
+1,Wand, Wand of icy rays +3 17,000
+1,Wand, Wand of (power level 7 or lower) +3 17,000
+1,Weapon, Pact Blade +3 17,000 Light Blade
+1,Armor, Delver’s +3 17,000 Any
+1,Staff, Thunderwave staff +3 17,000
+1,Staff, Staff of the war mage +3 17,000
+1,Neck, Amulet of health +3 17,000
+1,Weapon, Frost +3 17,000 Any
+1,Armor, Fireburst +3 17,000 Cloth
+1,Armor, Hydra +3 17,000 Scale
+1,Armor, Shadowflow +3 17,000 Cloth, Leather
+1,Rod, Rod of first blood +3 17,000
+1,Wand, Wand of eldritch rain +3 17,000
+1,Wand, Wand of fire burst +3 17,000
+1,Armor, Eladrin +3 17,000 Chain
+1,Arm Slot, Shield of protection (paragon tier) 17,000
+1,Armor, Elven battle +3 17,000 Leather, Hide
+1,Weapon, Disrupting +2 17,000 Flail, Hammer, Mace (Dragon 364 p 44)
+1,Implement(Staff), Staff of the Lich +2 17,000 (Dragon 364 p44)
+1,Implement(Rod), Rod of Runic Resistance +3 17,000 (Dragon 365 p14)
+1,Armor, Stonemeld Armor +3 17,000 Cloth, Leather (Dragon 365 p15)
+1,Ring, Purple Dragon Commander's Ring 17,000 (Dragon 365 p20)
+1,Weapon, Mind-Rending Weapon + Heavy Blade, Light Blade (Dragon 365 p55)
+1,Weapon, Vitriolic Weapon +3 17,000 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of the Dragon +3 17,000 (Dragon 365 p57)
+1,Implement(Orb), Orb of Inexplicable Contention +3 17,000 (Dragon 365 p57)
+1,Implement(Orb), Orb of Temporal Dissonance +3 17,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Verdant Growth +3 17,000 (Dragon 365 p57)
+1,Arms, Netherdark Shield 17,000 (Dragon 365 p59)
+1,Neck, Amulet of Scales +3 17,000 (Dragon 365 p59)
+
+# LEVEL FOURTEEN
+;14
+1,Feet Slot, Boots of striding and springing 21,000
+1,Orb, Orb of reversed polarities +3 21,000
+1,Arm Slot, Shield of warding (paragon tier) 21,000
+1,Neck, Amulet of false life +3 21,000
+1,Wondrous Item, Feather boat 21,000
+1,Holy Symbol, Symbol of victory +3 21,000
+1,Staff, Staff of winter +3 21,000
+1,Rod, Rod of harvest +3 21,000
+1,Neck, Cloak of survival +3 21,000
+1,Armor, Ghostphase +3 21,000 Cloth
+1,Ring, Iron ring of the dwarf lords 21,000
+1,Head, Goggles of night 21,000
+1,Armor, Black Iron +3 21,000 Scale, Plate
+1,Armor, Tombforged +3 21,000 Chain
+1,Armor, Flamedrinker +3 21,000 Plate
+1,Armor, Bloodcut +3 21,000 Leather, Hide
+1,Armor, Darkleaf +3 21,000 Cloth, Leather, Hide
+1,Weapon, Terror +3 21,000 Axe, Hammer,Heavy Blade
+1,Weapon, Phasing +3 21,000 Any ranged
+1,Weapon, Dragonslayer +3 21,000 Any
+1,Weapon, Thunderburst +3 21,000 Any ranged
+1,Weapon, Myrdroon's Shard +3 21,000 Spear (Dragon 364 p24)
+1,Holy Symbol, Symbol of Turning +3 21,000 (Dragon 364 p44)
+1,Ring, Ring of Invigoration 13,000 (Dragon 364 p45)
+1,Weapon, Wolfen Weapon +3 21,000 Heavy Blade, Light Blade (Dragon 364 p52)
+1,Armor, Dragonclaw Armor +3 21,000 Leather, Hide (Dragon 365 p55)
+1,Armor, Fortified Armor +3 21,000 Plate (Dragon 365 p55)
+1,Weapon, Impaling Weapon +3 21,000 Pick, Spear (Dragon 365 p55)
+1,Implement(Holy Symbol), Symbol of Courage +3 21,000 (Dragon 365 p56)
+1,Implement(Rod), Rod of Draconic Fury +3 21,000 (Dragon 365 p57)
+1,Head, Mask of Terrors 21,000 (Dragon 365 p59)
+1,Head, Ruby Lenses 21,000 (Dragon 365 p59)
+
+# LEVEL FIFTEEN
+;15
+1,Arm Slot, Bashing shield (paragon tier) 25,000
+1,Waist, Belt of giant strength 25,000
+1,Holy Symbol, Symbol of battle +3 25,000
+1,Orb, Orb of sanguinary repercussions +3 25,000
+1,Weapon, Lightning +3 25,000 Any
+1,Weapon, Flaming +3 25,000 Any
+1,Neck, Stormwalker’s cloak +3 25,000
+1,Armor, Bloodthread +3 25,000 Cloth
+1,Armor, Barkskin +3 25,000 Hide, Scale
+1,Staff, Staff of storms +3 25,000
+1,Rod, Rod of reaving +3 25,000
+1,Armor, Exalted +3 25,000 Chain
+1,Weapon, Berserker +3 25,000 Axe, Heavy Blade
+1,Rod, Rod of the pyre +3 25,000
+1,Armor, Battleforged +3 25,000 Plate
+1,Waist, Ironskin belt (paragon tier) 25,000
+1,Ring, Ring of freedom of movement 25,000
+1,Armor, Trollskin +3 25,000 Hide, Scale
+1,Weapon, Lifedrinker +3 25,000 Any melee
+1,Armor, Deathcut +3 25,000 Leather, Hide
+1,Weapon, Wraithblade +3 25,000 Light Blade (Dragon 364 p44)
+1,Wondrous Item, Pouch of Ghost-Grounding Dust 25,000 (Dragon 364 p45)
+1,Weapon, Final Word Weapon +3 25,000 Axe, Heavy Blade (Dragon 365 p55)
+1,Implement(Orb), Orb of Fiery Condemnation +3 25,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Draconic Power +3 25,000 (Dragon 365 p57)
+
+# LEVEL SIXTEEN
+;16
+1,Hand, Shadowfell gloves (paragon tier) 45,000
+1,Feet Slot, Eladrin boots 45,000
+1,Head, Horned helm (paragon tier) 45,000
+1,Wand, Magic wand +4 45,000
+1,Staff, Magic staff +4 45,000
+1,Rod, Magic rod +4 45,000
+1,Weapon, Magic +4 45,000 Any
+1,Holy Symbol, Magic holy symbol +4 45,000
+1,Neck, Amulet of protection +4 45,000
+1,Armor, Magic +4 45,000 Any
+1,Orb, Magic orb +4 45,000
+1,Arm Slot, Dragondaunt shield (paragon tier) 45,000
+1,Armor, Dragonrider Armor +4 45,000 Scale (Dragon 365 p55)
+
+# LEVEL SEVENTEEN
+;17
+1,Head, Crown of command 65,000
+1,Wondrous Item, Dimensional shackles 65,000
+1,Armor, Dwarven +4 65,000 Chain, Scale, Plate
+1,Ring, Ring of protection 65,000
+1,Staff, Staff of fiery might +4 65,000
+1,Waist, Belt of sacrifice (paragon tier) 65,000
+1,Weapon, Vicious +4 65,000 Any
+1,Armor, Sunleaf +4 65,000 Cloth, Leather, Hide
+1,Holy Symbol, Symbol of power +4 65,000
+1,Armor, Razor +4 65,000 Scale
+1,Holy Symbol, Symbol of life +4 65,000
+1,Neck, Cloak of resistance +4 65,000
+1,Neck, Elven cloak +4 65,000
+1,Rod, Rod of dark reward +4 65,000
+1,Weapon, Resounding +4 65,000 Hammer, Flail,Mace, Sling, Staff
+1,Orb, Orb of indisputable gravity +4 65,000
+1,Arm Slot, Bracers of defense (paragon tier) 65,000
+1,Implement(Rod), Rod of Deadly Casting +4 65,000 (Dragon 365 p14)
+1,Armor, Immolating Armor +4 65,000 Chain, Scale (Dragon 365 p55)
+1,Armor, Rimewrought Armor +4 65,000 Scale, Plate (Dragon 365 p55)
+1,Weapon, Relentless Weapon +4 65,000 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of Excellence +4 65,000 (Dragon 365 p57)
+1,Implement(Rod), Rod of Baleful Geas +4 65,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Expansion +4 65,000 (Dragon 365 p57)
+1,Arms, Bracers of Escape 65,000 (Dragon 365 p57)
+
+# LEVEL EIGHTEEN
+;18
+1,Wand, Wand of ray of enfeeblement +4 85,000
+1,Wand, Wand of icy rays +4 85,000
+1,Weapon, Pact Blade +4 85,000 Light Blade
+1,Weapon, Thundering +4 85,000 Any
+1,Wand, Wand of eldritch rain +4 85,000
+1,Armor, Mountain +4 85,000 Plate
+1,Orb, Orb of inevitable continuance +4 85,000
+1,Weapon, Duelist’s +4 85,000 Light Blade
+1,Hand, Gauntlets of destruction 85,000
+1,Weapon, Frost +4 85,000 Any
+1,Armor, Delver’s +4 85,000 Any
+1,Armor, Sylvan +4 85,000 Cloth, Leather, Hide
+1,Staff, Thunderwave staff +4 85,000
+1,Arm Slot, Shield of defiance (paragon tier) 85,000
+1,Armor, Curseforged +4 85,000 Chain, Scale
+1,Armor, Elven battle +4 85,000 Leather, Hide
+1,Wand, Wand of soul flaying +4 85,000
+1,Wand, Wand of fiery bolt +4 85,000
+1,Weapon, Flameburst +4 85,000 Any ranged
+1,Head, Basilisk helm 85,000
+1,Rod, Rod of corruption +4 85,000
+1,Holy Symbol, Symbol of hope +4 85,000
+1,Wand, Wand of fire burst +4 85,000
+1,Rod, Rod of first blood +4 85,000
+1,Neck, Safewing amulet +4 85,000
+1,Wand, Wand of (power level 13 or lower) +4 85,000
+1,Wand, Wand of shield +4 85,000
+1,Armor, Eladrin +4 85,000 Chain
+1,Neck, Amulet of health +4 85,000
+1,Armor, Shadowflow +4 85,000 Cloth, Leather
+1,Ring, Ring of invisibility 85,000
+1,Armor, Hydra +4 85,000 Scale
+1,Staff, Staff of the war mage +4 85,000
+1,Wand, Wand of witchfire +4 85,000
+1,Armor, Fireburst +4 85,000 Cloth
+1,Neck, Periapt of wisdom +4 85,000
+1,Orb, Orb of drastic resolutions +4 85,000
+1,Weapon, Disrupting +3 85,000 Flail, Hammer, Mace (Dragon 364 p 44)
+1,Implement(Staff), Staff of the Lich +3 85,000 (Dragon 364 p44)
+1,Implement(Rod), Rod of Runic Resistance +4 85,000 (Dragon 365 p14)
+1,Armor, Stonemeld Armor +4 85,000 Cloth, Leather (Dragon 365 p15)
+1,Weapon, Mind-Rending Weapon +4 85,000 Heavy Blade, Light Blade (Dragon 365 p55)
+1,Weapon, Vitriolic Weapon +85,000 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of the Dragon +4 85,000 (Dragon 365 p57)
+1,Implement(Orb), Orb of Inexplicable Contention +4 85,000 (Dragon 365 p57)
+1,Implement(Orb), Orb of Temporal Dissonance +4 85,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Verdant Growth +4 85,000 (Dragon 365 p57)
+1,Head, Circlet of Clear Thought 85,000 (Dragon 365 p59)
+1,Neck, Amulet of Scales +4 85,000 (Dragon 365 p59)
+1,Ring, Ring of Draconic Zeal 85,000 (Dragon 365 p59)
+1,Waist, Belt of Mountain Endurance 85,000 (Dragon 365 p60)
+
+# LEVEL NINETEEN
+;19
+1,Weapon, Dragonslayer +4 105,000 Any
+1,Armor, Flamedrinker +4 105,000 Plate
+1,Armor, Darkleaf +4 105,000 Cloth, Leather, Hide
+1,Weapon, Phasing +4 105,000 Any ranged
+1,Ring, Ring of true seeing 105,000
+1,Staff, Staff of power +4 105,000
+1,Staff, Staff of winter +4 105,000
+1,Waist, Dynamic belt (paragon tier) 105,000
+1,Wondrous Item, Portable hole 105,000
+1,Armor, Ghostphase +4 105,000 Cloth
+1,Armor, Tombforged +4 105,000 Chain
+1,Neck, Amulet of false life +4 105,000
+1,Armor, Black Iron +4 105,000 Scale, Plate
+1,Rod, Rod of harvest +4 105,000
+1,Weapon, Thunderburst +4 105,000 Any ranged
+1,Head, Helm of battle (paragon tier) 105,000
+1,Armor, Bloodcut +4 105,000 Leather, Hide
+1,Weapon, Terror +4 105,000 Axe, Hammer,Heavy Blade
+1,Armor, Angelsteel +4 105,000 Chain
+1,Orb, Orb of reversed polarities +4 105,000
+1,Neck, Cloak of survival +4 105,000
+1,Holy Symbol, Symbol of victory +4 105,000
+1,Armor, Soulforged +4 105,000 Plate
+1,Weapon, Myrdroon's Shard +4 105,000 Spear (Dragon 364 p24)
+1,Holy Symbol, Symbol of Turning +4 105,000 (Dragon 364 p44)
+1,Weapon, Wolfen Weapon +4 105,000 Heavy Blade, Light Blade (Dragon 364 p52)
+1,Implement(Rod), Ingot Liberatis +4 105,000 (Dragon 365 p14)
+1,Armor, Dragonclaw Armor +4 105,000 Leather, Hide (Dragon 365 p55)
+1,Armor, Fortified Armor +4 105,000 Plate (Dragon 365 p55)
+1,Weapon, Impaling Weapon +4 105,000 Pick, Spear (Dragon 365 p55)
+1,Implement(Holy Symbol), Symbol of Courage +4 105,000 (Dragon 365 p56)
+1,Implement(Rod), Rod of Draconic Fury +4 105,000 (Dragon 365 p57)
+1,Arms, Dragonscale Shield 105,000 (Dragon 365 p57)
+
+# LEVEL TWENTY
+;20
+1,Holy Symbol, Symbol of battle +4 125,000
+1,Rod, Rod of reaving +4 125,000
+1,Armor, Battleforged +4 125,000 Plate
+1,Armor, Barkskin +4 125,000 Hide, Scale
+1,Staff, Staff of storms +4 125,000
+1,Orb, Orb of sanguinary repercussions +4 125,000
+1,Orb, Orb of invasive fortune +4 125,000
+1,Wondrous Item, Revenant ankh 125,000
+1,Ring, Ring of flight 125,000
+1,Rod, Rod of the pyre +4 125,000
+1,Armor, Deathcut +4 125,000 Leather, Hide
+1,Wondrous Item, Flying carpet 125,000
+1,Neck, Guardian’s cape +4 125,000
+1,Weapon, Berserker +4 125,000 Axe, Heavy Blade
+1,Armor, Trollskin +4 125,000 Hide, Scale
+1,Arm Slot, Guardian shield (paragon tier) 125,000
+1,Head, Helm of heroes (paragon tier) 125,000
+1,Weapon, Dancing +4 125,000 Heavy Blade,Light Blade
+1,Weapon, Lightning +4 125,000 Any
+1,Armor, Bloodthread +4 125,000 Cloth
+1,Weapon, Lifedrinker +4 125,000 Any melee
+1,Weapon, Flaming +4 125,000 Any
+1,Armor, Exalted +4 125,000 Chain
+1,Neck, Stormwalker’s cloak +4 125,000
+1,Neck, Cloak of feywild escape +4 125,000
+1,Weapon, Wraithblade +4 125,000 Light Blade (Dragon 364 p44)
+1,Head, Hood of the Wolf 125,000 (Dragon 364 p52)
+1,Weapon, Final Word Weapon +4 125,000 Axe, Heavy Blade (Dragon 365 p55)
+1,Implement(Orb), Orb of Fiery Condemnation +4 125,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Draconic Power +4 125,000 (Dragon 365 p57)
+
+# LEVEL TWENTY-ONE
+;21
+1,Rod, Magic rod +5 225,000
+1,Neck, Amulet of protection +5 225,000
+1,Holy Symbol, Magic holy symbol +5 225,000
+1,Orb, Magic orb +5 225,000
+1,Ring, Ring of wizardry 225,000
+1,Staff, Magic staff +5 225,000
+1,Weapon, Magic +5 225,000 Any
+1,Wand, Magic wand +5 225,000
+1,Armor, Magic +5 225,000 Any
+1,Armor, Dragonrider Armor +5 225,000 Scale (Dragon 365 p55)
+
+# LEVEL TWENTY-TWO
+;22
+1,Arm Slot, Bracers of mighty striking (epic tier) 325,000
+1,Armor, Razor +5 325,000 Scale
+1,Armor, Dwarven +5 325,000 Chain, Scale, Plate
+1,Holy Symbol, Symbol of life +5 325,000
+1,Feet Slot, Boots of balance 325,000
+1,Arm Slot, Shield of deflection (epic tier) 325,000
+1,Weapon, Vicious +5 325,000 Any
+1,Staff, Staff of fiery might +5 325,000
+1,Armor, Sunleaf +5 325,000 Cloth, Leather, Hide
+1,Weapon, Resounding +5 325,000 Hammer, Flail,Mace, Sling, Staff
+1,Orb, Orb of indisputable gravity +5 325,000
+1,Rod, Rod of dark reward +5 325,000
+1,Head, Helm of ghostly defense 325,000
+1,Neck, Elven cloak +5 325,000
+1,Holy Symbol, Symbol of power +5 325,000
+1,Neck, Cloak of resistance +5 325,000
+1,Waist, Belt of vigor (epic tier) 325,000
+1,Implement(Rod), Rod of Deadly Casting +5 325,000 (Dragon 365 p14)
+1,Armor, Immolating Armor +5 325,000 Chain, Scale (Dragon 365 p55)
+1,Armor, Rimewrought Armor +5 325,000 Scale, Plate (Dragon 365 p55)
+1,Weapon, Relentless Weapon +5 325,000 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of Excellence +5 325,000 (Dragon 365 p57)
+1,Implement(Rod), Rod of Baleful Geas +5 325,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Expansion +5 325,000 (Dragon 365 p57)
+1,Hands, Far Hand Gloves 325,000 (Dragon 365 p59)
+
+# LEVEL TWENTY-THREE
+;23
+1,Weapon, Frost +5 425,000 Any
+1,Wand, Wand of icy rays +5 425,000
+1,Weapon, Duelist’s +5 425,000 Light Blade
+1,Weapon, Pact Blade +5 425,000 Light Blade
+1,Wand, Wand of shield +5 425,000
+1,Weapon, Flameburst +5 425,000 Any ranged
+1,Weapon, Thundering +5 425,000 Any
+1,Armor, Hydra +5 425,000 Scale
+1,Rod, Rod of death’s grasp +5 425,000
+1,Wand, Wand of ray of enfeeblement +5 425,000
+1,Hand, Guildmaster’s gloves 425,000
+1,Staff, Staff of the war mage +5 425,000
+1,Wand, Wand of soul flaying +5 425,000
+1,Wand, Wand of (power level 17 or lower) +5 425,000
+1,Armor, Sylvan +5 425,000 Cloth, Leather, Hide
+1,Neck, Safewing amulet +5 425,000
+1,Armor, Fireburst +5 425,000 Cloth
+1,Armor, Mountain +5 425,000 Plate
+1,Armor, Curseforged +5 425,000 Chain, Scale
+1,Arm Slot, Shield of protection (epic tier) 425,000
+1,Orb, Orb of inevitable continuance +5 425,000
+1,Orb, Orb of drastic resolutions +5 425,000
+1,Wand, Wand of fiery bolt +5 425,000
+1,Wand, Wand of eldritch rain +5 425,000
+1,Armor, Shadowflow +5 425,000 Cloth, Leather
+1,Rod, Rod of first blood +5 425,000
+1,Armor, Delver’s +5 425,000 Any
+1,Head, Phoenix helm 425,000
+1,Staff, Thunderwave staff +5 425,000
+1,Wand, Wand of witchfire +5 425,000
+1,Holy Symbol, Symbol of radiance +5 425,000
+1,Holy Symbol, Symbol of hope +5 425,000
+1,Armor, Mantle of the Seventh Wind +5 425,000 Cloth
+1,Neck, Cloak of invisibility +5 425,000
+1,Neck, Periapt of wisdom +5 425,000
+1,Wand, Wand of fire burst +5 425,000
+1,Neck, Amulet of health +5 425,000
+1,Arm Slot, Bracers of the perfect shot (epic tier) 425,000
+1,Armor, Elven battle +5 425,000 Leather, Hide
+1,Armor, Eladrin +5 425,000 Chain
+1,Rod, Rod of corruption +5 425,000
+1,Weapon, Disrupting +4 425,000 Flail, Hammer, Mace (Dragon 364 p 44)
+1,Implement(Staff), Staff of the Lich +4 425,000 (Dragon 364 p44)
+1,Implement(Rod), Rod of Runic Resistance +5 425,000 (Dragon 365 p14)
+1,Armor, Stonemeld Armor +5 425,000 Cloth, Leather (Dragon 365 p15)
+1,Weapon, Mind-Rending Weapon +5 425,000 Heavy Blade, Light Blade (Dragon 365 p55)
+1,Weapon, Vitriolic Weapon +5 425,000 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of the Dragon +5 425,000 (Dragon 365 p57)
+1,Implement(Orb), Orb of Inexplicable Contention +5 425,000 (Dragon 365 p57)
+1,Implement(Orb), Orb of Temporal Dissonance +5 425,000 (Dragon 365 p57)
+1,Implement(Rod), Rod of The Dragon's Heart +5 425,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Verdant Growth +5 425,000 (Dragon 365 p57)
+1,Arms, Netherdark Shield 425,000 (Dragon 365 p59)
+1,Feet, Earthwalker's Boots (Dragon 365 p59)
+1,Head, Eyes of the Dragon 425,000 (Dragon 365 p59)
+1,Neck, Amulet of Scales +5 425,000 (Dragon 365 p59)
+
+# LEVEL TWENTY-FOUR
+;24
+1,Armor, Soulforged +5 525,000 Plate
+1,Arm Slot, Shield of warding (epic tier) 525,000
+1,Staff, Staff of winter +5 525,000
+1,Armor, Ghostphase +5 525,000 Cloth
+1,Weapon, Phasing +5 525,000 Any ranged
+1,Ring, Ring of regeneration 525,000
+1,Armor, Tombforged +5 525,000 Chain
+1,Rod, Rod of harvest +5 525,000
+1,Staff, Staff of power +5 525,000
+1,Weapon, Terror +5 525,000 Axe, Hammer,Heavy Blade
+1,Weapon, Dragonslayer +5 525,000 Any
+1,Holy Symbol, Symbol of victory +5 525,000
+1,Armor, Bloodcut +5 525,000 Leather, Hide
+1,Neck, Amulet of false life +5 525,000
+1,Armor, Angelsteel +5 525,000 Chain
+1,Armor, Flamedrinker +5 525,000 Plate
+1,Weapon, Thunderburst +5 525,000 Any ranged
+1,Neck, Cloak of survival +5 525,000
+1,Armor, Black Iron +5 525,000 Scale, Plate
+1,Orb, Orb of reversed polarities +5 525,000
+1,Armor, Darkleaf +5 525,000 Cloth, Leather, Hide
+1,Weapon, Myrdroon's Shard +5 525,000 Spear (Dragon 364 p24)
+1,Holy Symbol, Symbol of Turning +5 525,000 (Dragon 364 p44)
+1,Weapon, Wolfen Weapon +5 525,000 Heavy Blade, Light Blade (Dragon 364 p52)
+1,Implement(Rod), Ingot Liberatis +5 525,000 (Dragon 365 p14)
+1,Armor, Dragonclaw Armor +5 525,000 Leather, Hide (Dragon 365 p55)
+1,Armor, Fortified Armor +5 525,000 Plate (Dragon 365 p55)
+1,Weapon, Impaling Weapon +5 525,000 Pick, Spear (Dragon 365 p55)
+1,Implement(Holy Symbol), Symbol of Courage +5 525,000 (Dragon 365 p56)
+1,Implement(Rod), Rod of Draconic Fury +5 525,000 (Dragon 365 p57)
+1,Ring, Ring of the Ghost Knight 525,000 (Dragon 365 p60)
+
+# LEVEL TWENTY-FIVE
+;25
+1,Staff, Staff of storms +5 625,000
+1,Armor, Barkskin +5 625,000 Hide, Scale
+1,Holy Symbol, Symbol of battle +5 625,000
+1,Head, Halo of fallen stars 625,000
+1,Neck, Stormwalker’s cloak +5 625,000
+1,Neck, Guardian’s cape +5 625,000
+1,Weapon, Flaming +5 625,000 Any
+1,Weapon, Dancing +5 625,000 Heavy Blade,Light Blade
+1,Waist, Belt of titan strength 625,000
+1,Neck, Cloak of feywild escape +5 625,000
+1,Armor, Bloodthread +5 625,000 Cloth
+1,Weapon, Holy Avenger +5 625,000 Axe, Hammer,Heavy Blade
+1,Weapon, Lightning +5 625,000 Any
+1,Weapon, Lifedrinker +5 625,000 Any melee
+1,Rod, Rod of reaving +5 625,000
+1,Weapon, Berserker +5 625,000 Axe, Heavy Blade
+1,Waist, Ironskin belt (epic tier) 625,000
+1,Arm Slot, Bashing shield (epic tier) 625,000
+1,Rod, Rod of the pyre +5 625,000
+1,Armor, Battleforged +5 625,000 Plate
+1,Orb, Orb of sanguinary repercussions +5 625,000
+1,Armor, Exalted +5 625,000 Chain
+1,Armor, Trollskin +5 625,000 Hide, Scale
+1,Armor, Deathcut +5 625,000 Leather, Hide
+1,Orb, Orb of invasive fortune +5 625,000
+1,Weapon, Wraithblade +5 625,000 Light Blade (Dragon 364 p44)
+1,Weapon, Final Word Weapon +5 625,000 Axe, Heavy Blade (Dragon 365 p55)
+1,Implement(Orb), Orb of Fiery Condemnation +5 625,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Draconic Power +5 625,000 (Dragon 365 p57)
+
+# LEVEL TWENTY-SIX
+;26
+1,Neck, Amulet of protection +6 1,125,000
+1,Weapon, Magic +6 1,125,000 Any
+1,Ring, Star opal ring 1,125,000
+1,Head, Horned helm (epic tier) 1,125,000
+1,Hand, Shadowfell gloves (epic tier) 1,125,000
+1,Orb, Magic orb +6 1,125,000
+1,Armor, Magic +6 1,125,000 Any
+1,Holy Symbol, Magic holy symbol +6 1,125,000
+1,Arm Slot, Dragondaunt shield (epic tier) 1,125,000
+1,Staff, Magic staff +6 1,125,000
+1,Rod, Magic rod +6 1,125,000
+1,Wand, Magic wand +6 1,125,000
+1,Armor, Dragonrider Armor +6 1,125,000 Scale (Dragon 365 p55)
+
+# LEVEL TWENTY-SEVEN
+;27
+1,Arm Slot, Bracers of defense (epic tier) 1,625,000
+1,Armor, Dwarven +6 1,625,000 Chain, Scale, Plate
+1,Staff, Staff of fiery might +6 1,625,000
+1,Orb, Orb of indisputable gravity +6 1,625,000
+1,Holy Symbol, Symbol of life +6 1,625,000
+1,Waist, Belt of sacrifice (epic tier) 1,625,000
+1,Rod, Rod of dark reward +6 1,625,000
+1,Neck, Cloak of resistance +6 1,625,000
+1,Holy Symbol, Symbol of power +6 1,625,000
+1,Neck, Elven cloak +6 1,625,000
+1,Weapon, Vicious +6 1,625,000 Any
+1,Armor, Razor +6 1,625,000 Scale
+1,Head, Iron of spite 1,625,000
+1,Armor, Sunleaf +6 1,625,000 Cloth, Leather, Hide
+1,Weapon, Resounding +6 1,625,000 Hammer, Flail,Mace, Sling, Staff
+1,Implement(Rod), Rod of Deadly Casting +6 1,625,000 (Dragon 365 p14)
+1,Armor, Immolating Armor +6 1,625,000 Chain, Scale (Dragon 365 p55)
+1,Armor, Rimewrought Armor +6 1,625,000 Scale, Plate (Dragon 365 p55)
+1,Weapon, Relentless Weapon +6 1,625,000 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of Excellence +6 1,625,000 (Dragon 365 p57)
+1,Implement(Rod), Rod of Baleful Geas +6 1,625,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Expansion +6 1,625,000 (Dragon 365 p57)
+1,Arms, Bracers of Escape 1,625,000 (Dragon 365 p57)
+
+# LEVEL TWENTY-EIGHT
+;28
+1,Feet Slot, Boots of the infinite stride 2,125,000
+1,Wand, Wand of fiery bolt +6 2,125,000
+1,Wand, Wand of fire burst +6 2,125,000
+1,Wand, Wand of (power level 23 or lower) +6 2,125,000
+1,Staff, Thunderwave staff +6 2,125,000
+1,Armor, Shadowflow +6 2,125,000 Cloth, Leather
+1,Wand, Wand of witchfire +6 2,125,000
+1,Wand, Wand of soul flaying +6 2,125,000
+1,Wand, Wand of ray of enfeeblement +6 2,125,000
+1,Wand, Wand of icy rays +6 2,125,000
+1,Armor, Delver’s +6 2,125,000 Any
+1,Armor, Eladrin +6 2,125,000 Chain
+1,Arm Slot, Shield of defiance (epic tier) 2,125,000
+1,Armor, Elven battle +6 2,125,000 Leather, Hide
+1,Orb, Orb of drastic resolutions +6 2,125,000
+1,Armor, Curseforged +6 2,125,000 Chain, Scale
+1,Rod, Rod of first blood +6 2,125,000
+1,Head, Ioun stone of true sight 2,125,000
+1,Wand, Wand of eldritch rain +6 2,125,000
+1,Rod, Rod of corruption +6 2,125,000
+1,Rod, Rod of death’s grasp +6 2,125,000
+1,Orb, Orb of inevitable continuance +6 2,125,000
+1,Armor, Hydra +6 2,125,000 Scale
+1,Armor, Mountain +6 2,125,000 Plate
+1,Armor, Fireburst +6 2,125,000 Cloth
+1,Weapon, Pact Blade +6 2,125,000 Light Blade
+1,Neck, Amulet of health +6 2,125,000
+1,Neck, Cloak of invisibility +6 2,125,000
+1,Holy Symbol, Symbol of hope +6 2,125,000
+1,Neck, Periapt of wisdom +6 2,125,000
+1,Staff, Staff of the war mage +6 2,125,000
+1,Weapon, Flameburst +6 2,125,000 Any ranged
+1,Weapon, Frost +6 2,125,000 Any
+1,Weapon, Thundering +6 2,125,000 Any
+1,Wand, Wand of shield +6 2,125,000
+1,Armor, Mantle of the Seventh Wind +6 2,125,000 Cloth
+1,Armor, Sylvan +6 2,125,000 Cloth, Leather, Hide
+1,Neck, Safewing amulet +6 2,125,000
+1,Weapon, Duelist’s +6 2,125,000 Light Blade
+1,Holy Symbol, Symbol of radiance +6 2,125,000
+1,Weapon, Disrupting +5 2,125,000 Flail, Hammer, Mace (Dragon 364 p 44)
+1,Implement(Staff), Staff of the Lich +5 2,125,000 (Dragon 364 p44)
+1,Implement(Rod), Rod of Runic Resistance +6 2,125,000 (Dragon 365 p14)
+1,Armor, Stonemeld Armor +6 2,125,000 Cloth, Leather (Dragon 365 p15)
+1,Weapon, Mind-Rending Weapon +6 2,125,000 Heavy Blade, Light Blade (Dragon 365 p55)
+1,Weapon, Vitriolic Weapon +6 2,125,000 Flail, Hammer, Mace (Dragon 365 p56)
+1,Implement(Holy Symbol), Symbol of the Dragon +6 2,125,000 (Dragon 365 p57)
+1,Implement(Orb), Orb of Inexplicable Contention +6 2,125,000 (Dragon 365 p57)
+1,Implement(Orb), Orb of Temporal Dissonance +6 2,125,000 (Dragon 365 p57)
+1,Implement(Rod), Rod of The Dragon's Heart +6 2,125,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Verdant Growth +6 2,125,000 (Dragon 365 p57)
+1,Neck, Amulet of Scales +6 2,125,000 (Dragon 365 p59)
+
+# LEVEL TWENTY-NINE
+;29
+1,Waist, Dynamic belt (epic tier) 2,625,000
+1,Weapon, Phasing +6 2,625,000 Any ranged
+1,Armor, Bloodcut +6 2,625,000 Leather, Hide
+1,Armor, Ghostphase +6 2,625,000 Cloth
+1,Neck, Cloak of survival +6 2,625,000
+1,Head, Helm of battle (epic tier) 2,625,000
+1,Armor, Flamedrinker +6 2,625,000 Plate
+1,Neck, Amulet of false life +6 2,625,000
+1,Weapon, Terror +6 2,625,000 Axe, Hammer,Heavy Blade
+1,Staff, Staff of power +6 2,625,000
+1,Armor, Soulforged +6 2,625,000 Plate
+1,Weapon, Thunderburst +6 2,625,000 Any ranged
+1,Rod, Rod of harvest +6 2,625,000
+1,Holy Symbol, Symbol of victory +6 2,625,000
+1,Armor, Darkleaf +6 2,625,000 Cloth, Leather, Hide
+1,Armor, Angelsteel +6 2,625,000 Chain
+1,Armor, Black Iron +6 2,625,000 Scale, Plate
+1,Weapon, Dragonslayer +6 2,625,000 Any
+1,Orb, Orb of reversed polarities +6 2,625,000
+1,Armor, Tombforged +6 2,625,000 Chain
+1,Staff, Staff of winter +6 2,625,000
+1,Weapon, Myrdroon's Shard +6 2,625,000 Spear (Dragon 364 p24)
+1,Holy Symbol, Symbol of Turning +6 2,625,000 (Dragon 364 p44)
+1,Weapon, Wolfen Weapon +6 2,625,000 Heavy Blade, Light Blade (Dragon 364 p52)
+1,Implement(Rod), Ingot Liberatis +6 2,625,000 (Dragon 365 p14)
+1,Armor, Dragonclaw Armor +6 2,625,000 Leather, Hide (Dragon 365 p55)
+1,Armor, Fortified Armor +6 2,625,000 Plate (Dragon 365 p55)
+1,Weapon, Impaling Weapon +6 2,625,000 Pick, Spear (Dragon 365 p55)
+1,Implement(Holy Symbol), Symbol of Courage +6 2,625,000 (Dragon 365 p56)
+1,Implement(Rod), Rod of Draconic Fury +6 2,625,000 (Dragon 365 p57)
+1,Arms, Dragonscale Shield 2,625,000 (Dragon 365 p57)
+
+# LEVEL THIRTY
+;30
+1,Weapon, Lifedrinker +6 3,125,000 Any melee
+1,Rod, Rod of reaving +6 3,125,000
+1,Staff, Staff of storms +6 3,125,000
+1,Rod, Rod of the pyre +6 3,125,000
+1,Weapon, Berserker +6 3,125,000 Axe, Heavy Blade
+1,Weapon, Vorpal +6 3,125,000 Axe, Heavy Blade
+1,Weapon, Perfect Hunter’s +6 3,125,000 Any ranged
+1,Weapon, Lightning +6 3,125,000 Any
+1,Weapon, Holy Avenger +6 3,125,000 Axe, Hammer,Heavy Blade
+1,Weapon, Dancing +6 3,125,000 Heavy Blade,Light Blade
+1,Armor, Exalted +6 3,125,000 Chain
+1,Weapon, Flaming +6 3,125,000 Any
+1,Orb, Orb of sanguinary repercussions +6 3,125,000
+1,Head, Helm of heroes (epic tier) 3,125,000
+1,Armor, Bloodthread +6 3,125,000 Cloth
+1,Neck, Cloak of feywild escape +6 3,125,000
+1,Armor, Trollskin +6 3,125,000 Hide, Scale
+1,Armor, Deathcut +6 3,125,000 Leather, Hide
+1,Armor, Battleforged +6 3,125,000 Plate
+1,Neck, Scarab of invulnerability +6 3,125,000
+1,Neck, Guardian’s cape +6 3,125,000
+1,Orb, Orb of invasive fortune +6 3,125,000
+1,Holy Symbol, Symbol of battle +6 3,125,000
+1,Arm Slot, Guardian shield (epic tier) 3,125,000
+1,Neck, Stormwalker’s cloak +6 3,125,000
+1,Armor, Barkskin +6 3,125,000 Hide, Scale
+1,Weapon, Wraithblade +6 3,125,000 Light Blade (Dragon 364 p44)
+1,Weapon, Final Word Weapon +6 3,125,000 Axe, Heavy Blade (Dragon 365 p55)
+1,Implement(Orb), Orb of Fiery Condemnation +6 3,125,000 (Dragon 365 p57)
+1,Implement(Staff), Staff of Draconic Power +6 3,125,000 (Dragon 365 p57)
+
+:31
+1,[30]
+
+:32
+1,[30]
+
+:33
+1,[30]
+
+:34
+1,[30]

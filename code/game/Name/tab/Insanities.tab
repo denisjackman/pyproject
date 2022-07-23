@@ -1,0 +1,563 @@
+# Mental Disorders
+#
+# Potential problems for PCs who go insane, see
+#  something they can't handle, etc.
+#
+# Copyright 1998 Bruce A. Gulke
+#
+
+:Start
+1,Phobia: {Cap~[Phobia]}
+2-10,{Cap~[Disorder]}
+
+:Disorder
+1,amnesia
+2,catatonia
+3,dementia
+4,hallucinatory Insanity
+5,homicidal Mania
+6,kleptomania
+7,manic Despression
+8,megalomania
+9,paranoia
+10,schizophrenia
+
+:Phobia
+1,Ablutophobia- Fear of washing or bathing.
+2,Acarophobia- Fear of itching or of the insects that cause itching.
+3,Acerophobia- Fear of sourness.
+4,Achluophobia- Fear of darkness.
+5,Acousticophobia- Fear of noise.
+6,Acrophobia- Fear of heights.
+7,Aerophobia- Fear of drafts, air swallowing, or airbourne noxious substances.
+8,Aeroacrophobia- Fear of open high places.
+9,Aeronausiphobia- Fear of vomiting secondary to airsickness.
+10,Agateophobia- Fear of insanity.
+11,Agliophobia- Fear of pain.
+12,Agoraphobia- Fear of open spaces or of being in crowded, public places like markets. Fear of leaving a safe place.
+13,Agraphobia- Fear of sexual abuse.
+14,Agrizoophobia- Fear of wild animals.
+15,Agyrophobia- Fear of streets or crossing the street.
+16,Aichmophobia- Fear of needles or pointed objects.
+17,Ailurophobia- Fear of cats.
+18,Albuminurophobia- Fear of kidney disease.
+19,Alektorophobia- Fear of chickens.
+20,Algophobia- Fear of pain.
+21,Alliumphobia- Fear of garlic.
+22,Allodoxaphobia- Fear of opinions.
+23,Altophobia- Fear of heights.
+24,Amathophobia- Fear of dust.
+25,Amaxophobia- Fear of riding in a car.
+26,Ambulophobia- Fear of walking.
+27,Amnesiphobia- Fear of amnesia.
+28,Amychophobia- Fear of scratches or being scratched.
+29,Anablephobia- Fear of looking up.
+30,Ancraophobia- Fear of wind. (Anemophobia)
+31,Androphobia- Fear of men.
+32,Anemophobia- Fear of air drafts or wind.(Ancraophobia)
+33,Anginophobia- Fear of angina, choking or narrowness.
+34,Anglophobia- Fear of England or English culture, etc.
+35,Angrophobia - Fear of anger or of becoming angry.
+36,Ankylophobia- Fear of immobility of a joint.
+37,Anthrophobia or Anthophobia- Fear of flowers.
+38,Anthropophobia- Fear of people or society.
+39,Antlophobia- Fear of floods.
+40,Anuptaphobia- Fear of staying single.
+41,Apeirophobia- Fear of infinity.
+42,Aphenphosmphobia- Fear of being touched. (Haphephobia)
+43,Apiphobia- Fear of bees.
+44,Apotemnophobia- Fear of persons with amputations.
+45,Arachibutyrophobia- Fear of peanut butter sticking to the roof of the mouth.
+46,Arachnephobia or Arachnophobia- Fear of spiders.
+47,Arithmophobia- Fear of numbers.
+48,Arrhenphobia- Fear of men.
+49,Arsonphobia- Fear of fire.
+50,Asthenophobia- Fear of fainting or weakness.
+51,Astraphobia or Astrapophobia- Fear of thunder and lightning.(Ceraunophobia, Keraunophobia)
+52,Astrophobia- Fear of stars or celestial space.
+53,Asymmetriphobia- Fear of asymmetrical things.
+54,Ataxiophobia- Fear of ataxia. (muscular incoordination)
+55,Ataxophobia- Fear of disorder or untidiness.
+56,Atelophobia- Fear of imperfection.
+57,Atephobia- Fear of ruin or ruins.
+58,Athazagoraphobia- Fear of being forgotton or ignored or forgetting.
+59,Atomosophobia- Fear of atomic explosions.
+60,Atychiphobia- Fear of failure.
+61,Aulophobia- Fear of flutes.
+62,Aurophobia- Fear of gold.
+63,Auroraphobia- Fear of Northern lights.
+64,Autodysomophobia- Fear of one that has a vile odor.
+65,Automatonophobia- Fear of ventriloquist's dummies, animatronic creatures, wax statues - anything that falsly represents a sentient being.
+66,Automysophobia- Fear of being dirty.
+67,Autophobia- Fear of being alone or of oneself.
+68,Aviophobia or Aviatophobia- Fear of flying.
+69,Bacillophobia- Fear of microbes.
+70,Bacteriophobia- Fear of bacteria.
+71,Ballistophobia- Fear of missiles or bullets.
+72,Bolshephobia- Fear of Bolsheviks.
+73,Barophobia- Fear of gravity.
+74,Basophobia or Basiphobia- Inability to stand. Fear of walking or falling.
+75,Bathmophobia- Fear of stairs or steep slopes.
+76,Bathophobia- Fear of depth.
+77,Batophobia- Fear of heights or being close to high buildings.
+78,Batrachophobia- Fear of amphibians, such as frogs, newts, salamanders, etc.
+79,Belonephobia- Fear of pins and needles. (Aichmophobia)
+80,Bibliophobia- Fear of books.
+81,Blennophobia- Fear of slime.
+82,Bogyphobia- Fear of bogeys or the bogeyman.
+83,Botanophobia- Fear of plants.
+84,Bromidrosiphobia or Bromidrophobia- Fear of body smells.
+85,Brontophobia- Fear of thunder and lightning.
+86,Bufonophobia- Fear of toads.
+87,Cacophobia- Fear of ugliness.
+88,Cainophobia or Cainotophobia- Fear of newness, novelty.
+89,Caligynephobia- Fear of beautiful women.
+90,Cancerophobia or Carcinophobia- Fear of cancer.
+91,Cardiophobia- Fear of the heart.
+92,Carnophobia- Fear of meat.
+93,Catagelophobia- Fear of being ridiculed.
+94,Catapedaphobia- Fear of jumping from high and low places.
+95,Cathisophobia- Fear of sitting.
+96,Catoptrophobia- Fear of mirrors.
+97,Cenophobia or Centophobia- Fear of new things or ideas.
+98,Ceraunophobia or Keraunophobia- Fear of thunder and lightning.(Astraphobia, Astrapophobia)
+99,Chaetophobia- Fear of hair.
+100,Cheimaphobia or Cheimatophobia- Fear of cold.(Frigophobia, Psychophobia)
+101,Chemophobia- Fear of chemicals or working with chemicals.
+102,Cherophobia- Fear of gaiety.
+103,Chionophobia- Fear of snow.
+104,Chiraptophobia- Fear of being touched.
+105,Chirophobia- Fear of hands.
+106,Chiroptophobia- Fear of bats.
+107,Cholerophobia- Fear of anger or the fear of cholera.
+108,Chorophobia- Fear of dancing.
+109,Chrometophobia or Chrematophobia- Fear of money.
+110,Chromophobia or Chromatophobia- Fear of colors.
+111,Chronophobia- Fear of time.
+112,Chronomentrophobia- Fear of clocks.
+113,Cibophobia- Fear of food.(Sitophobia, Sitiophobia)
+114,Claustrophobia- Fear of confined spaces.
+115,Cleithrophobia or Cleisiophobia- Fear of being locked in an enclosed place.
+116,Cleptophobia- Fear of stealing.
+117,Climacophobia- Fear of stairs, climbing, or of falling downstairs.
+118,Clinophobia- Fear of going to bed.
+119,Clithrophobia or Cleithrophobia- Fear of being enclosed.
+120,Cnidophobia- Fear of stings.
+121,Cometophobia- Fear of comets.
+122,Coimetrophobia- Fear of cemeteries.
+123,Coitophobia- Fear of coitus.
+124,Contreltophobia- Fear of sexual abuse.
+125,Coprastasophobia- Fear of constipation.
+126,Coprophobia- Fear of feces.
+127,Consecotaleophobia- Fear of chopsticks.
+128,Coulrophobia- Fear of clowns.
+129,Counterphobia- The preference by a phobic for fearful situations.
+130,Cremnophobia- Fear of precipices.
+131,Cryophobia- Fear of extreme cold, ice or frost.
+132,Crystallophobia- Fear of crystals or glass.
+133,Cyberphobia- Fear of computers or working on a computer.
+134,Cyclophobia- Fear of bicycles.
+135,Cymophobia or Kymophobia- Fear of waves or wave like motions.
+136,Cynophobia- Fear of dogs or rabies.
+137,Cypridophobia or Cypriphobia or Cyprianophobia or Cyprinophobia - Fear of prostitutes or venereal disease.
+138,Decidophobia- Fear of making decisions.
+139,Defecaloesiophobia- Fear of painful bowels movements.
+140,Deipnophobia- Fear of dining or dinner conversations.
+141,Dementophobia- Fear of insanity.
+142,Demonophobia or Daemonophobia- Fear of demons.
+143,Demophobia- Fear of crowds. (Agoraphobia)
+144,Dendrophobia- Fear of trees.
+145,Dentophobia- Fear of dentists.
+146,Dermatophobia- Fear of skin lesions.
+147,Dermatosiophobia or Dermatophobia or Dermatopathophobia- Fear of skin disease.
+148,Dextrophobia- Fear of objects at the right side of the body.
+149,Diabetophobia- Fear of diabetes.
+150,Didaskaleinophobia- Fear of going to school.
+151,Dikephobia- Fear of justice.
+152,Dinophobia- Fear of dizziness or whirlpools.
+153,Diplophobia- Fear of double vision.
+154,Dipsophobia- Fear of drinking.
+155,Dishabiliophobia- Fear of undressing in front of someone.
+156,Disposophobia- Fear of throwing stuff out. Hoarding.
+157,Domatophobia- Fear of houses or being in a house.(Eicophobia, Oikophobia)
+158,Doraphobia- Fear of fur or skins of animals.
+159,Doxophobia- Fear of expressing opinions or of receiving praise.
+160,Dromophobia- Fear of crossing streets.
+161,Dutchphobia- Fear of the Dutch.
+162,Dysmorphophobia- Fear of deformity.
+163,Dystychiphobia- Fear of accidents.
+164,Ecclesiophobia- Fear of church.
+165,Ecophobia- Fear of home.
+166,Eicophobia- Fear of home surroundings.(Domatophobia, Oikophobia)
+167,Eisoptrophobia- Fear of mirrors or of seeing oneself in a mirror.
+168,Electrophobia- Fear of electricity.
+169,Eleutherophobia- Fear of freedom.
+170,Elurophobia- Fear of cats. (Ailurophobia)
+171,Emetophobia- Fear of vomiting.
+172,Enetophobia- Fear of pins.
+173,Enochlophobia- Fear of crowds.
+174,Enosiophobia or Enissophobia- Fear of having committed an unpardonable sin or of criticism.
+175,Entomophobia- Fear of insects.
+176,Eosophobia- Fear of dawn or daylight.
+177,Ephebiphobia- Fear of teenagers.
+178,Epistaxiophobia- Fear of nosebleeds.
+179,Epistemophobia- Fear of knowledge.
+180,Equinophobia- Fear of horses.
+181,Eremophobia- Fear of being oneself or of lonliness.
+182,Ereuthrophobia- Fear of blushing.
+183,Ergasiophobia- 1) Fear of work or functioning. 2) Surgeon's fear of operating.
+184,Ergophobia- Fear of work.
+185,Erotophobia- Fear of sexual love or sexual questions.
+186,Euphobia- Fear of hearing good news.
+187,Eurotophobia- Fear of female genitalia.
+188,Erythrophobia or Erytophobia or Ereuthophobia- 1) Fear of redlights. 2) Blushing. 3) Red.
+189,Febriphobia or Fibriphobia or Fibriophobia- Fear of fever.
+190,Felinophobia- Fear of cats. (Ailurophobia, Elurophobia, Galeophobia, Gatophobia)
+191,Francophobia- Fear of France or French culture. (Gallophobia, Galiophobia)
+192,Frigophobia- Fear of cold or cold things.(Cheimaphobia, Cheimatophobia, Psychrophobia)
+193,Galeophobia or Gatophobia- Fear of cats.
+194,Gallophobia or Galiophobia- Fear France or French culture. (Francophobia)
+195,Gamophobia- Fear of marriage.
+196,Geliophobia- Fear of laughter.
+197,Gelotophobia- Fear of being laughed at.
+198,Geniophobia- Fear of chins.
+199,Genophobia- Fear of sex.
+200,Genuphobia- Fear of knees.
+201,Gephyrophobia or Gephydrophobia or Gephysrophobia- Fear of crossing bridges.
+202,Germanophobia- Fear of Germany or German culture.
+203,Gerascophobia- Fear of growing old.
+204,Gerontophobia- Fear of old people or of growing old.
+205,Geumaphobia or Geumophobia- Fear of taste.
+206,Glossophobia- Fear of speaking in public or of trying to speak.
+207,Gnosiophobia- Fear of knowledge.
+208,Graphophobia- Fear of writing or handwriting.
+209,Gymnophobia- Fear of nudity.
+210,Gynephobia or Gynophobia- Fear of women.
+211,Hadephobia- Fear of hell.
+212,Hagiophobia- Fear of saints or holy things.
+213,Hamartophobia- Fear of sinning.
+214,Haphephobia or Haptephobia- Fear of being touched.
+215,Harpaxophobia- Fear of being robbed.
+216,Hedonophobia- Fear of feeling pleasure.
+217,Heliophobia- Fear of the sun.
+218,Hellenologophobia- Fear of Greek terms or complex scientific terminology.
+219,Helminthophobia- Fear of being infested with worms.
+220,Hemophobia or Hemaphobia or Hematophobia- Fear of blood.
+221,Heresyphobia or Hereiophobia- Fear of challenges to official doctrine or of radical deviation.
+222,Herpetophobia- Fear of reptiles or creepy, crawly things.
+223,Heterophobia- Fear of the opposite sex. (Sexophobia)
+224,Hexakosioihexekontahexaphobia- Fear of the number 666.
+225,Hierophobia- Fear of priests or sacred things.
+226,Hippophobia- Fear of horses.
+227,Hippopotomonstrosesquipedaliophobia- Fear of long words.
+228,Hobophobia- Fear of bums or beggars.
+229,Hodophobia- Fear of road travel.
+230,Hormephobia- Fear of shock.
+231,Homichlophobia- Fear of fog.
+232,Homilophobia- Fear of sermons.
+233,Hominophobia- Fear of men.
+234,Homophobia- Fear of sameness, monotony or of homosexuality or of becoming homosexual.
+235,Hoplophobia- Fear of firearms.
+236,Hydrargyophobia- Fear of mercurial medicines.
+237,Hydrophobia- Fear of water or of rabies.
+238,Hydrophobophobia- Fear of rabies.
+239,Hyelophobia or Hyalophobia- Fear of glass.
+240,Hygrophobia- Fear of liquids, dampness, or moisture.
+241,Hylephobia- Fear of materialism or the fear of epilepsy.
+242,Hylophobia- Fear of forests.
+243,Hypengyophobia or Hypegiaphobia- Fear of responsibility.
+244,Hypnophobia- Fear of sleep or of being hypnotized.
+245,Hypsiphobia- Fear of height.
+246,Iatrophobia- Fear of going to the doctor or of doctors.
+247,Ichthyophobia- Fear of fish.
+248,Ideophobia- Fear of ideas.
+249,Illyngophobia- Fear of vertigo or feeling dizzy when looking down.
+250,Iophobia- Fear of poison.
+251,Insectophobia - Fear of insects.
+252,Isolophobia- Fear of solitude, being alone.
+253,Isopterophobia- Fear of termites, insects that eat wood.
+254,Ithyphallophobia- Fear of seeing, thinking about or having an erect penis.
+255,Japanophobia- Fear of Japanese.
+256,Judeophobia- Fear of Jews.
+257,Kainolophobia or Kainophobia- Fear of anything new, novelty.
+258,Kakorrhaphiophobia- Fear of failure or defeat.
+259,Katagelophobia- Fear of ridicule.
+260,Kathisophobia- Fear of sitting down.
+261,Katsaridaphobia- Fear of cockroaches.
+262,Kenophobia- Fear of voids or empty spaces.
+263,Keraunophobia or Ceraunophobia- Fear of thunder and lightning.(Astraphobia, Astrapophobia)
+264,Kinetophobia or Kinesophobia- Fear of movement or motion.
+265,Kleptophobia- Fear of stealing.
+266,Koinoniphobia- Fear of rooms.
+267,Kolpophobia- Fear of genitals, particularly female.
+268,Kopophobia- Fear of fatigue.
+269,Koniophobia- Fear of dust. (Amathophobia)
+270,Kosmikophobia- Fear of cosmic phenomenon.
+271,Kymophobia- Fear of waves. (Cymophobia)
+272,Kynophobia- Fear of rabies.
+273,Kyphophobia- Fear of stooping.
+274,Lachanophobia- Fear of vegetables.
+275,Laliophobia or Lalophobia- Fear of speaking.
+276,Leprophobia or Lepraphobia- Fear of leprosy.
+277,Leukophobia- Fear of the color white.
+278,Levophobia- Fear of things to the left side of the body.
+279,Ligyrophobia- Fear of loud noises.
+280,Lilapsophobia- Fear of tornadoes and hurricanes.
+281,Limnophobia- Fear of lakes.
+282,Linonophobia- Fear of string.
+283,Liticaphobia- Fear of lawsuits.
+284,Lockiophobia- Fear of childbirth.
+285,Logizomechanophobia- Fear of computers.
+286,Logophobia- Fear of words.
+287,Luiphobia- Fear of lues, syphillis.
+288,Lutraphobia- Fear of otters.
+289,Lygophobia- Fear of darkness.
+290,Lyssophobia- Fear of rabies or of becoming mad.
+291,Macrophobia- Fear of long waits.
+292,Mageirocophobia- Fear of cooking.
+293,Maieusiophobia- Fear of childbirth.
+294,Malaxophobia- Fear of love play. (Sarmassophobia)
+295,Maniaphobia- Fear of insanity.
+296,Mastigophobia- Fear of punishment.
+297,Mechanophobia- Fear of machines.
+298,Medomalacuphobia- Fear of losing an erection.
+299,Medorthophobia- Fear of an erect penis.
+300,Megalophobia- Fear of large things.
+301,Melissophobia- Fear of bees.
+302,Melanophobia- Fear of the color black.
+303,Melophobia- Fear or hatred of music.
+304,Meningitophobia- Fear of brain disease.
+305,Menophobia- Fear of menstruation.
+306,Merinthophobia- Fear of being bound or tied up.
+307,Metallophobia- Fear of metal.
+308,Metathesiophobia- Fear of changes.
+309,Meteorophobia- Fear of meteors.
+310,Methyphobia- Fear of alcohol.
+311,Metrophobia- Fear or hatred of poetry.
+312,Microbiophobia- Fear of microbes. (Bacillophobia)
+313,Microphobia- Fear of small things.
+314,Misophobia or Mysophobia- Fear of being contaminated with dirt or germs.
+315,Mnemophobia- Fear of memories.
+316,Molysmophobia or Molysomophobia- Fear of dirt or contamination.
+317,Monophobia- Fear of solitude or being alone.
+318,Monopathophobia- Fear of definite disease.
+319,Motorphobia- Fear of automobiles.
+320,Mottephobia- Fear of moths.
+321,Musophobia or Muriphobia- Fear of mice.
+322,Mycophobia- Fear or aversion to mushrooms.
+323,Mycrophobia- Fear of small things.
+324,Myctophobia- Fear of darkness.
+325,Myrmecophobia- Fear of ants.
+326,Mythophobia- Fear of myths or stories or false statements.
+327,Myxophobia- Fear of slime. (Blennophobia)
+328,Nebulaphobia- Fear of fog. (Homichlophobia)
+329,Necrophobia- Fear of death or dead things.
+330,Nelophobia- Fear of glass.
+331,Neopharmaphobia- Fear of new drugs.
+332,Neophobia- Fear of anything new.
+333,Nephophobia- Fear of clouds.
+334,Noctiphobia- Fear of the night.
+335,Nomatophobia- Fear of names.
+336,Nosocomephobia- Fear of hospitals.
+337,Nosophobia or Nosemaphobia- Fear of becoming ill.
+338,Nostophobia- Fear of returning home.
+339,Novercaphobia- Fear of your step-mother.
+340,Nucleomituphobia- Fear of nuclear weapons.
+341,Nudophobia- Fear of nudity.
+342,Numerophobia- Fear of numbers.
+343,Nyctohylophobia- Fear of dark wooded areas or of forests at night
+344,Nyctophobia- Fear of the dark or of night.
+345,Obesophobia- Fear of gaining weight.(Pocrescophobia)
+346,Ochlophobia- Fear of crowds or mobs.
+347,Ochophobia- Fear of vehicles.
+348,Octophobia - Fear of the figure 8.
+349,Odontophobia- Fear of teeth or dental surgery.
+350,Odynophobia or Odynephobia- Fear of pain. (Algophobia)
+351,Oenophobia- Fear of wines.
+352,Oikophobia- Fear of home surroundings, house.(Domatophobia, Eicophobia)
+353,Olfactophobia- Fear of smells.
+354,Ombrophobia- Fear of rain or of being rained on.
+355,Ommetaphobia or Ommatophobia- Fear of eyes.
+356,Omphalophobia- Fear of belly buttons.
+357,Oneirophobia- Fear of dreams.
+358,Oneirogmophobia- Fear of wet dreams.
+359,Onomatophobia- Fear of hearing a certain word or of names.
+360,Ophidiophobia- Fear of snakes. (Snakephobia)
+361,Ophthalmophobia- Fear of being stared at.
+362,Opiophobia- Fear medical doctors experience of prescribing needed pain medications for patients.
+363,Optophobia- Fear of opening one's eyes.
+364,Ornithophobia- Fear of birds.
+365,Orthophobia- Fear of property.
+366,Osmophobia or Osphresiophobia- Fear of smells or odors.
+367,Ostraconophobia- Fear of shellfish.
+368,Ouranophobia or Uranophobia- Fear of heaven.
+369,Pagophobia- Fear of ice or frost.
+370,Panthophobia- Fear of suffering and disease.
+371,Panophobia or Pantophobia- Fear of everything.
+372,Papaphobia- Fear of the Pope.
+373,Papyrophobia- Fear of paper.
+374,Paralipophobia- Fear of neglecting duty or responsibility.
+375,Paraphobia- Fear of sexual perversion.
+376,Parasitophobia- Fear of parasites.
+377,Paraskavedekatriaphobia- Fear of Friday the 13th.
+378,Parthenophobia- Fear of virgins or young girls.
+379,Pathophobia- Fear of disease.
+380,Patroiophobia- Fear of heredity.
+381,Parturiphobia- Fear of childbirth.
+382,Peccatophobia- Fear of sinning or imaginary crimes.
+383,Pediculophobia- Fear of lice.
+384,Pediophobia- Fear of dolls.
+385,Pedophobia- Fear of children.
+386,Peladophobia- Fear of bald people.
+387,Pellagrophobia- Fear of pellagra.
+388,Peniaphobia- Fear of poverty.
+389,Pentheraphobia- Fear of mother-in-law. (Novercaphobia)
+390,Phagophobia- Fear of swallowing or of eating or of being eaten.
+391,Phalacrophobia- Fear of becoming bald.
+392,Phallophobia- Fear of a penis, esp erect.
+393,Pharmacophobia- Fear of taking medicine.
+394,Phasmophobia- Fear of ghosts.
+395,Phengophobia- Fear of daylight or sunshine.
+396,Philemaphobia or Philematophobia- Fear of kissing.
+397,Philophobia- Fear of falling in love or being in love.
+398,Philosophobia- Fear of philosophy.
+399,Phobophobia- Fear of phobias.
+400,Photoaugliaphobia- Fear of glaring lights.
+401,Photophobia- Fear of light.
+402,Phonophobia- Fear of noises or voices or one's own voice; of telephones.
+403,Phronemophobia- Fear of thinking.
+404,Phthiriophobia- Fear of lice. (Pediculophobia)
+405,Phthisiophobia- Fear of tuberculosis.
+406,Placophobia- Fear of tombstones.
+407,Plutophobia- Fear of wealth.
+408,Pluviophobia- Fear of rain or of being rained on.
+409,Pneumatiphobia- Fear of spirits.
+410,Pnigophobia or Pnigerophobia- Fear of choking of being smothered.
+411,Pocrescophobia- Fear of gaining weight. (Obesophobia)
+412,Pogonophobia- Fear of beards.
+413,Poliosophobia- Fear of contracting poliomyelitis.
+414,Politicophobia- Fear or abnormal dislike of politicians.
+415,Polyphobia- Fear of many things.
+416,Poinephobia- Fear of punishment.
+417,Ponophobia- Fear of overworking or of pain.
+418,Porphyrophobia- Fear of the color purple.
+419,Potamophobia- Fear of rivers or running water.
+420,Potophobia- Fear of alcohol.
+421,Pharmacophobia- Fear of drugs.
+422,Proctophobia- Fear of rectums.
+423,Prosophobia- Fear of progress.
+424,Psellismophobia- Fear of stuttering.
+425,Psychophobia- Fear of mind.
+426,Psychrophobia- Fear of cold.
+427,Pteromerhanophobia- Fear of flying.
+428,Pteronophobia- Fear of being tickled by feathers.
+429,Pupaphobia - Fear of puppets.
+430,Pyrexiophobia- Fear of Fever.
+431,Pyrophobia- Fear of fire.
+432,Radiophobia- Fear of radiation, x-rays.
+433,Ranidaphobia- Fear of frogs.
+434,Rectophobia- Fear of rectum or rectal diseases.
+435,Rhabdophobia- Fear of being severely punished or beaten by a rod, or of being severely criticized. Also fear of magic.(wand)
+436,Rhypophobia- Fear of defecation.
+437,Rhytiphobia- Fear of getting wrinkles.
+438,Rupophobia- Fear of dirt.
+439,Russophobia- Fear of Russians.
+440,Samhainophobia: Fear of Halloween.
+441,Sarmassophobia- Fear of love play. (Malaxophobia)
+442,Satanophobia- Fear of Satan.
+443,Scabiophobia- Fear of scabies.
+444,Scatophobia- Fear of fecal matter.
+445,Scelerophibia- Fear of bad men, burglars.
+446,Sciophobia Sciaphobia- Fear of shadows.
+447,Scoleciphobia- Fear of worms.
+448,Scolionophobia- Fear of school.
+449,Scopophobia or Scoptophobia- Fear of being seen or stared at.
+450,Scotomaphobia- Fear of blindness in visual field.
+451,Scotophobia- Fear of darkness. (Achluophobia)
+452,Scriptophobia- Fear of writing in public.
+453,Selachophobia- Fear of sharks.
+454,Selaphobia- Fear of light flashes.
+455,Selenophobia- Fear of the moon.
+456,Seplophobia- Fear of decaying matter.
+457,Sesquipedalophobia- Fear of long words.
+458,Sexophobia- Fear of the opposite sex. (Heterophobia)
+459,Siderodromophobia- Fear of trains, railroads or train travel.
+460,Siderophobia- Fear of stars.
+461,Sinistrophobia- Fear of things to the left or left-handed.
+462,Sinophobia- Fear of Chinese, Chinese culture.
+463,Sitophobia or Sitiophobia- Fear of food or eating. (Cibophobia)
+464,Snakephobia- Fear of snakes. (Ophidiophobia)
+465,Soceraphobia- Fear of parents-in-law.
+466,Social Phobia- Fear of being evaluated negatively in social situations.
+467,Sociophobia- Fear of society or people in general.
+468,Somniphobia- Fear of sleep.
+469,Sophophobia- Fear of learning.
+470,Soteriophobia - Fear of dependence on others.
+471,Spacephobia- Fear of outer space.
+472,Spectrophobia- Fear of specters or ghosts.
+473,Spermatophobia or Spermophobia- Fear of germs.
+474,Spheksophobia- Fear of wasps.
+475,Stasibasiphobia or Stasiphobia- Fear of standing or walking. (Ambulophobia)
+476,Staurophobia- Fear of crosses or the crucifix.
+477,Stenophobia- Fear of narrow things or places.
+478,Stygiophobia or Stigiophobia- Fear of hell.
+479,Suriphobia- Fear of mice.
+480,Symbolophobia- Fear of symbolism.
+481,Symmetrophobia- Fear of symmetry.
+482,Syngenesophobia- Fear of relatives.
+483,Syphilophobia- Fear of syphilis.
+484,Tachophobia- Fear of speed.
+485,Taeniophobia or Teniophobia- Fear of tapeworms.
+486,Taphephobia Taphophobia- Fear of being buried alive or of cemeteries.
+487,Tapinophobia- Fear of being contagious.
+488,Taurophobia- Fear of bulls.
+489,Technophobia- Fear of technology.
+490,Teleophobia- 1) Fear of definite plans. 2) Religious ceremony.
+491,Telephonophobia- Fear of telephones.
+492,Teratophobia- Fear of bearing a deformed child or fear of monsters or deformed people.
+493,Testophobia- Fear of taking tests.
+494,Tetanophobia- Fear of lockjaw, tetanus.
+495,Teutophobia- Fear of German or German things.
+496,Textophobia- Fear of certain fabrics.
+497,Thaasophobia- Fear of sitting.
+498,Thalassophobia- Fear of the sea.
+499,Thanatophobia or Thantophobia- Fear of death or dying.
+500,Theatrophobia- Fear of theatres.
+501,Theologicophobia- Fear of theology.
+502,Theophobia- Fear of gods or religion.
+503,Thermophobia- Fear of heat.
+504,Tocophobia- Fear of pregnancy or childbirth.
+505,Tomophobia- Fear of surgical operations.
+506,Tonitrophobia- Fear of thunder.
+507,Topophobia- Fear of certain places or situations, such as stage fright.
+508,Toxiphobia or Toxophobia or Toxicophobia- Fear of poison or of being accidently poisoned.
+509,Traumatophobia- Fear of injury.
+510,Tremophobia- Fear of trembling.
+511,Trichinophobia- Fear of trichinosis.
+512,Trichopathophobia or Trichophobia- Fear of hair. (Chaetophobia, Hypertrichophobia)
+513,Triskaidekaphobia- Fear of the number 13.
+514,Tropophobia- Fear of moving or making changes.
+515,Trypanophobia- Fear of injections.
+516,Tuberculophobia- Fear of tuberculosis.
+517,Tyrannophobia- Fear of tyrants.
+518,Uranophobia or Ouranophobia- Fear of heaven.
+519,Urophobia- Fear of urine or urinating.
+520,Vaccinophobia- Fear of vaccination.
+521,Venustraphobia- Fear of beautiful women.
+522,Verbophobia- Fear of words.
+523,Verminophobia- Fear of germs.
+524,Vestiphobia- Fear of clothing.
+525,Virginitiphobia- Fear of rape.
+526,Vitricophobia- Fear of step-father.
+527,Walloonphobia- Fear of the Walloons.
+528,Wiccaphobia: Fear of witches and witchcraft.
+529,Xanthophobia- Fear of the color yellow or the word yellow.
+530,Xenoglossophobia- Fear of foreign languages.
+531,Xenophobia- Fear of strangers or foreigners.
+532,Xerophobia- Fear of dryness.
+533,Xylophobia- 1) Fear of wooden objects. 2) Forests.
+534,Xyrophobia-Fear of razors.
+535,Zelophobia- Fear of jealousy.
+536,Zeusophobia- Fear of God or gods.
+537,Zemmiphobia- Fear of the great mole rat.
+538,Zoophobia- Fear of animals. 

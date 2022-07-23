@@ -1,0 +1,19 @@
+﻿#
+# Traveller
+#
+
+
+%tens%,0
+%ones%,0
+%Fontsize%,0
+
+@Fontsize,4,Font size?
+
+:Start
+1,<font size="%Fontsize%">[numbers]Here is the roll: %tens%%ones%
+_<br><br>Single die roll: [numbers]%ones%
+_<br><br>Two dice roll: [numbers]{calc~(%ones%+%tens%)}
+
+
+:numbers
+1,|tens={dice~1d6}||ones={dice~1d6}|

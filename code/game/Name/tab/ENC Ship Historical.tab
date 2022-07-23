@@ -1,0 +1,541 @@
+# ---------------------------------------------------
+# Last Update: updated by Valminder July 2010.
+# ---------------------------------------------------
+#
+# Ship Encounter Chart
+#
+# So far it can produce a ships Cargo, Crew, Cannons.
+# Ships Nationality, Category and Type either randomly or selected.
+#
+# Planned are also additional Ship Types:
+# - Pink, Yacht, Flyboot, 
+# - War Galleon, Fast Galleon, Ship-of-the-Line, Frigate, Cutter, 
+#   Schooner, Sloop,
+# - Corvette, Bilander, Brig, Bark, Lugger, Warship, caravel, Boat, 
+#   Man-o-War, Battleship, Pinas
+# - Race Galleon
+# Relation between Nationality, Ship Type and Category
+#
+# Bronze Guns:
+# Falcon, Saker, Culverin
+# 8 to 10 feet optimal length everything above is waste
+#
+# 18th Century
+# Flintlock Cannons
+# Reload times 3 to 5 minutes (Spanish / French)
+# 90 Seconds English
+#
+# Copyright 2001 by Christian Loidl
+#
+# Please visit www.rpgoffice.com for further material or to join the team
+#
+# Modified by Valminder, Nov 2005.
+#    Changed old functions for TSv5.
+#    Renamed table to [ENC Ship Historical].
+#
+# Modified by Valminder, Sep 2009 / July 2010.
+#    Added OverRideRolls
+#    Corrected some Errors
+#
+
+/OverRideRolls 1
+
+%Mode%,1
+%Temp%,0
+
+%Cargo%,0
+%Max Cargo%,0
+%Temp Cargo%,0
+%Total Cargo%,0
+
+%Cotton%,0
+%Fish%,0
+%Foodstuff%,0
+%Fruit%,0
+%Grain%,0
+%Hides and Furs%,0
+%Livestock%,0
+%Lumber%,0
+%Manufactured Goods%,0
+%Naval Stores%,0
+%Ore%,0
+%Powder%,0
+%Rum%,0
+%Salt%,0
+%Shot%,0
+%Slaves%,0
+%Spices%,0
+%Sugar%,0
+%Tabacco%,0
+%Wine%,0
+%Wool%,0
+
+%Max Crew%,0
+%Crewmen%,0
+
+%Swivel Guns%,0
+%Light Cannons%,0
+%Light Cannon Size%,0
+%Heavy Cannons%,0
+%Heavy Cannon Size%,0
+
+%Ship Size Mod%,0
+
+%Chance%,0
+%Gun Type%,0
+%Guns%,0
+
+%Nationality%,0
+%Ship Type%,0
+%Category%,0
+%i%,0
+
+%Generate Araments%,0
+%Generate Cargo%,0
+%Generate Crew%,0
+
+@Mode,2,Mode:,Summary,Detail
+@Ship Type,1,Type of Ship:,Random,Tartane,Felluca,Boyer,Barque,Hoecker,Flute,West Indiaman,Pinnace,Galleon
+@Nationality,1,Nationality of Ship:,Random,English,French,Dutch,Danish,Portuguese,Spanish
+@Category,1,Category of Ship:,Random,Warship,Pirate Vessel,Merchant Vessel,Fishing Vessel
+@Generate Araments,2,Generate Araments:,Yes,No
+@Generate Cargo,2,Generate Cargo:,Yes,No
+@Generate Crew,2,Generate Crew:,Yes,No
+
+;Start
+1,{If~%Mode%=1? [Summary]}{If~%Mode%=2? [Detail]}
+
+;Summary
+1,[Nationality Selection=%Nationality%]
+_A [~Ship Category Selection=%Category%] [~Ship Selection=%Ship Type%] of %Cargo% tons flying [Display Nationality=%Nationality%] colors
+
+;Detail
+1,[Nationality Selection=%Nationality%]
+_<table>
+_<tr><td width=500><b><BIG>[~Ship Name Generator.Generate Historical(%Nationality%)]</BIG></b></td>
+_<td width=200 align="right" rowspan="3">[Display Colors=%Nationality%]</td></tr>
+_<tr><td>[Display Nationality=%Nationality%]
+_ [~Ship Category Selection=%Category%]</td></tr>
+_<tr><td>[~Ship Selection=%Ship Type%]
+
+:Nationality Selection
+1,[Nationality]
+2,|Nationality=1|
+3,|Nationality=2|
+4,|Nationality=3|
+5,|Nationality=4|
+6,|Nationality=5|
+7,|Nationality=6|
+
+:Ship Selection
+#1,[Ship Encounter]
+1,[Ship Type+%Ship Size Mod%]
+2,[Tartane]
+3,[Felluca]
+4,[Boyer]
+5,[Barque]
+6,[Hoecker]
+7,[Flute]
+8,[West Indiaman]
+9,[Pinnace]
+10,[Galleon]
+
+:Ship Category Selection
+1,[Ship Category]
+2,warship [Warship]
+3,pirate [Pirate]
+4,merchant [Merchant]
+5,fishing [Fisher]
+
+# Ship Encounter Table from "Run out the Guns - GameMaster Book" Page 32
+;Ship Encounter
+5,[Tartane] <hr> 25 <b>percent</b> chance of encountering 1-5 in group
+5,[Felluca] <hr> 25 <b>percent</b> of having consort ship of identical type
+5,[Boyer] <hr> 25 <b>percent</b> of having consort ship of identical type
+10,[Tartane] <hr> 25 <b>percent</b> of having consort ship of identical type
+10,[Boyer] <hr> 25 <b>percent</b> chance of encountering 1-5 in group
+10,[Felluca] <hr> 25 <b>percent</b> chance of encountering 1-5 in group
+10,[Barque] <hr> 25 <b>percent</b> of having consort ship of identical type
+15,[Hoecker]
+15,[Flute]
+10,[West Indiaman]
+5,[Hoecker]
+5,[West Indiaman] <hr> 25 <b>percent</b> of having consort ship of identical type
+5,[Flute] <hr> 25 <b>percent</b> of having consort ship of identical type
+5,[Galleon] <hr> 25 <b>percent</b> of having consort ship of identical type
+4,[West Indiaman] <hr> Non Spanish Treasure Ship
+1,[Galleon] <hr>Spanish Treasure Ship
+3,[Flute] <hr>1-5 encountered with warship escort
+3,[West Indiaman] <hr> 1-5 encountered with warship escort
+1,[Galleon] <hr> 1-5 encountered with warship escort
+3,[Pinnace]
+
+;Ship Type
+15,[Tartane]
+15,[Felluca]
+15,[Boyer]
+15,[Barque]
+20,[Hoecker]
+25,[Flute]
+25,[West Indiaman]
+5,[Pinnace]
+10,[Galleon]
+
+# Set Values for Ship Types
+:Tartane
+1,<i>Tartane</i>
+_|Temp Cargo=20||Cargo=20|
+_|Max Crew=30|
+_{If~%Category%=Warship? [Tartane Gun Options]}
+_[Ship Continue]
+
+:Felluca
+1,<i>Felluca</i>
+_|Temp Cargo=40||Cargo=40|
+_|Max Crew=80|
+_{If~%Category%=Warship? |Swivel Guns=2|} |Light Cannons={Dice~1d6-2}| |Light Cannons>0| {If~%Category%=Warship? |Light Cannons=4|}
+_|Light Cannon Size=3|
+_[Ship Continue]
+
+:Boyer
+1,<i>Boyer</i>
+_|Temp Cargo=60||Cargo=60|
+_|Max Crew=60|
+_|Guns={Dice~1d6-2}| |Guns>0|
+_{If~%Category%=Warship? [Swivel Guns=%Guns%]} |Light Cannons={Dice~1d6-4}| |Light Cannons>0| {If~%Category%=Warship? [Light Cannons=2]}
+_{If~%Category%=Warship? [Warship Boyer Cannon Size]}
+_{If~%Category%=Merchant? [Merchant Boyer Cannon Size]}
+_[Ship Continue]
+
+:Barque
+1,<i>Barque</i>
+_|Temp Cargo=80||Cargo=80|
+_|Max Crew=150|
+_|Swivel Guns={Dice~1d6}| |Light Cannons={Dice~1d6+4}| {If~%Category%=Warship? [Light Cannons=4]} 
+_{If~%Category%=Warship? [Warship Barque Cannon Size]}
+_{If~%Category%=Merchant? [Merchant Barque Cannon Size]}
+_[Ship Continue]
+
+:Hoecker
+1,<i>Hoecker</i>
+_|Temp Cargo=80||Cargo=80|
+_|Max Crew=120|
+_|Guns={Dice~1d6}| |Guns>0|
+_{If~%Category%=Warship? [Swivel Guns=%Guns%]} |Light Cannons={Dice~1d6}| {If~%Category%=Warship? |Light Cannons=6|}
+_{If~%Category%=Warship? [Warship Hoecker Cannon Size]}
+_{If~%Category%=Merchant? [Merchant Hoecker Cannon Size]}
+_[Ship Continue]
+
+:Flute
+1,<i>Flute</i>
+_|Temp Cargo=200||Cargo=200|
+_|Max Crew=240|
+_|Swivel Guns={Dice~1d6}| |Light Cannons={Dice~1d10+2}| {If~%Category%=Warship? [Light Cannons=6]}
+_{If~%Category%=Warship? [Warship Flute Cannon Size]}
+_{If~%Category%=Merchant? [Merchant Flute Cannon Size]}
+_[Ship Continue]
+
+:West Indiaman
+1,<i>West Indiaman</i>
+_|Temp Cargo=160||Cargo=160|
+_|Max Crew=250|
+_|Swivel Guns={Dice~1d6}| |Heavy Cannons={Dice~1d10}| {If~%Category%=Warship? [Heavy Cannons=6]}  |Light Cannons={Dice~1d6}| {If~%Category%=Warship? [Light Cannons=4]}
+_{If~%Category%=Warship? [Warship West Indiaman Cannon Size]}
+_{If~%Category%=Merchant? [Merchant West Indiaman Cannon Size]}
+_[Ship Continue]
+
+:Galleon
+1,<i>Galleon</i>
+_|Temp Cargo=400||Cargo=400|
+_|Max Crew=450|
+_|Swivel Guns={Dice~1d6}| {If~%Category%=Warship? [Swivel Guns=4]} |Heavy Cannons={Dice~1d10+4}| {If~%Category%=Warship? [Heavy Cannons=4]}  |Light Cannons={Dice~1d6+2}| {If~%Category%=Warship? [Light Cannons=2]}
+_{If~%Category%=Merchant? [Merchant Galleon Cannon Size]}
+_{If~%Category%=Warship? [Warship Galleon Cannon Size]}
+_[Ship Continue]
+
+:Pinnace
+1,<i>Pinnace</i>
+_|Temp Cargo=300||Cargo=300|
+_|Max Crew=250|
+_|Swivel Guns={Dice~1d10+2}| |Heavy Cannons={Dice~1d10+4}| |Light Cannons={Dice~1d6}|
+_{If~%Category%=Merchant? [Merchant Pinnance Cannon Size]}
+_{If~%Category%=Warship? [Warship Pinnance Cannon Size]}
+_[Ship Continue]
+
+# Generate Cargo
+:Cargo
+1,|Temp Cargo-%Total Cargo%| <hr><b>Cargo:</b><br><br> {Loop~{Dice~1d9},[Random Cargo]} {Loop~{Dice~1d9},[Random Cargo]} {Loop~{Dice~1d9},[Random Cargo]} {Loop~{Dice~1d9},[Random Cargo]} [Cargo List]<hr>
+
+# Roll on Cargo Table if there is Cargo Space left
+:Random Cargo
+1,{If~%Temp Cargo%>0? [Cargo Table]}
+
+# Cargo Table from "Run out the Guns - GameMaster Book" Page 32
+;Cargo Table
+5,|Temp={Dice~3d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Cotton+%Temp%| |Total Cargo+%Temp%|
+8,|Temp={Dice~1d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Fish+%Temp%| |Total Cargo+%Temp%|
+5,|Temp={Dice~1d10-2}| |Temp>0| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Foodstuff+%Temp%| |Total Cargo+%Temp%|
+5,|Temp={Dice~1d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Fruit+%Temp%| |Total Cargo+%Temp%|
+5,|Temp={Dice~4d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Grain+%Temp%| |Total Cargo+%Temp%|
+5,|Temp={Dice~1d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Hides and Furs+%Temp%| |Total Cargo+%Temp%|
+5,|Temp={Dice~2d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Livestock+%Temp%| |Total Cargo+%Temp%|
+5,|Temp={Dice~4d20}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Lumber+%Temp%| |Total Cargo+%Temp%|
+2,|Temp={Dice~2d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Manufactured Goods+%Temp%| |Total Cargo+%Temp%|
+5,|Temp={Dice~1d10-2}| |Temp>0| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Naval Stores+%Temp%| |Total Cargo+%Temp%|
+3,|Temp={Dice~4d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Ore+%Temp%| |Total Cargo+%Temp%|
+3,|Temp={Dice~1d10-4}| |Temp>0| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Powder+%Temp%| |Total Cargo+%Temp%|
+5,|Temp={Dice~1d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Rum+%Temp%| |Total Cargo+%Temp%|
+3,|Temp={Dice~4d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Salt+%Temp%| |Total Cargo+%Temp%|
+5,|Temp={Dice~1d10-4}| |Temp>0| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Shot+%Temp%| |Total Cargo+%Temp%|
+3,|Temp={Dice~3d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Slaves+%Temp%| |Total Cargo+%Temp%|
+3,|Temp={Dice~1d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Spices+%Temp%| |Total Cargo+%Temp%|
+10,|Temp={Dice~4d10}| |Temp>0| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Sugar+%Temp%| |Total Cargo+%Temp%|
+8,|Temp={Dice~2d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Tabacco+%Temp%| |Total Cargo+%Temp%|
+4,|Temp={Dice~1d10-3}| |Temp>0| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Wine+%Temp%| |Total Cargo+%Temp%|
+3,|Temp={Dice~1d10}| |Temp Cargo-%Temp%| {If~%Temp Cargo%<0? [Full]} |Wool+%Temp%| |Total Cargo+%Temp%|
+
+:Full
+1,|Temp Cargo+%Temp%||Temp=0|
+
+:Cargo List
+1,<table border=1><tr><td><b><i>Commodity</td><td align="right"><b><i>Amount</td></tr>
+_{Iif~%Cotton%>0?<tr><td width=350>Cotton</td><td width=350 align="right">%Cotton% tons</td></tr>}
+_{Iif~%Fish%>0?<tr><td width=350>Fish</td><td width=350 align="right">%Fish% tons</td></tr>}
+_{Iif~%Foodstuff%>0?<tr><td width=350>Foodstuff</td><td width=350 align="right">%Foodstuff% tons</td></tr>}
+_{Iif~%Fruit%>0?<tr><td width=350>Fruit</td><td width=350 align="right">%Fruit% tons</td></tr>}
+_{Iif~%Grain%>0?<tr><td width=350>Grain</td><td width=350 align="right">%Grain% tons</td></tr>}
+_{Iif~%Hides and Furs%>0?<tr><td width=350>Hides and Furs</td><td width=350 align="right">%Hides and Furs% tons</td></tr>}
+_{Iif~%Livestock%>0?<tr><td width=350>Livestock</td><td width=350 align="right">%Livestock% tons</td></tr>}
+_{Iif~%Lumber%>0?<tr><td width=350>Lumber</td><td widht=500 align="right">%Lumber% tons</td></tr>}
+_{Iif~%Manufactured Goods%>0?<tr><td width=350>Manufactured Goods</td><td width=350 align="right">%Manufactured Goods% tons</td></tr>}
+_{Iif~%Naval Stores%>0?<tr><td width=350>Naval Stores</td><td width=350 align="right">%Naval Stores% tons</td></tr>}
+_{Iif~%Ore%>0?<tr><td width=350>Ore</td><td width=350 align="right">%Ore% tons</td></tr>}
+_{Iif~%Powder%>0?<tr><td width=350>Powder</td><td width=350 align="right">%Powder% tons</td></tr>}
+_{Iif~%Rum%>0?<tr><td width=350>Rum</td><td width=350 align="right">%Rum% tons</td></tr>}
+_{Iif~%Salt%>0?<tr><td width=350>Salt</td><td width=350 align="right">%Salt% tons</td></tr>}
+_{Iif~%Shot%>0?<tr><td width=350>Shot</td><td width=350 align="right">%Shot% tons</td></tr>}
+_{Iif~%Slaves%>0?<tr><td width=350>Slaves</td><td width=350 align="right">%Slaves% tons</td></tr>}
+_{Iif~%Spices%>0?<tr><td width=350>Spices</td><td width=350 align="right">%Spices% tons</td></tr>}
+_{Iif~%Sugar%>0?<tr><td width=350>Sugar</td><td width=350 align="right">%Sugar% tons</td></tr>}
+_{Iif~%Tabacco%>0?<tr><td width=350>Tabacco</td><td width=350 align="right">%Tabacco% tons</td></tr>}
+_{Iif~%Wine%>0?<tr><td width=350>Wine</td><td width=350 align="right">%Wine% tons</td></tr>}
+_{Iif~%Wool%>0?<tr><td width=350>Wool</td><td width=350 align="right">%Wool% tons</td></tr>}
+_<tr></tr>
+_<tr><td width=350><i>Total Cargo</td><td align="right"><i>%Total Cargo% tons</td></tr>
+_<tr><td width=350><i>Space in Hold</td><td align="right"><i>|Max Cargo-%Total Cargo%|%Max Cargo% tons</td></tr>
+_</table><br>
+
+# Determine Ship Category and assign Base Cargo Values
+;Ship Category
+30,fishing [Fisher]
+40,merchant [Merchant]
+10,pirate [Pirate]
+20,War [Warship]
+
+# Determine Ships Nationality
+;Nationality
+2,|Nationality=1|
+2,|Nationality=2|
+2,|Nationality=3|
+1,|Nationality=4|
+1,|Nationality=5|
+10,|Nationality=6|
+
+:Display Nationality
+1,english
+2,french
+3,dutch
+4,danish
+5,portuguese
+6,spanish
+
+:Display Colors
+1,<IMG SRC=Graphics\Ensigns\england.gif>
+2,<IMG SRC=Graphics\Ensigns\france.gif>
+3,Dutch
+4,Danish
+5,Portuguese
+6,<IMG SRC=Graphics\Ensigns\spain.gif>
+7,<IMG SRC=Graphics\Ensigns\pirate.gif>
+#WIDTH="103" HEIGHT="91" BORDER="0">
+
+# Araments
+;Araments
+1,<hr><b>Araments:</b><br><table border=1>
+_<tr><td align="right" width=50>|Swivel Guns>0|%Swivel Guns% x</td><td width=650>Swivel Gun(s)</td><tr>
+_<tr><td align="right" width=50>|Light Cannons>0| %Light Cannons% x </td><td width=650>%Light Cannon Size%-pound Cannon(s)</td><tr>
+_<tr><td align="right" width=50>|Heavy Cannons>0| %Heavy Cannons% x </td><td width=650>%Heavy Cannon Size%-pound Cannon(s)</td><tr>
+_</table><br>
+
+:Swivel Guns
+0,|Swivel Guns=0|
+1,|Swivel Guns+1|
+2,|Swivel Guns+2|
+3,|Swivel Guns+3|
+4,|Swivel Guns+4|
+5,|Swivel Guns+5|
+6,|Swivel Guns+6|
+
+:Light Cannons
+1,|Light Cannons+1|
+2,|Light Cannons+2|
+3,|Light Cannons+3|
+4,|Light Cannons+4|
+5,|Light Cannons+5|
+6,|Light Cannons+6|
+
+:Cannons
+1,|Cannons+1|
+2,|Cannons+2|
+3,|Cannons+3|
+4,|Cannons+4|
+5,|Cannons+5|
+6,|Cannons+6|
+
+:Heavy Cannons
+1,|Heavy Cannons+1|
+2,|Heavy Cannons+2|
+3,|Heavy Cannons+3|
+4,|Heavy Cannons+4|
+5,|Heavy Cannons+5|
+6,|Heavy Cannons+6|
+
+;Tartane Gun Options
+50,|Swivel Guns=2|
+50,|Light Cannons=1| |Light Cannon Size=3|
+
+# Barque Cannon Size
+
+;Merchant Barque Cannon Size
+1,|Light Cannon Size=3|
+
+;Warship Barque Cannon Size
+50,|Light Cannon Size=3|
+50,|Light Cannon Size=6|
+
+# Boyer Cannon Size
+
+;Merchant Boyer Cannon Size
+1,|Light Cannon Size=3|
+
+;Warship Boyer Cannon Size
+50,|Light Cannon Size=3|
+50,|Light Cannon Size=6|
+
+# Hoecker Cannon Size
+
+;Merchant Hoecker Cannon Size
+1,|Light Cannon Size=3|
+
+;Warship Hoecker Cannon Size
+50,|Light Cannon Size=3|
+50,|Light Cannon Size=6|
+
+# Flute Cannon Size
+
+;Merchant Flute Cannon Size
+50,|Light Cannon Size=3|
+50,|Light Cannon Size=6|
+
+;Warship Flute Cannon Size
+25,|Light Cannon Size=3|
+75,|Light Cannon Size=6|
+
+# West Indiaman Cannon Size
+
+;Merchant West Indiaman Cannon Size
+1,[Merchant West Indiaman Heavy Cannon Size] |Light Cannon Size=3|
+
+;Warship West Indiaman Cannon Size
+1,[Warship West Indiaman Heavy Cannon Size] |Light Cannon Size=6|
+
+;Merchant West Indiaman Heavy Cannon Size
+50,|Heavy Cannon Size=6|
+50,|Heavy Cannon Size=9|
+
+;Warship West Indiaman Heavy Cannon Size
+50,|Heavy Cannon Size=18|
+50,|Heavy Cannon Size=12|
+
+# Galleon
+
+;Merchant Galleon Cannon Size
+1,[Merchant Galleon Heavy Cannon Size] [Merchant Galleon Light Cannon Size]
+
+;Merchant Galleon Heavy Cannon Size
+50,|Heavy Cannon Size=9|
+50,|Heavy Cannon Size=12|
+
+;Merchant Galleon Light Cannon Size
+50,|Light Cannon Size=3|
+50,|Light Cannon Size=6|
+
+;Warship Galleon Cannon Size
+1,[Warship Galleon Heavy Cannon Size] [Warship Galleon Light Cannon Size]
+
+;Warship Galleon Heavy Cannon Size
+50,|Heavy Cannon Size=24|
+50,|Heavy Cannon Size=18|
+
+;Warship Galleon Light Cannon Size
+50,|Light Cannon Size=9|
+50,|Light Cannon Size=6|
+
+# Pinnace 
+
+;Merchant Pinnance Cannon Size
+1,[Merchant Pinnance Light Cannon Size] [Merchant Pinnance Heavy Cannon Size]
+
+;Merchant Pinnance Light Cannon Size
+1,|Light Cannon Size=3|
+
+;Merchant Pinnance Heavy Cannon Size
+50,|Heavy Cannon Size=9|
+50,|Heavy Cannon Size=12|
+
+;Warship Pinnance Cannon Size
+1,[Warship Pinnance Light Cannon Size] [Warship Pinnance Heavy Cannon Size]
+
+;Warship Pinnance Light Cannon Size
+1,|Light Cannon Size=6|
+
+;Warship Pinnance Heavy Cannon Size
+50,|Heavy Cannon Size=12|
+50,|Heavy Cannon Size=18|
+
+
+# Caculate Percent of Maximum Crew
+;Merchant Crew
+1,|Crewmen={Dice~10d10}| |Crewmen/100|
+
+;Warship Crew
+1,|Crewmen={Dice~8d10+20}| |Crewmen/100|
+
+# Caculate Number of Crewmen
+;Crew
+1,<b>Crew</b><br>
+_|Crewmen*%Max Crew%| |Crewmen={Round~0,%Crewmen%}|<i>%Crewmen% Men </i><br><br>
+_<Table Border=1><tr><td width="500"><b><i>Name</td><td width="500"><b><i>Nationality</td><td width="500"><b><i>Skill Quality</td><td width="500"><b><i>Speciality</tr></b></i>
+#_[Ship Recruiting.Start(%Nationality%,2)] ########## Captain ?!?
+_[Crew Names]</Table>
+
+:Crew Names
+1,|i+1| [Ship Recruiting.Start(%Nationality%,2)] {If~%i%<%Crewmen%? [Crew Names]}
+
+:Ship Continue
+1, {If~%Mode%=2?(%Temp Cargo% tons)}</td></tr>
+_</table>
+_{If~%Generate Araments%=1? [Araments]}
+_|Max Cargo=%Temp Cargo%| {If~%Generate Cargo%=1? [Cargo]} {If~%Generate Crew%=1? [Crew]}
+
+:Warship
+1,|Ship Size Mod+10| |Shot=10| |Powder=10| |Total Cargo=20| |Category=Warship| [Warship Crew] 
+
+:Pirate
+1,|Ship Size Mod=0| |Shot=3| |Powder=3| |Total Cargo=6| |Category=Warship| [Warship Crew]
+
+:Merchant
+1,|Ship Size Mod-10| |Shot=1| |Powder=1| |Total Cargo=2| |Category=Merchant| [Merchant Crew]
+
+:Fisher
+1,|Ship Size Mod-70| |Fish=1| |Total Cargo=1| |Category=Merchant| [Merchant Crew]

@@ -1,0 +1,118 @@
+# WoW Alchemist's Shop
+# Elizabeth Moore
+
+
+
+
+%AcidFlask%,5
+%Alchemist'sFire%,10
+%Antitoxin%,25
+%EverburningTorch%,55
+%HolyWater(Flask)%,12
+%Smokestick%,10
+%Sunrod%,1
+%TanglefootBag%,25
+%Thunderstone%,15
+%Tindertwig%,1
+%Base%,1
+%STVR%,0
+%Rolls%,0
+%PricePer%,0
+%ColdWeather%,0
+%temp%,0
+
+@Rolls,1,How many Items are in this Shop?
+@ColdWeather,2,Include cold weather items?,Yes,No
+
+:Start
+1,[Store]
+
+:Store
+
+1-2,  |Base-{Calc~({Dice~1d25+25}/100)*%Base%}|[Multiplier]
+3-6,  |Base-{Calc~({Dice~1d10+15}/100)*%Base%}|   [Multiplier]
+7-15,  |Base-{Calc~({Dice~1d10+5}/100)*%Base%}| [Multiplier]
+16-26,  |Base-{Calc~({Dice~1d4}/100)*%Base%}|[Multiplier]
+27-60,   [Multiplier]                             
+61-71,  |Base+{Calc~({Dice~1d4}/100)*%Base%}|    [Multiplier]
+72-80,  |Base+{Calc~({Dice~1d10+5}/100)*%Base%}| [Multiplier]
+81-85,  |Base+{Calc~({Dice~1d10+15}/100)*%Base%}|[Multiplier]
+86-88,  |Base+{Calc~({Dice~1d15+20}/100)*%Base%}|[Multiplier]
+89-90, |Base+{Calc~({Dice~1d25+25}/100)*%Base%}| [Multiplier]
+91, |Base+{Calc~({Dice~1d50+50}/100)*%Base%}|    [Multiplier]
+
+:Multiplier
+1, Price Multiplier: %Base% |STVR=%Base%|<br><br> {Loop~%Rolls%,[Alchemist]|Base=0|}
+
+:ItemPrice
+1,{Round~2,{Calc~(%STVR%+%Base%)*%PricePer%}}
+                                                                         
+;!Alchemist
+<<p><b>Item:</b>
+30,Acid Flask|PricePer=%AcidFlask%|
+20,Alchemist's Fire|PricePer=%Alchemist'sFire%|
+30,Antitoxin|PricePer=%Antitoxin%|
+20,Everburning Torch|PricePer=%EverburningTorch%|
+10,Holy Water (Flask)|PricePer=%HolyWater(Flask)%|
+25,Smokestick|PricePer=%Smokestick%|
+10,Sunrod|PricePer=%Sunrod%|
+10,Tanglefoot Bag|PricePer=%TanglefootBag%|
+15,Thunderstone|PricePer=%Thunderstone%|
+30,Tindertwig|PricePer=%Tindertwig%|
+25,Liquid Phlogiston|PricePer=20|
+10,[WoWAlchemy]
+10,{If~%ColdWeather%=1 ? [ColdWeather] / |temp=[WoW Potions.Start(,,1,2,2)]||PricePer={Trim~{Right~4,{Left~{Calc~{Find~1,gp),%temp%}-1},%temp%}}}|%temp%}
+><br><b>Price:</b>[ItemPrice] gp</p>
+
+:WoWAlchemy
+#Need to add probabilities
+#Need to add the master alchemical products (soooo many)
+1,Minor Healing Draught|PricePer=40|
+2,Philter of Minor Defense|PricePer=40|
+3,Philter of Lion's Strength|PricePer=50|
+4,Weak Troll's Blood Philter|PricePer=50|
+5,Minor Mana Draught|PricePer=60|
+6,Minor Rejuvenation Draught|PricePer=70|
+7,Philter of Minor Fortitude|PricePer=140|
+8,Philter of Minor Agility|PricePer=140|
+9,Lesser Healing Draught|PricePer=160|
+10,Swiftness Philter|PricePer=160|
+11,Philter of Wisdom|PricePer=180|
+12,Philter of Water Breathing|PricePer=180|
+13,Swim Speed Philter|PricePer=180|
+14,Healing Draught|PricePer=300|
+15,Minor Magic Resistance Philter|PricePer=300|
+16,Lesser Mana Draught|PricePer=330|
+17,Philter of Poison Resistance|PricePer=330|
+18,Strong Troll's Blood Philter|PricePer=330|
+19,Philter of Defense|PricePer=330|
+20,Fire Alchemical Oil|PricePer=360|
+21,Shadow Protection Philter|PricePer=360|
+22,Philter of Firepower|PricePer=360|
+23,Philter of Lesser Agility|PricePer=360|
+24,Philter of Ogre's Strength|PricePer=390|
+25,Free Action Philter|PricePer=390|
+26,Greater Healing Draught|PricePer=390|
+27,Mana Draught|PricePer=390|
+28,Fire Protection Philter|PricePer=420|
+29,Lesser Invisibility Philter|PricePer=420|
+30,Shadow Alchemical Oil|PricePer=420|
+31,Philter of Fortitude|PricePer=420|
+32,Mighty Troll's Blood Philter|PricePer=450|
+33,Philter of Agility|PricePer=450|
+34,Frost Protection Philter|PricePer=450|
+35,Philter of Frost Power|PricePer=450|
+36,Philter of Greater Defense|PricePer=480|
+37,Philter of Detect Lesser Invisibility|PricePer=480|
+39,Frost Alchemical Oil|PricePer=480|
+40,Catseye Philter|PricePer=480|
+
+:ColdWeather
+1,Armor Insulation|PricePer=50|
+2,Freeze powder|PricePer=100|
+3,Frostbite salve|PricePer=50|
+4,Ice chalk|PricePer=20|
+5,Melt powder|PricePer=25|
+6,Polar skin|PricePer=25|
+7,Razor ice powder|PricePer=50|
+8,Whale grease|PricePer=75|

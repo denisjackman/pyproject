@@ -1,0 +1,183 @@
+﻿# —————————————————-
+# Graveyards.tab
+# TheRandomDM aka Ashon
+# —————————————————————————
+# This table is used to quickly generate a graveyard for your game. It will include
+# a bit of history, notable burials, a description and will help set the scene
+# for any morbid visit to the graveyard.
+#
+# Any Additions to the list can as always be emailed to me.
+# —————————————————————————
+# NOTE: This Table calls these other tables as necessary:
+# —————————————————————————
+ 
+#REVISIONS:
+#
+# —————————————————————————
+
+#VARIABLES:
+%graveyard_type%,0
+%graveyard_name%,0
+%city%,0
+%nation%,0
+%size_of_burials%,0
+%age%,0
+%upkeep%,0
+%additional_features%,0
+%description_of_graveyard%,0
+%history_of_graveyard%,0
+%notable_internments%,0
+%monuments%,0
+%hauntings%,0
+%notable_burials%,0
+%int_burial_size_mod%,0
+%int_age_graveyard%,0
+%int_age_headstone%,0
+%int_upkeep_graveyard%,0
+%int_upkeep_headstone%,0
+%weather_description%,0
+%lighting_description%,0
+%population_description%,0
+%headstone_upkeep_description%,0
+%graveyard_upkeep_description%,0 
+# Now the str_blah is silly but we need it to make our split work properly.
+%str_blah%,0
+%str_sky%,0
+%str_rain%,0
+%str_wind%,0
+%int_temp_low%,0
+%int_temp_high%,0
+
+:Start
+1,[GENERATE VARIABLES]
+_ [DISPLAY]
+
+:GENERATE VARIABLES
+1,|graveyard_type=[Type of Burial Places]| 
+_ |graveyard_name=[GRAVEYARD NAME]|
+_ |city = [TalosCountries.Cities]|
+_ |nation= [Countries.Countries]|
+_ |size_of_burials =[Size of Burials]|
+_ |age = [Age]|
+_ |upkeep = [Upkeep]|
+_ |additional_features = [Additional Features]|
+_ |graveyard_upkeep_description = it is {AorAn~[Upkeep]} [Age] site.| 
+_ |headstone_upkeep_description = A cursory glance shows that the [Age] are [Upkeep].|
+# -- These are the Variables and Description from Weather Generator.tab:
+#@SETTINGS,2,Run Table,Yes,No
+#@C,3,Select Climate,Artic (Polar),Sub-artic (Cold),Temperate,Sub-Tropical,Tropical
+#@L,4,Select Location,Sea,Coast,Desert,Forest,Plains(Grassland),Hills,Jungle,Mountains,Swamp,River,Rural,Underworld,Wasteland
+#@M,1,Select Month,1) Nuwmont (Wi),2) Vatermont (Wi),3) Thaumont (Sp),4) Flaurmont (Sp),5) Yarthmont (Sp),6) Klarmont (Su),7) Felmont (Su),8) Firmont (Su),9) Ambyrmont (Au),10) Sviftmont (Au),11) Eirmont (Au),12) Caldmont (Wi)
+#@D,2,Quantity of Days
+#@Metric,3,Do you want in,Farenheit / mph / in,Celsius / kph / mm,Both
+_ |weather_description = [Weather Generator(2,{Dice~1d5}, {Dice~1d13}, {Dice~1d12},1,1).MWeather]|
+
+
+:DISPLAY
+1,%graveyard_name%, in %city%, %nation%, is a %size_of_burials% graveyard.  
+_It is %age% and %upkeep%.
+_ It features {AorAn~%additional_features%}.<br>  
+_ [GET WEATHER]
+_
+#_%description_of_graveyard%<br>
+#_%history_of_graveyard% <br>
+#_%notable_internments%<br>
+#_<br>
+#_%monuments%<br>
+#_<br>
+#_%hauntings%<br>
+#_<br>
+#_%notable_burials%
+
+:GET WEATHER
+1, WEATHER: %weather_description%<br><hr>
+_ |weather_description={Replace~<font color=red>,,%weather_description%}|
+_ |weather_description={Replace~ / <font color=blue>,,%weather_description%}|
+_ {If~{Find~1,rain,%weather_description%} = 0 ? [GET WEATHER NO RAIN] / [GET WEATHER WITH RAIN]}
+
+:GET WEATHER NO RAIN
+1,"Getting Weather NO RAIN!"
+_ {Split~weather_description,"<li>",str_blah,str_sky,str_wind,weather_description}
+_ {Split~str_sky,"<br>",str_blah,str_sky}
+_ {If~str_blah != "" ? |str_rain = %str_sky%||str_sky = %str_blah%|/}
+_ {Split~weather_description,":",str_blah,weather_description}
+_ {Split~weather_description,"font>",int_temp_high,int_temp_low}
+_ {Split~int_temp_low," / ",str_blah, int_temp_low}
+_ <li> Sky: %str_sky%
+_ <li> Wind: %str_wind%
+_ <li> High Temp: %int_temp_high%<br>
+_ <li> Low Temp: %int_temp_low%<Br>
+
+:GET WEATHER WITH RAIN
+1,"Getting Weather WITH RAIN!"
+_ |weather_description={Replace~<br>Other aspects are:,,%weather_description%}|
+_ {Split~weather_description,"<li>",str_blah,str_sky,str_rain,str_wind,weather_description}
+_ {Split~str_sky,"<br>",str_blah,str_sky}
+_ {If~str_blah != "" ? |str_rain = %str_sky%||str_sky = %str_blah%|/}
+_ {Split~weather_description,":",str_blah,weather_description}
+_ {Split~weather_description,"font>",int_temp_high,int_temp_low}
+_ {Split~int_temp_low," / ",str_blah, int_temp_low}
+_ <li> Sky: %str_sky%
+_ <li> Rain: %str_rain%
+_ <li> Wind: %str_wind%
+_ <li> High Temp: %int_temp_high%<br>
+_ <li> Low Temp: %int_temp_low%<Br>
+
+:GRAVEYARD NAME
+:HISTORY OF GRAVEYARD
+:DESCRIPTION OF GRAVEYARD
+:NOTABLE INTERNMENTS
+:TYPICAL MONUMENTS
+:GRAVEYARD SECTIONS
+:NOTABLE MONUMENTS1111
+:HAUNTINGS
+:BURIALS
+  
+:Size of Burials
+1,single family |int_burial_size_mod = -3|
+2,very small 	|int_burial_size_mod =- 2|
+3,small			|int_burial_size_mod = -1|
+4,medium		|int_burial_size_mod =  0|
+5,big			|int_burial_size_mod =  1|
+6,large			|int_burial_size_mod =  2|
+7,huge			|int_burial_size_mod =  3|
+
+:Age
+1,new 		{If~int_age_graveyard < 1 ? 	|int_age_graveyard = 1|}	|int_age_headstone = 1| 
+2,weathered	{If~int_age_graveyard < 1 ? 	|int_age_graveyard = 2|}	|int_age_headstone = 2|
+3,old 		{If~int_age_graveyard < 1 ? 	|int_age_graveyard = 3|}	|int_age_headstone = 3|
+4,very old	{If~int_age_graveyard < 1 ? 	|int_age_graveyard = 4|}	|int_age_headstone = 4|
+5,ancient 	{If~int_age_graveyard < 1 ? 	|int_age_graveyard = 5|}	|int_age_headstone = 5|
+
+:Upkeep
+1,well kept	
+_	{If~int_upkeep_graveyard < 1 ? |int_upkeep_graveyard = 1|}  |int_upkeep_headstone =1|
+2,maintained	
+_	{If~int_upkeep_graveyard < 1 ? |int_upkeep_graveyard = 2|}  |int_upkeep_headstone =2|
+3,degrading
+_	{If~int_upkeep_graveyard < 1 ? |int_upkeep_graveyard = 3|}  |int_upkeep_headstone =3|
+4,falling apart	
+_	{If~int_upkeep_graveyard < 1 ? |int_upkeep_graveyard = 4|}  |int_upkeep_headstone =4|
+5,near completely destroyed	
+_	{If~int_upkeep_graveyard < 1 ? |int_upkeep_graveyard = 5|}  |int_upkeep_headstone =5|
+
+
+;Type of Burial Places
+1,catacombs 	|description_of_graveyard = [Catacomb Description]|
+1,crypt 		|description_of_graveyard = [Crypt Description]|
+1,necropolis 	|description_of_graveyard = [Necropolis Description]|
+1,cemetary  	|description_of_graveyard = [Cemetary Description]|
+1,graveyard 	|description_of_graveyard = [Graveyard Description]|
+
+;Additional Features
+1,religious building
+1,caretakers building
+1,crematorium
+1,war memorial
+1,columbarium wall
+1,lychgate
+1,cross of sacrifice
+1,stone of rememberance
+1,entrance gate
+1,labrynth
+1,ossuary

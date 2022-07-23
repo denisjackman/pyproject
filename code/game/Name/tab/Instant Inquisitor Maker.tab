@@ -1,0 +1,237 @@
+﻿#
+# Instant Inquisitor Maker
+#
+
+:Start
+1,<b>Gender: </b>[Gender]{CR~}
+_<b>Age: </b>[Age]{CR~}
+_<b>Ordo: </b>[Ordo]{CR~}
+_<b>Title(s): </b>{Loop~{Dice~1d3},[Title]{CR~}}
+_<b>Philosophy: </b>[Philosophy]{CR~}
+_<b>Methodology(s): </b>{Loop~{Dice~1d3},[Methodology]{CR~}}
+_<b>Psychic Ability: </b>[Psychic Ability]{CR~}
+_<b>Quirks: </b>{Loop~{Dice~1d3},[Quirks]{CR~}}
+_<b>Resources: </b>{Loop~{Dice~1d5},[Resources]{CR~}}
+
+:Gender
+01-60,Male. The majority of the Inquisition seems to be male.
+61-99,Female. Seemingly a minority in the Inquisition.
+100,Neither/Both/Unknown.
+
+:Age
+01-20,Young (40-55). The Inquisitor is young, by Inquisitorial standards.
+21-40,Middle Aged (55-90). At this age some Inquisitors commence rejuvenation treatments, whilst others prefer to appear their age.
+41-60,Old (90-150). It is at this age Inquisitors will have established themselves, with a host of resources.
+61-80,Venerable (150-250). By now an Inquisitor may be (in)famous and have cemented their reputations.
+81-100,Ancient (250+). The upper limit is unknown, but it is expected some may reach several centuries old.
+
+:Ordo
+01-10,<i>Ordo Malleus: </i>The Inquisitor hunts daemonic influence and studies the warp. The smallest and most secretive of all the Ordos Majoris.
+11-40,<i>Ordo Hereticus: </i>The largest of the Ordos, an Inquisitor of the Hereticus seeks out mutants, traitors and rogue psykers across the Imperium.
+41-60,<i>Ordo Xenos: </i>A guardian against aliens in their many guises, the Inquisitor is knowledgeable in alien physiology and lore.
+61-80,<i>Ordo Minoris: </i>The Ordos Minoris cover a plethora of activities that could come under the jurisdiction of the larger Ordos, but have been made into more specific departments to better combat a single threat. These Ordos are tiny in comparison to the big three, and have nowhere near the influence or manpower as the larger Ordos. It is up to the player to determine whether an existing Ordo is used (Sicarius: Officio Assassinorum; Sepulturum: Chaotic/Alien diseases; Obsuletus: everything that won’t fit in any other category such as ghost ships, Legion of the Damned, etc) or a new body is established, but it must seem plausible (e.g. Militum: Imperial Guard/Navy; Illuminas: Psykers)
+81-100,<i>No Ordo: </i>Exactly as stated. The Inquisitor has no Ordo affiliations.
+
+:Title
+01-10,<i>Military Rank: </i>Colonel, General, Major, Admiral, Captain, etc; all these and whatever else could be bestowed upon the Inquisitor as a title owing to a previous career, an honorific granted by a particular institution or simply be of their own devising (and dreams of military glory?).  
+11-30,<i>Ordo-specific: </i>Something related to the Inquisitor’s line of work, e.g. an Ordo Hereticus Inquisitor might be Witch-Finder, Witch-Hunter, Colonel-of-Redemption, etc.
+31-40,<i>Facility title: </i>Steward, Custodian, Administrator, Governor and Castellan are all titles an Inquisitor may possess if they are in charge of a particular facility, ideal for Inquisitors Historical or Theoretical that spend a lot of time in research archives at Inquisitorial strongholds, ‘holding down the fort’.
+41-60,<i>Nobility: </i>Sir, Lord, Duke, Count, Boyar, Fürst, Emir, Sheikh, etc. are all titles that could be held in the Imperium, showing the Inquisitor has either come from a noble line, could have been awarded it or has simply usurped it from a previous (no doubt heretical and deceased) holder.
+61-70,<i>Miscellaneous: </i>This could be pretty much anything, as in nick-names or popular names granted by compatriots or enemies, and so are usually informalities left out of official documentation. Examples include ‘Psykerbane’, ‘Lucky’, ‘Warhound’, ‘Thrice-Blessed’ or names ending in ‘the ……’ (such as ‘the Invincible’, ‘the Pure’, ‘the Cursed’, etc).
+71-100,<i>None: </i>The Inquisitor’s only title is that, which should be scary enough!
+
+:Philosophy
+01-20,<i>Radical Puritan: </i>The most hard-line of Inquisitors, their faith in the  Emperor is unshakeable. Monodominants dominate this category, with their  hatred of anything not born pure human, pouring derision and hatred  upon psykers, mutants and abhumans in equal measure to aliens and warp  creatures. 
+21-50,<i>Liberal Puritan: </i>These Inquisitors  understand the place of psykers and mutants is one of servitude, and  that they should be made to understand their inferiority. These are  Puritans that acknowledge psychic benefits.
+51-70,<i>Moderate:  </i>Inquisitors of a moderate bent are neither frothing fanatics nor  entirely sceptical figures, preferring the middle path in their  investigations. They do not condone the use of non-Imperial weaponry,  but they are not big on mass burnings at the stake either. 
+71-90,<i>Moderate Radical: </i>The Inquisitor that utilises a xeno-pistol, or makes  use of beastmen in their retinue. To some this seems a slippery slope,  but it is entirely justified by these Inquisitors as minor interactions  with what others see as tainted.
+91-100,<i>Extreme Radical:  </i>Daemonweapons and alien allies are legitimate means of persecuting the  enemies of mankind to this Inquisitor. Of course, to the rest of the  Inquisition, the Extreme Radical is an enemy of mankind.
+
+:Methodology
+01-05,<i>Exitus Acta Probat </i>(The end justifies the means): Will go to any length  to achieve their goal, no matter the moral implications – blackmailing  colleagues, murdering innocents or even selling their own soul! 
+06-10,<i>Fides Omnia Vincit </i>(Faith conquers all): Their faith is a very  important part of who this Inquisitor is, whatever it may be, making  them unflinching in their personal convictions. 
+11-15,<i>Semper  Iadem </i>(Always the same): Most likely an Amalathian, it is understood  that the status quo should be maintained, or that it is far too  difficult to change. 
+16-20,<i>Bene Qui Latuit Bene Vixit </i>(He  lives well who lives unnoticed): Subterfuge and trickery can be valuable  tools, something known to this character. Henchmen will often perform  their operations as they watch from the shadows. 
+21-25,<i>Facta Non Verba </i>(Deeds not words): Thinking can be a virtue, but then again it wastes valuable heretic-purging time. 
+26-30,<i>Potentia Per Scientia </i>(Power through knowledge): ‘Know thine enemy, for  you are known to him already’ – first tenet of the Ordo Xenos. 
+31-35,<i>Nemo Est Supra Leges </i>(No man is above the law): Title and affiliation  are nothing to this Inquisitor, to whom before their lord and master all  are equal. May persecute other Inquisitors they think have strayed. 
+36-40,<i>Amat Victoria Curam </i>(Victory likes careful preparation): An intricate  planner, often someone that will weave cunning webs before striking a  precise blow at their enemy’s heart. 
+41-45,<i>Post Tenebra Lux  </i>(After the dark comes light): Istvaanian in nature, belief in great  achievements after terrible conflict. May intentionally incite warfare  and civil strife. 
+46-50,<i>Crescis In Adversis Virtus </i>(Virtue is  born in hardship): Every experience is a learning experience, even if  that experience will test the mettle of body and soul. If something’s  worth doing, it’s worth doing the hard way! 
+51-55,<i>Estis  Servatus Etsi Estis Obscenus </i>(Be saved even though you are filthy): The  Inquisitor believes everyone, no matter how base and vile their sins,  can be redeemed – whether in this life or the next. Most often the  latter. 
+56-60,<i>Arte Et Marte </i>(By skill and by fighting): ‘The  more you bleed in training, the less you’ll have to bleed in battle,’  seems an ideal motto for the more martially-inclined. 
+61-65,<i>In Veritate Religionis Confido </i>(In the truth of religion I trust):  Scepticism has no place in an Empire of Faith, and all matters great and  small are decided by religious trials and the Emperor’s Tarot. 
+66-70,<i>Nunquam Cede </i>(Yield to none): Never surrendering, no matter the odds  and reality of the situation, make this character a stubborn and  uncompromising individual. 
+71-75,<i>Officium Primum </i>(Duty  First): Duty is everything to some people, taking precedence over all  other aspects of their life. Sense of a task well done and  accomplishment of duty is all to this person. 
+76-80,<i>Omnia Audax </i>(In all things daring): Constantly challenging authority, popular  beliefs and often common sense. When successful, it is most impressive,  unfortunately success is often not guaranteed.
+81-85,<i>Pericula  In Mora </i>(Danger in delay): Knowing all too well that to hesitate for a  moment could sign the death warrant of an entire world, informed haste  as opposed to blind speed is their watchword. 
+86-90,<i>Quo Fata  Vocant </i>(Whither the fates lead): Not possessing an overly rigid scheme  or plan, whatever events may arise are wherever this figure shall head. 
+91-95,<i>Vota Vita Mia </i>(My life is devoted): To whatever cause they have pledged  themselves, this character will be unflinching in its execution above  all other things.
+96-100,<i>Tempero Bacillum… </i>(To spare the  rod…): … is to spoil the child. Constant assessment and testing of  acolytes and just about everyone(/-thing) else is one of the top  priorities of this Inquisitor.
+
+:Psychic Ability
+01-50,None: No psionic ability exhibited. 
+51-70,Minor: Can exhibit and control minor abilities.  
+71-85,Capable: Familiarity with a single discipline. 
+86-98,Talented: Comfortable with one or more psi-disciplines. 
+99-100,Master: Amongst the most powerful psykers the Inquisition possesses.
+
+:Quirks
+1-2,<i>Severely unhinged: </i>The Inquisitor is not entirely there, as years of service or possibly a well-placed blow have taken their toll on their sanity.
+3-4,<i>Heavily augmented: </i>Either through personal choice or cruel fate, the Inquisitor is covered in bionic implants and replacements.
+5,<i> Untouchable: </i>Without a psychic presence at all, the Inquisitor is a psychic blank, and follows all rules for Untouchables. Ignore any previous psychic abilities.  
+6-7,<i>Always masked: </i>Never revealing themselves, either through a mask or by relaying orders from behind a barrier or vox-communicator, the Inquisitor’s appearance is a mystery.
+8-11,<i>Shady past: </i>Nobody knows much, but everybody’s heard the sinister rumours…
+12-15,<i>(in)Famous: </i>Well-known throughout the Sector, either for heroic deeds or less inspiring acts.
+16-17,<i>Perverse: </i>Every hole’s a goal.
+18-20,<i>Paranoid: </i>Sometimes, they may really be out to get you. Other times, this Inquisitor finds they’ve just stabbed their harmless butler.
+21,<i>Visions: </i>Some power has granted the Inquisitor visions, of the future, the past or hidden items. This could be a blessing from the Emperor, one of his Saints, or something more malign.
+22-24,<i>Terran pilgrim: </i>The Inquisitor has been to Holy Terra, and this influences their behaviour and their usual topic of conversation.
+25-29,<i>Hidden philosophy: </i>‘Knowledge is power, hide it well.’ Nobody seems to know this Inquisitor’s true affiliation.
+30-33,<i>Outward philosophy: </i>‘Knowledge is power, use it to smite the enemy!’ Everybody is sick of hearing about this Inquisitor’s affiliation.
+34-35,<i>Lavish: </i>The finer things in life such as banquets and well-tailored suits are greatly appreciated by this Inquisitor.
+36-37,<i>Spartan: </i>Austerity is ever this Inquisitor’s watchword, and the sins of the material world must be guarded against lest heresy spring from their sweet embrace!
+38-39,<i>Luddite: </i>Not very good with machinery, to the point that this Inquisitor will be distrustful of it and the Adeptus Mechanicus.
+40,<i>Mutant: </i>Due to excellent concealment of the mutation from their earliest days, or owing to chemical or warp exposure, the Inquisitor is mutated! If a major mutation is generated, the Inquisitor automatically gains the ‘Masked’ quirk.
+41-42,<i>Doesn’t sleep: </i>Through psychic indoctrination, implanted neuralware or some other means, the Inquisitor does not sleep, though they will most likely require some form of rest through drugs, virtual reality headsets, etc.
+43-44,<i>Unusual beliefs/practices: </i>The Inquisitor’s religious leanings are at odds with the Ministorum – they may be an atheist or worship the Emperor in an unusual manner.
+45-46,<i>Collector: </i>The Inquisitor has a penchant for artwork, ancient technologies or little toy soldiers, etc. They take great pride in their collection.
+47-48,<i>Trophy hunter: </i>Either from safaris on pleasure worlds or more dangerous achievements during the line of duty, this Inquisitor has a sizeable collection of medals, citations and stuffed xenofauna.
+49-50,<i>Braggart: </i>Accomplishments as an Inquisitor are always going to be more impressive than anything almost anybody else can achieve. This character just wants to let people know it.  
+51-52,<i>Afraid of space travel: </i>The void of space can be a scary place, either from phobia or experience. This makes the character loathe to travel for long periods of time in space.
+53-54,<i>Connoisseur: </i>The finest and rarest of wines, weapons and works of art, amongst other things, are well known to the Inquisitor.  
+55,<i>Illuminated: </i>Possessed by a daemonic creature, the Inquisitor managed to banish the beast from their mortal shell. This makes the Inquisitor more resistant to the allure of the Ruinous powers and their vile servants.
+56-57,<i>Artistic talent: </i>Cooking, painting or music are all possible avenues of exploration for the talented artist.
+58-60,<i>Injury: </i>([Injury])
+61-62,<i>Illness: </i>A vile malady racks the Inquisitor’s body. ([Illness])
+63-64,<i>Celibacy: </i>Either through chemical treatment, personal choice or battlefield injury, the character foregoes pleasures of the flesh.
+65-66,<i>Drug dependency: </i>Alcohol and illegal substances are a few ways to escape the harsh realities of the 41st Millennium, and even Inquisitors desire a bit of release now and again. Unfortunately, the Inquisitor is now addicted to whatever drug the player chooses.
+67-68,<i>Arch-nemesis: </i>The Inquisitor has acquired themselves an arch-nemesis.
+69-70,<i>Odd accent: </i>Instantly recognisable, the Inquisitor’s accent is easy to identify and hard to understand.
+71-77,<i>Other field of interest: </i>The Inquisitor may enjoy debating philosophy or theology, or then again they take a keen interest in ship-building and can name and identify every bolt, wire and engine in a starship.
+78-79,<i>Mute: </i>The Inquisitor will not speak with others directly – they may communicate through an elaborate sign language, telepathy or MIU-linked speaker-skulls or quill-skulls.
+80-81,<i>Grotesque: </i>Either through misfortune of birth, plastic surgery or misfortune in the line of duty, the Inquisitor is horribly ugly.
+82-83,<i>Attractive: </i>The Inquisitor is very attractive. They may exploit this to its full advantage.
+84-85,<i>Favourite weapon: </i>There is a named weapon the Inquisitor considers it unlucky to enter battle without.
+86-87,<i>Hatred: </i>Some poor unfortunate person, organisation or species is the focus of the Inquisitor’s intense hatred, for whatever reason.
+88-89,<i>Sadist: </i>The pain of others brings satisfaction to the Inquisitor.
+90-91,<i>Damned by association: </i>A past associate or colleague has been found guilty of heresy, and by extension the suspicions of the Inquisitor’s peers has fallen upon them.
+92-93,<i>Tortured/captured: </i>Possibly deeply traumatic to the Inquisitor, or it could have hardened their resolve against a particular foe. An experience they do not want to repeat!
+94-95,<i>Family: </i>The Inquisitor has found time to start a family.
+96,<i>Heretical mentor: </i>The Inquisitor’s mentor fell to the whispers of heretical thought.
+97,<i>Heretical pupil: </i>One of the Inquisitor’s past students went heretical.
+98,<i>Political aspirations: </i>Not so unusual in the Inquisition, this particular figure wants to climb the ladder of political power, either for themselves or the righteousness of their philosophy.
+99,<i>Quite a character: </i>[Quirks]{CR~}[Quirks]
+100,<i>Heretic: </i>You filthy, traitorous swine! It is worth noting that any Inquisitor of a heretical nature will have kept this secret if they wanted to survive more than five minutes in the Imperium.([Heretic])
+
+:Resources
+01-20,<i>Ties with…: </i>([Ties])
+21-30,<i>Personal army: </i>The Inquisitor maintains a privately acquired body of troops. ([Personal Army])
+31-40,<i>Unarmed spaceship: </i>([Unarmed spaceship])
+41-47,<i>Armed spaceship: </i>([Armed spaceship])
+48,<i>Reliquary: </i>Ancient relics of holy significance are carried about by the Inquisitor’s staff, or are kept in a secure vault at the Inquisitor’s base of operations.
+49,<i>Harem: </i>The Inquisitor possesses a harem, which may be purely for personal use (Inquisitors can get lonely too…), or it may help out in their line of work.
+50,<i>Archeotech: </i>Ancient and baroque machinery has been unearthed by the Inquisitor from humanity’s past. Who knows what it could do?
+51-55,<i>Archivists: </i>The Inquisitor has a retinue of lexmechanics, archivists and savants to sift through data and bring their considerable knowledge to use.
+56,<i>Infil-traitor network: </i>A number of mind-wiped agents with hypno-imprinted personalities are employed by the Inquisitor.
+57-58,<i>Pets/Familiars: </i>Everything from a favoured grox to cyber-mastiffs and psiber ravens.
+59-61,<i>Generic psionic resource: </i>This could be a sanctioned telekine or an untouchable, astropaths and even navigators could be included here.
+62-63,<i>Assassins: </i>Not Ordo Assassinorum trained, nevertheless still well-trained and motivated killers.
+64,<i>Planet: </i>A world is governed by the Inquisitor, perhaps under martial law or as a fief for them to conduct experiments/raise warriors.
+65-70,<i>Well established ‘friends’: </i>Influential characters friends in high places, such as nobles, politicians, etc.
+71-75,<i>‘Dogsbody’/Butler: </i>A loyal companion, always close by and ready with a loaded weapon and a dry, witty comment.
+76-80,<i>Huge archives: </i>A library of all manner of information is maintained by the Inquisitor, ranging on texts from all manner of fields of study.
+81-83,<i>Forbidden tomes: </i>The Inquisitor keeps proscribed texts.
+84-85,<i>Special armour: </i>A suit of terminator armour, the carapace of a saint or maybe something alien.
+86,<i>Special weaponry: </i>This could be Ordo-specific, such as a Deamonhammer, or a master-crafted power sword that is a great relic.
+87-88,<i>Hidden base: </i>([Hidden base])
+89-90,<i>Fortress: </i>([Fortress])
+91,<i>Spy network: </i>Infiltrators and double-agents feed the Inquisitor information from across the Sector.
+92,<i>Expert surgeon: </i>In case of any hideous injuries the Inquisitor sustains, the surgeon is on hand to fit bionics, perform plastic surgery, or maybe turn his scalpel on captured heretics.
+93-95,<i>Expert bodyguards: </i>([Expert bodyguards])
+96-97,<i>Huge favour: </i>Somebody, somewhere, owes the Inquisitor big time. This could be anything from a life debt to blackmail.
+98-99,<i>Research facility: </i>The Inquisitor has access to a research facility, which could be for anything and may be Ordo-specific.
+100,<i>Exterminatus: </i>The death of worlds is in the Inquisitor’s hands.
+
+:Ties
+01-03,<i>Space Marine Chapter: </i>The Inquisitor has contact with a chapter of the Adeptus Astartes, and can call upon them when in need of a favour, which often involves a large amount of brute force.
+04-15,<i>Adeptus Mechanicus: </i>Useful to aid in the identification and use of alien or ancient technology, an Inquisitor with ties to the Mechanicus must be careful their position is not compromised by agents of the Machine God.
+16-30,<i>Administratum: </i>Bureaucrats, archivists and logisters, the staff of the Administratum possess a great deal of information; they simply need to be told where to look.
+31-40,<i>Adeptus Arbites: </i>Good for the detention of heretics, as well as tracking criminals and providing a decent amount of firepower when necessary.
+41-55,<i>Ecclesiarchy: </i>The Imperial Church possesses vast wealth and resources, as well as a presence on almost all Imperial worlds.
+56-57,<i>Assassinorum Temple: </i>The Inquisitor has a powerful contact, possibly to do with the Ordo Sicarius, and can gain access to a deadly Assassin of one of the six temples.
+58-63,<i>Criminal Organisation: </i>Anything from a xeno-trading cartel to narcotics barons, having access to a criminal gang can be very useful in some places where Imperial justice does not hold so much sway.
+64-70,<i> Noble House: </i>Ideal for those of aristocratic birth, ties with the nobility can often lead to use of House ships, troops and funds, as well as bolt-holes and spies. This could also be a Navigator House.
+71-76,<i>Adeptus Astra Telepathica: </i>Due to investigations into psykers or being a psyker themselves, the Inquisitor has ties with the body that deals with all sanctioned psykers in the Imperium.
+77-88,<i>Imperial Government: </i>The Inquisitor has ‘friends in high places’ within a particular region’s government, be it a Sub-Sector, Sector or even a Segmentum.
+89-98,<i>Imperial Military: </i>Naval or Imperial Guard assets are available to the Inquisitor due to a martial background or contacts within the organisation.
+99-100,<i>Exotic: </i>For Radicals, this could be aliens or even a daemon, whilst for Puritans it’s more likely to be a particularly holy figure (possibly on the verge of Sainthood), a Rogue Trader, etc. 
+
+:Heretic
+01-40,<i>Carta Extremis: </i>Declared a heretic by their comrades, this Inquisitor is hunted by their peers for any number of reasons – killing a fellow Inquisitor, excessive displays of force or an unnecessary Exterminatus.
+41-55,<i>Ruinous Powers: </i>The Inquisitor has been tempted into the worship of the dark gods of Chaos.
+56-60,<i>Deceived: </i>The C’tan Star-Gods have bent this individual to their heinous will. Psykers should re-roll this result.
+61-65,<i>Working for the Greater Good: </i>Hailing from the Eastern Fringe, this Inquisitor’s contact with the Tau has made them sympathise with their cause and now they are feeding information back to the xenos scum.
+66-70,<i>Eldar infiltration: </i>Owing to any number of convoluted reasons, such as promises of access to the Black Library, the Inquisitor does as they request.
+71-80,<i>Illuminati: </i>A believer in the prophecy of the Star-Child and the Sensei, the Inquisitor is a member of this esoteric order. Gain the ‘Illuminated’ quirk.
+81-90,<i>Dark Pact: </i>In order to gain power and influence, even if it was for the good of the Imperium, the Inquisitor has forfeited his soul with a daemonic pact.
+91-97,<i>Trojan Horse: </i>Due to any number of reasons, such as personal vendetta or xenos influence, the Inquisitor’s aim is to cause as much damage as possible.
+98,<i>Infil-Traitor: </i>The Inquisitor is actually a sleeper-agent awaiting activation, but from who? Impersonation of an Inquisitor is heresy!
+99,<i>Alien: </i>Through cunning deceptions and extensive surgery, the Inquisitor is actually an alien masquerading about as a human, for whatever dire purpose it has in mind.
+100,<i>Daemonhost: </i>Amazingly, a daemonhost has been able to masquerade as an Inquisitor.
+
+:Personal Army
+01-20,<i>Mercenaries: </i>The Inquisitor has employed a cadre of mercenaries – these could be professional, Imperial regulated (possessing a licence) troops or little better than piratical brigands simply out for booty.
+21-40,<i>Guard formation: </i>A body of Imperial guardsmen, be it a company or a regiment. They could be specialists in a certain type of combat that the Inquisitor finds useful.  
+41-60,<i>Inquisitorial: </i>Storm Troopers, Ordo-specific units or Inquisitorial Wardens.
+61-80,<i>Imperial (other): </i>Arbitrators, Enforcers, Skitarii (technically Mechanicus, not Imperial – plausible if the Inquisitor has ties with the Mechanicus), armed Cultists, Penal units, Naval Security, PDF, Noble House troops, etc.  
+81-100,<i>Exotic: </i>Anything that is not covered here – alien mercenaries (Kroot or Orks?), renegades, mutants, abhumans, Adeptus Astartes, alien sponsors/allies (Tau or Eldar?), Chaos forces (Traitor Legions, most suited to the Alpha Legion)
+
+:Unarmed spaceship
+01-20,<i>Tug: </i>A small craft, not even a kilometre in length, with only five thousand hands aboard. Ugly but functional.
+21-40,<i>Star Yacht: </i>Sleek and ornate, the Star Yacht is designed to show off status and provide transport in style.
+41-60,<i>Herald: </i>Designed for speed, this craft is mostly engines. Ideal for Inquisitorial business where time is of the essence.
+61-80,<i>Mercantile: </i>A merchant ship that has been pressed into service for a variety of reasons – its large hold may have been converted into a library, for example, or the Inquisitor may be undercover as a merchant.
+81-100,<i>Exotic: </i>Alien (exploration or transport vessel?), Mechanicus exploration vessel, Naval/Inquisitorial Reconnaissance (possibly with psychic wardings), Ministorum Cathedral ship, etc.
+
+:Armed spaceship
+01-20,<i>Frigate: </i>A small vessel not intended for the heaviest actions, but still capable at chasing down pirates and protecting convoys.
+21-40,<i>Strike Craft: </i>Swift and well-armed for its size, usually equivalent to a light cruiser in tonnage.
+41-60,<i>Carrier: </i>It may be a carrier of interceptors and bombers, or one of assault transports for the Inquisitor’s private army.
+61-80,<i>Cruiser: </i>A ship of the line, well armed and armoured, capable of orbital bombardment as well as fleet actions.
+81-100,<i>Exotic: </i>Alien (bear in mind some are unlikely, e.g. Eldar, whereas some are nigh-on impossible, e.g. Necron!), Mechanicus warship, Astartes vessel, Arbites Punitive frigate, etc.
+
+:Hidden base
+01-20,<i>Asteroid: </i>In the depths of an asteroid field the Inquisitor has made his lair.
+21-40,<i>Volcano: </i>The classic hidden lair (space-piranhas not included).
+41-60,<i>Underwater: </i>Somewhere for the Inquisitor’s foes to meet a ‘fishy’ end.
+61-80,<i>Space Hulk: </i>In the dark places of the hulk, who knows what may lurk…
+81-100,<i>Other: </i>Up to the player, or choose from (Asteroid/Vocano/Underwater/Space Hulk/etc.)
+
+:Fortress
+01-20,<i>Bunker Complex: </i>The pragmatist’s fort, intimidating yet durable.
+21-40,<i>Airbase: </i>Using ancient technologies, this armed stronghold floats above a planet’s surface.
+41-60,<i>Impressive Citadel: </i>Complete with gargoyles, high towers and fluttering pennants (not to mention void shields and gun-turrets).
+61-80,<i>Space Station: </i>Festooned with weapons batteries, turrets and heavily shielded.  
+81-100,<i>Other: </i>Up to the player, or choose from (Bunker Complex/Airbase/Impressive Citadel/Space Station/etc.)
+
+:Expert bodyguards
+01-20,<i>Loyal henchmen: </i>The rag-tag band the Inquisitor has collected over the years form his die-hard bodyguard.
+21-40,<i>Death cultists: </i>A small number of devout Death cultists protect the Inquisitor.
+41-60,<i>Guardsmen: </i>A squad of veterans or stormtroopers form the bodyguard of the Inquisitor.  
+61-80,<i>Psionic personnel: </i>Either a powerful psyker or untouchable protects the Inquisitor.
+81-100,<i>Exotic: </i>This could be Ordo-specific (Crusaders for the Ordo Hereticus, an Eldar Ranger for the Ordo Xenos, etc), or something unusual such as a unit of Skitarii or even a Space Marine!
+
+:Illness
+01-20,<i>Hacking cough: </i>A nasty cough.
+21-40,<i>Xenovirus: </i>An alien virus.
+41-60,<i>Debilitating: </i>Eyerot, Catachan Sloughing Fever
+61-80,<i>Terminal: </i>St Basil’s Spineblight, Tyranid Spore-Cysts, malignant tumours, etc.
+81-100,<i>Warp-tainted malady: </i>The Obliterator Virus is the most famous of such illnesses.
+
+:Injury
+01-20,<i>Impressive scars: </i>From duelling or battle
+21-40,<i>Lost a minor body part: </i>Ear, finger
+41-60,<i>Lost a limb: </i>Leg or arm.
+61-80,<i>Lost an organ: </i>A punctured lung,
+81-100,<i>Paralysed: </i>Unable to move some/all limbs.

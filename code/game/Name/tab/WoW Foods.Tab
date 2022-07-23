@@ -1,0 +1,513 @@
+#Various food vendors
+#Elizabeth Moore
+#
+%Base%,1
+%STVR%,0
+%Rolls%,0
+%Quantity%,0
+%PricePer%,1
+%Selection%,0
+%temp%,0
+
+%FlourBase%,3
+      
+@Rolls,1,How many items are in this shop?
+@Selection,1,What kind of shop is this?,Bakery,Brewer,Butcher,Cheesemaker,Fishmonger,Greengrocer,Mill,Spice Merchant,Tavern,Vintner,Restaurant
+
+      
+:Start
+1,[Store]
+
+:Store
+1-2,  |Base-{Calc~({Dice~1d25+25}/100)*%Base%}|       [Multiplier] 
+3-6,  |Base-{Calc~({Dice~1d10+15}/100)*%Base%}|   [Multiplier]
+7-15,  |Base-{Calc~({Dice~1d10+5}/100)*%Base%}| [Multiplier]
+16-26,  |Base-{Calc~({Dice~1d4}/100)*%Base%}|[Multiplier]
+27-60,   [Multiplier]                             
+61-71,  |Base+{Calc~({Dice~1d4}/100)*%Base%}|    [Multiplier]
+72-80,  |Base+{Calc~({Dice~1d10+5}/100)*%Base%}| [Multiplier]
+81-85,  |Base+{Calc~({Dice~1d10+15}/100)*%Base%}|[Multiplier]
+86-88,  |Base+{Calc~({Dice~1d15+20}/100)*%Base%}|[Multiplier]
+89-90, |Base+{Calc~({Dice~1d25+25}/100)*%Base%}| [Multiplier]
+91, |Base+{Calc~({Dice~1d50+50}/100)*%Base%}|    [Multiplier]
+
+:Multiplier
+1, Price Multiplier: %Base% |STVR=%Base%|<br><br> {Loop~%Rolls%,[Foods=%Selection%]|Base=1||PricePer=1|} 
+
+:ItemPrice
+1,{Calc~%Base%*%STVR%*%PricePer%}
+
+:Foods
+< <p>
+1,[Bakery]
+2,[Brewer]
+3,[Butcher]
+4,[Cheesemaker]
+5,[Fishmonger]
+6,[Greengrocer]
+7,[Mills]
+8,[Spicer]
+9,[Tavern]
+10,[Vintner]
+11,[Menu]
+> </p>
+
+:Bakery
+1-4,{Dice~2d6} loaves of [Breads]<br>
+_{Trunc~[ItemPrice]} cp per loaf
+6-7,{Dice~1d8} dozen {Plural~[Pastries]}<br>
+_{Round~2,[ItemPrice]} gp apiece
+>{Unlock~Breads,6}{Unlock~Pastries,3,4,9}|temp=0||PricePer=0|
+
+:Brewer
+1-14, [Booze]<br>
+15,[MagicBooze]<br>
+><b>Price:</b> {Round~2,{Calc~[ItemPrice]*10}} sp per keg.
+
+:Butcher
+1-7, [Meat] [MeatCuts]<br>
+8-9, [Poultry] [PoultryCuts]<br>
+10, [OtherMeats]<br>
+> {Dice~1d20} pounds<br>
+_{Round~1,[ItemPrice]} sp/pound
+
+:Cheesemaker
+1,{Dice~1d20} pounds of [Cheese]<br>
+_{Round~1,[ItemPrice]} sp per pound
+
+:Fishmonger
+1-7, {Dice~2d20+5} pounds of [Fish]
+8-9, {Dice~1d20+5} pounds of [Seafood]
+10, {Dice~3d20+5} {Plural~[NonEdibleFish]}
+> <br>{Round~1,[ItemPrice]} sp/pound
+
+:Greengrocer
+1, <b>Fruit:</b> [Fruits]
+2,<b>Vegetable:</b>[Vegetables]
+3,<b>Nuts:</b>{Plural~[Nuts]}
+4,<b>Oil:</b> [Oils]
+><br>{Round~2,[ItemPrice]} gp per pound
+
+:Mills
+1, {Dice~10d50} pounds of [Flours] flour<br>{Round~1,[ItemPrice]} sp/pound
+
+:Spicer
+1,{Dice~1d5} pounds of [Spices]<br>{Round~2,[ItemPrice]} gp/pound ({Round~2,{Calc~[ItemPrice]/16}} gp/ounce)
+
+:Tavern
+1-5, [Booze]
+6-9, [Wines]
+10-12,[NonAlcoholDrinks]
+13,[Waters]
+><br><b>Price:</b>{Round~2,[ItemPrice]} gp per pitcher, or {Round~1,{Calc~[ItemPrice]*2}} sp per glass.
+
+:Vintner
+< {Dice~1d50} bottles of 
+1,[Wines]<br>
+> <b>Price:</b> {Round~2,[ItemPrice]} gp per bottle.
+
+:Menu
+1,[MeatPrep] [Poultry] {Plural~[PoultryCuts]} [Enhanced]
+2,[MeatPrep] [Meat] [MeatCuts] [Enhanced]
+3,[MeatPrep] [Fish] fillet [Enhanced]
+4,[MeatPrep] {Plural~[Vegetables]} [Enhanced]
+5,[SelectMeat] [Mixture] [Enhanced=5]
+6,[PreparedDishes]
+
+##########
+# Foods
+##########
+:Cheese
+1,Alterac Swiss
+2,Dalaran Sharp
+3,Darnassian Bleu
+4,Dwarven Mild
+5,Fine Aged Cheddar
+6,Stormwind Brie
+
+:!Breads
+1,Honey Bread
+2,Mulgore Spice Bread
+3,Soft Banana Bread
+4,Pumpernickel
+5,Sourdough
+6,[Flours] Bread|PricePer=2|
+
+:!Pastries
+1,Croissant
+2,Cinnamon Roll
+3,{If~{Dice~1d2}=1 ? [Fruits] / [Nuts]} Muffin
+4,[Fruits] Dumpling|temp={Calc~2*%PricePer%+1.65+0.66+0.0044+0.0186}||PricePer={Calc~%temp%/12}|
+5,Bun
+6,Funnel Cake|temp=0.0376+1.65+0.0066||PricePer={Calc~%temp%/12}|
+7,Gingerbread Cookie|temp={Calc~2.904+1.056+0.1056+0.22+0.0039+0.077}||PricePer={Calc~%temp%/48}|
+8,Wild Ricecake
+9, [Fruits] Strudel|temp={Calc~3.5*%PricePer%+0.77+0.024+0.275+2.475+0.0044+0.0088}||PricePer={Calc~%temp%/12}|
+10, [Fruits] Pie|temp={Calc~0.86*%PricePer%+0.55+1.65}||PricePer=%temp%|
+11,Torte
+12,Cake
+
+:!Spices
+1,Black pepper|PricePer=480|
+2-3,Cinnamon|PricePer=1|
+4,Cumin|PricePer=0.48|
+5,Nutmeg|PricePer=480|
+6,Ginger|PricePer=160|
+7,Cardamom|PricePer=16|
+8,Paprika|PricePer=480|
+9,Mint|PricePer=0.48|
+10,Coriander|PricePer=1.6|
+11,Anise|PricePer=0.48|
+12,Cloves|PricePer=2.4|
+13,Mustard|PricePer=0.8|
+14,Saffron|PricePer=1040|
+15,Dill|PricePer=0.48|
+16,Oregano|PricePer=3.2|
+17,Garlic|PricePer=0.16|
+18,Sage|PricePer=1.6|
+19,Basil|PricePer=1.6|
+20,Thyme|PricePer=3|
+21,Rosemary|PricePer=8|
+22,Parsley|PricePer=0.64|
+23,Marjoram|PricePer=0.80|
+24,Tarragon|PricePer=16|
+25,Fenugreek|PricePer=4.8|
+
+;!Flours
+100,Wheat|Base=%FlourBase%|
+90,Barley|Base={Calc~%FlourBase%*0.67}|
+50,Graham|Base={Calc~%FlourBase%*1}|
+80,Corn|Base={Calc~%FlourBase%*1}|
+75,Rye|Base={Calc~%FlourBase%*0.5}|
+60,Rice|Base={Calc~%FlourBase%*3.68}|
+45,Potato|Base={Calc~%FlourBase%*4.37}|
+50,Buckwheat|Base={Calc~%FlourBase%*0.33}|
+5,Almond|Base={Calc~%FlourBase%*7.76}|
+10,Chickpea|Base={Calc~%FlourBase%*1.26}|
+5,Amaranth|Base={Calc~%FlourBase%*3.195}|
+
+:!Fish
+1,Mightfish
+2,Brilliant Smallfish
+3,Glossy Mightfish
+4,Greater Sagefish
+5,Loch Frenzy
+6,Longjaw Mud Snapper
+7,Mithril Head Trout
+8,Nightfin Snapper
+9,Rainbow Fin Albacore
+10,Redgill
+11,Rockscale Cod
+12,Sagefish
+13,Slitherskin Mackerel
+14,Spotted Yellowtail
+15,Summer Bass
+16,Sunscale Salmon
+17,Whitescale Salmon
+18,Bristle Whisker Catfish
+19,Darkshore Grouper
+20,Red Snapper
+21,Dezian Queenfish
+22,Feralas Ahi
+23,Keefer's Angelfish
+24,Sar'theris Striker
+25,Blue Sailfin
+26,Speckled Tastyfish
+27,Spotted Sunfish
+28,Zulian Mudskunk
+29,Spinefin Halibut
+30,Bloodbelly Fish
+
+:!Seafood
+1,Darkclaw Lobster
+2,Winter Squid
+3,Crab
+
+:!NonEdibleFish
+1,Oily Blackfish
+2,Firefin Snapper
+3,Stonescale Eel
+4,Lightning Eel
+5,Plated Armorfish
+6,Steelscale Crushfish
+
+:Meat
+1,Wolf|PricePer={Dice~1d4+1}|
+2,Boar|PricePer={Calc~{Dice~1d20+75}/100}|
+3,Lynx|PricePer={Dice~1d4+1}|
+4,Kodo|PricePer={Calc~2+{Dice~5d10/10}}|
+5,Bear|PricePer={Dice~1d5+1}|
+6,Venison|PricePer={Calc~1+{Dice~1d20+75}/100}|
+7,Dig Rat|PricePer={Dice~1d10/10}|
+8,Lion|PricePer={Dice~1d5+3}|
+9,Turtle|PricePer={Calc~1+{Dice~1d20+75}/100}|
+10,Tiger|PricePer={Dice~1d5+4}|
+11,Beef|PricePer=1|
+12,Organic Veal|PricePer={Calc~2+{Dice~1d20+75}/100}|
+13,Veal|PricePer={Calc~{Dice~1d20+50}/100}|
+
+:Poultry
+1,Strider|PricePer={Calc~2+{Dice~5d10/10}}|
+2,Chicken|PricePer=1|
+3,Quail|PricePer={Calc~3+{Dice~1d20+75}/50}|
+4,Condor|PricePer={Calc~{Dice~1d20+75}/100}|
+5,Raptor|PricePer={Calc~3+{Dice~7d10/10}}|
+6,Turkey|PricePer={Calc~3+{Dice~2d10/10}}|
+
+:OtherMeats
+1,Spider|PricePer={Calc~{Dice~3d10+30}/10}|
+2,Bat|PricePer={Calc~1+{Dice~6d10/10}}|
+3,Mystery Meat|PricePer={Calc~{Dice~3d10+30}/100}|
+4,Sandworm|PricePer={Calc~3+{Dice~7d10/10}}|
+
+;MeatCuts
+50,Chuck|Base=6|
+25,Short ribs|Base=6|
+40,Shortloin|Base=10.9|
+35,Sirloin|Base=11.6|
+5,Tenderloin|Base=25.99|
+10,Top sirloin|Base=12.79|
+50,Round|Base=6.95|
+20,Brisket|Base=8|
+20,Plate|Base=4.87|
+20,Flank|Base=4.15|
+20,Shank|Base=4.55|
+25,Rib-eye|Base=21.38|
+
+:PoultryCuts
+1,Breast|Base=3.94|
+2,Thigh|Base=2.88|
+3,Drumstick|Base=2.9|
+4,Wing|Base=4.39|
+
+:!Fruits
+1,Goldenbark Apple|PricePer=1.5|
+2,Heaven Peach|PricePer=15|
+3,Moon Harvest Pumpkin
+4,Snapvine Watermelon
+5,Strawberry
+6,Tel'Abim Banana
+7,Blessed Sunfruit
+8,Plantain
+9,Elderberry|PricePer=1.6|
+10,Melon
+11,Mixed Berry
+12,Sand Pear|PricePer=5|
+13,Windblossom Berry
+14,Red Apple|PricePer=1|
+15,Grape|PricePer=1|
+16,Cherry|PricePer=8|
+17,Plum|PricePer=3|
+
+:!Booze
+1,Nethergarde Bitter|PricePer=1.6|
+2,Rumsey Rum Black Label|PricePer=.16|
+3,Cheap Beer|PricePer=1.08|
+4,Cherry Grog|PricePer=2.72|
+5,Dark Iron Ale|PricePer=.48|
+6,Don Carlos Tequila|PricePer=.24|
+7,Evermurky|PricePer=1.6|
+8,Mead|PricePer=1.2|
+9,Gordok Green Grog|PricePer=1.2|
+10,Kreeg's Stout Beatdown|PricePer=1.2|
+11,Aerie Peak Pale Ale
+12,Cuergo's Gold
+13,Dark Dwarven Lager|PricePer=.8|
+14,Dwarven Homebrew
+15,Bourbon|PricePer=1.6|
+16,Thunderbrew Lager
+17,Loch Modan Lager
+18,Molasses Firewater|PricePer=1.2|
+19,Moonglow
+20,Shimmer Stout
+21,Rhapsody Malt|PricePer=.4|
+22,Southshore Stout|PricePer=.116|
+21,Stormstout
+22,Stouthammer Lite|PricePer=.4|
+23,Suntouched Special Reserve
+24,Thunder Ale|PricePer=.4|
+25,Trogg Ale
+26,Barleybrew Scalder
+27,Kalimdor Kocktail
+28,Shindigger Stout
+29,Dwarven Stout|PricePer=0.96|
+
+:MagicBooze
+1,BlackWhiskey|PricePer=5400|
+2,Chou's Hair of the Dog Ale|PricePer=6000|
+3,Hong's Bravery Brew|PricePer=5000|
+4,Hong's Fighting Lager|PricePer=5000|
+5,Wounded Warrior Whiskey|PricePer=1500|
+
+:!Vegetables
+1,Radish
+2,Okra
+3,Carrot|PricePer=16|
+4,Celery
+5,Cucumber
+6,Asparagus
+7,Zucchini
+8,Potato
+9,Squash
+10,Tomato
+11,Artichoke
+12,Beet
+13,Broccoli
+14,Cabbage
+15,Cauliflower
+16,Corn
+17,Eggplant
+18,Lettuce
+19,Green Bean|PricePer=3.2|
+20,Spinach
+21,Pea|PricePer=0.2|
+22,Onion|PricePer=8|
+23,Parsnip
+24,Pepper
+25,Rhubarb
+26,Yam
+
+:Candy
+1,Bellara's Nutterbar
+2,Candy Cane
+3,Deep-fried Candybar
+4,Buttermilk Delight
+5,Candy Bar
+6,Candy Corn
+7,Chocolate Square
+8,Dark Desire
+9,Lollipop
+10,Moonbrook Riot Taffy
+11,Sweet Surprise
+12,Toasted Smorc
+13,Versicolor Treat
+14,Very Berry Cream
+
+:!Wines
+1,Brightsong Wine|PricePer={Dice~1d3+1}|
+2,Junglevine Wine|PricePer={Dice~1d3+1}|
+3,Pinot Noir|PricePer={Dice~1d20+15}/2|
+4,Pupellyverbos Port|PricePer=16|
+5,Merlot|PricePer=10|
+6,Chardonnay|PricePer=5|
+7,Rose'|PricePer=6|
+8,Champagne|PricePer=22.5|
+9,Pinot Blanc|PricePer=12.5|
+10,Zinfandel|PricePer=4|
+11,Viognier|PricePer=9|
+12,Grenache|PricePer=7.5|
+13,Riesling|PricePer=4|
+14,Cava|PricePer=7|
+15,Spumante|PricePer=3|
+
+:!NonAlcoholDrinks
+1,Tea with Sugar
+2,Black Coffee|PricePer=.64|
+3,Blended Bean Brew|PricePer=.125|
+4,Fizzy Faire Drink|PricePer=.5|
+5,Lemonade|PricePer=.4|
+6,Goldthorn Tea|PricePer=.272|
+7,Green Garden Tea|PricePer=.1|
+8,Green Tea|PricePer=.11|
+9,Iced Berry Slush|PricePer=.64|
+10,Melon Juice|PricePer=.1|
+11,Moonberry Juice|PricePer=.2|
+12,Raptor Punch|PricePer=.284|
+13,Sparkling Southshore Cider|PricePer=.64|
+14,Sweet Nectar|PricePer=.1|
+15,Thistle Tea|PricePer=.96|
+16,Ice Cold Milk|PricePer=.1|
+
+:Waters
+1,Spring Water|PricePer=.025|
+2,Mineral Water|Priceper=.35|
+3,Glacier Water|PricePer=1.3|
+4,Mountain Spring Water|PricePer=1.6|
+
+###########
+# Cooking Tables
+###########
+:SelectMeat
+1-3,[Meat]
+4-7,[Poultry]
+9-10,[Fish]
+11,[OtherMeats]
+12,[Seafood]
+
+:MeatPrep
+1,Grilled
+2,Broiled
+3,Roasted
+4,Stir-fried
+5,Pan-fried
+6,Steamed
+7,Boiled
+8,Baked
+9,Braised
+10,Smoked
+
+:Mixture
+1,Soup
+2,Stew
+3,Casserole
+4,Kabobs
+5,Gumbo
+6,Sandwich on [Flours] bread
+7,Pie
+
+:Enhanced
+1,with a [Spices] and [Spices] rub
+2,topped with melted [Cheese]
+3,with a [Fruits] sauce
+4,atop a bed of {Plural~[Vegetables]}
+5,with {Plural~[Vegetables]} and {Plural~[Vegetables]}
+6,with [Spices] and [Spices]
+
+:!PreparedDishes
+1,Goblin Gumbeaux
+2,Cabbage Kimchi
+3,Cactus Apple Surprise
+4,Clam Chowder
+5,Clamlette Surprise
+6,Crunchy Frog
+7,Curiously Tasty Omelette
+8,Darnassus Kimchi Pie
+9,Jungle Stew
+10,Murloc Fin Soup
+11,Radish Kimchi
+12,Shinsollo
+13,Steamed Mandu
+14,Winter Kimchi
+
+:Oils
+1,Olive|PricePer=5|
+2,Almond|PricePer=10|
+3,Walnut|PricePer=2|
+4,Hazelnut|PricePer=3|
+5,Sesame|PricePer=10|
+6,Sunflower|PricePer=0.3|
+7,Safflower|PricePer=0.2|
+8,Rapeseed|PricePer=0.1|
+
+:Nuts
+1,Almond|PricePer=3|
+2,Cashew|PricePer=20|
+3,Chestnut|PricePer=1|
+4,Hazelnut|PricePer=0.5|
+5,Pine nut|PricePer=10|
+6,Pistachio|PricePer=15|
+7,Walnut|PricePer=0.3|
+
+:Baking1
+#Measured in Gallons
+1,Honey|PricePer=0.8|
+2,Molasses|PricePer=4|
+3,Sorghum|PricePer=2.4|
+4,Maple Sugar|PricePer=75|
+
+:Baking2
+#Measured in Pounds
+1,Marzipan|PricePer=320|
+2,Sugar|PricePer=1|
+3,Coconut|PricePer=50|
+4,Vanilla|PricePer=1200|

@@ -1,0 +1,237 @@
+# ---------------------------------------------------
+# Last Update: verified by Valminder Feb 28, 2006.
+# ---------------------------------------------------
+#
+# Shop & Owner Description
+#
+# Source 1: TSR 9262 - Cities of Mystery (Disposition, Motivation, Quality)
+# Source 2: Dawn Ibach (she made the wonderful Quirks table used here --
+#                        I hope she doesn't mind.)
+# Source 3: Myself (shop types).
+# Send additions to JimmyFlowers@bigfoot.com
+#
+# DM must determine sex of shop owner.
+# Inns and Taverns are much better handled by other tables. 
+#
+# Modified by Valminder, April 2002.
+#   I transfered the "Shop" to "Miscellaneous.Shop" AND "Quirks" to
+#   "Miscellaneous.Quirks" so they could be used by other tables.
+#
+#   I also added links to:
+#         Creatures.Humanoid2
+#         Miscellaneous.Gender
+#         Names Generator.NAME Random
+#         NPC Appearance.NPC
+#
+# Valminder, Feb 2004: created "Generate" subtable.
+#   -Added customers.
+#   -Added staff.
+#    (Cut/paste staff in the new shop table and modify the variables
+#     Assistant1 / Assistant2 / Assistant3 and make sure to include all the variables
+#     below)
+#
+# Modified by Valminder, Jan 2006.
+#    Adapted for TSv5.
+#
+
+
+
+%A%,0
+%Assistant1%,0
+%Assistant2%,0
+%Assistant3%,0
+%Staff%,0
+%Temp%,0
+
+:Start
+1,<b><u>Shop Type</u>:</b> {Cap~[Miscellaneous.Shop]}<br><br>[Generate]
+
+:Generate
+1,<b><u>Shop Name</b></u>: [~Shop Names.Generic].<br><br>
+_[Owner]
+_[Shop]<br>
+_<b><u>Staff</u>:</b> [StaffCalc][Staff=%Temp%].<br><br>
+_<b><u>Customer(s)</u>:</b> [Customers]<br>
+_[NPC Appearance.Bartender]
+
+:Owner
+1,<b><u>Owner</u>: </b>: [~Names Generator.NAME Random], [~Gender] [~Creatures.Humanoid2], [~Level] [~Class]. (Look at the bottom)<br>
+_<b><u>Owner's Alignment</u>:</b> [~Miscellaneous.Alignment2]<br>
+_<b><u>Owner's Personality</u>:</b> [~Miscellaneous.Personality].<br>
+_<b><u>Owner's Quirks</u>:</b> [~Miscellaneous.Quirks].<br>
+_<b><u>Owner's Initial Reaction</u>:</b> [~Miscellaneous.Reaction]<br><br>
+_<b><u>Owner's Motivation</u>:</b> [~Motivations].<br>
+_<b><u>Quality of Goods</u>:</b> [~Quality].<br><br>
+
+:Shop
+1,<b><u>Layout</u>: </b>[~Inn Desc.Alternate]<br>
+
+# ---------------------------------------------------------------------------
+
+;Disposition
+2,sour and gruff
+2,quiet and reserved
+2,boisterous
+2,pushy and aggressive
+4,friendly
+4,courteous
+2,talkative
+1,suspicious and distrusting
+1,shifty and dishonest
+1,laid back and easy going
+1,loves to haggle
+
+;Class
+3,adept ([Creatures.Familiar] familiar)
+2,aristocrat
+1,barbarian
+1,bard
+1,cleric of [Religion.Deities]
+10,commoner
+1,druid
+10,expert
+3,fighter
+1,monk
+1,paladin of [Religion.Good Gods]
+2,ranger
+2,rogue
+1,sorcerer ([Creatures.Familiar] familiar)
+3,warrior
+1,wizard[Miscellaneous.ClassSpecialist] ([Creatures.Familiar] familiar)
+1,[Miscellaneous.ClassMulti]
+
+;Gender
+1,male
+2,female
+
+;Level
+3,1st-level
+3,2nd-level
+3,3rd-level
+1,{Dice~1d7+3}th-level
+
+:Quality
+01-05,Shoddy (Cost -50 <b>percent</b>; not included)
+06-11,Poor (Cost -25 <b>percent</b>; not included)
+12-16,Poor, but appears fair (Cost -10 <b>percent</b>; not included)
+17-20,Poor, but appears good or better (normal cost)
+21-30,Fair (Cost -10 <b>percent</b>; not included)
+31-80,Good (normal cost)
+81-90,Very Good (Cost +10 <b>percent</b>; not included)
+91-96,Excellent (Cost +25 <b>percent</b>; not included)
+97-100,Superior workmanship (Cost +50 <b>percent</b>; not included)
+
+:Motivations
+01-10,Greed
+11-20,To support a family
+21-30,Pride in his/her work
+31-40,Striving for quality
+41-60,Striving for quantity
+61-80,To support him/herself
+81-90,Hobby, something to do
+91-96,Enjoyment, likes to work
+97-100,Service, likes to help others
+101-105,Something to do
+106,Hiding from something
+107,To become the best
+
+# --------------------------------------------------------------------------
+
+:StaffCalc
+1,|Assistant1=apprentice||Assistant2=master craftsman||Assistant3=[GenAssistant3]|
+_|Temp={Dice~1d11}||Temp+%Staff%|
+_{If~%Temp%<1? |Temp=1|}{If~%Temp%>11? |Temp=11|}
+
+;GenAssistant3
+50,wizard
+20,sorcerer
+21,cleric of [~Religion.Deities2]
+7,adept of [~Religion.Deities2]
+2,druid
+
+# Note: if you add stuff in Staff subtable, modify the StaffCalc subtable.
+;Staff
+1,The owner is alone
+2,The owner is assisted by 1 [~Creatures.Humanoid2] %Assistant1% named [~Names Generator.NAME Random]
+5,The owner is assisted by |A={Dice~1d4}|<b>%A%</b> [~Creatures.Humanoid2] {Plural~%Assistant1%}.<br><u>{Cap~{Plural~%Assistant1%}}</u>: {Loop~%A%, [Assistant]}
+2,The owner is assisted by {AorAn~%Assistant2%} ([Name]) and |A={Dice~1d5+1}|<b>%A%</b> {Plural~%Assistant1%}.<br><u>{Cap~{Plural~%Assistant1%}}</u>: {Loop~%A%, [Assistant] }
+1,The owner is assisted by {AorAn~%Assistant2%} ([Name]), {AorAn~%Assistant3%} ([Name]) and |A={Dice~2d5}|<b>%A%</b> {Plural~%Assistant1%}.<br><u>{Cap~{Plural~%Assistant1%}}</u>: {Loop~%A%, [Assistant] }
+
+:Assistant
+1,[Names Generator.NAME Random],
+
+:Name
+1,[~Names Generator.NAME Random], [~Shop & Owner Description.Gender] [~Creatures.Humanoid2]
+
+# --------------------------------------------------------------------------
+
+;Customers
+100,None.
+90,[Customers2]
+10,[Customers2]<br>[Customers2]
+1,[Customers2]<br>[Customers2]<br>[Customers2]
+
+;Customers2
+1,A group of <b>{Dice~1d6+2}</b> [~Creature] are [InOut].
+1,[~Creature2] [~Gender] is [InOut].
+
+:Creature
+1,{Plural~[Creatures.Humanoid2]}
+
+:Creature2
+1,{Cap~{AorAn~[Creatures.Humanoid2]}}
+
+;InOut
+2,entering [How]
+2,leaving [~How] [Goods] [Reaction]
+1,in a serious discussion with the owner about [AboutWhat]
+1,talking quietly to the owner (<i>about [AboutWhat]</i>)
+1,talking to the owner about [AboutWhat]
+1,milling about examining the goods
+
+;AboutWhat
+1,the unfair price of his goods
+1,the fair price of his goods
+1,the bad quality of his goods
+1,the excellent quality of his goods
+1,another shop ([~Shop Names.Generic]) with similar goods
+1,another shop ([~Shop Names.Generic]) with better goods
+1,another shop ([~Shop Names.Generic]) with worst goods
+1,an agreement on the payment of the goods
+1,how the owner was not payed previously
+1,how the owner failed to deliver the promised goods
+1,how to best take care of the goods
+1,how to preserve the goods
+1,how to make a better use of the goods
+1,a broken deal
+1,a future deal
+1,a good he does not have anymore
+1,the possibility of importing goods from [~Countries.Land]
+1,the possibility of exporting goods to [~Countries.Land]
+1,the theft of some goods
+1,the following rumor ({Generate~0,Click to generate rumor,Rumors.Generate})
+
+;Goods
+1,(with stolen goods)
+2,with nothing
+2,with some bought goods
+1,with a lot of goods
+
+;How
+10,
+1,in a hurry
+1,in a sneaky manner
+1,by the "backdoor"
+1,in a triumphant mood
+1,in a dissatisfied mood
+
+;Reaction
+10,
+4,while the owner thanks them
+1,while the owner thanks them and asks them to come back
+1,while the owner does not look at them
+1,while the owner is yelling not to come back
+1,while the owner threatens them if they ever come back
+1,while the owner threatens them of calling the town guards
+ 
+ 

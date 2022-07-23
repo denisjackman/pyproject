@@ -1,0 +1,125 @@
+﻿#
+# Crimes
+#
+
+:Start
+1,[Crime]
+2,[Crime] and [Crime]
+3,[Crime], [Crime] and [Crime]
+4,[Crime], [Crime], [Crime] and [Crime]
+5,[Crime], [Crime], [Crime], [Crime] and [Crime]
+6,[Crime], [Crime], [Crime], [Crime], [Crime] and [Crime]
+7,[Crime], [Crime], [Crime], [Crime], [Crime], [Crime] and [Crime]
+
+
+:Crime
+1,Abuse
+2,Aggravated Assault
+3,Aggravated Battery
+4,Aggravated Felony
+5,Alchemy
+6,Alien Smuggling
+7,Arson
+8,Assassination
+9,Assault
+10,Assault and Battery
+11,Battery
+12,Blackmail
+13,Bootlegging
+14,Bribery
+15,Broadcast Signal Intrusion
+16,Burglary
+17,Car Theft
+18,Cattle Rustling
+19,Child Abuse
+20,Child Pornography
+21,Confidence Game
+22,Conspiracy
+23,Contract Killing
+24,Corruption of Public Officials
+25,Counterfeiting
+26,Crimes Against Humanity
+27,Cruelty To Animals
+28,Cybercrime
+29,Disorderly Conduct
+30,Disturbing The Peace
+31,Domestic Violence
+32,Drug Dealing
+33,Drug Possession
+34,Drug Trafficking
+35,DUI aka DWI
+36,Espionage
+37,Extortion
+38,Failure to Appear In Court
+39,False Imprisonment
+40,Felony
+41,Felo-de-se
+42,Forgery
+43,Fraud
+44,Gambling
+45,Genocide
+46,Grand Theft Auto
+47,Grave Robbing
+48,Gunsmuggling
+49,Harassment
+50,Heresy
+51,Homicide
+52,Horse Rustling
+53,Identity Theft
+54,Illicit Drug Use
+55,Indictable Offences
+56,Infraction
+57,Insider Trading
+58,Jaywalking
+59,Kidnapping
+60,Labor Racketeering
+61,Loan Sharking
+62,Maleficium
+63,Manslaughter
+64,Medical Malpractice
+65,Misdemeanor
+66,Money Laundering
+67,Murder
+68,Obstruction of Justice
+69,Paraphilia
+70,Passport Fraud
+71,Perjury
+72,Piracy
+73,Pornography
+74,Property Crimes
+75,Property Damage
+76,Prostitution
+77,Public Drunkeness
+78,Public Nudity
+79,Public Order Crimes
+80,Racketeering
+81,Rape
+82,Riot
+83,Robbery
+84,Rustling
+85,Serial Arson
+86,Serial Murder
+87,Serial Rape
+88,Sexual Abuse
+89,Sexual Assault
+90,Sexual Harassment
+91,Simple Assault
+92,Slavery
+93,Statutory Rape
+94,Stock Manipulation Schemes
+95,Suicide
+96,Summary Offences
+97,Tampering with Witnesses
+98,Tax Fraud
+99,Terrorism
+100,Theft
+101,Trafficking in Vehicles with Altered Identification Numbers
+102,Transporting Persons Across State Lines For Purposes Of Forcing Them Into Prostitution
+103,Treason
+104,Trespass
+105,Vagrancy
+106,Vandalism
+107,Verbal Offence
+108,Victimless Crimes
+109,Violent Crimes
+110,War Crimes

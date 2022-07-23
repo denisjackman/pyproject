@@ -1,0 +1,133 @@
+#--------------------------------------------------------------------------
+#	Created by Viriatha de Cordova, Feb 2010 for Cyberpunk 2020
+#----------------------------------------------------------------------------
+#
+#	(Numbers in parenthesis reference relative skill levels.)
+#
+#	Instructions
+#		Replace the word "Character" in the character table with the names of the characters in your game. On the Betrayal Table and 		#		the AllyDeath Table, replace the words "Player 1", "Player 2", etc with the names of the characters in your game and the words "an 	#		ally" on the various Ally Tables with their allies.
+#
+#
+
+:Encounters
+1,1d6 smash heads needing cash confront the party (1d10+1, knives, no armor).
+2,Firefight! 1d6 Bradi Bunch (10+3)is attacked 2d6 Red Chrome Legion (1d10+7). Handguns, armor jackets.
+3,A fire breaks out in a nearby building.
+4,A dead body is lying nearby.
+5,The party is confronted by 1d6 corporate guards with an attitude (1d10+8, flak vests, helmets, UZIs).
+6,Street musicians are playing nearby.
+7,A car pulls up with 1d6 nomads with attitude (10+5).
+8,A famous star is nearby. He/She feels the party is causing problems and yells for the bodyguards (10+6).
+9,A small charity-driven parade causes delays.
+10,A truck is over-turned nearby (10d100 eb worth of goods).
+11,[Character] recieves a bill of some sort (1d10 x10 eb).
+12,An officer of the law is patrolling the area. If the characters have visible weapons, he'll harrass them. (AKR20, Kevlar Vest, 1d10+4).
+13,1d6 of solos ask the PCs to a bar for a drink. They pump them for information. (1d10+5)
+14,A driver hits the PCs, whose car will be totaled. 20% chance someone is seriously injured.
+15,Street Sale! Everything must go!!! (General Goods 50% off the book price.)
+16,A child pack with knives and sticky fingers is encountered (1d10).
+17,1d10 Inquisitors with nunchuks corner the party to hand out literature about the evils of cyberware. Any visible cyber will result in harrassment and any violence in a minor riot.
+18,1d6 friendly but not too bright young men and women walk by the party.
+19,[Character] catches a cold (-1 INT or REF for 1d6 days).
+20,[Character] catches the flu (-2 REF, -1 INT for 5+1d6 days).
+21,A local dealer is looking for new customers and tries to sell drugs to the PCs.
+22,You've got mail! [Character] gets a gift certificate to [Shop] for 1d6x100 eb.
+23,[Character] is accused of rape.
+24,A burglar breaks into [Character]'s home.
+25,Cash! A wallet is laying on the street (1d10x10 eb).
+26,[Character] catches a life-threatening illness (-3 all Stats, indefinitely). See a doctor!
+27,1d6 Kennedys are nearby. If the characters say anything about the gang, their boosted hearing picks it up! (Armored T-shirts, Heavy handguns, 1d10+6).
+28,[Character] is targeted by a pickpocket (1d10+12).
+29,1d6 band members on their way to practice invite the PCs to their gig that night.
+30,1d6 solos pick a fight with the characters (Flak vests, Assault weapons, 1d10+14).
+31,Road trouble, some teens are playing chicken with other drivers.
+32,[Sex] likes [Character].
+33,Their current employer plans to betray the party.
+34,An accident causes moderate porperty damage and injuries (4d6 dmg).
+35,The bodyguards for a corp exec think the PCs are too close to their charge and warn them off (Flak armor, Sternmeyer 35s, 1d10+15).
+36,1d6 lace addicts, looking for creds (knives, no armor, don't feel pain, 1d10+7).
+37,The party's car has slashed tires.
+38,A young child under 5 years old is lost nearby (+1d10 humanity points if the party helps the child).
+39,A team of 1d6 solos on a grey op think the PCs saw something - and decide to take them out (1d10+15).
+40,A camera and interview team is doing "man on the street" interviews - and paste the faces of the party all over the 6 o'clock news.
+41,The party's car is rigged to blow up!
+42,Street racers have made this the track tonight!
+43,The party's car has brake trouble, make a driving roll.
+44,A trauma team is lounging at an AV nearby with 2 solos guarding.
+45,2 mid-level corps are out to lunch. They're being followed by a thug and might reward a rescuer.
+46,2 mid-level corps are out to lunch. They're lost and ask for directions.
+47,A crazy, bearded old man rants at everyone nearby about the 2nd coming of Elvis.
+48,A crazy, bearded old man thinks one of the PCs is an alien from Venus and follows, screaming the news at the top of his lungs.
+49,A riot breaks out!
+50,A telemarketer calls trying to sell [Character] a vacation home near London.
+51,A wild bearded old man screams and passes out. Everyone starts pointing fingers at the party.
+52,Have the party roll awareness, since they're being followed by a PI (1d10+12).
+53,[Character] is called by 1-800-Tarot. Just stay on the line to get YOUR fortune! Only 3.99eb a minute!
+54,[Betrayal]
+55,[AllyDeath]
+
+:Shop
+1,a Department Store
+2,the book store
+3,a clothing store
+4,the armor shop
+5,a gun shop
+6,the techie shop
+
+:Sex
+1,A guy
+2,A girl
+
+:Betrayal
+1,Player 1 is betrayed by [Ally1].
+2,Player 2 is betrayed by [Ally2].
+3,Player 3 is betrayed by [Ally3].
+4,Player 4 is betrayed by [Ally4].
+5,Player 5 is betrayed by [Ally5].
+6,Player 6 is betrayed by [Ally6].
+
+:AllyDeath
+1,[Ally1], a friend of Player 1, is killed.
+2,[Ally2], a friend of Player 2, is killed.
+3,[Ally3], a friend of Player 3, is killed.
+4,[Ally4], a friend of Player 4, is killed.
+5,[Ally5], a friend of Player 5, is killed.
+6,[Ally6], a friend of Player 6, is killed.
+
+:Character
+1,Character
+2,Character
+3,Character
+4,Character
+5,Character
+6,Character
+
+:Ally1
+1,An ally
+2,An ally
+3,An ally
+
+:Ally2
+1,An ally
+2,An ally
+3,An ally
+
+:Ally3
+1,An ally
+2,An ally
+3,An ally
+
+:Ally4
+1,An ally
+2,An ally
+3,An ally
+
+:Ally5
+1,An ally
+2,An ally
+3,An ally
+
+:Ally6
+1,An ally
+2,An ally
+3,An ally

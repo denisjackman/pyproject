@@ -1,0 +1,148 @@
+
+# Master Treasure Table for WFRP
+
+#Variables
+%location%,0
+%temp%,0
+
+@location,1,Select Treasure Type,House-Poor,House-Affluent,House-Wealthy,House-Magician,WorkShop,Shrine,Temple,Large Hording Monster,Small Hording Monster,Creature-Citizen,Creature-Merchant,Creature-Fop
+
+:Start
+1,[Location=%location%]
+
+:Location
+1,[Poor]
+2,[Aff]
+3,[Wealth]
+4,[Magic]
+5,[WoShop]
+6,[Shrine]
+7,[Temp]
+8,[MonL]
+9,[MonS]
+10,[Cit]
+11,[Merchant]
+12,[Fop]
+
+:Poor
+1,You have found:<br> 
+_{If~{Dice~d100}<6 ? {Dice~d3} GC<br>/}
+_{If~{Dice~d100}<26 ? {Dice~d20} Shillings<br>/}
+_{If~{Dice~d100}<76 ? {Dice~d20} Brass Pennies<br>/}
+_{If~{Dice~d100}<=10 ? {Loop~{Dice~d3},[LN~Domestics.Start]<br>}/}
+
+:Aff
+1,You have found:<br>
+_{If~{Dice~d100}<=75 ? {Dice~2d6} GC<br>/}
+_{Dice~6d10} Shillings<br>{Dice~6d20} Brass Pennies<br>
+_{If~{Dice~d100}<=1 ? [Magic Item.Start]<br>/}
+_{If~{Dice~d100}<=5 ? |temp={Dice~d3}|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{Loop~{Dice~d6},[LN~Domestics.Start]<br>}
+_{If~{Dice~d100}<=5 ? |temp={Dice~d3}|%temp% Object(s) of Art worth {Calc~{Dice~2d20*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=50 ? |temp={Dice~d6}|%temp% piece(s) of cloth and fur(s) worth {Calc~{Dice~d6*5}*%temp%} GC<br>/}
+
+:Wealth
+1,You have found:<br>
+_{Dice~10d10} GC<br>{Dice~6d10} Shillings<br>{Dice~6d20} Brass Pennies<br>
+_{If~{Dice~d100}<=1 ? [Magic Item.Start]<br>/}
+_{If~{Dice~d100}<=90 ? |temp={Dice~d10}|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{Loop~{Dice~d12},[LN~Domestics.Start]<br>}
+_{If~{Dice~d100}<=75 ? |temp={Dice~d10}|%temp% Object(s) of Art worth {Calc~{Dice~2d20*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=95 ? |temp={Dice~d10}|%temp% piece(s) of cloth and fur(s) worth {Calc~{Dice~d6*5}*%temp%} GC<br>/}
+
+:Magic
+1,You have found:<br>
+_{If~{Dice~d100}<=95 ? {Dice~10d10} GC<br>/}
+_{If~{Dice~d100}<=95 ? {Dice~10d10} Shillings<br>/}
+_{If~{Dice~d100}<=95 ? {Dice~10d10} Brass Pennies<br>/}
+_{If~{Dice~d100}<=95 ? {Loop~{Dice~d6},Scroll of [Magic Item.Scroll]<br>}/}
+_{If~{Dice~d100}<=75 ? {Loop~{Dice~d4},Grimoir of [Magic Item.Grimoire]<br>}/}
+_{If~{Dice~d100}<=90 ? {Loop~{Dice~d4},[Magic Item.Start]<br>}/}
+_{If~{Dice~d100}<=75 ? |temp={Dice~d3}|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=25 ? {Loop~{Dice~d6},[LN~Domestics.Start]<br>}/}
+_{If~{Dice~d100}<=90 ? |temp={Dice~d3}|%temp% Object(s) of Art worth {Calc~{Dice~2d20*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=25 ? |temp={Dice~d3}|%temp% piece(s) of cloth and fur(s) worth {Calc~{Dice~d6*5}*%temp%} GC<br>/}
+
+:WoShop
+1,You have found:<br>
+_{If~{Dice~d100}<=25 ? {Dice~d10} GC<br>/}
+_{If~{Dice~d100}<=50 ? {Dice~10d10} Shillings<br>/}
+_{If~{Dice~d100}<=75 ? {Dice~10d20} Brass Pennies<br>/}
+_{If~{Dice~d100}<=5 ? |temp={Dice~d3}|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=10 ? {Loop~{Dice~d6},[LN~Domestics.Start]<br>}/}
+_{If~{Dice~d100}<=1 ? |temp=1|%temp% Object(s) of Art worth {Calc~{Dice~2d20*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=50 ? |temp={Dice~d6}|%temp% piece(s) of cloth and fur(s) worth {Calc~{Dice~d6*5}*%temp%} GC<br>/}
+
+:Shrine
+1,You have found:<br>
+_{If~{Dice~d100}<=50 ? {Dice~d10} GC<br>/}
+_{If~{Dice~d100}<=75 ? {Dice~1d1000} Shillings<br>/}
+_{If~{Dice~d100}<=75 ? {Dice~1d1000} Brass Pennies<br>/}
+_{If~{Dice~d100}<=5 ? Scroll of [Magic Item.Scroll]<br>/}
+_{If~{Dice~d100}<=5 ? [Magic Item.Start]<br>/}
+_{If~{Dice~d100}<=25 ? |temp=1|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=75 ? |temp=1|%temp% Object(s) of Art worth {Calc~{Dice~2d20*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=5 ? |temp=1|%temp% piece(s) of cloth and fur(s) worth {Calc~{Dice~d6*5}*%temp%} GC<br>/}
+
+:Temp
+1,You have found:<br>
+_{If~{Dice~d100}<=95 ? {Dice~10d20} GC<br>/}
+_{If~{Dice~d100}<=95 ? {Dice~10d20} Shillings<br>/}
+_{Dice~1d1000} Brass Pennies<br>
+_{Loop~{Dice~d6},Scroll of [Magic Item.Scroll]<br>}
+_{If~{Dice~d100}<=95 ? {Loop~{Dice~d4},Grimoir of [Magic Item.Grimoire]<br>}/}
+_{If~{Dice~d100}<=75 ? {Loop~{Dice~d4},[Magic Item.Start]<br>}/}
+_{If~{Dice~d100}<=95 ? |temp={Dice~d6}|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=25 ? {Loop~{Dice~d20},[LN~Domestics.Start]<br>}/}
+_{If~{Dice~d100}<=50 ? |temp={Dice~d6}|%temp% Object(s) of Art worth {Calc~{Dice~2d20*10}*%temp%} GC<br>/}
+_|temp={Dice~d10}|%temp% piece(s) of cloth and fur(s) worth {Calc~{Dice~d6*5}*%temp%} GC<br>
+
+:MonL
+1,You have found:<br>
+_{If~{Dice~d100}<=75 ? {Dice~10d10} GC<br>/}
+_{If~{Dice~d100}<=75 ? {Dice~10d10} Shillings<br>/}
+_{Dice~10d20} Brass Pennies<br>
+_{Loop~5,Scroll of [Magic Item.Scroll]<br>}
+_{If~{Dice~d100}<=25 ? {Loop~{Dice~d3},Grimoir of [Magic Item.Grimoire]<br>}/}
+_{If~{Dice~d100}<=25 ? {Loop~{Dice~d3},[Magic Item.Start]<br>}/}
+_{If~{Dice~d100}<=75 ? |temp={Dice~d10}|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=5 ? {Loop~{Dice~d6},[LN~Domestics.Start]<br>}/}
+
+:MonS
+1,You have found:<br>
+_{If~{Dice~d100}<=15 ? {Dice~d10} GC<br>/}
+_{If~{Dice~d100}<=15 ? {Dice~10d10} Shillings<br>/}
+_{If~{Dice~d100}<=75 ? {Dice~d10} Brass Pennies<br>/}
+_Scroll of [Magic Item.Scroll]<br>
+_{If~{Dice~d100}<=1 ? Grimoir of [Magic Item.Grimoire]<br>/}
+_{If~{Dice~d100}<=1 ? [Magic Item.Start]<br>/}
+_{If~{Dice~d100}<=15 ? |temp=1|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=5 ? [LN~Domestics.Start]<br>/}
+
+:Cit
+1,You have found:<br> 
+_{If~{Dice~d100}<=5 ? {Dice~d6} GC<br>/}
+_{If~{Dice~d100}<=75 ? {Dice~d20} Shillings<br>/}
+_{If~{Dice~d100}<=75 ? {Dice~d10} Brass Pennies<br>/}
+_{If~{Dice~d100}<=1 ? |temp=1|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=1 ? |temp=1|%temp% piece(s) of cloth and fur(s) worth {Calc~{Dice~d6*5}*%temp%} GC<br>/}
+
+:Merchant
+1,You have found:<br>
+_{If~{Dice~d100}<=75 ? {Dice~10d6} GC<br>/}
+_{Dice~d6} Shillings<br>
+_{If~{Dice~d100}<=75 ? {Dice~d20} Brass Pennies<br>/}
+_{If~{Dice~d100}<=25 ? {Loop~{Dice~d4},Scroll of [Magic Item.Scroll]<br>}/}
+_{If~{Dice~d100}<=10 ? {Loop~{Dice~d3},[Magic Item.Start]<br>}/}
+_{If~{Dice~d100}<=5 ? |temp=1|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=50 ? |temp={Dice~d3}|%temp% Object(s) of Art worth {Calc~{Dice~2d20*10}*%temp%} GC<br>/}
+_{If~{Dice~d100}<=75 ? |temp={Dice~d3}|%temp% piece(s) of cloth and fur(s) worth {Calc~{Dice~d6*5}*%temp%} GC<br>/}
+
+:Fop
+1,You have found:<br>
+_{Dice~d20} GC<br>{Dice~d10} Shillings<br>{Dice~d100} Brass Pennies<br>
+_Scroll of [Magic Item.Scroll]<br>
+_{If~{Dice~d100}<=1 ? [Magic Item.Start]<br>/}
+_|temp={Dice~d3}|%temp% Gems worth {Calc~{Dice~2d6*10}*%temp%} GC<br>
+_{If~{Dice~d100}<=1 ? |temp=1|%temp% Object(s) of Art worth {Calc~{Dice~2d20*10}*%temp%} GC<br>/}
+_|temp={Dice~d4}|%temp% piece(s) of cloth and fur(s) worth {Calc~{Dice~d6*5}*%temp%} GC<br>

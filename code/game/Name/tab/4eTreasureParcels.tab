@@ -1,0 +1,146 @@
+/Overriderolls 1
+# Treasure Parcel Generator by Level & Number of PCs
+# By Jacob H
+# Dependency: 4e Magic Items.tab
+
+%Level%,1
+%PCs%,5
+%A%,1
+%B%,1
+%C%,1
+%D%,1
+%E%,1
+%F%,1
+%G%,1
+
+@Level,1,Please enter the party level:
+@PCs,5,Please enter the number of PCs:
+
+:Start
+1,<b>Party Level:</b> %Level%{CR~}<b>Number of Members:</b> %PCs%{Line~center,100}{CR~}[PartySize=%PCs%]
+
+:PartySize
+1,<ul><li>[~Parcel3]<li>[~Parcel6=%Level%]<li>[~Parcel7=%Level%]<li>[~Parcel8=%Level%]<li>[~Parcel9=%Level%]<li>[~Parcel10=%Level%]</ul>
+2,<ul><li>[~Parcel3]<li>[~Parcel5=%Level%]<li>[~Parcel6=%Level%]<li>[~Parcel7=%Level%]<li>[~Parcel8=%Level%]<li>[~Parcel9=%Level%]<li>[~Parcel10=%Level%]</ul>
+3,<ul><li>[~Parcel1]<li>[~Parcel3]<li>[~Parcel5=%Level%]<li>[~Parcel6=%Level%]<li>[~Parcel7=%Level%]<li>[~Parcel8=%Level%]<li>[~Parcel9=%Level%]<li>[~Parcel10=%Level%]</ul>
+4,<ul><li>[~Parcel1]<li>[~Parcel2]<li>[~Parcel4]<li>[~Parcel5=%Level%]<li>[~Parcel6=%Level%]<li>[~Parcel7=%Level%]<li>[~Parcel8=%Level%]<li>[~Parcel9=%Level%]<li>[~Parcel10=%Level%]</ul>
+5,<ul><li>[~Parcel1]<li>[~Parcel2]<li>[~Parcel3]<li>[~Parcel4]<li>[~Parcel5=%Level%]<li>[~Parcel6=%Level%]<li>[~Parcel7=%Level%]<li>[~Parcel8=%Level%]<li>[~Parcel9=%Level%]<li>[~Parcel10=%Level%]</ul>
+6,<ul><li>[~Parcel1]<li>[~Parcel2]<li>[~Parcel3]<li>[~Parcel4]<li>[~Parcel5=%Level%]<li>[~Parcel6=%Level%]<li>[~Parcel7=%Level%]<li>[~Parcel8=%Level%]<li>[~Parcel9=%Level%]<li>[~Parcel10=%Level%]<li>[~Parcel11]</ul>
+7,<ul><li>[~Parcel1]<li>[~Parcel2]<li>[~Parcel3]<li>[~Parcel4]<li>[~Parcel5=%Level%]<li>[~Parcel6=%Level%]<li>[~Parcel7=%Level%]<li>[~Parcel8=%Level%]<li>[~Parcel9=%Level%]<li>[~Parcel10=%Level%]<li>[~Parcel11]<li>[~Parcel12]</ul>
+8,<ul><li>[~Parcel1]<li>[~Parcel2]<li>[~Parcel3]<li>[~Parcel4]<li>[~Parcel5=%Level%]<li>[~Parcel6=%Level%]<li>[~Parcel7=%Level%]<li>[~Parcel8=%Level%]<li>[~Parcel9=%Level%]<li>[~Parcel10=%Level%]<li>[~Parcel11]<li>[~Parcel12]<li>[~Parcel13]</ul>
+9,<ul><li>[~Parcel1]<li>[~Parcel2]<li>[~Parcel3]<li>[~Parcel4]</ul>
+
+
+
+:Parcel1
+1,<b>Parcel 1:</b> Lvl {Calc~%Level%+4} Magic Item: [~4eMagicItems.{Calc~%Level%+4}]
+
+:Parcel2
+1,<b>Parcel 2:</b> Lvl {Calc~%Level%+3} Magic Item: [~4eMagicItems.{Calc~%Level%+3}]
+
+:Parcel3
+1,<b>Parcel 3:</b> Lvl {Calc~%Level%+2} Magic Item: [~4eMagicItems.{Calc~%Level%+2}]
+
+:Parcel4
+1,<b>Parcel 4:</b> Lvl {Calc~%Level%+1} Magic Item: [~4eMagicItems.{Calc~%Level%+1}]
+
+:Parcel5
+1,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?200gp/{If~%A%=2?Two 100gp Gem/Two Potions of Healing +100gp}}
+2,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?290gp/{If~%A%=2?100gp Gem(x2)+90gp/Two Potions of Healing +190gp}}
+3,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?380gp/{If~%A%=2?250gp Art Object + 130gp/Two Potions of Healing + Two 100gp Gems + 80gp}}
+4,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?470gp/{If~%A%=2?One 250gp Art Object + Two potions of healing + 120gp/Four 100gp gems + 70gp}}
+5,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?550gp/{If~%A%=2?Two 250gp Art Objects + 50gp/500gp gem + 50gp}}
+6,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?1,000gp/{If~%A%=2?500gp gem + 250gp art object + 250gp/two 250gp art objects + 500gp}}
+7,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?1,500gp/{If~%A%=2?two 500gp gems + 500gp/1,000gp gem + 500gp}}
+8,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?1,900gp/{If~%A%=2?1,000gp gem + 900gp/1,500gp art object + 400gp}}
+9,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?2,400gp/{If~%A%=2?two 1,000gp gems + 400gp/1,500gp art object + 900gp}}
+10,<b>Parcel 5:</b> |A={Dice~1d3}|{If~%A%=1?2,800gp/{If~%A%=2?2,500 art object + 300gp/two 1,000gp gems + 800gp}}
+11,<b>Parcel 5:</b> 
+12,<b>Parcel 5:</b> 
+13,<b>Parcel 5:</b> 
+14,<b>Parcel 5:</b> 
+15,<b>Parcel 5:</b> 
+16,<b>Parcel 5:</b> 
+17,<b>Parcel 5:</b> 
+18,<b>Parcel 5:</b> 
+19,<b>Parcel 5:</b> 
+20,<b>Parcel 5:</b> 
+21,<b>Parcel 5:</b> 
+22,<b>Parcel 5:</b> 
+23,<b>Parcel 5:</b> 
+24,<b>Parcel 5:</b> 
+25,<b>Parcel 5:</b> 
+26,<b>Parcel 5:</b> 
+27,<b>Parcel 5:</b> 
+28,<b>Parcel 5:</b> 
+29,<b>Parcel 5:</b> 
+30,<b>Parcel 5:</b> 
+
+:Parcel6
+1,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?180gp/{If~%B%=2?100gp gem + 80gp/potion of healing + 180gp}}
+2,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?260gp/{If~%B%=2?250gp Art Object + 10gp/two potions of healing + 100gp gem +60gp}}
+3,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?340gp/{If~%B%=2?three 100gp gems + 40gp/one potion of healing + one 250gp art object +40gp}}
+4,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?420gp/{If~%B%=2?250gp art object + 170/three 100gp gems + potion of healing + 70gp}}
+5,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?500gp/{If~%B%=2?250gp art object + 250gp/five 100gp gems}}
+6,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?900gp/{If~%B%=2?500gp gem + 400gp/one 250gp art object + 650gp}}
+7,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?1,300gp/{If~%B%=2?500gp gem + 800gp/five 250gp art objects + one healing potion}}
+8,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?1,700gp/{If~%B%=2?1,500 art object + 200gp/three 500gp gems + 200gp}}
+9,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?2,100gp/{If~%B%=2?four 500gp gems + 100gp/1,500gp art object + 600gp}}
+10,<b>Parcel 6:</b> |B={Dice~1d3}|{If~%B%=1?2,500gp/{If~%B%=2?1,500gp art object + 1,000gp gem/two 1,000gp gem + 500gp gem}}
+
+:Parcel7
+1,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?120gp/{If~%C%=2?100gp gem + 20gp/potion of healing + 70gp}}
+2,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?170gp/{If~%C%=2?100gp gem + 70gp/100gp gem + potion of healing + 20gp}}
+3,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?225gp/{If~%C%=2?two 100gp gems + 25gp/100gp gem + potion of healing + 75gp}}
+4,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?280gp/{If~%C%=2?two 100gp gems + 80gp/100gp gem + two potions of healing + 80gp}}
+5,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?340gp/{If~%C%=2?three 100gp gems +40gp/250gp art object + potion of healing + 40gp}}
+6,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?600gp/{If~%C%=2?four 100gp gems + 200gp/250gp art object + two potions of healing + 250gp}}
+7,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?850gp/{If~%C%=2?three 250gp art objects + two potions of healing/six 100gp gems + 250gp}}
+8,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?1,100gp/{If~%C%=2?two 500gp gems + 100gp/1,000gp gem + 100gp}}
+9,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?1,400gp/{If~%C%=2?1,000gp gem + 400gp/four 250gp art objects + 400gp}}
+10,<b>Parcel 7:</b> |C={Dice~1d3}|{If~%C%=1?1,700gp/{If~%C%=2?1,000gp gem + 700gp/1,500gp art object + 200gp}}
+
+:Parcel8
+1,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?120gp/{If~%D%=2?100gp + 20sp/100gp gem + 200sp}}
+2,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?170gp/{If~%D%=2?150gp +200sp/100gp gem + 70gp}}
+3,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?225gp/{If~%D%=2?two 100gp gems + 250sp/180gp + 450sp}}
+4,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?280gp/{If~%D%=2?250gp art object + 30gp/250gp + 300sp}}
+5,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?340gp/{If~%D%=2?250gp art object + 90gp/300gp + 400sp}}
+6,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?600gp/{If~%D%=2?two 250gp art objects + 100gp/two 100gp gems + 400gp}}
+7,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?850gp/{If~%D%=2?two 250gp art objects + 350gp/four 100gp gems + 450gp}}
+8,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?1,100gp/{If~%D%=2?two 250gp art objects + 600gp/eleven 100gp gems}}
+9,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?1,400gp/{If~%D%=2?two 500gp gems + 400gp/three 250gp art objects + 650gp gem}}
+10,<b>Parcel 8:</b> |D={Dice~1d3}|{If~%D%=1?1,700gp/{If~%D%=2?1,500gp art objects + two 100gp gems/six 250gp art objects + 200gp}}
+
+:Parcel9
+1,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?60gp/{If~%E%=2?potion of healing + 10gp/50gp + 100sp}}
+2,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?90gp/{If~%E%=2?potion of healing + 40gp/60gp + 300sp}}
+3,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?110gp/{If~%E%=2?potion of healing + 60gp/80gp + 300sp}}
+4,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?140gp/{If~%E%=2?100gp gem + 40gp/potion of healing + 90gp}}
+5,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?160gp/{If~%E%=2?100gp gem + 60gp/potion of healing + 110gp}}
+6,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?300gpgp/{If~%E%=2?250gp art object + 50gp/potion of healing + two100gp gems + 50gp}}
+7,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?400gp/{If~%E%=2?250gp art object + 150gp/three potions of healing + 250gp}}
+8,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?600gp/{If~%E%=2?500gp gem + 100gp/two 250gp art objects + 100gp gem}}
+9,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?700gp/{If~%E%=2?seven 100gp gems/five potions of healing + 450gp}}
+10,<b>Parcel 9:</b> |E={Dice~1d3}|{If~%E%=1?800gp/{If~%E%=2?three 250gp art objects + 50gp/eight 100gp gems}}
+
+:Parcel10
+1,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?40gp/{If~%F%=2?400sp/30gp + 100sp}}
+2,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?60gp/{If~%F%=2?30gp + 300sp/potion of healing + 10gp}}
+3,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?75gp/{If~%F%=2?50gp + 250sp/potion of healing + 25gp}}
+4,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?90gp/{If~%F%=2?50gp + 400sp/potion of healing + 40gp}}
+5,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?110gp/{If~%F%=2?100gp gem + 60gp/potion of healing + 60gp}}
+6,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?200gp/{If~%F%=2?two 100gp gems/two potions of healing + 100gp}}
+7,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?300gp/{If~%F%=2?250gp art object + 50gp/three 100gp gems}}
+8,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?400gp/{If~%F%=2?250gp art object + 150gp/four 100gp gems}}
+9,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?400gp/{If~%F%=2?four 100gp gems + 250gp art object + 150gp/}}
+10,<b>Parcel 10:</b> |F={Dice~1d3}|{If~%F%=1?500gp/{If~%F%=2?two 250gp art objects/500gp gem}}
+
+:Parcel11
+1,<b>Parcel 11:</b> Lvl {Calc~%Level%+2} Magic Item: [~4eMagicItems.{Calc~%Level%+2}]
+
+:Parcel12
+1,<b>Parcel 12:</b> Lvl {Calc~%Level%+1} Magic Item: [~4eMagicItems.{Calc~%Level%+1}]
+
+:Parcel13
+1,<b>Parcel 13:</b> Lvl {Calc~%Level%+3} Magic Item: [~4eMagicItems.{Calc~%Level%+3}]

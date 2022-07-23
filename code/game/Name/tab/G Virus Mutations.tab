@@ -1,0 +1,50 @@
+﻿#
+# G Virus Mutations
+#
+
+:Start
+1,{Loop~{Dice~1d10},[Mutation]{CR~}}
+
+:Mutation
+1-2,no mutation
+3-5,grow 1 additional arm (gain Ambidextrous and Swift Attack talents, +10 bonus to Strength checks involving movement such as climb or swim and -10 Fel the first time.  Gain -3 Fel every time after that.) (Max 25 extra arms)
+6-7,grow 1 additional leg (+1 to base movement) (max +15)
+8-9,grow 1 additional tentacle (Natural Weapon (Tentacle 1d10+SB I, Primitive) (max 12 times)
+10,grow 1 additional head (max 4 times)
+11-13,grow 1 additional eye (+3 Vision releated checks) (max +30)
+14,grow 1 additional mouth (Natural Weapon (Teeth 1d10+SB I, Primitive)) (max 12 times)
+15-16,grow 1 size category (maximum size: Massive)
+17-19,grow claws (one random arm/tentacle gains Natural Weapon (Claw 1d10+SB R) or damage type changes to rending if arm/tentacle already has a Natural Weapon) (maximum all arms/tentacles)
+20-22,grow talons (one random leg gains Natural Weapon (Talon 1d10+SB R, Primitive) or damage type changes to rending if limb already has a Natural Weapon) (maximum all legs)
+23-25,grow fangs (one random mouth gains Natural Weapon (Fangs 1d10+SB R, Primitive) or damage type changes to rending if mouth already has a Natural Weapon (maximum all mouths)
+26-28,grow spines (Damage 1d5+1 if grappled) (no repeat)
+29-33,thick hide (Natural armor (1d5) or increase Natural Armor by 2) (maximum 50 times)
+34-38,viral growth (+1 wound) (maximum 50 times)
+39-43,preemptive aggression (+1 Init) (maximum 25 times)
+44-48,animosity (+1 WS, +1 BS) (max 50 times)
+49-50,mighty frame (Unnatural Strength (x2)) (no repeat)
+51,chitinous carapace (Natural Armor (4)) (maximum 50 times)
+52,arcane cyst (+3 to resist Psychic Powers) (max +30)
+53-54,low-light vision (gain +10 Perception) (no repeat)
+55-56,dark-vision (gain Dark Sight trait) (no repeat)
+57-61,deadly strike (creature gains the benefit of righteous fury) (no repeat)
+62-66,sharper weapon (creature gains the benefits of righteous fury) (no repeat)
+67-68,adaptation (gain Lightning attack talent) (no repeat)
+69-70,forceful strike (gain Crushing blow talent) (no repeat)
+71-72,malignant tumor (gain Sound Constitution talent) (no max)
+73-74,slamming might (gain Beserk Charge talent) (no repeat)
+75-76,thrashing swipe (gain Crippling Strike talent) (no repeat)
+77-78,muscular growth (+2 Strength) (max 25 times)
+79,atrophy (-1 Strength (min 1); lose 1 Strength based skill) (no max)
+80,lithe limbs (+1 Agility) (max 25 times)
+81-82,asymmetry (-2 Agility (min 1); lose 1 Agility based skill) (no max)
+83-84,vigorous flesh (+2 Toughness) (max 25 times)
+85,freakish frailty (-1 Toughness (min 1); lose Toughness based skill (most likely carouse))
+86,alien mind (+1 Intelligence) (max 25 times)
+87-88,Limbic ascendance (-2 Intelligence (min 1); lose 1 Intelligence based skill) (no max)
+89-90,animal cunning (+2 Willpower) (max 25 times)
+91,primal rage (-1 Willpower (min 1); lose 1 Willpower based skill) (no max)
+92,force of personality (+1 Fellowship) (max 25 times)
+93-94,horrific visage (-2 Fellowship (min 1); lose 1 Fellowship based skill) (no max)
+95,gelatinous form (gain Strange Psysiology trait)
+96-100,[Mutation]{CR~}[Mutation]

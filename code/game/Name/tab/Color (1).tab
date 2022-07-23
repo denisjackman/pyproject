@@ -1,0 +1,125 @@
+#
+# Color
+#
+
+:Start
+1,[Clarity] [Hue]
+
+:Clarity
+1, opaque
+2, transparent
+3, translucent
+4, opalescent
+5, striated
+6, sparkling
+7, swirled
+
+
+:Hue
+1, red
+2, orange
+3, yellow
+4, green
+5, blue
+6, purple
+7, black
+8, white
+9, dove
+10,eggshell
+11,ivory,
+12,pearl
+13,silver
+14,ash
+15,charcoal
+16,grey
+17,granite
+18,lead
+19,obsidian
+20,plumbago
+21,slate
+22,smoke
+23,taupe
+24,ebony
+25,jet
+26,raven
+27,sable
+28,amber
+29,beige
+30,bronze
+31,brown
+32,camel
+33,caramel
+34,ecru
+35,fawn
+36,khaki
+37,tan
+38,tawny
+39,umber
+40,burgundy
+41,chestnut
+32,cinnamon
+33,mahogany
+34,ochre
+35,sepia
+36,oxblood
+37,titian
+38,crimson
+39,cardinal
+40,carmine
+41,carnelian
+42,cerese
+43,cherry
+44,garnet
+45,maroon,
+46,paprika
+47,scarlet
+48,ruby
+49,rust
+50,wine
+51,blush
+52,coral
+53,orchid
+54,salmon
+55,pink
+56,rose
+57,apricot
+58,pumpkin
+59,tangerine
+60,brass
+61,buff
+62,canary
+63,champagne
+64,cream
+65,honey
+66,lemon
+67,lime
+68,saffron
+69,aqua
+70,avocado
+71,chartreuse
+72,emerald
+73,jade
+74,loden
+75,olive
+76,teal
+77,turquoise
+78,azure
+79,cobalt
+80,cerulean
+81,cyan
+82,indigo
+83,navy
+84,peacock
+85,ultramarine
+86,wisteria
+87,amethyst
+88,damson
+89,fuchsia
+90,grape
+91,lavender
+92,lilac
+93,magenta
+94,mauve
+95,periwinkle
+96,plum
+97,violet

@@ -1,0 +1,40 @@
+#Faerie.tab
+#by Dawn M. Burge (fantasy@xecu.net) (2004)
+#for Dungeons & Dragons 2nd Edition
+%n%,nymph
+%s%,sprite
+
+;Start
+1,brownie
+1,dryad
+1,leprechaun
+1,[Nymph] %n%
+1,satyr
+
+;Brownie
+1,dobie
+1,killmoulis
+1,quickling
+
+;Nymph
+1,nymph|n=|
+1,grain
+1,[Petty] petty
+1,[Sprite] %s%|n=|
+1,unseelie
+
+;Petty
+1,bramble
+1,gorse
+1,squeaker
+1,stinger
+
+;Sprite
+1,spirte|s=|
+1,atomie
+1,grig
+1,nixie
+1,pixie
+1,sea
+1,seelie faerie|s=|
+1,unseelie faerie|s=|

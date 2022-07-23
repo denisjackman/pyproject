@@ -1,0 +1,207 @@
+
+# This will generate magic items for WFRP including Armor and Weapons
+
+:Start
+1,All-seeing Mirror
+2-10,Amulet of [LN~Amulet]
+11-20,[LN~Magic Armour.Start]
+21-25,{Dice~1d6+1} [Arrow_Select] [Arrow]
+26-27,Bag of [LN~Bag]
+28-32,Boots of [LN~Boots]
+33-36,[LN~Bow]
+37-39,Enchanted Rope {Dice~1d6+2} feet long
+40-43,Gloves of [LN~Gloves]
+44-46,Grimoire of [Grimoire]
+47-49,[LN~Horn]
+50-54,[LN~Jewel of Power]
+55-64,Potion of [LN~Potion]
+65-73,[LN~Ring]
+74-76,Robe of [LN~Robe]
+77-84,Scroll of [Scroll]
+85-88,[LN~Wand]
+89-100,[LN~Magic Weapons.Start]
+
+:Amulet
+1-2,Thrice-Blessed Copper
+3,Adamantine
+4-5,Coal
+6,Enchanted Jade
+7,Iron (+[Iron_Value] to Magic Resists)
+8,Law
+9,Righteous Silver
+10,Watchfulness
+
+:Arrow_Select
+1-20,Bolts of
+21-100,Arrows of
+
+:Arrow
+1,Banefulness against [Bane_Type]
+2,Bleeding
+3,Division
+4,Doom against [Bane_Type]
+5,Grappling
+6,Potency
+7,Sure Striking +[BS_Bonus] BS
+8,True Flight
+
+:Bane_Type
+1-5,Goblins and Snotlings
+6-10,Hobgoblins
+11-20,Orcs and Half-orcs
+21-25,All Goblinoids
+26-27,Elementals
+28-30,Daemons
+31-35,Undead and Ethreal Creatures
+36-45,Creatures of Chaos (including Warriors of Chaos, etc)
+46-50,Dragons, Wyverns, and Jabberwocks
+51-55,Elves
+56-60,Dwarves, Gnomes, and Halflings
+61-65,Fimir
+66-70,Monstrous Animals (Manticores, Griffins, etc)
+71-75,Skaven
+76-80,Lizardman and Troglodytes
+81-85,Giants
+86-90,Ogres and Trolls
+91-95,Werecreatures
+96-100,Vampires
+
+:BS_Bonus
+1-4,10
+5-7,20
+8-9,30
+10,40
+
+:Bag
+1-6,Lightness (Max weight- {Calc~{Dice~2d6+6}*100} Encumbrance)
+7-8,Middenheim (Max weight- {Calc~{Dice~2d6+3}*100} Encumbrance)
+9-10,Resource
+
+:Boots
+1,Bovva
+2,Command
+3-4,Concealment
+5-6,Leaping
+7-8,Silence
+9,Speed
+10,Tracelessness
+
+:Bow
+1-3,Short Bow of [Bow_Enchantment]
+4-6,Normal Bow of [Bow_Enchantment]
+7-8,Long Bow of [Bow_Enchantment]
+9-10,Elf Bow of [Bow_Enchantment]
+
+:Bow_Enchantment
+1-3,Distance
+4-5,[Enchantment]
+6-7,Might (ES={Dice~d6+3})
+8-10,Seeking (BS +{Calc~[BS_Bonus]/2})
+
+:Enchantment
+1-80,Enchantemnt
+81-90,Enchantment with [Magic Weapons.Ability]
+91-98,Enchantment with [Magic Weapons.Ability] and [Magic Weapons.Ability]
+99-100,,Enchantment with [Magic Weapons.Ability], [Magic Weapons.Ability] and [Magic Weapons.Ability]
+
+:Gloves
+1-4,Archery
+5-6,the Cobra
+7-10,Nimbleness
+
+:Horn
+1,Horn of Banishment
+2-3,Horn of Hounds
+4-6,Horn of Plenty
+7-9,Horn of Valour
+10,Unicorn Horn
+
+:Robe
+1-2,Disguise
+3-4,Ethereality
+5,Fire Resistance
+6-7,Mist and Smoke
+8,the Shroud of [Undead_type]
+9-10,Toughness +[Toughness_Bonus]T
+
+:Undead_type
+1-5,Any Undead
+6-9,Any non-Ethereal Undead
+10,Ethereal Undead
+
+:Toughness_Bonus
+1-5,1
+6-9,2
+10,3
+
+:Ring
+1,[Amulet] Ring
+2,Energy Ring ({Dice~2d6} Magic Points / once per day)
+3,Fortitude Ring
+4,Multiple Spell Ring of [multi_spell]
+5,Multiple Warding Ring of [multi_spell] Immunity
+6,Protection Ring vs [Protection Type]
+7,Ring of the Elvenkind
+8,Spell Ring with [one_spell]
+9,Striking Ring
+10,Warding Ring of [one_spell] Immunity
+
+:Wand
+1,Blackwand
+2,Wand of Absorbtion (Max: {Dice~6d6}, Current: {Dice~3d6})
+3,Wand of Corrosion
+4-5,Wand of Fear
+6-7,Wand of Jade
+8-9,Wand of Jet
+10,Wand of Onyx ({Dice~2d6} Magic Points / once per day)
+
+:Potion
+1,Disguise
+2,Flight
+3-4,Healing
+5,Invisibility
+6,Strength
+7,Tongues
+8,Water Walking
+
+:Jewel of Power
+1-50,Spell Jewel ([one_spell])
+51-60,Multiple Spell Jewel ([multi_spell])
+61-100,Energy Jewl ({Dice~2d6} Magic Points / once per day)
+
+:Protection Type
+1-80,[Magic Coif.Hated_Race]
+81-100,[Magic Armour.Area_Protection]
+
+;Iron_Value
+60,10
+30,20
+10,30
+
+:Grimoire
+1-20,Petty Magic: {Loop~{Dice~2d4},[LN~Petty Magic.Start]; }
+21-60,Battle Magic: {Loop~{Dice~2d4},[LN~Battle Magic.Start]; }
+61-65,Demonic Magic: {Loop~{Dice~2d4},[LN~Demonic Spells.Start]; }
+66-80,Elemental Magic: {Loop~{Dice~2d4},[LN~Elemental Spells.Start]; }
+81-95,Illusion Magic: {Loop~{Dice~2d4},[LN~Illusion Spells.Start]; }
+96-100,Necromantic Magic: {Loop~{Dice~2d4},[LN~Necromatic Spells.Start]; }
+
+:Scroll
+1-95,[LN~one_spell]
+96-100,[LN~multi_spell]
+
+:one_spell
+1-20,Petty Magic: [Petty Magic.Start]
+21-60,Battle Magic: [Battle Magic.Start]
+61-65,Demonic Magic: [Demonic Spells.Start]
+66-80,Elemental Magic: [Elemental Spells.Start]
+81-95,Illusion Magic: [Illusion Spells.Start]
+96-100,Necromantic Magic: [Necromatic Spells.Start]
+
+:multi_spell
+1-20,Petty Magic: {Loop~{Dice~d3+1},[Petty Magic.Start]; }
+21-60,Battle Magic: {Loop~{Dice~d3+1},[Battle Magic.Start]; }
+61-65,Demonic Magic: {Loop~{Dice~d3+1},[Demonic Spells.Start]; }
+66-80,Elemental Magic: {Loop~{Dice~d3+1},[Elemental Spells.Start]; }
+81-95,Illusion Magic: {Loop~{Dice~d3+1},[Illusion Spells.Start]; }
+96-100,Necromantic Magic: {Loop~{Dice~d3+1},[Necromatic Spells.Start]; }

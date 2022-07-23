@@ -1,0 +1,165 @@
+# ---------------------------------------------------
+# Original File by Larry Cormier March 30, 2008
+# ---------------------------------------------------
+#
+# MAP D&D Geomorphs
+# by Larry Cormier
+#
+# Hankering for the 'Good ol' Days' of Basic Dungeons and Dragons,
+# and fond memories of TSR's Dungeon Geomorphs and the multitude
+# of Complex Dungeons that the Geomorphs could produce?
+#
+# Well wait no more! Here is an updated 'Soft' Version of those
+# cherished Geomorph tiles - Adapted for TableSmith! This Table
+# consolidates all three of the Dungeons & Dragons Dungeon
+# Geomorphs Sets - including  Basic Dungeons, Caves and Caverns,
+# and Lower Dungeons so that you can once again experience the
+# Thrills you remember while exploring those hallowed halls -
+# and tunnels - in whatever configuration you want!
+#
+#
+#######################################################################
+#                                                                     #
+#                             NOTE:                                   #
+#                                                                     #
+#  The 'Combo Option' has been disabled due to the file size of the   #
+#  1600+ GIF Files that I created - which exceed 48 Meg in file size. #
+#  The TableSmith Yahoo Group Site limits Uploaded files to about 5M  #
+#  in size - and I have no desire to 'Hog' the available storage      #
+#  capacity of the Yahoo site with files that may not be necessary    #
+#  to create Usable D&D Geomorph type maps. All the 'Combo' Tiles do  #
+#  is combine Single Tiles from all of the available Geomorph Sets    #
+#  in other alternative configurations. If you would like those tiles #
+#  send me a post, and an e-mail address that will accept at least    #
+#  15M attachments, and I'll be happy to send them to you if you      #
+#  would like them.                                                   #
+#                                                                     #
+#  Alternately - if you can figure out a way to use the Basic Tiles   #
+#  in some type of HTML coding that will construct the Maps Tile-by   #
+#  Tile - perhaps in a table or some other way - PLEASE FEEL FREE     #
+#  TO DO SO! I have only a marginal understanding of HTML and finally #
+#  had to give up after about a year of trying. It should be possible #
+#  But I'm not the one to figure it out! That's why I finally just    #
+#  applied the Sledge hammer approach!                                #
+#                                                                     #
+#######################################################################
+#
+# 
+# Enjoy!
+# Larry Cormier
+#
+
+# Define Variables
+%Path1%,<IMG SRC="Graphics\D&D Geomorphs\
+%Path2%," WIDTH="200" HEIGHT="400" BORDER="0">
+%Path3%," WIDTH="100" HEIGHT="400" BORDER="0">
+%Wd%,0
+%Ht%,0
+%X%,0
+%Y%,0
+%Option%,0
+%Chance%,0
+
+# Parameter Choices:
+@Option,5,What option would you prefer?,Basic Dungeons Only,Lower Dungeons Only,Caves and Caverns Only,Any Dungeon (Basic and Lower),Randomly from all Available Geomorphs
+@Ht,0,Enter Height:
+@Wd,0,Enter Width:
+
+:Start
+1,{Status~by Larry Cormier}{If~%Wd%=0?[Instructions]/[MapSetup]}
+
+:Instructions
+1,This table generates random Maps using TSR's D&D Geomorphs.<br><br>
+_ Since this Table 'Joins' the Geomorphs available into 'blocks' of Tiles,
+_ I recommend that you make your maps shorter than they are long.<br>
+_ A good size for standard 8-1/2" x 11" Portrait Printouts for example, would be Height: 2 by Width 3, then Enlarge (Scale) on your Printer to get a usable Map.<br>
+_ Don't be afraid to experiment a bit to get a feel for the best fit for your desired results!<br><br>
+_ To use it, change the parameters (click the parameter button) to enter the height and width you want, then click the 'Roll' button.
+
+:Chanceof
+1,|Chance={Dice~1d100}|
+
+:MapSetup
+1,|Y=%Ht%||X=%Wd%|[GenMap]
+
+:SelectionDescription
+1,Basic Dungeon Only
+2,Lower Dungeon Only
+3,Caves and Caverns Only
+4,Random Dungeon Created from both Basic, and Lower Dungeon Geomorphs
+5,Randomly Created Map utilizing all available D&D Geomorphs
+
+:GenMap
+1,|X-1|[OptionSelect=%Option%]{If~%X%>0?[GenMap=%Option%]/<br>|Y-1||X=%Wd%|{If~%Y%>0?[GenMap=%Option%]}}
+
+:OptionSelect
+# Basic Dungeons
+1,[Chanceof]{If~%Chance%>50?[BasicSquare]/[BasicRectangular]}
+# Lower Dungeons
+2,[Chanceof]{If~%Chance%>50?[LowerSquare]/[LowerRectangular]}
+# Caves and Caverns
+3,[Chanceof]{If~%Chance%>50?[CavesSquare]/[CavesRectangular]}
+# Combination Basic/Lower Dungeons
+4,[Chanceof]{If~%Chance%>50?[DungeonSquare]/[DungeonRectangular]}
+# Random Generation - All
+5,[Chanceof]{If~%Chance%>50?[RandomSquare]/[RandomRectangular]}
+
+####################################### Basic Dungeons ##################################################
+
+;BasicSquare
+1,%Path1%BasicSquares ({Dice~1d140}).gif%Path2%
+
+;BasicRectangular
+1,%Path1%BasicRectangle ({Dice~1d20}).gif%Path3%
+_%Path1%BasicRectangle ({Dice~1d20}).gif%Path3%
+
+###################################### Lower Dungeons ###################################################
+
+;LowerSquare
+1,%Path1%LowerSquares ({Dice~1d145}).gif%Path2%
+
+;LowerRectangular
+1,%Path1%LowerRectangle ({Dice~1d20}).gif%Path3%
+_%Path1%LowerRectangle ({Dice~1d20}).gif%Path3%
+
+##################################### Caves and Caverns #################################################
+
+;CavesSquare
+1,%Path1%CaveSquares ({Dice~1d145}).gif%Path2%
+
+;CavesRectangular
+1,%Path1%CaveRectangle ({Dice~1d20}).gif%Path3%
+_%Path1%CaveRectangle ({Dice~1d20}).gif%Path3%
+
+################################## Combination Dungeons #################################################
+
+;DungeonSquare
+1,%Path1%BasicSquares ({Dice~1d140}).gif%Path2%
+1,%Path1%LowerSquares ({Dice~1d145}).gif%Path2%
+# This Option is disabled intentionally due to the size of uploading the respective Tiles it references.
+#1,%Path1%ComboOption4 ({Dice~1d400}).gif%Path2%
+
+;DungeonRectangular
+1,%Path1%BasicRectangle ({Dice~1d20}).gif%Path3%
+_%Path1%BasicRectangle ({Dice~1d20}).gif%Path3%
+1,%Path1%LowerRectangle ({Dice~1d20}).gif%Path3%
+_%Path1%LowerRectangle ({Dice~1d20}).gif%Path3%
+
+################################## Random - Any Option ##################################################
+
+;RandomSquare
+1,%Path1%BasicSquares ({Dice~1d140}).gif%Path2%
+1,%Path1%LowerSquares ({Dice~1d145}).gif%Path2%
+1,%Path1%CaveSquares ({Dice~1d145}).gif%Path2%
+# This Option is disabled intentionally due to the size of uploading the respective Tiles it references.
+#1,%Path1%ComboOption{Dice~1d3} ({Dice~1d400}).gif%Path2%
+
+;RandomRectangular
+1,%Path1%BasicRectangle ({Dice~1d20}).gif%Path3%
+_%Path1%BasicRectangle ({Dice~1d20}).gif%Path3%
+1,%Path1%LowerRectangle ({Dice~1d20}).gif%Path3%
+_%Path1%LowerRectangle ({Dice~1d20}).gif%Path3%
+1,%Path1%CaveRectangle ({Dice~1d20}).gif%Path3%
+_%Path1%CaveRectangle ({Dice~1d20}).gif%Path3%
+
+

@@ -1,0 +1,1685 @@
+# ---------------------------------------------------
+# Last Update: verified by Valminder Dec 20, 2005.
+# ---------------------------------------------------
+#
+# Spells
+#
+# Pre-generation Directives
+#
+# Modified by Valminder, Dec 2005.
+#    Since the "Random Spells" table was more complete (it creates bonus
+#       spells based on the prime ability for the spellcaster class),
+#       I removed the spell generation for this table. This is only a
+#       "~Reference" table now. 
+#    Renamed from "AllSpell.tab"
+#    Added: Adept
+#           Assassin
+#           Blackguard
+#    Added: Summon Monster/Nature's Ally monster with LN tag.
+#
+# Modified by Valminder, August 2007.  (TO BE CONTINUED ONE DAY)
+#    Added 'Book' variable. If Book=1, it means you can use this book.
+#    The spells listed are from the Player's Handbook. If you want to add
+#    another book (for example, Book of Infinite Spells), add a variable for
+#    that book (ex: BoIS) and put this variable equal to 1 in the variables below.
+#
+# Modified by Ashon/TheRandomDM, May 2011.
+#    Added Class Lists so that in other tables you can do:
+#    [Spells.Wizard], or [Spells.Wizard=0] if you want specific levels
+
+%Book%,0
+%SummonType%,0
+
+:Start
+1,This table is only used when called from another table.
+
+
+#-------------------------------------------------------------------------
+#CLASS LISTS
+;Bard
+0,[Bard0]
+1,[Bard1]
+2,[Bard2]
+3,[Bard3]
+4,[Bard4]
+5,[Bard5]
+6,[Bard6]
+
+;Cleric
+0,[Cleric0]
+1,[Cleric1]
+2,[Cleric2]
+3,[Cleric3]
+4,[Cleric4]
+5,[Cleric5]
+6,[Cleric6]
+7,[Cleric7]
+8,[Cleric8]
+9,[Cleric9]
+
+;Druid
+0,[Druid0]
+1,[Druid1]
+2,[Druid2]
+3,[Druid3]
+4,[Druid4]
+5,[Druid5]
+6,[Druid6]
+7,[Druid7]
+8,[Druid8]
+9,[Druid9]
+
+;Paladin
+1,[Paladin1]
+2,[Paladin2]
+3,[Paladin3]
+4,[Paladin4]
+
+;Ranger
+1,[Ranger1]
+2,[Ranger2]
+3,[Ranger3]
+4,[Ranger4]
+
+;Wizard
+0,[Wizard0]
+1,[Wizard1]
+2,[Wizard2]
+3,[Wizard3]
+4,[Wizard4]
+5,[Wizard5]
+6,[Wizard6]
+7,[Wizard7]
+8,[Wizard8]
+9,[Wizard9]
+
+#-------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+
+:Alignment
+1,Chaos
+1,Evil
+1,Good
+1,Law
+
+# --------------------------------------------------------------------------
+# Main Core Class Lists
+
+;!Bard0
+1,Dancing Lights
+1,Daze
+1,Detect Magic
+1,Flare
+1,Ghost Sound
+1,Know Direction
+1,Light
+1,Lullaby
+1,Mage Hand
+1,Mending
+1,Message
+1,Open/Close
+1,Prestidigitation
+1,Read Magic
+1,Resistance
+1,Summon Instrument
+
+;!Bard1
+1,Alarm
+1,Animate Rope
+1,Cause Fear
+1,Charm Person
+1,Comprehend Languages
+1,Confusion, Lesser
+1,Cure Light Wounds
+1,Detect Secret Doors
+1,Disguise Self
+1,Erase
+1,Expeditious Retreat
+1,Feather Fall
+1,Grease
+1,Hypnotism
+1,Identify
+1,Magic Mouth
+1,Nystul's Magic Aura
+1,Obscure Object
+1,Remove Fear
+1,Silent Image
+1,Sleep
+1,Summon Monster I|SummonType=monster| ([~Summon1])
+1,Tasha's Hideous Laughter
+1,Undetectable Alignment
+1,Unseen Servant
+1,Ventriloquism
+
+;!Bard2
+1,Alter Self
+1,Animal Messenger
+1,Animal Trance
+1,Blindness/Deafness
+1,Blur
+1,Calm Emotions
+1,Cat's Grace
+1,Cure Moderate Wounds
+1,Darkness
+1,Daze Monster
+1,Delay Poison
+1,Detect Thoughts
+1,Eagle's Splendor
+1,Enthrall
+1,Fox's Cunning
+1,Glitterdust
+1,Heroism
+1,Hold Person
+1,Hypnotic Pattern
+1,Invisibility
+1,Locate Object
+1,Minor Image
+1,Mirror Image
+1,Misdirection
+1,Pyrotechnics
+1,Rage
+1,Scare
+1,Shatter
+1,Silence
+1,Sound Burst
+1,Suggestion
+1,Summon Monster II|SummonType=monster| ([~Summon2])
+1,Summon Swarm
+1,Tongues
+1,Whispering Wind
+
+;!Bard3
+1,Blink
+1,Charm Monster
+1,Clairaudience/Clairvoyance
+1,Confusion
+1,Crushing Despair
+1,Cure Serious Wounds
+1,Daylight
+1,Deep Slumber
+1,Dispel Magic
+1,Displacement
+1,Fear
+1,Gaseous Form
+1,Geas, Lesser
+1,Glibness
+1,Good Hope
+1,Haste
+1,Illusory Script
+1,Invisibility Sphere
+1,Leomund's Tiny Hut
+1,Major Image
+1,Phantom Steed
+1,Remove Curse
+1,Scrying
+1,Sculpt Sound
+1,Secret Page
+1,See Invisibility
+1,Sepia Snake Sigil
+1,Slow
+1,Speak with Animals
+1,Summon Monster III|SummonType=monster| ([~Summon3])
+
+;!Bard4
+1,Break Enchantment
+1,Cure Critical Wounds
+1,Detect Scrying
+1,Dimension Door
+1,Dominate Person
+1,Freedom of Movement
+1,Hallucinatory Terrain
+1,Hold Monster
+1,Invisisbility, Greater
+1,Legend Lore
+1,Leomund's Secure Shelter
+1,Locate Creature
+1,Modify Memory
+1,Neutralize Poison
+1,Rainbow Pattern
+1,Repel Vermin
+1,Shadow Conjuration
+1,Shout
+1,Speak with Plants
+1,Summon Monster IV|SummonType=monster| ([~Summon4])
+1,Zone of Silence
+
+;!Bard5
+1,Cure Light Wounds, Mass
+1,Dispel Magic, Greater
+1,Dream
+1,False Vision
+1,Heroism, Greater
+1,Mind Fog
+1,Mirage Arcana
+1,Mislead
+1,Nightmare
+1,Persistent Image
+1,Seeming
+1,Shadow Evocation
+1,Shadow Walk
+1,Song of Discord
+1,Suggestion, Mass
+1,Summon Monster V|SummonType=monster| ([~Summon5])
+
+;!Bard6
+1,Analyze Dweomer
+1,Animate Objects
+1,Cat's Grace, Mass
+1,Charm Monster, Mass
+1,Cure Moderate Wounds, Mass
+1,Eagle's Splendor, Mass
+1,Eyebite
+1,Find the Path
+1,Fox's Cunning, Mass
+1,Geas/Quest
+1,Heroes' Feast
+1,Otto's Irresistible Dance
+1,Permanent Image
+1,Project Image
+1,Scrying, Greater
+1,Shout, Greater
+1,Summon Monster VI|SummonType=monster| ([~Summon6])
+1,Sympathetic Vibration
+1,Veil
+
+;!Cleric0
+1,Create Water
+1,Cure Minor Wounds
+1,Detect Magic
+1,Detect Poison
+1,Guidance
+1,Inflict Minor Wounds
+1,Light
+1,Mending
+1,Purify Food and Drink
+1,Read Magic
+1,Resistance
+1,Virtue
+
+;!Cleric1
+1,Bane
+1,Bless
+1,Bless Water
+1,Cause Fear
+1,Command
+1,Comprehend Languages
+1,Cure Light Wounds
+1,Curse Water
+1,Deathwatch
+1,Detect [~Alignment]
+1,Detect Undead
+1,Divine Favor
+1,Doom
+1,Endure Elements
+1,Entropic Shield
+1,Hide from Undead
+1,Inflict Light Wounds
+1,Magic Stone
+1,Magic Weapon
+1,Obscuring Mist
+1,Protection from [~Alignment]
+1,Remove Fear
+1,Sanctuary
+1,Shield of Faith
+1,Summon Monster I|SummonType=monster| ([~Summon1])
+
+;!Cleric2
+1,Aid
+1,Align Weapon
+1,Augury
+1,Bear's Endurance
+1,Bull's Strength
+1,Calm Emotions
+1,Consecrate
+1,Cure Moderate Wounds
+1,Darkness
+1,Death Knell
+1,Delay Poison
+1,Desecrate
+1,Eagle's Splendor
+1,Enthrall
+1,Find Traps
+1,Gentle Repose
+1,Hold Person
+1,Inflict Moderate Wounds
+1,Make Whole
+1,Owl's Wisdom
+1,Remove Paralysis
+1,Resist Energy
+1,Restoration, Lesser
+1,Shatter
+1,Shield Other
+1,Silence
+1,Sound Burst
+1,Spiritual Weapon
+1,Status
+1,Summon Monster II|SummonType=monster| ([~Summon2])
+1,Undetectable Alignment
+1,Zone of Truth
+
+;!Cleric3
+1,Animate Dead
+1,Bestow Curse
+1,Blindness/Deafness
+1,Contagion
+1,Continual Flame
+1,Create Food and Water
+1,Cure Serious Wounds
+1,Daylight
+1,Deeper Darkness
+1,Dispel Magic
+1,Glyph of Warding
+1,Helping Hand
+1,Inflict Serious Wounds
+1,Invisibility Purge
+1,Locate Object
+1,Magic Circle against [~Alignment]
+1,Magic Vestment
+1,Meld into Stone
+1,Obscure Object
+1,Prayer
+1,Protection from Energy
+1,Remove Blindness/Deafness
+1,Remove Curse
+1,Remove Disease
+1,Searing Light
+1,Speak with Dead
+1,Stone Shape
+1,Summon Monster III|SummonType=monster| ([~Summon3])
+1,Water Breathing
+1,Water Walk
+1,Wind Wall
+
+;!Cleric4
+1,Air Walk
+1,Control Water
+1,Cure Critical Wounds
+1,Death Ward
+1,Dimensional Anchor
+1,Discern Lies
+1,Dismissal
+1,Divination
+1,Divine Power
+1,Freedom of Movement
+1,Giant Vermin
+1,Imbue with Spell Ability
+1,Inflict Critical Wounds
+1,Magic Weapon, Greater
+1,Neutralize Poison
+1,Planar Ally, Lesser
+1,Poison
+1,Repel Vermin
+1,Restoration
+1,Sending
+1,Spell Immunity
+1,Summon Monster IV|SummonType=monster| ([~Summon4])
+1,Tongues
+
+;!Cleric5
+1,Atonement
+1,Break Enchantment
+1,Command, Greater
+1,Commune
+1,Cure Light Wounds, Mass
+1,Dispel Chaos/Evil/Good/Law
+1,Disrupting Weapon
+1,Flame Strike
+1,Hallow
+1,Inflict Light Wounds, Mass
+1,Insect Plague
+1,Mark of Justice
+1,Plane Shift
+1,Raise Dead
+1,Righteous Might
+1,Scrying
+1,Slay Living
+1,Spell Resistance
+1,Summon Monster V|SummonType=monster| ([~Summon5])
+1,Symbol of Pain
+1,Symbol of Sleep
+1,True Seeing
+1,Unhallow
+1,Wall of Stone
+
+;!Cleric6
+1,Animate Objects
+1,Antilife Shell
+1,Banishment
+1,Bear's Endurance, Mass
+1,Blade Barrier
+1,Bull's Strength, Mass
+1,Create Undead
+1,Cure Moderate Wounds, Mass
+1,Dispel Magic, Greater
+1,Eagle's Splendor, Mass
+1,Find the Path
+1,Forbiddance
+1,Geas/Quest
+1,Glyph of Warding, Greater
+1,Harm
+1,Heal
+1,Heroe's Feast
+1,Inflict Moderate Wounds, Mass
+1,Owl's Wisdom, Mass
+1,Planar Ally
+1,Summon Monster VI|SummonType=monster| ([~Summon6])
+1,Symbol of Fear
+1,Symbol of Persuasion
+1,Undeath to Death
+1,Wind Walk
+1,Word of Recall
+
+;!Cleric7
+1,Blasphemy
+1,Control Weather
+1,Cure Serious Wounds, Mass
+1,Destruction
+1,Dictum
+1,Ethereal Jaunt
+1,Holy Word
+1,Inflict Serious Wounds, Mass
+1,Refuge
+1,Regenerate
+1,Repulsion
+1,Restoration, Greater
+1,Resurrection
+1,Scrying, Greater
+1,Summon Monster VII|SummonType=monster| ([~Summon7])
+1,Symbol of Stunning
+1,Symbol of Weakness
+1,Word of Chaos
+
+;!Cleric8
+1,Antimagic Field
+1,Cloak of Chaos
+1,Create Greater Undead
+1,Cure Critical Wounds, Mass
+1,Dimensional Lock
+1,Discern Location
+1,Earthquake
+1,Fire Storm
+1,Holy Aura
+1,Inflict Critical Wounds, Mass
+1,Planar Ally, Greater
+1,Shield of Law
+1,Spell Immunity, Greater
+1,Summon Monster VIII|SummonType=monster| ([~Summon8])
+1,Symbol of Death
+1,Symbol of Insanity
+1,Unholy Aura
+
+;!Cleric9
+1,Astral Projection
+1,Energy Drain
+1,Etheralness
+1,Gate
+1,Heal, Mass
+1,Implosion
+1,Miracle
+1,Soul Bind
+1,Storm of Vengeance
+1,Summon Monster IX|SummonType=monster| ([~Summon9])
+1,True Resurrection
+
+;!Druid0
+1,Create Water
+1,Cure Minor Wounds
+1,Detect Magic
+1,Detect Poison
+1,Flare
+1,Guidance
+1,Know Direction
+1,Light
+1,Mending
+1,Purify Food and Drink
+1,Read Magic
+1,Resistance
+1,Virtue
+
+;!Druid1
+1,Calm Animals
+1,Charm Animal
+1,Cure Light Wounds
+1,Detect Animals or Plants
+1,Detect Snares and Pits
+1,Endure Elements
+1,Entangle
+1,Faerie Fire
+1,Goodberry
+1,Hide from Animals
+1,Jump
+1,Longstrider
+1,Magic Fang
+1,Magic Stone
+1,Obscuring Mist
+1,Pass without Trace
+1,Produce Flame
+1,Shillelagh
+1,Speak with Animals
+1,Summon Nature's Ally I|SummonType=natureally| ([~Summon1])
+
+;!Druid2
+1,Animal Messenger
+1,Animal Trance
+1,Barkskin
+1,Bear's Endurance
+1,Bull's Strength
+1,Cat's Grace
+1,Chill Metal
+1,Delay Poison
+1,Fire Trap
+1,Flame Blade
+1,Flaming Sphere
+1,Fog Cloud
+1,Gust of Wind
+1,Heat Metal
+1,Hold Animal
+1,Owl's Wisdom
+1,Reduce Animal
+1,Resist Energy
+1,Restoration, Lesser
+1,Soften Earth and Stone
+1,Spider Climb
+1,Summon Nature's Ally II|SummonType=natureally| ([~Summon2])
+1,Summon Swarm
+1,Tree Shape
+1,Warp Wood
+1,Wood Shape
+
+;!Druid3
+1,Call Lightning
+1,Contagion
+1,Cure Moderate Wounds
+1,Daylight
+1,Diminish Plants
+1,Dominate Animal
+1,Magic Fang/Greater
+1,Meld into Stone
+1,Neutralize Poison
+1,Plant Growth
+1,Poison
+1,Protection From Energy
+1,Quench
+1,Remove Disease
+1,Sleet Storm
+1,Snare
+1,Speak with Plants
+1,Spike Growth
+1,Stone Shape
+1,Summon Nature's Ally III|SummonType=natureally| ([~Summon3])
+1,Water Breathing
+1,Wind Wall
+
+;!Druid4
+1,Air Walk
+1,Antiplant Shell
+1,Blight
+1,Command Plants
+1,Control Water
+1,Cure Serious Wounds
+1,Dispel Magic
+1,Flame Strike
+1,Freedom of Movement
+1,Giant Vermin
+1,Ice Storm
+1,Reincarnate
+1,Repel Vermin
+1,Rusting Grasp
+1,Scrying
+1,Spike Stones
+1,Summon Nature's Ally IV|SummonType=natureally| ([~Summon4])
+
+;!Druid5
+1,Animal Growth
+1,Atonement
+1,Awaken
+1,Baleful Polymorph
+1,Call Lightning Storm
+1,Commune with Nature
+1,Control Winds
+1,Cure Critical Wounds
+1,Death Ward
+1,Hallow
+1,Insect Plague
+1,Stoneskin
+1,Summon Nature's Ally V|SummonType=natureally| ([~Summon5])
+1,Transmute Mud to Rock
+1,Transmute Rock to Mud
+1,Tree Stride
+1,Unhallow
+1,Wall of Fire
+1,Wall of Thorns
+
+;!Druid6
+1,Antilife Shell
+1,Bear's Endurance, Mass
+1,Bull's Strength, Mass
+1,Cat's Grace, Mass
+1,Cure Light Wounds, Mass
+1,Dispel Magic, Greater
+1,Find the Path
+1,Fire Seeds
+1,Ironwood
+1,Liveoak
+1,Move Earth
+1,Owl's Wisdom Mass
+1,Repel Wood
+1,Spellstaff
+1,Stone Tell
+1,Summon Nature's Ally VI|SummonType=natureally| ([~Summon6])
+1,Transport Via Plants
+1,Wall of Stone
+
+;!Druid7
+1,Animate Plants
+1,Changestaff
+1,Control Weather
+1,Creeping Doom
+1,Cure Moderate Wounds, Mass
+1,Fire Strom
+1,Heal
+1,Scrying, Greater
+1,Summon Nature's Ally VII|SummonType=natureally| ([~Summon7])
+1,Sunbeam
+1,Transmute Metal To Wood
+1,True Seeing
+1,Wind Walk
+
+;!Druid8
+1,Animal Shapes
+1,Control Plants
+1,Cure Serious Wound, Mass
+1,Earthquake
+1,Finger of Death
+1,Repel Metal or Stone
+1,Reverse Gravity
+1,Summon Nature's Ally VIII|SummonType=natureally| ([~Summon8])
+1,Sunburst
+1,Whirlwind
+1,Word of Recall
+
+;!Druid9
+1,Antipathy
+1,Cure Critical Wounds, Mass
+1,Elemental Swarm
+1,Foreight
+1,Regenerate
+1,Shambler
+1,Shapechange
+1,Storm of Vengeance
+1,Summon Nature's Ally IX|SummonType=natureally| ([~Summon9])
+1,Sympathy
+
+;!Paladin1
+2,Bless
+1,Bless Water
+2,Bless Weapon
+1,Create Water
+2,Cure Light Wounds
+1,Detect Poison
+1,Detect Undead
+1,Divine Favor
+1,Endure Elements
+2,Magic Weapon
+2,Protection from  [~Alignment={Dice~1d2}]
+1,Read Magic
+1,Resistance
+1,Restoration, Lesser
+1,Virtue
+
+;!Paladin2
+2,Bull's Strength
+1,Delay Poison
+1,Eagle's Splendor
+1,Owl's Wisdom
+1,Remove Paralysis
+2,Resist Energy
+2,Shield Other
+1,Undetectable Alignment
+1,Zone of Truth
+
+;!Paladin3
+2,Cure Moderate Wounds
+1,Daylight
+1,Discern Lies
+2,Dispel Magic
+2,Heal Mount
+2,Magic Circle against [~Alignment={Dice~1d2}]
+2,Magic Weapon/Greater
+1,Prayer
+1,Remove Blindnes/Deafness
+1,Remove Curse
+
+;!Paladin4
+1,Break Enchantment
+2,Cure Serious Wounds
+1,Death Ward
+1,Dispel Chaos
+2,Dispel Evil
+2,Holy Sword
+1,Mark of Justice
+1,Neutralize Poison
+1,Restoration
+
+;!Ranger1
+1,Alarm
+1,Animal Messenger
+1,Calm Animals
+1,Charm Animal
+1,Delay Poison
+1,Detect Animals or Plants
+1,Detect Poison
+1,Detect Snares and Pits
+1,Endure Elements
+1,Entangle
+1,Hide from Animals
+1,Jump
+1,Longstrider
+1,Magic Fang
+1,Pass without Trace
+1,Read Magic
+1,Resist Energy
+1,Speak with animals
+1,Summon Nature's Ally I|SummonType=natureally| ([~Summon1])
+
+;!Ranger2
+1,Barkskin
+1,Bear's Endurance
+1,Cat's Grace
+1,Cure Light Wounds
+1,Hold Animal
+1,Owl's Wisdom
+1,Protection from Energy
+1,Snare
+1,Speak With Plants
+1,Spike Growth
+1,Summon Nature's Ally II|SummonType=natureally| ([~Summon2])
+1,Wind Wall
+
+;!Ranger3
+1,Command Plants
+2,Cure Moderate Wounds
+1,Darkvision
+1,Diminish Plants
+1,Magic Fang, Greater
+1,Neutralize Poison
+1,Plant Growth
+1,Reduce Animal
+1,Remove Disease
+1,Repel Vermin
+2,Summon Nature's Ally III|SummonType=natureally| ([~Summon3])
+1,Tree Shape
+1,Water Walk
+
+;!Ranger4
+1,Animal Growth
+1,Commune with Nature
+2,Cure Serious Wounds
+2,Freedom of Movement
+1,Nondetection
+2,Summon Nature's Ally IV|SummonType=natureally| ([~Summon4])
+1,Tree Stride
+
+;!Wizard0
+1,Acid Splash
+1,Arcane Mark
+1,Dancing Lights
+1,Daze
+1,Detect Magic
+1,Detect Poison
+1,Disrupt Undead
+1,Flare
+1,Ghost Sound
+1,Light
+1,Mage Hand
+1,Mending
+1,Message
+1,Open/Close
+1,Prestidigitation
+1,Ray of Frost
+1,Read Magic
+1,Resistance
+1,Touch of Fatigue
+
+;!Wizard1
+1,Animate Rope
+1,Burning Hands
+1,Cause Fear
+1,Charm Person
+1,Chill Tounch
+1,Color Spray
+1,Comprehend Languages
+1,Detect Secret Doors
+1,Detect Undead
+1,Disguise Self
+1,Enlarge Person
+1,Erase
+1,Expeditious Retreat
+1,Feather Fall
+1,Grease
+1,Hypnotism
+1,Identify
+1,Jump
+1,Mage Armor
+1,Magic Missile
+1,Magic Weapon
+1,Mount
+1,Nystul's Magic Aura
+1,Obscuring Mist
+1,Ray of Enfeeblement
+1,Reduce Person
+1,Shocking Grasp
+1,Silent Image
+1,Sleep
+1,Summon Monster I|SummonType=monster| ([~Summon1])
+1,Tenser's Floating Disk
+1,True Strike
+1,Unseen Servant
+1,Ventriloquism
+
+;!Wizard2
+1,Alter Self
+1,Arcane Lock
+1,Bear's Endurance
+1,Blindness/Deafness
+1,Blur
+1,Bull's Strength
+1,Cat's Grace
+1,Command Undead
+1,Continual Flame
+1,Darkness
+1,Darkvision
+1,Daze Monster
+1,Detect Thoughts
+1,Eagle's Splendor
+1,False Life
+1,Flaming Sphere
+1,Fog Cloud
+1,Fox's Cunning
+1,Ghoul Touch
+1,Glitterdust
+1,Gust of Wind
+1,Hypnotic Pattern
+1,Invisibility
+1,Knock
+1,Leomund's Trap
+1,Levitate
+1,Locate Object
+1,Magic Mouth
+1,Melf's Acid Arrow
+1,Minor Image
+1,Mirror Image
+1,Misdirection
+1,Obscure Object
+1,Owl's Wisdom
+1,Protection from Arrows
+1,Pyrotechnics
+1,Resist Energy
+1,Rope Trick
+1,Scare
+1,Scorching Ray
+1,See Invisibility
+1,Shatter
+1,Spectral Hand
+1,Spider Climb
+1,Summon Monster II|SummonType=monster| ([~Summon2])
+1,Summon Swarm
+1,Tasha's Hideous Laughter
+1,Touch of Idiocy
+1,Web
+1,Whispering Wind
+
+;!Wizard3
+1,Arcane Sight
+1,Blink
+1,Clairaudience/Clairvoyance
+1,Daylight
+1,Deep Slumber
+1,Dispel Magic
+1,Displacement
+1,Explosive Runes
+1,Fireball
+1,Flame Arrow
+1,Fly
+1,Gaseous Form
+1,Gentle Repose
+1,Halt Undead
+1,Haste
+1,Heroism
+1,Hold Person
+1,Illusory Script
+1,Invisibility Sphere
+1,Keen Edge
+1,Leomund's Tiny Hut
+1,Lightning Bolt
+1,Magic Circle against [~Alignment]
+1,Magic Weapon, Greater
+1,Major Image
+1,Nondetection
+1,Phantom Steed
+1,Protection from Energy
+1,Rage
+1,Ray of Exhaustion
+1,Secret Page
+1,Sepia Snake Sigil
+1,Shrink Item
+1,Sleet Storm
+1,Slow
+1,Stinking Cloud
+1,Suggestion
+1,Summon Monster III|SummonType=monster| ([~Summon3])
+1,Tongues
+1,Vampiric Touch
+1,Water Breathing
+1,Wind Wall
+
+;!Wizard4
+1,Animate Dead
+1,Arcane Eye
+1,Bestow Curse
+1,Charm Monster
+1,Confusion
+1,Contagion
+1,Crushing Despair
+1,Detect Scrying
+1,Dimension Door
+1,Dimensional Anchor
+1,Enervation
+1,Enlarge Person, Mass
+1,Evard's Black Tentacles
+1,Fear
+1,Fire Shield
+1,Fire Trap
+1,Geas, Lesser
+1,Globe of Invulnerability, Lesser
+1,Hallucinatory Terrain
+1,Ice Storm
+1,Illusor Wall
+1,Invisibility, Greater
+1,Leomund's Secure Shelter
+1,Locate Creature
+1,Minor Creation
+1,Otiluke's Resilient Sphere
+1,Phantasmal Killer
+1,Polymorph
+1,Rainbow Pattern
+1,Rary's Mnemonic Enhancer (W)
+1,Reduce Person, Mass
+1,Remove Curse
+1,Scrying
+1,Shadow Conjuration
+1,Shout
+1,Solid Fog
+1,Stone Shape
+1,Stoneskin
+1,Summon Monster IV|SummonType=monster| ([~Summon4])
+1,Wall of Fire
+1,Wall of Ice
+
+;!Wizard5
+1,Animal Growth
+1,Baleful Polymorph
+1,Bigby's Interposing Hand
+1,Blight
+1,Break Enchantment
+1,Cloudkill
+1,Cone of Cold
+1,Contact other Plane
+1,Dismissal
+1,Dominate Person
+1,Dream
+1,Fabricate
+1,False Vision
+1,Feeblemind
+1,Hold Monster
+1,Leomund's Secret Chest
+1,Magic Jar
+1,Major Creation
+1,Mind Fog
+1,Mirage Arcana
+1,Mordenkainen's Faithful Hound
+1,Mordenkainen's Private Sanctum
+1,Nightmare
+1,Overland Flight
+1,Passwall
+1,Permanency
+1,Persistent Image
+1,Planar Binding, Lesser
+1,Prying Eyes
+1,Rary's Telepathic Bond
+1,Seeming
+1,Sending
+1,Shadow Evocation
+1,Summon Monster V|SummonType=monster| ([~Summon5])
+1,Symbol of Pain
+1,Symbol of Sleep
+1,Telekinesis
+1,Teleport
+1,Transmute Mud to Rock
+1,Transmute Rock to Mud
+1,Wall of Force
+1,Wall of Stone
+1,Waves of Fatigue
+
+;!Wizard6
+1,Acid Fog
+1,Analyze Dweomer
+1,Antimagic Field
+1,Bear's Endurance, Mass
+1,Bigby's Forceful Hand
+1,Bull's Strength, Mass
+1,Cat's Grace, Mass
+1,Chain Lightning
+1,Circle of Death
+1,Contingency
+1,Control Water
+1,Creat Undead
+1,Disintegrate
+1,Dispel Magic, Greater
+1,Eagle's Splendor, Mass
+1,Eyebite
+1,Flesh to Stone
+1,Fox's Cunning, Mass
+1,Geas/Quest
+1,Globe of Invunerability
+1,Guards and Wards
+1,Heroism, Greater
+1,Legend Lore
+1,Mislead
+1,Mordenkainen's Lucubration
+1,Move Earth
+1,Otiluke's Freezing Sphere
+1,Owl's Wisdom, Mass
+1,Permanent Image
+1,Planar Binding
+1,Programmed Image
+1,Repulsion
+1,Shadow Walk
+1,Stone to Flesh
+1,Suggestion, Mass
+1,Summon Monster VI|SummonType=monster| ([~Summon6])
+1,Symbol of Fear
+1,Symbol of Persuasion
+1,Tenser's Transformation
+1,True Seeing
+1,Undeath to Death
+1,Veil
+1,Wall of Iron
+
+;!Wizard7
+1,Arcane Sight, Greater
+1,Banishment
+1,Bigby's Grasping Hand
+1,Control Undead
+1,Control Weather
+1,Delayed Blast Fireball
+1,Drawmij's Instant Summons
+1,Ethereal Jaunt
+1,Finger of Death
+1,Forcecage
+1,Hold Person, Mass
+1,Insanity
+1,Invisibility, Mass
+1,Limited Wish
+1,Mordenkainen's Magnificent Mansion
+1,Mordenkainen's Sword
+1,Phase Door
+1,Plane Shift
+1,Power Word Blind
+1,Prismatic Spray
+1,Project Image
+1,Reverse Gravity
+1,Scrying, Greater
+1,Sequester
+1,Shadow Conjuration, Greater
+1,Simulacrum
+1,Spell Turning
+1,Statue
+1,Summon Monster VII|SummonType=monster| ([~Summon7])
+1,Symbol of Stunning
+1,Symbol of Weakness
+1,Teleport Object
+1,Teleport, Greater
+1,Vision
+1,Waves of Exhaustion
+
+;!Wizard8
+1,Antipathy
+1,Bigby's Clenched Fist
+1,Binding
+1,Charm Monster, Mass
+1,Clone
+1,Create Greater Undead
+1,Demand
+1,Dimensional Lock
+1,Discern Location
+1,Horrid Wilting
+1,Incendiary Cloud
+1,Iron Body
+1,Maze
+1,Mind Blank
+1,Moment of Prescience
+1,Otiluke's Telekinetic Sphere
+1,Otto's Irresistable Dance
+1,Planar Binding, Greater
+1,Polar Ray
+1,Polymorph any Object
+1,Power Word Stun
+1,Prismatic Wall
+1,Protection from Spells
+1,Prying Eyes, Greater
+1,Scintillating Pattern
+1,Screen
+1,Shadow Evocation, Greater
+1,Shout, Greater
+1,Summon Monster VIII|SummonType=monster| ([~Summon8])
+1,Sunburst
+1,Symbol of Death
+1,Symbol of Insanity
+1,Sympathy
+1,Temporal Stasis
+1,Trap the Soul
+
+;!Wizard9
+1,Astral Projection
+1,Bigby's Crushing Hand
+1,Dominate Monster
+1,Energy Drain
+1,Etherealness
+1,Foresight
+1,Freedom
+1,Gate
+1,Hold Monster, Mass
+1,Imprisonment
+1,Meteor Swarm
+1,Mordenkainen's Disjunction
+1,Power Word, Kill
+1,Prismatic Sphere
+1,Refuge
+1,Shades
+1,Shapechange
+1,Soul Bind
+1,Summon Monster IX|SummonType=monster| ([~Summon9])
+1,Teleportation Circle
+1,Time Stop
+1,Wail of the Banshee
+1,Weird
+1,Wish
+
+# --------------------------------------------------------------------------
+# NPCClass
+
+;!Adept0
+1,create water
+1,cure minor wounds
+1,detect magic
+1,ghost sound
+1,guidance
+1,light
+1,mending
+1,purify food and drink
+1,read magic
+1,touch of fatigue
+
+;!Adept1
+1,bless
+1,burning hands
+1,cause fear
+1,command
+1,comprehend languages
+1,cure light wounds
+1,detect [~Alignment]
+1,endure elements
+1,obscuring mist
+1,protection from [~Alignment]
+1,sleep
+
+;!Adept2
+1,aid
+1,animal trance
+1,bear’s endurance
+1,bull’s strength
+1,cat’s grace
+1,cure moderate wounds
+1,darkness
+1,delay poison
+1,invisibility
+1,mirror image
+1,resist energy
+1,scorching ray
+1,see invisibility
+1,web
+
+;!Adept3
+1,animate dead
+1,bestow curse
+1,contagion
+1,continual flame
+1,cure serious wounds
+1,daylight
+1,deeper darkness
+1,lightning bolt
+1,neutralize poison
+1,remove curse
+1,remove disease
+1,tongues
+
+;!Adept4
+1,cure critical wounds{Unlock~Adept4,1}
+1,minor creation
+1,polymorph
+1,restoration
+1,stoneskin
+1,wall of fire
+
+;!Adept5
+1,baleful polymorph
+1,break enchantment
+1,commune
+1,heal
+1,major creation
+1,raise dead
+1,true seeing
+1,wall of stone
+
+# --------------------------------------------------------------------------
+# Prestige
+
+;!Assassin1
+1,disguise self
+1,detect poison
+1,feather fall
+1,ghost sound
+1,jump
+1,obscuring mist
+1,sleep
+1,true strike
+
+;!Assassin2
+1,alter self
+1,cat’s grace
+1,darkness
+1,fox’s cunning
+1,illusory script
+1,invisibility
+1,pass without trace
+1,spider climb
+1,undetectable alignment
+
+;!Assassin3
+1,deep slumber
+1,deeper darkness
+1,false life
+1,magic circle against good
+1,misdirection
+1,nondetection
+
+;!Assassin4
+1,clairaudience/clairvoyance
+1,dimension door
+1,freedom of movement
+1,glibness
+1,greater invisibility
+1,locate creature
+1,modify memory
+1,poison
+
+;!Blackguard1
+1,cause fear
+1,corrupt weapon
+1,cure light wounds{Unlock~Blackguard1,3}
+1,doom
+1,inflict light wounds
+1,magic weapon
+1,summon monster I (Evil only)|SummonType=monster| ([~Summon1])
+
+;!Blackguard2
+1,bull’s strength
+1,cure moderate wounds{Unlock~Blackguard2,2}
+1,darkness
+1,death knell
+1,eagle’s splendor
+1,inflict moderate wounds
+1,shatter
+1,summon monster II (Evil only)|SummonType=monster| ([~Summon2])
+
+;!Blackguard3
+1,contagion
+1,cure serious wounds{Unlock~Blackguard3,2}
+1,deeper darkness
+1,inflict serious wounds
+1,protection from elements
+1,summon monster III (Evil only)|SummonType=monster| ([~Summon3])
+
+;!Blackguard4
+1,cure critical wounds{Unlock~Blackguard4,1}
+1,freedom of movement
+1,inflict critical wounds
+1,poison
+1,summon monster IV (Evil only)|SummonType=monster| ([~Summon4])
+
+# --------------------------------------------------------------------------
+# Domains
+# Do not put ";" in the domain name.
+# Spells are listed by level. 10 is the domain granted power.
+
+:PrintAllDomainNames
+1,Air, Animal, Chaos, Death, Destruction, Earth, Evil, Fire, Good, Healing, Knowledge, Law, Luck, Magic, Plant, Protection, Strength, Sun, Travel, Trickery, War, Water
+
+;!AllDomains
+1,Air
+1,Animal
+1,Chaos
+1,Death
+1,Destruction
+1,Earth
+1,Evil
+1,Fire
+1,Good
+1,Healing
+1,Knowledge
+1,Law
+1,Luck
+1,Magic
+1,Plant
+1,Protection
+1,Strength
+1,Sun
+1,Travel
+1,Trickery
+1,War
+1,Water
+
+:!Air
+1,Obscuring Mist
+2,Wind Wall
+3,Gaseous Form
+4,Air Walk
+5,Control Winds
+6,Chain Lightning
+7,Control Weather
+8,Whirlwind
+9,Elemental Swarm (Air)
+10,Turn or destroy earth creatures as a good cleric turns undead. Rebuke, command, or bolster air creatures as an evil cleric rebukes undead. Use these abilities a total number of times per day equal to 3 + your Charisma modifier. This granted power is a supernatural ability.
+
+:!Animal
+1,Calm Animals
+2,Hold Animal
+3,Dominate Animal
+4,Summon Nature's Ally IV (Animals Only)|SummonType=natureally| ([~Summon4])
+5,Commune with Nature
+6,Antilife Shell
+7,Animal Shapes
+8,Summon Nature's Ally VIII (Animal's Only)|SummonType=natureally| ([~Summon8])
+9,Shapechange
+10,You can use <i>speak with animals</i> once per day as a spell-like ability. Add Knowledge (nature) to your list of cleric class skills.
+
+:!Chaos
+1,Protection from Law
+2,Shatter
+3,Magic Circle against Law
+4,Chaos Hammer
+5,Dispel Law
+6,Animate Objects
+7,Word of Chaos
+8,Cloak of Chaos
+9,Summon Monster IX (Chaos Only)|SummonType=monster| ([~Summon9])
+10,You cast chaos spells at +1 caster level.
+
+:!Death
+1,Cause Fear
+2,Death Knell
+3,Animate Dead
+4,Death Ward
+5,Slay Living
+6,Create Undead
+7,Destruction
+8,Create Greater Undead
+9,Wail of the Banshee
+10,You may use a death touch once per day. Your death touch is a supernatural ability that produces a death effect. You must succeed on a melee touch attack against a living creature (using the rules for touch spells). When you touch, roll 1d6 per cleric level you possess. If the total at least equals the creature’s current hit points, it dies (no save).
+
+:!Destruction
+1,Inflict Light Wounds
+2,Shatter
+3,Contagion
+4,Inflict Critical Wounds
+5,Inflict Light Wounds, Mass
+6,Harm
+7,Disintegrate
+8,Earthquake
+9,Implosion
+10,You gain the smite power, the supernatural ability to make a single melee attack with a +4 bonus on attack rolls and a bonus on damage rolls equal to your cleric level (if you hit). You must declare the smite before making the attack. This ability is usable once per day.
+
+:!Earth
+1,Magic Stone
+2,Soften Earth and Stone
+3,Stone Shape
+4,Spike Stones
+5,Wall of Stone
+6,Stoneskin
+7,Earthquake
+8,Iron Body
+9,Elemental Swarm (Earth)
+10,Turn or destroy air creatures as a good cleric turns undead. Rebuke, command, or bolster earth creatures as an evil cleric rebukes undead. Use these abilities a total number of times per day equal to 3 + your Charisma modifier. This granted power is a supernatural ability.
+
+:!Evil
+1,Protection from Good
+2,Desecrate
+3,Magic Circle against Good
+4,Unholy Blight
+5,Dispel Good
+6,Create Undead
+7,Blasphemy
+8,Unholy Aura
+9,Summon Monster IX (Evil Only)|SummonType=monster| ([~Summon9])
+10,You cast evil spells at +1 caster level.
+
+:!Fire
+1,Burning Hands
+2,Produce Flame
+3,Resist Energy (Cold or Fire)
+4,Wall of Fire
+5,Fire Shield
+6,Fire Seeds
+7,Fire Storm
+8,Incendiary Cloud
+9,Elemental Swarm (Fire)
+10,Turn or destroy water creatures as a good cleric turns undead. Rebuke, command, or bolster fire creatures as an evil cleric rebukes undead. Use these abilities a total number of times per day equal to 3 + your Charisma modifier. This granted power is a supernatural ability.
+
+:!Good
+1,Protection from Evil
+2,Aid
+3,Magic Circle against Evil
+4,Holy Smite
+5,Dispel Evil
+6,Blade Barrier
+7,Holy Word
+8,Holy Aura
+9,Summon Monster IX (Good Only)|SummonType=monster| ([~Summon9])
+10,You cast good spells at +1 caster level.
+
+:!Healing
+1,Cure Light Wounds
+2,Cure Moderate Wounds
+3,Cure Serious Wounds
+4,Cure Critical Wounds
+5,Cure Light Wounds, Mass
+6,Heal
+7,Regenerate
+8,Cure Critical Wounds, Mass
+9,Heal, Mass
+10,You cast healing spells at +1 caster level.
+
+:!Knowledge
+1,Detect Secret Doors
+2,Detect Thoughts
+3,Clairaudience/Clairvoyance
+4,Divination
+5,True Seeing
+6,Find the Path
+7,Legend Lore
+8,Discern Location
+9,Foresight
+10,Add all Knowledge skills to your list of cleric class skills. You cast divination spells at +1 caster level.
+
+:!Law
+1,Protection from Chaos
+2,Calm Emotions
+3,Magic Circle against Chaos
+4,Order's Wrath
+5,Dispel Chaos
+6,Hold Monster
+7,Dictum
+8,Shield of Law
+9,Summon Monster IX (Lawful Only)|SummonType=monster| ([~Summon9])
+10,You cast law spells at +1 caster level.
+
+:!Luck
+1,Entropic Shield
+2,Aid
+3,Protection from Energy
+4,Freedom of Movement
+5,Break Enchantment
+6,Mislead
+7,Spell Turning
+8,Moment of Prescience
+9,Miracle
+10,You gain the power of good fortune, which is usable once per day. This extraordinary ability allows you to reroll one roll that you have just made before the DM declares whether the roll results in success or failure. You must take the result of the reroll, even if it’s worse than the original roll.
+
+:!Magic
+1,Nystul's Magic Aura
+2,Identify
+3,Dispel Magic
+4,Imbue with Spell Ability
+5,Spell Resistance
+6,Antimagic Field
+7,Spell Turning
+8,Protectionf from Spells
+9,Mordenkainen's Disjunction
+10,Use scrolls, wands, and other devices with spell completion or spell trigger activation as a wizard of one-half your cleric level (at least 1st level). For the purpose of using a scroll or other magic device, if you are also a wizard, actual wizard levels and these effective wizard levels stack.
+
+:!Plant
+1,Entangle
+2,Barkskin
+3,Plant Growth
+4,Command Plants
+5,Wall of Thorns
+6,Repel Wood
+7,Animate Plants
+8,Control Plants
+9,Shambler
+10,Rebuke or command plant creatures as an evil cleric rebukes or commands undead. Use this ability a total number of times per day equal to 3 + your Charisma modifier. This granted power is a supernatural ability.<br>Add Knowledge (nature) to your list of cleric class skills.
+
+:!Protection
+1,Sanctuary
+2,Shield Other
+3,Protection from Energy
+4,Spell Immunity
+5,Spell Resistance
+6,Antimagic Field
+7,Repulsion
+8,Mind Blank
+9,Prismatic Sphere
+10,You can generate a <i>protective ward</i> as a supernatural ability. Grant someone you touch a resistance bonus equal to your cleric level on his or her next saving throw. Activating this power is a standard action. The <i>protective ward</i> is an abjuration effect with a duration of 1 hour that is usable once per day.
+
+:!Strength
+1,Enlarge Person
+2,Bull's Strength
+3,Magic Vestment
+4,Spell Immunity
+5,Righteous Might
+6,Stoneskin
+7,Bigby's Grasping Hand
+8,Bigby's Clenched Fist
+9,Bigby's Crushing Hand
+10,You can perform a feat of strength as a supernatural ability. You gain an enhancement bonus to Strength equal to your cleric level. Activating the power is a free action, the power lasts 1 round, and it is usable once per day.
+
+:!Sun
+1,Endure Elements
+2,Heat Metal
+3,Searing Light
+4,Fire Shield
+5,Flame strike
+6,Fire Seeds
+7,Sunbeam
+8,Sunburst
+9,Prismatic Sphere
+10,Once per day, you can perform a greater turning against undead in place of a regular turning. The greater turning is like a normal turning except that the undead creatures that would be turned are destroyed instead.
+
+:!Travel
+1,Longstrider
+2,Locate Object
+3,Fly
+4,Dimension Door
+5,Teleport
+6,Find the Path
+7,Teleport, Greater
+8,Phase Door
+9,Astral Projection
+10,For a total time per day of 1 round per cleric level you possess, you can act normally regardless of magical effects that impede movement as if you were affected by the spell freedom of movement. This effect occurs automatically as soon as it applies, lasts until it runs out or is no longer needed, and can operate multiple times per day (up to the total daily limit of rounds).<br>This granted power is a supernatural ability.<br>Add Survival to your list of cleric class skills.
+
+:!Trickery
+1,Disguise Self
+2,Invisibility
+3,Nondetection
+4,Confusion
+5,False Vision
+6,Mislead
+7,Screen
+8,Polymorph Any Object
+9,Time Stop
+10,Add Bluff, Disguise, and Hide to your list of cleric class skills.
+
+:!War
+1,Magic Weapon
+2,Spiritual Weapon
+3,Magic Vestment
+4,Divine Power
+5,Flame Strike
+6,Blade Barrier
+7,Power Word Blind
+8,Power Word Stun
+9,Power Work Kill
+10,Free Martial Weapon Proficiency with deity’s favored weapon (if necessary) and Weapon Focus with the deity’s favored weapon.
+
+:!Water
+1,Obscuring Mist
+2,Fog Cloud
+3,Water Breathing
+4,Control Water
+5,Ice Storm
+6,Cone of Cold
+7,Acid Fog
+8,Horrid Wilting
+9,Elemental Swarm (Water)
+10,Turn or destroy fire creatures as a good cleric turns undead. Rebuke, command, or bolster water creatures as an evil cleric rebukes undead. Use these abilities a total number of times per day equal to 3 + your Charisma modifier. This granted power is a supernatural ability.
+
+# -------------------------------------------------------------------------
+# Summon Spells
+
+:Summon1
+1,[Creatures.Summon%SummonType%1]
+
+:Summon2
+1,{If~{Dice~1d100}<30?{Dice~1d3} [Creatures.Summon%SummonType%1]/[Creatures.Summon%SummonType%2]}
+
+:Summon3
+1,{If~{Dice~1d100}<70?[Creatures.Summon%SummonType%3]/{If~{Dice~1d100}<70?{Dice~1d3} [Creatures.Summon%SummonType%2]/{Dice~1d4+1} [Creatures.Summon%SummonType%1]}}
+
+:Summon4
+1,{If~{Dice~1d100}<70?[Creatures.Summon%SummonType%4]/{If~{Dice~1d100}<70?{Dice~1d3} [Creatures.Summon%SummonType%3]/{Dice~1d4+1} [Creatures.Summon%SummonType%2]}}
+
+:Summon5
+1,{If~{Dice~1d100}<70?[Creatures.Summon%SummonType%5]/{If~{Dice~1d100}<70?{Dice~1d3} [Creatures.Summon%SummonType%4]/{Dice~1d4+1} [Creatures.Summon%SummonType%3]}}
+
+:Summon6
+1,{If~{Dice~1d100}<70?[Creatures.Summon%SummonType%6]/{If~{Dice~1d100}<70?{Dice~1d3} [Creatures.Summon%SummonType%5]/{Dice~1d4+1} [Creatures.Summon%SummonType%4]}}
+
+:Summon7
+1,{If~{Dice~1d100}<70?[Creatures.Summon%SummonType%7]/{If~{Dice~1d100}<70?{Dice~1d3} [Creatures.Summon%SummonType%6]/{Dice~1d4+1} [Creatures.Summon%SummonType%5]}}
+
+:Summon8
+1,{If~{Dice~1d100}<70?[Creatures.Summon%SummonType%8]/{If~{Dice~1d100}<70?{Dice~1d3} [Creatures.Summon%SummonType%7]/{Dice~1d4+1} [Creatures.Summon%SummonType%6]}}
+
+:Summon9
+1,{If~{Dice~1d100}<70?[Creatures.Summon%SummonType%9]/{If~{Dice~1d100}<70?{Dice~1d3} [Creatures.Summon%SummonType%8]/{Dice~1d4+1} [Creatures.Summon%SummonType%7]}}

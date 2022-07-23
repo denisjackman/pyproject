@@ -1,0 +1,335 @@
+﻿#
+# Color
+#
+
+:Start
+1,[Basic]
+
+;Basic
+3,[White]
+3,Black
+24,[Intensity][Shade]
+
+:Intensity
+1,Intense 
+2,Brilliant 
+3,Pale 
+4,Dull 
+7-40,
+
+;Shade
+2,[Violet] (Purple)
+2,[Pink] (Pink)
+3,[Red] (Red)
+2,[Orange] (Orange)
+2,[Brown] (Brown)
+3,[Yellow] (Yellow)
+2,[Grey] (Grey)
+3,[Green] (Green)
+2,[Cyan] (Cyan)
+3,[Blue] (Blue)
+
+
+:White
+1,Cream
+2,Ivory
+3,Magnolia
+4,Old Lace
+5,Seashell
+6,White
+
+:Pink
+1,Amaranth
+2,Amaranth Pink
+3,Brink Pink
+4,Carmine Pink
+5,Cerise
+6,Cerise Pink
+7,Cherry Blossom Pink
+8,Coral Pink
+9,Dark Pink
+10,Deep Carmine Pink
+11,Deep Pink
+12,French Rose
+13,Fuchsia
+14,Fuchsia Pink
+15,Hollywood Cerise
+16,Japanese Pink
+17,Lavender Pink
+18,Lavender Rose
+19,Light Pink
+20,Light Thulian Pink
+21,Magenta
+22,Mountbatten Pink
+23,Persian Pink
+24,Persian Rose
+25,Pink
+26,Puce
+27,Rose
+28,Rose Pink
+29,Salmon Pink
+30,Shocking Pink
+31,Tea Rose
+32,Thulian Pink
+33,Ultra Pink
+
+
+:Red
+1,Alizarin
+2,Amaranth
+3,Burgundy
+4,Cardinal
+5,Carmine
+6,Carnelian
+7,Cerise
+8,Chestnut
+9,Coral Red
+10,Crimson
+11,Dark Pink
+12,Falu Red
+13,Fire Engine Red
+14,Fuchsia
+15,Magenta
+16,Maroon
+17,Mauve Taupe
+18,Orange-Red
+19,Persian Red
+20,Pink
+21,Persimmon
+22,Red
+23,Red-Violet
+24,Rose
+25,Rose Madder
+26,Ruby
+27,Rust
+28,Puce
+29,Sangria
+30,Scarlet
+31,Terra Cotta
+32,Venetian Red
+33,Vermilion
+
+
+:Orange
+1,Amber
+2,Apricot
+3,Carrot Orange
+4,Coral
+5,Brown
+6,Burnt Orange
+7,Dark Salmon
+8,Gamboge
+9,International Orange
+10,Mahogany
+11,Orange
+12,Orenge-Red
+13,Orange Peel
+14,Peach
+15,Peach-Orange
+16,Peach-Yellow
+17,Persimmon
+18,Pink-Orange
+19,Pumpkin
+20,Rust
+21,Salmon
+22,Tangerine
+23,Tenne (Tawny)
+24,Tomato
+25,Vermilion
+
+
+:Brown
+1,Auburn
+2,Beige
+3,Bistre
+4,Bole
+5,Brown
+6,Buff
+7,Burgundy
+8,Burnt Sienna
+9,Burnt Umber
+10,Chocolate
+11,Copper
+12,Cordovan
+13,Ecru
+14,Fallow
+15,Khaki
+16,Liver
+17,Mahogany
+18,Maroon
+19,Ochre
+20,Raw Umber
+21,Russet
+22,Rust
+23,Sandy Brown
+24,Seal Brown
+25,Sepia
+26,Sienna
+27,Tan
+28,Taupe
+29,Wheat
+30,Zinnwaldite
+
+
+:Yellow
+1,Amber
+2,Apricot
+3,Beige
+4,Buff
+5,Chartreuse Yellow
+6,Corn
+7,Cream
+8,Dark Goldenrod
+9,Ecru
+10,Flax
+11,Gamboge
+12,Golden
+13,Goldenrod
+14,Golden Poppy
+15,Golden Yellow
+16,Green Yellow
+17,Khaki
+18,Lemon
+19,Lemon Chiffon
+20,Lime
+21,Metallic Gold
+22,Mustard
+23,Navajo White
+24,Old Gold
+25,Olive
+26,Peach Yellow
+27,Pear
+28,Saffron
+29,School Bus Yellow
+30,Selective Yellow
+31,Tangerine Yellow
+32,Yellow
+
+:Grey
+1,Gray
+2,Arsenic
+3,Bistre
+4,Charcoal
+5,Davy's Gray
+6,Feldgrau
+7,Liver
+8,Payne's Gray
+9,Seal Brown
+10,Silver
+11,Slate Gray
+12,Taupe
+13,Purple Taupe
+14,Medium Taupe
+15,Taupe Gray
+16,Pale Taupe
+17,Rose Quartz
+18,Xanadu
+
+
+
+:Green
+1,Army Green
+2,Asparagus
+3,Bright Green
+4,British Racing Green
+5,Camouflage Green
+6,Celadon
+7,Chartreuse
+8,Yellow-Green
+9,Emerald
+10,Fern Green
+11,Forest Green
+12,Gray Asparagus
+13,Green
+14,Green-Yellow
+15,Harlequin
+16,Hunter Green
+17,Islamic Green
+18,Jade
+19,Jungle Green
+20,Kelly Green
+21,Lime
+22,Lime Green
+23,Moss Green
+24,Myrtle
+25,Office Green
+26,Olive
+27,Olive Drab
+28,Pear
+29,Persian Green
+30,Pigment Green
+31,Pine Green
+32,Sea Green
+33,Shamrock Green
+34,Spring Green
+35,Spring Bud
+36,Tea Green
+
+
+:Cyan
+1,Aqua
+2,Aquamarine
+3,Baby Blue
+4,Bondi Blue
+5,Cerulean
+6,Cyan
+7,Electric Blue
+8,Pine Green
+9,Robin Egg Blue
+10,Teal
+11,Turquoise
+12,Viridian
+
+
+:Blue
+1,Azure
+2,Baby Blue
+3,Blue
+4,Air Force Blue
+5,Brandeis Blue
+6,Carolina Blue
+7,Cerulean
+8,Cobalt Blue
+9,Columbia Blue
+10,Cornflower Blue
+11,Dark Blue
+12,Denim
+13,Dodger Blue
+14,Duke Blue
+15,Egyptian Blue
+16,Electric Blue
+17,Han Blue
+18,indigo
+19,International Klein Blue
+20,Light Blue
+21,Majorelle
+22,Maya Blue
+23,Midnight Blue
+24,Navy Blue
+25,Periwinkle
+26,Persian Blue
+27,Powder Blue
+28,Prussian Blue
+29,Royal Blue
+30,Sapphire
+31,Sky Blue
+32,Steel Blue
+33,Ultramarine
+34,Yale Blue
+
+:Violet
+1,Amethyst
+2,Eggplant
+3,Fuchsia
+4,Han Purple
+5,Helioptrope
+6,Indigo
+7,Lavender
+8,Lilac
+9,Mauve
+10,Periwinkle
+11,Persian Indigo
+12,Purple
+13,Thistle
+14,Violet
+15,Wisteria
