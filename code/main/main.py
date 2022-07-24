@@ -42,7 +42,7 @@ def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
     credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
-    use_db = opendb(credid, 'mydatabase')  # pylint: disable=W0612
+    use_db = opendb(credid, 'testdb')  # pylint: disable=W0612
     print("finishing up and closing down:")
 
 

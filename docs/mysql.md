@@ -8,13 +8,38 @@
 * [example database](https://www.mysqltutorial.org/mysql-sample-database.aspx)
 * [Example database 2](https://dev.mysql.com/doc/employee/en/)
 * [Example database 3](https://www3.ntu.edu.sg/home/ehchua/programming/sql/SampleDatabases.html)
+* [Remote access](https://www.digitalocean.com/community/tutorials/how-to-allow-remote-access-to-mysql)
 * [example database 4](https://www.sqlservertutorial.net/sql-server-sample-database/)
+* [Intro Session](https://realpython.com/python-mysql/)
 
 ## Code
-create database test;
-GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT  on *.* TO 'jackmanimation'@'Gerialt.lan' WITH GRANT OPTION;
-GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT  on test TO 'jackmanimation'@*;
+### Admin Stuff
+use mysql;
+select user ,grant_priv from user ;
+update user set host ='%' where user = 'root';
+flush privileges;
+grant all privileges on *.* to 'root'@'%' ;
 
+### Create database
+create database testdb;
+create database test;
+
+### Create Users
+create user 'jackmanimation'@'localhost' identified by 'password';
+create user 'jackmanimation'@'Denis-PC.lan' identified by 'password';
+create user 'jackmanimation'@'Gerialt.lan' identified by 'password'
+
+### Basics
+use testdb;
+use test;
+
+### Privileges
+grant select, insert, update on testdb.* to 'jackmanimation'@'localhost' with grant option;
+grant select, insert, update on testdb.* to 'jackmanimation'@'Denis-PC.lan' with grant option;
+grant select, insert, update on testdb.* to 'jackmanimation'@'Gerialt.lan' with grant option;
+
+
+### Test databases
 CREATE TABLE IF NOT EXISTS `fruit` (
   `fruit_id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(50) NOT NULL,
