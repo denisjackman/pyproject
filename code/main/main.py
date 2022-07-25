@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 """
 main.py
 
@@ -33,8 +34,7 @@ def opendb(credid, database):
     except mysql.connector.Error as err:
         message = f'oops! I did it again: {err}'
         print(message)
-    else:
-        print("Connected OK")
+    print(f"{my_db} Connected OK")
     return my_db
 
 
@@ -43,6 +43,11 @@ def main():
     print("Starting the sequence:")
     credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
     use_db = opendb(credid, 'testdb')  # pylint: disable=W0612
+    conquery = ("SELECT VERSION()")
+    create_db_query = 'CREATE DATABASE online_movie_rating'
+    cursor = use_db.cursor()
+    cursor.close()
+    use_db.close()
     print("finishing up and closing down:")
 
 

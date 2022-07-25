@@ -11,6 +11,7 @@
 * [Remote access](https://www.digitalocean.com/community/tutorials/how-to-allow-remote-access-to-mysql)
 * [example database 4](https://www.sqlservertutorial.net/sql-server-sample-database/)
 * [Intro Session](https://realpython.com/python-mysql/)
+* [Mysql example database](https://github.com/datacharmer/test_db.git)
 
 ## Code
 ### Admin Stuff
