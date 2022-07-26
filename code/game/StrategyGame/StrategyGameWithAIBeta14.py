@@ -1,6 +1,10 @@
-#This version is made for AI. Copyrighted: NickandNicksGaming LLC
-#Date modified = 3/29/2013
-#Version: Beta 1.4
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+''''
+    This version is made for AI. Copyrighted: NickandNicksGaming LLC
+    Date modified = 3/29/2013
+    Version: Beta 1.4
+'''
 
 from sys import exit
 import os
@@ -11,12 +15,17 @@ global options
 options = ["BUILD (B)", "RESEARCH (R)", "TRAIN (T)", "DEPLOY (D)", "END (E)", "QUIT (Q)"]
 
 def Won(player, reason):
-    print player.name+" wins, %s" %reason
+    '''
+        won function
+    '''
+    print(player.name+" wins, %s" %reason)
     won = True
     return won
 
 class player(object):
-
+    '''
+        player object
+    '''
     def __init__(self, name, color):
         self.name = name
         self.color = color
@@ -32,11 +41,11 @@ class player(object):
         self.thief = {'price':20, 'num':0, 'desc':"Steals 5 of an opponents resource of your choice"}
 
         #self.sharperaxes = {'price':2, 'level':1, 'desc':"}        Dictionaries for advances. to add. too lazy.
-        
+
         self.gold = {'num': 5, 'desc':"Used to research new advances for faster resource collection."}
         self.wood = {'num': 5, 'desc':"Used to build buildings."}
         self.food = {'num': 5, 'desc':"Used to train units."}
-        
+
         #self.rescources = {'GOLD':5, 'WOOD':10, 'FOOD':5}
         self.resources = {'GOLD':self.gold, 'WOOD':self.wood, 'FOOD':self.food}
         self.buildings = {'MILL':self.Mill, 'QUARRY':self.Quarry, 'LUMBER YARD':self.LumberYard, 'FACTORY':self.factory, 'WONDER':self.Wonder}
@@ -44,9 +53,14 @@ class player(object):
         self.units = {'SPY': self.spy, 'RAIDER':self.raider, 'THIEF':self.thief}
 
 class AI(player):
-
+    '''
+        AI object
+    '''
 
     def turn(self, next_player):
+        '''
+            Turn function
+        '''
         self.resources["FOOD"]["num"]+=self.buildings["MILL"]["num"]*5*self.advances['CROP ROTATION']+(self.buildings["FACTORY"]["num"]*20)
         self.resources["WOOD"]["num"]+=self.buildings["LUMBER YARD"]["num"]*5*self.advances['SHARPER AXES']+(self.buildings["FACTORY"]["num"]*20)
         self.resources["GOLD"]["num"]+=self.buildings["QUARRY"]["num"]*5*self.advances['SHARPER PICKS']+(self.buildings["FACTORY"]["num"]*20)
@@ -61,14 +75,14 @@ class AI(player):
                 list1 = []
                 for i in next_player.buildings:
                     list1.append((next_player.buildings[i]["num"], i))
-                
+
                 destroyed = max(list1)
                 if destroyed[0]>0:
                     next_player.buildings[destroyed[1]]["num"]-=1
-                    print "Enemy %s destroyed!" %destroyed[1]
+                    print(f"Enemy {destroyed[1]} destroyed!")
                     self.units["RAIDER"]["num"]-=1
                 else:
-                    print "Nothing to destroy!"
+                    print("Nothing to destroy!")
                     break
 
             food_done = True
@@ -109,11 +123,11 @@ class AI(player):
 
             else:
                 wood_done = True
-                        
+
             gold_done = False
-            
+
             while gold_done == False:
-                
+
                 if self.advances["SHARPER AXES"]== self.advances["SHARPER PICKS"] == self.advances["CROP ROTATION"]:
                     if self.resources["GOLD"]["num"] >= (self.advances["SHARPER AXES"]*2)**2:
                         self.resources["GOLD"]["num"]-=(self.advances["SHARPER AXES"]*2)**2
@@ -123,47 +137,47 @@ class AI(player):
                         gold_done = True
 
                 elif self.advances["SHARPER PICKS"] == self.advances["CROP ROTATION"]:
-                    if self.resources["GOLD"]["num"] >= (self.advances["CROP ROTATION"]*2)**2:                 
+                    if self.resources["GOLD"]["num"] >= (self.advances["CROP ROTATION"]*2)**2:
                         self.resources["GOLD"]["num"]-=(self.advances["CROP ROTATION"]*2)**2
                         self.advances["CROP ROTATION"]+=1
-                        
+
                     else:
                         gold_done = True
 
                 else:
-                    if self.resources["GOLD"]["num"] >= (self.advances["SHARPER PICKS"]*2)**2:     
+                    if self.resources["GOLD"]["num"] >= (self.advances["SHARPER PICKS"]*2)**2:
                         self.resources["GOLD"]["num"]-=(self.advances["SHARPER PICKS"]*2)**2
                         self.advances["SHARPER PICKS"]+=1
-                        
+
                     else:
 
                         gold_done = True
-                    
-                
-        
-                
-
-        
 
 
 
 def start():
+    '''
+        start function
+    '''
     start = False
     while start == False:
-        start_option = raw_input("New game (N) or load a game (L)?: ").upper()
-        
+        start_option = input("New game (N) or load a game (L)?: ").upper()
+
         if start_option == "NEW GAME" or start_option == "N":
-            os.system('cls')        #clears screen
-            os.system('color c')    #Light red
-            
-            player1 = player(raw_input("What is your name Player 1?: ").upper(), 'a')   #Light green
+            os.system('cls')
+            # clears screen
+            os.system('color c')
+            # Light red
+
+            player1 = player(input("What is your name Player 1?: ").upper(), 'a')
+            # Light green
             player2 = AI("Alpha", 0)
-            
+
             first, second = player1, player2
             Won = False
             start = True
             turn = 0
-            
+
         elif start_option == "LOAD" or start_option == "L":
 
             raw_filenames = os.listdir(".\Saves")
@@ -175,61 +189,63 @@ def start():
                     save_files.append(os.path.join(".\Saves", name))
 
             if len(save_files) <1:
-                print "No save files!"
+                print("No save files!")
 
             else:
                 os.system('cls')
                 save_files.reverse()
-                print "Save Games:\n"
+                print("Save Games:\n")
                 for name in save_files:
-                    print name[8:][:-4]+"\n"
+                    print(name[8:][:-4]+"\n")
 
-                save_option =raw_input("What game would you like to load? (or BACK (B)): ").upper()
+                save_option = input("What game would you like to load? (or BACK (B)): ").upper()
                 if save_option == "B" or save_option == "BACK":
                     os.system('cls')
                 else:
                     try:
                         opened_file = open('.\Saves\\'+save_option+'.pkl', 'rb')
                         data = pickle.load(opened_file)
-                        
+
                         second, first, Won, turn = data
                         start = True
                     except Exception:
                         os.system('cls')
-                        print "Not a valid name\n"
+                        print("Not a valid name\n")
 
         else:
-            print "try again\n"
-            
-    while Won==False:
+            print("try again\n")
+
+    while Won == False:
         first, second, Won, turn = play_turn(player1, player2, Won, turn)
         player2.turn(player1)
-        
-    raw_input("Hit enter to close. ")
+
+    input("Hit enter to close. ")
 
 
 def play_turn(current_player, next_player, Won, turn1):
-
-    turn1 +=1
+    '''
+        Function play_turn
+    '''
+    turn1 += 1
     os.system('cls')
     os.system('color %s' %current_player.color)
 
     raw_input(current_player.name+", hit enter to start turn.")
 
     turn = 1
-    
-    if current_player.name[-1] == 'S': #Just some proper grammer
-        print "\nIt is "+current_player.name+"' Turn\n"
-    else:
-        print "\nIt is "+current_player.name+"'s Turn\n"
 
-    print "FOOD from MILLs:",current_player.buildings["MILL"]["num"]*5*current_player.advances['CROP ROTATION']
-    print "WOOD from LUMBER YARDs:",current_player.buildings["LUMBER YARD"]["num"]*5*current_player.advances['SHARPER AXES']
-    print "GOLD from QUARRYs:",current_player.buildings["QUARRY"]["num"]*5*current_player.advances['SHARPER PICKS']
+    if current_player.name[-1] == 'S': #Just some proper grammer
+        print(f"\nIt is {current_player.name} Turn\n")
+    else:
+        print(f"\nIt is {current_player.name}'s Turn\n")
+
+    print(f"FOOD from MILLs: {current_player.buildings['MILL']['num']*5*current_player.advances['CROP ROTATION']}")
+    print(f"WOOD from LUMBER YARDs: {current_player.buildings['LUMBER YARD']['num']*5*current_player.advances['SHARPER AXES']}")
+    print(f"GOLD from QUARRYs: {current_player.buildings['QUARRY']['num']*5*current_player.advances['SHARPER PICKS']}")
 
     if current_player.buildings["FACTORY"]["num"] >0:
-        print "WOOD, FOOD, and GOLD from FACTORIES:",current_player.buildings["FACTORY"]["num"]*20
-    
+        print("fWOOD, FOOD, and GOLD from FACTORIES: {current_player.buildings['FACTORY']['num']*20}")
+
     current_player.food["num"]+=current_player.buildings["MILL"]["num"]*5*current_player.advances['CROP ROTATION']+(current_player.buildings["FACTORY"]["num"]*20)
     current_player.wood["num"]+=current_player.buildings["LUMBER YARD"]["num"]*5*current_player.advances['SHARPER AXES']+(current_player.buildings["FACTORY"]["num"]*20)
     current_player.gold["num"]+=current_player.buildings["QUARRY"]["num"]*5*current_player.advances['SHARPER PICKS']+(current_player.buildings["FACTORY"]["num"]*20)
@@ -237,59 +253,60 @@ def play_turn(current_player, next_player, Won, turn1):
     research = False
 
     while turn and Won==False:
-
         if current_player.buildings["WONDER"]["num"]>0:
             Won = True
-
         if Won == True:
-            raw_input(str(current_player.name)+" Won! ")
+            input(str(current_player.name)+" Won! ")
             return(0, 0, Won)
-        
-        print "\nBuildings:"
+        print("\nBuildings:")
 
-        for i in current_player.buildings.keys():                      #Lists the player's buildings
-            print str(i)+" -", current_player.buildings[i]["num"]
+        for i in current_player.buildings.keys():
+            # Lists the player's buildings
+            print(f"{str(i)} - {current_player.buildings[i]['num']}")
 
-        print "\nAdvances:"
-        
-        for i in current_player.advances:                          #Lists the player's units
-            print str(i)+" -", current_player.advances[i]
-            
-        print "\nResources:"
-        
+        print("\nAdvances:")
+
+        for i in current_player.advances:
+            # Lists the player's units
+            print(f"{str(i)} - {current_player.advances[i]}")
+
+        print("\nResources:")
+
         for i in current_player.resources:
-            print str(i)+" -", current_player.resources[i]["num"]
+            print(F"{str(i)} - {current_player.resources[i]['num']}")
 
-        print "\nUnits:"
-        
+        print("\nUnits:")
+
         for i in current_player.units:
-            print str(i)+" -", current_player.units[i]["num"]
+            print(f"{str(i)} - {current_player.units[i]['num']}")
 
 
-        print "\nYour options are:\n",        #list options for the players turn.
+        print("\nYour options are:\n")
+        # list options for the players turn.
         for i in options:
             if i == options[-1]:
-                print "and " + i +"."
+                print(f"and {i} .")
             else:
-                print i + ",",
-            
-        print "\n"
-        
-        choice = raw_input("What do you want to do?: ").upper()
-        print "\n"
-        
-        if choice == "BUILD" or choice == "B":          #Build buildings to help supply resources
-            print "WOOD: "+str(current_player.resources["WOOD"]["num"])+"\n"
-            for keys in current_player.buildings.keys():
-                print keys+"----------------"
-                print "Current number: "+str(current_player.buildings[keys]["num"])
-                print "WOOD required to build: "+str(current_player.buildings[keys]["price"])
-                print current_player.buildings[keys]["desc"]
-                print "\n"
+                print(f"{i},")
 
-            build_choice = raw_input("What would you like to build?: ").upper()
-            print "\n"
-            
+        print("\n")
+
+        choice = input("What do you want to do?: ").upper()
+        print("\n")
+
+        if choice == "BUILD" or choice == "B":
+            # Build buildings to help supply resources
+            print(f"WOOD: {str(current_player.resources['WOOD']['num'])}\n")
+            for keys in current_player.buildings.keys():
+                print(f"{keys}----------------")
+                print("Current number: "+str(current_player.buildings[keys]["num"]))
+                print("WOOD required to build: "+str(current_player.buildings[keys]["price"]))
+                print(current_player.buildings[keys]["desc"])
+                print("\n")
+
+            build_choice = input("What would you like to build?: ").upper()
+            print("\n")
+
             if build_choice in current_player.buildings:
                 if current_player.resources["WOOD"]["num"]>=current_player.buildings[build_choice]["price"]:
                     current_player.resources["WOOD"]["num"]-=current_player.buildings[build_choice]["price"]
@@ -358,7 +375,7 @@ def play_turn(current_player, next_player, Won, turn1):
 
             deploy_choice = raw_input("What would you like to deploy?: ").upper()
             print "\n"
-            
+
             if deploy_choice in current_player.units and current_player.units[deploy_choice]["num"]>0:
                 if deploy_choice == "SPY":
                     print "*REPORT*\n*ENEMY HAS*\n"
@@ -376,7 +393,7 @@ def play_turn(current_player, next_player, Won, turn1):
                     list1 = []
                     for i in next_player.buildings:
                         list1.append((next_player.buildings[i]["num"], i))
-                    
+
                     destroyed = max(list1)
                     if destroyed[0]>0:
                         next_player.buildings[destroyed[1]]["num"]-=1
@@ -390,7 +407,7 @@ def play_turn(current_player, next_player, Won, turn1):
                     for i in next_player.resources:
                         if next_player.resources[i]["num"]>=5:
                             available_resources.append(i)
-                            
+
                     if len(available_resources)>0:
                         print "You could steal 5 of:"
                         for i in available_resources:
@@ -407,7 +424,7 @@ def play_turn(current_player, next_player, Won, turn1):
                                 next_player.resources[steal]["num"]-=5
                                 current_player.resources[steal]["num"]+=5
                                 succeded = True
-                                
+
                             else:
                                 print "Error"
 
@@ -426,7 +443,7 @@ def play_turn(current_player, next_player, Won, turn1):
             pickle.dump(everything, output, -1)
 
             output.close()
-            
+
         elif choice == "QUIT" or choice == "Q":
             exit("QUITTING")
 
