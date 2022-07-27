@@ -1,3 +1,4 @@
+'''
 #------------------------------------------------------------------------
 #
 #    This file is part of Conquer.
@@ -18,24 +19,33 @@
 #    Copyright Conquer Development Team (http://code.google.com/p/pyconquer/)
 #
 #------------------------------------------------------------------------
-
-import time,random
+'''
+import time
+import random
 from sets import Set
 
 class TAi:
-	def __init__(self,board):
-		"""board -> TGameBoard instance which is the parent"""
+    '''
+		Object TAi
+	'''
+    def __init__(self, board):
+    	"""
+        	board -> TGameBoard instance which is the parent
+		"""
 		self.board = board
+
+
 	def act(self,depth):
-		# List of executed moves that is returned
+		'''
+			List of executed moves that is returned
+		'''
 		act_list = {}
-		
 		own_soldier_actor_set = Set([])
 		for soldier in self.board.actors:
 			if not soldier.dump and soldier.side == self.board.turn and not soldier.moved:
 				own_soldier_actor_set.add(soldier)
 		# More CPU, more depth
-		for askellin in xrange(self.board.ai_recursion_depth):		
+		for askellin in xrange(self.board.ai_recursion_depth):
 			# We'll iterate every actor through a copy
 			for current_actor in own_soldier_actor_set.copy():
 				if current_actor.dead:
@@ -48,23 +58,23 @@ class TAi:
 
 					# Memory for found move's points
 					m_p = 0
-					
+
 					# Make a copy of the original map
 					varmuuskopio = self.board.data.copy()
 					pisteet = []
 					koords = []
 					loppulaskija = 0
 					found_not_brute_force_solution = False
-					
+
 					possible_moves = self.board.rek.get_island_border_lands(current_actor.x,current_actor.y)
 					possible_moves = list(possible_moves)
 					random.shuffle(possible_moves)
-					
+
 					for coordinate_xy in possible_moves:
 						if found_not_brute_force_solution:
 							continue
 						x2,y2 = self.board.ec(coordinate_xy)
-							
+
 						# Player ID of the possible move's land
 						pala2 = self.board.data[self.board.gct(x2,y2)]
 
@@ -74,20 +84,20 @@ class TAi:
 							# Is the move possible?
 							blokkastu = self.board.is_blocked(current_actor,x2,y2)
 							if blokkastu[0] == False:
-								
+
 								# The move is possible, we'll simulate it
 								self.board.try_to_conquer(current_actor,x2,y2,True)
 
-								# The points of the move								
-								rekursiotulos = self.board.rek.recurse_own_island(current_actor.x,current_actor.y)								
-								
+								# The points of the move
+								rekursiotulos = self.board.rek.recurse_own_island(current_actor.x,current_actor.y)
+
 								# Land area of the target island
 								vastustajan_saaren_vahvuus = self.board.rek.recurse_new_random_coord_for_dump_on_island(x2,y2)
 
 								# We'll favour more to conquer from large islands
 								if vastustajan_saaren_vahvuus[1]:
 									rekursiotulos += len(vastustajan_saaren_vahvuus[1]) / 5
-								
+
 								# Is there an actor at target land?
 								defender = self.board.actorat(x2,y2)
 								if defender:
@@ -99,7 +109,7 @@ class TAi:
 										rekursiotulos += (defender.income - defender.expends)
 									else:
 										rekursiotulos += defender.level * 2
-																				
+
 								# Put the move and it's points in memory
 								pisteet.append(rekursiotulos)
 								koords.append((x2,y2))
@@ -116,13 +126,13 @@ class TAi:
 									m_y = y2
 								if len(pisteet) > depth:
 									# Now we have been looking move too long
-									
+
 									if len(pisteet) > (depth*5):
 										# Found no move...
 										# This shouldn't be never executed
 										m_x = None
 										found_not_brute_force_solution = True
-										own_soldier_actor_set.discard(current_actor)				
+										own_soldier_actor_set.discard(current_actor)
 									# If the current found move is better than
 									# anyone else, we'll choose it
 									if rekursiotulos > max(pisteet):

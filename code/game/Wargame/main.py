@@ -1,7 +1,9 @@
 #!/usr/bin/env python
+'''
+    Main game routine
+'''
 import pygame
-import random
-from settings import *
+from settings import CAPTION, WIDTH, HEIGHT, FPS, BLACK
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 1.0 $"
@@ -10,9 +12,14 @@ __copyright__ = "Copyright (c) 2018 Denis J Jackman"
 __license__ = "Python"
 
 class Game():
+    '''
+        gamne object
+    '''
     def __init__(self):
         # game initiailise
         self.running = True
+        self.all_sprites = None
+        self.playing = None
         # initialise pygame and set up the screen
         pygame.init()
         pygame.mixer.init()
@@ -21,10 +28,16 @@ class Game():
         self.clock = pygame.time.Clock()
 
     def new(self):
+        '''
+            new instance
+        '''
         self.all_sprites = pygame.sprite.Group()
         self.run()
 
     def run(self):
+        '''
+            run the game
+        '''
         # game loop
         self.playing = True
         while self.playing:
@@ -34,9 +47,15 @@ class Game():
             self.draw()
 
     def update(self):
+        '''
+            update method
+        '''
         self.all_sprites.update()
 
     def events(self):
+        '''
+            events method
+        '''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 if self.playing:
@@ -44,7 +63,9 @@ class Game():
                 self.running = False
 
     def draw(self):
-        # render
+        '''
+            render
+        '''
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
 
@@ -52,12 +73,19 @@ class Game():
         pygame.display.flip()
 
     def show_start_screen(self):
-        pass
+        '''
+            start screen
+        '''
 
     def show_go_screen(self):
-        pass
+        '''
+            go screen
+        '''
 
 def main():
+    '''
+        main routine
+    '''
     g = Game()
     g.show_start_screen()
     while g.running:

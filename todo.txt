@@ -1,46 +1,5 @@
-************* Module recipe-578055-1
-code/game/Name/recipe-578055-1.py:11:13: C0303: Trailing whitespace (trailing-whitespace)
-code/game/Name/recipe-578055-1.py:34:50: C0303: Trailing whitespace (trailing-whitespace)
-code/game/Name/recipe-578055-1.py:3:0: C0410: Multiple imports on one line (random, pickle, os) (multiple-imports)
-code/game/Name/recipe-578055-1.py:5:0: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Name/recipe-578055-1.py:13:12: W0621: Redefining name 'f' from outer scope (line 31) (redefined-outer-name)
-code/game/Name/recipe-578055-1.py:6:10: R0124: Redundant comparison - 1 == 1 (comparison-with-itself)
-code/game/Name/recipe-578055-1.py:6:10: R0133: Comparison between constants: '1 == 1' has a constant value (comparison-of-constants)
-code/game/Name/recipe-578055-1.py:9:8: R1723: Unnecessary "else" after "break", remove the "else" and de-indent the code inside it (no-else-break)
-code/game/Name/recipe-578055-1.py:13:14: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
-code/game/Name/recipe-578055-1.py:16:0: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Name/recipe-578055-1.py:26:20: W0621: Redefining name 'f' from outer scope (line 31) (redefined-outer-name)
-code/game/Name/recipe-578055-1.py:17:10: R0124: Redundant comparison - 1 == 1 (comparison-with-itself)
-code/game/Name/recipe-578055-1.py:17:10: R0133: Comparison between constants: '1 == 1' has a constant value (comparison-of-constants)
-code/game/Name/recipe-578055-1.py:20:8: R1723: Unnecessary "else" after "break", remove the "else" and de-indent the code inside it (no-else-break)
-code/game/Name/recipe-578055-1.py:28:20: W0104: Statement seems to have no effect (pointless-statement)
-code/game/Name/recipe-578055-1.py:26:22: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
-code/game/Name/recipe-578055-1.py:29:3: C0121: Comparison 'os.path.isfile('C:\\Users' + os.sep + g + os.sep + 'random_members.data') != True' should be 'os.path.isfile('C:\\Users' + os.sep + g + os.sep + 'random_members.data') is not True' if checking for the singleton value True, or 'not os.path.isfile('C:\\Users' + os.sep + g + os.sep + 'random_members.data')' if testing for falsiness (singleton-comparison)
-code/game/Name/recipe-578055-1.py:35:6: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
 ************* Module StrategyGameWithAIBeta14
-code/game/StrategyGame/StrategyGameWithAIBeta14.py:14:11: E0001: Missing parentheses in call to 'print'. Did you mean print(player.name+" wins, %s" %reason)? (<unknown>, line 14) (syntax-error)
-************* Module Wargame.dice
-code/game/Wargame/dice.py:32:11: E0001: invalid syntax (<unknown>, line 32) (syntax-error)
-************* Module Wargame.main
-code/game/Wargame/main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-code/game/Wargame/main.py:4:0: W0401: Wildcard import settings (wildcard-import)
-code/game/Wargame/main.py:12:0: C0115: Missing class docstring (missing-class-docstring)
-code/game/Wargame/main.py:23:4: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Wargame/main.py:27:4: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Wargame/main.py:36:4: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Wargame/main.py:39:4: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Wargame/main.py:46:4: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Wargame/main.py:54:4: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Wargame/main.py:57:4: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Wargame/main.py:24:8: W0201: Attribute 'all_sprites' defined outside __init__ (attribute-defined-outside-init)
-code/game/Wargame/main.py:29:8: W0201: Attribute 'playing' defined outside __init__ (attribute-defined-outside-init)
-code/game/Wargame/main.py:43:20: W0201: Attribute 'playing' defined outside __init__ (attribute-defined-outside-init)
-code/game/Wargame/main.py:60:0: C0116: Missing function or method docstring (missing-function-docstring)
-code/game/Wargame/main.py:3:0: C0411: standard import "import random" should be placed before "import pygame" (wrong-import-order)
-code/game/Wargame/main.py:3:0: W0611: Unused import random (unused-import)
-code/game/Wargame/main.py:4:0: W0614: Unused import(s) WHITE, RED, GREEN and BLUE from wildcard import of settings (unused-wildcard-import)
-************* Module Wargame.settings
-code/game/Wargame/settings.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+code/game/StrategyGame/StrategyGameWithAIBeta14.py:314:27: E0001: invalid syntax (<unknown>, line 314) (syntax-error)
 ************* Module ai
 code/game/conquer/ai.py:26:0: W0311: Bad indentation. Found 1 spaces, expected 4 (bad-indentation)
 code/game/conquer/ai.py:27:0: W0311: Bad indentation. Found 2 spaces, expected 8 (bad-indentation)
@@ -339,3 +298,7 @@ code/main/rename.py:27:0: C0103: Constant name "start_directory" doesn't conform
 code/main/rename.py:5:0: W0611: Unused import shutil (unused-import)
 ************* Module cleaner
 code/utilities/cleaner.py:28:0: C0103: Constant name "start_directory" doesn't conform to UPPER_CASE naming style (invalid-name)
+************* Module writing
+code/yaml/writing.py:1:0: R0801: Similar lines in 2 files
+==Wargame.main:[23:54]
+==main:[28:85]

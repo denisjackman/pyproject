@@ -11,18 +11,18 @@ import os
 import os.path
 import pickle
 
-global options
-options = ["BUILD (B)", "RESEARCH (R)", "TRAIN (T)", "DEPLOY (D)", "END (E)", "QUIT (Q)"]
+global OPTIONS
+OPTIONS = ["BUILD (B)", "RESEARCH (R)", "TRAIN (T)", "DEPLOY (D)", "END (E)", "QUIT (Q)"]
 
-def Won(player, reason):
+def Won(wonplayer, reason):
     '''
         won function
     '''
-    print(player.name+" wins, %s" %reason)
+    print(f"{wonplayer.name} wins, {reason}")
     won = True
     return won
 
-class player(object):
+class player():
     '''
         player object
     '''
@@ -52,6 +52,19 @@ class player(object):
         self.advances = {'SHARPER AXES':1, 'CROP ROTATION':1, 'SHARPER PICKS':1}
         self.units = {'SPY': self.spy, 'RAIDER':self.raider, 'THIEF':self.thief}
 
+    def whoami(self):
+        '''
+            print name
+        '''
+        return self.name
+
+    def purse(self):
+        '''
+            print wealth
+        '''
+        return self.gold
+
+
 class AI(player):
     '''
         AI object
@@ -65,7 +78,7 @@ class AI(player):
         self.resources["WOOD"]["num"]+=self.buildings["LUMBER YARD"]["num"]*5*self.advances['SHARPER AXES']+(self.buildings["FACTORY"]["num"]*20)
         self.resources["GOLD"]["num"]+=self.buildings["QUARRY"]["num"]*5*self.advances['SHARPER PICKS']+(self.buildings["FACTORY"]["num"]*20)
         food_done = False
-        while food_done == False:
+        while food_done is False:
             if self.resources["FOOD"]["num"] >= 25:
                 self.units["RAIDER"]["num"]+=1
                 self.resources["FOOD"]["num"]-=25
@@ -88,14 +101,14 @@ class AI(player):
             food_done = True
         wood_done = False
 
-        while wood_done == False:
+        while wood_done is False:
             if self.resources["WOOD"]["num"] >= 1000:
                 self.buildings["WONDER"]["num"]+=1
                 self.resources["WOOD"]["num"] -= 1000
                 won = Won(self, "Alpha built a WONDER")
                 break
 
-            elif self.resources["WOOD"]["num"] >= 15:
+            if self.resources["WOOD"]["num"] >= 15:
                 if self.buildings["LUMBER YARD"]["num"] == self.buildings["QUARRY"]["num"]:
                     if self.buildings["MILL"]["num"] < self.buildings["LUMBER YARD"]["num"]:
                         self.buildings["MILL"]["num"]+=1
@@ -126,7 +139,7 @@ class AI(player):
 
             gold_done = False
 
-            while gold_done == False:
+            while gold_done is False:
 
                 if self.advances["SHARPER AXES"]== self.advances["SHARPER PICKS"] == self.advances["CROP ROTATION"]:
                     if self.resources["GOLD"]["num"] >= (self.advances["SHARPER AXES"]*2)**2:
@@ -159,11 +172,11 @@ def start():
     '''
         start function
     '''
-    start = False
-    while start == False:
+    gamestart = False
+    while gamestart is False:
         start_option = input("New game (N) or load a game (L)?: ").upper()
 
-        if start_option == "NEW GAME" or start_option == "N":
+        if start_option in ("NEW GAME", "N"):
             os.system('cls')
             # clears screen
             os.system('color c')
@@ -174,11 +187,11 @@ def start():
             player2 = AI("Alpha", 0)
 
             first, second = player1, player2
-            Won = False
-            start = True
+            gameWon = False
+            gamestart = True
             turn = 0
 
-        elif start_option == "LOAD" or start_option == "L":
+        elif start_option in ("LOAD", "L"):
 
             raw_filenames = os.listdir(".\Saves")
 
@@ -199,15 +212,15 @@ def start():
                     print(name[8:][:-4]+"\n")
 
                 save_option = input("What game would you like to load? (or BACK (B)): ").upper()
-                if save_option == "B" or save_option == "BACK":
+                if save_option in ("B", "BACK"):
                     os.system('cls')
                 else:
                     try:
-                        opened_file = open('.\Saves\\'+save_option+'.pkl', 'rb')
-                        data = pickle.load(opened_file)
+                        with open('y:/pyproject/resources/saves/'+save_option+'.pkl', 'rb') as opened_file:
+                            data = pickle.load(opened_file)
 
-                        second, first, Won, turn = data
-                        start = True
+                        second, first, gameWon, turn = data
+                        gamestart = True
                     except Exception:
                         os.system('cls')
                         print("Not a valid name\n")
@@ -215,22 +228,22 @@ def start():
         else:
             print("try again\n")
 
-    while Won == False:
-        first, second, Won, turn = play_turn(player1, player2, Won, turn)
+    while gameWon is False:
+        first, second, gameWon, turn = play_turn(player1, player2, gameWon, turn)
         player2.turn(player1)
 
     input("Hit enter to close. ")
 
 
-def play_turn(current_player, next_player, Won, turn1):
+def play_turn(current_player, next_player, turnWon, turn1):
     '''
         Function play_turn
     '''
     turn1 += 1
     os.system('cls')
-    os.system('color %s' %current_player.color)
+    os.system(f'color {current_player.color}')
 
-    raw_input(current_player.name+", hit enter to start turn.")
+    input(current_player.name+", hit enter to start turn.")
 
     turn = 1
 
@@ -252,12 +265,12 @@ def play_turn(current_player, next_player, Won, turn1):
 
     research = False
 
-    while turn and Won==False:
+    while turn and turnWon is False:
         if current_player.buildings["WONDER"]["num"]>0:
-            Won = True
-        if Won == True:
+            turnWon = True
+        if turnWon is True:
             input(str(current_player.name)+" Won! ")
-            return(0, 0, Won)
+            return(0, 0, turnWon)
         print("\nBuildings:")
 
         for i in current_player.buildings.keys():
@@ -281,10 +294,10 @@ def play_turn(current_player, next_player, Won, turn1):
             print(f"{str(i)} - {current_player.units[i]['num']}")
 
 
-        print("\nYour options are:\n")
-        # list options for the players turn.
-        for i in options:
-            if i == options[-1]:
+        print("\nYour OPTIONS are:\n")
+        # list OPTIONS for the players turn.
+        for i in OPTIONS:
+            if i == OPTIONS[-1]:
                 print(f"and {i} .")
             else:
                 print(f"{i},")
@@ -294,7 +307,7 @@ def play_turn(current_player, next_player, Won, turn1):
         choice = input("What do you want to do?: ").upper()
         print("\n")
 
-        if choice == "BUILD" or choice == "B":
+        if choice in ("BUILD", "B"):
             # Build buildings to help supply resources
             print(f"WOOD: {str(current_player.resources['WOOD']['num'])}\n")
             for keys in current_player.buildings.keys():
@@ -311,81 +324,82 @@ def play_turn(current_player, next_player, Won, turn1):
                 if current_player.resources["WOOD"]["num"]>=current_player.buildings[build_choice]["price"]:
                     current_player.resources["WOOD"]["num"]-=current_player.buildings[build_choice]["price"]
                     current_player.buildings[build_choice]["num"]+=1
-                    print "Current WOOD: "+str(current_player.resources["WOOD"]["num"])
-                    print "Current number of "+str(build_choice)+":", current_player.buildings[build_choice]["num"]
+                    print("Current WOOD: "+str(current_player.resources["WOOD"]["num"]))
+                    print("Current number of "+str(build_choice)+":", current_player.buildings[build_choice]["num"])
                 else:
-                    print "Not enough WOOD!"
+                    print("Not enough WOOD!")
             else:
-                print "Please choose a valid option."
+                print("Please choose a valid option.")
 
-            raw_input("\nPress enter to continue ")
+            input("\nPress enter to continue ")
 
-        elif choice == "RESEARCH" or choice == "R":     #Research advanced ways to gather resources
-            print "GOLD: "+str(current_player.resources["GOLD"]["num"])+"\n"
-            if research == False:
+        elif choice in ("RESEARCH", "R"):
+            # Research advanced ways to gather resources
+            print("GOLD: "+str(current_player.resources["GOLD"]["num"])+"\n")
+            if research is False:
                 for keys in current_player.advances.keys():
-                    print keys+"----------------"
-                    print "Current level: "+str(current_player.advances[keys])
-                    print "GOLD required to upgrade: "+str((current_player.advances[keys]*2)**2)
-                    print "\n"
+                    print(keys+"----------------")
+                    print("Current level: "+str(current_player.advances[keys]))
+                    print("GOLD required to upgrade: "+str((current_player.advances[keys]*2)**2))
+                    print("\n")
 
-                research_choice = raw_input("What would you like to upgrade?: ").upper()
-                print "\n"
+                research_choice = input("What would you like to upgrade?: ").upper()
+                print("\n")
                 if research_choice in current_player.advances:
                     if current_player.resources["GOLD"]["num"]>=(current_player.advances[research_choice]*2)**2:
                         current_player.resources["GOLD"]["num"]-=(current_player.advances[research_choice]*2)**2
                         current_player.advances[research_choice]+=1
-                        print "Current GOLD: "+str(current_player.resources["GOLD"]["num"])
-                        print "Current",research_choice,"level:", current_player.advances[research_choice]
-                        #research = True
+                        print("Current GOLD: "+str(current_player.resources["GOLD"]["num"]))
+                        print("Current",research_choice,"level:", current_player.advances[research_choice])
+                        # research = True
                     else:
-                        print "Not enough GOLD!"
+                        print("Not enough GOLD!")
                 else:
-                    print "Please choose a valid option."
+                    print("Please choose a valid option.")
             elif research:
-                print "You can only research one thing per turn!"
+                print("You can only research one thing per turn!")
 
-            raw_input("\nPress enter to continue ")
+            input("\nPress enter to continue ")
 
-        elif choice == "TRAIN" or choice == "T":
-            print "FOOD: "+str(current_player.resources["FOOD"]["num"])+"\n"
+        elif choice in ("TRAIN", "T"):
+            print("FOOD: "+str(current_player.resources["FOOD"]["num"])+"\n")
             for keys in current_player.units.keys():
-                print keys+"----------------"
-                print "FOOD required to use: "+str(current_player.units[keys]["price"])
-                print current_player.units[keys]["desc"]
-                print "\n"
+                print(keys+"----------------")
+                print("FOOD required to use: "+str(current_player.units[keys]["price"]))
+                print(current_player.units[keys]["desc"])
+                print("\n")
 
-            train_choice = raw_input("What would you like to train?: ").upper()
+            train_choice = input("What would you like to train?: ").upper()
             if train_choice in current_player.units:
                 if current_player.resources["FOOD"]["num"]>=current_player.units[train_choice]["price"]:
                     current_player.resources["FOOD"]["num"]-=current_player.units[train_choice]["price"]
                     current_player.units[train_choice]["num"]+=1
-                    print "Current FOOD: "+str(current_player.resources["FOOD"]["num"])
-                    print "Current "+train_choice+":",current_player.units[train_choice]["num"]
+                    print("Current FOOD: "+str(current_player.resources["FOOD"]["num"]))
+                    print("Current "+train_choice+":",current_player.units[train_choice]["num"])
                 else:
-                    print "Not enough FOOD!"
+                    print("Not enough FOOD!")
             else:
-                print "Please choose a valid option."
+                print("Please choose a valid option.")
 
-            raw_input("\nPress enter to continue ")
+            input("\nPress enter to continue ")
 
-        elif choice == "DEPLOY" or choice == "D":
+        elif choice in ("DEPLOY", "D"):
             for i in current_player.units:
-                print i, current_player.units[i]["num"]
+                print(i, current_player.units[i]["num"])
 
-            deploy_choice = raw_input("What would you like to deploy?: ").upper()
-            print "\n"
+            deploy_choice = input("What would you like to deploy?: ").upper()
+            print("\n")
 
             if deploy_choice in current_player.units and current_player.units[deploy_choice]["num"]>0:
                 if deploy_choice == "SPY":
-                    print "*REPORT*\n*ENEMY HAS*\n"
+                    print("*REPORT*\n*ENEMY HAS*\n")
                     for i in next_player.buildings:
-                        print i, next_player.buildings[i]["num"]
+                        print(i, next_player.buildings[i]["num"])
                     for i in next_player.resources:
-                        print i, next_player.resources[i]["num"]
+                        print(i, next_player.resources[i]["num"])
                     for i in next_player.advances:
-                        print i, next_player.advances[i]
-                    print "/n*END REPORT*"
+                        print(i, next_player.advances[i])
+                    print("/n*END REPORT*")
 
                     current_player.units["SPY"]["num"]-=1
 
@@ -397,10 +411,10 @@ def play_turn(current_player, next_player, Won, turn1):
                     destroyed = max(list1)
                     if destroyed[0]>0:
                         next_player.buildings[destroyed[1]]["num"]-=1
-                        print "Enemy %s destroyed!" %destroyed[1]
+                        print(f"Enemy {destroyed[1]} destroyed!")
                         current_player.units["RAIDER"]["num"]-=1
                     else:
-                        print "Nothing to destroy!"
+                        print("Nothing to destroy!")
 
                 elif deploy_choice == "THIEF">0:
                     available_resources = []
@@ -409,16 +423,16 @@ def play_turn(current_player, next_player, Won, turn1):
                             available_resources.append(i)
 
                     if len(available_resources)>0:
-                        print "You could steal 5 of:"
+                        print("You could steal 5 of:")
                         for i in available_resources:
-                            print i
+                            print(i)
                     else:
-                        print "Nothing to steal!"
+                        print("Nothing to steal!")
 
                     succeded = False
                     if len(available_resources)>0:
-                        while succeded == False:
-                            steal = raw_input("What would you like to steal?: ").upper()
+                        while succeded is False:
+                            steal = input("What would you like to steal?: ").upper()
                             if steal in available_resources:
 
                                 next_player.resources[steal]["num"]-=5
@@ -426,35 +440,32 @@ def play_turn(current_player, next_player, Won, turn1):
                                 succeded = True
 
                             else:
-                                print "Error"
+                                print("Error")
 
-                            if succeded == True:
+                            if succeded is True:
                                 current_player.units["THIEF"]["num"]-=1
 
-            raw_input("\nPress enter to continue ")
+            input("\nPress enter to continue ")
 
 
-        elif choice == "END" or choice == "E":
+        elif choice in ("END", "E"):
             turn = False
             everything = [current_player, next_player, Won, turn]
 
-            output = open('.\Saves\\'+current_player.name[:6]+next_player.name[:6]+str(turn1)+'.pkl', 'wb')
+            with open('y:/pyproject/resources/saves/'+current_player.name[:6]+next_player.name[:6]+str(turn1)+'.pkl', 'wb') as output:
+                pickle.dump(everything, output, -1)
 
-            pickle.dump(everything, output, -1)
-
-            output.close()
-
-        elif choice == "QUIT" or choice == "Q":
+        elif choice in ("QUIT", "Q"):
             exit("QUITTING")
 
 
         else:
-            print "Not an option"
+            print("Not an option")
 
 
 
     if turn==0:
-        raw_input("\nHit enter to end your turn. ")
+        input("\nHit enter to end your turn. ")
         return(next_player, current_player, Won, turn1)
 
 
