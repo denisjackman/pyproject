@@ -1,22 +1,28 @@
+'''
+    play python script
+'''
 # Global variables
-GameTitle="TestGame001"
-GameYear="2012"
-GameCompany="MARSYS Games"
+GAMETITLE="TestGame001"
+GAMEYEAR="2012"
+GAMECOMPANY="MARSYS Games"
 
-# Functions 
-def introScreen() :
-    print (GameCompany+' Presents '+str(GameTitle))
-    print ('Copyright '+GameCompany+' '+str(GameYear))
-           
-def finishScreen() :
-    print (GameCompany+' thanks you for playing '+GameTitle )
+# Functions
+def introScreen():
+    '''
+        intro screen
+    '''
+    print (GAMECOMPANY+' Presents '+str(GAMETITLE))
+    print ('Copyright '+GAMECOMPANY+' '+str(GAMEYEAR))
+
+
+def finishScreen():
+    '''
+        finish screen
+    '''
+    print (GAMECOMPANY+' thanks you for playing '+GAMETITLE )
     print ('Bye!')
 
 
-
-
-
-
-#main program loop 
+#main program loop
 introScreen()
 finishScreen()

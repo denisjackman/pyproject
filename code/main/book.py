@@ -1,21 +1,24 @@
+'''
+    example book api call
+'''
 import urllib.request
 import json
 
-isbn = '9780007550258'
-name = "I%20Robot"
-name = "V%20for%20Vendetta"
+ISBN = '9780007550258'
+NAME = "I%20Robot"
+NAME = "V%20for%20Vendetta"
 
 while True:
 
-    base_api_link = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
+    BASE_API_LINK = "https://www.googleapis.com/books/v1/volumes?q=ISBN:"
     # title search
-    base_api_link = "https://www.googleapis.com/books/v1/volumes?q="
-    # user_input = input("Enter ISBN: ").strip()
-    # user_input = isbn
-    user_input = name
+    BASE_API_LINK = "https://www.googleapis.com/books/v1/volumes?q="
+    # USER_INPUT = input("Enter ISBN: ").strip()
+    # USER_INPUT = ISBN
+    USER_INPUT = NAME
     # this is a test
 
-    with urllib.request.urlopen(base_api_link + user_input) as f:
+    with urllib.request.urlopen(BASE_API_LINK + USER_INPUT) as f:
         text = f.read()
 
     decoded_text = text.decode("utf-8")

@@ -6,12 +6,11 @@
     Version: Beta 1.4
 '''
 
-from sys import exit
+import sys
 import os
 import os.path
 import pickle
 
-global OPTIONS
 OPTIONS = ["BUILD (B)", "RESEARCH (R)", "TRAIN (T)", "DEPLOY (D)", "END (E)", "QUIT (Q)"]
 
 def Won(wonplayer, reason):
@@ -22,7 +21,7 @@ def Won(wonplayer, reason):
     won = True
     return won
 
-class player():
+class Player():
     '''
         player object
     '''
@@ -65,7 +64,7 @@ class player():
         return self.gold
 
 
-class AI(player):
+class AI(Player):
     '''
         AI object
     '''
@@ -107,7 +106,7 @@ class AI(player):
                 self.resources["WOOD"]["num"] -= 1000
                 won = Won(self, "Alpha built a WONDER")
                 break
-
+            print("debug 001 : ", self.resources["WOOD"]["num"], self.resources["WOOD"])
             if self.resources["WOOD"]["num"] >= 15:
                 if self.buildings["LUMBER YARD"]["num"] == self.buildings["QUARRY"]["num"]:
                     if self.buildings["MILL"]["num"] < self.buildings["LUMBER YARD"]["num"]:
@@ -125,7 +124,8 @@ class AI(player):
                         min_build["num"]+=1
                         self.resources["WOOD"]["num"]-=15
 
-            elif self.resources["WOOD"]["num"]<15 and self.resources["WOOD"]>=10:
+            elif int(self.resources["WOOD"]["num"])<15 and self.resources["WOOD"]["num"]>=10:
+            # elif self.resources["WOOD"]<15 and self.resources["WOOD"]>=10:
                 min_build = min(self.buildings["LUMBER YARD"]["num"], self.buildings["QUARRY"]["num"], self.buildings["MILL"]["num"])
                 if self.buildings["MILL"]["num"] == min_build:
                     self.buildings["MILL"]["num"]+=1
@@ -182,7 +182,7 @@ def start():
             os.system('color c')
             # Light red
 
-            player1 = player(input("What is your name Player 1?: ").upper(), 'a')
+            player1 = Player(input("What is your name Player 1?: ").upper(), 'a')
             # Light green
             player2 = AI("Alpha", 0)
 
@@ -193,13 +193,13 @@ def start():
 
         elif start_option in ("LOAD", "L"):
 
-            raw_filenames = os.listdir(".\Saves")
+            raw_filenames = os.listdir("y:/pyproject/resources/saves/")
 
             save_files = []
             for name in raw_filenames:
 
                 if name.endswith('.pkl'):
-                    save_files.append(os.path.join(".\Saves", name))
+                    save_files.append(os.path.join("y:/pyproject/resources/saves/", name))
 
             if len(save_files) <1:
                 print("No save files!")
@@ -229,6 +229,7 @@ def start():
             print("try again\n")
 
     while gameWon is False:
+        # pylint: disable=unbalanced-tuple-unpacking
         first, second, gameWon, turn = play_turn(player1, player2, gameWon, turn)
         player2.turn(player1)
 
@@ -456,7 +457,7 @@ def play_turn(current_player, next_player, turnWon, turn1):
                 pickle.dump(everything, output, -1)
 
         elif choice in ("QUIT", "Q"):
-            exit("QUITTING")
+            sys.exit("QUITTING")
 
 
         else:

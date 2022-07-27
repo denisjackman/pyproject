@@ -2,10 +2,10 @@
     game settings
 '''
 # Basic Constants
-WIDTH = 360
-HEIGHT = 480
-FPS = 30
-CAPTION = "Template"
+WIDTH = 800
+HEIGHT = 600
+FPS = 60
+CAPTION = "Default Template"
 
 # Color Constants
 WHITE = (255, 255, 255)

@@ -13,7 +13,7 @@ __license__ = "Python"
 
 class Game():
     '''
-        gamne object
+        game object
     '''
     def __init__(self):
         # game initiailise
@@ -46,12 +46,6 @@ class Game():
             self.update()
             self.draw()
 
-    def update(self):
-        '''
-            update method
-        '''
-        self.all_sprites.update()
-
     def events(self):
         '''
             events method
@@ -61,6 +55,13 @@ class Game():
                 if self.playing:
                     self.playing = False
                 self.running = False
+
+    def update(self):
+        '''
+            update method
+        '''
+        self.all_sprites.update()
+
 
     def draw(self):
         '''
@@ -82,7 +83,7 @@ class Game():
             go screen
         '''
 
-def main():
+def wargame_main():
     '''
         main routine
     '''
@@ -96,4 +97,4 @@ def main():
 
 if __name__ == "__main__":
     # run the main routine
-    main()
+    wargame_main()

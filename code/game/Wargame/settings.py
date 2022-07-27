@@ -1,3 +1,6 @@
+'''
+    setting and config holder
+'''
 # Basic Constants
 WIDTH = 360
 HEIGHT = 480
