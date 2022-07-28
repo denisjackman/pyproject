@@ -22,13 +22,13 @@ __date__ = "$Date: 2019/04/23 00:00:00 $"
 __copyright__ = "Copyright (c) 2019 Denis J Jackman"
 __license__ = "Python"
 
-delete_list = [".DS_Store", ".AppleDouble", "Thumbs.db", ".pydevproject"]
-DELETE_MODE = True
-VERBOSE_MODE = False
-start_directory = "y:/"
+delete_list = [".DS_Store",
+               ".AppleDouble",
+               "Thumbs.db",
+               ".pydevproject"]
 
 
-def walk_through(params):
+def walk_through(start_dir, verb, delete_mode):
     """
         :param params:
         :return:
@@ -38,16 +38,17 @@ def walk_through(params):
     It returns nothing.
     It utilises check_file function to further check the file.
     """
-    print(f"Starting with [{params}]")
+    print(f"Starting with [{start_dir}]")
+
     count = 0
     found = 0
-    for root, dirs, files in os.walk(params, topdown=False):
+    for root, dirs, files in os.walk(start_dir, topdown=False):
         for name in files:
-            if check_file_for_name(root, name):
+            if check_file_for_name(root, name, verb, delete_mode):
                 found += 1
             count += 1
         for name in dirs:
-            if check_file_for_name(root, name):
+            if check_file_for_name(root, name, verb, delete_mode):
                 found += 1
             count += 1
     print(f"Count : {count}")
@@ -55,7 +56,7 @@ def walk_through(params):
     return "Done!"
 
 
-def check_file_for_name(file_path, file_name):
+def check_file_for_name(file_path, file_name, verbmode, delmode):
     """
 
     :param file_path:
@@ -68,10 +69,11 @@ def check_file_for_name(file_path, file_name):
     if VERBOSE_MODE is set to TRUE the it will only report files of interest.
     Otherwise it will report the file as [IGNORED]
     """
+
     result = False
     for name in delete_list:
         if file_name == name:
-            if DELETE_MODE:
+            if delmode:
                 if os.path.exists(os.path.join(file_path, file_name)):
                     if os.path.isfile(os.path.join(file_path, file_name)):
                         os.remove(os.path.join(file_path, file_name))
@@ -84,14 +86,15 @@ def check_file_for_name(file_path, file_name):
                 print("[FOUND] : " + os.path.join(file_path, file_name))
                 result = True
         else:
-            if VERBOSE_MODE:
+            if verbmode:
                 print("[IGNORED] : " + os.path.join(file_path, file_name))
     return result
 
 
 if __name__ == "__main__":
+    argv = sys.argv[1:]
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hv:d:s", ["verbose=", "delete=", "start=", "help"])
+        opts, args = getopt.getopt(argv, "hv:d:s:",  ["verbose=", "delete=", "start=", "help"] )
     except getopt.GetoptError:
         print('cleaner.py -v <True/False> -d <True/False> DIRECTORY ')
         sys.exit(2)
@@ -100,10 +103,11 @@ if __name__ == "__main__":
             print('cleaner.py -v <True/>False -d <True/>False -s <DIRECTORY/>"." ')
             sys.exit()
         elif opt in ("-v", "--verbose"):
+            print("in verbose mode", arg)
             VERBOSE_MODE = arg
         elif opt in ("-d", "--delete"):
             DELETE_MODE = arg
         elif opt in ("-s", "--start"):
-            start_directory = arg
+            START_DIRECTORY = arg
 
-    print(walk_through(start_directory))
+    print(walk_through(START_DIRECTORY, VERBOSE_MODE, DELETE_MODE))

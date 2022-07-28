@@ -1,28 +1,30 @@
 '''
     write emails
+    # 2022 07 27 - NO LONGER WORKS THIS WAY AND NEEDS REDOING
 '''
+# fixme a total rewrite as it no longer works
 import smtplib
 import json
 
-credentials = 'y:/pyproject/secrets/client_secrets.json'
-with open(credentials, 'r', encoding='utf8') as f:
+CREDENTIALS = 'y:/pyproject/secrets/client_secrets.json'
+with open(CREDENTIALS, 'r', encoding='utf8') as f:
     creds = json.load(f)
 
-gmail_user = creds['gmail_user']
-gmail_password = creds['pass_word']
+GMAIL_USER = creds['gmail_user']
+GMAIL_PASSWORD = creds['pass_word']
 
-sent_from = gmail_user
+sent_from = GMAIL_USER
 to = ['denis_jackman@hotmail.com', 'denis.jackman@gmail.com']
-receiver = ",".join(to)
-subject = 'OMG Super Important Message'
-body = 'test message'
+RECEIVER = ",".join(to)
+SUBJECT = 'OMG Super Important Message'
+BODY = 'test message'
 
-email_text = f"From: {sent_from}\nTo: {receiver}\nSubject: {subject}\n\n{body}\n"
+email_text = f"From: {sent_from}\nTo: {RECEIVER}\nSubject: {SUBJECT}\n\n{BODY}\n"
 
 try:
     server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     server.ehlo()
-    server.login(gmail_user, gmail_password)
+    server.login(GMAIL_USER, GMAIL_PASSWORD)
     server.sendmail(sent_from, to, email_text)
     server.close()
 

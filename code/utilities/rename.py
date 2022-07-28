@@ -1,10 +1,6 @@
 #!/usr/bin/python
-import os
-import sys
-import getopt
-import shutil
+'''
 
-"""
 rename.py clean up script
 
 Walk through a chosen directory. from the designated top to the bottom looking for files to clean up.
@@ -13,7 +9,12 @@ There will be a read mode and a delete mode.
 
 Read mode will read through and inform which files will be deleted.
 Delete mode will delete all the offending files.
-"""
+
+'''
+import os
+import sys
+import getopt
+
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 1.0 $"
@@ -24,7 +25,7 @@ __license__ = "Python"
 delete_list = [".DS_Store", ".AppleDouble", "Thumbs.db"]
 DELETE_MODE = False
 VERBOSE_MODE = False
-start_directory = "."
+START_DIRECTORY = "."
 
 
 def walk_through(params):
@@ -76,7 +77,9 @@ def check_file_name(file_path, file_name):
 
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hv:d:s", ["verbose=", "delete=", "start=", "help"])
+        opts, args = getopt.getopt(sys.argv[1:],
+                                   "hv:d:s:",
+                                   ["verbose=", "delete=", "start=", "help"])
     except getopt.GetoptError:
         print('rename.py -v <True/False> -d <True/False> DIRECTORY ')
         sys.exit(2)
@@ -87,6 +90,6 @@ if __name__ == "__main__":
         elif opt in ("-v", "--verbose"):
             VERBOSE_MODE = arg
         elif opt in ("-s", "--start"):
-            start_directory = arg
+            START_DIRECTORY = arg
 
-    print(walk_through(start_directory))
+    print(walk_through(START_DIRECTORY))

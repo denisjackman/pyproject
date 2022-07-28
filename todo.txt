@@ -1,14 +1,4 @@
 
-************* Module mail
-code/main/mail.py:7:0: C0103: Constant name "credentials" doesn't conform to UPPER_CASE naming style (invalid-name)
-code/main/mail.py:16:0: C0103: Constant name "receiver" doesn't conform to UPPER_CASE naming style (invalid-name)
-code/main/mail.py:17:0: C0103: Constant name "subject" doesn't conform to UPPER_CASE naming style (invalid-name)
-code/main/mail.py:18:0: C0103: Constant name "body" doesn't conform to UPPER_CASE naming style (invalid-name)
-************* Module rename
-code/main/rename.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-code/main/rename.py:7:0: W0105: String statement has no effect (pointless-string-statement)
-code/main/rename.py:27:0: C0103: Constant name "start_directory" doesn't conform to UPPER_CASE naming style (invalid-name)
-code/main/rename.py:5:0: W0611: Unused import shutil (unused-import)
 ************* Module cleaner
 code/utilities/cleaner.py:28:0: C0103: Constant name "start_directory" doesn't conform to UPPER_CASE naming style (invalid-name)
 ************* Module writing
