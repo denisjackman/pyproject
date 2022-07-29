@@ -3,7 +3,7 @@
 1. remove cleaner.py
 2. remove rename.py
 3. add this functionality to swisstool.py
-4. add startswith functionality to swiddtool
+4. add startswith functionality to swisstool
 5. add endswith functionality to swisstool
 6. Update roguelike
 7. do MySQL work
