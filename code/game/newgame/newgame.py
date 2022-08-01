@@ -2,10 +2,11 @@
     A test for a pygame
 '''
 from os import environ
+from pygame.locals import (QUIT, KEYDOWN, K_ESCAPE)  # pylint: disable=C0413
+import pygame  # pylint: disable=C0413
+
 environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 
-import pygame  # pylint: disable=C0413
-from pygame.locals import (QUIT, KEYDOWN, K_ESCAPE)  # pylint: disable=C0413
 
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
@@ -17,8 +18,8 @@ HEIGHT = 600
 CAPTION = 'New Game'
 SCREEN_SIZE = (WIDTH, HEIGHT)
 IMG_FILE = 'y:/Resources/images/match3_db16_2.png'
-IMG_FILE_2 = 'y:/pyproject/resources/match3_tiles_px.png'
-ICON_FILE = 'y:/pyproject/resources/icon.png'
+IMG_FILE_2 = 'y:/pyproject/resources/images/match3_tiles_px.png'
+ICON_FILE = 'y:/pyproject/resources/images/icon.png'
 SPRITE_X = 0
 SPRITE_Y = 0
 START_POSX = 0
@@ -60,8 +61,8 @@ def sprite_load(source_surface,
     nu_sprite = pygame.Surface(nir_sprite_size)
     nu_sprite.set_colorkey(BLACK)
     nu_sprite.blit(source_surface,
-                    (0, 0),
-                    sprite_position)
+                   (0, 0),
+                   sprite_position)
     return nu_sprite
 
 
@@ -92,10 +93,10 @@ def game_main():
     while RUNNING:
         RUNNING = check_game_status()
         game_screen.fill(WHITE)
-        pygame.draw.line(game_screen, BLACK, (100,100), (200,200))
-        pygame.draw.line(game_screen, RED, (110,100), (210,200))
-        pygame.draw.line(game_screen, GREEN, (120,100), (220,200))
-        pygame.draw.line(game_screen, BLUE, (130,100), (230,200))
+        pygame.draw.line(game_screen, BLACK, (100, 100), (200, 200))
+        pygame.draw.line(game_screen, RED, (110, 100), (210, 200))
+        pygame.draw.line(game_screen, GREEN, (120, 100), (220, 200))
+        pygame.draw.line(game_screen, BLUE, (130, 100), (230, 200))
         pygame.display.flip()
         clock.tick(30)
     pygame.quit()
