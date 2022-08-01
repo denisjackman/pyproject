@@ -1,8 +1,9 @@
 '''
     another new game implementation
 '''
-import os
 import pygame
+
+
 def MainGame():
     '''
         main game routine
@@ -23,7 +24,6 @@ def MainGame():
                         # print the framerate and playtime into the pygame window title
         pygame.display.set_caption("NewGame")
         pygame.display.flip()                       # flip the screen like in a flip book
-    return
 
 pygame.init()
 MainGame()

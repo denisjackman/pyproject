@@ -1,3 +1,4 @@
+'''
 #------------------------------------------------------------------------
 #
 #    This file is part of Conquer.
@@ -18,7 +19,7 @@
 #    Copyright Conquer Development Team (http://code.google.com/p/pyconquer/)
 #
 #------------------------------------------------------------------------
-
+'''
 # This is the rectangular size of the hexagon tiles.
 TILE_WIDTH = 38
 TILE_HEIGHT = 41

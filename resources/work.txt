@@ -1,3 +1,0 @@
-Review the code for <some task>
-Test the code for <some project>
-Write documentation

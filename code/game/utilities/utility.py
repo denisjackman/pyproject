@@ -13,7 +13,7 @@ CAPTION = 'Utility Program'
 SCREEN_SIZE = (WIDTH, HEIGHT)
 FPS = 60
 
-ICON_FILE = 'y:/pyproject/resources/icon.png'
+ICON_FILE = 'y:/pyproject/resources/images/icon.png'
 
 pygame.init()
 game_screen = pygame.display.set_mode(SCREEN_SIZE)
@@ -26,42 +26,42 @@ SPRITE_X = 0
 SPRITE_Y = 0
 IMG_FILE = 'y:/Resources/images/stella_walk.png'
 img = []
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_000.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_001.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_002.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_003.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_004.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_005.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_006.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_007.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_008.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_009.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_010.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_011.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_012.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_014.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_015.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_016.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_017.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_018.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_019.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_020.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_021.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_022.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_023.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_024.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_025.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_026.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_027.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_028.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_029.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_030.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_031.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_032.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_033.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_034.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_035.png').convert())
-img.append(pygame.image.load('y:/pyproject/resources/test/sprites/e_036.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_000.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_001.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_002.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_003.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_004.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_005.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_006.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_007.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_008.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_009.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_010.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_011.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_012.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_014.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_015.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_016.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_017.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_018.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_019.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_020.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_021.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_022.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_023.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_024.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_025.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_026.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_027.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_028.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_029.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_030.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_031.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_032.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_033.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_034.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_035.png').convert())
+img.append(pygame.image.load('y:/pyproject/resources/images/test/sprites/e_036.png').convert())
 newimg = []
 for item in img:
     newimg.append(pygame.transform.scale(item, (64, 64)))
@@ -126,14 +126,13 @@ def main():
             sprite_pos = (cur_posx,
                           cur_posy,
                           SPRITE_WIDTH + cur_posx,
-                          SPRITE_HEIGHT + cur_posy )
+                          SPRITE_HEIGHT + cur_posy)
             sprite_list.append(sprite_load(imgload, sprite_pos, sprite_size))
             cur_posx += SPRITE_WIDTH
         cur_posy += SPRITE_HEIGHT
         cur_posx = 0
     cur_posx = START_POSX
     cur_posy = START_POSY
-
 
     RUNNING = True
     screen_x = 300

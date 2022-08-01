@@ -21,8 +21,8 @@ ws = wb.active
 ws1 = wb.create_sheet("FirstSheet")
 ws2 = wb.create_sheet("SecondSheet", 0)
 ws3 = wb.create_sheet("ThirdSheet", -1)
-wb.save('openpyxl_example.xlsx')
+wb.save('y:/Resources/openpyxl_example.xlsx')
 
 ws.title = "OpenPyXL Example"
-newwb = load_workbook('example.xlsx')
+newwb = load_workbook('y:/Resources/example.xlsx')
 print(type(newwb))

@@ -1,6 +1,4 @@
-from sets import Set
-import random
-
+'''
 #------------------------------------------------------------------------
 #
 #    This file is part of Conquer.
@@ -21,10 +19,16 @@ import random
 #    Copyright Conquer Development Team (http://code.google.com/p/pyconquer/)
 #
 #------------------------------------------------------------------------
+'''
 
+import random
+from sets import Set
 _DEBUG =0
 
 class TRecurser:
+	'''
+		TRecurser object
+	'''
 	def __init__(self,board):
 		self.board = board
 		self.recursed_land = Set([])
@@ -65,21 +69,21 @@ class TRecurser:
 		# 3) If recurse count == land area -> one big continent
 		land_area = self.board.count_world_area()
 		if _DEBUG > 1:
-			print "World area: %d" % land_area
+			print(f"World area: {land_area}")
 		land_area_rec = Set([])
-		
+
 		if _DEBUG > 1:
-			print playerlist
-		for x in xrange(max_x):
-			for y in xrange(14):
+			print(playerlist)
+		for x in range(max_x):
+			for y in range(14):
 				if self.board.data[self.board.gct(x,y)] > 0:
 					break
-					
+
 		if self.board.data[self.board.gct(x,y)] == 0:
 			return False
-					
+
 		self.crawl(x,y,land_area_rec,[1,2,3,4,5,6])
-		
+
 		if len(land_area_rec) == land_area:
 			return True
 		else:
@@ -88,8 +92,8 @@ class TRecurser:
 		# Count how many islands does player control
 		laskuri = 0
 		recursed_islands = Set([])
-		for x in xrange(30):
-			for y in xrange(14):
+		for x in range(30):
+			for y in range(14):
 				if self.board.data[self.board.gct(x,y)] == self.board.turn:
 					if self.board.gct(x,y) not in recursed_islands:
 						self.recursed_own_land_count = 0
@@ -104,14 +108,14 @@ class TRecurser:
 		for gct_xy in land_area_set:
 			x1,y1 = self.board.ec(gct_xy)
 			edm = self.board.get_right_edm(y1)
-			for i in xrange(6):
+			for i in range(6):
 				if self.board.validxy(x1+edm[i][0],y1+edm[i][1]):
 					if self.board.data[self.board.gct(x1+edm[i][0],y1+edm[i][1])] != island_owner:
 						if self.board.data[self.board.gct(x1+edm[i][0],y1+edm[i][1])] != 0:
 							# This works because set can't have duplicates
 							border_area_set.add( self.board.gct(x1+edm[i][0],y1+edm[i][1]) )
 		return border_area_set
-		 
+
 	def recurse_own_island(self,x,y):
 		# Count and recurse through own islands lands
 		self.recursed_land.clear()
@@ -139,6 +143,6 @@ class TRecurser:
 				if self.board.gct(x,y) not in recursion_set:
 					self.recursed_own_land_count += 1
 					recursion_set.add(self.board.gct(x,y))
-					for i in xrange(6):
+					for i in range(6):
 						# Crawl neighbours
 						self.crawl(x+edm[i][0],y+edm[i][1],recursion_set,find_list)

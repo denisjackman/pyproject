@@ -6,19 +6,19 @@ import pygame
 import moviepy.editor
 
 pygame.init()
-img = pygame.image.load("y:/pyproject/resources/jackmanimation.png")
+img = pygame.image.load("y:/pyproject/resources/images/jackmanimation.png")
 
 white = (255, 255, 255)
 WIDTH = 1920
 HEIGHT = 1080
 
-img_x = (WIDTH / 2 ) - (img.get_rect()[2] / 2)
+img_x = (WIDTH / 2) - (img.get_rect()[2] / 2)
 img_y = (HEIGHT / 2) - (img.get_rect()[3] / 2)
 
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-video = moviepy.editor.VideoFileClip("y:/pyproject/resources/Countdown.mov")
+video = moviepy.editor.VideoFileClip("y:/pyproject/resources/movies/Countdown.mov")
 video.preview()
 screen.fill((white))
 screen.blit(img, (img_x, img_y))

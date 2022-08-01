@@ -5,7 +5,7 @@
 import random
 
 import pygame
-from pygame.locals import ( QUIT, Rect )
+from pygame.locals import (QUIT, Rect)
 
 
 def grid_build(width, height, tile):
@@ -38,7 +38,7 @@ pygame.display.set_caption("Utility Tool")
 black = (0, 0, 0)
 white = (255, 255, 255)
 grid = grid_build(18, 13, 7)
-IMG_FILE = 'Y:/pyproject/resources/match3_tiles_px.png'
+IMG_FILE = 'Y:/pyproject/resources/images/match3_tiles_px.png'
 img = pygame.image.load(IMG_FILE).convert()
 
 
