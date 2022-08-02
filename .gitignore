@@ -4,6 +4,7 @@
 **/data/*
 **/secrets/*
 **/.pytest_cache/*
+**/pyproject-env/*
 credentials.json
 
 # Compiled source #
@@ -14,6 +15,7 @@ credentials.json
 *.exe
 *.o
 *.so
+*.pyc
 
 # Packages #
 ############
@@ -48,3 +50,4 @@ Thumbs.db
 ######################
 **/.idea/*
 **/__pycache__/*
+**/.pytest_cache/*
