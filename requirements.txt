@@ -39,3 +39,7 @@ opencv-python
 pyyaml
 yamllint
 python-docx
+tk
+beautifulsoup4
+python-magic
+pillow
