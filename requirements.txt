@@ -43,3 +43,5 @@ tk
 beautifulsoup4
 python-magic
 pillow
+importlib-metadata
+ansible
