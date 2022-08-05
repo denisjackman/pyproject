@@ -1,0 +1,4 @@
+set device-group AWS-EXT-FW address-group ag-aws-prod-sharedservices static [ n-10.175.1.0-24 n-10.175.3.0-24 n-10.175.4.0-24 n-10.175.5.0-24 ]
+set device-group Remote_Network_Device_Group address-group ag-mtc.nxt.internal static [ h-10.145.130.253 h-10.146.130.252 ]
+set device-group Remote_Network_Device_Group address-group ag-gbsc-prd.trading.aws static [ h-10.175.52.16 h-10.175.58.47 h-10.175.61.246 ]
+set device-group Remote_Network_Device_Group address-group ag-gbsc-nxt-dev.aws static [ h-10.174.52.152 h-10.174.59.227 h-10.174.61.226 ]

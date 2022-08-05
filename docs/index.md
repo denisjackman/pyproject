@@ -10,12 +10,16 @@ I use a couple of github actions (see below). And I will add to this as I find e
 * Spotify
 * YAML
 * Trello
+* MySQL
+* PyGame
 
 ### Discord
-This is a simple discord bot which sits inthe server and responds accordingly.
+This is a simple discord bot which sits in the server and responds accordingly.
 
 ### Excel
 This is an example of writing to and reading from MS Excel Spreadsheets and workbooks.
+[Real Python Excel examples](https://realpython.com/openpyxl-excel-spreadsheets-python/)
+[Auotmate all the Things](https://automatetheboringstuff.com/2e/chapter15/)
 
 ### Slack
 This is the beginning of a slack bot. My aim here is to make a bot which will broadcast to a umber of channels on demand.
@@ -28,6 +32,13 @@ This is an example of using the web api to control spotify
 
 ### Trello
 This is a an example of python interatcting with trello
+
+### MySQL
+[MySQL example](https://dev.mysql.com/doc/employee/en/)
+
+### PyGame
+[Scrolling Background](https://coderslegacy.com/python/pygame-scrolling-background/#google_vignette)
+
 
 ## GitHub actions
 ### PyLint
