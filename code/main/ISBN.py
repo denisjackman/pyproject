@@ -228,24 +228,3 @@ def url(isbntype,isbn):
         return "http://bookshop.blackwell.co.uk/jsp/welcome.jsp?action=search&type=isbn&term="+short
     else:
         return "http://books.google.com/books?vid="+short
-
-
-
-
-if __name__=='__main__':
-    isbn="1-58488-540-8"
-    # isbn="978-158488-540-5"
-    print(isbn)
-    if isValid(isbn):
-        print("isbn ok")
-    else:
-        print("isbn BAD")
-    print(convert(isbn))
-    print("""
-
-For help/information, do "python", "import isbn", "help(isbn)".
-
-""")
-
-
-# eof
