@@ -1,3 +1,4 @@
+'''
 #########################################################################
 #                 10-row School abacus
 #                         by
@@ -38,12 +39,14 @@
 # 2 STARS: 6 < lines <= 9
 # 3 STARS: 3 < lines <= 6
 # 4 STARS: 0 < lines <= 3
-
+'''
 
 def print_abacus(value):
+    '''
     #
     # Add you code here
     #
+    '''
     abaci = '00000*****'
     nvalue = '000000000'+str(value)
     print(nvalue[-9:])

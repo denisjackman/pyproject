@@ -13,8 +13,7 @@ def get_mode():
         smode = input().lower()
         if smode in 'encrypt e decrypt d'.split():
             return smode
-        else:
-            print('Enter either "encrypt" or "e" or "decrypt" or "d".')
+        print('Enter either "encrypt" or "e" or "decrypt" or "d".')
 
 def get_message():
     """
@@ -29,9 +28,11 @@ def get_key():
     """
     skey = 0
     while True:
-        print('Enter the key number ({MAX_KEY_SIZE})')
+        print('Enter the KEY number ({MAX_KEY_SIZE})')
         skey = int(input())
-        if (skey >= 1 and skey <= MAX_KEY_SIZE):
+        # if (skey >= 1 and skey <= MAX_KEY_SIZE):
+        #    return skey
+        if 1 <= skey <= MAX_KEY_SIZE:
             return skey
 
 def get_translated_message(amode, amessage, akey):
@@ -65,7 +66,7 @@ def get_translated_message(amode, amessage, akey):
 
 mode = get_mode()
 message = get_message()
-key = get_key()
-codePack = chr(key+65)+get_translated_message(mode, message, key)
-emessage =  get_translated_message(mode, message, key)
-print('Your translated text is: {message}')
+KEY = get_key()
+codePack = chr(KEY+65)+get_translated_message(mode, message, KEY)
+emessage =  get_translated_message(mode, message, KEY)
+print(f'Your translated text is: {message}  : {emessage}')
