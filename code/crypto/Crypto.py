@@ -97,6 +97,9 @@ def decryptScytal(code, columns=5, debug=False):
 
 
 def encryptCaesar(code,offset=5,debug=False):
+    '''
+        encrypt the code
+    '''
     result =""
     core=[]
     core.append("abcdefghijklmnopqrstuvwxyz")
@@ -139,6 +142,9 @@ def encryptCaesar(code,offset=5,debug=False):
     return result
 
 def decryptCaesar(code,offset=5,debug=False):
+    '''
+        decrypt the code
+    '''
     result =""
     core=[]
     core.append("abcdefghijklmnopqrstuvwxyz")

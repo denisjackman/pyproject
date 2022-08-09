@@ -11,6 +11,7 @@ class LunarLander():
         self.altitude = 1000
         self.velocity = 0
         self.fuel = 100
+        self.start = True
     def getVelocity(self):
         '''
             VELOCITY
@@ -54,13 +55,13 @@ class LunarLander():
         '''
             REPORT
         '''
-        print(f'\nAlt = {self.getAltitude} Vel = {self.getVelocity} Fuel = {self.getFuel}')
+        print(f'\nAlt = {self.getAltitude()} Vel = {self.getVelocity()} Fuel = {self.getFuel()}')
 
     def restart(self):
         '''
             restart
         '''
+        self.start = False
         restart = input('Replay? Y/N >')
         if restart.lower() == 'y':
-            main()
-        sys.exit('game over!')
+            self.start = True

@@ -1,17 +1,20 @@
+'''
+    nupygametest
+'''
 # Install libraries
 # pip install pygame
 import pygame
 pygame.init()
 screen = pygame.display.set_mode((400, 300))
-done = False
-is_blue = True
-while not done:
+DONE = False
+IS_BLUE = True
+while not DONE:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-            is_blue = not is_blue
+            IS_BLUE = not IS_BLUE
         if event.type == pygame.QUIT:
-            done = True
-    if is_blue:
+            DONE = True
+    if IS_BLUE:
         color = (0, 128, 255)
     else:
         color = (255, 100, 0)
