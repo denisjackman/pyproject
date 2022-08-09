@@ -1,35 +1,11 @@
 '''
-    BOIDS
+        TKBoids
 '''
-from tkinter import *
+from tkinter import Tk, NoDefaultRoot, Canvas, ALL
 from random import randint, choice
 from time import process_time, sleep
-from math import *
+from math import sin, radians, cos, hypot, atan2, degrees
 import _tkinter
-
-# TODO: further tweaks
-# 1. Add goals for the boids to move toward (DONE - BoidGroup.target)
-# 2. Add wind or current that "blows" the boids around
-# 3. Have boids tend towards a place; travel through waypoints
-# 4. Limit (or unlimit) a boid's speed (DONE - BoidAgent.max_speed)
-# 5. Set bounds for boids (DONE - BoidGUI.force_wall & .bounce_wall)
-# 6. Allow boids to "perch" on the ground at random.
-
-# TODO: anti-flocking behaviour
-# 1. Get the boid group to scatter from each other; add more rules
-# 2. Send the boids away from certain areas; danger or obstacles
-# 3. Introduce predators that boids will always run from
-
-# TODO: some other details
-# 1. Boids need to "see" each other
-# 2. Unseen boids should be ignored
-# 3. Refer to the original algorithm
-# 4. http://www.red3d.com/cwr/boids/
-# 5. The timing engine needs redesign (DONE - based on pt.QT.run)
-# 6. Change updating system to that used by QuizMe
-
-################################################################################
-
 # Here are various program settings.
 
 USE_WINDOW = False  # Display program in window.
@@ -47,9 +23,7 @@ HEIGHT = 600        # Height to display in window mode.
 
 BACKGROUND = '#000' # Background color for the screen.
 BOIDS = 10          # Number of boids to show in a group.
-
 # BoidGUI and BoidAgent have settings too.
-
 ################################################################################
 
 def main():
@@ -297,7 +271,7 @@ class BoidGUI(Canvas):
         elif boid.position.y > self.height - self.WALL_FORCE:
             boid.velocity.y -= self.WALL_FORCE * seconds
 
-    def bounce_wall(self, group, boid, seconds):
+    def bounce_wall(self, boid):
         '''
         # Left and Right walls.
         '''
@@ -316,9 +290,7 @@ class BoidGUI(Canvas):
                 boid.velocity.y *= -1
 
     def update_screen(self):
-        '''
-        # Clear the screen.
-        '''
+        ''' Clear the screen.  '''
         self.delete(ALL)
         for group in self.groups:
             # Draw the group's target if enabled.
@@ -369,25 +341,16 @@ _tkinter.setbusywaitinterval(1000 // BoidGUI.MAX_FPS)
 
 # This is where groups and world objects should live.
 class BoidWorld:
-    '''
-        boidworld object
-    '''
+    ''' boidworld object '''
 
     def name(self):
-        '''
-            show the name
-        '''
+        ''' show the name '''
 
     def setname(self):
-        '''
-            set the name
-        '''
-################################################################################
+        ''' set the name '''
 
 class BoidGroup:
-    '''
-    # Simple collection for managing boid agents.
-    '''
+    ''' Simple collection for managing boid agents. '''
     def __init__(self):
         self.__boids = []
         self.__flag = False
@@ -398,15 +361,11 @@ class BoidGroup:
         self.__prop_vector = Vector2(0, 0)
 
     def add_boid(self, boid):
-        '''
-            add boid
-        '''
+        ''' add boid '''
         self.__boids.append(boid)
 
     def update_velocity(self):
-        '''
-            update velocity
-        '''
+        ''' update velocity '''
         assert not self.__flag, 'Position must be updated first.'
         self.__flag = True
         for boid in self.__boids:
@@ -414,9 +373,7 @@ class BoidGroup:
         self.__good_vector = False
 
     def update_position(self, seconds):
-        '''
-            update positions
-        '''
+        ''' update positions '''
         assert self.__flag, 'Velocity must be updated first.'
         self.__flag = False
         for boid in self.__boids:
@@ -424,29 +381,24 @@ class BoidGroup:
         self.__good_center = False
 
     def add_control(self, control):
+        ''' add control function '''
         self.__controls.append(control)
 
     def run_controls(self, seconds):
-        '''
-            run controls
-        '''
+        ''' run controls '''
         for control in self.__controls:
             for boid in self.__boids:
                 control(self, boid, seconds)
 
     @property
     def boids(self):
-        '''
-            boids
-        '''
+        ''' boids '''
         for boid in self.__boids:
             yield boid
 
     @property
     def center(self):
-        '''
-            center
-        '''
+        ''' center '''
         if self.__good_center is False:
             self.__prop_center = Vector2(0, 0)
             for boid in self.__boids:
@@ -457,9 +409,7 @@ class BoidGroup:
 
     @property
     def vector(self):
-        '''
-            vector
-        '''
+        ''' vector '''
         if self.__good_vector is False:
             self.__prop_vector = Vector2(0, 0)
             for boid in self.__boids:
@@ -468,12 +418,8 @@ class BoidGroup:
             self.__good_vector = True
         return self.__prop_vector
 
-################################################################################
-
 class BoidAgent:
-
-    # Implements all three boid rules.
-
+    ''' Implements all three boid rules.  '''
     RULE_1_SCALE = 100  # Scale the clumping factor.
     RULE_2_SCALE = 3    # Scale the avoiding factor.
     RULE_2_SPACE = 1    # Avoid when inside of space.
@@ -487,9 +433,7 @@ class BoidAgent:
         self.max_speed = max_speed
 
     def update_velocity(self, group, boids):
-        '''
-            update velocity
-        '''
+        ''' update velocity '''
         # Filter self out of boids.
         others = [boid for boid in boids if boid is not self]
         # Run through the boid rules.
@@ -502,9 +446,7 @@ class BoidAgent:
         self.__update = vector_1 + vector_2 + vector_3
 
     def update_position(self, seconds):
-        '''
-            update position
-        '''
+        ''' update position '''
         # Update to new velocity.
         self.velocity += self.__update
         # Limit the velocity as needed.
@@ -542,23 +484,17 @@ class BoidAgent:
         vector /= len(boids) * weight
         return (vector - self.velocity) / self.RULE_3_SCALE
 
-################################################################################
-
-
-################################################################################
-
-def Polar2(magnitude, degrees):
-    x = magnitude * sin(radians(degrees))
-    y = magnitude * cos(radians(degrees))
+def Polar2(magnitude, p2degrees):
+    ''' polar2 function '''
+    x = magnitude * sin(radians(p2degrees))
+    y = magnitude * cos(radians(p2degrees))
     return Vector2(x, y)
 
-################################################################################
-
 class Vector2:
-
+    '''
     # See all the nice vector operations above?
     # The following class implements those instructions.
-
+    '''
     __slots__ = 'x', 'y'
 
     def __init__(self, x, y):
@@ -566,13 +502,14 @@ class Vector2:
         self.y = y
 
     def __repr__(self):
-        return 'Vector2({!r}, {!r})'.format(self.x, self.y)
+        return f'Vector2({self.x!r}, {self.y!r})'
 
     def polar_repr(self):
+        ''' polar repr function '''
         x, y = self.x, self.y
         magnitude = hypot(x, y)
         angle = degrees(atan2(x, y)) % 360
-        return 'Polar2({!r}, {!r})'.format(magnitude, angle)
+        return f'Polar2({magnitude!r}, {angle!r})'
 
     # Rich Comparison Methods
 
@@ -610,12 +547,8 @@ class Vector2:
             return x1 * x1 + y1 * y1 >= x2 * x2 + y2 * y2
         return hypot(self.x, self.y) >= obj
 
-    # Boolean Operation
-
     def __bool__(self):
         return self.x != 0 or self.y != 0
-
-    # Container Methods
 
     def __len__(self):
         return 2
@@ -638,8 +571,6 @@ class Vector2:
 
     def __contains__(self, obj):
         return obj in (self.x, self.y)
-
-    # Binary Arithmetic Operations
 
     def __add__(self, obj):
         if isinstance(obj, Vector2):
@@ -708,8 +639,6 @@ class Vector2:
             return Vector2(self.x | obj.x, self.y | obj.y)
         return Vector2(self.x | obj, self.y | obj)
 
-    # Binary Arithmetic Operations (with reflected operands)
-
     def __radd__(self, obj):
         return Vector2(obj + self.x, obj + self.y)
 
@@ -749,8 +678,6 @@ class Vector2:
 
     def __ror__(self, obj):
         return Vector2(obj | self.x, obj | self.y)
-
-    # Augmented Arithmetic Assignments
 
     def __iadd__(self, obj):
         if isinstance(obj, Vector2):
@@ -860,8 +787,6 @@ class Vector2:
             self.y |= obj
         return self
 
-    # Unary Arithmetic Operations
-
     def __pos__(self):
         return Vector2(+self.x, +self.y)
 
@@ -874,8 +799,6 @@ class Vector2:
     def __abs__(self):
         return Vector2(abs(self.x), abs(self.y))
 
-    # Virtual "magnitude" Attribute
-
     def __fg_ma(self):
         return hypot(self.x, self.y)
 
@@ -886,8 +809,6 @@ class Vector2:
 
     magnitude = property(__fg_ma, __fs_ma, doc='Virtual "magnitude" Attribute')
 
-    # Virtual "direction" Attribute
-
     def __fg_di(self):
         return atan2(self.y, self.x)
 
@@ -896,8 +817,6 @@ class Vector2:
         self.x, self.y = cos(value) * temp, sin(value) * temp
 
     direction = property(__fg_di, __fs_di, doc='Virtual "direction" Attribute')
-
-    # Virtual "degrees" Attribute
 
     def __fg_de(self):
         return degrees(atan2(self.x, self.y)) % 360
@@ -908,8 +827,6 @@ class Vector2:
 
     degrees = property(__fg_de, __fs_de, doc='Virtual "degrees" Attribute')
 
-    # Virtual "xy" Attribute
-
     def __fg_xy(self):
         return self.x, self.y
 
@@ -917,8 +834,6 @@ class Vector2:
         self.x, self.y = value
 
     xy = property(__fg_xy, __fs_xy, doc='Virtual "xy" Attribute')
-
-    # Virtual "yx" Attribute
 
     def __fg_yx(self):
         return self.y, self.x
@@ -928,64 +843,66 @@ class Vector2:
 
     yx = property(__fg_yx, __fs_yx, doc='Virtual "yx" Attribute')
 
-    # Unit Vector Operations
-
     def unit_vector(self):
+        ''' Unit vector '''
         x, y = self.x, self.y
         temp = hypot(x, y)
         return Vector2(x / temp, y / temp)
 
     def normalize(self):
+        ''' normalise '''
         x, y = self.x, self.y
         temp = hypot(x, y)
         self.x, self.y = x / temp, y / temp
         return self
 
-    # Vector Multiplication Operations
-
     def dot_product(self, vec):
+        ''' dot product '''
         return self.x * vec.x + self.y * vec.y
 
     def cross_product(self, vec):
+        ''' cross product '''
         return self.x * vec.y - self.y * vec.x
 
-    # Geometric And Physical Reflections
-
     def reflect(self, vec):
+        ''' reflect '''
         x1, y1, x2, y2 = self.x, self.y, vec.x, vec.y
         temp = 2 * (x1 * x2 + y1 * y2) / (x2 * x2 + y2 * y2)
         return Vector2(x2 * temp - x1, y2 * temp - y1)
 
     def bounce(self, vec):
+        ''' bounce '''
         x1, y1, x2, y2 = self.x, self.y, +vec.y, -vec.x
         temp = 2 * (x1 * x2 + y1 * y2) / (x2 * x2 + y2 * y2)
         return Vector2(x2 * temp - x1, y2 * temp - y1)
 
-    # Standard Vector Operations
-
     def project(self, vec):
+        ''' project '''
         x, y = vec.x, vec.y
         temp = (self.x * x + self.y * y) / (x * x + y * y)
         return Vector2(x * temp, y * temp)
 
     def rotate(self, vec):
+        ''' rotate '''
         x1, y1, x2, y2 = self.x, self.y, vec.x, vec.y
         return Vector2(x1 * x2 + y1 * y2, y1 * x2 - x1 * y2)
 
     def interpolate(self, vec, bias):
+        ''' interpolate '''
         a = 1 - bias
         return Vector2(self.x * a + vec.x * bias, self.y * a + vec.y * bias)
 
-    # Other Useful Methods
-
-    def near(self, vec, dist):
+    def near(self, dist):
+        ''' near function  '''
         x, y = self.x, self.y
         return x * x + y * y <= dist * dist
 
     def perpendicular(self):
+        ''' perpindicular '''
         return Vector2(+self.y, -self.x)
 
     def subset(self, vec1, vec2):
+        ''' subset function '''
         x1, x2 = vec1.x, vec2.x
         if x1 <= x2:
             if x1 <= self.x <= x2:
@@ -1001,25 +918,13 @@ class Vector2:
                 return y2 <= self.y <= y1
         return False
 
-    # Synonymous Definitions
-
     copy = __pos__
-
     inverse = __neg__
-
     unit = unit_vector
-
     dot = dot_product
-
     cross = cross_product
-
     lerp = interpolate
-
     perp = perpendicular
 
-################################################################################
-
-# If this code is run directly,
-# run the program's entry point.
 if __name__ == '__main__':
     main()

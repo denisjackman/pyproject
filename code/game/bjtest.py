@@ -2,6 +2,22 @@
     BJTest
 '''
 import random
+FOUNDATION_CLUBS = None
+FOUNDATION_DIAMONDS = None
+FOUNDATION_HEARTS = None
+FOUNDATION_SPADES = None
+
+GAME_DECK = None
+PILE = None
+WASTE = None
+
+BASE1 = None
+BASE2 = None
+BASE3 = None
+BASE4 = None
+BASE5 = None
+BASE6 = None
+BASE7 = None
 
 # define globals for cards
 SUITS = ('C', 'S', 'H', 'D')
@@ -37,12 +53,11 @@ class Card:
         return self.suit
 
     def get_rank(self):
+        ''' get rank '''
         return self.rank
 
     def dealt(self):
-        '''
-            is the hand dealt
-        '''
+        ''' is the hand dealt '''
         return self.status
 
     def set_dealt(self):
@@ -57,8 +72,6 @@ class Card:
         '''
         print(canvas, pos)
 
-
-# define hand class
 class Hand:
     '''
         hand object
@@ -112,8 +125,6 @@ class Hand:
         '''
         print(canvas, pos)
 
-
-# define the Deck class
 class Deck:
     '''
         deck object
@@ -155,54 +166,53 @@ def init():
     '''
         initialise the game
     '''
-    global game_deck,pile,waste,base1,base2,base3,base4,base5,base6,base7,foundation_hearts,foundation_spades,foundation_clubs,foundation_diamonds
-    game_deck = Deck()
-    game_deck.shuffle()
+    global GAME_DECK,PILE,WASTE,BASE1,BASE2,BASE3,BASE4,BASE5,BASE6,BASE7,FOUNDATION_HEARTS,FOUNDATION_SPADES,FOUNDATION_CLUBS,FOUNDATION_DIAMONDS
+    GAME_DECK = Deck()
+    GAME_DECK.shuffle()
 
-    foundation_hearts = Hand()
-    foundation_spades = Hand()
-    foundation_clubs = Hand()
-    foundation_diamonds = Hand()
+    FOUNDATION_HEARTS = Hand()
+    FOUNDATION_SPADES = Hand()
+    FOUNDATION_CLUBS = Hand()
+    FOUNDATION_DIAMONDS = Hand()
 
-    base1= Hand()
-    base2= Hand()
-    base3= Hand()
-    base4= Hand()
-    base5= Hand()
-    base6 = Hand()
-    base7 = Hand()
+    BASE1= Hand()
+    BASE2= Hand()
+    BASE3= Hand()
+    BASE4= Hand()
+    BASE5= Hand()
+    BASE6 = Hand()
+    BASE7 = Hand()
 
-    pile = Hand()
-    waste = Hand()
+    PILE = Hand()
+    WASTE = Hand()
 
     card=0
-    while card < len(game_deck):
-        if len(base1) < 1:
-            base1.add_card(game_deck.deal_card())
-        elif len(base2) < 2:
-            base2.add_card(game_deck.deal_card())
-        elif len(base3) < 3:
-            base3.add_card(game_deck.deal_card())
-        elif len(base4) < 4:
-            base4.add_card(game_deck.deal_card())
-        elif len(base5) < 5:
-            base5.add_card(game_deck.deal_card())
-        elif len(base6) < 6:
-            base6.add_card(game_deck.deal_card())
-        elif len(base7) < 7:
-            base7.add_card(game_deck.deal_card())
+    while card < len(GAME_DECK):
+        if len(BASE1) < 1:
+            BASE1.add_card(GAME_DECK.deal_card())
+        elif len(BASE2) < 2:
+            BASE2.add_card(GAME_DECK.deal_card())
+        elif len(BASE3) < 3:
+            BASE3.add_card(GAME_DECK.deal_card())
+        elif len(BASE4) < 4:
+            BASE4.add_card(GAME_DECK.deal_card())
+        elif len(BASE5) < 5:
+            BASE5.add_card(GAME_DECK.deal_card())
+        elif len(BASE6) < 6:
+            BASE6.add_card(GAME_DECK.deal_card())
+        elif len(BASE7) < 7:
+            BASE7.add_card(GAME_DECK.deal_card())
         else:
-            pile.add_card(game_deck.deal_card())
+            PILE.add_card(GAME_DECK.deal_card())
         card += 1
-    return
 
 init()
-print("Base 1: " +str(len(base1))+" : "+ str(base1))
-print("Base 2: " +str(len(base2))+" : "+ str(base2))
-print("Base 3: " +str(len(base3))+" : "+ str(base3))
-print("Base 4: " +str(len(base4))+" : "+ str(base4))
-print("Base 5: " +str(len(base5))+" : "+ str(base5))
-print("Base 6: " +str(len(base6))+" : "+ str(base6))
-print("Base 7: " +str(len(base7))+" : "+ str(base7))
-print("Pile  : " +str(len(pile))+" : " + str(pile))
-print("Waste : " +str(len(waste))+" : "+ str(waste))
+print("Base 1: " +str(len(BASE1))+" : "+ str(BASE1))
+print("Base 2: " +str(len(BASE2))+" : "+ str(BASE2))
+print("Base 3: " +str(len(BASE3))+" : "+ str(BASE3))
+print("Base 4: " +str(len(BASE4))+" : "+ str(BASE4))
+print("Base 5: " +str(len(BASE5))+" : "+ str(BASE5))
+print("Base 6: " +str(len(BASE6))+" : "+ str(BASE6))
+print("Base 7: " +str(len(BASE7))+" : "+ str(BASE7))
+print("Pile  : " +str(len(PILE))+" : " + str(PILE))
+print("Waste : " +str(len(WASTE))+" : "+ str(WASTE))
