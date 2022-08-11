@@ -201,7 +201,7 @@ def bruteCaesar(code):
 
 
 if __name__ == '__main__':
-    encode="Denis was here and here and here coding happily and working away thinkiong about a makeup selfie"
+    ENCODE="Denis was here and here and here coding happily and working away thinkiong about a makeup selfie"
     #encode="Denis think selfy alway"
     #result = encryptScytal(encode)
     #uncode = decryptScytal(result)

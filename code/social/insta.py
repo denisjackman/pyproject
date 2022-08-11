@@ -21,7 +21,7 @@ def GetMeme():
     '''
     post = RedDownloader.DownloadBySubreddit('dankmemes',
                                              1,
-                                             output='meme',
+                                             output='y:/Resources/meme',
                                              SortBy='new')
     authorname = post.GetPostAuthors()[0]
     return authorname
@@ -56,7 +56,7 @@ def CleanUp():
         clean up function
     '''
     try:
-        os.remove('meme/meme1.jpeg')
+        os.remove('y:/Resources/meme/meme1.jpeg')
     except OSError as oserr:
         print(oserr)
 
@@ -68,7 +68,7 @@ author = GetMeme()
 hashtags = GenerateCaption()
 caption = f'Credit to {author} \n {hashtags}'
 try:
-    client.photo_upload('meme/meme1.jpeg', caption)
+    client.photo_upload('y:/Resources/meme/meme1.jpeg', caption)
 except ClientError as err:
     print(err)
 finally:

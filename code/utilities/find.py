@@ -4,7 +4,7 @@
 '''
 import os
 
-# Set the sprites you want to start from
+# set the sprites you want to start from
 DELETELIST = [".DS_Store",
               ".AppleDouble",
               "Thumbs.db",

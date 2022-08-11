@@ -4,7 +4,7 @@ import os
 import sys
 import getopt
 
-# Set the directory you want to start from
+# set the directory you want to start from
 # DrWho.S0
 # Doctor.Who.2005.S0
 rootDir = '.'

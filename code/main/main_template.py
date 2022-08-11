@@ -1,25 +1,25 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 """
-pyproject.py
+main.py
 
-This program is a catch all for the pyproject project
+This program is a template for python programs
+All this stuff at the top of the script is just optional metadata;
 
 """
+from djgamemodule import security as sec
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
-__version__ = "$Revision: 0.00 $"
-__date__ = "$Date: 2022/06/28 00:00:00 $"
+__version__ = "$Revision: 1.10 $"
+__date__ = "$Date: 2022/05/31 00:31:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-
-from djgamemodule import security as sec
 
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
     credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
     print("finishing up and closing down:")
-
 
 if __name__ == '__main__':
     main()

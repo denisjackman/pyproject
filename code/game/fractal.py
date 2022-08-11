@@ -51,7 +51,7 @@ def recursive_draw(x, y, width, height, count):
 
 pygame.init()
 
-# Set the height and width of the screen
+# set the height and width of the screen
 size = [700, 700]
 screen = pygame.display.set_mode(size)
 
@@ -68,7 +68,7 @@ while not DONE:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             DONE = True
-    # Set the screen background
+    # set the screen background
     screen.fill(white)
     # ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
     FRACTAL_LEVEL = 3

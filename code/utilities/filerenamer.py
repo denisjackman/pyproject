@@ -21,7 +21,7 @@ series = ''
 season = ''
 rename = False
 
-# Set the directory you want to start from
+# set the directory you want to start from
 rootDir = '.'
 
 try:

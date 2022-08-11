@@ -47,7 +47,7 @@
 #
 #
 ##### To change this table to reflect the coinage of your game, change the names, quantities and
-##### values for CoinA - Coin6 in "Set World" subtable below
+##### values for CoinA - Coin6 in "set World" subtable below
 ##### Coin3 is the base coin (usually the gold piece)
 ##### ALWAYS put a value for Coin2 and Coin3, but they can be the only 2 coins used.
 
@@ -81,7 +81,7 @@
 %Barrel30Weight%,12
 
 ##### You can change the names of the coins of the realm in "SetWorld" subtable below #####
-##### Set the piece name to "XXX" if you do not want this piece, for example if your world has only
+##### set the piece name to "XXX" if you do not want this piece, for example if your world has only
 ##### 4 types of coins set CoinName5 to "XXX"
 %CoinNameA%,XXX
 %CoinName0%,XXX

@@ -6,7 +6,7 @@
 import os
 import magic
 
-# Set the sprites you want to start from
+# set the sprites you want to start from
 rootDir = '.'
 newname = "pic"
 newnum = 1
