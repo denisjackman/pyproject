@@ -14,7 +14,7 @@ import cv2
 cascpath = os.path.dirname(cv2.__file__)+"/data/haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascpath)
 video_capture = cv2.VideoCapture(0)
-
+print(cascpath)
 while True:
     ret, frames = video_capture.read()
 

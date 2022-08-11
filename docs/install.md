@@ -20,7 +20,7 @@ This sequence will allow you to access anything that needs privileges. And shoul
 
 1. Copy `credentials-template.json` to 'credentials.json'
 2. Update the details inside as required
-3. Set up `.gitignore` file. Make sure `credentials.json` is in there.
+3. set up `.gitignore` file. Make sure `credentials.json` is in there.
 
 ## Python Specific Items
 1. Install MySql Module (`pip install mysql-connector-python`)

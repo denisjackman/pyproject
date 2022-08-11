@@ -9,7 +9,7 @@ def MainGame():
     '''
         Main Game routine
     '''
-    screen = pygame.display.set_mode((640,480))     # Set screen size of pygame window
+    screen = pygame.display.set_mode((640,480))     # set screen size of pygame window
     background = pygame.Surface(screen.get_size())  # Create empty pygame surface
     colorlist = []
     for colour_name, color in gc.COLOURS_RGB_LIST.items():

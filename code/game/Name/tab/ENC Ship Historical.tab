@@ -181,7 +181,7 @@ _<tr><td>[~Ship Selection=%Ship Type%]
 5,[Pinnace]
 10,[Galleon]
 
-# Set Values for Ship Types
+# set Values for Ship Types
 :Tartane
 1,<i>Tartane</i>
 _|Temp Cargo=20||Cargo=20|

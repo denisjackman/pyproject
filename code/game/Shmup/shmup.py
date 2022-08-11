@@ -31,7 +31,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 # Display the CAPTION
 pygame.display.set_caption(CAPTION)
 
-# Set the game clock running
+# set the game clock running
 clock = pygame.time.Clock()
 
 # initialise pygame main game engine

@@ -13,6 +13,12 @@
 * [POstGres install](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04)
 * [Roguelike - reddit](https://www.reddit.com/r/roguelikedev/)
 
+## TAGS
+# FIXME: this is a Fix Tag
+# TODO: this is todo tag
+# IDEA: This is an idea tag
+# CONCEPT: this is a concept tag
+
 ## TKBoids
 
 ### TODO: further tweaks

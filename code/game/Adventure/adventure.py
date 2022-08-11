@@ -6,6 +6,7 @@ adventure.py
     and particularly the Goblin Lake solo scenario.
     This is done as an exercise in python and development.
 '''
+from __future__ import annotations
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 2.0 $"
@@ -13,13 +14,14 @@ __date__ = "$Date: 2019/09/20 00:00:00 $"
 __copyright__ = "Copyright (c) 2018 Denis J Jackman"
 __license__ = "Python"
 
-# from dice import dice
+# from djgamemodule import dice
+# from djgamemodule import gamemodule
 # from currency import *
 # from weight import *
-from weapons import Weapon
-from equipment import Equipment
-from race import Race
-from creature import Creature
+from advclasses.weapons import Weapon
+from advclasses.equipment import Equipment
+from advclasses.race import Race
+from advclasses.creature import Creature
 
 # variable defaults
 player_class = ["Warrior", "Mage"]
@@ -147,7 +149,6 @@ def game_main():
     '''
         main game function
     '''
-
 
 if __name__ == '__main__':
     main()

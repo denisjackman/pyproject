@@ -39,7 +39,7 @@ Icon = pygame.image.load('icon.png')
 
 # We use set_icon to set new icon
 pygame.display.set_icon(Icon)
-# Set up the screen
+# set up the screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 # set the game clock goings
 clock = pygame.time.Clock()

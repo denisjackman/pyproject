@@ -1,28 +1,32 @@
+'''
+    CSintro.py
+'''
 round(45.8)
 #round()
 round(45.345, 2)
 #round(45.345, 2, 5)
 round(45)
 #id()
-x=0
-x= 8//4
-print(x)
-x=12/5
-print(x)
-x=13/7
-print(x)
-x = 3
-y = 5
-x = y
-print(x)
+X=0
+X= 8//4
+print(X)
+X=12/5
+print(X)
+X=13/7
+print(X)
+X = 3
+Y = 5
+X = Y
+print(X)
 #apple = bannana
-happy_45day=1
-happy_day=2
+HAPPY_45DAY=1
+HAPPY_DAY=2
 #happy!day?=2
-_happy=1
+_HAPPY=1
 print(round(45.342))
 
-def bigger(x):
-    return x ** x
+def bigger(nx):
+    ''' bigger '''
+    return nx ** nx
 
 print(bigger(12))

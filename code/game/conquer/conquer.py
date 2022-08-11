@@ -1,6 +1,6 @@
 #!/usr/bin/python
+'''
 # Conquer is strategy-flavoured game written with PyGame
-
 #------------------------------------------------------------------------
 #
 #    This file is part of Conquer.
@@ -23,7 +23,7 @@
 #------------------------------------------------------------------------
 
 # This is one of the sloppiest looking files in the project...
-
+'''
 import random
 import time
 from sys import path
@@ -31,7 +31,9 @@ from os import sep
 
 import pygame
 import classcollection
-
+import gameboard
+from gameboard import TGB
+import gamemenu
 _DEBUG = 0
 
 # Initialize pygame
@@ -40,13 +42,11 @@ pygame.init()
 # Path for game's graphics
 graphics_path = path[0] + sep + "images" + sep
 
-# Set the icon for the game window
+# set the icon for the game window
 pygame.display.set_icon(pygame.image.load(graphics_path+"soldier.png"))
 
 # Import TheGameBoard and gamemenu
-import gameboard
-from gameboard import TGB
-import gamemenu
+
 
 # Generate new random seed
 random.seed(round(time.time()))
@@ -55,13 +55,13 @@ random.seed(round(time.time()))
 IH = classcollection.TIH()
 
 # Setting Release Version...
-conquer_version = "0.2"
+CONQUER_VERSION = "0.2"
 
 # Initialize the screen and set resolution
 screeni = pygame.display.set_mode((800,600))
 
-# Set windows caption
-pygame.display.set_caption("Conquer " + conquer_version)
+# set windows caption
+pygame.display.set_caption("Conquer " + CONQUER_VERSION)
 
 # Resources are greatly saved with this
 pygame.event.set_blocked(pygame.MOUSEMOTION)
@@ -84,12 +84,12 @@ IH.add_image(pygame.image.load(graphics_path+gb.sc.get("menu_interface_filename"
 
 # We have nothing to lose if we try to use psyco.
 try:
-	import psyco
+    import psyco
 except ImportError:
-	pass
-	# If Psyco is not installed it is not a problem
+    pass
+    # If Psyco is not installed it is not a problem
 else:
-	psyco.full()
+    psyco.full()
 
 
 # Generate main menu
@@ -99,91 +99,91 @@ mainmenu = gamemenu.TGameMenu(screeni, IH.gi("menu_interface"),IH.gi("logo"),
 ("Options",2,[],None),
 ("Map Editor",3,[],"Edit your own scenario"),
 ("Quit",4,[],None)],
-(800/2-10,200), spacing = 60)
+800/2-10, 200, spacing = 60)
 
 # Generate Options menu
 optionsmenu = gamemenu.TGameMenu(screeni, IH.gi("menu_interface"),IH.gi("logo"),
 [("Show CPU moves with lines",0,["value_bool_editor",gb.show_cpu_moves_with_lines],"(Use left and right arrow key) Show CPU soldiers moves with lines."),
 ("CPU AI Recursion Depth",1,["value_int_editor",gb.ai_recursion_depth,[1,20]],"(Use left and right arrow key) Increase AI Recursion Depth: computer may play better but uses more CPU."),
 ("Return",2,[],None)],
-(800/2-10,200), spacing = 60)
+800/2-10, 200, spacing = 60)
 
 # The true main loop behing the whole application
-main_loop_running = True
-while main_loop_running:
-	# Get selection from main menu
-	tulos = mainmenu.get_selection()
-	if tulos == 0:
+MAIN_LOOP_RUNNING = True
+while MAIN_LOOP_RUNNING:
+    # Get selection from main menu
+    tulos = mainmenu.get_selection()
+    if tulos == 0:
 
-		# Dynamically generate menu items from scenario - files
+        # Dynamically generate menu items from scenario - files
 
-		# Read scenarios
-		scenarios = gb.read_scenarios()
+        # Read scenarios
+        scenarios = gb.read_scenarios()
 
-		generated_menu_items = []
+        generated_menu_items = []
 
-		# Add option to step back to main menu
-		generated_menu_items.append(("Back to Menu",0,[],None))
+        # Add option to step back to main menu
+        generated_menu_items.append(("Back to Menu",0,[],None))
 
-		# Add scenarios as menuitems
-		for i,scenario in enumerate(scenarios):
-			generated_menu_items.append((scenario,i+1,[],None))
+        # Add scenarios as menuitems
+        for i,scenario in enumerate(scenarios):
+            generated_menu_items.append((scenario,i+1,[],None))
 
-		# Build the menu
-		newgamemenu = gamemenu.TGameMenu(screeni, IH.gi("menu_interface"),IH.gi("logo"),
-		generated_menu_items, (800/2-10,200), spacing = 30)
+        # Build the menu
+        newgamemenu = gamemenu.TGameMenu(screeni, IH.gi("menu_interface"),IH.gi("logo"),
+        generated_menu_items, 800/2-10, 200, spacing = 30)
 
-		# Get selection from the newly build menu
-		selection = newgamemenu.get_selection()
-		if selection > 0:
-			# User selected a scenario
-			gb.map_edit_mode = False
-			gb.new_game(randommap = False, scenariofile = newgamemenu.menuitems[selection][0])
-			gb.start_game()
+        # Get selection from the newly build menu
+        selection = newgamemenu.get_selection()
+        if selection > 0:
+            # User selected a scenario
+            gb.map_edit_mode = False
+            gb.new_game(randommap = False, scenariofile = newgamemenu.menuitems[selection][0])
+            gb.start_game()
 
-	# User selected to generate a random map
-	if tulos == 1:
-		# Ask player counts
-		m1,m2 = gb.get_human_and_cpu_count()
-		gb.map_edit_mode = False
+    # User selected to generate a random map
+    if tulos == 1:
+        # Ask player counts
+        m1,m2 = gb.get_human_and_cpu_count()
+        gb.map_edit_mode = False
 
-		# Initialize a new game
-		gb.new_game(randommap = True, humanplayers = m1, randomplayers_cpu = m2)
+        # Initialize a new game
+        gb.new_game(randommap = True, humanplayers = m1, randomplayers_cpu = m2)
 
-		# Start the game
-		gb.start_game()
+        # Start the game
+        gb.start_game()
 
-	# User selected to see options
-	if tulos == 2:
-		while 1:
-			# Get selections from the options menu and break the loop
-			# if user wants to get back to the main menu
-			tulos2 = optionsmenu.get_selection()
-			if tulos2 == 2:
-				break
+    # User selected to see options
+    if tulos == 2:
+        while 1:
+            # Get selections from the options menu and break the loop
+            # if user wants to get back to the main menu
+            tulos2 = optionsmenu.get_selection()
+            if tulos2 == 2:
+                break
 
-	# User selected to edit a scenario
-	if tulos == 3:
-		# FIXME: little better looking
-		# Ask player counts
-		m1,m2 = gb.get_human_and_cpu_count()
+    # User selected to edit a scenario
+    if tulos == 3:
+        # FIXME: little better looking
+        # Ask player counts
+        m1,m2 = gb.get_human_and_cpu_count()
 
-		# Fill map with empty space
-		gb.fillmap(0)
+        # Fill map with empty space
+        gb.fillmap(0)
 
-		# Turn the editing mode on
-		gb.playerlist = []
-		gb.map_edit_mode = True
-		gb.map_edit_info = [m1,m2,1]
-		gb.actors.clear()
+        # Turn the editing mode on
+        gb.playerlist = []
+        gb.map_edit_mode = True
+        gb.map_edit_info = [m1,m2,1]
+        gb.actors.clear()
 
-		# Start Editing
-		gb.start_game()
-		# Editing Finished
+        # Start Editing
+        gb.start_game()
+        # Editing Finished
 
-		gb.map_edit_mode = False
-		gb.map_edit_info = []
+        gb.map_edit_mode = False
+        gb.map_edit_info = []
 
-	# User selected to quit the game
-	if tulos == 4:
-		main_loop_running = False
+    # User selected to quit the game
+    if tulos == 4:
+        MAIN_LOOP_RUNNING = False

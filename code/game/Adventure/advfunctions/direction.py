@@ -2,7 +2,6 @@
     direction function
 '''
 
-
 def direction(player_input):
     '''
         direction function
@@ -20,9 +19,9 @@ def direction(player_input):
         result = "Invalid action!"
     return result
 
-
-print(direction("North"))
-print(direction("s"))
-print(direction("eastern"))
-print(direction("WWWW"))
-print(direction("xxx"))
+if __name__ == '__main__':
+    print(direction("North"))
+    print(direction("s"))
+    print(direction("eastern"))
+    print(direction("WWWW"))
+    print(direction("xxx"))

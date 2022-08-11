@@ -52,10 +52,7 @@ http://www.staff.ncl.ac.uk/d.j.wilkinson/
 # Free GPL code
 # Last updated: 14/8/2007
 """
-
 import re
-
-
 
 def IsbnStrip(isbn):
     """
@@ -70,17 +67,15 @@ def convert(isbn):
     Convert an ISBN-10 to ISBN-13 or vice-versa.
     """
     short=IsbnStrip(isbn)
-    if (isValid(short)==False):
+    if isValid(short) is False:
         raise "Invalid ISBN"
     if len(short)==10:
         stem="978"+short[:-1]
         return stem+check(stem)
-    else:
-        if short[:3]=="978":
-            stem=short[3:-1]
-            return stem+check(stem)
-        else:
-            raise "ISBN not convertible"
+    if short[:3]=="978":
+        stem=short[3:-1]
+        return stem+check(stem)
+    raise "ISBN not convertible"
 
 def isValid(isbn):
     """
@@ -89,10 +84,9 @@ def isValid(isbn):
     short=IsbnStrip(isbn)
     if len(short)==10:
         return isI10(short)
-    elif len(short)==13:
+    if len(short)==13:
         return isI13(short)
-    else:
-        return False
+    return False
 
 def check(stem):
     """
@@ -102,10 +96,9 @@ def check(stem):
     short=IsbnStrip(stem)
     if len(short)==9:
         return checkI10(short)
-    elif len(short)==12:
+    if len(short)==12:
         return checkI13(short)
-    else:
-        return False
+    return False
 
 def checkI10(stem):
     """
@@ -118,34 +111,32 @@ def checkI10(stem):
     for char in chars:
         checksum+=digit*int(char)
         digit-=1
-    check=11-(checksum%11)
-    if check==10:
+    I10check=11-(checksum%11)
+    if I10check==10:
         return "X"
-    elif check==11:
+    if I10check==11:
         return "0"
-    else:
-        return str(check)
+    return str(I10check)
 
 def isI10(isbn):
     """
     Checks the validity of an ISBN-10 number.
     """
     short=IsbnStrip(isbn)
-    if (len(short)!=10):
+    if len(short)!=10:
         return False
     chars=list(short)
     checksum=0
     digit=10
     for char in chars:
-        if (char=='X' or char=='x'):
+        if char in ('X', 'x'):
             char="10"
         checksum+=digit*int(char)
         digit-=1
     remainder=checksum%11
     if remainder==0:
         return True
-    else:
-        return False
+    return False
 
 def checkI13(stem):
     """
@@ -156,60 +147,54 @@ def checkI13(stem):
     checksum=0
     count=0
     for char in chars:
-        if (count%2==0):
+        if count%2==0:
             checksum+=int(char)
         else:
             checksum+=3*int(char)
         count+=1
-    check=10-(checksum%10)
-    if check==10:
+    I13check=10-(checksum%10)
+    if I13check==10:
         return "0"
-    else:
-        return str(check)
+    return str(I13check)
 
 def isI13(isbn):
     """
     Checks the validity of an ISBN-13 number.
     """
     short=IsbnStrip(isbn)
-    if (len(short)!=13):
+    if len(short)!=13:
         return False
     chars=list(short)
     checksum=0
     count=0
     for char in chars:
-        if (count%2==0):
+        if count%2==0:
             checksum+=int(char)
         else:
             checksum+=3*int(char)
         count+=1
     remainder=checksum%10
-    if remainder==0:
-        return True
-    else:
-        return False
+    return bool(remainder==0)
 
 def toI10(isbn):
     """
     Converts supplied ISBN (either ISBN-10 or ISBN-13) to a stripped ISBN-10.
     """
-    if (isValid(isbn)==False):
+    if isValid(isbn) is False:
         raise "Invalid ISBN"
     if isI10(isbn):
         return IsbnStrip(isbn)
-    else:
-        return convert(isbn)
+    return convert(isbn)
 
 def toI13(isbn):
     """
     Converts supplied ISBN (either ISBN-10 or ISBN-13) to a stripped ISBN-13.
     """
-    if (isValid(isbn)==False):
+    if isValid(isbn) is False:
         raise "Invalid ISBN"
     if isI13(isbn):
         return IsbnStrip(isbn)
-    else:
-        return convert(isbn)
+    return convert(isbn)
 
 def url(isbntype,isbn):
     """
@@ -222,9 +207,8 @@ def url(isbntype,isbn):
     short=toI10(isbn)
     if isbntype=="amazon":
         return "http://www.amazon.com/o/ASIN/"+short
-    elif isbntype=="amazon-uk":
+    if isbntype=="amazon-uk":
         return "http://www.amazon.co.uk/o/ASIN/"+short
-    elif isbntype=="blackwells":
+    if isbntype=="blackwells":
         return "http://bookshop.blackwell.co.uk/jsp/welcome.jsp?action=search&type=isbn&term="+short
-    else:
-        return "http://books.google.com/books?vid="+short
+    return "http://books.google.com/books?vid="+short

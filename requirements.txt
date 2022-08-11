@@ -45,3 +45,5 @@ python-magic
 pillow
 importlib-metadata
 ansible
+RedDownloader
+instagrapi

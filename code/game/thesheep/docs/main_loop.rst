@@ -26,7 +26,7 @@ map tiles and initialize PyGame's screen and clock. Then we draw out map on a se
         
         background, overlay_dict = level.render()
         overlays = pygame.sprite.RenderUpdates()
-        for (x, y), image in overlay_dict.iteritems():
+        for (x, y), image in overlay_dict.items():
             overlay = pygame.sprite.Sprite(overlays)
             overlay.image = image
             overlay.rect = image.get_rect().move(x * 24, y * 16 - 16)

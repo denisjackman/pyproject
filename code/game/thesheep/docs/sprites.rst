@@ -48,7 +48,7 @@ Then we will load the sprite graphics into a separate cachem and keep a group of
 
     SPRITE_CACHE = TileCache(32, 32)
     sprites = pygame.sprite.RenderUpdates()
-    for pos, tile in level.items.iteritems():
+    for pos, tile in level.items.items():
         sprite = Sprite(pos, SPRITE_CACHE[tile["sprite"]])
         sprites.add(sprite)
 
@@ -67,7 +67,7 @@ We still need to define our Sprite class. For now it will just use the very firs
             return (self.rect.midbottom[0]-12)/24, (self.rect.midbottom[1]-16)/16
 
         def _set_pos(self, pos):
-            """Set the position and depth of the sprite on the map."""
+            """set the position and depth of the sprite on the map."""
 
             self.rect.midbottom = pos[0]*24+12, pos[1]*16+16
             self.depth = self.rect.midbottom[1]

@@ -5,8 +5,8 @@
 
 # import module
 import calendar
-yy = 2017
-mm = 11
+YY = 2017
+MM = 11
 
 # display the calendar
-print(calendar.month(yy, mm))
+print(calendar.month(YY, MM))

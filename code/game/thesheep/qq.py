@@ -111,7 +111,7 @@ class Sprite(pygame.sprite.Sprite):
         return (self.rect.midbottom[0]-12)/24, (self.rect.midbottom[1]-16)/16
 
     def _set_pos(self, pos):
-        """Set the position and depth of the sprite on the map."""
+        """set the position and depth of the sprite on the map."""
 
         self.rect.midbottom = pos[0]*24+12, pos[1]*16+16
         self.depth = self.rect.midbottom[1]
@@ -300,14 +300,14 @@ class Game(object):
         self.use_level(Level())
 
     def use_level(self, level):
-        """Set the level as the current one."""
+        """set the level as the current one."""
 
         self.shadows = pygame.sprite.RenderUpdates()
         self.sprites = SortedUpdates()
         self.overlays = pygame.sprite.RenderUpdates()
         self.level = level
         # Populate the game with the level's objects
-        for pos, tile in level.items.iteritems():
+        for pos, tile in level.items.items():
             if tile.get("player") in ('true', '1', 'yes', 'on'):
                 sprite = Player(pos)
                 self.player = sprite
@@ -318,7 +318,7 @@ class Game(object):
         # Render the level map
         self.background, overlays = self.level.render()
         # Add the overlays for the level map
-        for (x, y), image in overlays.iteritems():
+        for (x, y), image in overlays.items():
             overlay = pygame.sprite.Sprite(self.overlays)
             overlay.image = image
             overlay.rect = image.get_rect().move(x*24, y*16-16)
