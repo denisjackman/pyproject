@@ -4,7 +4,7 @@ lunar_lander.py
 basic lunar lander simulation based on constraints found at:
 http://www.cs.carleton.edu/faculty/dmusican/cs111s10/lunarlander.html
 '''
-import Classes.LunarLander as LunarLander
+from Classes import LunarLander
 
 def main():
     '''

@@ -1,3 +1,6 @@
+'''
+    tes.py
+'''
 import os
 import subprocess
 import pygame
@@ -11,11 +14,6 @@ attention_audio_file = "/Users/denisjackman/Documents/workspace/sounds/attention
 tos_audio_file = "/Users/denisjackman/Documents/workspace/sounds/soundtosredalert.wav"
 
 mp3_audio_file="/Users/denisjackman/Documents/workspace/sounds/sfsweep.mp3"
-
-#return_code = subprocess.call(["afplay", byc_audio_file])
-#return_code = subprocess.call(["afplay", klaxon_audio_file])
-#return_code = subprocess.call(["afplay", attention_audio_file])
-#return_code = subprocess.call(["afplay", tos_audio_file])
 
 os.system("say this is the voice of the mysterons calling")
 os.system('say By your command, centurion')

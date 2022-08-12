@@ -1,7 +1,6 @@
 '''
     lunarlander
 '''
-import sys
 
 class LunarLander():
     '''
