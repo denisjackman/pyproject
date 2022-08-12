@@ -23,7 +23,7 @@ class Game():
         # initialise pygame and set up the screen
         pygame.init()
         pygame.mixer.init()
-        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.gscreen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption(CAPTION)
         self.clock = pygame.time.Clock()
 
@@ -67,18 +67,18 @@ class Game():
         '''
             render
         '''
-        self.screen.fill(BLACK)
-        self.all_sprites.draw(self.screen)
+        self.gscreen.fill(BLACK)
+        self.all_sprites.draw(self.gscreen)
 
         # flip the display always do this last
         pygame.display.flip()
 
-    def show_start_screen(self):
+    def show_game_start_screen(self):
         '''
             start screen
         '''
 
-    def show_go_screen(self):
+    def show_game_go_screen(self):
         '''
             go screen
         '''

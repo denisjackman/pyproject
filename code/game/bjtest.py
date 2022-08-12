@@ -2,22 +2,6 @@
     BJTest
 '''
 import random
-FOUNDATION_CLUBS = None
-FOUNDATION_DIAMONDS = None
-FOUNDATION_HEARTS = None
-FOUNDATION_SPADES = None
-
-GAME_DECK = None
-PILE = None
-WASTE = None
-
-BASE1 = None
-BASE2 = None
-BASE3 = None
-BASE4 = None
-BASE5 = None
-BASE6 = None
-BASE7 = None
 
 # define globals for cards
 SUITS = ('C', 'S', 'H', 'D')
@@ -32,16 +16,16 @@ class Card:
     '''
         Card Object
     '''
-    def __init__(self, suit, rank):
-        if (suit in SUITS) and (rank in RANKS):
-            self.suit = suit
-            self.rank = rank
+    def __init__(self, bjsuit, bjrank):
+        if (bjsuit in SUITS) and (bjrank in RANKS):
+            self.suit = bjsuit
+            self.rank = bjrank
             self.status = False
         else:
             self.suit = None
             self.rank = None
             self.status = None
-            print("Invalid card: {suit} {rank}")
+            print("Invalid card: {bjsuit} {bjrank}")
 
     def __str__(self):
         return self.suit + self.rank
@@ -101,18 +85,18 @@ class Hand:
         '''
         ace = False
         value=0
-        for card in self.hand:
+        for bjcard in self.hand:
             if ace:
-                value += VALUES[card.get_rank()]
-                if card.get_rank() == "A":
+                value += VALUES[bjcard.get_rank()]
+                if bjcard.get_rank() == "A":
                     if value < 12:
                         value += 10
                 else:
                     if value > 21:
                         value -= 10
             else:
-                value += VALUES[card.get_rank()]
-                if card.get_rank() == "A":
+                value += VALUES[bjcard.get_rank()]
+                if bjcard.get_rank() == "A":
                     if value < 12:
                         value += 10
                     ace = True
@@ -130,35 +114,35 @@ class Deck:
         deck object
     '''
     def __init__(self):
-        self.deck=[]
+        self.bjdeck=[]
         for suit in SUITS:
             for rank in RANKS:
-                self.deck.append(Card(suit,rank))
+                self.bjdeck.append(Card(suit,rank))
 
     def shuffle(self):
         '''
             shuffle the deck
         '''
-        random.shuffle(self.deck)
+        random.shuffle(self.bjdeck)
 
     def deal_card(self):
         '''
             deal a card
         '''
-        card = random.choice(self.deck)
+        card = random.choice(self.bjdeck)
         while card.dealt():
-            card = random.choice(self.deck)
+            card = random.choice(self.bjdeck)
         card.set_dealt()
         return card
 
     def __str__(self):
         result = " Deck : "
-        for card in self.deck:
+        for card in self.bjdeck:
             result += str(card) + " : "
         return result
 
     def __len__(self):
-        return len(self.deck)
+        return len(self.bjdeck)
 
 
 # initialise the game
@@ -166,7 +150,6 @@ def init():
     '''
         initialise the game
     '''
-    global GAME_DECK,PILE,WASTE,BASE1,BASE2,BASE3,BASE4,BASE5,BASE6,BASE7,FOUNDATION_HEARTS,FOUNDATION_SPADES,FOUNDATION_CLUBS,FOUNDATION_DIAMONDS
     GAME_DECK = Deck()
     GAME_DECK.shuffle()
 
@@ -205,14 +188,15 @@ def init():
         else:
             PILE.add_card(GAME_DECK.deal_card())
         card += 1
+        print(f"Base 1: {str(len(BASE1))} : {str(BASE1)}")
+        print(f"Base 2: {str(len(BASE2))} : {str(BASE2)}")
+        print(f"Base 3: {str(len(BASE3))} : {str(BASE3)}")
+        print(f"Base 4: {str(len(BASE4))} : {str(BASE4)}")
+        print(f"Base 5: {str(len(BASE5))} : {str(BASE5)}")
+        print(f"Base 6: {str(len(BASE6))} : {str(BASE6)}")
+        print(f"Base 7: {str(len(BASE7))} : {str(BASE7)}")
+        print(f"Pile  : {str(len(PILE))} : {str(PILE)}")
+        print(f"Waste : {str(len(WASTE))} : {str(WASTE)}")
 
-init()
-print("Base 1: " +str(len(BASE1))+" : "+ str(BASE1))
-print("Base 2: " +str(len(BASE2))+" : "+ str(BASE2))
-print("Base 3: " +str(len(BASE3))+" : "+ str(BASE3))
-print("Base 4: " +str(len(BASE4))+" : "+ str(BASE4))
-print("Base 5: " +str(len(BASE5))+" : "+ str(BASE5))
-print("Base 6: " +str(len(BASE6))+" : "+ str(BASE6))
-print("Base 7: " +str(len(BASE7))+" : "+ str(BASE7))
-print("Pile  : " +str(len(PILE))+" : " + str(PILE))
-print("Waste : " +str(len(WASTE))+" : "+ str(WASTE))
+if __name__ == '__main__':
+    init()
