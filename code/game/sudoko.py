@@ -1,3 +1,4 @@
+'''
 # THREE GOLD STARS
 
 # Sudoku [http://en.wikipedia.org/wiki/Sudoku]
@@ -27,6 +28,7 @@
 
 # You may assume the the input is square and contains at
 # least one row and column.
+'''
 
 correct = [[1,2,3],
            [2,3,1],
@@ -56,6 +58,9 @@ incorrect5 = [ [1, 1.5],
                [1.5, 1]]
 
 def check_sudoku(p):
+    '''
+        sudoku checker
+    '''
     n = len(p)
     digit  = 1
     while digit  <= n:
@@ -76,10 +81,16 @@ def check_sudoku(p):
         digit =digit + 1
     return True
 
+def main():
+    '''
+    Main loop for the game
+    '''
+    print(f"{str(check_sudoku(incorrect))} >>> False")
+    print(f"{str(check_sudoku(correct))}  >>> True")
+    print(f"{str(check_sudoku(incorrect2))} >>> False")
+    print(f"{str(check_sudoku(incorrect3))} >>> False")
+    print(f"{str(check_sudoku(incorrect4))} >>> False")
+    print(f"{str(check_sudoku(incorrect5))} >>> False")
 
-print(str(check_sudoku(incorrect)) + ">>> False")
-print(str(check_sudoku(correct)) + ">>> True")
-print(str(check_sudoku(incorrect2)) + ">>> False")
-print(str(check_sudoku(incorrect3)) + ">>> False")
-print(str(check_sudoku(incorrect4))+ ">>> False")
-print(str(check_sudoku(incorrect5)) + ">>> False")
+if __name__ == '__main__':
+    main()

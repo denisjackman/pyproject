@@ -30,23 +30,28 @@ class Card:
         return self.suit + self.rank
 
     def get_suit(self):
+        ''' get the suite '''
         return self.suit
 
     def get_rank(self):
+        ''' get the rank '''
         return self.rank
 
     def dealt(self):
+        ''' have we dealt a hand '''
         return self.status
 
     def set_dealt(self):
+        ''' return the dealt status '''
         self.status = True
 
     def draw(self, canvas, pos):
+        ''' render the stuff '''
         print(canvas, pos)
 
 
 class Hand:
-    # define hand class
+    ''' define hand class '''
     def __init__(self):
         self.hand = []
 
@@ -60,9 +65,11 @@ class Hand:
         return len(self.hand)
 
     def add_card(self, card):
+        ''' add a card '''
         self.hand.append(card)
 
     def get_value(self):
+        ''' get the value '''
         ace = False
         value = 0
         for card in self.hand:
@@ -87,11 +94,12 @@ class Hand:
         return value
 
     def draw(self, canvas, pos):
+        ''' draw '''
         print(canvas, pos)
 
 
 class Deck:
-    # define the Deck class
+    ''' define the Deck class '''
     def __init__(self):
         self.deck = []
         for suit in SUITS:
@@ -99,9 +107,11 @@ class Deck:
                 self.deck.append(Card(suit, rank))
 
     def shuffle(self):
+        ''' shuffle the deck '''
         random.shuffle(self.deck)
 
     def deal_card(self):
+        ''' deal a card '''
         card = random.choice(self.deck)
         while card.dealt():
             card = random.choice(self.deck)
@@ -119,21 +129,8 @@ class Deck:
 
 
 def init():
-    # initialise the game
-    global game_deck
-    global pile
-    global waste
-    global base1
-    global base2
-    global base3
-    global base4
-    global base5
-    global base6
-    global base7
-    global foundation_hearts
-    global foundation_spades
-    global foundation_clubs
-    global foundation_diamonds
+    ''' initialise the game '''
+
     game_deck = Deck()
     game_deck.shuffle()
 
@@ -174,13 +171,16 @@ def init():
         card += 1
 
 
-init()
-print("Base 1: " + str(len(base1))+" : " + str(base1))
-print("Base 2: " + str(len(base2))+" : " + str(base2))
-print("Base 3: " + str(len(base3))+" : " + str(base3))
-print("Base 4: " + str(len(base4))+" : " + str(base4))
-print("Base 5: " + str(len(base5))+" : " + str(base5))
-print("Base 6: " + str(len(base6))+" : " + str(base6))
-print("Base 7: " + str(len(base7))+" : " + str(base7))
-print("Pile  : " + str(len(pile))+" : " + str(pile))
-print("Waste : " + str(len(waste))+" : " + str(waste))
+        print("Base 1: " + str(len(base1))+" : " + str(base1))
+        print("Base 2: " + str(len(base2))+" : " + str(base2))
+        print("Base 3: " + str(len(base3))+" : " + str(base3))
+        print("Base 4: " + str(len(base4))+" : " + str(base4))
+        print("Base 5: " + str(len(base5))+" : " + str(base5))
+        print("Base 6: " + str(len(base6))+" : " + str(base6))
+        print("Base 7: " + str(len(base7))+" : " + str(base7))
+        print("Pile  : " + str(len(pile))+" : " + str(pile))
+        print("Waste : " + str(len(waste))+" : " + str(waste))
+
+# Main loop for the game
+if __name__ == '__main__':
+    init()

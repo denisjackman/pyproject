@@ -16,7 +16,7 @@ if not pygame.mixer:
 WIDTH = 640
 HEIGHT = 480
 TITLE = "My_Project"
-Speed = [2,2]
+Speed = [2, 2]
 
 # Colours Add them as needed
 white_color = pygame.Color(255,255,255)
@@ -37,7 +37,7 @@ fontObj3 = pygame.font.Font(pygame.font.match_font('timenewroman'),32)
 
 canvas = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption(TITLE)
-COUNT = 0
+
 draw_colour = gold_color
 
 # Helper Functions
@@ -86,25 +86,26 @@ def load_sound(name):
         print (f'Cannot load sound: {name} : {message}')
     return sound
 
-def draw_handler(dhcanvas):
+def draw_handler(dhcanvas, dhcount):
     '''
         draw handler function
     '''
     dhcanvas.fill((0,0,0))
-    global COUNT
-    COUNT +=1
+    dhcount +=1
     text_draw = fontObj4.render("CodeSkulptor Port",True,draw_colour)
     text_draw2 = fontObj4.render("Tutorial",True,draw_colour)
-    if COUNT % 90 < 45:
+    if dhcount % 90 < 45:
         dhcanvas.blit(text_draw,(190,220))
     else:
         dhcanvas.blit(text_draw2,(250,220))
     pygame.display.update()
+    return dhcount
 
 def main():
     '''
         main function
     '''
+    count = 0
     running = True
     clock = pygame.time.Clock()
     while running:
@@ -115,7 +116,7 @@ def main():
                 pass
             elif event.type == pygame.KEYDOWN:
                 pass
-        draw_handler(canvas)
+        count = draw_handler(canvas, count)
         clock.tick(60)
     pygame.quit()
 

@@ -5,6 +5,7 @@
 **/secrets/*
 **/.pytest_cache/*
 **/pyproject-env/*
+**/.vscode/*
 credentials.json
 
 # Compiled source #
