@@ -2,7 +2,7 @@
     write emails
     # 2022 07 27 - NO LONGER WORKS THIS WAY AND NEEDS REDOING
 '''
-# fixme a total rewrite as it no longer works
+
 import smtplib
 import json
 
