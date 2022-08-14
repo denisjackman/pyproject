@@ -8,17 +8,19 @@ import time
 import math
 import urllib.request
 import urllib.parse
-import optparse
+import argparse
 import hashlib
 from html import escape
-from traceback import format_exc
+
 import multiprocessing as mp
 
 
 from bs4 import BeautifulSoup
 
 class Link (object):
-
+    '''
+        link object to be used in the graph
+    '''
     def __init__(self, src, dst, link_type):
         self.src = src
         self.dst = dst
@@ -36,8 +38,10 @@ class Link (object):
         return self.src + " -> " + self.dst
 
 class Crawler(object):
-
-    def __init__(self, root, depth_limit, confine=None, exclude=[], locked=True, filter_seen=True):
+    '''
+        crawler object to be used in the graph
+    '''
+    def __init__(self, root, depth_limit, confine=None, exclude=None, locked=True, filter_seen=True):
         self.root = root
         self.host = urllib.parse.urlparse(root)[1]
 
@@ -45,7 +49,7 @@ class Crawler(object):
         self.depth_limit = depth_limit # Max depth (number of hops from root)
         self.locked = locked           # Limit search to a single host?
         self.confine_prefix=confine    # Limit search to this prefix
-        self.exclude_prefixes=exclude; # URL prefixes NOT to visit
+        self.exclude_prefixes=exclude  # URL prefixes NOT to visit
 
 
         self.urls_seen = set()          # Used to avoid putting duplicates in queue
@@ -76,8 +80,8 @@ class Crawler(object):
         visiting.  All occurrences of equivalent URLs are treated as
         identical.
 
-        All this does is strip the \"fragment\" component from URLs,
-        so that http://foo.com/blah.html\#baz becomes
+        All this does is strip the fragment component from URLs,
+        so that http://foo.com/blah.html#baz becomes
         http://foo.com/blah.html """
 
         base, frag = urllib.parse.urldefrag(url)
@@ -100,13 +104,13 @@ class Crawler(object):
 
     def _not_visited(self, url):
         """Pass if the URL has not already been visited"""
-        return (url not in self.visited_links)
+        return url not in self.visited_links
 
     def _same_host(self, url):
         """Pass if the URL is on the same host as the root URL"""
         try:
             host = urllib.parse.urlparse(url)[1]
-            return re.match(".*%s" % self.host, host)
+            return re.match(f" {self.host} {host}", re.IGNORECASE)
         except Exception as e:
             print(sys.stderr, f"ERROR: Can't process url '{url}' ({e})")
             return False
@@ -170,6 +174,7 @@ class Crawler(object):
                     #print format_exc()
 
 class OpaqueDataException (Exception):
+    ''' Exception to be raised when the data is not in the expected format '''
     def __init__(self, message, mimetype, url):
         Exception.__init__(self, message)
         self.mimetype=mimetype
@@ -177,7 +182,6 @@ class OpaqueDataException (Exception):
 
 
 class Fetcher(object):
-
     """The name Fetcher is a slight misnomer: This class retrieves and interprets web pages."""
 
     def __init__(self, url):
@@ -188,6 +192,9 @@ class Fetcher(object):
         return self.out_urls[x]
 
     def out_links(self):
+        '''
+        Return a list of all the URLs found on the page.
+        '''
         return self.out_urls
 
     #def _addHeaders(self, request):
@@ -203,30 +210,30 @@ class Fetcher(object):
         return (request, handle)
 
     def fetch(self):
+        ''' fetch the url and parse the results '''
         request, handle = self._open()
         #self._addHeaders(request)
         if handle:
             try:
                 data=handle.open(request)
                 mime_type=data.info().gettype()
-                url=data.geturl();
+                url=data.geturl()
                 if mime_type != "text/html":
-                    raise OpaqueDataException("Not interested in files of type %s" % mime_type,
-                                              mime_type, url)
+                    raise OpaqueDataException(f"Not interested in files of type {mime_type} ({url})", mime_type, url)
                 content = data.read()
                 soup = BeautifulSoup(content)
                 tags = soup('a')
             except urllib.request.HTTPError as error:
                 if error.code == 404:
-                    print >> sys.stderr, "ERROR: %s -> %s" % (error, error.url)
-                else:
-                    print >> sys.stderr, "ERROR: %s" % error
+                    print(f"ERROR: {error} -> {error.url}", sys.stderr)
+                    return
+                print(f"ERROR: {error}", sys.stderr)
                 tags = []
             except urllib.request.URLError as error:
-                print >> sys.stderr, "ERROR: %s" % error
+                print (f"ERROR: {error}", sys.stderr)
                 tags = []
             except OpaqueDataException as error:
-                print >>sys.stderr, "Skipping %s, has type %s" % (error.url, error.mimetype)
+                print(f"Skipping {error.url}, has type {error.mimetype}", sys.stderr)
                 tags = []
             for tag in tags:
                 href = tag.get("href")
@@ -236,15 +243,17 @@ class Fetcher(object):
                         self.out_urls.append(url)
 
 def getLinks(url):
+    '''
+    Returns a list of links from a given url
+    '''
     page = Fetcher(url)
     page.fetch()
-    """for i, url in enumerate(page):
-        print "%d. %s" % (i, url) """
+
     j = 1
     for i, url in enumerate(page):
         if url.find("http")>=0:
-	        print("%d. %s" % (j, url))
-	        j = j + 1
+            print("{j} {url}")
+            j += 1
 
 def parse_options():
     """parse_options() -> opts, args
@@ -253,34 +262,34 @@ def parse_options():
     the parsed options and arguments.
     """
 
-    parser = optparse.OptionParser()
+    parser = argparse.ArgumentParser()
 
-    parser.add_option("-q", "--quiet",
+    parser.add_argument("-q", "--quiet",
             action="store_true", default=False, dest="quiet",
             help="Enable quiet mode")
 
-    parser.add_option("-l", "--links",
+    parser.add_argument("-l", "--links",
             action="store_true", default=False, dest="links",
             help="Get links for specified url only")
 
-    parser.add_option("-d", "--depth",
+    parser.add_argument("-d", "--depth",
             action="store", type="int", default=30, dest="depth_limit",
             help="Maximum depth to traverse")
 
-    parser.add_option("-c", "--confine",
+    parser.add_argument("-c", "--confine",
             action="store", type="string", dest="confine",
             help="Confine crawl to specified prefix")
 
-    parser.add_option("-x", "--exclude", action="append", type="string",
+    parser.add_argument("-x", "--exclude", action="append", type="string",
                       dest="exclude", default=[], help="Exclude URLs by prefix")
 
-    parser.add_option("-L", "--show-links", action="store_true", default=False,
+    parser.add_argument("-L", "--show-links", action="store_true", default=False,
                       dest="out_links", help="Output links found")
 
-    parser.add_option("-u", "--show-urls", action="store_true", default=False,
+    parser.add_argument("-u", "--show-urls", action="store_true", default=False,
                       dest="out_urls", help="Output URLs found")
 
-    parser.add_option("-D", "--dot", action="store_true", default=False,
+    parser.add_argument("-D", "--dot", action="store_true", default=False,
                       dest="out_dot", help="Output Graphviz dot file")
 
 
@@ -321,7 +330,7 @@ class DotWriter:
             name = "N"+m.hexdigest()
             self.node_alias[url]=name
             if not silent:
-                print("\t%s [label=\"%s\"];" % (name, url))
+                print("\t{name} [label=\"{url}\"];")
             return name
 
 
@@ -339,6 +348,7 @@ class DotWriter:
 
 
 def main():
+    ''' main function '''
     opts, args = parse_options()
 
     url = args[0]
@@ -353,12 +363,12 @@ def main():
 
     sTime = time.time()
 
-    print(sys.stderr,  "Crawling %s (Max Depth: %d)" % (url, depth_limit))
+    print(f"Crawling {url} (Max Depth: {depth_limit})", file=sys.stderr)
     crawler = Crawler(url, depth_limit, confine_prefix, exclude)
     crawler.crawl()
 
     if opts.out_urls:
-        print("\n".join(crawler.urls_seen))
+        print(f"\n {crawler.urls_seen} URLs found")
 
     if opts.out_links:
         print("\n".join([str(l) for l in crawler.links_remembered]))
@@ -370,10 +380,9 @@ def main():
     eTime = time.time()
     tTime = eTime - sTime
 
-    print(sys.stderr, "Found:    %d" % crawler.num_links)
-    print(sys.stderr, "Followed: %d" % crawler.num_followed)
-    print(sys.stderr, "Stats:    (%d/s after %0.2fs)" % (
-            int(math.ceil(float(crawler.num_links) / tTime)), tTime))
+    print(sys.stderr, f"Found:    {crawler.num_links}")
+    print(sys.stderr, f"Followed: {crawler.num_followed}")
+    print(sys.stderr, f"Stats:    {tTime} after {(int(math.ceil(float(crawler.num_links) / tTime)), tTime)}")
 
 if __name__ == "__main__":
     main()
