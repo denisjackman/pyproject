@@ -3,26 +3,26 @@
 '''
 import yaml
 grp_list = []
-grp_list_pos = -1
+GRP_LIST_POS = -1
 grp_content = []
 grp_name = []
 print(grp_content)
-with open('Address_Groups.txt') as f:
+with open('Address_Groups.txt', encoding='utf8') as f:
     for line in f:
         if line.split(' ')[1] == "shared":
             name = line.split(' ')[3]
             grp_list.append((name, []))
             if '[' in line:
                 content = line.split('[')[1]
-                grp_list[grp_list_pos][1].append(content)
-                grp_list_pos +=1
+                grp_list[GRP_LIST_POS][1].append(content)
+                GRP_LIST_POS +=1
             else:
                 content = line.split(' ')[5]
-                grp_list[grp_list_pos][1].append(content)
-                grp_list_pos += 1
+                grp_list[GRP_LIST_POS][1].append(content)
+                GRP_LIST_POS += 1
 
 for name,content in grp_list:
-    with open(f'output/{name}.yaml', 'w') as f:
+    with open(f'output/{name}.yaml', 'w', encoding='utf8') as f:
         manifest = {
             'apiVersion': 'firewall.skybet.net/v1',
             'kind': 'AddressGroup',

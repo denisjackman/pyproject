@@ -7,95 +7,103 @@ __author__ = 'Denis Jackman'
 import sys
 import os
 
-DebugMode = False
-StartDir ="/Users/username/Documents/workspace/tools/"
+DEBUGMODE = False
+STARTDIR ="/Users/username/Documents/workspace/tools/"
 
-dryRun = True
-fileExt = False
-zeroFile = False
-removeFile = False
-findDup = False
+DRYRUN = True
+FILEEXT = False
+ZEROFILE = False
+REMOVEFILE = False
+FINDDUP = False
 
-total = len(sys.argv)
-cmdargs = str(sys.argv)
+TOTAL = len(sys.argv)
+CMDARGS = str(sys.argv)
 
 def is_file(fpath):
+    '''	is file '''
     return True if os.path.isfile(fpath)  else False
 
 def is_non_zero_file(fpath):
+    '''	is non zero file '''
     return True if os.path.isfile(fpath) and os.path.getsize(fpath) > 0 else False
 
 def is_zero_file(fpath):
+    '''	is zero file '''
     return True if os.path.isfile(fpath) and os.path.getsize(fpath) == 0 else False
 
-def zeroFilecheck(fpath):
-	if is_file(fpath) :
-		if is_zero_file(fpath) :
-				return True
-	return False
+def ZEROFILEcheck(fpath):
+    ''' zero file check '''
+    if is_file(fpath):
+        if is_zero_file(fpath):
+            return True
+        return False
 
 def remove_File(fpath):
-	if dryRun :
-		print(f"I would have removed {fpath}")
-	else :
-		os.remove(fpath)
+    ''' remove file '''
+    if DRYRUN:
+        print(f"I would have removed {fpath}")
+        return
+    os.remove(fpath)
 
 def zero_file():
-	fileList=os.listdir(StartDir)
-	for file in fileList :
-		fileName = StartDir+"/"+file
-		if zeroFilecheck(fileName):
-            if removeFile:
+    ''' zero file '''
+    fileList=os.listdir(STARTDIR)
+    for file in fileList:
+        fileName = STARTDIR+"/"+file
+        if ZEROFILEcheck(fileName):
+            if REMOVEFILE:
                 remove_File(fileName)
             else:
                 print(file)
 
 def find_dup():
-	fileList=os.listdir(StartDir)
-	for file in fileList :
-		fileName = StartDir+"/"+file
-		if file.find("(") != -1 :
-			if removeFile :
-				remove_File(fileName)
- 			else :
- 				print file
+    ''' find duplicate files '''
+    fileList=os.listdir(STARTDIR)
+    for file in fileList:
+        fileName = STARTDIR+"/"+file
+        if file.find("(") != -1:
+            if REMOVEFILE:
+                remove_File(fileName)
+            else:
+                print(file)
 
 def file_ext():
-	extList=[]
-	fileListExt=os.listdir(StartDir)
-	for file in fileListExt :
-		fileName = StartDir+"/"+file
-		if is_file(fileName) :
-			extName = os.path.splitext(fileName)[-1].lower()
-			extList.append(extName)
-	extset = set(extList)
-	NewExtList = list(extset)
-	print NewExtList
+    ''' file extension '''
+    extList=[]
+    fileListExt=os.listdir(STARTDIR)
+    for file in fileListExt :
+        fileName = STARTDIR+"/"+file
+        if is_file(fileName):
+            extName = os.path.splitext(fileName)[-1].lower()
+            extList.append(extName)
+    extset = set(extList)
+    NewExtList = list(extset)
+    print(NewExtList)
 
-if DebugMode :
-	print ("The total numbers of args passed to the script: %d " % total)
-	print ("Args list: %s " % cmdargs)
-	print ("Script name: %s" % str(sys.argv[0]))
+if DEBUGMODE:
+    print(f"The TOTAL numbers of args passed to the script: {TOTAL}")
+    print(f"Args list: {CMDARGS}")
+    print(f"Script name: {str(sys.argv[0])}")
 
-for i in range(total):
-	if DebugMode :
-		print ("Argument # %d : %s" % (i, str(sys.argv[i])))
-	if str(sys.argv[i]) == "--dryrun" :
-		dryRun = True
-	if str(sys.argv[i]) == "--fileext" :
-		fileExt = True
-	if str(sys.argv[i]) == "--zerofile" :
-		zeroFile = True
-	if str(sys.argv[i]) == "--removefile" :
-		removeFile = True
-	if str(sys.argv[i]) == "--finddup" :
-		findDup = True
+for i in range(TOTAL):
+    if DEBUGMODE:
+        print(f"Argument # {i} : {str(sys.argv[i])}")
+    if str(sys.argv[i]) == "--DRYRUN":
+        DRYRUN = True
+    if str(sys.argv[i]) == "--FILEEXT":
+        FILEEXT = True
+    if str(sys.argv[i]) == "--ZEROFILE":
+        ZEROFILE = True
+    if str(sys.argv[i]) == "--REMOVEFILE":
+        REMOVEFILE = True
+    if str(sys.argv[i]) == "--FINDDUP":
+        FINDDUP = True
 
-if zeroFile :
-	zero_file()
+if ZEROFILE:
+    zero_file()
 
-if findDup :
-	find_dup()
+if FINDDUP:
+    find_dup()
 
-if fileExt :
-	file_ext()
+if FILEEXT:
+    file_ext()

@@ -3,7 +3,7 @@
 '''
 grp_content = []
 print(grp_content)
-with open('Address_Groups.txt') as f:
+with open('Address_Groups.txt', encoding='utf8') as f:
     for line in f:
         if line.split(' ')[1] == "shared":
             grp_name = line.split(' ')[3]
