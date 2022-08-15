@@ -20,7 +20,7 @@ __license__ = "Python"
 file_list = [".pyc" ]
 VERBOSE_MODE = False
 DELETE_MODE = True
-start_directory = "/opt/share/workspace"
+START_DIRECTORY = "/opt/share/workspace"
 
 def walk_through(params):
     """
@@ -96,8 +96,8 @@ if __name__ == "__main__":
         elif opt in ("-v", "--verbose"):
             VERBOSE_MODE = args
         elif opt in ("-s", "--start"):
-            start_directory = args
+            START_DIRECTORY = args
         elif opt in ("-d", "--delete"):
             DELETE_MODE = args
 
-    print(walk_through(start_directory))
+    print(walk_through(START_DIRECTORY))

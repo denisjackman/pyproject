@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # Import the os module, for the os.walk function
 '''
-    file renamer
+    file RENAMEr
 '''
 import os
-import magic
 import sys
 import getopt
+import magic
 
 
 ext = {   "Apple QuickTi":"mov",
@@ -17,47 +17,47 @@ ext = {   "Apple QuickTi":"mov",
           "Ogg data, OGM":"ogg",
           "RIFF (little-":"avi"}
 
-series = ''
-season = ''
-rename = False
+SERIES = ''
+SEASON = ''
+RENAME = False
 
 # set the directory you want to start from
-rootDir = '.'
+ROOTDIR = '.'
 
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "hrn:s:", ["name=", "season="])
+    opts, args = getopt.getopt(sys.argv[1:], "hrn:s:", ["name=", "SEASON="])
 except getopt.GetoptError:
-    print('filenamer.py -n <Name> -s <season> -r ')
+    print('filenamer.py -n <Name> -s <SEASON> -r ')
     sys.exit(2)
 for opt, arg in opts:
     if opt == '-h':
-        print('filenamer.py -n <Name> -s <season> -r ')
+        print('filenamer.py -n <Name> -s <SEASON> -r ')
         sys.exit()
     elif opt in ("-n", "--name"):
-        series = arg
-    elif opt in ("-s", "--season"):
-        season = arg
-    elif opt in ("-r", "--rename"):
-        rename = True
+        SERIES = arg
+    elif opt in ("-s", "--SEASON"):
+        SEASON = arg
+    elif opt in ("-r", "--RENAME"):
+        RENAME = True
     else:
-        print('filenamer.py -n <Name> -s <season> -r')
+        print('filenamer.py -n <Name> -s <SEASON> -r')
         sys.exit()
 
-if series == "":
+if SERIES == "":
     sys.exit()
 
-if season == "":
+if SEASON == "":
     sys.exit()
 
-for dirName, subdirList, fileList in os.walk(rootDir):
+for dirName, subdirList, fileList in os.walk(ROOTDIR):
     for fname in fileList:
         if fname.find('.') == -1:
-             name = fname[2:]
-             extension = magic.from_file(dirName+"/"+fname)[:13]
-             episode = fname[:2]
-             newfile = series+"."+season+episode+"."+name+"."+ext[extension]
-             if rename:
-                print(f"+[{fname}][{newfile}] - renamed")
-                os.rename(fname, newfile)
-             else:
+            name = fname[2:]
+            extension = magic.from_file(dirName+"/"+fname)[:13]
+            episode = fname[:2]
+            newfile = SERIES+"."+SEASON+episode+"."+name+"."+ext[extension]
+            if RENAME:
+                print(f"+[{fname}][{newfile}] - RENAMEd")
+                os.RENAME(fname, newfile)
+            else:
                 print(f"+[{fname}][{newfile}] - test")

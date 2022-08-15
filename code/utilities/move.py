@@ -4,14 +4,14 @@
 '''
 # Import the os module, for the os.walk function
 import os
-import magic
 
 # set the sprites you want to start from
-rootDir = '.'
-newname = "pic"
-newnum = 1
-for dirName, subdirList, fileList in os.walk(rootDir):
+ROOTDIR = '.'
+NEWNAME = "pic"
+NEWNUM = 1
+
+for dirName, subdirList, fileList in os.walk(ROOTDIR):
     for fname in fileList:
-        newfile =  newname+str(newnum).zfill(3)+os.path.splitext(fname)[1]
+        newfile =  NEWNAME+str(NEWNUM).zfill(3)+os.path.splitext(fname)[1]
         os.rename(fname, newfile)
-        newnum += 1
+        NEWNUM += 1
