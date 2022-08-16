@@ -56,7 +56,6 @@ class TGameMenu:
 
         # Iterate through menu items
         for i,itemi in enumerate(self.menuitems):
-            # FIXME: skinnable colors
 
             # Menu item color is white
             kolori = (0,0,0)
@@ -72,12 +71,12 @@ class TGameMenu:
             # Check if menu items are value editors
             if len(itemi[2]) >= 2:
                 if itemi[2][0] == "value_int_editor":
-                    teksti = "%s (%d)" % (teksti, itemi[2][1])
+                    teksti = f"{teksti} {itemi[2][1]}"
                 if itemi[2][0] == "value_bool_editor":
                     if itemi[2][1]:
-                        teksti = "%s (%s)" % (teksti, "on")
+                        teksti = f"{teksti} (on)"
                     else:
-                        teksti = "%s (%s)" % (teksti, "off")
+                        teksti = f"{teksti} (off)"
 
             # Draw the menu item text
             self.text_at(teksti,(self.start_x,self.start_y+self.spacing*i),
@@ -93,13 +92,15 @@ class TGameMenu:
         self.text_at("Conquer Dev Team http://pyconquer.googlecode.com/",(400,545)
         ,self.used_font,vari=(50,185,10),wipe_background=False)
     def rullaa(self,dy):
-        # Change the selected menu item
+        '''# Change the selected menu item'''
         self.valinta += dy
-        if self.valinta < 0: self.valinta = len(self.menuitems) - 1
-        if self.valinta == len(self.menuitems): self.valinta = 0
+        if self.valinta < 0:
+            self.valinta = len(self.menuitems) - 1
+        if self.valinta == len(self.menuitems):
+            self.valinta = 0
     def edit_value(self,dv):
-        # This is totally unreadable :D
-        # Well it edits values in their border values
+        '''# This is totally unreadable :D
+        # Well it edits values in their border values'''
         if len(self.menuitems[self.valinta][2]) >= 2:
             if self.menuitems[self.valinta][2][0] == "value_int_editor":
                 self.menuitems[self.valinta][2][1] += dv
@@ -148,6 +149,7 @@ class TGameMenu:
                         self.draw_items(teksti)
             pygame.display.flip()
     def text_at(self,teksti,coords,fontti,wipe_background=True,drop_shadow=True,vari=(255,255,255),keskita=True,flippaa=False):
+        ''' # Render text at given coordinates '''
         text = fontti.render(teksti,1,vari)
         koko = fontti.size(teksti)
         if wipe_background:
@@ -162,5 +164,5 @@ class TGameMenu:
         if flippaa:
             pygame.display.flip()
     def select(self):
-        # User selects a menu item
+        ''' # User selects a menu item '''
         return self.menuitems[self.valinta][1]

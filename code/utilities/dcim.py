@@ -3,9 +3,9 @@
     find files
 '''
 import os
-rootDir = '.'
+ROOTDIR = '.'
 
-for dirName, subdirList, fileList in os.walk(rootDir):
+for dirName, subdirList, fileList in os.walk(ROOTDIR):
     for filename in fileList:
         if filename.find('.') == -1:
             # os.rename(filename, filename+".dcim")

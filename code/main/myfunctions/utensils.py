@@ -1,7 +1,6 @@
 ''' utensils '''
 import random
 import json
-import urllib3
 
 def print_results(data):
     '''

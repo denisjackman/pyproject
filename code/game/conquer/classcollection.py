@@ -112,8 +112,7 @@ class TCursor:
             self.chosen_dump = None
         else:
             # Have we clicked gui elements?
-            # FIXME: change editor gui elements to be modded with skin-file
-            # TODO: a test item
+
             if self.mouse_pos[0] >= 620:
                 if self.mouse_pos[1] >= 366:
                     if self.mouse_pos[0] <= 782:

@@ -55,7 +55,6 @@ edm_oddy = (
 )
 
 # Load four different fonts.
-# FIXME: There could be a class that is a font container
 pygame.init()
 pygame.font.init()
 font = pygame.font.Font(None, 12)
@@ -340,7 +339,6 @@ class TGB:
         if self.playerlist[0].ai_controller:
             # The AI routines for CPU Player are called from it's AI-Controller
             self.playerlist[0].ai_controller.act(self.ai_recursion_depth)
-            # FIXME, cpu intensive? Well anyway, make sure that dumps are on their places
             self.fill_dumps()
             # Next player's turn
             self.end_turn()
@@ -606,9 +604,10 @@ class TGB:
                 # Now the dump is registered
                 self.actors.add(new_shared_resource_dump)
     def fill_dumps(self):
+        '''
         # Fill dumps should be called when lands are conquered
         # CPU INTENSIVE?
-
+        '''
         # Keep count of already searched lands
         searched = set([])
 
@@ -665,17 +664,17 @@ class TGB:
                     # Then we'll merge dumps on the island
                     self.merge_dumps(search_dumps[0],list(search_dumps[1]))
     def fillmap(self, piece):
-        # Self - explanatory
+        ''' # Self - explanatory '''
         self.data = {}
         for x in range(30):
             for y in range(14):
                 self.data[self.gct(x,y)] = piece
     def actorgctat(self,gctee):
-        # Self - explanatory
+        ''' # Self - explanatory '''
         gctee = gctee.split(" ")
         return self.actorat(int(gctee[0]),int(gctee[1]))
     def actorat(self,x,y):
-        # Search actor - instances by coordinates
+        ''' # Search actor - instances by coordinates '''
         for actori in self.actors:
             if actori.x==x and actori.y==y:
                 return actori
@@ -719,9 +718,12 @@ class TGB:
                         self.data[self.gct(x+edm[i][0],y+edm[i][1])] = playerid
                 d -= 1
     def whole_map_situation_score(self,for_who):
+        '''
         # This function is obsolete
+        '''
         return self.data.values().count(for_who)
     def ec(self,gctee):
+        ''' # Self - explanatory '''
         # Self - explanatory
         tmp = gctee.split(" ")
         return (int(tmp[0]),int(tmp[1]))
@@ -795,9 +797,11 @@ class TGB:
         else:
             return (mapX* hex_system.TILE_WIDTH,mapY* hex_system.ROW_HEIGHT)
     def draw_map_edit_utilities(self):
+        '''
         # Extra drawing routines for scenario editing mode
 
         # Text for selected map tile
+        '''
         if self.map_edit_info[2] == 0:
             teksti = "Eraser"
         else:
@@ -889,10 +893,11 @@ class TGB:
             self.text_at("Supplies: %d" % self.cursor.chosen_dump.supplies,(x1,y1+90),fontti=font4,wipe_background=False,color=kolorissi)
             self.screen.blit(self.pics.gi("dump"),(x1,y1))
     def get_human_and_cpu_count(self):
+        '''
         # This is very ugly piece of code.
         # It ask for scenario editing and random generated map,
         # how many human and cpu players will participate.
-        # FIXME: make this look good...
+        '''
         montako_h = 0
         okei = False
         while not okei:
@@ -925,7 +930,7 @@ class TGB:
         return montako_h,montako_c
 
     def is_blocked(self, actori, x, y):
-        # Check is coordinate(x,y) is blocked for actor actori
+        '''# Check is coordinate(x,y) is blocked for actor actori '''
 
         defender = self.actorat(x,y)
         if defender:
@@ -999,7 +1004,7 @@ class TGB:
         # blocked = False !!! The move is legal.
         return [False,0,0,"legal"]
     def generate_map(self,minsize,max_x):
-        # Generate simple random map
+        '''# Generate simple random map '''
         self.fillmap(0)
         ok = False
         while not ok:
@@ -1009,14 +1014,13 @@ class TGB:
         self.fill_dumps()
         self.salary_time_to_dumps_by_turn(self.get_player_id_list(),True)
     def clean_deaders(self):
-        # Clean dead actors, this is obsolete
+        '''# Clean dead actors, this is obsolete '''
         for actori in self.actors.copy():
             if actori.dead:
                 self.actors.discard(actori)
     def buy_units_by_turn(self):
         """
         This function buys and updates soldiers for CPU Players.
-        FIXME: The right place for this would be ai.py
         """
 
         # This is VERY MESSY function, cleaning will be done sometime
@@ -1095,7 +1099,6 @@ class TGB:
                 # BUT If we have upgradable soldiers AND over half of the
                 # possible attack targets need better soldiers, we'll
                 # update soldiers :)
-                # FIXME: pretty complicated
                 paatos = False
                 tooweakcount = 0
                 a_searched = []
@@ -1183,7 +1186,7 @@ class TGB:
                 if not ok:
                     self.update_own_soldiers(city,tulos,ykkoscount,soldiercounter2,paatos)
     def update_own_soldiers(self,city,tulos,ykkoscount,soldiercounter2,paatos):
-        # Update soldiers with supplies
+        '''# Update soldiers with supplies '''
         tries = 0
 
         # When we'll stop?
@@ -1230,7 +1233,7 @@ class TGB:
                             if (city.income - city.expends) == critical_cash:
                                 running = False
     def check_and_mark_if_someone_won(self):
-        # If only one player has lost==False, he is winner
+        '''# If only one player has lost==False, he is winner '''
         no_losers = [z for z in self.playerlist if not z.lost]
         if len(no_losers) == 1:
             no_losers[0].won = True
@@ -1267,20 +1270,22 @@ class TGB:
         except:
             pass
     def has_anyone_lost_the_game(self):
+        '''
         # Check if anyone has recently lost the game:
         #    - not marked as lost and has 0 dumps
+        '''
         for possible_new_loser in self.playerlist:
             if self.count_dumps_on_world(possible_new_loser.id) == 0 and not possible_new_loser.lost:
                 possible_new_loser.lost = True
     def count_dumps_on_world(self,pid):
-        # Self - explanatory
+        ''' Self - explanatory '''
         tulos = 0
         for actor in self.actors:
             if actor.dump and actor.side == pid and not actor.dead:
                 tulos += 1
         return tulos
     def show_own_units_that_can_move(self):
-        # Draw own units that have not moved yet
+        ''' # Draw own units that have not moved yet '''
         for actor in self.actors:
             if not actor.moved and actor.side == self.turn and not actor.dump:
                 if self.seenxy(actor.x,actor.y):
@@ -1344,6 +1349,7 @@ class TGB:
             kuolema = []
             mahdollinen_kuolema = []
     def pixelToHexMap(self, x1, y1):
+        ''' # Convert pixel coordinates to hex coordinates '''
         x=x1
         y=y1
         gridX = x/ hex_system.GRID_WIDTH
@@ -1386,7 +1392,7 @@ class TGB:
         if flippaa:
             pygame.display.flip()
     def draft_soldier(self,x,y):
-        # Valid coordinate?
+        '''# Valid coordinate?'''
         if not self.validxy(x,y):
             return
 
@@ -1430,7 +1436,7 @@ class TGB:
                         # Calculate dumps income and expends
                         self.salary_time_to_dumps_by_turn([self.turn],True)
     def end_turn(self):
-        # CPU INTENSIVE?
+        '''# CPU INTENSIVE?'''
         self.destroy_lonely_dumps()
         # CPU INTENSIVE?
         self.has_anyone_lost_the_game()
@@ -1526,6 +1532,7 @@ class TGB:
 
 
 def load_image_files_but_not_interface_image_files(imagehandler,graphics_path):
+    '''# Load all image files but not interface image files'''
     temppi = pygame.image.load(graphics_path+"skull7.png").convert_alpha()
     temppi.set_colorkey(temppi.get_at((0,0)))
     imagehandler.add_image(temppi,"skull")
