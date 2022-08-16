@@ -21,15 +21,15 @@ CMDARGS = str(sys.argv)
 
 def is_file(fpath):
     '''	is file '''
-    return True if os.path.isfile(fpath)  else False
+    return bool(os.path.isfile(fpath))
 
 def is_non_zero_file(fpath):
     '''	is non zero file '''
-    return True if os.path.isfile(fpath) and os.path.getsize(fpath) > 0 else False
+    return bool(os.path.isfile(fpath) and os.path.getsize(fpath) > 0)
 
 def is_zero_file(fpath):
     '''	is zero file '''
-    return True if os.path.isfile(fpath) and os.path.getsize(fpath) == 0 else False
+    return bool(os.path.isfile(fpath) and os.path.getsize(fpath) == 0 )
 
 def ZEROFILEcheck(fpath):
     ''' zero file check '''

@@ -58,7 +58,6 @@ def print_abacus(value):
         else:
             print("|"+abaci[:-int(nvalue[n])] + "   " + abaci[-int(nvalue[n]):]+"|")
         n = n + 1
-    return
 
 
 ###  TEST CASES

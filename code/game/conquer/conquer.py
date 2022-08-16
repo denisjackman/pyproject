@@ -164,7 +164,6 @@ while MAIN_LOOP_RUNNING:
 
     # User selected to edit a scenario
     if tulos == 3:
-        # FIXME: little better looking
         # Ask player counts
         m1,m2 = gb.get_human_and_cpu_count()
 

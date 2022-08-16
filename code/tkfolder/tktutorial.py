@@ -15,7 +15,9 @@ from tkinter import Tk, Frame, BOTH
 
 
 class Example(Frame):
-
+    '''
+        class exmaple(Frame):
+    '''
     def __init__(self, parent):
         Frame.__init__(self, parent, background="black")
 
@@ -24,13 +26,15 @@ class Example(Frame):
         self.initui()
 
     def initui(self):
-
+        '''
+            def initui(self):
+        '''
         self.parent.title("Test")
         self.pack(fill=BOTH, expand=1)
 
 
 def main():
-
+    ''' main function '''
     root = Tk()
     root.geometry("250x150+300+300")
     app = Example(root)
