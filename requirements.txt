@@ -49,3 +49,4 @@ RedDownloader
 instagrapi
 BeautifulSoup4
 python-magic
+phonenumbers
