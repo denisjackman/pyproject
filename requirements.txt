@@ -50,3 +50,4 @@ instagrapi
 BeautifulSoup4
 python-magic
 phonenumbers
+myswl-connector-python

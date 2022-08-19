@@ -23,30 +23,28 @@ def opendb(credid, database):
     """ This function opens the database connection """
     username = credid["username"]
     password = credid["password"]
-    hostname = credid["hostname"]
-
+    hostname = credid["hostname2"]
     try:
         my_db = mysql.connector.connect(
             host=hostname,
             user=username,
             password=password,
             database=database
-        )
-    except mysql.connector.Error as err:
-        message = f'oops! I did it again: {err}'
-        print(message)
+            )
+    except mysql.connector.errors.ProgrammingError as err:
+        print(f" Error: {err}")
+        return None
     print(f"{my_db} Connected OK")
     return my_db
 
 
 def sqlmain():
     """ This is the main routine for the program """
-    print("Starting the sequence.")
     credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
     use_db = opendb(credid, 'employees')
+    if use_db is None:
+        return None
     cursor = use_db.cursor()
-    # create_db_query = 'CREATE DATABASE online_movie_rating'
-    # conquery = ("SELECT * FROM FRUIT")
     query = ("SELECT first_name, last_name, hire_date FROM employees "
              "WHERE hire_date BETWEEN %s AND %s")
 
@@ -81,7 +79,8 @@ def sqlmain():
     print(f"I counted {counter} employee records that satisfied the query")
     print(f'I counted {databasecount} databases')
     print(f'I counted {tablecount} tables ')
-    print("finishing up and closing down.")
 
 if __name__ == '__main__':
+    print("Starting the sequence.")
     sqlmain()
+    print("finishing up and closing down.")
