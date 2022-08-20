@@ -51,3 +51,4 @@ BeautifulSoup4
 python-magic
 phonenumbers
 mysql-connector-python
+psutil
