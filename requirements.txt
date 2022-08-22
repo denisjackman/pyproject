@@ -52,3 +52,4 @@ python-magic
 phonenumbers
 mysql-connector-python
 psutil
+wikipedia
