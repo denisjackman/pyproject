@@ -18,7 +18,7 @@ Note that a lot of additional work is needed to turn it into an actual game.
 
 """
 
-import ConfigParser
+import configparser
 
 import pygame
 import pygame.locals as pg
@@ -57,10 +57,10 @@ class TileCache(object):
         image = pygame.image.load(filename).convert()
         image_width, image_height = image.get_size()
         tile_table = []
-        for tile_x in range(0, image_width/width):
+        for tile_x in range(0, int(image_width/width)):
             line = []
             tile_table.append(line)
-            for tile_y in range(0, image_height/height):
+            for tile_y in range(0, int(image_height/height)):
                 rect = (tile_x*width, tile_y*height, width, height)
                 line.append(image.subsurface(rect))
         return tile_table
@@ -89,6 +89,10 @@ class Shadow(pygame.sprite.Sprite):
         """Make the shadow follow its owner."""
 
         self.rect.midbottom = self.owner.rect.midbottom
+
+    def amI(self):
+        ''' do I '''
+        return True
 
 
 class Sprite(pygame.sprite.Sprite):
@@ -189,7 +193,7 @@ class Level(object):
     def load_file(self, filename="level.map"):
         """Load the level from specified file."""
 
-        parser = ConfigParser.ConfigParser()
+        parser = configparser.ConfigParser()
         parser.read(filename)
         self.tileset = parser.get("level", "tileset")
         self.map = parser.get("level", "map").split("\n")

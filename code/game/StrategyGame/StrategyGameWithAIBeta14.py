@@ -63,7 +63,6 @@ class Player():
         '''
         return self.gold
 
-
 class AI(Player):
     '''
         AI object
@@ -165,8 +164,6 @@ class AI(Player):
                     else:
 
                         gold_done = True
-
-
 
 def start():
     '''
@@ -448,7 +445,6 @@ def play_turn(current_player, next_player, turnWon, turn1):
 
             input("\nPress enter to continue ")
 
-
         elif choice in ("END", "E"):
             turn = False
             everything = [current_player, next_player, Won, turn]
@@ -458,12 +454,7 @@ def play_turn(current_player, next_player, turnWon, turn1):
 
         elif choice in ("QUIT", "Q"):
             sys.exit("QUITTING")
-
-
-        else:
-            print("Not an option")
-
-
+        print("Not an option")
 
     if turn==0:
         input("\nHit enter to end your turn. ")

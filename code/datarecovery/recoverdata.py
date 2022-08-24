@@ -14,18 +14,18 @@ __date__ = "$Date: 2022/08/19 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
+
+
 def main():
     '''
         main function
     '''
+
     PATH = "H:"
     DRIVE = f"\\\\.\\{PATH}"     # Open DRIVE as raw bytes
-    fileD = open(DRIVE, "rb")
     SIZE = 512              # SIZE of bytes to read
-    byte = fileD.read(SIZE) # Read 'SIZE' bytes
     OFFSET = 0              # Offset location
-    DREC = False            # Recovery mode
-    JDREC = False            # Recovery mode
+    REC = False            # Recovery mode
 
     RECOVERED = 0           # Recovered file ID
 
@@ -35,21 +35,24 @@ def main():
     JPEGFINISH = b'\xff\xd9'                         # JPEG finish
     PNGHEADER = b'\x89\x50\x4e\x47\x0d\x0a\x1a\x0a'  # PNG header
     PNGFINISH = b'\x49\x45\x4e\x44\xae\x42\x60\x82'  # PNG finish
-    PDFHEADER = b'%PDF-'                             # PDF header
     READSIZE = 0
     TOTALSIZE = psutil.disk_usage(PATH).total / 2**30 # Total size of drive in GB
+
+
+    fileD = open(DRIVE, "rb")
+    byte = fileD.read(SIZE) # Read 'SIZE' bytes
     print("==== Starting the scan ====")
     while byte:
         jfound = byte.find(JPEGHEADER)
         found = byte.find(PNGHEADER)
         if found >= 0:
-            DREC = True
+            REC = True
             print('==== Found PNG at location: ' + str(hex(found+(SIZE*OFFSET))) + ' ====')
             # Now lets create recovered file and search for ending signature
             RFILENAME = f"recovered/recover-{RECOVERED}.png"
             fileN = open(RFILENAME, "wb")
             fileN.write(byte[found:])
-            while DREC:
+            while REC:
                 byte = fileD.read(SIZE)
                 bfind = byte.find(PNGFINISH)
                 if bfind >= 0:
@@ -57,32 +60,32 @@ def main():
                     fileD.seek((OFFSET+1)*SIZE)
 
                     print(f"==== Wrote File to location:  {RFILENAME} ====\n")
-                    DREC = False
+                    REC = False
                     RECOVERED += 1
                     fileN.close()
                 else:
                     fileN.write(byte)
 
         if jfound >= 0:
-            JDREC = True
+            REC = True
             print('==== Found JPG at location: ' + str(hex(jfound+(SIZE*OFFSET))) + ' ====')
             # Now lets create recovered file and search for ending signature
-            JRFILENAME = f"recovered/recover-{RECOVERED}.png"
-            jfileN = open(JRFILENAME, "wb")
-            jfileN.write(byte[jfound:])
-            while JDREC:
+            FILENAME = f"recovered/recover-{RECOVERED}.png"
+            fileN = open(FILENAME, "wb")
+            fileN.write(byte[jfound:])
+            while REC:
                 byte = fileD.read(SIZE)
-                jbfind = byte.find(JPEGFINISH)
-                if jbfind >= 0:
-                    jfileN.write(byte[:jbfind+2])
+                find = byte.find(JPEGFINISH)
+                if find >= 0:
+                    fileN.write(byte[:find+2])
                     fileD.seek((OFFSET+1)*SIZE)
 
-                    print(f"==== Wrote File to location:  {JRFILENAME} ====\n")
-                    JDREC = False
+                    print(f"==== Wrote File to location:  {FILENAME} ====\n")
+                    REC = False
                     RECOVERED += 1
-                    jfileN.close()
+                    fileN.close()
                 else:
-                    jfileN.write(byte)
+                    fileN.write(byte)
 
 
         byte = fileD.read(SIZE)
