@@ -2,11 +2,10 @@
 # -*- coding: utf-8 -*-
 '''
     this gives you some details for a phone number
-    
     pip install phonenumbers
 '''
 import phonenumbers
-from phonenumbers import geocoder, carrier 
+from phonenumbers import geocoder, carrier
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 1.10 $"
 __date__ = "$Date: 2022/08/18 08:31:00 $"
@@ -18,7 +17,7 @@ def check_number(number):
     try:
         number = phonenumbers.parse(number)
         provider = carrier.name_for_number(number, "en")
-        region = geocoder.description_for_number(number, "en")         
+        region = geocoder.description_for_number(number, "en")
         return (True, number, provider, region)
     except phonenumbers.phonenumberutil.NumberParseException:
         return (False, None)

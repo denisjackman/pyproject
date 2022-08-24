@@ -37,6 +37,7 @@ def ZEROFILEcheck(fpath):
         if is_zero_file(fpath):
             return True
         return False
+    return None
 
 def remove_File(fpath):
     ''' remove file '''

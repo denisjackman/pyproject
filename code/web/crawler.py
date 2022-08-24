@@ -17,7 +17,7 @@ import multiprocessing as mp
 
 from bs4 import BeautifulSoup
 
-class Link (object):
+class Link():
     '''
         link object to be used in the graph
     '''
@@ -37,7 +37,7 @@ class Link (object):
     def __str__(self):
         return self.src + " -> " + self.dst
 
-class Crawler(object):
+class Crawler():
     '''
         crawler object to be used in the graph
     '''
@@ -115,6 +115,9 @@ class Crawler(object):
             print(sys.stderr, f"ERROR: Can't process url '{url}' ({e})")
             return False
 
+    def crawlerName(self):
+        ''' a second public method '''
+        return True
 
     def crawl(self):
 
@@ -181,7 +184,7 @@ class OpaqueDataException (Exception):
         self.url=url
 
 
-class Fetcher(object):
+class Fetcher():
     """The name Fetcher is a slight misnomer: This class retrieves and interprets web pages."""
 
     def __init__(self, url):
@@ -242,17 +245,17 @@ class Fetcher(object):
                     if url not in self:
                         self.out_urls.append(url)
 
-def getLinks(url):
+def getLinks(glurl):
     '''
     Returns a list of links from a given url
     '''
-    page = Fetcher(url)
+    page = Fetcher(glurl)
     page.fetch()
 
     j = 1
-    for i, url in enumerate(page):
-        if url.find("http")>=0:
-            print("{j} {url}")
+    for i, listurl in enumerate(page):
+        if listurl.find("http")>=0:
+            print(f"{j} {listurl}")
             j += 1
 
 def parse_options():
@@ -324,14 +327,13 @@ class DotWriter:
 
         if url in self.node_alias:
             return self.node_alias[url]
-        else:
-            m = hashlib.md5()
-            m.update(url)
-            name = "N"+m.hexdigest()
-            self.node_alias[url]=name
-            if not silent:
-                print("\t{name} [label=\"{url}\"];")
-            return name
+        m = hashlib.md5()
+        m.update(url)
+        name = "N"+m.hexdigest()
+        self.node_alias[url]=name
+        if not silent:
+            print("\t{name} [label=\"{url}\"];")
+        return name
 
 
     def asDot(self, links):
@@ -343,6 +345,10 @@ class DotWriter:
         for l in links:
             print("\t" + self._safe_alias(l.src) + " -> " + self._safe_alias(l.dst) + ";")
         print("}")
+
+    def DWName(self):
+        ''' public method '''
+        return True
 
 
 

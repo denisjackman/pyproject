@@ -53,3 +53,4 @@ phonenumbers
 mysql-connector-python
 psutil
 wikipedia
+configparser
