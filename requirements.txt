@@ -54,3 +54,4 @@ mysql-connector-python
 psutil
 wikipedia
 configparser
+kivymd

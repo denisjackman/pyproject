@@ -2,7 +2,7 @@
     https://levelup.gitconnected.com/10-interesting-python-tkinter-programs-with-code-df52174993e1
 '''
 
-import tkinter as tk 
+import tkinter as tk
 window = tk.Tk()
 
 label= tk.Label(window,text = "TO-DO-LIST")
