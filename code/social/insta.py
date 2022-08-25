@@ -69,7 +69,7 @@ hashtags = GenerateCaption()
 caption = f'Credit to {author} \n {hashtags}'
 try:
     client.photo_upload('y:/Resources/meme/meme1.jpeg', caption)
-except ClientError as err:
+except client.ClientError as err:
     print(err)
 finally:
     print('Uploaded')

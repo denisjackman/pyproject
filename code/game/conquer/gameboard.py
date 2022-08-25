@@ -24,12 +24,13 @@
 from operator import itemgetter
 import os
 from time import time
+import random
 
 import pygame
 import hex_system
-from classcollection import *
-from recurser import *
-from ai import *
+import classcollection as cc
+import recurser as rc
+import ai
 
 
 _DEBUG = 0
@@ -91,10 +92,10 @@ class TGB:
         self.gamepath = gp + os.sep
 
         # Instance of recurser engine
-        self.rek = TRecurser(self)
+        self.rek = rc.TRecurser(self)
 
         # Instance of cursor
-        self.cursor = TCursor(self)
+        self.cursor = cc.TCursor(self)
         self.cursor.x = 10
         self.cursor.y = 10
 
@@ -305,9 +306,9 @@ class TGB:
         # If map is randomly generated, add players
         if randommap:
             for i in range(humanplayers):
-                self.playerlist.append(TPlayer("Player %d"%(i+1),i+1,self.screen,None))
+                self.playerlist.append(cc.TPlayer("Player %d"%(i+1),i+1,self.screen,None))
             for i in range(randomplayers_cpu):
-                self.playerlist.append(TPlayer("%s (cpu)"%(random.choice(self.cpu_names)),i+(humanplayers+1),self.screen,TAi(self)))
+                self.playerlist.append(cc.TPlayer("%s (cpu)"%(ai.random.choice(self.cpu_names)),i+(humanplayers+1),self.screen,ai.TAi(self)))
 
         # Clear data and actors from possible previous maps
         self.data = {}
@@ -443,6 +444,8 @@ class TGB:
         # Return boolean value if the coordinate is seen by player
         # (not scrolled out of borders)
         '''
+        a = y
+        a += 1
         return (0+self.cursor.scroll_x) <= x <= (14+self.cursor.scroll_x)
     def validxy(self, x, y):
         '''
@@ -599,7 +602,7 @@ class TGB:
                 # a Place was found for the new dump
                 x11,y11 = self.ec(uus_k)
                 # Create the dump
-                new_shared_resource_dump = TActor(x11,y11,side,level=0,dump=True)
+                new_shared_resource_dump = cc.TActor(x11,y11,side,level=0,dump=True)
                 new_shared_resource_dump.supplies = summed_supplies
                 # Now the dump is registered
                 self.actors.add(new_shared_resource_dump)
@@ -655,7 +658,7 @@ class TGB:
                                 # If a place was found for dump, we'll add
                                 # a new dump in actors.
                                 kalu = paikka.split(" ")
-                                self.actors.add(TActor(int(kalu[0]),int(kalu[1]),self.data[paikka],dump=True))
+                                self.actors.add(cc.TActor(int(kalu[0]),int(kalu[1]),self.data[paikka],dump=True))
                                 # Break the loop
                                 tries = 100
 
@@ -698,7 +701,7 @@ class TGB:
                     if ((self.data[self.gct(x,y)] in pelaajat) and (self.actorat(x,y) is None)):
                         ok = True
                 if retry < 500:
-                    self.actors.add(TActor(x,y,self.data[self.gct(x,y)],level=random.randint(1,3)))
+                    self.actors.add(cc.TActor(x,y,self.data[self.gct(x,y)],level=random.randint(1,3)))
                 d -= 1
     def fill_random_boxes(self,d,for_who,max_x):
         """
@@ -783,7 +786,9 @@ class TGB:
                     # The human player has lost, tell it
                     self.text_at("You (%s) lost..." % (tahko.nimi),(635,300),color=(0,0,0),
                     fontti=font3,wipe_background = False)
-        except:
+        except ValueError as err:
+            print(f"{err}")
+        finally:
             # Error concured, well do nothing about it...
             pass
 
@@ -903,7 +908,9 @@ class TGB:
         while not okei:
             try:
                 montako_h = int(self.text_input("How many human players (1-6)?", 800/2-110, 300 , 240, 45 ,onlynumbers=True))
-            except:
+            except ValueError as err:
+                print(f"{err}")
+            finally:
                 continue
             okei = True
             if montako_h > 6:
@@ -920,7 +927,9 @@ class TGB:
             while not okei:
                 try:
                     montako_c = int(self.text_input("How many cpu players (%d-%d)?"%(minssi,6-montako_h), 800/2-110, 300 , 240, 45 ,onlynumbers=True))
-                except:
+                except ValueError as err:
+                    print(f"{err}")
+                finally:
                     continue
                 okei = True
                 if montako_c > (6-montako_h):
@@ -1103,7 +1112,7 @@ class TGB:
                 tooweakcount = 0
                 a_searched = []
                 if soldiercounter > 0:
-                    urpo = TActor(0,0,self.turn,level=0,dump=False)
+                    urpo = cc.TActor(0,0,self.turn,level=0,dump=False)
                     for pala in tulos[1]:
                         xy = pala.split(" ")
                         xy[0] = int(xy[0])
@@ -1160,7 +1169,7 @@ class TGB:
                             city.expends += 1
                             city.income -= 1
                             tulos1 = tulos[0].split(" ")
-                            urpo = TActor(int(tulos1[0]),int(tulos1[1]),city.side,level=1,dump=False)
+                            urpo = cc.TActor(int(tulos1[0]),int(tulos1[1]),city.side,level=1,dump=False)
 
                             # 90% - (lvl*10%) chance to update it
                             # So mathematically possibility to update straight to level6:
@@ -1253,12 +1262,12 @@ class TGB:
                         rivi2 = rivi[:-1]
                         if rivi2 == "player":
                             if not self.map_edit_mode:
-                                self.playerlist.append(TPlayer("Player %d"%(y+1),y+1,self.screen,None))
+                                self.playerlist.append(cc.TPlayer("Player %d"%(y+1),y+1,self.screen,None))
                             else:
                                 self.map_edit_info[0] += 1
                         if rivi2 == "ai":
                             if not self.map_edit_mode:
-                                self.playerlist.append(TPlayer("%s (cpu)"%(random.choice(self.cpu_names)),y+1,self.screen,TAi(self)))
+                                self.playerlist.append(cc.TPlayer("%s (cpu)"%(random.choice(self.cpu_names)),y+1,self.screen,ai.TAi(self)))
                             else:
                                 self.map_edit_info[1] += 1
                     else:
@@ -1267,7 +1276,9 @@ class TGB:
                             rivi2 = rivi2.split("|")
                             hei = self.ec(rivi2[0])
                             self.data[self.gct(hei[0],hei[1])] = int(rivi2[1])
-        except:
+        except ValueError as err:
+            print(f"{err}")
+        finally:
             pass
     def has_anyone_lost_the_game(self):
         '''
@@ -1429,7 +1440,7 @@ class TGB:
                         if not soldier_to_update:
                             # There wasn't a soldier to update, player
                             # draft a new
-                            self.actors.add(TActor(x,y,actor.side,level=1,dump=False))
+                            self.actors.add(cc.TActor(x,y,actor.side,level=1,dump=False))
                         else:
                             # The soldier is now updated
                             soldier_to_update.level += 1

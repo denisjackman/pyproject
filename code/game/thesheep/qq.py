@@ -31,8 +31,8 @@ DY = [-1, 0, 1, 0]
 # Dimensions of the map tiles
 MAP_TILE_WIDTH, MAP_TILE_HEIGHT = 24, 16
 
-class TileCache(object):
-    """Load the tilesets lazily into global cache"""
+class TileCache():
+    """Load the tileesets lazily into global cache"""
 
     def __init__(self,  width=32, height=None):
         self.width = width
@@ -64,6 +64,10 @@ class TileCache(object):
                 rect = (tile_x*width, tile_y*height, width, height)
                 line.append(image.subsurface(rect))
         return tile_table
+
+    def isme(self):
+        ''' am I '''
+        return True
 
 
 class SortedUpdates(pygame.sprite.RenderUpdates):
