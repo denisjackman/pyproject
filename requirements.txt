@@ -55,3 +55,4 @@ psutil
 wikipedia
 configparser
 kivymd
+openpyxl
