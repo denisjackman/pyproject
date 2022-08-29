@@ -17,7 +17,7 @@ def get_ip():
     '''
         get ip function
     '''
-    response = requests.get('https://api64.ipify.org?format=json').json()
+    response = requests.get('https://api64.ipify.org?format=json', timeout=5).json()
     return response["ip"]
 
 def get_location(ip_address):
@@ -25,7 +25,7 @@ def get_location(ip_address):
         get location function
     '''
     #ip_address = get_ip()
-    response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
+    response = requests.get(f'https://ipapi.co/{ip_address}/json/', timeout=5).json()
     location_data = {
         "ip": ip_address,
         "city": response.get("city"),

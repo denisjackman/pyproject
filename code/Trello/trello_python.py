@@ -26,7 +26,7 @@ def create_board(board_name):
     """ create_board trello function """
     url = "https://api.trello.com/1/boards/"
     querystring = {"name": board_name, "key": key, "token": token}
-    response = requests.request("POST", url, params=querystring)
+    response = requests.request("POST", url, params=querystring, timeout=5)
     board_id = response.json()["shortUrl"].split("/")[-1].strip()
     return board_id
 
@@ -35,7 +35,7 @@ def create_list(board_id, list_name):
     """ create_list trello board function """
     url = f"https://api.trello.com/1/boards/{board_id}/lists"
     querystring = {"name": list_name, "key": key, "token": token}
-    response = requests.request("POST", url, params=querystring)
+    response = requests.request("POST", url, params=querystring, timeout=5)
     list_id = response.json()["id"]
     return list_id
 

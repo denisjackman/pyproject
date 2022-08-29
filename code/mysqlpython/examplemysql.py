@@ -79,6 +79,7 @@ def sqlmain():
     print(f"I counted {counter} employee records that satisfied the query")
     print(f'I counted {databasecount} databases')
     print(f'I counted {tablecount} tables ')
+    return None
 
 if __name__ == '__main__':
     print("Starting the sequence.")

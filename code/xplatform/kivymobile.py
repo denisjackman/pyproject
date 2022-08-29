@@ -9,7 +9,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.scrollview import ScrollView
-from kivy.uix.checkbox import CheckBox    
+from kivy.uix.checkbox import CheckBox
 from kivy.uix.image import Image
 from kivy.uix.popup import Popup
 
@@ -20,7 +20,7 @@ class MobileApp(App):
             build function
         '''
         # Layout of App
-        layout = BoxLayout(orientation="vertical")# Label 
+        layout = BoxLayout(orientation="vertical")# Label
         label = Label(text="Hello Kivy!")# Button
         btn = Button(text="Click Me!")# Button Action
         btn.bind(on_press=self.btn_pressed)# Input Box
@@ -47,7 +47,7 @@ class MobileApp(App):
 
     def btn_pressed(self, instance):
         ''' button pressed '''
-        print("Button Pressed!")# Run the App
+        print(f"Button Pressed! {instance}")# Run the App
 
 app = MobileApp()
 app.run()
