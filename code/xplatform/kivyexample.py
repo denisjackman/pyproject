@@ -1,5 +1,5 @@
 '''
-    KivyMS example program 
+    KivyMS example program
     https://medium.com/@jdgb.projects/how-to-create-beautiful-apps-with-python-cecff9afebca
 '''
 from kivymd.app import MDApp

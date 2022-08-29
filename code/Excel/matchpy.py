@@ -8,8 +8,8 @@ import sys
 
 print(f'Your python version is {sys.version_info[0]}.{sys.version_info[1]}. ')
 if sys.version_info[0] == 3 and sys.version_info[1] >= 10:
-    command = 'Hello, World!'
-    match command:
+    COMMAND = 'Hello, World!'
+    match COMMAND:
         case 'Hello, World!':
             print('Hello to you too!')
         case 'Goodbye, World!':

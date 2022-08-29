@@ -1,10 +1,9 @@
 '''
-    Kivy example 
+    Kivy example
         https://medium.com/@jdgb.projects/how-to-create-beautiful-apps-with-python-cecff9afebca
 '''
 from kivy.lang import Builder
 from kivymd.app import MDApp
-from kivymd.uix.label import MDLabel
 
 class MainApp(MDApp):
     ''' MD class object '''

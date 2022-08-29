@@ -1,7 +1,7 @@
 '''
 a contining series of xl tutorials
 '''
-from openpyxl import Workbook, load_workbook
+from openpyxl import Workbook
 
 wb = Workbook()
 ws = wb.active

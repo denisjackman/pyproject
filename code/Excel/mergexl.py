@@ -1,9 +1,7 @@
 '''
 a contining series of xl tutorials
 '''
-import sys
-from openpyxl import Workbook, load_workbook
-from openpyxl.utils import get_column_letter
+from openpyxl import load_workbook
 
 wb = load_workbook('tim.xlsx')
 ws = wb.active

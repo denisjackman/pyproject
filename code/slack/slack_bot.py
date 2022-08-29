@@ -16,7 +16,8 @@ def send_slack_message(message: str, channels: str):
         payload = '{"text": "{%s}"}' % message  # pylint: disable=C0209
         response = requests.post(
             webhook["Webhook"],
-            data=payload
+            data=payload,
+            timeout=5
             )
         print(response.text)
 
