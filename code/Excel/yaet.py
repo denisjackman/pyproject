@@ -1,8 +1,9 @@
 '''
 a contining series of xl tutorials
 '''
-
-from openpyxl import load_workbook
+from openpyxl import Workbook, load_workbook
+from openpyxl.utils import get_column_letter
+from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
 
 data = {
 	"Joe": {
@@ -37,3 +38,23 @@ data = {
 	}
 }
 
+
+wb = Workbook()
+ws = wb.active
+ws.title = "New Grades"
+headings = ['Name'] + list(data['Joe'].keys())
+ws.append(headings)
+for person in data:
+    grades = list(data[person].values())
+    ws.append([person] + grades)
+
+for col in range(2,len(data['Joe']) + 2):
+    char = get_column_letter(col)
+    ws[char + '7'] = f"=SUM({char + '2'}:{char + '6'})/{len(data)}"
+
+for newcol in range(1, 6):
+    cell = ws[get_column_letter(newcol) + '1']
+    cell.font = Font(bold=True)
+
+
+wb.save('NewGrades.xls')
