@@ -18,3 +18,4 @@ for i in range(10000):
     output[random.choice(coins)]+=1
 print("Heads : ", output["Heads"])
 print("Tails : ", output["Tails"])
+
