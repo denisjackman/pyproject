@@ -2,7 +2,6 @@
     https://avionmission.github.io/blog/kivymd-tutorial-01/
 '''
 from kivymd.app import MDApp
-from kivymd.uix.label import MDLabel
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivymd.uix.screen import MDScreen
@@ -22,4 +21,3 @@ class MainApp(MDApp):
         return HomePage()
 
 MainApp().run()
-

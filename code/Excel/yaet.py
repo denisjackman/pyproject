@@ -1,9 +1,9 @@
 '''
 a contining series of xl tutorials
 '''
-from openpyxl import Workbook, load_workbook
+from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
-from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
+from openpyxl.styles import Font
 
 data = {
 	"Joe": {
