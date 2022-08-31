@@ -47,7 +47,7 @@ def create_card(list_id, card_name):
                    "idList": list_id,
                    "key": key,
                    "token": token}
-    response = requests.request("POST", url, params=querystring)
+    response = requests.request("POST", url, params=querystring, timeout=5)
     card_id = response.json()["id"]
     return card_id
 
