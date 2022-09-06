@@ -5,6 +5,7 @@
 **/secrets/*
 **/.pytest_cache/*
 **/pyproject-env/*
+**/pyp-env/*
 **/.vscode/*
 credentials.json
 token
