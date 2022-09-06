@@ -9,12 +9,13 @@ This is a os utility tool
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 0.00 $"
-__date__ = "$Date: 2022/09/04 22:43:00 $"
+__date__ = "$Date: 2022/09/05 09:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
-from asyncio import format_helpers
 import os
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
 
 def walk_through(wt_command_args):
     """
@@ -52,15 +53,27 @@ def datascrapemain():
     '''
         this is the main function
     '''
-    listfiles = list()
-    checkfilepath = "Y:/Data"
     print("Starting a data scrape")
-    listfiles = walk_through({"verbosemode": True,
-                              "deletemode": False,
-                              "startdirectory": checkfilepath})
-    # open the file
+
+    # set up the variables
+    listfiles = list()
+    checkfilepath = "Y:/Data/comment_votes.csv"
+    #checkfilepath = "/home/share/disk1/workspace/Data/comment_votes.csv"
+
+    with open(checkfilepath, encoding="utf8") as input_file:
+        for item in input_file.readlines():
+            listitems = item.split(',')
+            listfiles.append(listitems[1])
+
+    # step through the list of files
     for item in listfiles:
-        print(f"file: {item}")    
+        if item != 'permalink':
+            #print(f"file: {item}")
+            page = urlopen(item)
+            soup = BeautifulSoup(page, features="lxml")
+            stuff = soup.find("meta", property="og:title")
+            if stuff is not None:
+                print(f"file: {item} title: {stuff['content']}")
     print("Finished a data scrape")
 
 if __name__ == '__main__':
