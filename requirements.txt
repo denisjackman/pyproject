@@ -56,3 +56,6 @@ wikipedia
 configparser
 kivymd
 openpyxl
+faker
+dumper
+pokebase
