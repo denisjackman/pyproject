@@ -1,4 +1,7 @@
-import pokebase as pb 
+'''
+    example of the pokemon api from https://pokeapi.co/
+'''
+import pokebase as pb
 charmander = pb.pokemon('charmander')
 
 print(f"charmander: {charmander}")
