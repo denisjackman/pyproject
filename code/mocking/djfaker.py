@@ -12,7 +12,7 @@ print(f"address: {fake.address()}")
 print(f"country: {fake.country()}")
 print(f"email: {fake.email()}")
 
-localelist = [local for local in AVAILABLE_LOCALES]
+localelist = list(AVAILABLE_LOCALES)
 #print(f"localelist: {localelist}")
 #print(f"{dir(fake)}")
 
@@ -37,4 +37,3 @@ dumper.dump(profile2)
 print('-------------------------')
 dumper.dump(profile3)
 print('-------------------------')
-
