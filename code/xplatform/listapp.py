@@ -1,28 +1,24 @@
 '''
-    note app 
+    note app
     https://medium.com/@jdgb.projects/the-first-best-app-you-can-create-with-kivy-6a3efcf3d12c
-    updated to make sure it works 
+    updated to make sure it works
 '''
 from kivy.lang import Builder
 from kivymd.app import MDApp
-#from kivy.uix.widget import Widget
-#from kivymd.uix.label import MDLabel
-#from kivymd.uix.list import OneLineListItem
 from kivymd.uix.list import OneLineIconListItem,IconLeftWidget
 from kivy.uix.screenmanager import ScreenManager, Screen
-#from kivymd.uix.screen import MDScreen
 
 class ListScreen(Screen):
     '''
         list screen object
     '''
-    pass
+
 
 class TextScreen(Screen):
     '''
         text screen object
     '''
-    pass
+ 
 
 class MainApp(MDApp):
     '''
@@ -39,7 +35,7 @@ class MainApp(MDApp):
 
     def add_note(self):
         '''
-            add note function 
+            add note function
         '''
         note=self.root.get_screen('list').ids.note.text
         new=OneLineIconListItem(text=note)
@@ -51,7 +47,7 @@ class MainApp(MDApp):
 
     def delete(self,Widget):
         '''
-            delete a note function 
+            delete a note function
         '''
         self.root.get_screen('list').ids.container.remove_widget(Widget.parent.parent)
 
