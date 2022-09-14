@@ -24,6 +24,6 @@ def main():
     credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
     qr.wifi_qrcode(credid["wifi"], False,'WPA', credid["wifi_password"])
     print("finishing up and closing down:")
-
+    # TODO: change this export to a file instead of stdout
 if __name__ == '__main__':
     main()
