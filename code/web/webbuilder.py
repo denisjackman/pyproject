@@ -13,6 +13,8 @@ __version__ = "$Revision: 0.00 $"
 __date__ = "$Date: 2022/09/08 17:16:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
+
+
 def metadefinition():
     '''
         build a meta data section
@@ -26,6 +28,21 @@ def metadefinition():
     meta += '<meta name="author" content="Denis Jackman">'
     return meta
 
+def breakline():
+    '''
+    build a break line
+    '''
+    webpage = ''
+    webpage += '<br>'
+    return webpage
+
+def bold(text):
+    '''
+        build a bold text
+    '''
+    webpage = ''
+    webpage += f'<b>{text}</b>'
+    return webpage
 
 def cssdefintion():
     '''
@@ -60,21 +77,82 @@ def cssdefintion():
     css += '</style>'
     return css
 
+def pagetitle(titletext):
+    '''
+        build a title
+    '''
+    title = ''
+    title += '<title>'
+    title += titletext
+    title += '</title>'
+    return title
+
 def pageheader():
     '''
     build the header of the web page
     '''
-    title = 'default title'
+    title = 'Python Web Page Builder'
     webpage = ''
     webpage += '<!DOCTYPE html>'
     webpage += '<html>'
     webpage += '<head>'
-    webpage += f'<title>{title}</title>'
+    webpage += pagetitle(title)
     webpage += metadefinition()
     webpage += cssdefintion()
     webpage += '</head>'
     return webpage
 
+def header1(subject):
+    '''
+    build the header of the web page
+    '''
+    webpage = ''
+    webpage += '<h1>'
+    webpage += subject
+    webpage += '</h1>'
+    return webpage
+
+def buildpara(text):
+    '''
+        build a paragraph
+    '''
+    para = ''
+    para += '<p>'
+    para += text
+    para += '</p>'
+    return para
+
+def buildlink(link, text):
+    '''
+        build a link
+    '''
+    webpage = ''
+    webpage += f'<a href="{link}">{text}</a>'
+    return webpage
+
+def buildimage(imagepath, imagetext):
+    '''
+        build an image
+    '''
+    webpage = ''
+    webpage += f'<img src="{imagepath}" alt="{imagetext}">'
+    return webpage
+
+def divstart(divid):
+    '''
+        build a div start
+    '''
+    div = ''
+    div += f'<div id= "{divid}">'
+    return div
+
+def divend():
+    '''
+        build a div end
+    '''
+    div = ''
+    div += '</div>'
+    return div
 
 def pagebody():
     '''
@@ -82,9 +160,28 @@ def pagebody():
     '''
     webpage = ''
     webpage += '<body>'
-    webpage += '<h1>Hello World</h1>'
-    webpage += '<p>This is a paragraph.</p>'
-    webpage += '<a href="https://www.w3schools.com">This is a link</a>'
+    webpage += header1('Python Web Builder')
+    webpage += buildpara(f'This is a {bold("paragraph")}.')
+    webpage += divstart('mainContent')
+    webpage += header1('Main content')
+    webpage += breakline()
+    webpage += buildpara('This is a main content paragraph.')
+    webpage += breakline()
+    webpage += buildlink("https://www.w3schools.com",'This is a link')
+    webpage += breakline()
+    webpage += buildimage("https://www.w3schools.com/images/w3schools_green.jpg",'This is an image')
+    webpage += breakline()
+    webpage += divend()
+    webpage += divstart('sidebar')
+    webpage += header1('Sidebar Header')
+    webpage += breakline()
+    webpage += buildpara('This is a paragraph in the sidebar.')
+    webpage += breakline()
+    webpage += buildlink("https://www.w3schools.com", f'This is a {bold("link")} in the sidebar')
+    webpage += breakline()
+    webpage += buildimage("https://www.w3schools.com/images/w3schools_green.jpg", 'This is an image in the sidebar')
+    webpage += breakline()
+    webpage += divend()
     webpage += '</body>'
     return webpage
 
