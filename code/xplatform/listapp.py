@@ -3,7 +3,6 @@
     https://medium.com/@jdgb.projects/the-first-best-app-you-can-create-with-kivy-6a3efcf3d12c
     updated to make sure it works
 '''
-from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivymd.uix.list import OneLineIconListItem,IconLeftWidget
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -18,7 +17,7 @@ class TextScreen(Screen):
     '''
         text screen object
     '''
- 
+
 
 class MainApp(MDApp):
     '''

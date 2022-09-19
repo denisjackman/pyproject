@@ -54,14 +54,13 @@ def add_hyperlink(document, paragraph, url, name):
     r.font.color.theme_color = MSO_THEME_COLOR_INDEX.HYPERLINK
     r.font.underline = True
 
-    return None
 
 
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
     document = docx.Document()
-    
+
     with open('y:/pyproject/scratch/example.txt', 'r', encoding='utf8') as file:
         for line in file:
             para = document.add_paragraph()
@@ -70,7 +69,7 @@ def main():
             textlink = item[-1].strip()
             add_hyperlink(document, para, line, textlink)
             para.add_run("\n")
-            
+
     document.save('demo.docx')
     print("finishing up and closing down:")
 
