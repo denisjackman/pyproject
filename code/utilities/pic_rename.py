@@ -4,7 +4,6 @@
 a util to find files with a pattern in the name and delete them
 '''
 import os
-from posixpath import split
 import sys
 import getopt
 
@@ -54,7 +53,7 @@ def rename_run(wt_command_args):
     start_dir = wt_command_args["startdirectory"]
     verb = wt_command_args["verbosemode"]
     rename = wt_command_args["renamemode"]
-    listoffiles = list()
+    listoffiles = []
     try:
         listoffiles = os.listdir(start_dir)
     except OSError as err:

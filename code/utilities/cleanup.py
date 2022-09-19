@@ -38,19 +38,19 @@ def getargs():
     deletemode = False
     startdirectory = "."
     try:
-        opts, args = getopt.getopt(argv, commands, long_commands)
+        clopts, args = getopt.getopt(argv, commands, long_commands)
     except getopt.GetoptError:
         print(st_commands)
         sys.exit(2)
-    for opt, arg in opts:
-        if opt in ('-h', "--help"):
+    for clopt, arg in clopts:
+        if clopt in ('-h', "--help"):
             print(st_commands)
             sys.exit()
-        elif opt in ("-v", "--verbose"):
+        elif clopt in ("-v", "--verbose"):
             verbosemode = True
-        elif opt in ("-d", "--delete"):
+        elif clopt in ("-d", "--delete"):
             deletemode = True
-        elif opt in ("-s", "--start"):
+        elif clopt in ("-s", "--start"):
             startdirectory = arg
     return {"verbosemode": verbosemode,
             "deletemode": deletemode,
