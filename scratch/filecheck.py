@@ -1,5 +1,6 @@
 '''
     open a file and check its contents
+    https://stackabuse.com/read-a-file-line-by-line-in-python/#readafilelinebylinewithaforloopmostpythonicapproach
 '''
 import os
 import sys

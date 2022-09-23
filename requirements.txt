@@ -60,3 +60,4 @@ faker
 dumper
 pokebase
 wifi-qrcode-generator
+python-pptx
