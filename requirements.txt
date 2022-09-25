@@ -61,3 +61,4 @@ dumper
 pokebase
 wifi-qrcode-generator
 python-pptx
+pdf2docx
