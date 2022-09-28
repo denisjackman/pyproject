@@ -61,7 +61,7 @@ def main():
     print("Starting the sequence:")
     document = docx.Document()
 
-    with open('y:/pyproject/scratch/example.txt', 'r', encoding='utf8') as file:
+    with open('y:/work/data/links.txt', 'r', encoding='utf8') as file:
         for line in file:
             para = document.add_paragraph()
             para.style = 'List Bullet'
@@ -70,7 +70,7 @@ def main():
             add_hyperlink(document, para, line, textlink)
             para.add_run("\n")
 
-    document.save('demo.docx')
+    document.save('Y:/work/data/link.docx')
     print("finishing up and closing down:")
 
 

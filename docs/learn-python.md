@@ -2,7 +2,7 @@
 # Step by Step guide to learning Python 
 
 ## One list
-* Basic Syntac
+* Basic Syntax
 * Indentation rules and comments 
 * variables and datatype
 * type conversion 
@@ -23,14 +23,13 @@
 * lambda function 
 * built in functions 
 * decorators 
-* -what the f
+* what the f
 * modules vs Packages 
 * numeric modules 
 * counter sys modules 
 * default dict and ordered dict modules 
 * datetime and calender module 
 * pip and pypi packages
-
 ## Another List 
 ### Basic 
 * Variables
@@ -44,7 +43,6 @@
 * mutable vs Immutable 
 * common methods 
 * file io 
-
 ### Intermediate
 * OOPs 
 * Data Structures
