@@ -14,7 +14,7 @@ def convert_pdf_to_docx(pdf_file: str, doc_file: str):
 
 def main():
     ''' main '''
-    convert_pdf_to_docx("test.pdf", "newtest.docx")
+    convert_pdf_to_docx("y:/house-data/Coop-0064.pdf", "Y:/house-data/coop0064.docx")
  
 if __name__ == '__main__':
     main()
