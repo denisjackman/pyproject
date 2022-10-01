@@ -30,6 +30,7 @@
 * default dict and ordered dict modules 
 * datetime and calender module 
 * pip and pypi packages
+
 ## Another List 
 ### Basic 
 * Variables
@@ -120,4 +121,4 @@
 * [The Python Tutorial](https://docs.python.org/3/tutorial/)
 * [FreeCodeCamp](https://www.freecodecamp.org/news/tag/python/)
 * [Udemy Python Bootcamp](https://www.udemy.com/topic/python/free/)
-* 
+

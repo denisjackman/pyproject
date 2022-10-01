@@ -44,7 +44,7 @@ This is a an example of python interatcting with trello
 ### PyLint
 I have pylint doublecheck the code when it is checked in and I act on the results to keep this project green.
 
-### pages-guild-deployment
+### pages-build-deployment
 This action builds these pages when they are committed.
 
 ## Current Project Status

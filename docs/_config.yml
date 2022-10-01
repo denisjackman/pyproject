@@ -2,42 +2,6 @@ theme: jekyll-theme-minimal
 title: PyProject - Denis Jackman's Python Project
 description: This is a personal project which stores various snippets of python that I am working on. Bookmark this to keep updated.
 
-layout: page
-title: install
-permalink: /pages/
-
-layout: page
-title: learn-coding
-permalink: /pages/
-
-layout: page
-title: learn-git
-permalink: /pages/
-
-layout: page
-title: learn-python
-permalink: /pages/
-
-layout: page
-title: mysql
-permalink: /pages/
-
-layout: page
-title: notes
-permalink: /pages/
-
-layout: page
-title: python
-permalink: /pages/
-
-layout: page
-title: todo
-permalink: /pages/
-
-layout: page
-title: tools
-permalink: /pages/
-
 
 
 
