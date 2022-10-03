@@ -18,7 +18,10 @@ def main():
             for file in files:
                 filelist.append(os.path.join(subdir, file))
         for file in filelist:
-            print(file)
+            name = os.path.basename(file)
+            details = name.split('.')
+            extension = details[-1]
+            print(f" name: {name} extension: {extension} file: {file}")
     else:
         print("Usage: python3 djfileexplorer.py <directory path>")
 if __name__ == '__main__':
