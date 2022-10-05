@@ -38,6 +38,8 @@
 4. http://www.red3d.com/cwr/boids/
 6. Change updating system to that used by QuizMe
 
+## Fixmes:
+* scratch/mail.py  #fixme a total rewrite as it no longer works
 ## Information
 * 'Y:/pyproject/resources/match3_tiles_px.png'
 * 'Y:/pyproject/code/game/Shmup/img/p1_jump.png'
