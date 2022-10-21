@@ -4,7 +4,7 @@
     https://towardsdatascience.com/creating-presentations-with-python-3f5737824f61
     https://pbpython.com/creating-powerpoint.html
     https://python-pptx.readthedocs.io/en/latest/user/quickstart.html
-    Ref for slide types: 
+    Ref for slide types:
         0 ->  title and subtitle
         1 ->  title and content
         2 ->  section header
@@ -15,8 +15,6 @@
         7 ->  Content with caption
         8 ->  Pic with caption
 '''
-import collections
-import collections.abc
 from pptx import Presentation
 
 def main():

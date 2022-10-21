@@ -50,7 +50,7 @@ def add_hyperlink(document, paragraph, url, name):
     init_hyper.append(new_run)
 
     r = paragraph.add_run()
-    r._r.append(init_hyper)
+    r._r.append(init_hyper)  # pylint: disable=W0212
     r.font.color.theme_color = MSO_THEME_COLOR_INDEX.HYPERLINK
     r.font.underline = True
 

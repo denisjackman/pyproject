@@ -7,11 +7,10 @@ def main():
     '''
         main routine
     '''
-    pdf_file = open("y:/house-data/Backed Projects — Kickstarter.pdf", 'rb')
-    pdf_reader = PyPDF2.PdfFileReader(pdf_file)
-    page = pdf_reader.getPage(0)
-    print(page.extractText())
-    pdf_file.close()
+    with open("y:/house-data/Backed Projects — Kickstarter.pdf", 'rb') as pdf_file:
+        pdf_reader = PyPDF2.PdfFileReader(pdf_file)
+        page = pdf_reader.getPage(0)
+        print(page.extractText())
 
 if __name__ == '__main__':
     main()

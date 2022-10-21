@@ -1,7 +1,7 @@
 '''
     pdf to doc converter
 '''
-from pdf2docx import parse, Converter
+from pdf2docx import Converter
 
 
 def convert_pdf_to_docx(pdf_file: str, doc_file: str):
@@ -15,6 +15,6 @@ def convert_pdf_to_docx(pdf_file: str, doc_file: str):
 def main():
     ''' main '''
     convert_pdf_to_docx("y:/house-data/Coop-0064.pdf", "Y:/house-data/coop0064.docx")
- 
+
 if __name__ == '__main__':
     main()

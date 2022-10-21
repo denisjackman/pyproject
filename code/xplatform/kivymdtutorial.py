@@ -1,14 +1,14 @@
 '''
     https://avionmission.github.io/blog/kivymd-tutorial-01/
 '''
-from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivymd.uix.screen import MDScreen
+from kivymd.app import MDApp
 
-class HomePage(MDScreen):
+class HomePage(MDScreen):  # pylint: disable=too-many-ancestors
     ''' home page '''
-    'Home Page'
+
 
 class MainApp(MDApp):
     '''

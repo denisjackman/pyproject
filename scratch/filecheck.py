@@ -12,11 +12,11 @@ def main():
     '''
     filepath = sys.argv[1]
     if not os.path.isfile(filepath):
-        print("File path {} does not exist. Exiting...".format(filepath))
+        print(f"File path {filepath} does not exist. Exiting...")
         sys.exit()
 
     bag_of_words = {}
-    with open(filepath) as fp:
+    with open(filepath, encoding='utf8') as fp:
         for line in fp:
             record_word_cnt(line.strip().split(' '), bag_of_words)
     sorted_words = order_bag_of_words(bag_of_words, desc=True)
