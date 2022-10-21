@@ -36,11 +36,11 @@ def datascrapemain():
     for item in listfiles:
         if item != 'permalink':
             with urlopen(item) as page:
-                page = urlopen(item)
-                soup = BeautifulSoup(page, features="lxml")
-                stuff = soup.find("meta", property="og:title")
-                if stuff is not None:
-                    print(f"file: {item} title: {stuff['content']}")
+                with urlopen(item) as page:
+                    soup = BeautifulSoup(page, features="lxml")
+                    stuff = soup.find("meta", property="og:title")
+                    if stuff is not None:
+                        print(f"file: {item} title: {stuff['content']}")
     print("Finished a data scrape")
 
 if __name__ == '__main__':

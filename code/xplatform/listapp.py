@@ -27,7 +27,7 @@ class MainApp(MDApp):
         '''
             build object
         '''
-        self.sm=ScreenManager()
+        self.sm=ScreenManager()  # pylint: disable=attribute-defined-outside-init
         self.sm.add_widget(ListScreen(name="list"))
         self.sm.add_widget(TextScreen(name="text"))
         return self.sm

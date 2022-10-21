@@ -1,7 +1,7 @@
 '''
     finance calculator
 '''
-def main():
+def main():  # pylint: disable=R0914
     """ This is the main routine for the program """
     print("Starting the sequence:")
     amount_in = 0

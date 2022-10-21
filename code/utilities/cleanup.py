@@ -72,12 +72,12 @@ def walk_through(wt_command_args):
     start_dir = wt_command_args["startdirectory"]
     verb = wt_command_args["verbosemode"]
     delete = wt_command_args["deletemode"]
-    listoffiles = list()
+    listoffiles = []
     try:
         listoffiles = os.listdir(start_dir)
     except OSError as err:
         print(f"OS error: {err} skipping {start_dir}")
-    result = list()
+    result = []
     for entry in listoffiles:
         fullpath = os.path.join(start_dir, entry)
         if os.path.isdir(fullpath):
@@ -98,7 +98,7 @@ def main():
 
     mainargs = getargs()
     filelist = walk_through(mainargs)
-    delete_list = list()
+    delete_list = []
     totalsize = 0
     for item in filelist:
         if item in search_list:
