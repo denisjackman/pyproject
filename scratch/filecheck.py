@@ -27,7 +27,7 @@ def order_bag_of_words(bag_of_words, desc=False):
     '''
         order the bag of words by frequency
     '''
-    words = [(word, cnt) for word, cnt in bag_of_words.items()]
+    words = list(bag_of_words.items())
     return sorted(words, key=lambda x: x[1], reverse=desc)
 
 

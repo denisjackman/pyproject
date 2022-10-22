@@ -78,6 +78,9 @@ class SortedUpdates(pygame.sprite.RenderUpdates):
 
         return sorted(self.spritedict.keys(), key=lambda sprite: sprite.depth)
 
+    def isme(self):
+        ''' am I '''
+        return True
 
 class Shadow(pygame.sprite.Sprite):
     """Sprite for shadows."""
@@ -89,13 +92,17 @@ class Shadow(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.owner = owner
 
-    def update(self, *args):
+    def update(self):
         """Make the shadow follow its owner."""
 
         self.rect.midbottom = self.owner.rect.midbottom
 
     def amI(self):
         ''' do I '''
+        return True
+
+    def isme(self):
+        ''' am I '''
         return True
 
 
@@ -122,7 +129,7 @@ class Sprite(pygame.sprite.Sprite):
         """set the position and depth of the sprite on the map."""
 
         self.rect.midbottom = pos[0]*24+12, pos[1]*16+16
-        self.depth = self.rect.midbottom[1]
+        self.depth = self.rect.midbottom[1]  #pylint: disable-msg=W0201
 
     pos = property(_get_pos, _set_pos)
 
@@ -130,7 +137,7 @@ class Sprite(pygame.sprite.Sprite):
         """Change the position of the sprite on screen."""
 
         self.rect.move_ip(dx, dy)
-        self.depth = self.rect.midbottom[1]
+        self.depth = self.rect.midbottom[1]  #pylint: disable-msg=W0201
 
     def stand_animation(self):
         """The default animation."""
@@ -142,7 +149,7 @@ class Sprite(pygame.sprite.Sprite):
                 yield None
                 yield None
 
-    def update(self, *args):
+    def update(self):
         """Run the current animation."""
 
         self.animation.next()
@@ -171,7 +178,7 @@ class Player(Sprite):
             yield None
             self.move(3*DX[self.direction], 2*DY[self.direction])
 
-    def update(self, *args):
+    def update(self):
         """Run the current animation or just stand there if no animation set."""
 
         if self.animation is None:
@@ -182,7 +189,7 @@ class Player(Sprite):
             except StopIteration:
                 self.animation = None
 
-class Level(object):
+class Level():
     """Load and store the map of the level, together with all the items."""
 
     def __init__(self, filename="level.map"):
@@ -295,7 +302,7 @@ class Level(object):
         return self.get_bool(x, y, 'block')
 
 
-class Game(object):
+class Game():
     """The main game object."""
 
     def __init__(self):

@@ -44,9 +44,8 @@ ws = wb.active
 ws.title = "New Grades"
 headings = ['Name'] + list(data['Joe'].keys())
 ws.append(headings)
-for person in data:
-    grades = list(data[person].values())
-    ws.append([person] + grades)
+for person, grades in data.items():
+    ws.append(person + grades)
 
 for col in range(2,len(data['Joe']) + 2):
     char = get_column_letter(col)

@@ -139,7 +139,7 @@ class Crawler():
         q = mp.Queue()
         q.put((self.root, 0))
 
-        while not q.empty():
+        while not q.empty():  #pylint: disable=too-many-nested-blocks
             this_url, depth = q.get()
 
             #Non-URL-specific filter: Discard anything over depth limit
@@ -206,7 +206,7 @@ class Fetcher():
     def _open(self):
         url = self.url
         try:
-            request = urllib.request.urlopen(url)
+            request = urllib.request.urlopen(url)  #pylint: disable=consider-using-with
             handle = urllib.request.build_opener()
         except IOError:
             return None
