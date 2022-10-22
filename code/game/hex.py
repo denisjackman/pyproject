@@ -6,7 +6,7 @@ WIDTH = 100
 QUARTER = 4
 HALF = 2
 
-def get_co_ords(tile_type, pos):
+def get_co_ords(tile_type, pos):  #pylint: disable=R0914
     '''
         get the go ords
     '''

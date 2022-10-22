@@ -63,3 +63,4 @@ wifi-qrcode-generator
 python-pptx
 pdf2docx
 pypdf2
+pyautogui
