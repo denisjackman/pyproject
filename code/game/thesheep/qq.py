@@ -112,7 +112,7 @@ class Sprite(pygame.sprite.Sprite):
     is_player = False
 
     def __init__(self, pos=(0, 0), frames=None):
-        super(Sprite, self).__init__()
+        super().__init__()
         if frames:
             self.frames = frames
         self.image = self.frames[0][0]

@@ -36,10 +36,10 @@ def main():
         'Only Window or Fullscreen may be used.'
     # Define the closing event handler.
     if COME_BACK < 0:
-        def close(event=None):
+        def close():
             root.destroy()
     else:
-        def close(event=None):
+        def close():
             if COME_BACK:
                 root.withdraw()
                 sleep(COME_BACK)
@@ -185,7 +185,7 @@ class BoidGUI(Canvas):
         self.groups = []
         for group in range(self.GROUPS):
             group = BoidGroup()
-            group.palette = choice(self.BALL_PALETTE)
+            group.palette = choice(self.BALL_PALETTE)  #pylint: disable=W0201
             self.BALL_PALETTE.remove(group.palette)
             # Create a new boid for current group.
             for boid, color in zip(range(boids), group.palette):
@@ -202,9 +202,9 @@ class BoidGUI(Canvas):
                 boid = BoidAgent(position, velocity, size, self.MAX_SPEED)
                 # Add a color attribute from COLORS list.
                 if self.PALETTE_MODE:
-                    boid.color = color
+                    boid.color = color  #pylint: disable=W0201
                 else:
-                    boid.color = choice(self.COLORS)
+                    boid.color = choice(self.COLORS)  #pylint: disable=W0201
                 group.add_boid(boid)
             # Add some mutators to this group.
             if self.WALL_BOUNCE:
@@ -215,7 +215,7 @@ class BoidGUI(Canvas):
             # Add a random target attribute to the group.
             x = randint(self.WALL_MARGIN, self.width - self.WALL_MARGIN)
             y = randint(self.WALL_MARGIN, self.height - self.WALL_MARGIN)
-            group.target = Vector2(x, y)
+            group.target = Vector2(x, y)  #pylint: disable=W0201
             self.groups.append(group)
 
     def motivate(self, group, boid, seconds):
@@ -257,7 +257,7 @@ class BoidGUI(Canvas):
                             boid.color = choice(self.COLORS)
 
 
-    def force_wall(self, group, boid, seconds):
+    def force_wall(self, boid, seconds):
         '''
         # Left and Right walls.
         '''
@@ -432,7 +432,7 @@ class BoidAgent:
         self.radius = radius
         self.max_speed = max_speed
 
-    def update_velocity(self, group, boids):
+    def update_velocity(self, boids):
         ''' update velocity '''
         # Filter self out of boids.
         others = [boid for boid in boids if boid is not self]

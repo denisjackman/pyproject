@@ -1,5 +1,5 @@
+#  pylint: disable-msg=C0302
 '''
-
 #------------------------------------------------------------------------
 #
 #    This file is part of Conquer.
@@ -63,7 +63,7 @@ font2 = pygame.font.Font(None, 16)
 font3 = pygame.font.Font(None, 24)
 font4 = pygame.font.Font("yanone_regular.otf",20)
 
-class TGB:
+class TGB:  #pylint: disable=R0904
     '''
     # The Game Board, ultimate class for game board and its logic
     '''
@@ -306,9 +306,9 @@ class TGB:
         # If map is randomly generated, add players
         if randommap:
             for i in range(humanplayers):
-                self.playerlist.append(cc.TPlayer("Player %d"%(i+1),i+1,self.screen,None))
+                self.playerlist.append(cc.TPlayer(f"Player {i+1}",i+1,self.screen,None))
             for i in range(randomplayers_cpu):
-                self.playerlist.append(cc.TPlayer("%s (cpu)"%(ai.random.choice(self.cpu_names)),i+(humanplayers+1),self.screen,ai.TAi(self)))
+                self.playerlist.append(cc.TPlayer(f"{ai.random.choice(self.cpu_names)} (cpu)",i+(humanplayers+1),self.screen,ai.TAi(self)))
 
         # Clear data and actors from possible previous maps
         self.data = {}
@@ -753,9 +753,9 @@ class TGB:
                 self.cursor.chosen_actor = None
                 self.cursor.chosen_dump = None
                 if player.ai_controller:
-                    self.text_at("Player %s won the game!" % player.nimi,(200,200),fontti=font4,color=(255,255,255))
+                    self.text_at(f"Player {player.nimi} won the game!",(200,200),fontti=font4,color=(255,255,255))
                 else:
-                    self.text_at("You (%s) won the game!" % player.nimi,(200,200),fontti=font4,color=(255,255,255))
+                    self.text_at(f"You ({player.nimi}) won the game!",(200,200),fontti=font4,color=(255,255,255))
                 pygame.display.flip()
 
         counter = 0
@@ -763,10 +763,10 @@ class TGB:
         # Skin configuration file is used here
         for jau in reversed(self.pisteet_s):
             # I splitted the lines here, see the last comma
-            self.screen.blit(self.pics.gi("%d"%jau[0].id),(self.sc["scoreboard_text_topleft_corner"][0],
+            self.screen.blit(self.pics.gi(f"{jau[0].id}"),(self.sc["scoreboard_text_topleft_corner"][0],
             self.sc["scoreboard_text_topleft_corner"][1]+35*counter-13))
 
-            self.text_at("%d     %s" % (jau[1],jau[0].nimi),(self.sc["scoreboard_text_topleft_corner"][0]+15,
+            self.text_at(f"{jau[1]}     {jau[0].nimi}",(self.sc["scoreboard_text_topleft_corner"][0]+15,
 
             self.sc["scoreboard_text_topleft_corner"][1]+35*counter),color=(self.sc["scoreboard_text_color"][0],
             self.sc["scoreboard_text_color"][1],self.sc["scoreboard_text_color"][2]),fontti=font4,wipe_background = False)
@@ -780,11 +780,11 @@ class TGB:
             if not tahko.ai_controller:
                 if not tahko.lost:
                     # Human player's turn, tell it
-                    self.text_at("Your (%s) turn" % (tahko.nimi),(630,300),color=(0,0,0),
+                    self.text_at(f"Your ({tahko.nimi}) turn",(630,300),color=(0,0,0),
                     fontti=font3,wipe_background = False)
                 else:
                     # The human player has lost, tell it
-                    self.text_at("You (%s) lost..." % (tahko.nimi),(635,300),color=(0,0,0),
+                    self.text_at(f"You ({tahko.nimi}) lost...",(635,300),color=(0,0,0),
                     fontti=font3,wipe_background = False)
         except ValueError as err:
             print(f"{err}")
@@ -811,11 +811,11 @@ class TGB:
             teksti = "Eraser"
         else:
             if self.map_edit_info[2] <= (self.map_edit_info[0] + self.map_edit_info[1]):
-                teksti = "Player #%d land" % self.map_edit_info[2]
+                teksti = f"Player {self.map_edit_info[2]} land"
             else:
                 # Land without player in the map, good for connecting player
                 # islands in own maps.
-                teksti = "Land #%d without player" % self.map_edit_info[2]
+                teksti = f"Land {self.map_edit_info[2]} without player"
 
         # Show the selected map tile text
         self.text_at("Selected:",(620,80), fontti = font4, wipe_background=False,color=(0,0,0))
@@ -1035,7 +1035,7 @@ class TGB:
         # This is VERY MESSY function, cleaning will be done sometime
 
         # Iterate through a copy as original actors is probably going to be modified
-        for city in self.actors.copy():
+        for city in self.actors.copy():  # pylint: disable=too-many-nested-blocks
 
             # Alive Dump & current turn player's & has (supplies > 0)
             if not city.dead and city.dump and city.supplies > 0 and city.side == self.turn:
