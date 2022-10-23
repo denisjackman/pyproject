@@ -36,7 +36,7 @@ class TAi:
         ''' am I a board '''
 
 
-    def act(self,depth):
+    def act(self,depth):  # pylint: disable-msg=R0914
         '''
             List of executed moves that is returned
         '''
@@ -46,7 +46,7 @@ class TAi:
             if not soldier.dump and soldier.side == self.board.turn and not soldier.moved:
                 own_soldier_actor_set.add(soldier)
         # More CPU, more depth
-        for askellin in range(self.board.ai_recursion_depth):
+        for askellin in range(self.board.ai_recursion_depth):  #pylint: disable-msg=R1702
             # We'll iterate every actor through a copy
             for current_actor in own_soldier_actor_set.copy():
                 if current_actor.dead:
@@ -80,7 +80,7 @@ class TAi:
                         pala2 = self.board.data[self.board.gct(x2,y2)]
 
                         # Target must be enemy's land
-                        if ((pala2 != self.board.turn) and (pala2 != 0)):
+                        if pala2 not in (self.board.turn,  0):
 
                             # Is the move possible?
                             blokkastu = self.board.is_blocked(current_actor,x2,y2)

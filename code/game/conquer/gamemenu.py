@@ -124,7 +124,7 @@ class TGameMenu:
         kello = pygame.time.Clock()
 
         # Endless loop
-        while 1 != 0:
+        while False:
 
             # Limit fps to 30
             kello.tick(30)
@@ -148,7 +148,7 @@ class TGameMenu:
                         self.edit_value(1)
                         self.draw_items(teksti)
             pygame.display.flip()
-    def text_at(self,teksti,coords,fontti,wipe_background=True,drop_shadow=True,vari=(255,255,255),keskita=True,flippaa=False):
+    def text_at(self,teksti,coords,fontti,wipe_background=True,drop_shadow=True,vari=(255,255,255),flippaa=False):
         ''' # Render text at given coordinates '''
         text = fontti.render(teksti,1,vari)
         koko = fontti.size(teksti)

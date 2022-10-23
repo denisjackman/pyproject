@@ -66,7 +66,7 @@ class TCursor:
         self.scroll_x = max(self.scroll_x, 0)
     def click(self):
         ''' click '''
-        if not self.board.map_edit_mode:
+        if not self.board.map_edit_mode:  #pylint: disable-msg=R1702
             # We are not in map editing mode, so we check from
             # skin configuration file if we clicked any gui elements.
             if self.mouse_pos[0] >= self.board.sc["button_endturn"][0][0]:
@@ -90,7 +90,7 @@ class TCursor:
                     self.board.has_anyone_lost_the_game()
                     # CPU INTENSIVE?
                     if self.board.check_and_mark_if_someone_won():
-                        self.turn = 0
+                        self.turn = 0  #pylint: disable-msg=W0201
                         self.board.data = {}
                         self.board.actors.clear()
                         self.board.fillmap(0)
