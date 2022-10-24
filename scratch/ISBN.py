@@ -59,8 +59,8 @@ def IsbnStrip(isbn):
     Strip whitespace, hyphens, etc. from an ISBN number and return
     the result.
     """
-    short=re.sub("\W","",isbn)
-    return re.sub("\D","X",short)
+    short=re.sub(r"\W","",isbn)
+    return re.sub(r"\D","X",short)
 
 def convert(isbn):
     """
@@ -68,14 +68,14 @@ def convert(isbn):
     """
     short=IsbnStrip(isbn)
     if isValid(short) is False:
-        raise "Invalid ISBN"
+        raise TypeError("Invalid ISBN")
     if len(short)==10:
         stem="978"+short[:-1]
         return stem+check(stem)
     if short[:3]=="978":
         stem=short[3:-1]
         return stem+check(stem)
-    raise "ISBN not convertible"
+    raise TypeError("ISBN not convertible")
 
 def isValid(isbn):
     """
@@ -181,7 +181,7 @@ def toI10(isbn):
     Converts supplied ISBN (either ISBN-10 or ISBN-13) to a stripped ISBN-10.
     """
     if isValid(isbn) is False:
-        raise "Invalid ISBN"
+        raise TypeError("Invalid ISBN")
     if isI10(isbn):
         return IsbnStrip(isbn)
     return convert(isbn)
@@ -191,7 +191,7 @@ def toI13(isbn):
     Converts supplied ISBN (either ISBN-10 or ISBN-13) to a stripped ISBN-13.
     """
     if isValid(isbn) is False:
-        raise "Invalid ISBN"
+        raise TypeError("Invalid ISBN")
     if isI13(isbn):
         return IsbnStrip(isbn)
     return convert(isbn)

@@ -226,7 +226,7 @@ class TGB:  #pylint: disable=R0904
         # Instance of pygame's Clock
         clock = pygame.time.Clock()
         # The Main Loop to run a game
-        while self.gamerunning:
+        while self.gamerunning:  #pylint: disable=too-many-nested-blocks
             # Limit fps to 30, smaller resource usage
             clock.tick(30)
             pelaaja = self.get_player_by_side(self.turn)
@@ -520,7 +520,7 @@ class TGB:  #pylint: disable=R0904
                 time.sleep(0.35)
                 self.drawmap()
                 pygame.display.flip()
-    def block_desc(self,r):
+    def block_desc(self,r):  #pylint: disable=R0911
         '''
         # Get reason for being blocked
         '''
@@ -618,7 +618,7 @@ class TGB:  #pylint: disable=R0904
         pelaajat = self.get_player_id_list()
 
         # Iterate DATA (coordinate and its player id)
-        for xy,xy_pid in self.data.items():
+        for xy,xy_pid in self.data.items():  #pylint: disable=R1702
 
             # Is the coordinate already crawled
             if xy in searched:
@@ -799,8 +799,7 @@ class TGB:  #pylint: disable=R0904
         if mapY & 1:
             # Odd rows will be moved to the right.
             return (mapX* hex_system.TILE_WIDTH+ hex_system.ODD_ROW_X_MOD,mapY* hex_system.ROW_HEIGHT)
-        else:
-            return (mapX* hex_system.TILE_WIDTH,mapY* hex_system.ROW_HEIGHT)
+        return (mapX* hex_system.TILE_WIDTH,mapY* hex_system.ROW_HEIGHT)
     def draw_map_edit_utilities(self):
         '''
         # Extra drawing routines for scenario editing mode
@@ -825,14 +824,14 @@ class TGB:  #pylint: disable=R0904
         counter = 0
         for i in range(0,self.map_edit_info[0]):
             counter += 1
-            self.text_at("Player #%d = Human"%counter,(620,130+counter*20), fontti = font4, wipe_background=False,color=(0,0,0))
+            self.text_at(f"Player #{counter} = Human",(620,130+counter*20), fontti = font4, wipe_background=False,color=(0,0,0))
         for i in range(0,self.map_edit_info[1]):
             counter += 1
-            self.text_at("Player #%d = CPU" % counter,(620,130+counter*20), fontti = font4, wipe_background=False,color=(0,0,0))
+            self.text_at(f"Player #{counter} = CPU",(620,130+counter*20), fontti = font4, wipe_background=False,color=(0,0,0))
         if (6-counter) > 0:
             for i in range(0,(6-counter)):
                 counter += 1
-                self.text_at("Player #%d = No player" % counter,(620,130+counter*20), fontti = font4, wipe_background=False,color=(0,0,0))
+                self.text_at(f"Player #{counter} = No player",(620,130+counter*20), fontti = font4, wipe_background=False,color=(0,0,0))
     def drawmap(self):
         """
         Game window's drawing routines
@@ -849,7 +848,7 @@ class TGB:  #pylint: disable=R0904
             self.draw_map_edit_utilities()
 
         # Loop pieces to be drawn (horizontally there is scrolling too)
-        for x in range(self.cursor.scroll_x,15+self.cursor.scroll_x):
+        for x in range(self.cursor.scroll_x,15+self.cursor.scroll_x):  #pylint: disable=R1702
             for y in range(14):
                 # There is land to draw
                 if self.data[self.gct(x,y)] > 0:
@@ -871,11 +870,11 @@ class TGB:  #pylint: disable=R0904
                             # draw the supply count on the dump.
                             if actor.side == self.turn and not self.get_player_by_side(actor.side).ai_controller:
                                 #self.text_at("%d"%actor.supplies,(pixelX+16,pixelY+11),fontti=font2,color=(0,0,0),wipe_background = False)
-                                self.text_at("%d"%actor.supplies,(pixelX+15,pixelY+13),fontti=font2,wipe_background = False)
+                                self.text_at(f"{actor.supplies}",(pixelX+15,pixelY+13),fontti=font2,wipe_background = False)
                         else:
                             # a Soldier was found
                             # Make a text for soldier-> level and X if moved
-                            teksti = "%d" % actor.level
+                            teksti = f"{actor.level}"
                             if actor.moved:
                                 teksti = teksti + "X"
                             # Draw soldier
@@ -893,9 +892,9 @@ class TGB:  #pylint: disable=R0904
             kolorissi = (self.sc["unit_status_text_color"][0],self.sc["unit_status_text_color"][1],self.sc["unit_status_text_color"][2])
             x1,y1 = self.sc["unit_status_text_topleft_corner"][0],self.sc["unit_status_text_topleft_corner"][1]
             self.text_at("Resource dump",(x1,y1+30),fontti=font4,wipe_background=False,color=kolorissi)
-            self.text_at("Income: %d" % self.cursor.chosen_dump.income,(x1,y1+50),fontti=font4,wipe_background=False,color=kolorissi)
-            self.text_at("Expends: %d" % self.cursor.chosen_dump.expends,(x1,y1+70),fontti=font4,wipe_background=False,color=kolorissi)
-            self.text_at("Supplies: %d" % self.cursor.chosen_dump.supplies,(x1,y1+90),fontti=font4,wipe_background=False,color=kolorissi)
+            self.text_at(f"Income: {self.cursor.chosen_dump.income}" ,(x1,y1+50),fontti=font4,wipe_background=False,color=kolorissi)
+            self.text_at(f"Expends: {self.cursor.chosen_dump.expends}", (x1,y1+70),fontti=font4,wipe_background=False,color=kolorissi)
+            self.text_at(f"Supplies: {self.cursor.chosen_dump.supplies}", (x1,y1+90),fontti=font4,wipe_background=False,color=kolorissi)
             self.screen.blit(self.pics.gi("dump"),(x1,y1))
     def get_human_and_cpu_count(self):
         '''
@@ -926,7 +925,7 @@ class TGB:  #pylint: disable=R0904
                 minssi = 1
             while not okei:
                 try:
-                    montako_c = int(self.text_input("How many cpu players (%d-%d)?"%(minssi,6-montako_h), 800/2-110, 300 , 240, 45 ,onlynumbers=True))
+                    montako_c = int(self.text_input(f"How many cpu players ({minssi}-{6-montako_h})?", 800/2-110, 300 , 240, 45 ,onlynumbers=True))
                 except ValueError as err:
                     print(f"{err}")
                 finally:
@@ -986,7 +985,7 @@ class TGB:  #pylint: disable=R0904
             return [True, x, y, "outofisland"]
 
         # Check for enemy unit blockers
-        for i in range(6):
+        for i in range(6):  #pylint: disable=R1702
         # Is the coordinate valid?
             if self.validxy(x+edm[i][0],y+edm[i][1]):
             # Is the targets neighbour same side as the target
@@ -1027,7 +1026,7 @@ class TGB:  #pylint: disable=R0904
         for actori in self.actors.copy():
             if actori.dead:
                 self.actors.discard(actori)
-    def buy_units_by_turn(self):
+    def buy_units_by_turn(self):  #pylint: disable=R0914
         """
         This function buys and updates soldiers for CPU Players.
         """
@@ -1203,7 +1202,7 @@ class TGB:  #pylint: disable=R0904
 
         running = True
         # We'll update as long as supplies are used or panic has arisen
-        while city.supplies > critical_cash and running:
+        while city.supplies > critical_cash and running:  #pylint: disable-msg=R1702
             tries += 1
             # We'll try one hundred times
             if tries == 100:
@@ -1262,12 +1261,12 @@ class TGB:  #pylint: disable=R0904
                         rivi2 = rivi[:-1]
                         if rivi2 == "player":
                             if not self.map_edit_mode:
-                                self.playerlist.append(cc.TPlayer("Player %d"%(y+1),y+1,self.screen,None))
+                                self.playerlist.append(cc.TPlayer(f"Player {(y+1)}",y+1,self.screen,None))
                             else:
                                 self.map_edit_info[0] += 1
                         if rivi2 == "ai":
                             if not self.map_edit_mode:
-                                self.playerlist.append(cc.TPlayer("%s (cpu)"%(random.choice(self.cpu_names)),y+1,self.screen,ai.TAi(self)))
+                                self.playerlist.append(cc.TPlayer(f"{random.choice(self.cpu_names)} (cpu)",y+1,self.screen,ai.TAi(self)))
                             else:
                                 self.map_edit_info[1] += 1
                     else:
@@ -1497,11 +1496,10 @@ class TGB:  #pylint: disable=R0904
 
         # Is the current player holding an instance of
         # artificial intelligence? If so, act too.
-        if yksikko.ai_controller and not yksikko.lost:
+        if yksikko.ai_controller and not yksikko.lost:  #pylint: disable=R1702
             # Act here
             kolorissi = (self.sc["making_moves_text_color"][0],self.sc["making_moves_text_color"][1],self.sc["making_moves_text_color"][2])
-            self.text_at("Player %s is making moves..."%(yksikko.nimi),
-            (self.sc["making_moves_text_topleft_corner"][0],self.sc["making_moves_text_topleft_corner"][1]), flippaa = True, fontti=font3, wipe_background = False,
+            self.text_at("Player {yksikko.nimi} is making moves...", (self.sc["making_moves_text_topleft_corner"][0],self.sc["making_moves_text_topleft_corner"][1]), flippaa = True, fontti=font3, wipe_background = False,
             color = kolorissi)
 
             self.draw_scoreboard(True)
