@@ -101,7 +101,7 @@ def interpolate(lower, upper, bias):
 
 ################################################################################
 
-class BoidGUI(Canvas):
+class BoidGUI(Canvas):  # pylint: disable=too-many-ancestors
     '''
         Boid GUI object
     '''
@@ -289,7 +289,7 @@ class BoidGUI(Canvas):
             if boid.velocity.y > 0:
                 boid.velocity.y *= -1
 
-    def update_screen(self):
+    def update_screen(self):  #pylint: disable=R0914
         ''' Clear the screen.  '''
         self.delete(ALL)
         for group in self.groups:

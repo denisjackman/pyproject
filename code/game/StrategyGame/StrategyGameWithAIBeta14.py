@@ -233,7 +233,7 @@ def start():
     input("Hit enter to close. ")
 
 
-def play_turn(current_player, next_player, turnWon, turn1):
+def play_turn(current_player, next_player, turnWon, turn1):  # pylint: disable=too-many-locals
     '''
         Function play_turn
     '''
@@ -263,7 +263,7 @@ def play_turn(current_player, next_player, turnWon, turn1):
 
     research = False
 
-    while turn and turnWon is False:
+    while turn and turnWon is False:  # pylint: disable=too-many-nested-blocks
         if current_player.buildings["WONDER"]["num"]>0:
             turnWon = True
         if turnWon is True:
