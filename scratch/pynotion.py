@@ -15,7 +15,7 @@ def main():
     notion_page = credid["Notion_Page"]
     # instantiate a client
     client = NotionClient(token_v2=notion_token)
-    
+
     collection_view = client.get_collection_view(notion_url)
     new_row = collection_view.collection.add_row()
     new_row.Journaling = True

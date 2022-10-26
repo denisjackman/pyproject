@@ -937,7 +937,7 @@ class TGB:  #pylint: disable=R0904
                     okei = False
         return montako_h,montako_c
 
-    def is_blocked(self, actori, x, y):
+    def is_blocked(self, actori, x, y):  #pylint: disable=R0911
         '''# Check is coordinate(x,y) is blocked for actor actori '''
 
         defender = self.actorat(x,y)
