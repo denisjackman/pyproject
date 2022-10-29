@@ -9,6 +9,8 @@ def main():
     '''
     question = False
     answer = False
+    question_list = []
+    answers_list = []
     with open(FILE_ADDRESS, "r", encoding='UTF8') as file:
         lines = file.readlines()
 
@@ -20,9 +22,19 @@ def main():
                 if line.startswith(":Answer") is True:
                     question = False
                     answer = True
-                print(f'QUESTION: {line.strip()}')
+                else:
+                    if ',' in line:
+                        question_list.append(line[line.index(',')+1:].strip())
             if answer:
-                print(f'ANSWER: {line.strip()}')
-        #print(line.strip())
+                if ',' in line:
+                    answers_list.append(line[line.index(',')+1:].strip())
+
+    #for item in question_list:
+    #    print(item)
+    print(f' question_list : {question_list}')
+    print(f' answers_list : {answers_list}')
+    print(f"question list length: {len(question_list)}, answers list length: {len(answers_list)}")
+    #print(f" question 1 : {question_list[0][question_list[0].index(',')+1:]} : {answers_list[0][answers_list[0].index(',')+1:]}")
+
 if __name__ == "__main__":
     main()
