@@ -1,6 +1,7 @@
 '''
     this converts a tab file into a json file
 '''
+import json
 FILE_ADDRESS = "Y:/Resources/data/Adventuring/Riddles.tab"
 
 def main():
@@ -9,6 +10,8 @@ def main():
     '''
     question = False
     answer = False
+    question_list = []
+    answers_list = []
     with open(FILE_ADDRESS, "r", encoding='UTF8') as file:
         lines = file.readlines()
 
@@ -20,9 +23,15 @@ def main():
                 if line.startswith(":Answer") is True:
                     question = False
                     answer = True
-                print(f'QUESTION: {line.strip()}')
+                else:
+                    if ',' in line:
+                        question_list.append(line[line.index(',')+1:].strip())
             if answer:
-                print(f'ANSWER: {line.strip()}')
-        #print(line.strip())
+                if ',' in line:
+                    answers_list.append(line[line.index(',')+1:].strip())
+    with open("Y:/Resources/dnd/Riddles.json", "w", encoding='utf8') as file:
+        json.dump({"question": question_list, "answer": answers_list}, file)
+    print(f"question list length: {len(question_list)}, answers list length: {len(answers_list)}")
+
 if __name__ == "__main__":
     main()
