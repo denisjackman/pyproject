@@ -290,7 +290,7 @@ def build_demon_name():
         result = choice(syllable)
     return result
 
-def demon_name():
+def demon_name_one():
     ''' demon name generator '''
     syllable= ["slag","el","nagir","girruk","zug","tha","meg","skal","deth","esh","uth","sshul","zan","zhel",
                "khs","chal","vush","chlu","varn","elts","ch","aa","ugg","ksin","ven","phod","sagy","aak",
@@ -305,6 +305,76 @@ def demon_name():
         result = build_demon_name() + build_demon_name() + build_demon_name() + build_demon_name()
 
     return f"{choice(syllable).capitalize()}{result}"
+
+def demon_name_two():
+    ''' demon name generator'''
+
+    truename_elements = ["a","er","fol","n'n","thl","an","e","il","rh","yy",
+                         "cog","kw","mm","th","ak","du","i","ow","y","ch",
+                         "fl","pp","sh","ae","dh","hl","oo","uu","io","ff",
+                         "ll","z","abl","dh","hh","oe","ul","bh","eu","ks",
+                         "ss","aa","de","gz","oa","u","ar","eo","ir","q'",
+                         "cc","da","g'g","o","tl","ao","ee","il","ph","zh"]
+    usename_elements = ["blue","suck","chew","sword","canker","rut","mark","grab","vile","worm","maim",
+                        "doom","break","rheum","lewd","fiend","spurt","spot","howl","bite","dangle","thigh",
+                        "dog","wrack","eat","skull","red","gristle","whip","blech","moulder","foul","dread",
+                        "scum","plague","gnash","throb","warp","lust","claw","dreg","bane","gibber","cackle",
+                        "fester","spike","spider","helm","blunt","bog","pinch","grin","eye","smut","slake",
+                        "grasp","war","bend","man","filth","fondle","carnal","gnaw","fang","flux","tremble",
+                        "thrash","loon","drink","buttock","scratch","loose","thrust","tear","squeeze","hack",
+                        "beetle","blight","ooze","glutton","grind","fiddle","grope","hammer","glut","vomit",
+                        "bag","pest","gall","crush","slobber","putrid","fury","twist","whine","lick","craze",
+                        "bowel","rotten","kill","grunt","hot","maul","mildew","hate","wind","blade","puke",
+                        "gross","fire","spew","slob","grue","water","ash","nibble","flesh","clap","sinew",
+                        "pain","mad","mucus","offal","rot","ichor","brute","cold","rip","maggot","froth",
+                        "stare","sting","heart","blast","beast","pierce","gore","fat","slug","scrape","pox",
+                        "sate","pus","toad","leper","dung","death","sharp","rabid","gobble","wart","wither",
+                        "loath","cut","chaos","reap","lip","flush","spoor","spine","quiver","vex","spasm",
+                        "bile","mire","glop","face","spume","sore","grim","wobble","axe","mange","foam",
+                        "crab","scab","pile","fume","venom","wail","slash","bubo","spittle","blister","rend",
+                        "gut","fist","sweat","taint","liver","blood","black","quake","green","drool","spite",
+                        "sin","gob","wight","burble"]
+    result = ''
+    truename = ''
+    usename = ''
+    roll = randint(1, 100)
+    number = 0
+
+    if roll <= 8:
+        number = 1
+    elif roll <= 18:
+        number = 2
+    elif roll <= 29:
+        number = 3
+    elif roll <= 42:
+        number = 4
+    elif roll <= 56:
+        number = 5
+    elif roll <= 71:
+        number = 6
+    elif roll <= 79:
+        number = 7
+    elif roll <= 86:
+        number = 8
+    elif roll <= 92:
+        number = 9
+    elif roll <= 96:
+        number = 10
+    elif roll <= 99:
+        number = 11
+    else:
+        number = 12
+    for _ in range(number):
+        truename = f'{truename}{choice(truename_elements)}'
+    usename = f'{choice(usename_elements)}{choice(usename_elements)} {choice(usename_elements).title()}{choice(usename_elements)}'
+    result = f'{truename.capitalize()}({usename})'
+    return result
+
+def demon_name():
+    ''' demon name generator '''
+    if randint(1, 2) == 1:
+        return demon_name_one()
+    return demon_name_two()
 
 def dwarven_name():
     ''' dwarven name generator '''
@@ -375,8 +445,8 @@ def main():
     print(f"Wine Name       : {fantasy_wine_name()}")
     print(f"Angelic Name    : {angelic_name()}")
     print(f"Barbarian Name  : {barbarian_name()}")
-    print(f"Demon Name      : {demon_name()}")
     print(f"Dwarven Name    : {dwarven_name()}")
+    print(f"Demon Name      : {demon_name()}")
 
 if __name__ == "__main__":
     main()
