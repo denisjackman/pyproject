@@ -44,9 +44,9 @@ def riddle_generator():
     with open("Y:/Resources/dnd/Riddles.json", "r", encoding='utf8') as file:
         data = json.load(file)
 
-    riddle = choice(data['question'])
-    itemcount = data['question'].index(riddle)
-    result = f"question ({itemcount}): {data['question'][itemcount]}, answer: {data['answer'][itemcount]}"
+    riddle = choice(data['riddle_question'])
+    itemcount = data['riddle_question'].index(riddle)
+    result = f"question ({itemcount}): {data['riddle_question'][itemcount]}, answer: {data['riddle_answer'][itemcount]}"
     return result
 
 def shakespearean_insult_generator():
@@ -62,41 +62,12 @@ def shakespearean_insult_generator():
 
     There are no inputs. The output is the insult as a string (result)
     '''
-    # Each Column is used to build the insult
-    column_one = ("artless", "bawdy", "beslubbering", "bootless", "churlish",
-                  "cockered", "clouted", "craven", "currish", "dankish",
-                  "dissembling", "droning", "errant", "fawning", "fobbing",
-                  "froward", "frothy", "gleeking", "goatish", "gorbellied",
-                  "impertinent", "jarring", "loggerheaded", "lumpish", "mammering",
-                  "mangled", "mewling", "paunchy", "pribbling", "puking", "puny",
-                  "qualling", "rank", "reeky", "roguish", "ruttish", "saucy", "spleeny",
-                  "spongy", "surly", "tottering", "unmuzzled", "vain", "venomed",
-                  "villainous", "warped", "wayward", "weedy", "yeasty")
-    column_two = ("base-court", "bat-fowling", "beef-witted", "beetle-headed",
-                  "boil-brained", "clapper-clawed", "clay-brained",
-                  "common-kissing", "crook-pated", "dismal-dreaming",
-                  "dizzy-eyed", "doghearted", "dread-bolted", "earth-vexing",
-                  "elf-skinned", "fat-kidneyed", "fen-sucked", "flap-mouthed",
-                  "fly-bitten", "folly-fallen", "fool-born", "full-gorged",
-                  "guts-griping", "half-faced", "hasty-witted", "hedge-born", "hell-hated", "idle-headed",
-                  "ill-breeding", "ill-nurtured", "knotty-pated", "milk-livered", "motley-minded",
-                  "onion-eyed", "plume-plucked", "pottle-deep", "pox-marked", "reeling-ripe", "rough-hewn",
-                  "rude-growing", "rump-fed", "shard-borne", "sheep-biting", "spur-galled", "swag-bellied",
-                  "tardy-gaited", "tickle-brained", "toad-spotted", "unchin-snouted", "weather-bitten")
-    column_three = ("apple-john", "baggage", "barnacle", "bladder", "boar-pig",
-                    "bugbear", "bum-bailey", "canker-blossom", "clack-dish",
-                    "clotpole", "coxcomb", "codpiece", "death-token",
-                    "dewberry", "flap-dragon", "flax-wench", "flirt-gill",
-                    "foot-licker", "fustilarian", "giglet", "gudgeon",
-                    "haggard", "harpy", "hedge-pig", "horn-beast", "hugger-mugger",
-                    "joithead", "lewdster", "lout", "maggot-pie", "malt-worm",
-                    "mammet", "measle", "minnow", "miscreant", "moldwarp",
-                    "mumble-news", "nut-hook", "pigeon-egg", "pignut", "puttock",
-                    "pumpion", "ratsbane", "scut", "skainsmate", "strumpet",
-                    "varlet", "vassal", "whey-face", "wagtail")
-    # generate the random numbers based on the len of the lists
-    # build the results
-    result = f"Thou {choice(column_one)} {choice(column_two)} {choice(column_three)}."
+    with open("Y:/Resources/dnd/ShakespeareInsult.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    column_one = choice(data["insult_column_one"])
+    column_two = choice(data["insult_column_two"])
+    column_three = choice(data["insult_column_three"])
+    result = f"Thou {column_one} {column_two} {column_three}."
     # return it
     return result
 
@@ -104,24 +75,12 @@ def dwarven_insult_generator():
     '''
         dwarven insult generator
     '''
-    dwarven_insult_one = ("babbling", "barbed", "beardless", "bulbous", "cantankerous",
-                          "craftless", "dainty", "dangling", "drooling", "friendless",
-                          "fungular", "gemless", "gibbering", "incompetent", "mouldy",
-                          "pompous", "reeking", "repugnant", "rickety", "slothful", "tentacled",
-                          "unhoned", "unweened", "warty", "witless")
-    dwarven_insult_two = ("anvil-dropping", "axe-breaking", "bunyon-brained", "cave-slinking",
-                          "chasm-hearted", "crystal-breaking", "donkey-eared", "elf-kissing",
-                          "fish-catching", "gnat-ridden", "hearth-hating", "lantern-lugging",
-                          "milk-drinking", "moss-bearded", "nib-chewing", "nose-picking",
-                          "pech-skulled", "porridge-faced", "rust-minded", "silver-witted",
-                          "slate-carving", "toe-biting", "toll-snatching", "tree-climbing", "willow-waisted")
-    dwarven_insult_three = ("armpit", "breadcrumb", "carbuncle", "fuzzpot", "gargoyle", "gas spore",
-                            "gasbladder", "goblin-spawn", "ledge lizard", "mole", "mushroom", "natterling",
-                            "osquip", "pebble", "pestle", "pixie", "rockrunt", "rust monster", "shard", "smudge-rubber",
-                            "snake's egg", "stalactite", "stench kow", "thumb-basher", "tunnel worm")
-
-
-    result = f"{choice(dwarven_insult_one).capitalize()} {choice(dwarven_insult_two)} {choice(dwarven_insult_three)}"
+    with open("Y:/Resources/dnd/DwarvenInsult.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    dwarven_insult_one = choice(data["insult_column_one"]).capitalize()
+    dwarven_insult_two = choice(data["insult_column_two"])
+    dwarven_insult_three = choice(data["insult_column_three"])
+    result = f"{dwarven_insult_one} {dwarven_insult_two} {dwarven_insult_three}."
     return result
 
 def oracle_generator():
@@ -197,82 +156,37 @@ def fantasy_wine_name():
     '''
         fantasy wine name generator
     '''
-    wine_name = ("Blood Wine", "Blood of the Dragon", "Blood of the Unicorn", "Blood of the Phoenix",
-                 "Honeywine", "Haraleven White", "Dragondew White", "Bitterthorn Dry", "Blood of the Raven",
-                 "Feather Wine", "Elven Wheat-Wine", "Nelf Thalor Crush", "Amenathas Red", "Hefsari White",
-                 "Emberberry Dark", "Figdale Red", "Rosewood Vintage", "Delmen Wine", "Ellholone Crush",
-                 "Malorian White", "Starglen White", "Foxmantle Crush", "Theenalion Rose", "Berdusk Red",
-                 "Goblin Wine", "Namarie Dark", "Khaluma Rose", "Ogre Blood", "Fog-King’s Mist", "Golden Touch",
-                 "Glowfire Dry", "Saluna Wine", "Dawnrim Rose", "Spiderdark Venom", "Surinen Dry", "Stoneblood Red",
-                 "Kana Nalore Nectar", "Dragon’s Tears", "Deepwine", "Wild Spellsap No. 4", "Laurie Lantar Champagne",
-                 "Old Empire No. 3", "Manycherry Wine", "Gnomish Oil", "Demon’s Piss", "Ilnelond Rose", "Dwarven Wine",
-                 "Dwarven Tomb", "Celestial Wind", "Nyalume Nectar", "Kea Ennore Crush", "Wintermead", "Dwarven Wine",
-                 "Arlgroth Wine", "Gorgon Claret", "Frost Giant’s Kiss", "Tintilar Wine", "Frostmind Wine", "Frostwine",
-                 "Elderblossom Rose", "Runeshine", "Salabelle Shadow", "Rootweal", "Eastgate Ruby",
-                 "Nightsky Vintage", "Wave Thalor Shadow", "Belet Champagne", "Moonlit Wine", "Dawnwine",
-                 "Diamondfire Vintage", "Frostfar Ice Wine", "Eshna Tirion Red", "Wintervine Wine",
-                 "Wasebel Wine", "Andune Dry", "Miruvore", "A’vethemar Crush", "Ashnerius Rose",
-                 "Troll’s Blood", "Purple Grapemash No. 2", "Spellshine Wine", "Filfa Alari Nectar",
-                 "Silranlond Dry", "Gardell Red", "Assassin Wine", "Celestial Wine", "King’s Vintage",
-                 "Aboleth Blood", "Nese Belanore Wine", "Starqueen Red", "Redroot Red", "Awakened Wine",
-                 "Soulsliver Rose", "Blue Dragon Dark", "Firedrake Red", "Stella’s Blessing", "Crowberry Wine",
-                 "Grun'mel's Claret", "Daggerdrink Special", "Colas Rosato", "Sel'bin Dark", "Sunshine Sap",
-                 "O’al Alora Ruby", "Dragon’s Breath", "Mintmore Nectar", "Spellkeep Special", "Shadowfel Sap")
-    result = f"{choice(wine_name)}"
+    with open("Y:/Resources/dnd/FantasyWines.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    wine_name = choice(data['wine_name'])
+    result = f"{wine_name}"
     return result
 
 def angelic_name():
     ''' angelic names '''
-    prefix = ["a","aba","ach","acha","ad","adon","af","ag","ahad","akat","ali","ama","amab","amal",
-              "amat","amb","amit","an","anaf","anan","anon","anth","ar","ara","arath","ard","arm",
-              "armis","as","asa","ash","ataph","atha","att","au","auph","az","aza","azr","ba","bab",
-              "bah","bahr","bar","bara","barb","barc","bard","bed","beda","behe","behem","bel","beth",
-              "bethe","cab","cadm","cal","cam","camb","caph","cas","cast","char","charb","chas","cher",
-              "cheru","cora","cruc","dag","dal","dan","din","don","duc","elim","eloh","elom","ened",
-              "esc","ez","eze","fam","frac","gab","gal","gala","gam","gar","garr","gas","gazard","ge",
-              "gedar","ghedor","gon","grad","hab","had","hada","hadak","hakam","hal","halud","ham","hama",
-              "han","hana","har","harr","hars","has","hati","hiz","hus","iad","ici","id","im","in","ir",
-              "ira","is","ish","isha","ishi","ism","ith","ithu","ja","jan","jehu","jehud","jhud","joph",
-              "kab","kad","kam","ke","kem","keph","khe","khem","ky","kyr","lamad","lamar","lamed","lar",
-              "laz","machi","machid","machr","maha","mahar","mal","mala","malad","mat","me","mel","mela",
-              "mem","meta","mi","mich","mid","mo","mor","mora","nach","naha","nan","naoph","nar","nem",
-              "nema","nemi","nith","omn","oph","pag","pas","path","pha","phal","phan","phar","qa","qad",
-              "qal","qam","qan","ra","rac","rach","ram","raph","ras","re","reg","rha","rham","rig","sac",
-              "sam","sama","samar","samm","san","saph","sar","sav","sava","savu","seda","sedak","sede",
-              "sek","seke","sen","ser","sera","seraph","sha","shak","shal","shar","shat","she","soph",
-              "su","sun","sur","tah","taha","tahar","tam","tar","tem","temp","tha","thar","the","ther",
-              "tub","tur","tzad","tzaph","tzed","tzeph","u","uba","uma","ur","uv","uz","ve","ver","verc",
-              "yah","yaha","yas","yash","yep","yeph","za","zac","zach","zad","zah","zaha","zahar","zak",
-              "zal","zam","zaph","zav","zec","zech","zeph","zeth","zoph","zu"]
-    suffix = ["ach","ael","arel","az","bel","don","el","has","hiel","him","iah","iel","im","kiel","las",
-              "liel","lim","lym","mon","nach","niel","nim","phas","phlas","quel","quiel","riel","ros",
-              "tiel","tron","uel","viel","yah","ziel"]
-    result = f'{choice(prefix)}{choice(suffix)}'
+    with open("Y:/Resources/dnd/AngelNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    prefix = choice(data['angel_prefix'])
+    suffix = choice(data['angel_suffix'])
+    result = f'{prefix}{suffix}'
     return result.capitalize()
 
 def barbarian_name():
     ''' barbarian names '''
-    barbarian_names = ["hawk","fair","spear","eagle","sea","dreamer","black","stone","singer","dark","fox","bow",
-             "blade","death","high","grey","changer","strong","wood","white","bear","star","sly","claw",
-             "sure","slayer","helm","staff","gold","wave","shadow","tiger","shield","brother","cleaver",
-             "sky","dancer","flame","bone","moon","lion","foam","red","horn","soul","silver","fang","fist",
-             "wolf","blood","bane","free","rune","wise","hammer","storm","piper","weaver","heart","wind"]
-    barbarian_prefix = ["bird","crystal","dove","earth","fast","flame","glitter","gold","golden","hawk","honor","ice",
-              "iron","lightning","maple","moon","oak","raven","river","shadow","silver","sly","small","snow",
-              "star","steel","stone","sun","swift","wild","willow","wind","winter"]
-    barbarian_suffix = ["bird","bones","caller","child","cloak","dancer","dove","eye","flower","fox","gold","hand","hawk",
-              "heart","lady","leaf","light","lover","raven","shadow","singer","song","foot","man","skin",
-              "strider","wanderer","whisper","will","wind"]
+    with open("Y:/Resources/dnd/BarbarianNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
 
     roll = randint(1, 2)
     if roll == 1:
-        part1 = choice(barbarian_names).capitalize()
+        part1 = choice(data["barbarian_names"]).capitalize()
         part2 = part1
         while part1 == part2:
-            part2 = choice(barbarian_names)
+            part2 = choice(data["barbarian_names"])
         result = f'{part1}{part2}'
     else:
-        result = f"{choice(barbarian_prefix).capitalize()}{choice(barbarian_suffix)}"
+        prefix = choice(data["barbarian_prefix"]).capitalize()
+        suffix = choice(data["barbarian_suffix"])
+        result = f"{prefix} {suffix}"
     return result
 
 def build_demon_name():
