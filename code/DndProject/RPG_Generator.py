@@ -83,6 +83,181 @@ def dwarven_insult_generator():
     result = f"{dwarven_insult_one} {dwarven_insult_two} {dwarven_insult_three}."
     return result
 
+
+def fantasy_wine_name():
+    '''
+        fantasy wine name generator
+    '''
+    with open("Y:/Resources/dnd/FantasyWines.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    wine_name = choice(data['wine_name'])
+    result = f"{wine_name}"
+    return result
+
+def angelic_name():
+    ''' angelic names '''
+    with open("Y:/Resources/dnd/AngelNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    prefix = choice(data['angel_prefix'])
+    suffix = choice(data['angel_suffix'])
+    result = f'{prefix}{suffix}'
+    return result.capitalize()
+
+def barbarian_name():
+    ''' barbarian names '''
+    with open("Y:/Resources/dnd/BarbarianNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+
+    roll = randint(1, 2)
+    if roll == 1:
+        part1 = choice(data["barbarian_names"]).capitalize()
+        part2 = part1
+        while part1 == part2:
+            part2 = choice(data["barbarian_names"])
+        result = f'{part1}{part2}'
+    else:
+        prefix = choice(data["barbarian_prefix"]).capitalize()
+        suffix = choice(data["barbarian_suffix"])
+        result = f"{prefix} {suffix}"
+    return result
+
+def build_demon_name():
+    ''' build a name '''
+    with open("Y:/Resources/dnd/DemonNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    syllable = choice(data["demon_syllable"])
+    roll = randint(1, 7)
+    if roll <= 2:
+        result = f"'{syllable}"
+    elif roll <= 3:
+        result = f"-{syllable}"
+    else:
+        result = syllable
+    return result
+
+def demon_name_one():
+    ''' demon name generator '''
+    with open("Y:/Resources/dnd/DemonNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    syllable = choice(data["demon_syllable"])
+    roll = randint(1, 7)
+    result = ''
+    if roll <=4:
+        result = build_demon_name() + build_demon_name()
+    elif roll <=6:
+        result = build_demon_name() + build_demon_name() + build_demon_name()
+    else:
+        result = build_demon_name() + build_demon_name() + build_demon_name() + build_demon_name()
+
+    return f"{syllable.capitalize()}{result}"
+
+def demon_name_two():
+    ''' demon name generator'''
+    with open("Y:/Resources/dnd/DemonNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+
+    result = ''
+    truename = ''
+    usename = ''
+    roll = randint(1, 100)
+    number = 0
+
+    if roll <= 8:
+        number = 1
+    elif roll <= 18:
+        number = 2
+    elif roll <= 29:
+        number = 3
+    elif roll <= 42:
+        number = 4
+    elif roll <= 56:
+        number = 5
+    elif roll <= 71:
+        number = 6
+    elif roll <= 79:
+        number = 7
+    elif roll <= 86:
+        number = 8
+    elif roll <= 92:
+        number = 9
+    elif roll <= 96:
+        number = 10
+    elif roll <= 99:
+        number = 11
+    else:
+        number = 12
+    for _ in range(number):
+        item = choice(data["demon_truename_elements"])
+        truename = f'{truename}{item}'
+    usename = f'{choice(data["demon_usename_elements"])}{choice(data["demon_usename_elements"])} {choice(data["demon_usename_elements"]).title()}{choice(data["demon_usename_elements"])}'
+    result = f'{truename.capitalize()}({usename})'
+    return result
+
+def demon_name():
+    ''' demon name generator '''
+    if randint(1, 2) == 1:
+        return demon_name_one()
+    return demon_name_two()
+
+def dwarven_name():
+    ''' dwarven name generator '''
+    female = False
+    firstname = ''
+    lastname = ''
+
+    prefix = ["Ag","Al","Ald","Alf","Ar","Arn","Art","As","Ath","Athran","Aud","Bal","Bala","Bar","Bara","Bel",
+              "Bela","Belf","Ber","Bif","Bof","Bok","Bol","Bom","Bor","Bra","Brott","Brun","Bryn","Bur","D",
+              "Da","Dag","Dam","Dar","Dor","Dora","Drok","Drong","Dur","Dwal","Eb","Ein","El","Ela","Elan",
+              "Elda","Fa","Faf","Far","Fara","Fil","Fim","Fima","Firen","Fo","For","Fros","Fur","Fura","Ga",
+              "Gar","Gil","Gim","Gir","Glam","Gol","Gollen","Gor","Got","Gota","Grim","Gro","Grun","Gunn",
+              "Gus","Gut","Ha","Had","Hak","Haka","Hal","Han","Har","Has","Hega","Hel","Hun","Hur","Ing",
+              "Jar","Kad","Kar","Kata","Kaz","Kaza","Kha","Khar","Kol","Krag","Kur","Lar","Logaz","Lok",
+              "Lun","Mag","Mel","Mo","Mola","Mor","Mora","Na","Nar","No","Nola","Nor","Noran","Nord","Nun",
+              "Nyr","Oda","Oka","Ol","Olf","Olla","Osk","Oth","Othra","Rag","Rak","Ro","Rog","Ror","Roran",
+              "Run","Rur","Sa","Sig","Ska","Skaf","Skalf","Skalla","Skar","Skeg","Skor","Skora","Snor","Snora",
+              "Sven","Tak","Thar","Tho","Thor","Thora","Thra","Thro","Thron","Thrun","Thura","Ulf","Ulla","Un",
+              "Utha","Val","Vala","Var","Vara","Ver","Ves","Yng","Zak","Zaka","Zakan","Zam","Zar","Zara","Zarna"]
+    suffixmale = ["ain","ald","ar","ard","arr","bin","bon","bor","born","brun","bur","dalf","dan","dar","den",
+                  "di","dil","din","dir","dok","dor","dran","drin","ed","end","endd","fin","finn","fur","gan",
+                  "gar","gard","gi","gil","gin","gir","gni","gon","gor","grim","grin","grir","grom","grond",
+                  "groth","grum","grund","grunt","gui","gun","gund","hall","hel","hild","hor","ic","ik","in",
+                  "ir","is","jald","ki","kil","kin","krag","kri","krin","li","lik","lin","ling","linn","lir",
+                  "lok","lum","lun","mad","min","mir","mund","nar","ni","nin","nir","nus","odd","oin","olf",
+                  "or","rag","ran","rand","rek","ri","rig","rik","rin","rir","run","sil","sin","skin","sur",
+                  "tan","thor","ti","tin","tok","trek","trok","ur","urd","vald","vard","vir","zin","zor"]
+    suffix = ["a","asi","bera","bina","bora","cla","dda","dila","dina","dis","dokina","dora","drid","drinella",
+              "era","fina","fya","ga","gana","gara","gella","gerd","gina","gona","gora","grid","grimella",
+              "grina","groma","gromina","grondella","grotha","gruma","grunda","gruntina","gula","gundina",
+              "gunella","hild","i","ia","il","ilda","ima","ja","kina","kragella","krina","kya","la","likina",
+              "lina","loda","loka","luna","mina","mira","na","nala","nina","nira","nya","ona","ra","ragina",
+              "rasa","rid","riga","rika","rina","runa","runella","sa","sif","skina","skinella","tina","toka",
+              "trekella","trekina","troka","vild","yra","zina","zora"]
+    clanprefix = ["ale","anvil","armor","axe","beard","black","cavern","earth","flame","foe","forge","goblin",
+                  "gold","granite","grudge","hammer","iron","oath","orc","ore","red","ring","rock","shield",
+                  "silver","steel","stone","tunnel","troll"]
+    clansuffix = ["arm","axe","back","bane","beard","bearer","beater","bender","binder","breaker","crusher",
+                  "cutter","delver","fist","forge","hammer","head","hearth","keg","killer","maker","master",
+                  "render","shaker","slayer","smith","splitter","worker"]
+
+    if randint(1, 2) == 1:
+        firstname = f'{choice(prefix)}{choice(suffixmale)}'
+    else:
+        female = True
+        firstname = f'{choice(prefix)}{choice(suffix)}'
+
+    if randint(1, 3) == 1:
+        father = f'{choice(prefix)}{choice(suffixmale)}'
+        if female:
+            lastname = f"{father}ssdottir"
+        else:
+            lastname = f"{father}son"
+    else:
+        lastname = f'{choice(clanprefix)}{choice(clansuffix)}'
+    result = f'{firstname.capitalize()} {lastname.capitalize()}'
+    if female:
+        result = f"{result} (f.)"
+    return result
+
 def oracle_generator():
     '''
         oracle generator
@@ -150,203 +325,6 @@ def oracle_generator():
                                "The one you seek will need you more. He is hanging from the precipice of shattered dreams, and has lost what cannot be found",
                                "Trust what you know, since it is also the answer to what you do not")
     result = ''
-    return result
-
-def fantasy_wine_name():
-    '''
-        fantasy wine name generator
-    '''
-    with open("Y:/Resources/dnd/FantasyWines.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    wine_name = choice(data['wine_name'])
-    result = f"{wine_name}"
-    return result
-
-def angelic_name():
-    ''' angelic names '''
-    with open("Y:/Resources/dnd/AngelNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    prefix = choice(data['angel_prefix'])
-    suffix = choice(data['angel_suffix'])
-    result = f'{prefix}{suffix}'
-    return result.capitalize()
-
-def barbarian_name():
-    ''' barbarian names '''
-    with open("Y:/Resources/dnd/BarbarianNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-
-    roll = randint(1, 2)
-    if roll == 1:
-        part1 = choice(data["barbarian_names"]).capitalize()
-        part2 = part1
-        while part1 == part2:
-            part2 = choice(data["barbarian_names"])
-        result = f'{part1}{part2}'
-    else:
-        prefix = choice(data["barbarian_prefix"]).capitalize()
-        suffix = choice(data["barbarian_suffix"])
-        result = f"{prefix} {suffix}"
-    return result
-
-def build_demon_name():
-    ''' build a name '''
-    syllable= ["slag","el","nagir","girruk","zug","tha","meg","skal","deth","esh","uth","sshul","zan","zhel",
-               "khs","chal","vush","chlu","varn","elts","ch","aa","ugg","ksin","ven","phod","sagy","aak",
-               "qek","zohr","kkis","eg","zan","gkil","aezg","gluU"]
-
-    roll = randint(1, 7)
-    if roll <= 2:
-        result = "'" + choice(syllable)
-    elif roll <= 3:
-        result = "-" +choice(syllable)
-    else:
-        result = choice(syllable)
-    return result
-
-def demon_name_one():
-    ''' demon name generator '''
-    syllable= ["slag","el","nagir","girruk","zug","tha","meg","skal","deth","esh","uth","sshul","zan","zhel",
-               "khs","chal","vush","chlu","varn","elts","ch","aa","ugg","ksin","ven","phod","sagy","aak",
-               "qek","zohr","kkis","eg","zan","gkil","aezg","gluU"]
-    roll = randint(1, 7)
-    result = ''
-    if roll <=4:
-        result = build_demon_name() + build_demon_name()
-    elif roll <=6:
-        result = build_demon_name() + build_demon_name() + build_demon_name()
-    else:
-        result = build_demon_name() + build_demon_name() + build_demon_name() + build_demon_name()
-
-    return f"{choice(syllable).capitalize()}{result}"
-
-def demon_name_two():
-    ''' demon name generator'''
-
-    truename_elements = ["a","er","fol","n'n","thl","an","e","il","rh","yy",
-                         "cog","kw","mm","th","ak","du","i","ow","y","ch",
-                         "fl","pp","sh","ae","dh","hl","oo","uu","io","ff",
-                         "ll","z","abl","dh","hh","oe","ul","bh","eu","ks",
-                         "ss","aa","de","gz","oa","u","ar","eo","ir","q'",
-                         "cc","da","g'g","o","tl","ao","ee","il","ph","zh"]
-    usename_elements = ["blue","suck","chew","sword","canker","rut","mark","grab","vile","worm","maim",
-                        "doom","break","rheum","lewd","fiend","spurt","spot","howl","bite","dangle","thigh",
-                        "dog","wrack","eat","skull","red","gristle","whip","blech","moulder","foul","dread",
-                        "scum","plague","gnash","throb","warp","lust","claw","dreg","bane","gibber","cackle",
-                        "fester","spike","spider","helm","blunt","bog","pinch","grin","eye","smut","slake",
-                        "grasp","war","bend","man","filth","fondle","carnal","gnaw","fang","flux","tremble",
-                        "thrash","loon","drink","buttock","scratch","loose","thrust","tear","squeeze","hack",
-                        "beetle","blight","ooze","glutton","grind","fiddle","grope","hammer","glut","vomit",
-                        "bag","pest","gall","crush","slobber","putrid","fury","twist","whine","lick","craze",
-                        "bowel","rotten","kill","grunt","hot","maul","mildew","hate","wind","blade","puke",
-                        "gross","fire","spew","slob","grue","water","ash","nibble","flesh","clap","sinew",
-                        "pain","mad","mucus","offal","rot","ichor","brute","cold","rip","maggot","froth",
-                        "stare","sting","heart","blast","beast","pierce","gore","fat","slug","scrape","pox",
-                        "sate","pus","toad","leper","dung","death","sharp","rabid","gobble","wart","wither",
-                        "loath","cut","chaos","reap","lip","flush","spoor","spine","quiver","vex","spasm",
-                        "bile","mire","glop","face","spume","sore","grim","wobble","axe","mange","foam",
-                        "crab","scab","pile","fume","venom","wail","slash","bubo","spittle","blister","rend",
-                        "gut","fist","sweat","taint","liver","blood","black","quake","green","drool","spite",
-                        "sin","gob","wight","burble"]
-    result = ''
-    truename = ''
-    usename = ''
-    roll = randint(1, 100)
-    number = 0
-
-    if roll <= 8:
-        number = 1
-    elif roll <= 18:
-        number = 2
-    elif roll <= 29:
-        number = 3
-    elif roll <= 42:
-        number = 4
-    elif roll <= 56:
-        number = 5
-    elif roll <= 71:
-        number = 6
-    elif roll <= 79:
-        number = 7
-    elif roll <= 86:
-        number = 8
-    elif roll <= 92:
-        number = 9
-    elif roll <= 96:
-        number = 10
-    elif roll <= 99:
-        number = 11
-    else:
-        number = 12
-    for _ in range(number):
-        truename = f'{truename}{choice(truename_elements)}'
-    usename = f'{choice(usename_elements)}{choice(usename_elements)} {choice(usename_elements).title()}{choice(usename_elements)}'
-    result = f'{truename.capitalize()}({usename})'
-    return result
-
-def demon_name():
-    ''' demon name generator '''
-    if randint(1, 2) == 1:
-        return demon_name_one()
-    return demon_name_two()
-
-def dwarven_name():
-    ''' dwarven name generator '''
-    female = False
-    firstname = ''
-    lastname = ''
-
-    prefix = ["Ag","Al","Ald","Alf","Ar","Arn","Art","As","Ath","Athran","Aud","Bal","Bala","Bar","Bara","Bel",
-              "Bela","Belf","Ber","Bif","Bof","Bok","Bol","Bom","Bor","Bra","Brott","Brun","Bryn","Bur","D",
-              "Da","Dag","Dam","Dar","Dor","Dora","Drok","Drong","Dur","Dwal","Eb","Ein","El","Ela","Elan",
-              "Elda","Fa","Faf","Far","Fara","Fil","Fim","Fima","Firen","Fo","For","Fros","Fur","Fura","Ga",
-              "Gar","Gil","Gim","Gir","Glam","Gol","Gollen","Gor","Got","Gota","Grim","Gro","Grun","Gunn",
-              "Gus","Gut","Ha","Had","Hak","Haka","Hal","Han","Har","Has","Hega","Hel","Hun","Hur","Ing",
-              "Jar","Kad","Kar","Kata","Kaz","Kaza","Kha","Khar","Kol","Krag","Kur","Lar","Logaz","Lok",
-              "Lun","Mag","Mel","Mo","Mola","Mor","Mora","Na","Nar","No","Nola","Nor","Noran","Nord","Nun",
-              "Nyr","Oda","Oka","Ol","Olf","Olla","Osk","Oth","Othra","Rag","Rak","Ro","Rog","Ror","Roran",
-              "Run","Rur","Sa","Sig","Ska","Skaf","Skalf","Skalla","Skar","Skeg","Skor","Skora","Snor","Snora",
-              "Sven","Tak","Thar","Tho","Thor","Thora","Thra","Thro","Thron","Thrun","Thura","Ulf","Ulla","Un",
-              "Utha","Val","Vala","Var","Vara","Ver","Ves","Yng","Zak","Zaka","Zakan","Zam","Zar","Zara","Zarna"]
-    suffixmale = ["ain","ald","ar","ard","arr","bin","bon","bor","born","brun","bur","dalf","dan","dar","den",
-                  "di","dil","din","dir","dok","dor","dran","drin","ed","end","endd","fin","finn","fur","gan",
-                  "gar","gard","gi","gil","gin","gir","gni","gon","gor","grim","grin","grir","grom","grond",
-                  "groth","grum","grund","grunt","gui","gun","gund","hall","hel","hild","hor","ic","ik","in",
-                  "ir","is","jald","ki","kil","kin","krag","kri","krin","li","lik","lin","ling","linn","lir",
-                  "lok","lum","lun","mad","min","mir","mund","nar","ni","nin","nir","nus","odd","oin","olf",
-                  "or","rag","ran","rand","rek","ri","rig","rik","rin","rir","run","sil","sin","skin","sur",
-                  "tan","thor","ti","tin","tok","trek","trok","ur","urd","vald","vard","vir","zin","zor"]
-    suffix = ["a","asi","bera","bina","bora","cla","dda","dila","dina","dis","dokina","dora","drid","drinella",
-              "era","fina","fya","ga","gana","gara","gella","gerd","gina","gona","gora","grid","grimella",
-              "grina","groma","gromina","grondella","grotha","gruma","grunda","gruntina","gula","gundina",
-              "gunella","hild","i","ia","il","ilda","ima","ja","kina","kragella","krina","kya","la","likina",
-              "lina","loda","loka","luna","mina","mira","na","nala","nina","nira","nya","ona","ra","ragina",
-              "rasa","rid","riga","rika","rina","runa","runella","sa","sif","skina","skinella","tina","toka",
-              "trekella","trekina","troka","vild","yra","zina","zora"]
-    clanprefix = ["ale","anvil","armor","axe","beard","black","cavern","earth","flame","foe","forge","goblin",
-                  "gold","granite","grudge","hammer","iron","oath","orc","ore","red","ring","rock","shield",
-                  "silver","steel","stone","tunnel","troll"]
-    clansuffix = ["arm","axe","back","bane","beard","bearer","beater","bender","binder","breaker","crusher",
-                  "cutter","delver","fist","forge","hammer","head","hearth","keg","killer","maker","master",
-                  "render","shaker","slayer","smith","splitter","worker"]
-
-    if randint(1, 2) == 1:
-        firstname = f'{choice(prefix)}{choice(suffixmale)}'
-    else:
-        female = True
-        firstname = f'{choice(prefix)}{choice(suffix)}'
-
-    if randint(1, 3) == 1:
-        father = f'{choice(prefix)}{choice(suffixmale)}'
-        if female:
-            lastname = f"{father}ssdottir"
-        else:
-            lastname = f"{father}son"
-    else:
-        lastname = f'{choice(clanprefix)}{choice(clansuffix)}'
-    result = f'{firstname.capitalize()} {lastname.capitalize()}'
-    if female:
-        result = f"{result} (f.)"
     return result
 
 def main():

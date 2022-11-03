@@ -9,21 +9,39 @@ def main():
     '''
         main function
     '''
-    names = ["hawk","fair","spear","eagle","sea","dreamer","black","stone","singer","dark","fox","bow",
-             "blade","death","high","grey","changer","strong","wood","white","bear","star","sly","claw",
-             "sure","slayer","helm","staff","gold","wave","shadow","tiger","shield","brother","cleaver",
-             "sky","dancer","flame","bone","moon","lion","foam","red","horn","soul","silver","fang","fist",
-             "wolf","blood","bane","free","rune","wise","hammer","storm","piper","weaver","heart","wind"]
-    prefix = ["bird","crystal","dove","earth","fast","flame","glitter","gold","golden","hawk","honor","ice",
-              "iron","lightning","maple","moon","oak","raven","river","shadow","silver","sly","small","snow",
-              "star","steel","stone","sun","swift","wild","willow","wind","winter"]
-    suffix = ["bird","bones","caller","child","cloak","dancer","dove","eye","flower","fox","gold","hand","hawk",
-              "heart","lady","leaf","light","lover","raven","shadow","singer","song","foot","man","skin",
-              "strider","wanderer","whisper","will","wind"]
+    demon_syllable= ["slag","el","nagir","girruk","zug","tha","meg","skal","deth","esh","uth","sshul","zan","zhel",
+               "khs","chal","vush","chlu","varn","elts","ch","aa","ugg","ksin","ven","phod","sagy","aak",
+               "qek","zohr","kkis","eg","zan","gkil","aezg","gluU"]
 
-    with open("Y:/Resources/dnd/BarbarianNames.json", "w", encoding='utf8') as file:
-        json.dump({"barbarian_names": names, "barbarian_prefix": prefix, "barbarian_suffix": suffix}, file)
-    print(f"names: {len(names)} prefix: {len(prefix)} suffix: {len(suffix)}")
+    demon_truename_elements = ["a","er","fol","n'n","thl","an","e","il","rh","yy",
+                         "cog","kw","mm","th","ak","du","i","ow","y","ch",
+                         "fl","pp","sh","ae","dh","hl","oo","uu","io","ff",
+                         "ll","z","abl","dh","hh","oe","ul","bh","eu","ks",
+                         "ss","aa","de","gz","oa","u","ar","eo","ir","q'",
+                         "cc","da","g'g","o","tl","ao","ee","il","ph","zh"]
+    demon_usename_elements = ["blue","suck","chew","sword","canker","rut","mark","grab","vile","worm","maim",
+                        "doom","break","rheum","lewd","fiend","spurt","spot","howl","bite","dangle","thigh",
+                        "dog","wrack","eat","skull","red","gristle","whip","blech","moulder","foul","dread",
+                        "scum","plague","gnash","throb","warp","lust","claw","dreg","bane","gibber","cackle",
+                        "fester","spike","spider","helm","blunt","bog","pinch","grin","eye","smut","slake",
+                        "grasp","war","bend","man","filth","fondle","carnal","gnaw","fang","flux","tremble",
+                        "thrash","loon","drink","buttock","scratch","loose","thrust","tear","squeeze","hack",
+                        "beetle","blight","ooze","glutton","grind","fiddle","grope","hammer","glut","vomit",
+                        "bag","pest","gall","crush","slobber","putrid","fury","twist","whine","lick","craze",
+                        "bowel","rotten","kill","grunt","hot","maul","mildew","hate","wind","blade","puke",
+                        "gross","fire","spew","slob","grue","water","ash","nibble","flesh","clap","sinew",
+                        "pain","mad","mucus","offal","rot","ichor","brute","cold","rip","maggot","froth",
+                        "stare","sting","heart","blast","beast","pierce","gore","fat","slug","scrape","pox",
+                        "sate","pus","toad","leper","dung","death","sharp","rabid","gobble","wart","wither",
+                        "loath","cut","chaos","reap","lip","flush","spoor","spine","quiver","vex","spasm",
+                        "bile","mire","glop","face","spume","sore","grim","wobble","axe","mange","foam",
+                        "crab","scab","pile","fume","venom","wail","slash","bubo","spittle","blister","rend",
+                        "gut","fist","sweat","taint","liver","blood","black","quake","green","drool","spite",
+                        "sin","gob","wight","burble"]
+
+    with open("Y:/Resources/dnd/DemonNames.json", "w", encoding='utf8') as file:
+        json.dump({"demon_syllable": demon_syllable, "demon_truename_elements": demon_truename_elements, "demon_usename_elements": demon_usename_elements}, file)
+    print(f"demon_syllaple: {len(demon_syllable)} truename: {len(demon_truename_elements)} usename: {len(demon_usename_elements)}")
 
 if __name__ == "__main__":
     main()
