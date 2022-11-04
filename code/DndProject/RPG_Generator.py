@@ -327,6 +327,25 @@ def oracle_generator():
     result = ''
     return result
 
+def town_name_generator():
+    '''Generates a town name'''
+    with open("Y:/Resources/dnd/TownNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+
+    result = ''
+    roll = randint(1, 4)
+    affix = choice(data['town_name_affix'])
+    prefix = choice(data['town_name_prefix'])
+    suffix = choice(data['town_name_suffix'])
+
+    if roll == 1:
+        result = f"{affix} {prefix}{suffix}"
+    elif roll == 2:
+        result = f"{prefix} {suffix}"
+    else:
+        result = f"{prefix}{suffix}"
+    return result.title()
+
 def main():
     '''
         Main function
@@ -339,6 +358,7 @@ def main():
     print(f"Barbarian Name  : {barbarian_name()}")
     print(f"Dwarven Name    : {dwarven_name()}")
     print(f"Demon Name      : {demon_name()}")
+    print(f"Town Name       : {town_name_generator()}")
 
 if __name__ == "__main__":
     main()
