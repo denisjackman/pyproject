@@ -9,39 +9,14 @@ def main():
     '''
         main function
     '''
-    demon_syllable= ["slag","el","nagir","girruk","zug","tha","meg","skal","deth","esh","uth","sshul","zan","zhel",
-               "khs","chal","vush","chlu","varn","elts","ch","aa","ugg","ksin","ven","phod","sagy","aak",
-               "qek","zohr","kkis","eg","zan","gkil","aezg","gluU"]
 
-    demon_truename_elements = ["a","er","fol","n'n","thl","an","e","il","rh","yy",
-                         "cog","kw","mm","th","ak","du","i","ow","y","ch",
-                         "fl","pp","sh","ae","dh","hl","oo","uu","io","ff",
-                         "ll","z","abl","dh","hh","oe","ul","bh","eu","ks",
-                         "ss","aa","de","gz","oa","u","ar","eo","ir","q'",
-                         "cc","da","g'g","o","tl","ao","ee","il","ph","zh"]
-    demon_usename_elements = ["blue","suck","chew","sword","canker","rut","mark","grab","vile","worm","maim",
-                        "doom","break","rheum","lewd","fiend","spurt","spot","howl","bite","dangle","thigh",
-                        "dog","wrack","eat","skull","red","gristle","whip","blech","moulder","foul","dread",
-                        "scum","plague","gnash","throb","warp","lust","claw","dreg","bane","gibber","cackle",
-                        "fester","spike","spider","helm","blunt","bog","pinch","grin","eye","smut","slake",
-                        "grasp","war","bend","man","filth","fondle","carnal","gnaw","fang","flux","tremble",
-                        "thrash","loon","drink","buttock","scratch","loose","thrust","tear","squeeze","hack",
-                        "beetle","blight","ooze","glutton","grind","fiddle","grope","hammer","glut","vomit",
-                        "bag","pest","gall","crush","slobber","putrid","fury","twist","whine","lick","craze",
-                        "bowel","rotten","kill","grunt","hot","maul","mildew","hate","wind","blade","puke",
-                        "gross","fire","spew","slob","grue","water","ash","nibble","flesh","clap","sinew",
-                        "pain","mad","mucus","offal","rot","ichor","brute","cold","rip","maggot","froth",
-                        "stare","sting","heart","blast","beast","pierce","gore","fat","slug","scrape","pox",
-                        "sate","pus","toad","leper","dung","death","sharp","rabid","gobble","wart","wither",
-                        "loath","cut","chaos","reap","lip","flush","spoor","spine","quiver","vex","spasm",
-                        "bile","mire","glop","face","spume","sore","grim","wobble","axe","mange","foam",
-                        "crab","scab","pile","fume","venom","wail","slash","bubo","spittle","blister","rend",
-                        "gut","fist","sweat","taint","liver","blood","black","quake","green","drool","spite",
-                        "sin","gob","wight","burble"]
+    affix = ["east","fort","high","lake","low","mount","new","north","old","port","south","west"]
+    prefix = ["abbey","abbots","aber","ad","amber","ard","arrow","ash","ashen","autumn","ballin","bards","barren","barrow","battle","bear","beech","bel","bell","bella","ben","berry","birch","black","blue","bright","bryn","bur","caer","cam","carn","carrick","cart","castle","cedar","cherry","cold","cooper","copper","coving","crick","crook","crystal","dark","dart","day","deer","den","diamond","dragon","dun","eagle","eal","east","edin","elk","elm","emerald","fair","far","fir","fitz","free","glass","glen","gold","grand","great","green","grey","hack","hagers","hamp","har","hart","hav","hazel","high","hodge","horn","hunt","inns","inver","iron","ivy","jack","kent","key","kill","king","kings","knights","lake","lis","loch","long","low","lyn","mal","man","maple","may","mill","miller","monk","nether","new","night","nor","north","oak","odd","old","pen","pine","port","queens","ram","rath","red","rich","ross","royal","ruby","rush","scot","silver","south","spring","stark","stock","summer","sun","tower","tre","way","well","west","white","wick","win","winter","wood","york","abbots","ald","alder","ale","altar","amaranth","anchor","ancient","ape","arch","archers","ard","arden","argent","arrach","arrow","ash","ashen","aulden","avens","ax","axe","axe","bad","bald","barb","bards","barrel","barren","barrow","battle","bottle","bay","bear","beard","beast","beer","berry","birch","bitter","black","blacken","blessed","blood","blue","boar","bold","bolt","bone","bottle","boulder","bow","bowyers","bracken","brand","bridge","bright","broken","bronze","brown","buck","bull","burr","by","cairn","candle","carn","castle","cave","cavern","cat","cell","chapel","claw","clear","cloud","cloudy","cold","copper","court","crag","crown","cruel","crypt","crystal","damp","dank","dark","dawn","dead","death","deeping","deer","demon","devil","dim","dire","doe","dog","dour","dove","dragon","dragons","drip","dry","duck","dun","dungeon","dusk","dust","dwarf","dwarven","dying","east","eld","elder","elf","elk","elm","elven","emerald","enchanted","eternal","ettin","ever","faerie","fair","fairy","fall","fang","fell","fey","flame","flat","fog","forest","four","fox","free","frog","frost","game","gargoyles","gem","ghast","ghost","ghoul","glacier","glad","glade","glass","glen","glitter","giants","gilt","goblin","gods","gold","gore","grand","great","green","grey","grim","grim","gryphons","guardian","guild","hag","hale","hallow","hammer","hard","hawks","haze","heather","hell","helm","helms","high","hill","hoar","hobbits","hock","holy","horn","horse","howling","hundred","hydra","ice","icy","ild","in","inns","iron","ivy","jade","jewel","jewelled","juniper","just","keep","key","kings","knife","knights","lake","lakes","lance","leaf","leech","lich","lichen","lightning","lions","little","lizard","lone","lonely","long","lords","lore","loud","lurk","lynx","mace","mad","mage","maid","maiden","mere","mid","middle","mill","mirk","mist","misty","mold","morning","moss","mossy","mould","mound","mud","muck","murk","murky","narrow","necromancers","night","nine","noble","nor","north","northron","nymph","oak","oaken","ochre","ogre","old","olden","ooze","orc","owl","ox","pack","pale","pine","placid","priest","prince","pure","queens","queer","quiet","rain","rainy","ranger","ravens","red","ring","river","roaring","rogues","rope","rot","rotten","round","ruby","rush","rust","rye","sabre","sacred","salt","sand","satyr","savage","scarlet","scrub","scyth","sea","serpent","serpents","shade","shadow","shaft","shield","short","silent","silven","silver","skel","skull","slate","sleeping","slime","small","smoke","snake","snow","snowy","sorcerers","sorrow","south","southern","sparrow","spear","spectre","spell","spider","stag","staff","star","stave","still","stirge","stone","stone","stones","storm","stormy","stout","strangle","straw","sullen","sun","sunder","sweet","sword","tame","thief","theives","three","toad","torch","tower","travellers","tree","troll","trolls","true","two","ul","umber","under","unholy","valley","victors","vile","vine","waggon","wander","wanderers","wardens","warder","warriors","wasp","wax","weasel","web","wedge","well","wench","were","west","westron","wet","white","wierd","wild","wilder","willow","wind","winder","windy","winter","wise","witch","withered","wizards","woe","wolf","wood","worm","wraith","wyrm","wyrms","yellow","yew"]
+    suffix = [ "abbey","ant","arbor","bank","bluff","bourne","bridge","brook","burg","bury","by","caster","chester","cord","cot","crest","dale","dell","den","don","down","dun","end","ey","fall","field","ford","fort","gard","garth","gate","glen","green","grove","ham","haven","head","hill","hold","hurst","ia","ing","ington","keep","lake","lan","land","ley","lin","march","mark","marsh","mead","mere","minster","mond","mont","moor","more","mount","mouth","park","point","port","ridge","river","shire","stead","stock","ston","ter","ton","town","tree","vale","view","ville","wall","water","way","well","wich","wick","wood","worth","castle","city","cross","gard","guard","ford","fort","ham","haven","inn","keep","port","ton","tower","town"]
 
-    with open("Y:/Resources/dnd/DemonNames.json", "w", encoding='utf8') as file:
-        json.dump({"demon_syllable": demon_syllable, "demon_truename_elements": demon_truename_elements, "demon_usename_elements": demon_usename_elements}, file)
-    print(f"demon_syllaple: {len(demon_syllable)} truename: {len(demon_truename_elements)} usename: {len(demon_usename_elements)}")
+    with open("Y:/Resources/dnd/TownNames.json", "w", encoding='utf8') as file:
+        json.dump({"town_name_affix":affix, "town_name_prefix": prefix, "town_name_suffix": suffix}, file)
+    print(f"Affix : {len(affix)} Prefix: {len(prefix)} Suffix: {len(suffix)} ")
 
 if __name__ == "__main__":
     main()
