@@ -16,10 +16,13 @@
         https://www.reddit.com/r/d100/new/
 
 '''
+from pathlib import Path
 import json
 import random
 from random import choice
 from random import randint
+
+FILEPATH = Path(__file__).parent
 
 def dice(sides=6, rolls=1):
     '''
@@ -41,7 +44,8 @@ def number_generator(number=100):
 
 def riddle_generator():
     ''' riddle generator '''
-    with open("Y:/Resources/dnd/Riddles.json", "r", encoding='utf8') as file:
+    filename = f"{FILEPATH}/referencedata/Riddles.json"
+    with open(filename, "r", encoding='utf8') as file:
         data = json.load(file)
 
     riddle = choice(data['riddle_question'])
@@ -62,7 +66,8 @@ def shakespearean_insult_generator():
 
     There are no inputs. The output is the insult as a string (result)
     '''
-    with open("Y:/Resources/dnd/ShakespeareInsult.json", "r", encoding='utf8') as file:
+    filename = f"{FILEPATH}/referencedata/ShakespeareInsult.json"
+    with open(filename, "r", encoding='utf8') as file:
         data = json.load(file)
     column_one = choice(data["insult_column_one"])
     column_two = choice(data["insult_column_two"])
@@ -75,7 +80,7 @@ def dwarven_insult_generator():
     '''
         dwarven insult generator
     '''
-    with open("Y:/Resources/dnd/DwarvenInsult.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DwarvenInsult.json", "r", encoding='utf8') as file:
         data = json.load(file)
     dwarven_insult_one = choice(data["insult_column_one"]).capitalize()
     dwarven_insult_two = choice(data["insult_column_two"])
@@ -88,7 +93,7 @@ def fantasy_wine_name():
     '''
         fantasy wine name generator
     '''
-    with open("Y:/Resources/dnd/FantasyWines.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/FantasyWines.json", "r", encoding='utf8') as file:
         data = json.load(file)
     wine_name = choice(data['wine_name'])
     result = f"{wine_name}"
@@ -96,7 +101,7 @@ def fantasy_wine_name():
 
 def angelic_name():
     ''' angelic names '''
-    with open("Y:/Resources/dnd/AngelNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/AngelNames.json", "r", encoding='utf8') as file:
         data = json.load(file)
     prefix = choice(data['angel_prefix'])
     suffix = choice(data['angel_suffix'])
@@ -105,7 +110,7 @@ def angelic_name():
 
 def barbarian_name():
     ''' barbarian names '''
-    with open("Y:/Resources/dnd/BarbarianNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/BarbarianNames.json", "r", encoding='utf8') as file:
         data = json.load(file)
 
     roll = randint(1, 2)
@@ -123,7 +128,7 @@ def barbarian_name():
 
 def build_demon_name():
     ''' build a name '''
-    with open("Y:/Resources/dnd/DemonNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf8') as file:
         data = json.load(file)
     syllable = choice(data["demon_syllable"])
     roll = randint(1, 7)
@@ -137,7 +142,7 @@ def build_demon_name():
 
 def demon_name_one():
     ''' demon name generator '''
-    with open("Y:/Resources/dnd/DemonNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf8') as file:
         data = json.load(file)
     syllable = choice(data["demon_syllable"])
     roll = randint(1, 7)
@@ -153,7 +158,7 @@ def demon_name_one():
 
 def demon_name_two():
     ''' demon name generator'''
-    with open("Y:/Resources/dnd/DemonNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf8') as file:
         data = json.load(file)
 
     result = ''
@@ -329,7 +334,7 @@ def oracle_generator():
 
 def town_name_generator():
     '''Generates a town name'''
-    with open("Y:/Resources/dnd/TownNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/TownNames.json", "r", encoding='utf8') as file:
         data = json.load(file)
 
     result = ''
