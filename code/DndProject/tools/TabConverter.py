@@ -12,14 +12,12 @@ def main():
     '''
         main function
     '''
-
-    affix = ["east","fort","high","lake","low","mount","new","north","old","port","south","west"]
-    prefix = ["abbey","abbots","aber","ad","amber","ard","arrow","ash","ashen","autumn","ballin","bards"]
-    suffix = [ "abbey","ant","arbor","bank","bluff","bourne","bridge","brook","burg","bury","by","caster"]
-
-    with open(f"{FILEPATH}/../referencedata/ExampleNames.json", "w", encoding='utf8') as file:
-        json.dump({"town_name_affix":affix, "town_name_prefix": prefix, "town_name_suffix": suffix}, file)
-    print(f"Affix : {len(affix)} Prefix: {len(prefix)} Suffix: {len(suffix)} ")
+    community = ["City","Town","Village","Mines","Deep","Delving"]
+    prefix = ["Stone","Granite","Deep","Iron","Rock","Silver","Crystal"]
+    suffix = ["hold","home","delve","deep","mine","fast"]
+    with open(f"{FILEPATH}/../referencedata/DwarvenSettlementNames.json", "w", encoding='utf8') as file:
+        json.dump({"dwarven_settlement_community": community, "dwarven_settlement_prefix": prefix, "dwarven_settlement_suffix": suffix}, file)
+    print(f"Community: {len(community)} Prefix: {len(prefix)} Suffix: {len(suffix)} ")
 
 if __name__ == "__main__":
     main()

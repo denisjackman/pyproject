@@ -351,19 +351,58 @@ def town_name_generator():
         result = f"{prefix}{suffix}"
     return result.title()
 
+def woodname_generator():
+    '''Generates a wood name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/WoodNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    prefix = choice(data['wood_name_prefix'])
+    suffix = choice(data['wood_name_suffix'])
+    result = f"{prefix}{suffix}"
+    return result.title()
+
+def streetname_generator():
+    '''Generates a street name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/StreetNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    prefix = choice(data['street_name_prefix'])
+    suffix = choice(data['street_name_suffix'])
+    result = f"{prefix}{suffix}"
+    return result.title()
+
+def dwarven_settlement_name_generator():
+    '''Generates a dwarven settlement name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/DwarvenSettlementNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    roll = randint(1, 10)
+    community = choice(data['dwarven_settlement_community'])
+    prefix = choice(data['dwarven_settlement_prefix'])
+    suffix = choice(data['dwarven_settlement_suffix'])
+
+    if roll <= 4:
+        result = f"The {community} of {prefix}{suffix}"
+    else:
+        result = f"{prefix}{suffix} {community}"
+    return result
+
 def main():
     '''
         Main function
     '''
-    print(f"Shakey  insult  : {shakespearean_insult_generator()}")
-    print(f"Dwarven insult  : {dwarven_insult_generator()}")
-    print(f"Riddle Question : {riddle_generator()}")
-    print(f"Wine Name       : {fantasy_wine_name()}")
-    print(f"Angelic Name    : {angelic_name()}")
-    print(f"Barbarian Name  : {barbarian_name()}")
-    print(f"Dwarven Name    : {dwarven_name()}")
-    print(f"Demon Name      : {demon_name()}")
-    print(f"Town Name       : {town_name_generator()}")
+    print(f"Shakey  insult          : {shakespearean_insult_generator()}")
+    print(f"Dwarven insult          : {dwarven_insult_generator()}")
+    print(f"Riddle Question         : {riddle_generator()}")
+    print(f"Wine Name               : {fantasy_wine_name()}")
+    print(f"Angelic Name            : {angelic_name()}")
+    print(f"Barbarian Name          : {barbarian_name()}")
+    print(f"Dwarven Name            : {dwarven_name()}")
+    print(f"Demon Name              : {demon_name()}")
+    print(f"Town Name               : {town_name_generator()}")
+    print(f"Wood Name               : {woodname_generator()}")
+    print(f"Street Name             : {streetname_generator()}")
+    print(f"Dwarven Settlement Name : {dwarven_settlement_name_generator()}")
 
 if __name__ == "__main__":
     main()
