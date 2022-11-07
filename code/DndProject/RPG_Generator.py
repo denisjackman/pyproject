@@ -387,6 +387,24 @@ def dwarven_settlement_name_generator():
         result = f"{prefix}{suffix} {community}"
     return result
 
+def place_name_generator():
+    '''Generates a place name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/PlaceNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    roll = randint(0, 2)
+    if roll == 0:
+        prefix = choice(data['place_name_prefix_1'])
+        suffix = choice(data['place_name_suffix_1'])
+    elif roll == 1:
+        prefix = choice(data['place_name_prefix_2'])
+        suffix = choice(data['place_name_suffix_2'])
+    else:
+        prefix = choice(data['place_name_prefix_3'])
+        suffix = choice(data['place_name_suffix_3'])
+    result = f"{prefix}{suffix}"
+    return result.title()
+
 def main():
     '''
         Main function
@@ -403,6 +421,7 @@ def main():
     print(f"Wood Name               : {woodname_generator()}")
     print(f"Street Name             : {streetname_generator()}")
     print(f"Dwarven Settlement Name : {dwarven_settlement_name_generator()}")
+    print(f"Place Name              : {place_name_generator()}")
 
 if __name__ == "__main__":
     main()
