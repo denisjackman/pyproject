@@ -387,6 +387,153 @@ def dwarven_settlement_name_generator():
         result = f"{prefix}{suffix} {community}"
     return result
 
+def book_title_generator(catalogue = False):
+    '''Generates a book title'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/BookTitles.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    roll = randint(1, 10)
+    if roll == 1:
+        #religious book
+        newroll = randint(1, 4)
+        if newroll ==1:
+            names = choice(data['names'])
+            result = f"Life of Saint {names}"
+        elif newroll == 2:
+            relthings = choice(data['relthings']).capitalize()
+            domain = choice(data['domain']).capitalize()
+            rel = choice(data['rel']).capitalize()
+            result = f"{relthings} to the {domain} {rel}"
+        elif newroll == 3:
+            adj = choice(data['adj']).capitalize()
+            things = choice(data['things']).capitalize()
+            domain = choice(data['domain']).capitalize()
+            rel = choice(data['rel']).capitalize()
+            result = f"{adj} {things} of the {domain} {rel}"
+        else:
+            things = choice(data['things']).capitalize()
+            domain = choice(data['domain']).capitalize()
+            rel = choice(data['rel']).capitalize()
+            result = f"{things} of the {domain} {rel}"
+        if catalogue:
+            result = f"{result} (Religious)"
+    elif roll == 2:
+        # travel book
+        travel = choice(data['travel']).capitalize()
+        names = choice(data['names'])
+        result = f"{travel} of {names}"
+        if catalogue:
+            result = f"{result} (Travel)"
+    elif roll == 3:
+        #biology book
+        bioroll = randint(1, 2)
+        creature = choice(data['creature']).capitalize()
+        if bioroll == 1:
+            bio = choice(data['bio']).capitalize()
+            result = f"{bio} of {creature}"
+        else:
+            things = choice(data['things']).capitalize()
+            result = f"{creature} {things}"
+        if catalogue:
+            result = f"{result} (Biology)"
+    elif roll == 4:
+        #magick book
+        magicroll = randint(1, 4)
+        adj = choice(data['adj'])
+        arcana = choice(data['arcana'])
+        things = choice(data['things'])
+        regarding = choice(data['regarding'])
+        if magicroll == 1:
+            result = f"{adj} {arcana} {things}"
+        elif magicroll == 2:
+            result = f"{arcana} {things}"
+        elif magicroll == 3:
+            result = f"{adj} {things} {regarding} {arcana}"
+        else:
+            result = f"{things} {regarding} {arcana}"
+        result = result.title()
+        if catalogue:
+            result = f"{result} (Magick)"
+    elif roll == 5:
+        #craftwork book
+        guide = choice(data['guide']).capitalize()
+        crafts = choice(data['crafts']).capitalize()
+        result = f'{guide} {crafts}'
+        if catalogue:
+            result = f"{result} (Craftwork)"
+    elif roll == 6:
+        #tales book
+        talesroll = randint(1, 3)
+        story = choice(data['story']).capitalize()
+        adj2 = choice(data['adj2'])
+        adj3 = choice(data['adj3'])
+        place = choice(data['place']).capitalize()
+        person = choice(data['person']).capitalize()
+        if talesroll == 1:
+            result = f"{story} of the {adj2} {place}"
+        elif talesroll == 2:
+            result = f"{story} of the {adj2} {person}"
+        else:
+            result = f"{story} of the {adj3} {person}"
+        if catalogue:
+            result = f"{result} (Tales)"
+    elif roll == 7:
+        #art book
+        poettype = choice(data['poettype']).capitalize()
+        poetry = choice(data['poetry']).capitalize()
+        result = f'{poettype} {poetry}'
+        if catalogue:
+            result = f"{result} (Art)"
+    elif roll == 8:
+        #history  book
+        historyroll = randint(1, 4)
+        history = choice(data['history']).capitalize()
+        histtype = choice(data['histtype']).capitalize()
+        things = choice(data['things']).capitalize()
+        if historyroll == 1:
+            result = f"{history} of the {histtype}"
+        elif historyroll == 2:
+            adj = choice(data['adj']).capitalize()
+            result = f"{adj} {things} of the {histtype}"
+        elif historyroll == 3:
+            result = f"{things} of the {histtype}"
+        else:
+            fame = choice(data['fame']).capitalize()
+            people = choice(data['people']).capitalize()
+            result = f"{fame} {people} of the {histtype}"
+        if catalogue:
+            result = f"{result} (History)"
+    elif roll == 9:
+        #geography book
+        georoll = randint(1, 3)
+        adj2 = choice(data['adj2']).capitalize()
+        geo = choice(data['geo']).capitalize()
+
+        if georoll == 1:
+            result = f"{adj2} {geo} Atlas"
+        elif georoll == 2:
+            geothings = choice(data['geothings']).capitalize()
+            result = f"{geothings} of the {adj2} {geo}"
+        else:
+            activity = choice(data['activity']).capitalize()
+            result = f"{activity} in the {geo}"
+        if catalogue:
+            result = f"{result} (Geography)"
+    else:
+        #linguitics book
+        lingroll = randint(1, 2)
+        language = choice(data['language']).capitalize()
+        if lingroll == 1:
+            lang = choice(data['language']).capitalize()
+            result = f"{language} {lang}"
+        else:
+            dictionary = choice(data['dictionary']).capitalize()
+            words = choice(data['words']).capitalize()
+            result = f"{dictionary} of {language} {words}"
+        if catalogue:
+            result = f"{result} (Linguistics)"
+    return result
+
 def place_name_generator():
     '''Generates a place name'''
     result = ''
@@ -422,6 +569,8 @@ def main():
     print(f"Street Name             : {streetname_generator()}")
     print(f"Dwarven Settlement Name : {dwarven_settlement_name_generator()}")
     print(f"Place Name              : {place_name_generator()}")
+    print(f"Book Title              : {book_title_generator()}")
+    print(f"Book Title              : {book_title_generator(catalogue=True)}")
 
 if __name__ == "__main__":
     main()

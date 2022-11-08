@@ -1,1 +1,27 @@
-{"dwarven_settlement_community": ["City", "Town", "Village", "Mines", "Deep", "Delving"], "dwarven_settlement_prefix": ["Stone", "Granite", "Deep", "Iron", "Rock", "Silver", "Crystal"], "dwarven_settlement_suffix": ["hold", "home", "delve", "deep", "mine", "fast"]}
+{
+    "dwarven_settlement_community": [
+        "City",
+        "Town",
+        "Village",
+        "Mines",
+        "Deep",
+        "Delving"
+    ],
+    "dwarven_settlement_prefix": [
+        "Stone",
+        "Granite",
+        "Deep",
+        "Iron",
+        "Rock",
+        "Silver",
+        "Crystal"
+    ],
+    "dwarven_settlement_suffix": [
+        "hold",
+        "home",
+        "delve",
+        "deep",
+        "mine",
+        "fast"
+    ]
+}
