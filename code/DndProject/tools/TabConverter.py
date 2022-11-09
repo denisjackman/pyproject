@@ -1,10 +1,18 @@
 '''
-    this converts a tab file into a json file
+    Name : TabConverter.py
+
+    Function :
+    This is a converter for the Data items from TAB files to JSON files
+    The TAB files are from the DnD 5e SRD
 '''
+__author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
+__version__ = "$Revision: 1.00 $"
+__date__ = "$Date: 2022/11/01 00:00:00 $"
+__copyright__ = "Copyright (c) 2022 Denis J Jackman"
+__license__ = "Python"
+
 from pathlib import Path
 import json
-    # generate the random numbers based on the len of the lists
-    # build the results
 
 FILEPATH = Path(__file__).parent
 
@@ -12,73 +20,20 @@ def main():
     '''
         main function
     '''
-    things = ["fables","legends","lore","mysteries","myths","powers","rites","rituals","sagas","secrets","strictures","tales","traditions"]
-    relthings = ["appeals","champions","hymns","litanies","orders","petitions","prayers","relics","saints","shrines","symbols","temples"]
-    domain = ["air","chaos","death","destruction","earth","evil","fire","good","knowledge","law","love","moon","nature","protection","strength","sun","travel","trickster","war"]
-    rel = ["cult","cults","deities","deity","divinities","divinity","faith","faiths","god","goddess","goddesses","gods","religion","religions"]
-    crafts = ["alchemy","assassination","baking","barrelmaking","basketmaking","brewing","carpentry","cobbling","cooking","dancing","fishing","fletching","gemcutting","herbalism","leatherworking","locksmithing","masonry","milling","painting","poisons","ropemaking","sculpting","sewing","smithing","tanning","weaving"]
-    travel = ["travels","journeys","voyages"]
-    geo = ["caverns","desert","forest","hills","moors","mountains","plains","swamp"]
-    geothings = ["animals","climate","hazards","herbs","history","monsters","people","riches","ruins","settlements","tales","weather"]
-    dictionary = ["dictionary","glossary","lexicon"]
-    words = ["letters","phrases","terms","words"]
-    bio = ["bestiary","biology","dietary habits","ecology","mating habits"]
-    arcana = ["abjuration","alchemy","conjuration","divination","evocation","illusion","magic","runecraft","thaumaturgy","transmutation","enchantment","necromancy","sorcery"]
-    guide = ["book of","compendium on","guide to","manual of","writings on"]
-    regarding = ["about","concerning","regarding"]
-    history = ["architecture","armies","art","beliefs","cities","cuisine","customs","dances","heraldry","history","music","languages","rulers","ships","trade","treasures","wars","weapons"]
-    language = ["abyssal","common","deep speech","draconic","dwarven","elven","giant","goblin","primordial","supernal"]
-    story = ["legend","stories","tales"]
-    poetry = ["ballads","idylls","poems","poetry","songs","verses"]
-    poettype = ["ancient","celestial","elven","erotic","hopeful","inspirational","merry","mournful","mystic","rousing"]
-    histtype = ["Ancient World","Barbarian Plains","Chaos Lands","Desert Tribes","Eastern Kingdoms","Empire","Island Kingdoms","Mountain Clans","Northern Cultures","Southern Regions","Western Realms","#NonHuman#"]
-    nonhuman = ["Dragons","Dwarves","Elves","Giants","Gnomes","Orcs","Trolls","Underworld"]
-    fame = ["acclaimed","exalted","famous","infamous","legendary","notable","obscure","renowned"]
-    people = ["adventurers","champions","heroes","nobles","priests","sages","warriors","wizards"]
-    person = ["alchemist","angel","archer","bandit","banshee","bard","baron","beggar","brigand","champion","cleric","dancer","druid","drunkard","dryad","dwarf","elf","enchanter","enchantress","fisherman","fool","friar","gambler","giant","goblin","guard","gypsy","hag","hangman","harlot","harpy","hermit","hero","highwayman","horseman","hunter","huntress","jester","king","knave","knight","lady","lord","maiden","merchant","mermaid","minotaur","minstrel","mistress","monk","nomad","nymph","ogre","pilgrim","pirate","plowman","priest","priestess","prince","queen","ranger","rogue","sage","sailor","shepard","smith","sorcerer","squire","stranger","thief","traveler","troll","virgin","vixen","wanderer","warrior","watchman","wench","witch","wizard"]
-    adj = ["esoteric","false","forbidden","forgotten","hidden","lost","mystical","sacred","secret","unholy","unknown","veiled"]
-    adj2 = ["ancient","black","blue","brass","brown","chaotic","copper","crimson","dark","dirty","dripping","enchanted","fearsome","frosty","frozen","glass","glorious","golden","great","green","grey","imperial","invisible","iron","ivory","jade","last","lawful","magical","majestic","mystic","odd","old","pale","red","royal","sacred","scarlet","secret","shining","silent","silver","singing","steel","stone","sturdy","twisted","whistling","white","wooden"]
-    adj3 = ["adulterous","amorous","angry","arcane","avenging","bald","bearded","beefy","bitter","blind","bloated","boastful","brave","brawny","brazen","bumbling","burly","buxom","charming","clever","crazy","crusty","curious","dancing","dead","dreaming","drooling","drunken","eager","fallen","fat","fell","fiery","fighting","flying","foolish","foppish","gay","gentle","greedy","grim","handsome","hanging","happy","hearty","honest","horned","horny","howling","humble","hungry","jealous","jolly","lame","laughing","lazy","leaping","lucky","lusty","mad","merry","mighty","naughty","noble","prancing","proud","roaring","rowdy","rude","salty","savage","shady","slaughtered","sleeping","sneezing","stalwart","stout","thirsty","timid","towering","virtuous","vulgar","wandering","wanton","weary","wise","zealous"]
-    activity = ["fighting","hunting","mining","surviving","trave"]
-    names = ["Amanapa","Arannash","Aspin","Astarte","Avilion","Celindaria","Crystanor","Dalis","Denudiel","Derenome","Doniri","Dwinian","Egildas","Elargir","Eldraz","El-Wisbin","Eninope","Findrillian","Foobar","Fordulana","Hirondelle","Ignius","Isrid","Jinarf","Lagwyn","Loriel","Margwas","Melpomene","Meridian","Mitzi","Mortick","Mystrene","Nilf","Ornill","Pildar","Prodge","Quailandir","Ravaniof","Repetitios","Rhyidon","Rhyndis","Sidiar","Spiridon","Splinders","Spork","Syniara","Tiffany","Trisilyan","Valdison","Vermopolis","Vevrissan","Widgil","Wrastforth","Xandiri","Zwind"]
-    creature = ["ass","bear","beast","boar","bull","cat","chicken","chimera","cock","cow","crab","demon","devil","dog","dragon","drake","duck","eagle","falcon","fox","frog","gargoyle","goat","griffon","hare","hawk","hog","horse","hound","lamb","lion","lizard","mare","monster","owl","ox","phoenix","pig","pony","rat","raven","rooster","serpent","shadow","shark","sheep","siren","snake","stag","stallion","swine","unicorn","vulture","wolf","wyrm","wyvern"]
-    place = ["battlement","bridge","castle","cave","cove","crag","crypt","den","domain","dungeon","gate","hall","haven","hideout","hill","house","inn","keep","labyrinth","lair","landing","manor","nest","oasis","pit","rest","river","road","rookery","roost","sanctum","shrine","star","temple","throne","tomb","tower","valley","vault","wood"]
-
-    with open(f"{FILEPATH}/../referencedata/BookTitles.json", "w", encoding='utf8') as file:
-        json.dump({"things": things,
-                   "relthings": relthings,
-                   "domain": domain,
-                   "rel": rel,
-                   "crafts": crafts,
-                   "travel": travel,
-                   "geo": geo,
-                   "geothings": geothings,
-                   "dictionary": dictionary,
-                   "words": words,
-                   "bio": bio,
-                   "arcana":arcana,
-                   "guide": guide,
-                   "regarding": regarding,
-                   "history": history,
-                   "language": language,
-                   "story": story,
-                   "poetry": poetry,
-                   "poettype": poettype,
-                   "histtype": histtype,
-                   "nonhuman": nonhuman,
-                   "fame":fame,
-                   "people": people,
-                   "person": person,
-                   "adj": adj,
-                   "adj2": adj2,
-                   "adj3": adj3,
-                   "activity": activity,
-                   "names": names,
-                   "creature": creature,
-                   "place": place},
-                  file, indent=4, ensure_ascii=False)
-    # print(f"prefix1: {len(prefix1)} prefix2: {len(prefix2)} prefix3: {len(prefix3)} ")
-    # print(f"suffix1: {len(suffix1)} suffix2: {len(suffix2)} suffix3: {len(suffix3)} ")
+    prefix = ["Ag","Al","Ald","Alf","Ar","Arn"]
+    suffixmale = ["ain","ald","ar","ard","arr"]
+    suffix = ["a","asi","bera","bina","bora"]
+    clanprefix = ["ale","anvil","armor","axe"]
+    clansuffix = ["arm","axe","back","bane","beard"]
+    with open(f"{FILEPATH}/../referencedata/DwarvenNames.json", "w", encoding='utf8') as file:
+        json.dump({"dwarven_name_prefix": prefix,
+                   "dwarven_name_suffixmale": suffixmale,
+                   "dwarven_name_suffix": suffix,
+                   "dwarven_clan_prefix": clanprefix,
+                   "dwarven_clan_suffix": clansuffix},
+                  file,
+                  indent=4,
+                  ensure_ascii=False)
 
 if __name__ == "__main__":
     main()

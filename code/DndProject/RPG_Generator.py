@@ -1,12 +1,18 @@
 '''
-    This is a RPG generator tool
+    Name : RPG_Generator.py
 
-    it has in it currently:
-        A Dice function
+    Function :
+    This is a RPG Games master tool.
+    It is a swiss army knife of random generators, and other tools.
+
+    It has in it currently:
+        a Dice function
         a number generator
         a riddle generator
         a Shakepspearean Insult generator
         a Dwarven insult generator
+        various naming generators
+        a currency converter
 
     Working on:
         Oracle Generator
@@ -14,8 +20,19 @@
     References:
         https://www.dndspeak.com/
         https://www.reddit.com/r/d100/new/
+        https://stephthedev.com/dnd-exchange-rate
+        https://stephthedev.com/dnd-travel-calculator
 
+    Notes:
+        This is a work in progress.
 '''
+
+__author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
+__version__ = "$Revision: 1.00 $"
+__date__ = "$Date: 2022/11/01 00:00:00 $"
+__copyright__ = "Copyright (c) 2022 Denis J Jackman"
+__license__ = "Python"
+
 from pathlib import Path
 import json
 import random
@@ -23,7 +40,7 @@ from random import choice
 from random import randint
 
 FILEPATH = Path(__file__).parent
-
+# pylint: disable=too-many-locals
 def dice(sides=6, rolls=1):
     '''
         Rolls a dice which has 'sides' sides (default is six (6))
@@ -87,7 +104,6 @@ def dwarven_insult_generator():
     dwarven_insult_three = choice(data["insult_column_three"])
     result = f"{dwarven_insult_one} {dwarven_insult_two} {dwarven_insult_three}."
     return result
-
 
 def fantasy_wine_name():
     '''
@@ -204,132 +220,41 @@ def demon_name():
         return demon_name_one()
     return demon_name_two()
 
-def dwarven_name():
+def dwarven_name(setfemale = False):
     ''' dwarven name generator '''
     female = False
     firstname = ''
     lastname = ''
 
-    prefix = ["Ag","Al","Ald","Alf","Ar","Arn","Art","As","Ath","Athran","Aud","Bal","Bala","Bar","Bara","Bel",
-              "Bela","Belf","Ber","Bif","Bof","Bok","Bol","Bom","Bor","Bra","Brott","Brun","Bryn","Bur","D",
-              "Da","Dag","Dam","Dar","Dor","Dora","Drok","Drong","Dur","Dwal","Eb","Ein","El","Ela","Elan",
-              "Elda","Fa","Faf","Far","Fara","Fil","Fim","Fima","Firen","Fo","For","Fros","Fur","Fura","Ga",
-              "Gar","Gil","Gim","Gir","Glam","Gol","Gollen","Gor","Got","Gota","Grim","Gro","Grun","Gunn",
-              "Gus","Gut","Ha","Had","Hak","Haka","Hal","Han","Har","Has","Hega","Hel","Hun","Hur","Ing",
-              "Jar","Kad","Kar","Kata","Kaz","Kaza","Kha","Khar","Kol","Krag","Kur","Lar","Logaz","Lok",
-              "Lun","Mag","Mel","Mo","Mola","Mor","Mora","Na","Nar","No","Nola","Nor","Noran","Nord","Nun",
-              "Nyr","Oda","Oka","Ol","Olf","Olla","Osk","Oth","Othra","Rag","Rak","Ro","Rog","Ror","Roran",
-              "Run","Rur","Sa","Sig","Ska","Skaf","Skalf","Skalla","Skar","Skeg","Skor","Skora","Snor","Snora",
-              "Sven","Tak","Thar","Tho","Thor","Thora","Thra","Thro","Thron","Thrun","Thura","Ulf","Ulla","Un",
-              "Utha","Val","Vala","Var","Vara","Ver","Ves","Yng","Zak","Zaka","Zakan","Zam","Zar","Zara","Zarna"]
-    suffixmale = ["ain","ald","ar","ard","arr","bin","bon","bor","born","brun","bur","dalf","dan","dar","den",
-                  "di","dil","din","dir","dok","dor","dran","drin","ed","end","endd","fin","finn","fur","gan",
-                  "gar","gard","gi","gil","gin","gir","gni","gon","gor","grim","grin","grir","grom","grond",
-                  "groth","grum","grund","grunt","gui","gun","gund","hall","hel","hild","hor","ic","ik","in",
-                  "ir","is","jald","ki","kil","kin","krag","kri","krin","li","lik","lin","ling","linn","lir",
-                  "lok","lum","lun","mad","min","mir","mund","nar","ni","nin","nir","nus","odd","oin","olf",
-                  "or","rag","ran","rand","rek","ri","rig","rik","rin","rir","run","sil","sin","skin","sur",
-                  "tan","thor","ti","tin","tok","trek","trok","ur","urd","vald","vard","vir","zin","zor"]
-    suffix = ["a","asi","bera","bina","bora","cla","dda","dila","dina","dis","dokina","dora","drid","drinella",
-              "era","fina","fya","ga","gana","gara","gella","gerd","gina","gona","gora","grid","grimella",
-              "grina","groma","gromina","grondella","grotha","gruma","grunda","gruntina","gula","gundina",
-              "gunella","hild","i","ia","il","ilda","ima","ja","kina","kragella","krina","kya","la","likina",
-              "lina","loda","loka","luna","mina","mira","na","nala","nina","nira","nya","ona","ra","ragina",
-              "rasa","rid","riga","rika","rina","runa","runella","sa","sif","skina","skinella","tina","toka",
-              "trekella","trekina","troka","vild","yra","zina","zora"]
-    clanprefix = ["ale","anvil","armor","axe","beard","black","cavern","earth","flame","foe","forge","goblin",
-                  "gold","granite","grudge","hammer","iron","oath","orc","ore","red","ring","rock","shield",
-                  "silver","steel","stone","tunnel","troll"]
-    clansuffix = ["arm","axe","back","bane","beard","bearer","beater","bender","binder","breaker","crusher",
-                  "cutter","delver","fist","forge","hammer","head","hearth","keg","killer","maker","master",
-                  "render","shaker","slayer","smith","splitter","worker"]
+    with open(f"{FILEPATH}/referencedata/DwarvenNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
 
-    if randint(1, 2) == 1:
-        firstname = f'{choice(prefix)}{choice(suffixmale)}'
-    else:
+    prefix = choice(data["dwarven_name_prefix"])
+    suffixmale = choice(data["dwarven_name_suffixmale"])
+    suffix = choice(data["dwarven_name_suffix"])
+    clanprefix = choice(data["dwarven_clan_prefix"])
+    clansuffix = choice(data["dwarven_clan_suffix"])
+    if setfemale:
         female = True
-        firstname = f'{choice(prefix)}{choice(suffix)}'
+        firstname = f'{prefix}{suffix}'
+    else:
+        if randint(1, 2) == 1:
+            firstname = f'{prefix}{suffixmale}'
+        else:
+            female = True
+            firstname = f'{prefix}{suffix}'
 
     if randint(1, 3) == 1:
-        father = f'{choice(prefix)}{choice(suffixmale)}'
+        father = f'{prefix}{suffixmale}'
         if female:
             lastname = f"{father}ssdottir"
         else:
             lastname = f"{father}son"
     else:
-        lastname = f'{choice(clanprefix)}{choice(clansuffix)}'
+        lastname = f'{clanprefix}{clansuffix}'
     result = f'{firstname.capitalize()} {lastname.capitalize()}'
     if female:
         result = f"{result} (f.)"
-    return result
-
-def oracle_generator():
-    '''
-        oracle generator
-    '''
-    oracle_noun = ("endless capacity", "life", "wondering person", "intention", "core", "fluid", "delicious fruit",
-                   "fruition", "wheel", "dream", "purpose", "desire", "reason", "world", "light", "power", "work",
-                   "change", "energy", "job", "choice", "Spirit", "nature", "connection", "fire", "dancer", "offering",
-                   "peace", "simple unity", "forgiving act", "center", "source", "glowing ember", "spiritual food",
-                   "practical purpose", "ocean", "doubt", "faith", "ritual", "practice", "student", "teacher",
-                   "sacred time", "soul", "winding path", "challenge", "transformation", "transience", "burden",
-                   "release", "support", "oracle", "direction", "wondering", "God", "local community", "world community",
-                   "creation", "relaxation", "moving planet", "gift", "present", "never-failing Source", "body",
-                   "part", "mind", "river", "waterfall", "leader", "community", "soul", "lesson", "destination",
-                   "journey", "confusion", "striking clarity", "lover", "home", "serendipitous design", "similar dream",
-                   "hope", "loving action", "joy", "path", "gateway", "transcendent experience", "angel", "soul guide",
-                   "curious spirit", "song", "method", "map", "blueprint", "received wisdom", "block", "true wonder",
-                   "star", "entire universe", "immense sky", "whole", "tree", "branch", "power", "peace maker",
-                   "genius", "seed", "marvelous ruby", "wondrous alchemy", "turning", "hidden science", "jewel",
-                   "forest", "exchange", "remembered passion", "fiery stillness", "elder", "communication", "root",
-                   "crossroads", "nexus", "way", "integrated reality", "integral notion", "catharsis", "distinction",
-                   "compassionate action", "forgiving word", "action", "cycle", "feeling", "season", "harvest",
-                   "dawn", "birth", "notion", "circle", "ring", "myth", "radical truth", "essence", "infinite and gentle force",
-                   "spiritual cycle", "reason", "graceful act", "discovery", "need", "forgotton mystery", "wing",
-                   "motivation", "structure")
-    oracle_preposition = ("of", "from", "near", "about", "around", "for", "toward", "over", "behind",
-                          "beyond", "related to", "defined by", "within", "living with")
-    oracle_adverb = ("knowingly", "consciously", "gently", "emphatically", "enthusiastically", "strangely",
-                     "surprisingly", "nearly", "yearningly", "non-chalantly", "hardly", "eagerly", "purposefully",
-                     "actively", "inexorably", "accurately", "accidentally", "completely", "differently",
-                     "single-handledly", "consciously", "almost", "wisely", "creatively", "somewhat",
-                     "overwhelmingly", "seldom", "often")
-    oracle_adjective = ("quick", "kind", "gentle", "optimal", "challenging", "loyal", "sweet", "ravishing",
-                        "stimulating", "strong", "activating", "graceful", "devoted", "global", "genuine",
-                        "magnificent", "masked", "separated", "gratifying", "elusive", "revered", "rigorous",
-                        "righteous", "mysterious", "infinite", "salient", "magnificent", "activated", "sharing",
-                        "feeling", "powerful", "clear", "energized", "rainbow", "perfect", "truly united", "world",
-                        "local", "ripe", "loving", "anticipating", "pleasant", "personalized", "transient", "individualized",
-                        "truly-unique", "ancient", "loving", "experienced", "creative", "foreign", "familiar",
-                        "worthy", "precise", "intelligent", "gifted", "strained", "free-spirited", "true",
-                        "clear", "caring", "dreamlike", "imaginative", "collaborative", "service-oriented", "straightforward",
-                        "strong", "orbiting", "glowing", "stable", "outer", "nearest", "most-difficult", "transient",
-                        "full", "round", "fluid", "opaque", "known", "highly-valued", "smooth", "warm", "loose",
-                        "ready", "burning", "effervescent", "impactful", "parental", "childlike", "soft",
-                        "simple", "subtle", "new", "abundant", "intergalactic", "questioning", "resplendent",
-                        "terrific", "energetic", "powerful", "discriminating", "self-actualized",
-                        "ecological", "planetary")
-    oracle_instransient_verb_phrase = ( "arrives", "beckons", "takes a rest", "becomes clear",
-                                       "learns", "removes a block", "meditates", "remembers the soul",
-                                       "jumps without a net", "remembers everything", "cleans the window of awareness",
-                                       "feels truth", "returns", "rejoices", "prays", "takes action", "dreams",
-                                       "ceases to exist", "hides", "chooses", "laughs with joy", "plays without questioning",
-                                       "loves", "wakes up", "hesitates and moves anyway", "trembles with comprehension",
-                                       "reflects", "is born", "finds inspiration", "feels completely full", "senses",
-                                       "sees", "joins the path", "listens", "reasons", "sits", "flies", "sings",
-                                       "knows")
-    oracle_conjuction = ("and", "but", "for", "nor", "or", "so", "yet", "becuase")
-    oracle_complete_visions = ("There is a storm in your past and yet another in your future, but persistence and clear thinking will show you the road once more",
-                               "The answers you seek will be found within. Seek the obvious to address the unknown",
-                               "What one man has wrought, another can undo. Although they differ, they are one and the same",
-                               "The path you walk is built on faith. Fear not your choices, as they are the stepping stones that bridge the chasm",
-                               "One cannot be truly wrong if he is really right. Believe in yourself, and you will find the answers you seek",
-                               "What you possess is all you need. Don’t be swayed by the illusion of what’s needed",
-                               "Although you fear your choices, they are all you have. Fear the Choice you‘ve lost more than the choices that you still possess",
-                               "Don’t be blinded by the tree that blocks your sight, skirt its trunk to see the forest",
-                               "The one you seek will need you more. He is hanging from the precipice of shattered dreams, and has lost what cannot be found",
-                               "Trust what you know, since it is also the answer to what you do not")
-    result = ''
     return result
 
 def town_name_generator():
@@ -552,6 +477,436 @@ def place_name_generator():
     result = f"{prefix}{suffix}"
     return result.title()
 
+def oracle_generator():
+    '''
+        oracle generator
+    '''
+    oracle_noun = ("endless capacity", "life", "wondering person", "intention", "core", "fluid", "delicious fruit",
+                   "fruition", "wheel", "dream", "purpose", "desire", "reason", "world", "light", "power", "work",
+                   "change", "energy", "job", "choice", "Spirit", "nature", "connection", "fire", "dancer", "offering",
+                   "peace", "simple unity", "forgiving act", "center", "source", "glowing ember", "spiritual food",
+                   "practical purpose", "ocean", "doubt", "faith", "ritual", "practice", "student", "teacher",
+                   "sacred time", "soul", "winding path", "challenge", "transformation", "transience", "burden",
+                   "release", "support", "oracle", "direction", "wondering", "God", "local community", "world community",
+                   "creation", "relaxation", "moving planet", "gift", "present", "never-failing Source", "body",
+                   "part", "mind", "river", "waterfall", "leader", "community", "soul", "lesson", "destination",
+                   "journey", "confusion", "striking clarity", "lover", "home", "serendipitous design", "similar dream",
+                   "hope", "loving action", "joy", "path", "gateway", "transcendent experience", "angel", "soul guide",
+                   "curious spirit", "song", "method", "map", "blueprint", "received wisdom", "block", "true wonder",
+                   "star", "entire universe", "immense sky", "whole", "tree", "branch", "power", "peace maker",
+                   "genius", "seed", "marvelous ruby", "wondrous alchemy", "turning", "hidden science", "jewel",
+                   "forest", "exchange", "remembered passion", "fiery stillness", "elder", "communication", "root",
+                   "crossroads", "nexus", "way", "integrated reality", "integral notion", "catharsis", "distinction",
+                   "compassionate action", "forgiving word", "action", "cycle", "feeling", "season", "harvest",
+                   "dawn", "birth", "notion", "circle", "ring", "myth", "radical truth", "essence", "infinite and gentle force",
+                   "spiritual cycle", "reason", "graceful act", "discovery", "need", "forgotton mystery", "wing",
+                   "motivation", "structure")
+    oracle_preposition = ("of", "from", "near", "about", "around", "for", "toward", "over", "behind",
+                          "beyond", "related to", "defined by", "within", "living with")
+    oracle_adverb = ("knowingly", "consciously", "gently", "emphatically", "enthusiastically", "strangely",
+                     "surprisingly", "nearly", "yearningly", "non-chalantly", "hardly", "eagerly", "purposefully",
+                     "actively", "inexorably", "accurately", "accidentally", "completely", "differently",
+                     "single-handledly", "consciously", "almost", "wisely", "creatively", "somewhat",
+                     "overwhelmingly", "seldom", "often")
+    oracle_adjective = ("quick", "kind", "gentle", "optimal", "challenging", "loyal", "sweet", "ravishing",
+                        "stimulating", "strong", "activating", "graceful", "devoted", "global", "genuine",
+                        "magnificent", "masked", "separated", "gratifying", "elusive", "revered", "rigorous",
+                        "righteous", "mysterious", "infinite", "salient", "magnificent", "activated", "sharing",
+                        "feeling", "powerful", "clear", "energized", "rainbow", "perfect", "truly united", "world",
+                        "local", "ripe", "loving", "anticipating", "pleasant", "personalized", "transient", "individualized",
+                        "truly-unique", "ancient", "loving", "experienced", "creative", "foreign", "familiar",
+                        "worthy", "precise", "intelligent", "gifted", "strained", "free-spirited", "true",
+                        "clear", "caring", "dreamlike", "imaginative", "collaborative", "service-oriented", "straightforward",
+                        "strong", "orbiting", "glowing", "stable", "outer", "nearest", "most-difficult", "transient",
+                        "full", "round", "fluid", "opaque", "known", "highly-valued", "smooth", "warm", "loose",
+                        "ready", "burning", "effervescent", "impactful", "parental", "childlike", "soft",
+                        "simple", "subtle", "new", "abundant", "intergalactic", "questioning", "resplendent",
+                        "terrific", "energetic", "powerful", "discriminating", "self-actualized",
+                        "ecological", "planetary")
+    oracle_instransient_verb_phrase = ( "arrives", "beckons", "takes a rest", "becomes clear",
+                                       "learns", "removes a block", "meditates", "remembers the soul",
+                                       "jumps without a net", "remembers everything", "cleans the window of awareness",
+                                       "feels truth", "returns", "rejoices", "prays", "takes action", "dreams",
+                                       "ceases to exist", "hides", "chooses", "laughs with joy", "plays without questioning",
+                                       "loves", "wakes up", "hesitates and moves anyway", "trembles with comprehension",
+                                       "reflects", "is born", "finds inspiration", "feels completely full", "senses",
+                                       "sees", "joins the path", "listens", "reasons", "sits", "flies", "sings",
+                                       "knows")
+    oracle_conjuction = ("and", "but", "for", "nor", "or", "so", "yet", "becuase")
+    oracle_complete_visions = ("There is a storm in your past and yet another in your future, but persistence and clear thinking will show you the road once more",
+                               "The answers you seek will be found within. Seek the obvious to address the unknown",
+                               "What one man has wrought, another can undo. Although they differ, they are one and the same",
+                               "The path you walk is built on faith. Fear not your choices, as they are the stepping stones that bridge the chasm",
+                               "One cannot be truly wrong if he is really right. Believe in yourself, and you will find the answers you seek",
+                               "What you possess is all you need. Don’t be swayed by the illusion of what’s needed",
+                               "Although you fear your choices, they are all you have. Fear the Choice you‘ve lost more than the choices that you still possess",
+                               "Don’t be blinded by the tree that blocks your sight, skirt its trunk to see the forest",
+                               "The one you seek will need you more. He is hanging from the precipice of shattered dreams, and has lost what cannot be found",
+                               "Trust what you know, since it is also the answer to what you do not")
+    result = ''
+    return result
+
+def currency_converter(amount, fromcurr="copper", tocurr="gold"):
+    '''Converts an amount of one currency to another currency'''
+    result = ''
+    if amount == 0:
+        result = f"{0}"
+    if fromcurr == "copper":
+        if tocurr == "copper":
+            result = f"{amount}"
+        elif tocurr == "silver":
+            result = f"{amount / 10}"
+        elif tocurr == "electrum":
+            result = f"{amount /50}"
+        elif tocurr == "gold":
+            result = f"{amount / 100}"
+        elif tocurr == "platinum":
+            result = f"{amount / 1000}"
+        else:
+            result = f"Invalid to currency type :{tocurr}"
+    elif fromcurr == "silver":
+        if tocurr == "copper":
+            result = f"{amount * 10}"
+        elif tocurr == "silver":
+            result = f"{amount}"
+        elif tocurr == "electrum":
+            result = f"{amount / 5}"
+        elif tocurr == "gold":
+            result = f"{amount / 10}"
+        elif tocurr == "platinum":
+            result = f"{amount / 100}"
+        else:
+            result = f"Invalid to currency type :{tocurr}"
+    elif fromcurr == "electrum":
+        if tocurr == "copper":
+            result = f"{amount * 50}"
+        elif tocurr == "silver":
+            result = f"{amount * 5}"
+        elif tocurr == "electrum":
+            result = f"{amount}"
+        elif tocurr == "gold":
+            result = f"{amount / 2}"
+        elif tocurr == "platinum":
+            result = f"{amount / 20}"
+        else:
+            result = f"Invalid to currency type :{tocurr}"
+    elif fromcurr == "gold":
+        if tocurr == "copper":
+            result = f"{amount * 100}"
+        elif tocurr == "silver":
+            result = f"{amount * 10}"
+        elif tocurr == "electrum":
+            result = f"{amount * 2}"
+        elif tocurr == "gold":
+            result = f"{amount}"
+        elif tocurr == "platinum":
+            result = f"{amount / 10}"
+        else:
+            result = f"Invalid to currency type :{tocurr}"
+    elif fromcurr == "platinum":
+        if tocurr == "copper":
+            result = f"{amount * 1000}"
+        elif tocurr == "silver":
+            result = f"{amount * 100}"
+        elif tocurr == "electrum":
+            result = f"{amount * 20}"
+        elif tocurr == "gold":
+            result = f"{amount * 10}"
+        elif tocurr == "platinum":
+            result = f"{amount}"
+        else:
+            result = f"Invalid to currency type :{tocurr}"
+    else:
+        result = f"Invalid from currency type :{fromcurr}"
+    return result
+
+def hexmap_tile_type():
+    '''Returns a random hexmap tile type'''
+    result = ''
+    roll = random.randint(1, 20)
+    typeroll = random.randint(1, 6)
+    if roll == 1:
+        result = "City"
+        if typeroll == 1:
+            result = f"{result} : Capital City"
+        elif typeroll == 2:
+            result = f"{result} : Free City"
+        elif typeroll == 3:
+            result = f"{result} : Ruined City"
+        elif typeroll == 4:
+            result = f"{result} : Towering City"
+        elif typeroll == 5:
+            result = f"{result} : Magical City"
+        else:
+            result = f"{result} : Besiged City"
+    elif roll == 2:
+        result = "Castle/Fort"
+        if typeroll == 1:
+            result = f"{result} : Guarded Fort"
+        elif typeroll == 2:
+            result = f"{result} : Deserted Fort"
+        elif typeroll == 3:
+            result = f"{result} : Lord's Castle"
+        elif typeroll == 4:
+            result = f"{result} : Royal Keep"
+        elif typeroll == 5:
+            result = f"{result} : Military Keep"
+        else:
+            result = f"{result} : Ruined Fort"
+    elif roll == 3:
+        result = "Town"
+        if typeroll == 1:
+            result = f"{result} : Bustling Town"
+        elif typeroll == 2:
+            result = f"{result} : Shanty Town"
+        elif typeroll == 3:
+            result = f"{result} : Plagued Town"
+        elif typeroll == 4:
+            result = f"{result} : Stone Town"
+        elif typeroll == 5:
+            result = f"{result} : Wooden Town"
+        else:
+            result = f"{result} : Store Fronts"
+    elif roll == 4:
+        result = "Village"
+        if typeroll == 1:
+            result = f"{result} : Farm Village"
+        elif typeroll == 2:
+            result = f"{result} : Tribal Village"
+        elif typeroll == 3:
+            result = f"{result} : Bandit Camp"
+        elif typeroll == 4:
+            result = f"{result} : Hunter's Camp"
+        elif typeroll == 5:
+            result = f"{result} : Empty Village"
+        else:
+            result = f"{result} : Apothecary"
+    elif roll == 5:
+        result = "Forest / Woodland"
+        if typeroll == 1:
+            result = f"{result} : Dense Forest"
+        elif typeroll == 2:
+            result = f"{result} : Dying Forest"
+        elif typeroll == 3:
+            result = f"{result} : Sparse Forest"
+        elif typeroll == 4:
+            result = f"{result} : Cursed Forest"
+        elif typeroll == 5:
+            result = f"{result} : Woodland"
+        else:
+            result = f"{result} : Magical Woods"
+    elif roll == 6:
+        result = "Mountains"
+        if typeroll == 1:
+            result = f"{result} : Jagged Peaks"
+        elif typeroll == 2:
+            result = f"{result} : Cold Mountains"
+        elif typeroll == 3:
+            result = f"{result} : Shadowy Range"
+        elif typeroll == 4:
+            result = f"{result} : Magical Peak"
+        elif typeroll == 5:
+            result = f"{result} : Snowy Bluffs"
+        else:
+            result = f"{result} : Mountains"
+    elif roll == 7:
+        result = "Grassland"
+        if typeroll == 1:
+            result = f"{result} : Grassland"
+        elif typeroll == 2:
+            result = f"{result} : Meadows"
+        elif typeroll == 3:
+            result = f"{result} : Fields"
+        elif typeroll == 4:
+            result = f"{result} : Flooded Plains"
+        elif typeroll == 5:
+            result = f"{result} : Flatland"
+        else:
+            result = f"{result} : Savannah"
+    elif roll == 8:
+        result = "Hills / Heath"
+        if typeroll == 1:
+            result = f"{result} : Hills"
+        elif typeroll == 2:
+            result = f"{result} : Heath"
+        elif typeroll == 3:
+            result = f"{result} : Outcropping"
+        elif typeroll == 4:
+            result = f"{result} : Burial Mounds"
+        elif typeroll == 5:
+            result = f"{result} : Wet Moors"
+        else:
+            result = f"{result} : Highland"
+    elif roll == 9:
+        result = "River"
+        if typeroll == 1:
+            result = f"{result} : Rushing River"
+        elif typeroll == 2:
+            result = f"{result} : Canal"
+        elif typeroll == 3:
+            result = f"{result} : Streams"
+        elif typeroll == 4:
+            result = f"{result} : Magical River"
+        elif typeroll == 5:
+            result = f"{result} : Slow River"
+        else:
+            result = f"{result} : Posioned River"
+    elif roll == 10:
+        result = "Desert"
+        if typeroll == 1:
+            result = f"{result} : Hot Desert"
+        elif typeroll == 2:
+            result = f"{result} : Dry Steppe"
+        elif typeroll == 3:
+            result = f"{result} : Wasteland"
+        elif typeroll == 4:
+            result = f"{result} : Cacti Forest"
+        elif typeroll == 5:
+            result = f"{result} : Cold Desert"
+        else:
+            result = f"{result} : Deadlands"
+    elif roll == 11:
+        result = "Water / Lake / Sea"
+        if typeroll == 1:
+            result = f"{result} : Sea"
+        elif typeroll == 2:
+            result = f"{result} : Ocean"
+        elif typeroll == 3:
+            result = f"{result} : Lake"
+        elif typeroll == 4:
+            result = f"{result} : Reservoir"
+        elif typeroll == 5:
+            result = f"{result} : Magical Pools"
+        else:
+            result = f"{result} : Flooded Land"
+    elif roll == 12:
+        result = "Swamp / Marshland"
+        if typeroll == 1:
+            result = f"{result} : Swampland"
+        elif typeroll == 2:
+            result = f"{result} : Putrid Fen"
+        elif typeroll == 3:
+            result = f"{result} : Sinking Bog"
+        elif typeroll == 4:
+            result = f"{result} : Cursed Mire"
+        elif typeroll == 5:
+            result = f"{result} : Muddy Land"
+        else:
+            result = f"{result} : Marshland"
+    elif roll == 13:
+        result = "Tundra / Frozen Waste"
+        if typeroll == 1:
+            result = f"{result} : Snowy Flats"
+        elif typeroll == 2:
+            result = f"{result} : Blizzards"
+        elif typeroll == 3:
+            result = f"{result} : Tundra"
+        elif typeroll == 4:
+            result = f"{result} : Frozen Waste"
+        elif typeroll == 5:
+            result = f"{result} : Ice"
+        else:
+            result = f"{result} : Artic Expanse"
+    elif roll == 14:
+        result = "Jungle"
+        if typeroll == 1:
+            result = f"{result} : Jungle"
+        elif typeroll == 2:
+            result = f"{result} : Rainforest"
+        elif typeroll == 3:
+            result = f"{result} : Tropical Land"
+        elif typeroll == 4:
+            result = f"{result} : Cursed Jungle"
+        elif typeroll == 5:
+            result = f"{result} : Bushland"
+        else:
+            result = f"{result} : Tangled Jungle"
+    elif roll == 15:
+        result = "Volcano"
+        if typeroll == 1:
+            result = f"{result} : Volcano"
+        elif typeroll == 2:
+            result = f"{result} : Planar Break"
+        elif typeroll == 3:
+            result = f"{result} : Mage's Peak"
+        elif typeroll == 4:
+            result = f"{result} : Magical Source"
+        elif typeroll == 5:
+            result = f"{result} : Volcanic Land"
+        else:
+            result = f"{result} : Gas Clouds"
+    elif roll == 16:
+        result = "Cave / Dungeon"
+        if typeroll == 1:
+            result = f"{result} : Cave"
+        elif typeroll == 2:
+            result = f"{result} : Grotto"
+        elif typeroll == 3:
+            result = f"{result} : Hill Home"
+        elif typeroll == 4:
+            result = f"{result} : Dugout Camp"
+        elif typeroll == 5:
+            result = f"{result} : Tomb"
+        else:
+            result = f"{result} : Passageway"
+    elif roll == 17:
+        result = "Fissure / Canyon"
+        if typeroll == 1:
+            result = f"{result} : Fissure"
+        elif typeroll == 2:
+            result = f"{result} : Dry Canyon"
+        elif typeroll == 3:
+            result = f"{result} : River Gorge"
+        elif typeroll == 4:
+            result = f"{result} : Icy Crevasse"
+        elif typeroll == 5:
+            result = f"{result} : World Rift"
+        else:
+            result = f"{result} : Valley"
+    elif roll == 18:
+        result = "Fungal Forest"
+        if typeroll == 1:
+            result = f"{result} : Fungal Forest"
+        elif typeroll == 2:
+            result = f"{result} : Faeland"
+        elif typeroll == 3:
+            result = f"{result} : Rotten Place"
+        elif typeroll == 4:
+            result = f"{result} : Fungal Fields"
+        elif typeroll == 5:
+            result = f"{result} : Sporeland"
+        else:
+            result = f"{result} : Toadstool Town"
+    elif roll == 19:
+        result = "Crystal Plains"
+        if typeroll == 1:
+            result = f"{result} : Crystal Plains"   
+        elif typeroll == 2:
+            result = f"{result} : Crystal Forest"
+        elif typeroll == 3:
+            result = f"{result} : Shard Tower"
+        elif typeroll == 4:
+            result = f"{result} : Magical Plane"
+        elif typeroll == 5:
+            result = f"{result} : Gemstone Mine"
+        else:
+            result = f"{result} : Crystal Gate"
+    else:
+        result = "Map Marker / Unknown Location"
+        if typeroll == 1:
+            result = f"{result} : Dungeon"
+        elif typeroll == 2:
+            result = f"{result} : Treasure"
+        elif typeroll == 3:
+            result = f"{result} : Artefact"
+        elif typeroll == 4:
+            result = f"{result} : MPC Location"
+        elif typeroll == 5:
+            result = f"{result} : Guild Base"
+        else:
+            result = f"{result} : Hidden Temple"
+    return result
+
 def main():
     '''
         Main function
@@ -563,6 +918,7 @@ def main():
     print(f"Angelic Name            : {angelic_name()}")
     print(f"Barbarian Name          : {barbarian_name()}")
     print(f"Dwarven Name            : {dwarven_name()}")
+    print(f"Dwarven Name            : {dwarven_name(setfemale=True)}")
     print(f"Demon Name              : {demon_name()}")
     print(f"Town Name               : {town_name_generator()}")
     print(f"Wood Name               : {woodname_generator()}")
@@ -571,6 +927,12 @@ def main():
     print(f"Place Name              : {place_name_generator()}")
     print(f"Book Title              : {book_title_generator()}")
     print(f"Book Title              : {book_title_generator(catalogue=True)}")
-
+    print(f"Currency                : {currency_converter(100)}")
+    print(f"Currency                : {currency_converter(1, fromcurr='gold', tocurr='copper')}")
+    print(f"Currency                : {currency_converter(10, fromcurr='gold', tocurr='gold')}")
+    print(f"Currency                : {currency_converter(1, fromcurr='copper', tocurr='gold')}")
+    print(f"Currency                : {currency_converter(1, fromcurr='fliiter', tocurr='gold')}")
+    print(f"Currency                : {currency_converter(1, fromcurr='gold', tocurr='fliiter')}")
+    print(f"Hexmap tile             : {hexmap_tile_type()}")
 if __name__ == "__main__":
     main()
