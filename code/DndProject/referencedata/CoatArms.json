@@ -1,0 +1,71 @@
+{
+    "metal": [
+        "gold",
+        "silver"
+    ],
+    "colour": [
+        "red",
+        "blue",
+        "green",
+        "black",
+        "white",
+        "brown",
+        "purple",
+        "orange",
+        "yellow"
+    ],
+    "blazon1": [
+        "stripe",
+        "sword",
+        "tower",
+        "fist",
+        "skull",
+        "star",
+        "fleur-de-lys",
+        "Creature",
+        "Creature",
+        "Creature",
+        "crown",
+        "arrow",
+        "tree",
+        "cross",
+        "bar",
+        "shell",
+        "harp",
+        "ring",
+        "axe",
+        "ship",
+        "sun",
+        "moon"
+    ],
+    "creatures": [
+        "bear",
+        "boar",
+        "bull",
+        "cock",
+        "devil",
+        "dragon",
+        "drake",
+        "eagle",
+        "falcon",
+        "fox",
+        "griffon",
+        "hare",
+        "hawk",
+        "horse",
+        "hound",
+        "lion",
+        "owl",
+        "raven",
+        "serpent",
+        "stag",
+        "unicorn",
+        "wolf",
+        "wyvern"
+    ],
+    "numwords": [
+        "two",
+        "three",
+        "four"
+    ]
+}
