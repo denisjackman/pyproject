@@ -1047,6 +1047,16 @@ def herb_name_generator():
         result = f"{choice(data['herb_adj'])} {choice(data['herb_misc'])}"
     return result.title().replace("'S", "'s")
 
+def hyborian_name_generator():
+    '''Generates a Hyborian Name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/HyborianNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    prefix = choice(data["hyborian_prefix"])
+    suffix = choice(data["hyborian_suffix"])
+    result = f"{prefix}{suffix}"
+    return result
+
 def main():
     '''
         Main function
@@ -1081,6 +1091,7 @@ def main():
     print(f'Coat of Arms            : {coatofarms_generator()}')
     print(f'Elf Name                : {elfname_generator()}')
     print(f'Herb Name               : {herb_name_generator()}')
+    print(f'Hyborian Name           : {hyborian_name_generator()}')
 
 if __name__ == "__main__":
     main()
