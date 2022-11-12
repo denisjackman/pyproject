@@ -1057,6 +1057,178 @@ def hyborian_name_generator():
     result = f"{prefix}{suffix}"
     return result
 
+def inn_name_generator():
+    '''Generates an Inn Name'''
+    with open(f"{FILEPATH}/referencedata/InnNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    roll = dice(16)
+    result = ''
+    name = ''
+    adj = choice(data["inn_adj"])
+    adj2 = choice(data["inn_adj2"])
+    adj3 = choice(data["inn_adj3"])
+    item = choice(data["inn_item"])
+    item2 = choice(data["inn_item2"])
+    blding = choice(data["inn_bdlg"])
+    person = choice(data["inn_person"])
+    creature = choice(data["inn_creature"])
+    place = choice(data["inn_place"])
+
+    if roll <= 2:
+        name = f'{adj} {creature}'
+    elif roll == 3:
+        name = f'{adj2} {creature}'
+    elif roll == 4:
+        name = f'{adj} {item}'
+    elif roll == 5:
+        name = f'{adj3} {item}'
+    elif roll == 6:
+        name = f'{adj} {person}'
+    elif roll == 7:
+        name = f'{adj2} {person}'
+    elif roll == 8:
+        name = f'{adj} {place}'
+    elif roll == 9:
+        newcreature = choice(data["inn_creature"])
+        name = f'{creature} and {newcreature}'
+    elif roll == 10:
+        name = f"{creature}'s {item}"
+    elif roll == 11:
+        name = f"{creature}'s {item2}"
+    elif roll == 12:
+        name = f"{creature}'s {place}"
+    elif roll == 13:
+        newitem = choice(data["inn_item"])
+        name = f"{item} and {newitem}"
+    elif roll == 14:
+        newperson = choice(data["inn_person"])
+        name = f"{person} and {newperson}"
+    elif roll == 15:
+        name = f"{person}'s {item}"
+    else:
+        name = f"{person}'s {place}"
+
+    result = f"The {name}"
+    if dice(2) == 2:
+        result = f'{result} {blding}'
+    result = result.title().replace("'S", "'s").replace("And", "and")
+    return result
+
+def adventure_name_generator():
+    '''Generates an Adventure Name'''
+    with open(f"{FILEPATH}/referencedata/AdventureNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    result = ''
+    roll = dice(40)
+    action = choice(data["adventure_action"])
+    monster = choice(data["adventure_monster"])
+    if monster == 'creature':
+        monster = choice(data["adventure_creature"])
+    ruler = choice(data["adventure_ruler"])
+    adjective = choice(data["adventure_adjective"])
+    if adjective == 'color':
+        adjective = choice(data["adventure_color"])
+    building = choice(data["adventure_building"])
+    name = choice(data["adventure_name"])
+    place = choice(data["adventure_place"])
+    colour = choice(data["adventure_color"])
+    geography = choice(data["adventure_geography"])
+    element = choice(data["adventure_element"])
+    diety = choice(data["adventure_deity"])
+    journey = choice(data["adventure_journey"])
+    region = choice(data["adventure_region"])
+    item = choice(data["adventure_item"])
+    creature = choice(data["adventure_creature"])
+    escape = choice(data["adventure_escape"])
+    people = choice(data["adventure_people"])
+    person = choice(data["adventure_person"])
+    quest = choice(data["adventure_quest"])
+    secret = choice(data["adventure_secret"])
+
+    if roll == 1:
+        result = f"{action.capitalize()} of the {monster} {ruler.title()}"
+    elif roll == 2:
+        result = f"{adjective} {building.title()} of {diety}"
+    elif roll == 3:
+        result = f"{adjective} {building.title()} of {name}"
+    elif roll == 4:
+        result = f"{adjective} {place.title()} of {name}"
+    elif roll == 5:
+        result = f"{adjective.capitalize()} {item.capitalize()} of {name}"
+    elif roll == 6:
+        result = f"{building.capitalize()}  of {adjective.capitalize()} {element.title()}"
+    elif roll == 7:
+        result = f"{building.capitalize()} of {element.capitalize()}"
+    elif roll == 8:
+        result = f"{building.capitalize()} of {name}"
+    elif roll == 9:
+        result = f"{building.capitalize()} of the {creature} {ruler.title()}"
+    elif roll == 10:
+        result = f"{building.capitalize()} of the {colour} {ruler.title()}"
+    elif roll == 11:
+        result = f"{building.capitalize()} of the {monster.title()}"
+    elif roll == 12:
+        result = f"{building.capitalize()} of the {creature} {ruler.title()}"
+    elif roll == 13:
+        result = f"{building.capitalize()} on {creature} {geography.title()}"
+    elif roll == 14:
+        result = f"{building.capitalize()} of the {region}"
+    elif roll == 15:
+        result = f"{building.capitalize()}'s of the {monster.title()} {ruler.capitalize()}"
+    elif roll == 16:
+        result = f"{colour} {item} {geography.title()}"
+    elif roll == 17:
+        result = f"{escape.capitalize()} from {name}'s {building.capitalize()}"
+    elif roll == 18:
+        result = f"{escape.capitalize()} from {name} {building.capitalize()}"
+    elif roll == 19:
+        result = f"{geography.capitalize()} of {element.capitalize()}"
+    elif roll == 20:
+        result = f"{geography.capitalize()} of the {monster.capitalize()} {ruler.title()}"
+    elif roll == 21:
+        result = f"{item.capitalize()} of {diety}"
+    elif roll == 22:
+        result = f"{item.capitalize()} of {element.capitalize()}"
+    elif roll == 23:
+        result = f"{journey.capitalize()} the {region}"
+    elif roll == 24:
+        result = f"{journey.capitalize()} {name} {place.capitalize()}"
+    elif roll == 25:
+        result = f"{monster} {place.title()} of {name}"
+    elif roll == 26:
+        result = f"{name} {building.capitalize()}"
+    elif roll == 27:
+        result = f"{people.capitalize()} of the {adjective} {place.title()}"
+    elif roll == 28:
+        result = f"{people.capitalize()} of {element.capitalize()}"
+    elif roll == 29:
+        result = f"{person.capitalize()} of {name} {geography.title()}"
+    elif roll == 30:
+        result = f"{place.capitalize()} of {name}"
+    elif roll == 31:
+        result = f"{place.capitalize()} of the {colour} {item.title()}"
+    elif roll == 32:
+        result = f"{place.capitalize()} of the {monster.title()}"
+    elif roll == 33:
+        newplace = choice(data["adventure_place"])
+        result = f"{person} {place.title()} of the {newplace.capitalize()}"
+    elif roll == 34:
+        result = f"{quest} {adjective.capitalize()} {item.capitalize()}"
+    elif roll == 35:
+        result = f"{quest} {adjective.capitalize()} {place.title()}"
+    elif roll == 36:
+        result = f"{quest.replace('the','')} {name}'s  {item.capitalize()}"
+    elif roll == 37:
+        result = f"{ruler.capitalize()} of the {monster} {place.title()}"
+    elif roll == 38:
+        result = f"{secret.capitalize()} of the {people} {building.title()}"
+    elif roll == 39:
+        result = f"{secret.capitalize()} of the {adjective.capitalize()} {item.capitalize()}"
+    else:
+        result = f"{secret.capitalize()} of {item} {geography.title()}"
+
+    return result
+
 def main():
     '''
         Main function
@@ -1092,6 +1264,8 @@ def main():
     print(f'Elf Name                : {elfname_generator()}')
     print(f'Herb Name               : {herb_name_generator()}')
     print(f'Hyborian Name           : {hyborian_name_generator()}')
+    print(f'Inn Name                : {inn_name_generator()}')
+    print(f'Adventure Name          : {adventure_name_generator()}')
 
 if __name__ == "__main__":
     main()
