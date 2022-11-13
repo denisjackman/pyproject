@@ -1229,6 +1229,82 @@ def adventure_name_generator():
 
     return result
 
+def lizardman_name_generator():
+    '''Generates a random lizardman name'''
+    result = ''
+
+    with open(f"{FILEPATH}/referencedata/LizardNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+
+
+    if dice(3) == 3:
+        apos = "'"
+    else:
+        apos = ""
+    cc = choice(data["lizard_cc"])
+    cv = choice(data["lizard_cv"])
+    vv = choice(data["lizard_vv"])
+    vc = choice(data["lizard_vc"])
+
+    if dice(4)<=3:
+        roll = dice(8)
+        if roll == 1:
+            newcc = choice(data["lizard_cc"])
+            result = f"{cc}{apos}{newcc}"
+        elif roll == 2:
+            result = f"{cv}{cc}"
+        elif roll == 3:
+            newcv = choice(data["lizard_cv"])
+            result = f"{cv}{newcv}"
+        elif roll == 4:
+            result = f"{vc}{apos}{cc}"
+        elif roll == 5:
+            result = f"{vc}{apos}{cv}"
+        elif roll == 6:
+            newvc = choice(data["lizard_vc"])
+            result = f"{vc}{apos}{newvc}"
+        elif roll == 7:
+            result = f"{vv}{cc}"
+        else:
+            result = f"{vv}{cv}"
+        # twosyllable
+    else:
+        roll = dice(11)
+        newcc = choice(data["lizard_cc"])
+        newcv = choice(data["lizard_cv"])
+        newvc = choice(data["lizard_vc"])
+        if roll == 1:
+            if dice(3) == 3:
+                newapos = "'"
+            else:
+                newapos = ""
+            supcc = choice(data["lizard_cc"])
+            result = f"{cc}{apos}{newcc}{newapos}{supcc}"
+        elif roll == 2:
+            result = f"{cc}{apos}{vv}{newcc}"
+        elif roll == 3:
+            result = f"{cc}{vv}{cc}"
+        elif roll == 4:
+            result = f"{vc}{vv}{cv}"
+        elif roll == 5:
+            result = f"{cv}{vc}{vc}"
+        elif roll == 6:
+            supcv = choice(data["lizard_cv"])
+            result = f"{cv}{newcv}{supcv}"
+        elif roll == 7:
+            supvc = choice(data["lizard_vc"])
+            result = f"{vc}{newvc}{supvc}"
+        elif roll == 8:
+            result = f"{vv}{cc}{vc}"
+        elif roll == 9:
+            newvv = choice(data["lizard_vv"])
+            result = f"{vv}{cc}{newvv}"
+        elif roll == 10:
+            result = f"{vv}{cv}{newcv}"
+        else:
+            result = f"{vc}{cc}{newcc}"
+        # threesyllable
+    return result.capitalize()
 def main():
     '''
         Main function
@@ -1266,6 +1342,7 @@ def main():
     print(f'Hyborian Name           : {hyborian_name_generator()}')
     print(f'Inn Name                : {inn_name_generator()}')
     print(f'Adventure Name          : {adventure_name_generator()}')
+    print(f'Lizardman Name          : {lizardman_name_generator()}')
 
 if __name__ == "__main__":
     main()
