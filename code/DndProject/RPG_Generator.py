@@ -1305,6 +1305,33 @@ def lizardman_name_generator():
             result = f"{vc}{cc}{newcc}"
         # threesyllable
     return result.capitalize()
+
+def lovecraft_creature_generator():
+    '''Generates a random Lovecraftian creature'''
+    with open(f"{FILEPATH}/referencedata/LovecraftCreatures.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    adjective = choice(data["lovecraft_adjective"])
+    noun = choice(data["lovecraft_noun"])
+    prefixv = choice(data["lovecraft_prefixv"])
+    prefixc = choice(data["lovecraft_prefixc"])
+    suffix = choice(data["lovecraft_suffix"])
+    result = ''
+    roll = dice(11)
+    if roll <= 2:
+        result = f"{adjective.capitalize()} {noun.capitalize()} of {prefixv.capitalize()} {suffix}"
+    elif roll <= 5:
+        result = f"{adjective.capitalize()} {noun.capitalize()} of {prefixc.capitalize()} {suffix}"
+    elif roll <= 7:
+        result = f"{prefixv.capitalize()}ian {noun.capitalize()}"
+    elif roll <= 8:
+        result = f"{prefixv.capitalize()}ian {adjective.capitalize()} {noun.capitalize()}"
+    elif roll <= 10:
+        result = f"{prefixc.capitalize()} {suffix}"
+    else:
+        result = f"{prefixv.capitalize()} {suffix}"
+
+    return result
+
 def main():
     '''
         Main function
@@ -1343,6 +1370,7 @@ def main():
     print(f'Inn Name                : {inn_name_generator()}')
     print(f'Adventure Name          : {adventure_name_generator()}')
     print(f'Lizardman Name          : {lizardman_name_generator()}')
+    print(f'Lovecraftian Creature   : {lovecraft_creature_generator()}')
 
 if __name__ == "__main__":
     main()
