@@ -221,9 +221,8 @@ def demon_name():
         return demon_name_one()
     return demon_name_two()
 
-def dwarven_name(setfemale = False):
+def dwarven_name(gender = None):
     ''' dwarven name generator '''
-    female = False
     firstname = ''
     lastname = ''
 
@@ -235,15 +234,20 @@ def dwarven_name(setfemale = False):
     suffix = choice(data["dwarven_name_suffix"])
     clanprefix = choice(data["dwarven_clan_prefix"])
     clansuffix = choice(data["dwarven_clan_suffix"])
-    if setfemale:
-        female = True
-        firstname = f'{prefix}{suffix}'
-    else:
+
+    if gender is None:
         if dice(2) == 1:
+            female = False
             firstname = f'{prefix}{suffixmale}'
         else:
             female = True
             firstname = f'{prefix}{suffix}'
+    elif gender.lower() == 'female':
+        female = True
+        firstname = f'{prefix}{suffixmale}'
+    else:
+        female = False
+        firstname = f'{prefix}{suffixmale}'
 
     if dice(3) == 1:
         father = f'{prefix}{suffixmale}'
@@ -253,6 +257,7 @@ def dwarven_name(setfemale = False):
             lastname = f"{father}son"
     else:
         lastname = f'{clanprefix}{clansuffix}'
+
     result = f'{firstname.capitalize()} {lastname.capitalize()}'
     if female:
         result = f"{result} (f.)"
@@ -1332,6 +1337,72 @@ def lovecraft_creature_generator():
 
     return result
 
+def celtic_name_generator(gender = None):
+    '''Generates a random Celtic name'''
+    with open(f"{FILEPATH}/referencedata/CelticNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+
+    prefix_male = choice(data["celtic_prefix_male"])
+    middle_male = choice(data["celtic_middle_male"])
+    suffix_male = choice(data["celtic_suffix_male"])
+    prefix_female = choice(data["celtic_prefix_female"])
+    middle_female = choice(data["celtic_middle_female"])
+    suffix_female = choice(data["celtic_suffix_female"])
+
+    if gender is None:
+        if dice(2) == 1:
+            female = False
+        else:
+            female = True
+    elif gender.lower() == 'female':
+        female = True
+    else:
+        female = False
+
+    if female:
+        result = f"{prefix_female}{middle_female}{suffix_female} (.f)"
+    else:
+        result = f"{prefix_male}{middle_male}{suffix_male}"
+
+    return result
+
+def epyptian_name_generator():
+    '''Generates a random Egyptian name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/EgyptianNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    prefix = choice(data["egyptian_prefix"])
+    middle = choice(data["egyptian_middle"])
+    suffix = choice(data["egyptian_suffix"])
+    roll = dice(7)
+    if roll <= 4:
+        result = f"{prefix}{suffix.capitalize()}"
+    elif roll <= 6:
+        newprefix = choice(data["egyptian_prefix"])
+        newsuffix = choice(data["egyptian_suffix"])
+        result = f"{prefix}{suffix.capitalize()}-{newprefix}{newsuffix.capitalize()}"
+    else:
+        roll2 = dice(3)
+        temp = ''
+        for _ in range(roll2):
+            temp += choice(data["egyptian_middle"])
+        result += f"{prefix.capitalize()}{temp}{suffix}"
+
+    return result
+
+def greek_name_generator():
+    '''Generates a random greek name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/GreekNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    prefix = choice(data["greek_prefix"])
+    suffix = choice(data["greek_suffix"])
+    begin = choice(data["greek_begin"])
+    middle = choice(data["greek_middle"])
+    end = choice(data["greek_end"])
+    result = f"{prefix}{suffix}{begin}{middle}{end}"
+    return result.capitalize()
+
 def main():
     '''
         Main function
@@ -1343,7 +1414,8 @@ def main():
     print(f"Angelic Name            : {angelic_name()}")
     print(f"Barbarian Name          : {barbarian_name()}")
     print(f"Dwarven Name            : {dwarven_name()}")
-    print(f"Dwarven Name            : {dwarven_name(setfemale=True)}")
+    print(f"Dwarven Name            : {dwarven_name(gender='Male')}")
+    print(f"Dwarven Name            : {dwarven_name(gender='female')}")
     print(f"Demon Name              : {demon_name()}")
     print(f"Town Name               : {town_name_generator()}")
     print(f"Wood Name               : {woodname_generator()}")
@@ -1371,6 +1443,11 @@ def main():
     print(f'Adventure Name          : {adventure_name_generator()}')
     print(f'Lizardman Name          : {lizardman_name_generator()}')
     print(f'Lovecraftian Creature   : {lovecraft_creature_generator()}')
+    print(f'Celtic Name             : {celtic_name_generator()}')
+    print(f"Celtic Name             : {celtic_name_generator(gender='male')}")
+    print(f"Celtic Name             : {celtic_name_generator(gender='female')}")
+    print(f"Egyptian Name           : {epyptian_name_generator()}")
+    print(f"Greek Name              : {greek_name_generator()}")
 
 if __name__ == "__main__":
     main()
