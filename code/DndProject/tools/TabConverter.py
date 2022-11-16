@@ -27,7 +27,7 @@ def main():
     middle = ["a","ae","e","ea","ei","emo","eu","i","ia","io","iu","o","oe","y"]
     end = ["be","ctor","dite","don","lius","llo","mis","na","ne","nus","phon","phone","pius","rion","rmes","rus","s","stia","stus","sus","syne","ter","theus","thys","tus","u"]
 
-    with open(f"{FILEPATH}/../referencedata/GreekNames.json", "w", encoding='utf8') as file:
+    with open(f"{FILEPATH}/../referencedata/OldEnglishNames.json", "w", encoding='utf8') as file:
         json.dump({"greek_prefix": prefix,
                    "greek_suffix": suffix,
                    "greek_begin": begin,
