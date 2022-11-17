@@ -1403,12 +1403,106 @@ def greek_name_generator():
     result = f"{prefix}{suffix}{begin}{middle}{end}"
     return result.capitalize()
 
+def oldenglish_name_generator():
+    '''Generates a random Old English name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/OldEnglishNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    prefix = choice(data["oldenglish_prefix"])
+    suffix = choice(data["oldenglish_suffix"])
+    result = f"{prefix}{suffix}"
+    return result.capitalize()
+
+def sumerian_name_generator():
+    '''Generates a random Sumerian name'''
+    result = ''
+    roll = dice(37)
+    with open(f"{FILEPATH}/referencedata/SumerianNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+
+    if roll == 1:
+        result = f"{choice(data['sumerian_vcvc'])}{choice(data['sumerian_vcvc'])}"
+    elif roll == 2:
+        result = f"{choice(data['sumerian_vcvc'])}{choice(data['sumerian_mix'])}"
+    elif roll == 3:
+        result = f"{choice(data['sumerian_vcvc'])}{choice(data['sumerian_vcv'])}"
+    elif roll == 4:
+        result = f"{choice(data['sumerian_vcvc'])}{choice(data['sumerian_vcvc'])}"
+    elif roll == 5:
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vcvc'])}"
+    elif roll == 6:
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_mix'])}"
+    elif roll == 7:
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vc'])}"
+    elif roll == 8:
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vccv'])}"
+    elif roll == 9:
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vcv'])}"
+    elif roll == 10:
+        result = f"{choice(data['sumerian_cv'])}{choice(data['sumerian_cv'])}"
+    elif roll == 11:
+        result = f"{choice(data['sumerian_cv'])}{choice(data['sumerian_cvcc'])}"
+    elif roll == 12:
+        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vcvc'])}"
+    elif roll == 13:
+        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_mix'])}"
+    elif roll == 14:
+        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_ccvc'])}"
+    elif roll == 15:
+        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_cvcc'])}"
+    elif roll == 16:
+        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vc'])}"
+    elif roll == 17:
+        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vccv'])}"
+    elif roll == 18:
+        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vcv'])}"
+    elif roll == 19:
+        result = f"{choice(data['sumerian_cvcc'])}{choice(data['sumerian_vcvc'])}"
+    elif roll == 20:
+        result = f"{choice(data['sumerian_cvcc'])}{choice(data['sumerian_vc'])}"
+    elif roll == 21:
+        result = f"{choice(data['sumerian_cvcc'])}{choice(data['sumerian_vcv'])}"
+    elif roll == 22:
+        result = f"{choice(data['sumerian_cvcv'])}{choice(data['sumerian_cv'])}"
+    elif roll == 23:
+        result = f"{choice(data['sumerian_cvcv'])}{choice(data['sumerian_cvcv'])}"
+    elif roll == 24:
+        result = f"{choice(data['sumerian_vc'])}{choice(data['sumerian_vcvc'])}"
+    elif roll == 25:
+        result = f"{choice(data['sumerian_vc'])}{choice(data['sumerian_vc'])}"
+    elif roll == 26:
+        result = f"{choice(data['sumerian_vc'])}{choice(data['sumerian_vccv'])}"
+    elif roll == 27:
+        result = f"{choice(data['sumerian_vc'])}{choice(data['sumerian_vcv'])}"
+    elif roll == 28:
+        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_ccvc'])}"
+    elif roll == 29:
+        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_cv'])}"
+    elif roll == 30:
+        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_cvcc'])}"
+    elif roll == 31:
+        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_cvc'])}"
+    elif roll == 32:
+        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_ccvc'])}"
+    elif roll == 33:
+        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_ccvc'])}"
+    elif roll == 34:
+        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cv'])}"
+    elif roll == 35:
+        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cvc'])}"
+    elif roll == 36:
+        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cvcc'])}"
+    else:
+        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cvcv'])}"
+
+    return result.capitalize()
+
 def main():
     '''
         Main function
     '''
-    test = False
-    if test: 
+    test = True
+    if test:
         print(f"Shakey  insult          : {shakespearean_insult_generator()}")
         print(f"Dwarven insult          : {dwarven_insult_generator()}")
         print(f"Riddle Question         : {riddle_generator()}")
@@ -1450,11 +1544,13 @@ def main():
         print(f"Celtic Name             : {celtic_name_generator(gender='female')}")
         print(f"Egyptian Name           : {epyptian_name_generator()}")
         print(f"Greek Name              : {greek_name_generator()}")
+        print(f"Old English Name        : {oldenglish_name_generator()}")
+        print(f"Sumerian Name           : {sumerian_name_generator()}")
     else:
         print(f'Dice                : {dice(2, 8)}')
         print(f'Dice                : {dice(2, 8)}')
         print(f'Dice                : {dice(2, 8)}')
         print(f'Dice                : {dice(2, 8)}')
-        
+
 if __name__ == "__main__":
     main()
