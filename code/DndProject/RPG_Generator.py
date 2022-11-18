@@ -1577,11 +1577,49 @@ def organization_generator():
         result = f"{choice(data['org_adj']).capitalize()} {choice(data['org_group']).capitalize()} of the {temp.capitalize()}"
     return result
 
-def main():
+def ship_name_generator():
+    '''Generates a random ship name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/ShipNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    temp = choice(data['ship_person'])
+    person =temp[:-2]
+    gender = temp[-1]
+
+    roll = dice(6)
+    if roll == 1:
+        result = f"The {choice(data['ship_adj'])} {choice(data['ship_noun'])}"
+    elif roll == 2:
+        result = f"The {choice(data['ship_adj'])} {person}"
+    elif roll == 3:
+        result = f"The {person}'s {choice(data['ship_noun'])}"
+    elif roll <= 5:
+        result = f"The {choice(data['ship_noun'])}"
+    else:
+        if gender == 'm':
+            result = f"{person} {choice(data['ship_nameM'])}"
+        else:
+            result = f"{person} {choice(data['ship_nameF'])}"
+        result = f"{result}'s {choice(data['ship_noun'])}"
+
+def site_name_generator():
+    '''Generates a random site name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/SiteNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    roll = dice(3)
+    if roll == 1:
+        result = f"{choice(data['site_place'])} of {choice(data['site_thing'])}"
+    elif roll == 2:
+        result = f"{choice(data['site_adj'])} {choice(data['site_place'])}"
+    else:
+        result = f"{choice(data['site_adj'])} {choice(data['site_place'])} of {choice(data['site_thing'])}"
+    return result
+
+def main(test=True):
     '''
         Main function
     '''
-    test = True
     if test:
         print(f"Shakey  insult          : {shakespearean_insult_generator()}")
         print(f"Dwarven insult          : {dwarven_insult_generator()}")
@@ -1629,6 +1667,8 @@ def main():
         print(f"Orc Name                : {orc_name_generator()}")
         print(f"Orc Tribe Name          : {orc_tribe_generator()}")
         print(f"Organization Name       : {organization_generator()}")
+        print(f"Ship Name               : {ship_name_generator()}")
+        print(f"Site Name               : {site_name_generator()}")
     else:
         print(f'Dice                : {dice(2, 8)}')
         print(f'Dice                : {dice(2, 8)}')
