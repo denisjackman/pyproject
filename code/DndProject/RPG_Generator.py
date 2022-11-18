@@ -1441,7 +1441,7 @@ def sumerian_name_generator():
     elif roll == 10:
         result = f"{choice(data['sumerian_cv'])}{choice(data['sumerian_cv'])}"
     elif roll == 11:
-        result = f"{choice(data['sumerian_cv'])}{choice(data['sumerian_cvcc'])}"
+        result = f"{choice(data['sumerian_cv'])}{choice(data['sumerian_ccvc'])}"
     elif roll == 12:
         result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vcvc'])}"
     elif roll == 13:
@@ -1449,7 +1449,7 @@ def sumerian_name_generator():
     elif roll == 14:
         result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_ccvc'])}"
     elif roll == 15:
-        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_cvcc'])}"
+        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_ccvc'])}"
     elif roll == 16:
         result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vc'])}"
     elif roll == 17:
@@ -1457,15 +1457,15 @@ def sumerian_name_generator():
     elif roll == 18:
         result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vcv'])}"
     elif roll == 19:
-        result = f"{choice(data['sumerian_cvcc'])}{choice(data['sumerian_vcvc'])}"
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vcvc'])}"
     elif roll == 20:
-        result = f"{choice(data['sumerian_cvcc'])}{choice(data['sumerian_vc'])}"
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vc'])}"
     elif roll == 21:
-        result = f"{choice(data['sumerian_cvcc'])}{choice(data['sumerian_vcv'])}"
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vcv'])}"
     elif roll == 22:
-        result = f"{choice(data['sumerian_cvcv'])}{choice(data['sumerian_cv'])}"
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_cv'])}"
     elif roll == 23:
-        result = f"{choice(data['sumerian_cvcv'])}{choice(data['sumerian_cvcv'])}"
+        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_cvcv'])}"
     elif roll == 24:
         result = f"{choice(data['sumerian_vc'])}{choice(data['sumerian_vcvc'])}"
     elif roll == 25:
@@ -1479,7 +1479,7 @@ def sumerian_name_generator():
     elif roll == 29:
         result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_cv'])}"
     elif roll == 30:
-        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_cvcc'])}"
+        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_ccvc'])}"
     elif roll == 31:
         result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_cvc'])}"
     elif roll == 32:
@@ -1491,11 +1491,91 @@ def sumerian_name_generator():
     elif roll == 35:
         result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cvc'])}"
     elif roll == 36:
-        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cvcc'])}"
+        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_ccvc'])}"
     else:
         result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cvcv'])}"
 
     return result.capitalize()
+
+def orc_name_generator():
+    '''Generates a random orc name'''
+    result = ""
+    roll = dice(4)
+
+    with open(f"{FILEPATH}/referencedata/OrcNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    if dice(4) <= 3:
+        if roll == 1:
+            result = f"{choice(data['orc_seg'])}{choice(data['orc_seg'])}"
+        elif roll == 2:
+            result = f"{choice(data['orc_pref'])}{choice(data['orc_seg'])}"
+        elif roll == 3:
+            result = f"{choice(data['orc_seg'])}{choice(data['orc_suff'])}"
+        else:
+            result = f"{choice(data['orc_pref'])}{choice(data['orc_suff'])}"
+    else:
+        if roll == 1:
+            result = f"{choice(data['orc_seg'])}{choice(data['orc_seg'])}{choice(data['orc_seg'])}"
+        elif roll == 2:
+            result = f"{choice(data['orc_pref'])}{choice(data['orc_seg'])}{choice(data['orc_seg'])}"
+        elif roll == 3:
+            result = f"{choice(data['orc_seg'])}{choice(data['orc_seg'])}{choice(data['orc_suff'])}"
+        else:
+            result = f"{choice(data['orc_pref'])}{choice(data['orc_seg'])}{choice(data['orc_suff'])}"
+    result = result.capitalize()
+    if dice(2) == 1:
+        result = f"{result} {choice(data['orc_lastpref']).capitalize()}{choice(data['orc_lastsuff'])}"
+
+    return result
+
+def orc_tribe_generator():
+    '''Generates a random orc tribe name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/OrcTribes.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    roll = dice(7)
+    if roll <= 4:
+        result = f"{choice(data['orc_adj'])} {choice(data['orc_thing'])}"
+    elif roll <= 6:
+        result = f"{choice(data['orc_adj'])} {choice(data['orc_group'])}"
+    else:
+        result = f"{choice(data['orc_thing'])} {choice(data['orc_group'])}"
+
+    return result.title()
+
+def organization_generator():
+    '''Generates a random organization name'''
+    result = ''
+    with open(f"{FILEPATH}/referencedata/OrganizationNames.json", "r", encoding='utf8') as file:
+        data = json.load(file)
+    roll = dice(7)
+    plurals = {"city": "cities", "cross": "crosses", "fox": "foxes", "knife": "knives", 
+               "lotus": "lotuses", "staff": "staves", "wolf": "wolves"}
+    item = choice(data['org_obj'])
+    temp = f"{plurals.get(item)}"
+
+    if item is None:
+        temp = f"{temp}s"
+
+    if roll == 1:
+        result = f"{choice(data['org_group']).capitalize()} of the {choice(data['org_adj']).capitalize()}"
+        if dice(2) == 1:
+            result = f"{result}{choice(data['org_obj']).capitalize()}"
+        else:
+            result = f"{result}{temp.capitalize()}"
+    elif roll == 2:
+        result = f"{choice(data['org_adj']).capitalize()} {temp.capitalize()}"
+    elif roll == 3:
+        result = f"{choice(data['org_adj']).capitalize()} {choice(data['org_obj']).capitalize()} {choice(data['org_group']).capitalize()}"
+    elif roll == 4:
+        result = f"{choice(data['org_group']).capitalize()} of the {choice(data['org_obj']).capitalize()}"
+    elif roll == 5:
+        result = f"{choice(data['org_obj']).capitalize()} {choice(data['org_group']).capitalize()}"
+    elif roll == 6:
+        result = f"{choice(data['org_adj']).capitalize()} {choice(data['org_group']).capitalize()}"
+    else:
+        result = f"{choice(data['org_adj']).capitalize()} {choice(data['org_group']).capitalize()} of the {temp.capitalize()}"
+    return result
 
 def main():
     '''
@@ -1546,6 +1626,9 @@ def main():
         print(f"Greek Name              : {greek_name_generator()}")
         print(f"Old English Name        : {oldenglish_name_generator()}")
         print(f"Sumerian Name           : {sumerian_name_generator()}")
+        print(f"Orc Name                : {orc_name_generator()}")
+        print(f"Orc Tribe Name          : {orc_tribe_generator()}")
+        print(f"Organization Name       : {organization_generator()}")
     else:
         print(f'Dice                : {dice(2, 8)}')
         print(f'Dice                : {dice(2, 8)}')
