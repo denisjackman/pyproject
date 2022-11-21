@@ -36,30 +36,12 @@ __license__ = "Python"
 from pathlib import Path
 import json
 from random import choice
-from random import randint
+from dnddice import dice
+
 
 FILEPATH = Path(__file__).parent
 # pylint: disable=too-many-locals
 # pylint: disable=too-many-lines
-
-def dice(sides=6, rolls=1):
-    '''
-        Rolls a dice which has 'sides' sides (default is six (6))
-        for 'rolls' number of times (default is one (1))
-    '''
-    result = 0
-    item = 0
-    while item in range(rolls):
-        result = result + randint(1, sides)
-        item += 1
-    return result
-
-def number_generator(number=100):
-    '''
-        Generates a random number between 1 and number
-    '''
-    return randint(1, number)
-
 def riddle_generator():
     ''' riddle generator '''
     filename = f"{FILEPATH}/referencedata/Riddles.json"
@@ -1549,7 +1531,7 @@ def organization_generator():
     with open(f"{FILEPATH}/referencedata/OrganizationNames.json", "r", encoding='utf8') as file:
         data = json.load(file)
     roll = dice(7)
-    plurals = {"city": "cities", "cross": "crosses", "fox": "foxes", "knife": "knives", 
+    plurals = {"city": "cities", "cross": "crosses", "fox": "foxes", "knife": "knives",
                "lotus": "lotuses", "staff": "staves", "wolf": "wolves"}
     item = choice(data['org_obj'])
     temp = f"{plurals.get(item)}"
@@ -1647,8 +1629,7 @@ def main(test=True):
         print(f"Hexmap tile             : {hexmap_tile_type()}")
         print(f"A or An                 : {aoran('apple')}")
         print(f"Plural                  : {plural('apple')}")
-        print(f"Dice                    : {dice()}")
-        print(f'Number Generator        : {number_generator()}')
+
         print(f'Coat of Arms            : {coatofarms_generator()}')
         print(f'Elf Name                : {elfname_generator()}')
         print(f'Herb Name               : {herb_name_generator()}')
