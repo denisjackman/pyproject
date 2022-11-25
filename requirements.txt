@@ -64,3 +64,7 @@ pyautogui
 git+https://github.com/jamalex/notion-py.git@refs/pull/294/merge
 instagrapi
 matplotlib
+yagmail
+pyttsx3
+speechrecognition
+pywhatkit

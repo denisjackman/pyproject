@@ -43,213 +43,31 @@ from dndother import currency_converter
 from dndother import riddle_generator
 from dndother import fantasy_wine_name
 from dndother import hexmap_tile_type
+from dndnames import angelic_name
+from dndnames import barbarian_name
+from dndnames import dwarven_name
+from dndnames import demon_name
+from dndnames import elfname_generator
+from dndnames import hyborian_name_generator
+from dndnames import lizardman_name_generator
+from dndnames import celtic_name_generator
+from dndnames import epyptian_name_generator
+from dndnames import greek_name_generator
+from dndnames import orc_name_generator
+from dndnames import oldenglish_name_generator
+from dndnames import sumerian_name_generator
+from dndplaces import town_name_generator
+from dndplaces import woodname_generator
+from dndplaces import streetname_generator
+from dndplaces import dwarven_settlement_name_generator
+from dndplaces import place_name_generator
+from dndplaces import inn_name_generator
+from dndplaces import site_name_generator
+
 
 FILEPATH = Path(__file__).parent
 # pylint: disable=too-many-locals
 # pylint: disable=too-many-lines
-
-def angelic_name():
-    ''' angelic names '''
-    with open(f"{FILEPATH}/referencedata/AngelNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    prefix = choice(data['angel_prefix'])
-    suffix = choice(data['angel_suffix'])
-    result = f'{prefix}{suffix}'
-    return result.capitalize()
-
-def barbarian_name():
-    ''' barbarian names '''
-    with open(f"{FILEPATH}/referencedata/BarbarianNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-
-    roll = dice(2)
-    if roll == 1:
-        part1 = choice(data["barbarian_names"]).capitalize()
-        part2 = part1
-        while part1 == part2:
-            part2 = choice(data["barbarian_names"])
-        result = f'{part1}{part2}'
-    else:
-        prefix = choice(data["barbarian_prefix"]).capitalize()
-        suffix = choice(data["barbarian_suffix"])
-        result = f"{prefix} {suffix}"
-    return result
-
-def build_demon_name():
-    ''' build a name '''
-    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    syllable = choice(data["demon_syllable"])
-    roll = dice(7)
-    if roll <= 2:
-        result = f"'{syllable}"
-    elif roll <= 3:
-        result = f"-{syllable}"
-    else:
-        result = syllable
-    return result
-
-def demon_name_one():
-    ''' demon name generator '''
-    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    syllable = choice(data["demon_syllable"])
-    roll = dice(7)
-    result = ''
-    if roll <=4:
-        result = build_demon_name() + build_demon_name()
-    elif roll <=6:
-        result = build_demon_name() + build_demon_name() + build_demon_name()
-    else:
-        result = build_demon_name() + build_demon_name() + build_demon_name() + build_demon_name()
-
-    return f"{syllable.capitalize()}{result}"
-
-def demon_name_two():
-    ''' demon name generator'''
-    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-
-    result = ''
-    truename = ''
-    usename = ''
-    roll = dice(100)
-    number = 0
-
-    if roll <= 8:
-        number = 1
-    elif roll <= 18:
-        number = 2
-    elif roll <= 29:
-        number = 3
-    elif roll <= 42:
-        number = 4
-    elif roll <= 56:
-        number = 5
-    elif roll <= 71:
-        number = 6
-    elif roll <= 79:
-        number = 7
-    elif roll <= 86:
-        number = 8
-    elif roll <= 92:
-        number = 9
-    elif roll <= 96:
-        number = 10
-    elif roll <= 99:
-        number = 11
-    else:
-        number = 12
-    for _ in range(number):
-        item = choice(data["demon_truename_elements"])
-        truename = f'{truename}{item}'
-    usename = f'{choice(data["demon_usename_elements"])}{choice(data["demon_usename_elements"])} {choice(data["demon_usename_elements"]).title()}{choice(data["demon_usename_elements"])}'
-    result = f'{truename.capitalize()}({usename})'
-    return result
-
-def demon_name():
-    ''' demon name generator '''
-    if dice(2) == 1:
-        return demon_name_one()
-    return demon_name_two()
-
-def dwarven_name(gender = None):
-    ''' dwarven name generator '''
-    firstname = ''
-    lastname = ''
-
-    with open(f"{FILEPATH}/referencedata/DwarvenNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-
-    prefix = choice(data["dwarven_name_prefix"])
-    suffixmale = choice(data["dwarven_name_suffixmale"])
-    suffix = choice(data["dwarven_name_suffix"])
-    clanprefix = choice(data["dwarven_clan_prefix"])
-    clansuffix = choice(data["dwarven_clan_suffix"])
-
-    if gender is None:
-        if dice(2) == 1:
-            female = False
-            firstname = f'{prefix}{suffixmale}'
-        else:
-            female = True
-            firstname = f'{prefix}{suffix}'
-    elif gender.lower() == 'female':
-        female = True
-        firstname = f'{prefix}{suffixmale}'
-    else:
-        female = False
-        firstname = f'{prefix}{suffixmale}'
-
-    if dice(3) == 1:
-        father = f'{prefix}{suffixmale}'
-        if female:
-            lastname = f"{father}ssdottir"
-        else:
-            lastname = f"{father}son"
-    else:
-        lastname = f'{clanprefix}{clansuffix}'
-
-    result = f'{firstname.capitalize()} {lastname.capitalize()}'
-    if female:
-        result = f"{result} (f.)"
-    return result
-
-def town_name_generator():
-    '''Generates a town name'''
-    with open(f"{FILEPATH}/referencedata/TownNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-
-    result = ''
-    roll = dice(4)
-    affix = choice(data['town_name_affix'])
-    prefix = choice(data['town_name_prefix'])
-    suffix = choice(data['town_name_suffix'])
-
-    if roll == 1:
-        result = f"{affix} {prefix}{suffix}"
-    elif roll == 2:
-        result = f"{prefix} {suffix}"
-    else:
-        result = f"{prefix}{suffix}"
-    return result.title()
-
-def woodname_generator():
-    '''Generates a wood name'''
-    result = ''
-    with open(f"{FILEPATH}/referencedata/WoodNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    prefix = choice(data['wood_name_prefix'])
-    suffix = choice(data['wood_name_suffix'])
-    result = f"{prefix}{suffix}"
-    return result.title()
-
-def streetname_generator():
-    '''Generates a street name'''
-    result = ''
-    with open(f"{FILEPATH}/referencedata/StreetNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    prefix = choice(data['street_name_prefix'])
-    suffix = choice(data['street_name_suffix'])
-    result = f"{prefix}{suffix}"
-    return result.title()
-
-def dwarven_settlement_name_generator():
-    '''Generates a dwarven settlement name'''
-    result = ''
-    with open(f"{FILEPATH}/referencedata/DwarvenSettlementNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    roll = dice(10)
-    community = choice(data['dwarven_settlement_community'])
-    prefix = choice(data['dwarven_settlement_prefix'])
-    suffix = choice(data['dwarven_settlement_suffix'])
-
-    if roll <= 4:
-        result = f"The {community} of {prefix}{suffix}"
-    else:
-        result = f"{prefix}{suffix} {community}"
-    return result
-
 def book_title_generator(catalogue = False):
     '''Generates a book title'''
     result = ''
@@ -397,24 +215,6 @@ def book_title_generator(catalogue = False):
             result = f"{result} (Linguistics)"
     return result
 
-def place_name_generator():
-    '''Generates a place name'''
-    result = ''
-    with open(f"{FILEPATH}/referencedata/PlaceNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    roll = dice(2)
-    if roll == 0:
-        prefix = choice(data['place_name_prefix_1'])
-        suffix = choice(data['place_name_suffix_1'])
-    elif roll == 1:
-        prefix = choice(data['place_name_prefix_2'])
-        suffix = choice(data['place_name_suffix_2'])
-    else:
-        prefix = choice(data['place_name_prefix_3'])
-        suffix = choice(data['place_name_suffix_3'])
-    result = f"{prefix}{suffix}"
-    return result.title()
-
 def aoran(input_text_string):
     '''Returns a or an depending on the first letter of the string'''
     result = ''
@@ -506,23 +306,6 @@ def coatofarms_generator():
 
     return result
 
-def elfname_generator():
-    '''Generates an Elf Name'''
-    with open(f"{FILEPATH}/referencedata/ElfNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    result = ''
-    firstname = ""
-    surname = f"{choice(data['elf_surname_prefix'])}{choice(data['elf_surname_suffix'])}"
-    roll = dice()
-    if roll <= 4:
-        firstname = f"{choice(data['elf_prefix'])}{choice(data['elf_mid'])}{choice(data['elf_suffix'])}"
-    elif roll <= 5:
-        firstname = f"{choice(data['elf_prefix'])}{choice(data['elf_mid'])}{choice(data['elf_mid'])}{choice(data['elf_suffix'])}"
-    else:
-        firstname = f"{choice(data['elf_prefix'])}{choice(data['elf_suffix'])}"
-    result = f"{firstname.capitalize()} {surname.capitalize()}"
-    return result
-
 def herb_name_generator():
     '''Generates a Herb Name'''
     with open(f"{FILEPATH}/referencedata/HerbNames.json", "r", encoding='utf8') as file:
@@ -553,73 +336,6 @@ def herb_name_generator():
     else:
         result = f"{choice(data['herb_adj'])} {choice(data['herb_misc'])}"
     return result.title().replace("'S", "'s")
-
-def hyborian_name_generator():
-    '''Generates a Hyborian Name'''
-    result = ''
-    with open(f"{FILEPATH}/referencedata/HyborianNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    prefix = choice(data["hyborian_prefix"])
-    suffix = choice(data["hyborian_suffix"])
-    result = f"{prefix}{suffix}"
-    return result
-
-def inn_name_generator():
-    '''Generates an Inn Name'''
-    with open(f"{FILEPATH}/referencedata/InnNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    roll = dice(16)
-    result = ''
-    name = ''
-    adj = choice(data["inn_adj"])
-    adj2 = choice(data["inn_adj2"])
-    adj3 = choice(data["inn_adj3"])
-    item = choice(data["inn_item"])
-    item2 = choice(data["inn_item2"])
-    blding = choice(data["inn_bdlg"])
-    person = choice(data["inn_person"])
-    creature = choice(data["inn_creature"])
-    place = choice(data["inn_place"])
-
-    if roll <= 2:
-        name = f'{adj} {creature}'
-    elif roll == 3:
-        name = f'{adj2} {creature}'
-    elif roll == 4:
-        name = f'{adj} {item}'
-    elif roll == 5:
-        name = f'{adj3} {item}'
-    elif roll == 6:
-        name = f'{adj} {person}'
-    elif roll == 7:
-        name = f'{adj2} {person}'
-    elif roll == 8:
-        name = f'{adj} {place}'
-    elif roll == 9:
-        newcreature = choice(data["inn_creature"])
-        name = f'{creature} and {newcreature}'
-    elif roll == 10:
-        name = f"{creature}'s {item}"
-    elif roll == 11:
-        name = f"{creature}'s {item2}"
-    elif roll == 12:
-        name = f"{creature}'s {place}"
-    elif roll == 13:
-        newitem = choice(data["inn_item"])
-        name = f"{item} and {newitem}"
-    elif roll == 14:
-        newperson = choice(data["inn_person"])
-        name = f"{person} and {newperson}"
-    elif roll == 15:
-        name = f"{person}'s {item}"
-    else:
-        name = f"{person}'s {place}"
-
-    result = f"The {name}"
-    if dice(2) == 2:
-        result = f'{result} {blding}'
-    result = result.title().replace("'S", "'s").replace("And", "and")
-    return result
 
 def adventure_name_generator():
     '''Generates an Adventure Name'''
@@ -736,83 +452,6 @@ def adventure_name_generator():
 
     return result
 
-def lizardman_name_generator():
-    '''Generates a random lizardman name'''
-    result = ''
-
-    with open(f"{FILEPATH}/referencedata/LizardNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-
-
-    if dice(3) == 3:
-        apos = "'"
-    else:
-        apos = ""
-    cc = choice(data["lizard_cc"])
-    cv = choice(data["lizard_cv"])
-    vv = choice(data["lizard_vv"])
-    vc = choice(data["lizard_vc"])
-
-    if dice(4)<=3:
-        roll = dice(8)
-        if roll == 1:
-            newcc = choice(data["lizard_cc"])
-            result = f"{cc}{apos}{newcc}"
-        elif roll == 2:
-            result = f"{cv}{cc}"
-        elif roll == 3:
-            newcv = choice(data["lizard_cv"])
-            result = f"{cv}{newcv}"
-        elif roll == 4:
-            result = f"{vc}{apos}{cc}"
-        elif roll == 5:
-            result = f"{vc}{apos}{cv}"
-        elif roll == 6:
-            newvc = choice(data["lizard_vc"])
-            result = f"{vc}{apos}{newvc}"
-        elif roll == 7:
-            result = f"{vv}{cc}"
-        else:
-            result = f"{vv}{cv}"
-        # twosyllable
-    else:
-        roll = dice(11)
-        newcc = choice(data["lizard_cc"])
-        newcv = choice(data["lizard_cv"])
-        newvc = choice(data["lizard_vc"])
-        if roll == 1:
-            if dice(3) == 3:
-                newapos = "'"
-            else:
-                newapos = ""
-            supcc = choice(data["lizard_cc"])
-            result = f"{cc}{apos}{newcc}{newapos}{supcc}"
-        elif roll == 2:
-            result = f"{cc}{apos}{vv}{newcc}"
-        elif roll == 3:
-            result = f"{cc}{vv}{cc}"
-        elif roll == 4:
-            result = f"{vc}{vv}{cv}"
-        elif roll == 5:
-            result = f"{cv}{vc}{vc}"
-        elif roll == 6:
-            supcv = choice(data["lizard_cv"])
-            result = f"{cv}{newcv}{supcv}"
-        elif roll == 7:
-            supvc = choice(data["lizard_vc"])
-            result = f"{vc}{newvc}{supvc}"
-        elif roll == 8:
-            result = f"{vv}{cc}{vc}"
-        elif roll == 9:
-            newvv = choice(data["lizard_vv"])
-            result = f"{vv}{cc}{newvv}"
-        elif roll == 10:
-            result = f"{vv}{cv}{newcv}"
-        else:
-            result = f"{vc}{cc}{newcc}"
-        # threesyllable
-    return result.capitalize()
-
 def lovecraft_creature_generator():
     '''Generates a random Lovecraftian creature'''
     with open(f"{FILEPATH}/referencedata/LovecraftCreatures.json", "r", encoding='utf8') as file:
@@ -836,197 +475,6 @@ def lovecraft_creature_generator():
         result = f"{prefixc.capitalize()} {suffix}"
     else:
         result = f"{prefixv.capitalize()} {suffix}"
-
-    return result
-
-def celtic_name_generator(gender = None):
-    '''Generates a random Celtic name'''
-    with open(f"{FILEPATH}/referencedata/CelticNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-
-    prefix_male = choice(data["celtic_prefix_male"])
-    middle_male = choice(data["celtic_middle_male"])
-    suffix_male = choice(data["celtic_suffix_male"])
-    prefix_female = choice(data["celtic_prefix_female"])
-    middle_female = choice(data["celtic_middle_female"])
-    suffix_female = choice(data["celtic_suffix_female"])
-
-    if gender is None:
-        if dice(2) == 1:
-            female = False
-        else:
-            female = True
-    elif gender.lower() == 'female':
-        female = True
-    else:
-        female = False
-
-    if female:
-        result = f"{prefix_female}{middle_female}{suffix_female} (.f)"
-    else:
-        result = f"{prefix_male}{middle_male}{suffix_male}"
-
-    return result
-
-def epyptian_name_generator():
-    '''Generates a random Egyptian name'''
-    result = ''
-    with open(f"{FILEPATH}/referencedata/EgyptianNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    prefix = choice(data["egyptian_prefix"])
-    middle = choice(data["egyptian_middle"])
-    suffix = choice(data["egyptian_suffix"])
-    roll = dice(7)
-    if roll <= 4:
-        result = f"{prefix}{suffix.capitalize()}"
-    elif roll <= 6:
-        newprefix = choice(data["egyptian_prefix"])
-        newsuffix = choice(data["egyptian_suffix"])
-        result = f"{prefix}{suffix.capitalize()}-{newprefix}{newsuffix.capitalize()}"
-    else:
-        roll2 = dice(3)
-        temp = ''
-        for _ in range(roll2):
-            temp += choice(data["egyptian_middle"])
-        result += f"{prefix.capitalize()}{temp}{suffix}"
-
-    return result
-
-def greek_name_generator():
-    '''Generates a random greek name'''
-    result = ''
-    with open(f"{FILEPATH}/referencedata/GreekNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    prefix = choice(data["greek_prefix"])
-    suffix = choice(data["greek_suffix"])
-    begin = choice(data["greek_begin"])
-    middle = choice(data["greek_middle"])
-    end = choice(data["greek_end"])
-    result = f"{prefix}{suffix}{begin}{middle}{end}"
-    return result.capitalize()
-
-def oldenglish_name_generator():
-    '''Generates a random Old English name'''
-    result = ''
-    with open(f"{FILEPATH}/referencedata/OldEnglishNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    prefix = choice(data["oldenglish_prefix"])
-    suffix = choice(data["oldenglish_suffix"])
-    result = f"{prefix}{suffix}"
-    return result.capitalize()
-
-def sumerian_name_generator():
-    '''Generates a random Sumerian name'''
-    result = ''
-    roll = dice(37)
-    with open(f"{FILEPATH}/referencedata/SumerianNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-
-    if roll == 1:
-        result = f"{choice(data['sumerian_vcvc'])}{choice(data['sumerian_vcvc'])}"
-    elif roll == 2:
-        result = f"{choice(data['sumerian_vcvc'])}{choice(data['sumerian_mix'])}"
-    elif roll == 3:
-        result = f"{choice(data['sumerian_vcvc'])}{choice(data['sumerian_vcv'])}"
-    elif roll == 4:
-        result = f"{choice(data['sumerian_vcvc'])}{choice(data['sumerian_vcvc'])}"
-    elif roll == 5:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vcvc'])}"
-    elif roll == 6:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_mix'])}"
-    elif roll == 7:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vc'])}"
-    elif roll == 8:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vccv'])}"
-    elif roll == 9:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vcv'])}"
-    elif roll == 10:
-        result = f"{choice(data['sumerian_cv'])}{choice(data['sumerian_cv'])}"
-    elif roll == 11:
-        result = f"{choice(data['sumerian_cv'])}{choice(data['sumerian_ccvc'])}"
-    elif roll == 12:
-        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vcvc'])}"
-    elif roll == 13:
-        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_mix'])}"
-    elif roll == 14:
-        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_ccvc'])}"
-    elif roll == 15:
-        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_ccvc'])}"
-    elif roll == 16:
-        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vc'])}"
-    elif roll == 17:
-        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vccv'])}"
-    elif roll == 18:
-        result = f"{choice(data['sumerian_cvc'])}{choice(data['sumerian_vcv'])}"
-    elif roll == 19:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vcvc'])}"
-    elif roll == 20:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vc'])}"
-    elif roll == 21:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_vcv'])}"
-    elif roll == 22:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_cv'])}"
-    elif roll == 23:
-        result = f"{choice(data['sumerian_ccvc'])}{choice(data['sumerian_cvcv'])}"
-    elif roll == 24:
-        result = f"{choice(data['sumerian_vc'])}{choice(data['sumerian_vcvc'])}"
-    elif roll == 25:
-        result = f"{choice(data['sumerian_vc'])}{choice(data['sumerian_vc'])}"
-    elif roll == 26:
-        result = f"{choice(data['sumerian_vc'])}{choice(data['sumerian_vccv'])}"
-    elif roll == 27:
-        result = f"{choice(data['sumerian_vc'])}{choice(data['sumerian_vcv'])}"
-    elif roll == 28:
-        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_ccvc'])}"
-    elif roll == 29:
-        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_cv'])}"
-    elif roll == 30:
-        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_ccvc'])}"
-    elif roll == 31:
-        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_cvc'])}"
-    elif roll == 32:
-        result = f"{choice(data['sumerian_vccv'])}{choice(data['sumerian_ccvc'])}"
-    elif roll == 33:
-        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_ccvc'])}"
-    elif roll == 34:
-        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cv'])}"
-    elif roll == 35:
-        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cvc'])}"
-    elif roll == 36:
-        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_ccvc'])}"
-    else:
-        result = f"{choice(data['sumerian_vcv'])}{choice(data['sumerian_cvcv'])}"
-
-    return result.capitalize()
-
-def orc_name_generator():
-    '''Generates a random orc name'''
-    result = ""
-    roll = dice(4)
-
-    with open(f"{FILEPATH}/referencedata/OrcNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    if dice(4) <= 3:
-        if roll == 1:
-            result = f"{choice(data['orc_seg'])}{choice(data['orc_seg'])}"
-        elif roll == 2:
-            result = f"{choice(data['orc_pref'])}{choice(data['orc_seg'])}"
-        elif roll == 3:
-            result = f"{choice(data['orc_seg'])}{choice(data['orc_suff'])}"
-        else:
-            result = f"{choice(data['orc_pref'])}{choice(data['orc_suff'])}"
-    else:
-        if roll == 1:
-            result = f"{choice(data['orc_seg'])}{choice(data['orc_seg'])}{choice(data['orc_seg'])}"
-        elif roll == 2:
-            result = f"{choice(data['orc_pref'])}{choice(data['orc_seg'])}{choice(data['orc_seg'])}"
-        elif roll == 3:
-            result = f"{choice(data['orc_seg'])}{choice(data['orc_seg'])}{choice(data['orc_suff'])}"
-        else:
-            result = f"{choice(data['orc_pref'])}{choice(data['orc_seg'])}{choice(data['orc_suff'])}"
-    result = result.capitalize()
-    if dice(2) == 1:
-        result = f"{result} {choice(data['orc_lastpref']).capitalize()}{choice(data['orc_lastsuff'])}"
 
     return result
 
@@ -1104,20 +552,6 @@ def ship_name_generator():
             result = f"{person} {choice(data['ship_nameF'])}"
         result = f"{result}'s {choice(data['ship_noun'])}"
 
-def site_name_generator():
-    '''Generates a random site name'''
-    result = ''
-    with open(f"{FILEPATH}/referencedata/SiteNames.json", "r", encoding='utf8') as file:
-        data = json.load(file)
-    roll = dice(3)
-    if roll == 1:
-        result = f"{choice(data['site_place'])} of {choice(data['site_thing'])}"
-    elif roll == 2:
-        result = f"{choice(data['site_adj'])} {choice(data['site_place'])}"
-    else:
-        result = f"{choice(data['site_adj'])} {choice(data['site_place'])} of {choice(data['site_thing'])}"
-    return result
-
 def main(test=True):
     '''
         Main function
@@ -1165,15 +599,13 @@ def main(test=True):
         print(f"Site Name               : {site_name_generator()}")
         print(f"Currency                : {currency_converter(100)}")
     else:
-        print(f"Riddle Question         : {riddle_generator()}")
-        print(f"Wine Name               : {fantasy_wine_name()}")
-        print(f"Currency                : {currency_converter(100)}")
-        print(f"Currency                : {currency_converter(1, fromcurr='gold', tocurr='copper')}")
-        print(f"Currency                : {currency_converter(10, fromcurr='gold', tocurr='gold')}")
-        print(f"Currency                : {currency_converter(1, fromcurr='copper', tocurr='gold')}")
-        print(f"Currency                : {currency_converter(1, fromcurr='fliiter', tocurr='gold')}")
-        print(f"Currency                : {currency_converter(1, fromcurr='gold', tocurr='fliiter')}")
-        print(f"Hexmap tile             : {hexmap_tile_type()}")
+        print(f"Town Name               : {town_name_generator()}")
+        print(f"Wood Name               : {woodname_generator()}")
+        print(f"Street Name             : {streetname_generator()}")
+        print(f"Dwarven Settlement Name : {dwarven_settlement_name_generator()}")
+        print(f"Place Name              : {place_name_generator()}")
+        print(f'Inn Name                : {inn_name_generator()}')
+        print(f"Site Name               : {site_name_generator()}")
 
 
 if __name__ == "__main__":
