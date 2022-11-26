@@ -1,10 +1,18 @@
 ''' dnd places module '''
+
+__author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
+__version__ = "$Revision: 1.00 $"
+__date__ = "$Date: 2022/11/25 00:00:00 $"
+__copyright__ = "Copyright (c) 2022 Denis J Jackman"
+__license__ = "Python"
+
 from pathlib import Path
 import json
 from random import choice
 from dnddice import dice
 
 FILEPATH = Path(__file__).parent
+# pylint: disable=too-many-locals
 
 def town_name_generator():
     '''Generates a town name'''
@@ -161,4 +169,4 @@ def main():
     print(f"Site Name               : {site_name_generator()}")
 
 if __name__ == '__main__':
-    main()  
+    main()

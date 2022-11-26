@@ -64,10 +64,8 @@ from dndplaces import place_name_generator
 from dndplaces import inn_name_generator
 from dndplaces import site_name_generator
 
-
 FILEPATH = Path(__file__).parent
-# pylint: disable=too-many-locals
-# pylint: disable=too-many-lines
+
 def book_title_generator(catalogue = False):
     '''Generates a book title'''
     result = ''
@@ -606,7 +604,6 @@ def main(test=True):
         print(f"Place Name              : {place_name_generator()}")
         print(f'Inn Name                : {inn_name_generator()}')
         print(f"Site Name               : {site_name_generator()}")
-
 
 if __name__ == "__main__":
     main(test=False)
