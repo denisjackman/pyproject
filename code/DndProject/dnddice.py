@@ -9,7 +9,6 @@ __license__ = "Python"
 
 from random import randint
 
-
 def dice(sides=6, rolls=1):
     '''
         Rolls a dice which has 'sides' sides (default is six (6))
@@ -21,7 +20,6 @@ def dice(sides=6, rolls=1):
         result = result + randint(1, sides)
         item += 1
     return result
-
 
 def number_generator(number=100):
     '''

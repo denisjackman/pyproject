@@ -1,6 +1,12 @@
 '''
     insult generator module for dnd
 '''
+__author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
+__version__ = "$Revision: 1.00 $"
+__date__ = "$Date: 2022/11/25 00:00:00 $"
+__copyright__ = "Copyright (c) 2022 Denis J Jackman"
+__license__ = "Python"
+
 from pathlib import Path
 import json
 from random import choice
@@ -30,7 +36,6 @@ def shakespearean_insult_generator():
     # return it
     return result
 
-
 def dwarven_insult_generator():
     '''
         dwarven insult generator
@@ -42,7 +47,6 @@ def dwarven_insult_generator():
     dwarven_insult_three = choice(data["insult_column_three"])
     result = f"{dwarven_insult_one} {dwarven_insult_two} {dwarven_insult_three}."
     return result
-
 
 def main():
     ''' main function '''

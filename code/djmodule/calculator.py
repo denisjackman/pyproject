@@ -18,7 +18,6 @@ def main():
     print(subtract(2,1) == 1)
     print(multiply(1,2) == 2)
     print(divide(1,2) == 0.5)
-    
+
 if __name__ == '__main__':
     main()
-    
