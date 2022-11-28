@@ -31,14 +31,25 @@ def talk(text):
     ''' this is the talk module '''
     ENGINE.say(text)
     ENGINE.runAndWait()
-    print(f'{text}')
+    if DEBUG_FLAG:
+        print(f'OUTPUT : {text}')
 
 def command(localcommand):
     ''' this is the command module '''
-    print(f'{localcommand}')
+    if DEBUG_FLAG:
+        print(f'INPUT : {localcommand}')
 
+def statup_sequence():
+    ''' this is the statup sequence '''
+    talk("Hello, I am jason")
+    talk("reactor online")
+    talk("sensors online")
+    talk("weapons online")
+    talk("all systems nominal")  
+    
 def main():
     ''' main function '''
+    statup_sequence()
 
 if __name__ == '__main__':
     main()
