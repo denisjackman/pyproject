@@ -68,3 +68,4 @@ yagmail
 pyttsx3
 speechrecognition
 pywhatkit
+pyaudio
