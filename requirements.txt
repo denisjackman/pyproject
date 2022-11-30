@@ -68,3 +68,5 @@ yagmail
 pyttsx3
 speechrecognition
 pywhatkit
+sounddevice
+soundfile

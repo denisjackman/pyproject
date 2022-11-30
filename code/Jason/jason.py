@@ -8,6 +8,9 @@
     pip install wikipedia
     pip install pyjokes
     pip install pyaudio
+    pip install numpy
+    pip install sounddevice
+    pip install soundfile
 
     reference:
     https://plainenglish.io/blog/build-your-own-alexa-with-just-20-lines-of-python-ea8474cbaab7
@@ -21,6 +24,8 @@ import pyttsx3
 import pywhatkit
 import wikipedia
 import pyjokes
+import sounddevice as sd
+import soundfile as sf
 
 DEBUG_FLAG = False
 LISTENER = sr.Recognizer()
@@ -84,14 +89,11 @@ def startup_sequence():
 
 def systemscheck():
     ''' check function '''
-    index = 0
-    for voice in VOICES:
-        print(f"{index} Voice: {voice.id} : {voice.name}")
-        ENGINE.setProperty('voice', VOICES[index].id)
-        testtext = f"Hello, I am {voice.name}"
-        ENGINE.say(testtext)
-        ENGINE.runAndWait()
-        index += 1
+    checkfile = 'Y:/Resources/sounds/reactor.wav'
+    data, fs = sf.read(checkfile, dtype='float32')
+    sd.play(data, fs)
+    status = sd.wait()
+    print(f"status: {status}")
 
 def joke():
     ''' joke function '''
@@ -99,15 +101,38 @@ def joke():
     print(f"{tempjoke}")
     talk(tempjoke)
 
+def video(videotext):
+    ''' this is the video module '''
+    messagetext = f"Playing {videotext}"
+    try:
+        pywhatkit.playonyt(videotext)
+        messagetext = f"playing {videotext}"
+    except Exception as djerror:  # pylint: disable=bare-except
+        messagetext = f"Error: {djerror} {type(djerror)} {djerror.args} for {videotext}"
+    print(messagetext)
+    talk(messagetext)
+
 def main():
     ''' main function '''
-    checksystem = True
-    startup_sequence()
-    if checksystem:
-        systemscheck()
-    print(f"{listen()}")
-    joke()
-    jasontime()
+    JasonRunning = True
+    while JasonRunning:
+        jasoncommand = listen()
+        print(f"command: {jasoncommand}")
+        if 'play' in jasoncommand:
+            jasoncommand = jasoncommand.replace('play', '')
+            video(jasoncommand)
+        elif 'time' in jasoncommand:
+            jasontime()
+        elif 'joke' in jasoncommand:
+            joke()
+        elif 'stop' in jasoncommand:
+            JasonRunning = False
+            talk("Goodbye")
+        elif 'system' and 'check' in jasoncommand:
+            systemscheck()
+            talk("Systems check complete")
+        else:
+            talk("I did not understand that")
     print("done")
 
 if __name__ == '__main__':
