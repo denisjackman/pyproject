@@ -41,10 +41,10 @@ def talk(text):
     if DEBUG_FLAG:
         print(f'OUTPUT : {text}')
 
-def watsapp(sendwhat):
+def googlesearch(searchterm):
     ''' this is the watsapp module '''
-    pywhatkit.sendwhatmsg("+447769836580", sendwhat, 10, 0)
-    talk("Message sent successfully")
+    pywhatkit.search(searchterm)
+    talk(f"Search for {searchterm} complete")
 
 def listen():
     ''' this is the listen module '''
@@ -121,6 +121,9 @@ def main():
         if 'play' in jasoncommand:
             jasoncommand = jasoncommand.replace('play', '')
             video(jasoncommand)
+        elif 'search' in jasoncommand:
+            jasoncommand = jasoncommand.replace('search', '')
+            googlesearch(jasoncommand)
         elif 'time' in jasoncommand:
             jasontime()
         elif 'joke' in jasoncommand:
