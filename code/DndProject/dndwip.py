@@ -84,6 +84,7 @@ def oracle_generator():
 
 def main():
     '''Main function'''
+    print(f"Welcome to the {oracle_generator()}!")
 
 if __name__ == '__main__':
     main()
