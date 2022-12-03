@@ -131,7 +131,7 @@ def main():
         elif 'stop' in jasoncommand:
             JasonRunning = False
             talk("Goodbye")
-        elif 'system' and 'check' in jasoncommand:
+        elif 'check' in jasoncommand:
             systemscheck()
             talk("Systems check complete")
         else:

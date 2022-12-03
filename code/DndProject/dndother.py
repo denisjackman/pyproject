@@ -396,6 +396,7 @@ def hexmap_tile_type():
 
 def book_title_generator(catalogue = False):
     '''Generates a book title'''
+    #pylint: disable=R0914
     result = ''
     with open(f"{FILEPATH}/referencedata/BookTitles.json", "r", encoding='utf8') as file:
         data = json.load(file)
@@ -575,6 +576,7 @@ def plural(input_text_string):
 
 def coatofarms_generator():
     '''Generates a Coat of Arms'''
+    #pylint: disable=R0914
     with open(f"{FILEPATH}/referencedata/CoatArms.json", "r", encoding='utf8') as file:
         data = json.load(file)
     result = ''
@@ -665,6 +667,7 @@ def herb_name_generator():
 
 def adventure_name_generator():
     '''Generates an Adventure Name'''
+    #pylint: disable=R0914
     with open(f"{FILEPATH}/referencedata/AdventureNames.json", "r", encoding='utf8') as file:
         data = json.load(file)
     result = ''
@@ -877,7 +880,6 @@ def ship_name_generator():
         else:
             result = f"{person} {choice(data['ship_nameF'])}"
         result = f"{result}'s {choice(data['ship_noun'])}"
-
 
 def main():
     ''' main function '''

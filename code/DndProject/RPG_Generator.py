@@ -33,10 +33,7 @@ __date__ = "$Date: 2022/11/01 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
-from pathlib import Path
-import json
-from random import choice
-from dnddice import dice
+
 from dndinsult import shakespearean_insult_generator
 from dndinsult import dwarven_insult_generator
 from dndother import currency_converter
@@ -73,8 +70,6 @@ from dndplaces import dwarven_settlement_name_generator
 from dndplaces import place_name_generator
 from dndplaces import inn_name_generator
 from dndplaces import site_name_generator
-
-FILEPATH = Path(__file__).parent
 
 def main(test=True):
     '''
@@ -123,18 +118,7 @@ def main(test=True):
         print(f"Site Name               : {site_name_generator()}")
         print(f"Currency                : {currency_converter(100)}")
     else:
-        print(f"Book Title              : {book_title_generator()}")
-        print(f"Book Title              : {book_title_generator(catalogue=True)}")
-        print(f"A or An                 : {aoran('apple')}")
-        print(f"Plural                  : {plural('apple')}")
-        print(f'Coat of Arms            : {coatofarms_generator()}')
-        print(f'Herb Name               : {herb_name_generator()}')
-        print(f'Adventure Name          : {adventure_name_generator()}')
-        print(f'Lovecraftian Creature   : {lovecraft_creature_generator()}')
-        print(f"Orc Tribe Name          : {orc_tribe_generator()}")
-        print(f"Organization Name       : {organization_generator()}")
-        print(f"Ship Name               : {ship_name_generator()}")
-
+        print("No tests")
 
 if __name__ == "__main__":
-    main(test=False)
+    main()
