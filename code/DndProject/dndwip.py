@@ -6,9 +6,9 @@ __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
 from pathlib import Path
-import json
-from random import choice
-from dnddice import dice
+#import json
+#from random import choice
+#from dnddice import dice
 
 FILEPATH = Path(__file__).parent
 
