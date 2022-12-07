@@ -70,3 +70,6 @@ speechrecognition
 pywhatkit
 sounddevice
 soundfile
+folium
+osmnx
+networkx
