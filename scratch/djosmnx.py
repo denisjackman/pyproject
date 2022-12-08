@@ -1,11 +1,8 @@
 ''' sample map from python
     reference : https://github.com/gboeing/osmnx-examples/blob/main/notebooks/00-osmnx-features-demo.ipynb
 '''
-import networkx as nx
+#import networkx as nx
 import osmnx as ox
-
-ox.__version__
-
 
 def main():
     ''' this is the main function '''
@@ -16,4 +13,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

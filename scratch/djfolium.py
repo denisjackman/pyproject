@@ -4,7 +4,7 @@
     pip install folium
 '''
 import folium
-import pandas as pd
+#import pandas as pd
 
 
 def main():
