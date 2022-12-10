@@ -1,5 +1,5 @@
 ''' geocoder example '''
-import geocoder as geo 
+import geocoder as geo
 def main():
     ''' main function '''
     ip_address = geo.ip('me')
