@@ -2,41 +2,42 @@
 import sys
 import getopt
 
+COMMANDS = "hvds:x:"
+LONG_COMMANDS = ["verbose", "delete", "start=", "help", "xmode="]
+
 def getargs():
     '''
         get the argurments from the command line
     '''
-    st_commands = 'djfile.py -v <True/False> -d <True/False> DIRECTORY "."'
+    standard_commands = 'djfile.py -v <True/False> -d <True/False> DIRECTORY "."'
     argv = sys.argv[1:]
-    commands = "hvds:x:"
-    long_commands = ["verbose", "delete", "start=", "help", "xmode="]
+    runname = sys.argv[0][2:].replace(".py", "")
     verbosemode = False
     deletemode = False
     startdirectory = "."
     xmode = ""
+    print(f'runname is {runname}')
     try:
-        clopts, args = getopt.getopt(argv, commands, long_commands)
+        command_line_optionss, args = getopt.getopt(argv, COMMANDS, LONG_COMMANDS)
     except getopt.GetoptError:
-        print(st_commands)
+        print(f'The commands are : {standard_commands}')
         sys.exit(2)
-    print(f'clopts is {clopts}')
-    print(f'args is {args}')
-    for clopt, arg in clopts:
-        if clopt in ('-h', "--help"):
-            print(st_commands)
+    for command_line_options, arg in command_line_optionss:
+        if command_line_options in ('-h', "--help"):
+            print(f'The commands are : {standard_commands}')
             sys.exit()
-        elif clopt in ("-v", "--verbose"):
+        elif command_line_options in ("-v", "--verbose"):
             verbosemode = True
-        elif clopt in ("-d", "--delete"):
+        elif command_line_options in ("-d", "--delete"):
             deletemode = True
-        elif clopt in ("-s", "--start"):
+        elif command_line_options in ("-s", "--start"):
             startdirectory = arg
-        elif clopt in ("-x", "--xmode"):
+        elif command_line_options in ("-x", "--xmode"):
             xmode = arg
-    print(f'xmode is {xmode}')
     return {"verbosemode": verbosemode,
             "deletemode": deletemode,
-            "startdirectory": startdirectory}
+            "startdirectory": startdirectory,
+            "xmode": xmode}
 
 def main():
     ''' main function'''
