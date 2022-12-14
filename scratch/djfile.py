@@ -56,10 +56,17 @@ def walk_through(wt_command_args):
     for entry in listoffiles:
         fullpath = os.path.join(start_dir, entry)
 
+def dir_example(ex_command_args):
+    ''' example function '''
+    rootdir = ex_command_args["startdirectory"]
+    for dirName, subdirList, fileList in os.walk(rootdir):
+        for fname in fileList:
+            print(f"+[{dirName}] [{subdirList}] [{fname}] - test")
+
 def main():
     ''' main function'''
     mainargs = getargs()
-
+    dir_example(mainargs)
 
 if __name__ == '__main__':
     main()
