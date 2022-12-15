@@ -2,10 +2,13 @@
 import os
 import sys
 import getopt
+from pathlib import Path
+#import json
 
 COMMANDS = "hvds:x:"
-LONG_COMMANDS = ["verbose", "delete", "start=", "help", "xmode="]
+LONG_COMMANDS = ["verbose", "debug", "start=", "help", "xmode="]
 STANDARD_COMMANDS = 'djfile.py -v <True/False> -d <True/False> -s DIRECTORY -x XMODE "."'
+FILEPATH = Path(__file__).parent
 
 def getargs():
     '''
@@ -14,7 +17,7 @@ def getargs():
     argv = sys.argv[1:]
     #runname = sys.argv[0][2:].replace(".py", "")
     verbosemode = False
-    deletemode = False
+    debugmode = False
     startdirectory = "."
     xmode = ""
     try:
@@ -28,45 +31,43 @@ def getargs():
             sys.exit()
         elif command_line_options in ("-v", "--verbose"):
             verbosemode = True
-        elif command_line_options in ("-d", "--delete"):
-            deletemode = True
+        elif command_line_options in ("-d", "--debug"):
+            debugmode = True
         elif command_line_options in ("-s", "--start"):
             startdirectory = arg
         elif command_line_options in ("-x", "--xmode"):
             xmode = arg
     return {"verbosemode": verbosemode,
-            "deletemode": deletemode,
+            "debugmode": debugmode,
             "startdirectory": startdirectory,
             "xmode": xmode}
 
-def walk_through(wt_command_args):
-    """
-    walk_through function:
-    """
-
-    start_dir = wt_command_args["startdirectory"]
-    verb = wt_command_args["verbosemode"]
-    delete = wt_command_args["deletemode"]
-    listoffiles = []
-    try:
-        listoffiles = os.listdir(start_dir)
-    except OSError as err:
-        print(f"OS error: {err} skipping {start_dir}")
-    result = []
-    for entry in listoffiles:
-        fullpath = os.path.join(start_dir, entry)
-
 def dir_example(ex_command_args):
     ''' example function '''
+    verb = ex_command_args["verbosemode"]
+    debug = ex_command_args["debugmode"]
+    result = []
     rootdir = ex_command_args["startdirectory"]
+    if debug:
+        print(f'DEBUG: rootdir - {rootdir}')
     for dirName, subdirList, fileList in os.walk(rootdir):
+        if debug:
+            print(f'DEBUG: Found directory: {dirName} - {subdirList} - {fileList} - {len(fileList)}')
         for fname in fileList:
-            print(f"+[{dirName}] [{subdirList}] [{fname}] - test")
+            temp = f'{FILEPATH}\\{fname}'
+            if debug:
+                print(f'DEBUG: {temp}')
+            if verb:
+                print(temp)
+            result.append(temp)
+    return result
 
 def main():
     ''' main function'''
     mainargs = getargs()
-    dir_example(mainargs)
+    items  = dir_example(mainargs)
+    print(f'List : {len(items)} items')
+
 
 if __name__ == '__main__':
     main()
