@@ -7,7 +7,8 @@ from pathlib import Path
 
 COMMANDS = "hvds:x:"
 LONG_COMMANDS = ["verbose", "debug", "start=", "help", "xmode="]
-STANDARD_COMMANDS = 'djfile.py -v <True/False> -d <True/False> -s DIRECTORY -x XMODE "."'
+PROGRAM_NAME = sys.argv[0][2:].replace(".py", "")
+STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -s DIRECTORY -x XMODE "."'
 FILEPATH = Path(__file__).parent
 
 def getargs():
