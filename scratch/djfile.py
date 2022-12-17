@@ -3,6 +3,7 @@ import os
 import sys
 import getopt
 from pathlib import Path
+import mimetypes
 #import json
 
 COMMANDS = "hvds:x:"
@@ -63,12 +64,36 @@ def dir_example(ex_command_args):
             result.append(temp)
     return result
 
+def check_file_type(cf_filename, cf_debug = False, cf_verbose = False):
+    ''' check the file type '''
+    result = None
+    if cf_debug:
+        print(f'DEBUG: check_file_type - {cf_filename}')
+    if cf_verbose:
+        print(f'Verbose: check_file_type - {cf_filename}')
+    result =  mimetypes.guess_type(cf_filename)
+    return result
+
+def check_file_extension(cfe_filename, cfe_debug = False, cfe_verbose = False):
+    ''' check the file extension '''
+    result = None
+    if cfe_debug:
+        print(f'DEBUG: check_file_extension - {cfe_filename}')
+    if cfe_verbose:
+        print(f'Verbose: check_file_extension - {cfe_filename}')
+    result = Path(cfe_filename).suffix.replace(".", "")
+    return result
+
+
 def main():
     ''' main function'''
     mainargs = getargs()
     items  = dir_example(mainargs)
     print(f'List : {len(items)} items')
-
+    for item in items:
+        itemtype = check_file_type(item, mainargs["debugmode"], mainargs["verbosemode"])
+        exttype = check_file_extension(item, mainargs["debugmode"], mainargs["verbosemode"])
+        print(f'{item} - {itemtype[0]} - {exttype}')
 
 if __name__ == '__main__':
     main()
