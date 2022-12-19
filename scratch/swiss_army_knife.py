@@ -108,11 +108,11 @@ def main():
 
     #for mime_item in mimetype_list:
     #    print(f'{mime_item}')
-    #for item in items:
-    #    itemtype = check_file_type(item, mainargs["debugmode"], mainargs["verbosemode"])
-    #    exttype = check_file_extension(item, mainargs["debugmode"], mainargs["verbosemode"])
+    for item in items:
+        itemtype = check_file_type(item, mainargs["debugmode"], mainargs["verbosemode"])
+        exttype = check_file_extension(item, mainargs["debugmode"], mainargs["verbosemode"])
     #    answer = mimetype_list.get(itemtype[0])
-    #    print(f'{item} - {itemtype} - {exttype} -{itemtype[0]} - {answer} ')
+        print(f'{item} - {itemtype} - {exttype} -{itemtype[0]}')
         #print(f'{mimetype_list.index(itemtype[0])}')
         #if exttype in mimetype_list[itemtype[0]]:
         #    print(f'{item} - {itemtype[0]} - {exttype} - {mimetype_list[exttype]} - checked  ')
