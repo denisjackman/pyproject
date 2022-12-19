@@ -13,9 +13,7 @@ def main():
     print(result)
     mime_types = []
     mime_file = []
-    for item in result: 
-        item
-        
+
 
 if __name__ == "__main__":
     main()
