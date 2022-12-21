@@ -16,15 +16,18 @@ def main():
     test_example = "text/x-python"
 
     for item in result:
-        print(item.values())
-        print(item.keys())
+        #print(item.values())
+        #print(item.keys())
+        if test_example in item.keys():
+            print("Found")
+            print(item.values())
         mime_types.append(item.keys())
         mime_file.append(item.values())
 
 
-    print(mime_types)
-    print(mime_file)
+    #print(mime_types)
+    #print(mime_file)
     print(test_example)
-
+    #print(mime_types.get(test_example))
 if __name__ == "__main__":
     main()
