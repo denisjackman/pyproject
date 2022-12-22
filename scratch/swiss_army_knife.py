@@ -96,29 +96,33 @@ def check_file_extension(cfe_filename, cfe_debug = False, cfe_verbose = False):
     result = Path(cfe_filename).suffix.replace(".", "")
     return result
 
+def check_file_mime(cfm_mimetype, cfm_debug = False, cfm_verbose = False):
+    ''' check the file mime '''
+    result = None
+    mimetype_list = loadjsonfile('allMimeTypes.json', cfm_debug, cfm_verbose)
+
+    if cfm_debug:
+        print(f'DEBUG: check_file_mime - {cfm_mimetype}')
+    if cfm_verbose:
+        print(f'Verbose: check_file_mime - {cfm_mimetype}')
+    for item in mimetype_list:
+        if cfm_mimetype in item.keys():
+            result = item.values()
+    return result
+    
+
 def main():
     ''' main function'''
     mainargs = getargs()
     items  = dir_example(mainargs)
-    mimetype_list = loadjsonfile('allMimeTypes.json', mainargs["debugmode"], mainargs["verbosemode"])
 
     print(f'List : {len(items)} items')
-    print(f'MimeTypes : {len(mimetype_list)} mime types loaded')
-    print(f'{type(mimetype_list)}')
 
-    #for mime_item in mimetype_list:
-    #    print(f'{mime_item}')
     for item in items:
         itemtype = check_file_type(item, mainargs["debugmode"], mainargs["verbosemode"])
         exttype = check_file_extension(item, mainargs["debugmode"], mainargs["verbosemode"])
-    #    answer = mimetype_list.get(itemtype[0])
+        print(f'{check_file_mime(itemtype[0], mainargs["debugmode"], mainargs["verbosemode"])}')
         print(f'{item} - {itemtype} - {exttype} -{itemtype[0]}')
-        #print(f'{mimetype_list.index(itemtype[0])}')
-        #if exttype in mimetype_list[itemtype[0]]:
-        #    print(f'{item} - {itemtype[0]} - {exttype} - {mimetype_list[exttype]} - checked  ')
-        #else:
-        #    print(f'{item} - {itemtype[0]} - {exttype} - {mimetype_list[exttype]} - not checked  ')
-
 
 if __name__ == '__main__':
     main()
