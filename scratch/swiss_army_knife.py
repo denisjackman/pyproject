@@ -109,7 +109,6 @@ def check_file_mime(cfm_mimetype, cfm_debug = False, cfm_verbose = False):
         if cfm_mimetype in item.keys():
             result = item.values()
     return result
-    
 
 def main():
     ''' main function'''
