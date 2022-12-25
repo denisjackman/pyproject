@@ -42,19 +42,19 @@ def hex_direction(direction):
     ''' hex_direction(direction) returns a new Hex object that is the direction of the given number.'''
     return hex_directions[direction]
 
-def hex_neighbor(hex, direction):
+def hex_neighbor(hnhex, direction):
     ''' hex_neighbor(hex, direction) returns a new Hex object that is the neighbor of Hex object hex in the given direction.'''
-    return hex_add(hex, hex_direction(direction))
+    return hex_add(hnhex, hex_direction(direction))
 
 hex_diagonals = [Hex(2, -1, -1), Hex(1, -2, 1), Hex(-1, -1, 2), Hex(-2, 1, 1), Hex(-1, 2, -1), Hex(1, 1, -2)]
 
-def hex_diagonal_neighbor(hex, direction):
+def hex_diagonal_neighbor(hdnhex, direction):
     ''' hex_diagonal_neighbor(hex, direction) returns a new Hex object that is the neighbor of Hex object hex in the given diagonal direction.'''
-    return hex_add(hex, hex_diagonals[direction])
+    return hex_add(hdnhex, hex_diagonals[direction])
 
-def hex_length(hex):
+def hex_length(hlhex):
     ''' hex_length(hex) returns the length of the given Hex object.'''
-    return (abs(hex.q) + abs(hex.r) + abs(hex.s)) // 2
+    return (abs(hlhex.q) + abs(hlhex.r) + abs(hlhex.s)) // 2
 
 def hex_distance(a, b):
     ''' hex_distance(a, b) returns the distance between Hex objects a and b.'''
@@ -203,7 +203,7 @@ def polygon_corners(layout, h):
 
 def complain(name):
     ''' complain(name) prints a failure message for the test named name.'''
-    print("FAIL {0}".format(name))
+    print(f"FAIL {name}")
 
 def equal_hex(name, a, b):
     ''' equal_hex(name, a, b) checks that a and b are equal Hex objects.'''
@@ -222,7 +222,7 @@ def equal_doubledcoord(name, a, b):
 
 def equal_int(name, a, b):
     ''' equal_int(name, a, b) checks that a and b are equal integers.'''
-    if not (a == b):
+    if not a == b:
         complain(name)
 
 def equal_hex_array(name, a, b):
@@ -258,12 +258,10 @@ def test_hex_rotate_right():
 
 def test_hex_rotate_left():
     ''' hex_rotate_left(a) returns the hex that is a rotated left around the origin hex'''
-    
     equal_hex("hex_rotate_left", hex_rotate_left(Hex(1, -3, 2)), Hex(-2, -1, 3))
 
 def test_hex_round():
     ''' hex_round(a) returns the nearest hex to a given hex coordinate'''
-    
     a = Hex(0.0, 0.0, 0.0)
     b = Hex(1.0, -1.0, 0.0)
     c = Hex(0.0, -1.0, 1.0)
@@ -275,11 +273,10 @@ def test_hex_round():
 
 def test_hex_linedraw():
     '''test_hex_linedraw'''
-    
     equal_hex_array("hex_linedraw", [Hex(0, 0, 0), Hex(0, -1, 1), Hex(0, -2, 2), Hex(1, -3, 2), Hex(1, -4, 3), Hex(1, -5, 4)], hex_linedraw(Hex(0, 0, 0), Hex(1, -5, 4)))
 
 def test_layout():
-    '''  test layout functions''' 
+    '''  test layout functions'''
     h = Hex(3, 4, -7)
     flat = Layout(layout_flat, Point(10.0, 15.0), Point(35.0, 71.0))
     equal_hex("layout", h, hex_round(pixel_to_hex(flat, hex_to_pixel(flat, h))))
@@ -349,5 +346,5 @@ def test_all():
     test_doubled_to_cube()
     print("All tests passed")
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
     test_all()
