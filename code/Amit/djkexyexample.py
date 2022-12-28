@@ -18,8 +18,10 @@ COLORS = np.array([
 
 
 class Selection:
+    '''A class for storing the type of selection and the hexes that are selected.'''
     class Type:
-        POINT = 0 
+        '''An enum for the different types of selections.'''
+        POINT = 0
         RING = 1
         DISK = 2
         LINE = 3
@@ -27,6 +29,7 @@ class Selection:
 
         @staticmethod
         def to_string(selection_type):
+            '''Converts the selection type to a string.'''
             if selection_type == Selection.Type.DISK:
                 return "disk"
             elif selection_type == Selection.Type.RING:
@@ -40,6 +43,7 @@ class Selection:
 
     @staticmethod
     def get_selection(selection_type, cube_mouse, rad, clicked_hex=None):
+        '''Get the hexes that are selected based on the selection type.'''
         if selection_type == Selection.Type.DISK:
             return hx.get_disk(cube_mouse, rad.value)
         elif selection_type == Selection.Type.RING:
@@ -101,6 +105,7 @@ class CyclicInteger:
 
 
 class ExampleHexMap:
+    '''A class for creating a hex map.'''
     def __init__(self, size=(1000, 1000), hex_radius=22, caption="ExampleHexMap"):
         self.caption = caption
         self.size = np.array(size)
@@ -115,9 +120,9 @@ class ExampleHexMap:
         self.rad = ClampedInteger(3, 1, 5)
 
         self.selected_hex_image = make_hex_surface(
-                (128, 128, 128, 160), 
-                self.hex_radius, 
-                (255, 255, 255), 
+                (128, 128, 128, 160),
+                self.hex_radius,
+                (255, 255, 255),
                 hollow=True)
 
         self.selection_type = CyclicInteger(3, 0, 4)
@@ -147,6 +152,7 @@ class ExampleHexMap:
         self.init_pg()
 
     def init_pg(self):
+        '''Initialize pygame and create the main surface.'''
         pg.init()
         self.main_surf = pg.display.set_mode(self.size)
         pg.display.set_caption(self.caption)
@@ -156,6 +162,7 @@ class ExampleHexMap:
         self.clock = pg.time.Clock()
 
     def handle_events(self):
+        '''Handle pygame events.'''
         running = True
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -164,7 +171,7 @@ class ExampleHexMap:
             if event.type == pg.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     self.clicked_hex = hx.pixel_to_cube(
-                            np.array([pg.mouse.get_pos() - self.center]), 
+                            np.array([pg.mouse.get_pos() - self.center]),
                             self.hex_radius)
                     self.clicked_hex = self.clicked_hex[0]
                 if event.button == 3:
@@ -187,11 +194,13 @@ class ExampleHexMap:
         return running
 
     def main_loop(self):
+        '''The main loop of the game.'''
         running = self.handle_events()
 
         return running
 
     def draw(self):
+        '''Draw the hex map.'''
         # show all hexes
         hexagons = list(self.hex_map.values())
         hex_positions = np.array([hexagon.get_draw_position() for hexagon in hexagons])
@@ -228,7 +237,7 @@ class ExampleHexMap:
                 (50, 50, 50))
         radius_text = self.font.render(
                 "(Scroll Mouse Wheel To Change) Radius: " + str(self.rad.value),
-                True, 
+                True,
                 (50, 50, 50))
         fps_text = self.font.render(" FPS: " + str(int(self.clock.get_fps())), True, (50, 50, 50))
         self.main_surf.blit(fps_text, (5, 0))
@@ -241,9 +250,11 @@ class ExampleHexMap:
         self.clock.tick(30)
 
     def draw_hex(self, hexagon):
+        '''Draw a hexagon on the screen.'''
         self.main_surf.blit(self.selected_hex_image, hexagon.get_draw_position() + self.center)
 
     def quit_app(self):
+        '''Quit the application.'''
         pg.quit()
         raise SystemExit
 

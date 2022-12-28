@@ -1,3 +1,4 @@
+'''This module contains the ExampleHex class which is a subclass of HexTile. It is used to demonstrate how to create a subclass of HexTile and how to use it in a game.'''
 import numpy as np
 import pygame as pg
 
@@ -51,7 +52,9 @@ def make_hex_surface(color, radius, border_color=(100, 100, 100), border=True, h
 
 
 class ExampleHex(hx.HexTile):
+    '''A subclass of HexTile that is used to demonstrate how to create a subclass of HexTile and how to use it in a game.'''
     def __init__(self, axial_coordinates, color, radius):
+        ''' Initialize the ExampleHex class.'''
         self.axial_coordinates = np.array([axial_coordinates])
         self.cube_coordinates = hx.axial_to_cube(self.axial_coordinates)
         self.position = hx.axial_to_pixel(self.axial_coordinates, radius)
@@ -61,6 +64,7 @@ class ExampleHex(hx.HexTile):
         self.value = None
 
     def set_value(self, value):
+        '''Set the value of this hex.'''
         self.value = value
 
     def get_draw_position(self):
