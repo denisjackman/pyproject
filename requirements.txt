@@ -76,3 +76,4 @@ networkx
 countryinfo
 geocoder
 hexy
+PyQt5
