@@ -13,7 +13,7 @@ import math
 import random
 
 class InvalidHex(ValueError):
-    pass
+    '''Raised when an invalid hex is created.'''
 
 class Hex(namedtuple("Hex", "x y")):
     "A single hexagon in a hexagonal grid."""
@@ -29,20 +29,20 @@ class Hex(namedtuple("Hex", "x y")):
         x, y = self
         return [Hex(x+dx, y+dy) for dx, dy in self._neighbours]
 
-    def random_neighbour(self, random=random):
+    def random_neighbour(self, rnrandom=random):
         """Return a random neighbour of this hexagon."""
         x, y = self
-        dx, dy = random.choice(self._neighbours)
+        dx, dy = rnrandom.choice(self._neighbours)
         return Hex(x+dx, y+dy)
 
-    def random_walk(self, N, random=random):
+    def random_walk(self, N, rnrandom=random):
         """Yield random walk of length N.
         Returns a generator of length N+1 since it includes the start point.
         """
         position = self
         yield position
         for i in range(N):
-            position = position.random_neighbour(random)
+            position = position.random_neighbour(rnrandom)
             yield position
 
     def __add__(self, other):
@@ -100,9 +100,9 @@ class Hex(namedtuple("Hex", "x y")):
         """
         if visible is None:
             visible = {}
-        visible[self] = all_directions
+        visible[self] = ALL_DIRECTIONS
         for direction in range(6):
-            _fovtree._field_of_view(self, direction, transparent, max_distance, visible)
+            _fovtree._field_of_view(self, direction, transparent, max_distance, visible)  # pylint: disable=protected-access
         return visible
 
     def find_path(self, destination, passable, cost=lambda pos: 1):
@@ -117,7 +117,7 @@ class Hex(namedtuple("Hex", "x y")):
         return pathfinder.path
 
 
-all_directions = (1 << 6) - 1
+ALL_DIRECTIONS = (1 << 6) - 1
 origin = Hex(0, 0)
 
 Hex.rotations = (
@@ -143,6 +143,7 @@ class _FovTree:
         self.distance = hexagon.distance(origin)
 
     def get_angle(self, corner):
+        '''Return the angle of the corner of the hexagon'''
         cx, cy = corner
         x, y = self.hexagon
         return (3*y + cy)/float(x + cx)
@@ -152,14 +153,15 @@ class _FovTree:
             return
         hexagon = offset + self.hexagons[direction]
         if transparent(hexagon):
-            visible[hexagon] = all_directions
+            visible[hexagon] = ALL_DIRECTIONS
             for succ in self.successors():
-                succ._field_of_view(offset, direction, transparent, max_distance, visible)
+                succ._field_of_view(offset, direction, transparent, max_distance, visible)  # pylint: disable=protected-access
         else:
             directions = 1 << ((self.direction + direction) % 6)
             visible[hexagon] = directions | visible.get(hexagon, 0)
 
     def successors(self):
+        '''Return the successors of this node'''
         _cached_successors = self._cached_successors
         if _cached_successors is None:
             _cached_successors = []
@@ -183,18 +185,18 @@ class Rectangle(namedtuple("Rectangle", "x y width height")):
     width  -- width of rectangle
     height -- height of rectangle
     """
-    pass
 
 def _tiled_range(lo, hi, tile_size):
-    return range(lo // tile_size, (hi + tile_size - 1) // tile_size) 
+    return range(lo // tile_size, (hi + tile_size - 1) // tile_size)
 
 def _make_range(x, width, bloat, grid_size):
     return _tiled_range(x + grid_size - 1 - bloat, x + width + bloat, grid_size)
 
 class HexGrid(namedtuple("HexGrid", "width height")):
+    # pylint: disable=W1401
     """Represents the dimensions of a hex grid as painted on the screen.
     The hex grid is assumed to be aligned horizontally, like so:
-       / \ / \ / \ 
+       / \ / \ / \
       |   |   |   |
        \ / \ / \ /
     The center of hex (0, 0) is assumed to be on pixel (0, 0).
@@ -214,39 +216,39 @@ class HexGrid(namedtuple("HexGrid", "width height")):
             height = round(cls._hex_factor * width)
         return super().__new__(cls, width, height)
 
-    def corners(self, hex):
+    def corners(self, chex):
         """Get the 6 corners (in pixel coordinates) of the hex."""
         width, height = self
-        x0, y0 = hex
+        x0, y0 = chex
         y0 *= 3
         return [(width * (x + x0), height * (y + y0)) for x, y in self._corners]
 
-    def center(self, hex):
+    def center(self, chex):
         """Get the center (as (x, y) tuple) of a hexagon."""
         width, height = self
-        x, y = hex
+        x, y = chex
         return (x*width, 3*height*y)
 
-    def bounding_box(self, hex):
+    def bounding_box(self, bbhex):
         """Get the bounding box (as a Rectangle) of a hexagon."""
         width, height = self
-        xc, yc = self.center(hex)
+        xc, yc = self.center(bbhex)
         return Rectangle(xc - width, yc - 2*height, 2*width, 4*height)
- 
+
     def hex_at_coordinate(self, x, y):
         """Given pixel coordinates x and y, get the hexagon under it."""
         width, height = self
         x0 = x // width
-        δx = x % width
+        delta_x = x % width
         y0 = y // (3 * height)
-        δy = y % (3 * height)
+        delta_y = y % (3 * height)
 
         if (x0 + y0) % 2 == 0:
-            if width * δy < height * (2 * width - δx):
+            if width * delta_y < height * (2 * width - delta_x):
                 return Hex(x0, y0)
             else:
                 return Hex(x0 + 1, y0 + 1)
-        elif width * δy < height * (width + δx):
+        elif width * delta_y < height * (width + delta_x):
             return Hex(x0 + 1, y0)
         else:
             return Hex(x0, y0 + 1)
@@ -263,7 +265,7 @@ class HexPathFinder:
     """A* path-finding on the hex grid.
     All positions are represented as Hex objects.
 
-    Important data attributes: 
+    Important data attributes:
     found -- True if path-finding is complete and we found a path
     done  -- True if path-finding is complete: we either found a path or know there isn't one
     path  -- The path, as a tuple of positions from start to destination (including both). Empty tuple if found is False.
@@ -272,7 +274,7 @@ class HexPathFinder:
     found = False
     done = False
     path = None
-    
+
     def __init__(self, start, destination, passable, cost=lambda pos: 1):
         """Create a new HexPathFinder object.
         start       -- Starting position for path finding.
