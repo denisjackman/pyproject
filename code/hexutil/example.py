@@ -113,7 +113,8 @@ class GameWidget(QtWidgets.QWidget):
                 self.selected_path = frozenset(path[1:])
             self.repaint()
 
-    def paintEvent(self, event):
+    def paintEvent(self, event):  # pylint: disable=unused-argument
+        '''Paint the game.'''
         # compute center of window
         size = self.size()
         xc = size.width()//2
