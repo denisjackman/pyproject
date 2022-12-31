@@ -100,7 +100,7 @@ def qoffset_from_cube(offset, h):
     ''' qoffset_from_cube(offset, h) returns an OffsetCoord object that is the conversion of Hex object h to an offset coordinate.'''
     col = h.q
     row = h.r + (h.q + offset * (h.q & 1)) // 2
-    if offset != EVEN and offset != ODD:
+    if offset not in (EVEN, ODD):
         raise ValueError("offset must be EVEN (+1) or ODD (-1)")
     return OffsetCoord(col, row)
 
@@ -109,7 +109,7 @@ def qoffset_to_cube(offset, h):
     q = h.col
     r = h.row - (h.col + offset * (h.col & 1)) // 2
     s = -q - r
-    if offset != EVEN and offset != ODD:
+    if offset not in (EVEN,ODD):
         raise ValueError("offset must be EVEN (+1) or ODD (-1)")
     return Hex(q, r, s)
 
@@ -117,7 +117,7 @@ def roffset_from_cube(offset, h):
     ''' roffset_from_cube(offset, h) returns an OffsetCoord object that is the conversion of Hex object h to an offset coordinate.'''
     col = h.q + (h.r + offset * (h.r & 1)) // 2
     row = h.r
-    if offset != EVEN and offset != ODD:
+    if offset not in (EVEN,ODD):
         raise ValueError("offset must be EVEN (+1) or ODD (-1)")
     return OffsetCoord(col, row)
 
@@ -126,7 +126,7 @@ def roffset_to_cube(offset, h):
     q = h.col - (h.row + offset * (h.row & 1)) // 2
     r = h.row
     s = -q - r
-    if offset != EVEN and offset != ODD:
+    if offset not in (EVEN,ODD):
         raise ValueError("offset must be EVEN (+1) or ODD (-1)")
     return Hex(q, r, s)
 
