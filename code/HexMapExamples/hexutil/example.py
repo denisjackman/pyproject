@@ -8,7 +8,7 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 import hexutil
 
-class Level(object):
+class Level():
     """Represents a level in the game.
     Currently there is only one.
     """

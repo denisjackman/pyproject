@@ -32,33 +32,38 @@ class Selection:
             '''Converts the selection type to a string.'''
             if selection_type == Selection.Type.DISK:
                 return "disk"
-            elif selection_type == Selection.Type.RING:
+            if selection_type == Selection.Type.RING:
                 return "ring"
-            elif selection_type == Selection.Type.LINE:
+            if selection_type == Selection.Type.LINE:
                 return "line"
-            elif selection_type == Selection.Type.SPIRAL:
+            if selection_type == Selection.Type.SPIRAL:
                 return "spiral"
-            else:
-                return "point"
+            return "point"
+
+        def name(self):
+            '''Returns the name of the enum.'''
+            return "Selection.Type"
 
     @staticmethod
     def get_selection(selection_type, cube_mouse, rad, clicked_hex=None):
         '''Get the hexes that are selected based on the selection type.'''
         if selection_type == Selection.Type.DISK:
             return hx.get_disk(cube_mouse, rad.value)
-        elif selection_type == Selection.Type.RING:
+        if selection_type == Selection.Type.RING:
             return hx.get_ring(cube_mouse, rad.value)
-        elif selection_type == Selection.Type.LINE:
+        if selection_type == Selection.Type.LINE:
             return hx.get_hex_line(clicked_hex, cube_mouse)
-        elif selection_type == Selection.Type.SPIRAL:
+        if selection_type == Selection.Type.SPIRAL:
             click_rad = int(hx.get_cube_distance([0, 0, 0], clicked_hex))
             mouse_rad = int(hx.get_cube_distance([0, 0, 0], cube_mouse))
             return hx.get_spiral([0, 0, 0],
                                  min(click_rad, mouse_rad),
                                  max(click_rad, mouse_rad))
-        else:
-            return cube_mouse.copy()
+        return cube_mouse.copy()
 
+    def name(self):
+        '''Returns the name of the class.'''
+        return "Selection"
 
 class ClampedInteger:
     """
@@ -201,6 +206,7 @@ class ExampleHexMap:
 
     def draw(self):
         '''Draw the hex map.'''
+        # pylint: disable=too-many-locals
         # show all hexes
         hexagons = list(self.hex_map.values())
         hex_positions = np.array([hexagon.get_draw_position() for hexagon in hexagons])
