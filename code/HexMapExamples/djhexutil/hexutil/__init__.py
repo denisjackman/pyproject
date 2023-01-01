@@ -246,12 +246,10 @@ class HexGrid(namedtuple("HexGrid", "width height")):
         if (x0 + y0) % 2 == 0:
             if width * delta_y < height * (2 * width - delta_x):
                 return Hex(x0, y0)
-            else:
-                return Hex(x0 + 1, y0 + 1)
-        elif width * delta_y < height * (width + delta_x):
+            return Hex(x0 + 1, y0 + 1)
+        if width * delta_y < height * (width + delta_x):
             return Hex(x0 + 1, y0)
-        else:
-            return Hex(x0, y0 + 1)
+        return Hex(x0, y0 + 1)
 
     def hexes_in_rectangle(self, rectangle):
         """Return a sequence with the hex coordinates in the rectangle."""
@@ -299,7 +297,7 @@ class HexPathFinder:
             result.append(pos)
         return result[::-1]
 
-    def run_n(self, n):
+    def run_n(self, n):  # pylint: disable=R0914
         """Run at most n path-finding steps.
         This method does a bounded amount of work, and is therefore useful
         if pathfinding must be interleaved with interactive behaviour or may
