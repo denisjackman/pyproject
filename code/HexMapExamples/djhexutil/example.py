@@ -5,7 +5,7 @@ A simple roguelike kernel written in PyQt5.
 
 import sys
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets  # pylint: disable=c-extension-no-member
 import hexutil
 
 class Level():
