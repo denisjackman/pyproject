@@ -60,9 +60,6 @@ py-version=3.10
 # user-friendly hints instead of false-positive error messages.
 suggestion-mode=yes
 
-# Allow loading of arbitrary C extensions. Extensions are imported into the
-# active Python interpreter and may run arbitrary code.
-unsafe-load-any-extension=yes
 extension-pkg-whitelist=PyQt5
 
 [MESSAGES CONTROL]
