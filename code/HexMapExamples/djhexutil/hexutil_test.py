@@ -2,7 +2,7 @@
 import unittest
 import hexutil
 
-class HexMap(object):
+class HexMap:
     ''' A map of hexagonal tiles.'''
     def __init__(self, hexstr):
         self.source = hexstr
