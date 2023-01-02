@@ -20,4 +20,4 @@ jobs:
         pip install -r requirements.txt
     - name: Analysing the code with pylint
       run: |
-        pylint --unsafe-load-any-extension=y --rcfile=pylint.rc $(git ls-files '*.py')
+        pylint --rcfile=pylint.rc $(git ls-files '*.py')
