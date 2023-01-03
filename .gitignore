@@ -6,8 +6,8 @@
 **/.pytest_cache/*
 **/pyproject-env/*
 **/pyp-env/*
+**/tempwork-env/*
 **/.vscode/*
-pyproject-env/*
 credentials.json
 token
 **/credentials.json
