@@ -21,6 +21,10 @@ def main():
         if test_example in item.keys():
             print("Found")
             print(item.values())
+            result = list(item.values())
+            print(result[0])
+            if 'py' in result[0]:
+                print("Found")
         mime_types.append(item.keys())
         mime_file.append(item.values())
 
