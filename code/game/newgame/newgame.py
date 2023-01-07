@@ -18,8 +18,8 @@ HEIGHT = 600
 CAPTION = 'New Game'
 SCREEN_SIZE = (WIDTH, HEIGHT)
 IMG_FILE = 'y:/Resources/images/match3_db16_2.png'
-IMG_FILE_2 = 'y:/pyproject/resources/images/match3_tiles_px.png'
-ICON_FILE = 'y:/pyproject/resources/images/icon.png'
+IMG_FILE_2 = 'y:/Resources/images/match3_sheet_0.png'
+ICON_FILE = 'y:/Resources/images/Jack.png'
 SPRITE_X = 0
 SPRITE_Y = 0
 START_POSX = 0
@@ -35,7 +35,7 @@ pygame.init()
 
 game_screen = pygame.display.set_mode(SCREEN_SIZE)
 icon = pygame.image.load(ICON_FILE)
-imgload = pygame.image.load(IMG_FILE_2).convert()
+
 second_set = pygame.image.load(IMG_FILE).convert()
 
 pygame.display.set_caption(CAPTION)
