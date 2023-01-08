@@ -1,8 +1,9 @@
 '''djbrowser.py - a simple web browser using the PyQt5 toolkit'''
 import sys
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtWebEngineWidgets import *
+# pylint: disable=unused-wildcard-import
+from PyQt5.QtCore import *  #pylint: disable=W0401
+from PyQt5.QtWidgets import *  #pylint: disable=W0401
+from PyQt5.QtWebEngineWidgets import *  #pylint: disable=W0401
 
 class MainWindow(QMainWindow):
     '''Main Window Class'''
@@ -37,7 +38,7 @@ class MainWindow(QMainWindow):
         self.url_bar.returnPressed.connect(self.navigate_to_url)
         navigation_bar.addWidget(self.url_bar)
         self.browser.urlChanged.connect(self.update_url)
-    
+
     def navigate_home(self):
         '''navigate to home'''
         self.browser.setUrl(QUrl("http://google.com"))
@@ -46,11 +47,11 @@ class MainWindow(QMainWindow):
         '''navigate to url'''
         url = self.url_bar.text()
         self.browser.setUrl(QUrl(url))
-    
+
     def update_url(self, q):
         '''update url'''
         self.url_bar.setText(q.toString())
-        
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     QApplication.setApplicationName("DjBrowser")

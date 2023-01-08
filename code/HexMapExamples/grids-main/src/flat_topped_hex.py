@@ -1,3 +1,4 @@
+''' Generate diagrams for testing'''
 # Flat-topped cube-cordinate hexes
 # See https://www.redblobgames.com/grids/hexagons/ for an extended explnation of how this works.
 # This module provides sample code for working with regular hexagons flat-topped configuration, i.e.
@@ -81,7 +82,7 @@ def pick_hex(x, y):
     """Returns the hex that contains a given cartesian co-ordinate point"""
     (a, b, c) = pick_tri(x, y)
     return tri_to_hex(a, b, c)
-    
+
 
 def hex_neighbours(x, y, z):
     """Returns the hexes that share an edge with the given hex"""
@@ -152,10 +153,10 @@ def hex_line_intersect(x1, y1, x2, y2):
     """Returns hexes that intersect the line specified in cartesian co-ordinates"""
     prev = None
     for (a, b, c) in tri_line_intersect(x1, y1, x2, y2):
-        hex = tri_to_hex(a, b, c)
-        if hex != prev:
-            yield hex
-            prev = hex
+        hlihex = tri_to_hex(a, b, c)
+        if hlihex != prev:
+            yield hlihex
+            prev =hlihex
 
 def hex_line(x1, y1, z1, x2, y2, z2):
     """Returns the hexes in a shortest path from one hex to another, staying as close to the straight line as possible"""
@@ -174,17 +175,18 @@ def hex_rect_intersect(x, y, width, height):
     prev = None
     first_b = None
     for (a, b, c) in tri_rect_intersect(x, y, width, height):
-        if first_b is None: first_b = b
-        hex = tri_to_hex(a, b, c)
+        if first_b is None:
+            first_b = b
+        hrihex = tri_to_hex(a, b, c)
         # Tri must be in the bottom half of the hex, except the first row
         # This stops double counting
-        if first_b == b or hex[1] - hex[2] == b:
-            if hex != prev:
-                yield hex
-                prev = hex
+        if first_b == b or hrihex[1] - hrihex[2] == b:
+            if hrihex != prev:
+                yield hrihex
+                prev = hrihex
 
 def hex_rect(rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_top=False):
-    """Returns the hexes in a rectangle that includes the given hex in the bottom left, 
+    """Returns the hexes in a rectangle that includes the given hex in the bottom left,
     that extends `height` hexes upwards, and `width` hexes to the right.
     inc_bottom and inc_top increase the size of the rect in every other column"""
     odd_height = int(inc_bottom) + int(inc_top) - 1
@@ -254,20 +256,20 @@ def hex_rect_size(rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_t
     return height * width + odd_height * (width // 2)
 
 # Nesting ## ###################################################################
- 
+
 # Based on work in https://observablehq.com/@sanderevers/hexagon-tiling-of-an-hexagonal-grid
 # Groups hexes into larger shapes that is each a disc around a given center hex
 # These parent discs are themselves roughly hexagon shaped and roughly laid out like a pointy topped hexagon grid.
 
-parent_radius = 2
-parent_area = 3 * parent_radius * parent_radius + 3 * parent_radius + 1
-parent_shift = 3 * parent_radius + 2
+PARENT_RADIUS = 2
+PARENT_AREA = 3 * PARENT_RADIUS * PARENT_RADIUS + 3 * PARENT_RADIUS + 1
+PARENT_SHIFT = 3 * PARENT_RADIUS + 2
 
 def hex_parent(x, y, z):
     """Returns the parent hex containing the given hex."""
-    a = (z + y * parent_shift) // parent_area
-    b = (x + z * parent_shift) // parent_area
-    c = (y + x * parent_shift) // parent_area
+    a = (z + y * PARENT_SHIFT) // PARENT_AREA
+    b = (x + z * PARENT_SHIFT) // PARENT_AREA
+    c = (y + x * PARENT_SHIFT) // PARENT_AREA
     return (
         (1 + c - b) // 3,
         (1 + a - c) // 3,
@@ -280,12 +282,12 @@ def hex_parent_center_child(x, y, z):
     b = z - x
     c = x - y
     return (
-        (parent_shift * c + b) // 3,
-        (parent_shift * a + c) // 3,
-        (parent_shift * b + a) // 3,
+        (PARENT_SHIFT * c + b) // 3,
+        (PARENT_SHIFT * a + c) // 3,
+        (PARENT_SHIFT * b + a) // 3,
     )
 
 def hex_parent_children(x, y, z):
     """Returns all children hex of a given parent hex"""
     cx, cy, cz = hex_parent_center_child(x, y, z)
-    return hex_disc(cx, cy, cz, parent_radius)
+    return hex_disc(cx, cy, cz, PARENT_RADIUS)
