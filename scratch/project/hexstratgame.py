@@ -62,24 +62,24 @@ def check_game_status():
         There are no parameters to be passed and it returns a boolean as a
         response.
     '''
-    game_result = True
+    game_status = True
     for event in pygame.event.get():
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
-                game_result = False
+                game_status = False
         elif event.type == QUIT:
-            game_result = False
-    return game_result
+            game_status = False
+    return game_status
 
 
 def game_main():
     '''
         main routine
     '''
-    RUNNING = True
+    run_game = True
 
-    while RUNNING:
-        RUNNING = check_game_status()
+    while run_game:
+        run_game = check_game_status()
         game_screen.fill(WHITE)
         screenx = 0
         screeny = 0
@@ -127,8 +127,8 @@ def game_main():
         for _ in range(1, 13):
             game_screen.blit(grasstile, (screenx, screeny))
             screenx = screenx + SPRITE_WIDTH
- 
- 
+
+
         x,y = pygame.mouse.get_pos()
         hx = round(x / SPRITE_WIDTH)
         hy = round(y / SPRITE_HEIGHT)
@@ -137,7 +137,6 @@ def game_main():
         pygame.display.flip()
         clock.tick(30)
     pygame.quit()
-
 
 if __name__ == '__main__':
     game_main()
