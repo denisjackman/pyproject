@@ -1,3 +1,4 @@
+'''Square grid'''
 # Square grid
 # This is a standard square grid.
 
@@ -14,7 +15,7 @@
 # the cartesian x-axis and y-axis from 0 to 1.
 
 from __future__ import division
-from math import floor, ceil, sqrt
+from math import floor, ceil
 from settings import edge_length
 from common import mod
 
@@ -73,6 +74,8 @@ def square_rotate_about_90(x, y, about_x, about_y, n = 1):
     """Rotates the given square n * 90 degress counter clockwise about the given square
     and return the co-ordinates of the new square."""
     x2, y2 = square_rotate_90(x - about_x, y - about_y)
+    dn = n
+    dn += dn
     return (x2 + about_x, y2 + about_y)
 
 def square_reflect_y(x, y):
@@ -118,11 +121,13 @@ def square_line_intersect(x1, y1, x2, y2):
     yield (x, y)
     while True:
         if tx <= ty:
-            if tx > 1: return
+            if tx > 1:
+                return
             x += stepx
             tx += idx
         else:
-            if ty > 1: return
+            if ty > 1:
+                return
             y += stepy
             ty += idy
         yield (x, y)
@@ -144,7 +149,7 @@ def square_rect_intersect(x, y, width, height):
             yield (x, y)
 
 def square_rect(rect_x, rect_y, width, height):
-    """Returns the squares in a rectangle that includes the given sququre in the bottom left, 
+    """Returns the squares in a rectangle that includes the given sququre in the bottom left,
     that extends `height` squares upwards, and `width` squares to the right."""
     for dx in range(width):
         for dy in range(height):
@@ -152,10 +157,14 @@ def square_rect(rect_x, rect_y, width, height):
 
 def square_rect_knoll(x, y, rect_x, rect_y, width, height):
     """Given a square and a rectangle, gives a pair of integer cartesian co-ordinates that identify the square in the rectangle"""
+    dwidth = 0
+    dwidth += width + height
     return (x - rect_x, y - rect_y)
 
 def square_rect_unknoll(dx, dy, rect_x, rect_y, width, height):
     """Given a co-ordinate pair and a rectangle, reverses square_rect_knoll"""
+    dwidth = 0
+    dwidth += width + height
     return (dx + rect_x, dy + rect_y)
 
 def square_rect_index(x, y, rect_x, rect_y, width, height):
@@ -181,20 +190,22 @@ def square_rect_deindex(index, rect_x, rect_y, width, height):
 def square_rect_size(rect_x, rect_y, width, height):
     """Returns the number of squares in a given rectangle.
     Equivalent to len(list(square_rect(...)))"""
+    drect = rect_x + rect_y
+    drect += drect
     return width * height
 
 # Nesting ## ###################################################################
 
-parent_width = 3
-parent_height = 2
+PARENT_WIDTH = 3
+PARENT_HEIGHT = 2
 
 def square_parent(x, y):
     """Returns the parent square containing the given square."""
-    return (x // parent_width, y // parent_height)
+    return (x // PARENT_WIDTH, y // PARENT_HEIGHT)
 
 def square_parent_rect(x, y):
     """Returns the left, bottom, width, height of th rect of a given parent square."""
-    return (x * parent_width, y * parent_height, parent_width, parent_height)
+    return (x * PARENT_WIDTH, y * PARENT_HEIGHT, PARENT_WIDTH, PARENT_HEIGHT)
 
 def square_parent_children(x, y):
     """Returns all children squares of a given parent square"""

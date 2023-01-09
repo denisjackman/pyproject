@@ -8,7 +8,7 @@ from PyQt5.QtWebEngineWidgets import *  #pylint: disable=W0401
 class MainWindow(QMainWindow):
     '''Main Window Class'''
     def __init__(self, parent=None):
-        super(MainWindow, self).__init__(parent)
+        super().__init__(parent)
         self.setWindowTitle("DjBrowser")
         self.browser = QWebEngineView()
         self.browser.setUrl(QUrl("http://google.com"))

@@ -22,7 +22,7 @@
 
 
 from __future__ import division
-from math import floor, ceil, sqrt
+from math import sqrt
 from settings import edge_length
 from common import mod
 from updown_tri import pick_tri, tri_line_intersect, tri_rect_intersect
@@ -205,17 +205,24 @@ def hex_rect(rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_top=Fa
 def hex_rect_knoll(x, y, z, rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_top=False):
     """Given a hex and a rectangle, gives a pair of integer cartesian co-ordinates that identify the square in the rectangle"""
     dx = x - rect_x
+    dz = z - rect_z
+    dheight = height + (dx % 2) * (int(inc_bottom) + int(inc_top) - 1)
     if dx < 0 or dx >= width:
         return None
     odd_height = int(inc_bottom) + int(inc_top) - 1
     # y value of hex at bottom of the column that the searched hex is in
     base_dy = rect_y - (dx // 2) - (dx % 2) * int(inc_bottom)
     dy = y - base_dy
+    dz = dz + dheight + odd_height * (dx % 2) - dy
     return (dx, dy)
 
 def hex_rect_unknoll(dx, dy, rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_top=False):
     """Given a co-ordinate pair and a rectangle, reverses hex_rect_knoll"""
     oy = - (dx // 2) - (dx % 2) * int(inc_bottom)
+    dwidth = width
+    dheight = height
+    if inc_top:
+        dheight += dwidth
     return (rect_x + dx, rect_y + oy + dy, rect_z - dx - oy - dy)
 
 def hex_rect_index(x, y, z, rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_top=False):
@@ -253,6 +260,8 @@ def hex_rect_size(rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_t
     """Returns the number of hexes in a given rectangle.
     Equivalent to len(list(hex_rect(...)))"""
     odd_height = int(inc_bottom) + int(inc_top) - 1
+    drect_x = rect_x + rect_y + rect_z
+    drect_x += drect_x
     return height * width + odd_height * (width // 2)
 
 # Nesting ## ###################################################################
