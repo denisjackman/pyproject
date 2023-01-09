@@ -1,10 +1,12 @@
-from flat_topped_hex import *
-from updown_tri import tri_center
+'''Tests for flat_topped_hex.py'''
 import unittest
+from flat_topped_hex import *  # pylint: disable=wildcard-import,unused-wildcard-import
+from updown_tri import tri_center
 
 class TestFlatToppedHex(unittest.TestCase):
-
+    '''Tests for flat_topped_hex.py'''
     def test_rect1(self):
+        '''Test hex_rect'''
         rect = (0, 0, 0, 3, 3, False, False)
         self.assertListEqual(list(hex_rect(*rect)), [
             (0, 0, 0),
@@ -18,14 +20,15 @@ class TestFlatToppedHex(unittest.TestCase):
         ])
 
         i = 0
-        for hex in hex_rect(*rect):
-            self.assertEqual(hex_rect_index(*hex, *rect), i)
-            self.assertEqual(hex_rect_deindex(i, *rect), hex)
+        for hrhex in hex_rect(*rect):
+            self.assertEqual(hex_rect_index(*hrhex, *rect), i)
+            self.assertEqual(hex_rect_deindex(i, *rect), hrhex)
             i += 1
 
         self.assertEqual(len(list(hex_rect(*rect))), hex_rect_size(*rect))
 
     def test_rect2(self):
+        '''Test hex_rect'''
         rect = (0, 0, 0, 3, 3, True, True)
         self.assertListEqual(list(hex_rect(*rect)), [
             (0, 0, 0),
@@ -41,14 +44,15 @@ class TestFlatToppedHex(unittest.TestCase):
         ])
 
         i = 0
-        for hex in hex_rect(*rect):
-            self.assertEqual(hex_rect_index(*hex, *rect), i)
-            self.assertEqual(hex_rect_deindex(i, *rect), hex)
+        for trhex in hex_rect(*rect):
+            self.assertEqual(hex_rect_index(*trhex, *rect), i)
+            self.assertEqual(hex_rect_deindex(i, *rect), trhex)
             i += 1
 
         self.assertEqual(len(list(hex_rect(*rect))), hex_rect_size(*rect))
 
     def test_hex_line_intersect(self):
+        '''Test hex_line_intersect'''
         x1, y1 = hex_center(0, 0, 0)
         x2, y2 = hex_center(4, -3, -1)
         self.assertListEqual(list(hex_line_intersect(x1, y1, x2, y2)), [
@@ -62,6 +66,7 @@ class TestFlatToppedHex(unittest.TestCase):
 
 
     def test_hex_line(self):
+        '''Test hex_line'''
         self.assertListEqual(list(hex_line(0, 0, 0, 4, -3, -1)), [
             (0, 0, 0),
             (1, -1, 0),
@@ -71,6 +76,7 @@ class TestFlatToppedHex(unittest.TestCase):
         ])
 
     def test_hex_to_tris(self):
+        '''Test hex_to_tris'''
         self.assertListEqual(hex_to_tris(1, 0, -1), [
             (2, 1, -2),
             (2, 2, -2),
@@ -83,6 +89,7 @@ class TestFlatToppedHex(unittest.TestCase):
             self.assertEqual(tri_to_hex(*tri), (1, 0, -1))
 
     def test_rect_intersect(self):
+        '''Test hex_rect_intersect'''
         x1, y1 = tri_center(0, 1, 0)
         self.assertListEqual(list(hex_rect_intersect(x1, y1, 0.6, 0.3)), [
             (0, 0, 0),
@@ -91,6 +98,7 @@ class TestFlatToppedHex(unittest.TestCase):
         ])
 
     def test_parent(self):
+        '''Test hex_parent and hex_parent_center_child'''
         def test_parent(x, y, z, px, py, pz):
             c = (x, y, z)
             p = (px, py, pz)

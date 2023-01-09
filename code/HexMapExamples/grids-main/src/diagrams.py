@@ -48,9 +48,9 @@ def hex_grid_svg():
     svg = ""
     svg += """<svg viewBox="-3 -3 6 6" width="300px" height="300px" xmlns="http://www.w3.org/2000/svg">\n"""
     flat_topped_hex.edge_length = 0.75
-    for x, y, z in hex_disc(0, 0, 0, 4):
-        center = flip(hex_center(x, y, z))
-        svg += poly(hex_corners(x, y, z))
+    for x, y, z in hex_disc(0, 0, 0, 4):    #  pylint: disable=E0602
+        center = flip(hex_center(x, y, z))  #  pylint: disable=E0602
+        svg += poly(hex_corners(x, y, z))   #  pylint: disable=E0602
         svg += cell_text(center, x, y, z)
     svg += "</svg>"
 
@@ -62,12 +62,12 @@ def hex_neighbours_svg():
     svg = ""
     svg += """<svg viewBox="-10 -10 20 20" xmlns="http://www.w3.org/2000/svg">\n"""
     svg += """<rect x="-10" y="-10" width="20" height="20" style="fill: none; stroke: blue"/>\n"""
-    center = flip(hex_center(0, 0, 0))
-    svg += poly(hex_corners(0, 0, 0))
+    center = flip(hex_center(0, 0, 0))  #  pylint: disable=E0602
+    svg += poly(hex_corners(0, 0, 0))   #  pylint: disable=E0602
     def pm(n):
         return "0" if n == 0 else f"+{n}" if n > 0 else f"{n}"
-    for (x, y, z) in hex_neighbours(0, 0, 0):
-        center = flip(hex_center(x, y, z))
+    for (x, y, z) in hex_neighbours(0, 0, 0):  #  pylint: disable=E0602
+        center = flip(hex_center(x, y, z))  #  pylint: disable=E0602
         f = 0.8
         svg += cell_text([center[0] * 0.85, center[1] * 0.7], pm(x), pm(y), pm(z))
     svg += "</svg>"

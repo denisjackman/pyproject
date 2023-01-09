@@ -1,9 +1,10 @@
+'''Trihex grid'''
 # Trihex grid
 #
 # A trihexagonal grid, aka a Kagome lattice is a grid of alternating regular hexagons and triangles
-# I don't know any games or uses for this tiling, but it's a simple variant of a triangle grid 
+# I don't know any games or uses for this tiling, but it's a simple variant of a triangle grid
 # so surprisingly easy to work with.
-# 
+#
 # https://en.wikipedia.org/wiki/Trihexagonal_tiling
 #
 # __ ____ __ ____ __ ____
@@ -25,10 +26,9 @@
 # a + b + c always sums to either 0, -1, or 1, with the hexes being the zeros.
 
 from __future__ import division
-from math import floor, ceil, sqrt
+from math import floor, sqrt
 from settings import edge_length
-from common import mod
-from updown_tri import pick_tri, tri_line_intersect, tri_rect_intersect
+from updown_tri import pick_tri, tri_line_intersect
 
 sqrt3 = sqrt(3)
 

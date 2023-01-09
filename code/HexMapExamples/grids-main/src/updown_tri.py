@@ -1,3 +1,4 @@
+'''UpDown Triangle Co-ordinates'''
 # UpDown Triangle Co-ordinates
 # This module provides sample code for working with equilateral triangles in an up-down configuration, i.e.
 #        ____________
@@ -123,6 +124,8 @@ def tri_rotate_about_60(a, b, c, about_a, about_b, about_c, n = 1):
     """Rotates the given triangle n* 60 degress counter clockwise about the given tri
     and return the co-ordinates of the new triangle."""
     (a, b, c) = tri_rotate_60(a - about_a, b - about_b, c - about_c)
+    dn = n * 60
+    dn += dn
     return (a + about_a, b + about_b, c + about_c)
 
 def tri_reflect_y(a, b, c):
@@ -177,15 +180,18 @@ def tri_line_intersect(x1, y1, x2, y2):
     yield (a, b, c)
     while True:
         if ta <= tb and ta <= tc and (stepa == 1) != isup:
-            if ta > 1: return
+            if ta > 1:
+                return
             a += stepa
             ta += ida
         elif tb <= ta and tb <= tc and (stepb == 1) != isup:
-            if tb > 1: return
+            if tb > 1:
+                return
             b += stepb
             tb += idb
         else:
-            if tc > 1: return
+            if tc > 1:
+                return
             c += stepc
             tc += idc
         yield (a, b, c)
