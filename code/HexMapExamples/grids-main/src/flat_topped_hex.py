@@ -101,7 +101,7 @@ def hex_dist(x1, y1, z1, x2, y2, z2):
 
 # Symmetry #####################################################################
 
-def hex_rotate_60(x, y, z, n = 1):
+def hex_rotate_60(x, y, z, n = 1):  #pylint: disable=R0911
     """Rotates the given hex n * 60 degrees counter clockwise around the origin,
     and returns the co-ordinates of the new hex."""
     n = mod(n, 6)
@@ -117,6 +117,7 @@ def hex_rotate_60(x, y, z, n = 1):
         return (y, z, x)
     if n == 5:
         return (-z, -x, -y)
+    return None
 
 def hex_rotate_about_60(x, y, z, about_x, about_y, about_z, n = 1):
     """Rotates the given hex n* 60 degress counter clockwise about the given hex
@@ -180,7 +181,7 @@ def hex_rect_intersect(x, y, width, height):
         hrihex = tri_to_hex(a, b, c)
         # Tri must be in the bottom half of the hex, except the first row
         # This stops double counting
-        if first_b == b or hrihex[1] - hrihex[2] == b:
+        if b in (first_b, hrihex[1] - hrihex[2]):
             if hrihex != prev:
                 yield hrihex
                 prev = hrihex
@@ -202,7 +203,7 @@ def hex_rect(rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_top=Fa
         else:
             y -= 1
 
-def hex_rect_knoll(x, y, z, rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_top=False):
+def hex_rect_knoll(x, y, z, rect_x, rect_y, rect_z, width, height, inc_bottom=False, inc_top=False):  #pylint: disable=R0914
     """Given a hex and a rectangle, gives a pair of integer cartesian co-ordinates that identify the square in the rectangle"""
     dx = x - rect_x
     dz = z - rect_z

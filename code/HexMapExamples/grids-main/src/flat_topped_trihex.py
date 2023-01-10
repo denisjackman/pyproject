@@ -43,6 +43,7 @@ def trihex_cell_type(a, b, c):
         return "tri_up"
     if n == -1:
         return "tri_down"
+    return None
 
 def trihex_center(a, b, c):
     """Returns the center of a given trihex in cartesian co-ordinates"""
@@ -73,6 +74,7 @@ def trihex_to_tris(a, b, c):
         return [(a * 2, b * 2, c * 2)]
     if n == -1:
         return [(a * 2, b * 2, c * 2)]
+    return None
 
 def trihex_corners(a, b, c):
     """Returns the three/six corners of a given trihex in cartesian co-ordinates"""
@@ -98,6 +100,7 @@ def trihex_corners(a, b, c):
             trihex_center(a    , b - 0.5, c    ),
             trihex_center(a    , b    , c - 0.5),
         ]
+    return None
 
 def pick_trihex(x, y):
     """Returns the trihex that contains a given cartesian co-ordinate point"""
@@ -128,6 +131,7 @@ def trihex_neighbours(a, b, c):
             (a    , b + 1, c    ),
             (a    , b    , c + 1),
         ]
+    return None
 
 def trihex_dist(a1, b1, c1, a2, b2, c2):
     """Returns how many steps one trihex is from another"""
