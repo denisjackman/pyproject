@@ -51,12 +51,9 @@ def tri_corners(a, b, c):
             tri_center(a, b, 1 + c),
             tri_center(a, 1 + b, c),
         ]
-    else:
-        return [
-            tri_center(-1 + a, b, c),
+    return [tri_center(-1 + a, b, c),
             tri_center(a, b, -1 + c),
-            tri_center(a, -1 + b, c),
-        ]
+            tri_center(a, -1 + b, c),]
 
 def pick_tri(x, y):
     """Returns the triangle that contains a given cartesian co-ordinate point"""
@@ -78,8 +75,7 @@ def tri_neighbours(a, b, c):
             (a    , b - 1, c    ),
             (a    , b    , c - 1),
         ]
-    else:
-        return [
+    return [
             (a + 1, b    , c    ),
             (a    , b + 1, c    ),
             (a    , b    , c + 1),
@@ -119,6 +115,7 @@ def tri_rotate_60(a, b, c, n = 1):
         return (b, c, a)
     if n == 5:
         return (1 - c, 1 - a, 1 - b)
+    return None
 
 def tri_rotate_about_60(a, b, c, about_a, about_b, about_c, n = 1):
     """Rotates the given triangle n* 60 degress counter clockwise about the given tri
@@ -146,7 +143,7 @@ def tri_reflect_by(a, b, c, n = 0):
 
 # Shapes #######################################################################
 
-def tri_line_intersect(x1, y1, x2, y2):
+def tri_line_intersect(x1, y1, x2, y2):  # pylint: disable=R0914
     """Returns the triangles that intersect the line specified in cartesian co-ordinates"""
     x1 /= edge_length
     y1 /= edge_length

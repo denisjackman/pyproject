@@ -69,6 +69,7 @@ def square_rotate_90(x, y, n = 1):
         return (-x, -y)
     if n == 3:
         return (y, -x)
+    return None
 
 def square_rotate_about_90(x, y, about_x, about_y, n = 1):
     """Rotates the given square n * 90 degress counter clockwise about the given square
@@ -144,9 +145,9 @@ def square_rect_intersect(x, y, width, height):
     maxx = ceil((x + width) / edge_length)
     miny = floor(y / edge_length)
     maxy = ceil((y + height) / edge_length)
-    for x in range(minx, maxx + 1):
-        for y  in range(miny, maxy + 1):
-            yield (x, y)
+    for rx in range(minx, maxx + 1):
+        for ry  in range(miny, maxy + 1):
+            yield (rx, ry)
 
 def square_rect(rect_x, rect_y, width, height):
     """Returns the squares in a rectangle that includes the given sququre in the bottom left,
@@ -209,5 +210,5 @@ def square_parent_rect(x, y):
 
 def square_parent_children(x, y):
     """Returns all children squares of a given parent square"""
-    (x, y, width, height) = square_parent_rect(x, y)
-    return square_rect(x, y, width, height)
+    (rx, ry, width, height) = square_parent_rect(x, y)
+    return square_rect(rx, ry, width, height)
