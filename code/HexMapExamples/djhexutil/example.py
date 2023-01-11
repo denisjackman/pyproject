@@ -2,9 +2,8 @@
 Example of using hexutil.
 A simple roguelike kernel written in PyQt5.
 """
-
+# pylint: skip-file
 import sys
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 import hexutil
 

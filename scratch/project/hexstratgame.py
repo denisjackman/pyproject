@@ -55,6 +55,294 @@ pygame.display.set_icon(icon)
 
 clock = pygame.time.Clock()
 
+def hexmap_tile_type():
+    '''Returns a random hexmap tile type'''
+    result = ''
+    roll = dice(20)
+    typeroll = dice()
+    if roll == 1:
+        result = "City"
+        if typeroll == 1:
+            result = f"{result} : Capital City"
+        elif typeroll == 2:
+            result = f"{result} : Free City"
+        elif typeroll == 3:
+            result = f"{result} : Ruined City"
+        elif typeroll == 4:
+            result = f"{result} : Towering City"
+        elif typeroll == 5:
+            result = f"{result} : Magical City"
+        else:
+            result = f"{result} : Besiged City"
+    elif roll == 2:
+        result = "Castle/Fort"
+        if typeroll == 1:
+            result = f"{result} : Guarded Fort"
+        elif typeroll == 2:
+            result = f"{result} : Deserted Fort"
+        elif typeroll == 3:
+            result = f"{result} : Lord's Castle"
+        elif typeroll == 4:
+            result = f"{result} : Royal Keep"
+        elif typeroll == 5:
+            result = f"{result} : Military Keep"
+        else:
+            result = f"{result} : Ruined Fort"
+    elif roll == 3:
+        result = "Town"
+        if typeroll == 1:
+            result = f"{result} : Bustling Town"
+        elif typeroll == 2:
+            result = f"{result} : Shanty Town"
+        elif typeroll == 3:
+            result = f"{result} : Plagued Town"
+        elif typeroll == 4:
+            result = f"{result} : Stone Town"
+        elif typeroll == 5:
+            result = f"{result} : Wooden Town"
+        else:
+            result = f"{result} : Store Fronts"
+    elif roll == 4:
+        result = "Village"
+        if typeroll == 1:
+            result = f"{result} : Farm Village"
+        elif typeroll == 2:
+            result = f"{result} : Tribal Village"
+        elif typeroll == 3:
+            result = f"{result} : Bandit Camp"
+        elif typeroll == 4:
+            result = f"{result} : Hunter's Camp"
+        elif typeroll == 5:
+            result = f"{result} : Empty Village"
+        else:
+            result = f"{result} : Apothecary"
+    elif roll == 5:
+        result = "Forest / Woodland"
+        if typeroll == 1:
+            result = f"{result} : Dense Forest"
+        elif typeroll == 2:
+            result = f"{result} : Dying Forest"
+        elif typeroll == 3:
+            result = f"{result} : Sparse Forest"
+        elif typeroll == 4:
+            result = f"{result} : Cursed Forest"
+        elif typeroll == 5:
+            result = f"{result} : Woodland"
+        else:
+            result = f"{result} : Magical Woods"
+    elif roll == 6:
+        result = "Mountains"
+        if typeroll == 1:
+            result = f"{result} : Jagged Peaks"
+        elif typeroll == 2:
+            result = f"{result} : Cold Mountains"
+        elif typeroll == 3:
+            result = f"{result} : Shadowy Range"
+        elif typeroll == 4:
+            result = f"{result} : Magical Peak"
+        elif typeroll == 5:
+            result = f"{result} : Snowy Bluffs"
+        else:
+            result = f"{result} : Mountains"
+    elif roll == 7:
+        result = "Grassland"
+        if typeroll == 1:
+            result = f"{result} : Grassland"
+        elif typeroll == 2:
+            result = f"{result} : Meadows"
+        elif typeroll == 3:
+            result = f"{result} : Fields"
+        elif typeroll == 4:
+            result = f"{result} : Flooded Plains"
+        elif typeroll == 5:
+            result = f"{result} : Flatland"
+        else:
+            result = f"{result} : Savannah"
+    elif roll == 8:
+        result = "Hills / Heath"
+        if typeroll == 1:
+            result = f"{result} : Hills"
+        elif typeroll == 2:
+            result = f"{result} : Heath"
+        elif typeroll == 3:
+            result = f"{result} : Outcropping"
+        elif typeroll == 4:
+            result = f"{result} : Burial Mounds"
+        elif typeroll == 5:
+            result = f"{result} : Wet Moors"
+        else:
+            result = f"{result} : Highland"
+    elif roll == 9:
+        result = "River"
+        if typeroll == 1:
+            result = f"{result} : Rushing River"
+        elif typeroll == 2:
+            result = f"{result} : Canal"
+        elif typeroll == 3:
+            result = f"{result} : Streams"
+        elif typeroll == 4:
+            result = f"{result} : Magical River"
+        elif typeroll == 5:
+            result = f"{result} : Slow River"
+        else:
+            result = f"{result} : Posioned River"
+    elif roll == 10:
+        result = "Desert"
+        if typeroll == 1:
+            result = f"{result} : Hot Desert"
+        elif typeroll == 2:
+            result = f"{result} : Dry Steppe"
+        elif typeroll == 3:
+            result = f"{result} : Wasteland"
+        elif typeroll == 4:
+            result = f"{result} : Cacti Forest"
+        elif typeroll == 5:
+            result = f"{result} : Cold Desert"
+        else:
+            result = f"{result} : Deadlands"
+    elif roll == 11:
+        result = "Water / Lake / Sea"
+        if typeroll == 1:
+            result = f"{result} : Sea"
+        elif typeroll == 2:
+            result = f"{result} : Ocean"
+        elif typeroll == 3:
+            result = f"{result} : Lake"
+        elif typeroll == 4:
+            result = f"{result} : Reservoir"
+        elif typeroll == 5:
+            result = f"{result} : Magical Pools"
+        else:
+            result = f"{result} : Flooded Land"
+    elif roll == 12:
+        result = "Swamp / Marshland"
+        if typeroll == 1:
+            result = f"{result} : Swampland"
+        elif typeroll == 2:
+            result = f"{result} : Putrid Fen"
+        elif typeroll == 3:
+            result = f"{result} : Sinking Bog"
+        elif typeroll == 4:
+            result = f"{result} : Cursed Mire"
+        elif typeroll == 5:
+            result = f"{result} : Muddy Land"
+        else:
+            result = f"{result} : Marshland"
+    elif roll == 13:
+        result = "Tundra / Frozen Waste"
+        if typeroll == 1:
+            result = f"{result} : Snowy Flats"
+        elif typeroll == 2:
+            result = f"{result} : Blizzards"
+        elif typeroll == 3:
+            result = f"{result} : Tundra"
+        elif typeroll == 4:
+            result = f"{result} : Frozen Waste"
+        elif typeroll == 5:
+            result = f"{result} : Ice"
+        else:
+            result = f"{result} : Artic Expanse"
+    elif roll == 14:
+        result = "Jungle"
+        if typeroll == 1:
+            result = f"{result} : Jungle"
+        elif typeroll == 2:
+            result = f"{result} : Rainforest"
+        elif typeroll == 3:
+            result = f"{result} : Tropical Land"
+        elif typeroll == 4:
+            result = f"{result} : Cursed Jungle"
+        elif typeroll == 5:
+            result = f"{result} : Bushland"
+        else:
+            result = f"{result} : Tangled Jungle"
+    elif roll == 15:
+        result = "Volcano"
+        if typeroll == 1:
+            result = f"{result} : Volcano"
+        elif typeroll == 2:
+            result = f"{result} : Planar Break"
+        elif typeroll == 3:
+            result = f"{result} : Mage's Peak"
+        elif typeroll == 4:
+            result = f"{result} : Magical Source"
+        elif typeroll == 5:
+            result = f"{result} : Volcanic Land"
+        else:
+            result = f"{result} : Gas Clouds"
+    elif roll == 16:
+        result = "Cave / Dungeon"
+        if typeroll == 1:
+            result = f"{result} : Cave"
+        elif typeroll == 2:
+            result = f"{result} : Grotto"
+        elif typeroll == 3:
+            result = f"{result} : Hill Home"
+        elif typeroll == 4:
+            result = f"{result} : Dugout Camp"
+        elif typeroll == 5:
+            result = f"{result} : Tomb"
+        else:
+            result = f"{result} : Passageway"
+    elif roll == 17:
+        result = "Fissure / Canyon"
+        if typeroll == 1:
+            result = f"{result} : Fissure"
+        elif typeroll == 2:
+            result = f"{result} : Dry Canyon"
+        elif typeroll == 3:
+            result = f"{result} : River Gorge"
+        elif typeroll == 4:
+            result = f"{result} : Icy Crevasse"
+        elif typeroll == 5:
+            result = f"{result} : World Rift"
+        else:
+            result = f"{result} : Valley"
+    elif roll == 18:
+        result = "Fungal Forest"
+        if typeroll == 1:
+            result = f"{result} : Fungal Forest"
+        elif typeroll == 2:
+            result = f"{result} : Faeland"
+        elif typeroll == 3:
+            result = f"{result} : Rotten Place"
+        elif typeroll == 4:
+            result = f"{result} : Fungal Fields"
+        elif typeroll == 5:
+            result = f"{result} : Sporeland"
+        else:
+            result = f"{result} : Toadstool Town"
+    elif roll == 19:
+        result = "Crystal Plains"
+        if typeroll == 1:
+            result = f"{result} : Crystal Plains"
+        elif typeroll == 2:
+            result = f"{result} : Crystal Forest"
+        elif typeroll == 3:
+            result = f"{result} : Shard Tower"
+        elif typeroll == 4:
+            result = f"{result} : Magical Plane"
+        elif typeroll == 5:
+            result = f"{result} : Gemstone Mine"
+        else:
+            result = f"{result} : Crystal Gate"
+    else:
+        result = "Map Marker / Unknown Location"
+        if typeroll == 1:
+            result = f"{result} : Dungeon"
+        elif typeroll == 2:
+            result = f"{result} : Treasure"
+        elif typeroll == 3:
+            result = f"{result} : Artefact"
+        elif typeroll == 4:
+            result = f"{result} : MPC Location"
+        elif typeroll == 5:
+            result = f"{result} : Guild Base"
+        else:
+            result = f"{result} : Hidden Temple"
+    return result
+
+
 def check_game_status():
     '''
         this checks the status of the game and return True is it should keep

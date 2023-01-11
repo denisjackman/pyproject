@@ -99,7 +99,7 @@ def tri_disc(a, b, c, r):
 
 # Symmetry #####################################################################
 
-def tri_rotate_60(a, b, c, n = 1):
+def tri_rotate_60(a, b, c, n = 1):  # pylint: disable=R0911
     """Rotates the given triangle n * 60 degrees counter clockwise around the origin,
     and returns the co-ordinates of the new triangle."""
     n = mod(n, 6)
