@@ -5,8 +5,10 @@
     references:
     Hex Grids   : https://www.redblobgames.com/grids/hexagons/
     Hex Sprites : https://opengameart.org/content/hexagon-pack-310x
+    Hex Map Tool: https://www.youtube.com/watch?v=wZXW_nzJotc
 
 '''
+from random import randint
 from os import environ
 import math
 from pygame.locals import (QUIT, KEYDOWN, K_ESCAPE)
@@ -20,8 +22,8 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 WHITE = (255, 255, 255)
 
-WIDTH = 800
-HEIGHT = 600
+WIDTH = 1200
+HEIGHT = 900
 SCREEN_SIZE = (WIDTH, HEIGHT)
 
 CAPTION = 'Hex Strat Game'
@@ -35,8 +37,11 @@ SPRITE_Y = 0
 START_POSX = 0
 START_POSY = 0
 
-SPRITE_WIDTH = 60
-SPRITE_HEIGHT = 70
+SPRITE_WIDTH = 120
+SPRITE_HEIGHT = 140
+TILEWIDTH = 9
+TILEHEIGHT = 8
+
 sprite_size = (SPRITE_WIDTH, SPRITE_HEIGHT)
 VERT = 3/4 * SPRITE_HEIGHT
 WIDTH = math.sqrt(3) * SPRITE_HEIGHT/2
@@ -55,7 +60,19 @@ pygame.display.set_icon(icon)
 
 clock = pygame.time.Clock()
 
-def hexmap_tile_type():
+def dice(sides=6, rolls=1):
+    '''
+        Rolls a dice which has 'sides' sides (default is six (6))
+        for 'rolls' number of times (default is one (1))
+    '''
+    result = 0
+    item = 0
+    while item in range(rolls):
+        result = result + randint(1, sides)
+        item += 1
+    return result
+
+def hexmap_type():
     '''Returns a random hexmap tile type'''
     result = ''
     roll = dice(20)
@@ -342,7 +359,6 @@ def hexmap_tile_type():
             result = f"{result} : Hidden Temple"
     return result
 
-
 def check_game_status():
     '''
         this checks the status of the game and return True is it should keep
@@ -359,7 +375,6 @@ def check_game_status():
             game_status = False
     return game_status
 
-
 def game_main():
     '''
         main routine
@@ -371,51 +386,16 @@ def game_main():
         game_screen.fill(WHITE)
         screenx = 0
         screeny = 0
-
-        for _ in range(1, 13):
-            game_screen.blit(grasstile, (screenx, screeny))
-            screenx = screenx + SPRITE_WIDTH
-        screenx = SPRITE_WIDTH/2
-        screeny += VERT
-        for _ in range(1, 13):
-            game_screen.blit(grasstile, (screenx, screeny))
-            screenx = screenx + SPRITE_WIDTH
-        screenx = 0
-        screeny += VERT
-        for _ in range(1, 13):
-            game_screen.blit(grasstile, (screenx, screeny))
-            screenx = screenx + SPRITE_WIDTH
-        screenx = SPRITE_WIDTH/2
-        screeny += VERT
-        for _ in range(1, 13):
-            game_screen.blit(grasstile, (screenx, screeny))
-            screenx = screenx + SPRITE_WIDTH
-        screenx = 0
-        screeny += VERT
-        for _ in range(1, 13):
-            game_screen.blit(grasstile, (screenx, screeny))
-            screenx = screenx + SPRITE_WIDTH
-        screenx = SPRITE_WIDTH/2
-        screeny += VERT
-        for _ in range(1, 13):
-            game_screen.blit(grasstile, (screenx, screeny))
-            screenx = screenx + SPRITE_WIDTH
-        screenx = 0
-        screeny += VERT
-        for _ in range(1, 13):
-            game_screen.blit(grasstile, (screenx, screeny))
-            screenx = screenx + SPRITE_WIDTH
-        screenx = SPRITE_WIDTH/2
-        screeny += VERT
-        for _ in range(1, 13):
-            game_screen.blit(grasstile, (screenx, screeny))
-            screenx = screenx + SPRITE_WIDTH
-        screenx = 0
-        screeny += VERT
-        for _ in range(1, 13):
-            game_screen.blit(grasstile, (screenx, screeny))
-            screenx = screenx + SPRITE_WIDTH
-
+        ty = 0
+        for ty in range(1, TILEHEIGHT + 1):
+            if ty % 2 == 0:
+                screenx = SPRITE_WIDTH/2
+            else:
+                screenx = 0
+            for _ in range(1, TILEWIDTH + 1):
+                game_screen.blit(grasstile, (screenx, screeny))
+                screenx = screenx + SPRITE_WIDTH
+            screeny += VERT
 
         x,y = pygame.mouse.get_pos()
         hx = round(x / SPRITE_WIDTH)
