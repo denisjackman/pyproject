@@ -28,7 +28,7 @@ SCREEN_SIZE = (WIDTH, HEIGHT)
 
 CAPTION = 'Hex Strat Game'
 
-ICON_FILE = 'y:/Resources/images/Jack.png'
+ICON_FILE = 'y:/Resources/Logo-001.jpg'
 #HEX_SHEET = 'y:/pyproject/scratch/project/hexagonAll_sheet.png'
 HEX_TILE = 'y:/pyproject/scratch/project/grass_01.png'
 
@@ -39,26 +39,26 @@ START_POSY = 0
 
 SPRITE_WIDTH = 120
 SPRITE_HEIGHT = 140
+SEPARATION = 2
 TILEWIDTH = 9
 TILEHEIGHT = 8
 
-sprite_size = (SPRITE_WIDTH, SPRITE_HEIGHT)
-VERT = 3/4 * SPRITE_HEIGHT
-WIDTH = math.sqrt(3) * SPRITE_HEIGHT/2
-
+VERT = 3/4 * (SPRITE_HEIGHT + SEPARATION)
+WIDTH = math.sqrt(3) * (SPRITE_HEIGHT + SEPARATION)/2
 pygame.init()
 
-game_screen = pygame.display.set_mode(SCREEN_SIZE)
+GAME_SCREEN = pygame.display.set_mode(SCREEN_SIZE)
+GAME_CLOCK = pygame.time.Clock()
 
-icon = pygame.image.load(ICON_FILE)
-#hexsprites = pygame.image.load(HEX_SHEET).convert_alpha()
+sprite_size = (SPRITE_WIDTH, SPRITE_HEIGHT)
 grasstile = pygame.image.load(HEX_TILE).convert_alpha()
 grasstile = pygame.transform.scale(grasstile, sprite_size)
 
-pygame.display.set_caption(CAPTION)
-pygame.display.set_icon(icon)
-
-clock = pygame.time.Clock()
+def game_initialise():
+    '''Initialises the game'''
+    icon = pygame.image.load(ICON_FILE)
+    pygame.display.set_caption(CAPTION)
+    pygame.display.set_icon(icon)
 
 def dice(sides=6, rolls=1):
     '''
@@ -375,6 +375,33 @@ def check_game_status():
             game_status = False
     return game_status
 
+def draw_hexagon(tile_x, tile_y, tile_image):
+    ''' draw a hexagon at the given x,y coordinates using the given image'''
+    GAME_SCREEN.blit(tile_image, (tile_x, tile_y))
+
+def draw_map():
+    ''' draw the map '''
+    screenx = 0
+    screeny = 0
+    ty = 0
+    for ty in range(1, TILEHEIGHT + 1):
+        if ty % 2 == 0:
+            screenx = (SPRITE_WIDTH + SEPARATION)/2
+        else:
+            screenx = 0
+        for _ in range(1, TILEWIDTH + 1):
+            draw_hexagon(screenx, screeny, grasstile)
+            screenx = screenx + SPRITE_WIDTH + SEPARATION
+        screeny += VERT
+
+def game_housekeeping():
+    ''' housekeeping for the game '''
+    mouse_x,mouse_y = pygame.mouse.get_pos()
+    hx = round(mouse_x / SPRITE_WIDTH)
+    hy = round(mouse_y / SPRITE_HEIGHT)
+    newcaption = f'Hex Strat Game - ( x: {mouse_x} y: {mouse_y} ) ( hx: {hx} hy: {hy} )'
+    pygame.display.set_caption(newcaption)
+
 def game_main():
     '''
         main routine
@@ -383,28 +410,13 @@ def game_main():
 
     while run_game:
         run_game = check_game_status()
-        game_screen.fill(WHITE)
-        screenx = 0
-        screeny = 0
-        ty = 0
-        for ty in range(1, TILEHEIGHT + 1):
-            if ty % 2 == 0:
-                screenx = SPRITE_WIDTH/2
-            else:
-                screenx = 0
-            for _ in range(1, TILEWIDTH + 1):
-                game_screen.blit(grasstile, (screenx, screeny))
-                screenx = screenx + SPRITE_WIDTH
-            screeny += VERT
-
-        x,y = pygame.mouse.get_pos()
-        hx = round(x / SPRITE_WIDTH)
-        hy = round(y / SPRITE_HEIGHT)
-        newcaption = f'Hex Strat Game - ( x: {x} y: {y} ) ( hx: {hx} hy: {hy} )'
-        pygame.display.set_caption(newcaption)
+        GAME_SCREEN.fill(WHITE)
+        draw_map()
+        game_housekeeping()
         pygame.display.flip()
-        clock.tick(30)
+        GAME_CLOCK.tick(30)
     pygame.quit()
 
 if __name__ == '__main__':
+    game_initialise()
     game_main()
