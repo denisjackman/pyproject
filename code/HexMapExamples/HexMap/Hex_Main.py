@@ -2,13 +2,13 @@
     Author: John Crawford
 
     Written using: Python 2.5 and wxPython 2.8.9.1
-    
+
     Functions MakeMenuBar(), CreateMenu(), CreateMenuItem()
     based on book: "wxPython in Action"
 
     Basic Hex-Board Drawing program
     Uses the Model-View-Controller pattern. In my original Pygame
-    implementation, I used a Mediator (event manager) to handle 
+    implementation, I used a Mediator (event manager) to handle
     communication between the main MVC objects. This version used wxPython,
     in which an event manager is built into the package. Also, the View and
     Controller objects are deeply intertwingled in wxPython.
@@ -33,7 +33,7 @@
         View - creates sprite list corresponding to each game hex. Handles
             all displaying of map/hexes using wxPython widgets.
     Current features:
-        Creates a window (now a subclassed ScrollingWindow, with a 
+        Creates a window (now a subclassed ScrollingWindow, with a
         background bitmap larger than the window display, which
         scrolls around with arrow keys.
         Draws a single hex, and array of hexes from Game Model map.
@@ -42,7 +42,7 @@
         Locate specific hex that mouse is clicked on, toggles color.
         Flash specific hex that mouse moves over with third color.
         Selects specific hex with mouse-click, toggles border of hex
-        with another color. Much cleaner than my code in Pygame. 
+        with another color. Much cleaner than my code in Pygame.
         Shift-drag mouse to multi-select hexes.
         Has Menu bar - the Quit options works at least...
         Has additional Color panel window besides the map window,
@@ -90,11 +90,12 @@ from Hex_Panel import *
 # event binder, the event declared in the hex_Game module.
 HDL_MAP_ROT = wx.PyEventBinder(EVT_MAP_ROT, 1)
 
-map_title = 'Basic Hex Map Version 0.1'
+MAP_TITLE = 'Basic Hex Map Version 0.1'
 SCR_SIZE = (800, 600)
 
 #######################################################################
-class topFrame(wx.Frame):
+class topFrame(wx.Frame):  #pylint: disable-msg=C0103
+    ''' Main Frame for the Hex Map program. '''
     def __init__(self, parent, title):
         wx.Frame.__init__(self, parent, wx.ID_ANY, title, size=SCR_SIZE)
         self.topPanel = wx.Panel(self, -1)
@@ -118,14 +119,16 @@ class topFrame(wx.Frame):
         self.Bind(HDL_MAP_ROT, self.OnMapRotated)
 
     def MakeMenuBar(self):
+        ''' Create the menu bar. '''
         menuBar = wx.MenuBar()
         for eachMenuData in self.MenuData():
-            menuLabel = eachMenuData[0]            
+            menuLabel = eachMenuData[0]
             menuItems = eachMenuData[1]
             menuBar.Append(self.createMenu(menuItems), menuLabel)
         self.SetMenuBar(menuBar)
 
     def createMenu(self, menuData):
+        ''' Create a menu from a menu description.'''
         menu = wx.Menu()
         for eachItem in menuData:
             if len(eachItem) == 2: # then this is a sub-menu, with items.
@@ -137,6 +140,7 @@ class topFrame(wx.Frame):
         return menu
 
     def createMenuItem(self, menu, label, status, handler, kind=wx.ITEM_NORMAL):
+        ''' Create a menu item.'''
         if not label:
             menu.AppendSeparator()
             return
@@ -144,14 +148,17 @@ class topFrame(wx.Frame):
         self.Bind(wx.EVT_MENU, handler, menuItem)
 
     def MakeStatusBar(self):
+        ''' Create the status bar.'''
         self.statusbar = self.CreateStatusBar()
         self.statusbar.SetFieldsCount(3)
         self.statusbar.SetStatusWidths([-4, -2, -2])
 
     def NewCPColor(self, color):
+        ''' Received message from Color Panel that a new color has been'''
         self.mapView.ChangeActiveColor(color)
 
-    def OnNewGame(self, event):
+    def OnNewGame(self, event):  #pylint: disable-msg=W0613
+        ''' Create a new game. '''
         dlg = SliderDialog(self, -1, 'New Map: Set Columns and Rows')
         result = dlg.ShowModal()
         if result == wx.ID_CANCEL:
@@ -162,42 +169,55 @@ class topFrame(wx.Frame):
         self.gameModel = Game(cols, rows, self.GetEventHandler(), self.GetId())
         self.mapView.BuildNewMap(self.gameModel)
 
-    def OnMapRotated(self, event):
+
+    def OnMapRotated(self, event):  #pylint: disable-msg=W0613
         ''' Received message from Game Model that map has been rotated. '''
         self.mapView.RotateMap()
 
-    def OnRotateMap(self, event):
+
+    def OnRotateMap(self, event):  #pylint: disable-msg=W0613
         ''' tell Game Model to rotate the map. '''
         self.gameModel.RotateMap()
 
+
     def OnKeyPress(self, event):
+        ''' Handle key presses. '''
         if event.GetKeyCode() in (ord('r'), ord('R')):
             self.gameModel.RotateMap()
         elif event.GetKeyCode() in (ord('c'), ord('C')):
             self.mapView.ClearActive()
         elif event.GetKeyCode() in (ord('b'), ord('B')):
             self.mapView.ChangeBackground()
-        elif event.GetKeyCode() in thumb_dict.iterkeys():
+        elif event.GetKeyCode() in thumb_dict.items():
             self.mapView.MoveMapView(event.GetKeyCode(), event.ShiftDown())
         elif event.GetKeyCode() in (ord('q'), ord('Q')):
             self.Close()
 
-    def OnCloseWindow(self, event):
+    def OnCloseWindow(self, event):  #pylint: disable-msg=W0613
+        ''' Close the window. '''
         self.Close()
 
-    def OnChangeBG(self, event):
+
+    def OnChangeBG(self, event):  #pylint: disable-msg=W0613
+        ''' Change the background color.'''
         self.mapView.ChangeBackground()
 
+
     def OnToggleCP(self, event):
+        ''' Show or hide the color panel.'''
         self.CP.Show(not event.IsChecked())
 
-    def OnClearMap(self, event):
+    def OnClearMap(self, event):  #pylint: disable-msg=W0613
+        ''' Clear the map. '''
         self.mapView.ClearActiveColors()
 
+
     def OnHexFill(self, event):
+        ''' Toggle hex fill.'''
         self.mapView.ChangeHexFill(event.IsChecked())
 
     def OnHexSize(self, event):
+        ''' Change the hex size.'''
         menubar = self.GetMenuBar()
         itemId = event.GetId()
         item = menubar.FindItemById(itemId)
@@ -207,10 +227,12 @@ class topFrame(wx.Frame):
 
     # required to keep the mapView receiving keyboard events... KLUDGY
     def OnLostFocus(self, event):
+        ''' Set focus back to the mapView. '''
         self.mapView.SetFocus()
         event.Skip()
 
     def MenuData(self):
+        ''' Create the menu data.'''
         menu_list = (
             ('&File', (
                 ('&New', 'New Background', self.OnChangeBG),
@@ -222,20 +244,20 @@ class topFrame(wx.Frame):
                 ('&Rotate Map', 'Rotate Hex Map', self.OnRotateMap),
                 ('&Flash Border', 'Flash Cursor or Border', self.OnHexFill, wx.ITEM_CHECK),
                 ('', '', '', wx.ITEM_SEPARATOR),
-                ('&Toggle CP Off', 'Set CP On', self.OnToggleCP, wx.ITEM_CHECK), 
+                ('&Toggle CP Off', 'Set CP On', self.OnToggleCP, wx.ITEM_CHECK),
                 ('', '', '', wx.ITEM_SEPARATOR),
                 ('&Small Hexes', 'Small Hexes', self.OnHexSize, wx.ITEM_RADIO),
                 ('&Large Hexes', 'Large Hexes', self.OnHexSize, wx.ITEM_RADIO)
-                ) 
+                )
             ) # end of Game
         ) # end of entire menu_list
 
         return menu_list
-
+#pylint: disable-msg=W0613
 class SliderDialog(wx.Dialog):
     ''' Enter the number of columns/rows in a map, using slider widgets. '''
     def __init__(self, parent, ID, title, \
-                 pos=wx.DefaultPosition, style=wx.DEFAULT_DIALOG_STYLE):
+                 pos=wx.DefaultPosition, style=wx.DEFAULT_DIALOG_STYLE):  
         wx.Dialog.__init__(self, parent, ID, title, size=(400, 400))
         self.SetBackgroundColour('light steel blue')
         okButton = wx.Button(self, wx.ID_OK, 'OK', pos=(50, 340))
@@ -243,13 +265,13 @@ class SliderDialog(wx.Dialog):
         cancelButton = wx.Button(self, wx.ID_CANCEL, 'Cancel', pos=(150, 340))
         self.rowSlider = wx.Slider(self, -1, 1, 1, 30, pos=(10, 5), size=(-1, 300), \
             style=wx.SL_VERTICAL | wx.SL_AUTOTICKS | wx.SL_LABELS | wx.SL_RIGHT)
-        self.rowSlider.SetTickFreq(1, 1)
+        self.rowSlider.SetTickFreq(1)
         self.colSlider = wx.Slider(self, -1, 1, 1, 30, pos=(90, 260), size=(300, -1), \
             style=wx.SL_HORIZONTAL | wx.SL_AUTOTICKS | wx.SL_LABELS | wx.SL_TOP)
-        self.colSlider.SetTickFreq(1, 1)
-                
+        self.colSlider.SetTickFreq(1)
+
 ########################################################################
-class cApp(wx.App):
+class cApp(wx.App):  #pylint: disable-msg=C0103
     ''' this is the Controller part of the MVC model. The App component
         of wxPython runs an application loop that handles events. '''
     def __init__(self):
@@ -257,13 +279,16 @@ class cApp(wx.App):
         wx.App.__init__(self) # toggle these lines for error logging.
 
     def OnInit(self):
-        self.topFrame = topFrame(None, map_title)
+        ''' Initialize the application. '''
+        self.topFrame = topFrame(None, MAP_TITLE)
         self.SetTopWindow(self.topFrame)
         self.topFrame.Show()
         return True
 
 def main():
+    ''' main function. '''
     my_app = cApp()
     my_app.MainLoop()
 
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

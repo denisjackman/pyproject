@@ -10,25 +10,25 @@
     crt/lcd screen pixels are not perfect squares...
     There are six points defining the hex, top/middle/bottom - left/right:
     '''
+from math import sqrt
 
-import wx
 ACROSS, DOWN = 0, 1
 
-def ComputeHexPoints(d, h, dir, closed=False, setborder=False):
+def ComputeHexPoints(d, h, chpdir, closed=False, setborder=False):
     ''' TODO: to allow for a thicker border line, the points have to form
         a smaller hex. '''
     if setborder:
         border = 3
     else:
         border = 0
-    if dir == ACROSS:
+    if chpdir == ACROSS:
         return _ComputeHexPointsAcross(d, h, closed, border)
-    else:
-        return _ComputeHexPointsDown(d, h, closed, border)
+    return _ComputeHexPointsDown(d, h, closed, border)
 
 def _ComputeHexPointsDown(d, h, closed, border):
+    # pylint: disable-msg=W1401
     ''' Computes hex points TopLeft, TopRight, MiddleLeft, MiddleRight,
-        BottomLeft, BottomRight. 
+        BottomLeft, BottomRight.
         _____
        /     \
       /       \
@@ -51,8 +51,9 @@ def _ComputeHexPointsDown(d, h, closed, border):
     return point_list
 
 def _ComputeHexPointsAcross(d, h, closed, border):
+    #pylint: disable-msg=W1401
     ''' Computes hex points TopMiddle, RightTop, RightBottom,
-        BottomMiddle, LeftBottom, LeftTop. 
+        BottomMiddle, LeftBottom, LeftTop.
         /\
        /  \
       /    \
@@ -83,7 +84,6 @@ def ShortestDist(rect, point):
         point to the closest corner.'''
 
     def ComputeDist(p1, p2): # standard formula for distance between 2 points.
-        from math import sqrt
         xdiff = float(p1[0]) - float(p2[0])
         ydiff = float(p1[1]) - float(p2[1])
         disc = sqrt(xdiff ** 2 + ydiff ** 2)
