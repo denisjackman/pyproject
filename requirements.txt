@@ -76,9 +76,9 @@ networkx
 countryinfo
 geocoder
 hexy
-PyQt5
-PyQt5-sip
-PyQtWebEngine
+#PyQt5
+#PyQt5-sip
+#PyQtWebEngine
 discord.py
 selenium
-wxPython
+#wxPython
