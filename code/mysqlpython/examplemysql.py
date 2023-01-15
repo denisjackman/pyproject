@@ -14,7 +14,6 @@ __date__ = "$Date: 2022/07/31 19:19:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
-import datetime
 import mysql.connector
 from djgamemodule import security as sec
 
@@ -41,23 +40,20 @@ def opendb(credid, database):
 def sqlmain():
     """ This is the main routine for the program """
     credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
-    use_db = opendb(credid, 'employees')
+    use_db = opendb(credid, 'test')
     if use_db is None:
         return None
     cursor = use_db.cursor()
-    query = ("SELECT first_name, last_name, hire_date FROM employees "
-             "WHERE hire_date BETWEEN %s AND %s")
+    query = ("SELECT * FROM fruit")
 
-    hire_start = datetime.date(1999, 1, 1)
-    hire_end = datetime.date(1999, 12, 31)
     counter = 0
     databasecount = 0
     tablecount = 0
 
-    cursor.execute(query, (hire_start, hire_end))
-    for (first_name, last_name, hire_date) in cursor:
+    cursor.execute(query)
+    for (fruit_id, fruit_name,fruit_variety) in cursor:
         counter += 1
-        print(f"{last_name}, {first_name} was hired on {hire_date:%d %b %Y}")
+        print(f"{fruit_id}, {fruit_name} is {fruit_variety}")
 
     mycursor = use_db.cursor()
     mycursor.execute("SHOW DATABASES")
