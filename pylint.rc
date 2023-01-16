@@ -28,6 +28,7 @@ ignore-paths=^pyproject-env/.*$,
              ^pyp-env/.*$,
              ^tempwork_env/.*$,
              ^code/HexMapExamples/djhexutil/example.py,
+             ^code/HexMapExamples/HexMap/.*%,
 
 # Files or directories matching the regex patterns are skipped. The regex
 # matches against base names, not paths.
