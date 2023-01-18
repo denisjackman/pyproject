@@ -36,7 +36,7 @@ CAPTION = 'Hex Strat Game'
 
 ICON_FILE = 'y:/Resources/Logo-001.jpg'
 #HEX_SHEET = 'y:/pyproject/scratch/project/hexagonAll_sheet.png'
-HEX_TILE = 'y:/pyproject/scratch/project/grass_01.png'
+HEX_TILE = 'y:/pyproject/scratch/project/images/grass_01.png'
 
 SPRITE_X = 0
 SPRITE_Y = 0
