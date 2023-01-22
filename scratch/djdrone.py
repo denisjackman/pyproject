@@ -11,11 +11,9 @@
         pip install dronekit
         pip install dronekit-sitl
 '''
-import dronekit_sitl
 from dronekit import connect
 
-sitl = dronekit_sitl.start_default()
-DRONE_CONNECTION_STRING = sitl.connection_string()
+DRONE_CONNECTION_STRING = '127.0.0.1:5760'
 
 # Import DroneKit-Python
 
