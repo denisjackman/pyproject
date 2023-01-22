@@ -84,5 +84,4 @@ selenium
 #wxPython
 openai
 chatgpt
-dronekit
 dronekit-sitl

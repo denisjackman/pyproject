@@ -1,10 +1,10 @@
 '''
-pip install chatgpt 
+pip install chatgpt
 https://github.com/labteral/chatgpt-python
 '''
 from chatgpt import Conversation
-
-conversation = Conversation(config_path={somewhere_you_specified})
+SOMEHERE_YOU_SPECIFIED = "y:/pyproject/secrets/config.json"
+conversation = Conversation(config_path=SOMEHERE_YOU_SPECIFIED)
 
 for chunk in conversation.stream("Hello"):
     print(chunk, end="")

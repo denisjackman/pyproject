@@ -5,9 +5,11 @@
 '''
 
 import openai
+from djgamemodule import security as sec
 
 # Set up the OpenAI API client
-openai.api_key = "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"
+credid = sec.credscheck('y:/pyproject/secrets/client_secrets.json')
+openai.api_key = credid["OpenAI_API_Key"]
 
 # Set up the model and prompt
 MODEL_ENGINE = "text-davinci-003"
