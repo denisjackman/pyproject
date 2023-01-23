@@ -34,6 +34,4 @@ print(f" Mode: {vehicle.mode.name}")
 # Close vehicle object before exiting script
 vehicle.close()
 
-# Shut down simulator
-sitl.stop()
 print("Completed")
