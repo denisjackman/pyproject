@@ -31,7 +31,7 @@ def arm_and_takeoff(targetHeight):
             break
         time.sleep(1)
     print("Target altitude reached!!")
-    return None
+
 ############MAIN EXECUTABLE#############
 ####sim_vehicle.py opens up port on localhost:14550
 vehicle = connect('127.0.0.1:14550',wait_ready=True)
