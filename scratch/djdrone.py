@@ -1,5 +1,5 @@
 '''
-    This is a paceholder for drone programming
+    This is a placeholder for drone programming
 
     reference:
         https://www.thedronegirl.com/2021/04/12/how-to-program-a-drone-using-python/
