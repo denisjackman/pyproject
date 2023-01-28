@@ -24,6 +24,7 @@ def main():
     done = False
     clock = pygame.time.Clock()
     while not done:
+        pygame.time.delay(500)
         for event in pygame.event.get():
             pos = pygame.mouse.get_pos()
             if event.type == pygame.QUIT:
