@@ -1,42 +1,60 @@
 '''
-    This is a scratch python script
-    links :
-            Tutorial    : https://www.youtube.com/watch?v=JGxFPCkJzJM
-            Source Code : https://github.com/hamletrpg/RPG-Battle-System/tree/master
-            Assets      : https://drive.google.com/drive/folders/1XzR4oGCKbLeHuOP37tuKnxFTKCclLnhL
-            Reference   : https://www.pygame.org/project-Simple+turn-based+strategy+game-2795-.html
+    Name: Pathmaker.py
+    Authored by: Jackmanimation
+    Date: 2023-01-28
+    Version: 1.0
+
+    Notes:
+            This is a pathmaker tool.
+            Set the WIDTH and HEIGHT to the size of your map.
+            Set the MAP to the path of your map.
+            Run the program and click on the map to create a path.
+            exit the program and a file will be created in the data folder with the path data.
+            The path data is a list of tuples.
+            the path data is stored in a json file.
+            the path data is stored in a dictionary with the key "npc_path"
+            The path data printed on the console in a list of tuples.
 '''
+from pathlib import Path
+import json
 import pygame
 
-pygame.init()
 WIDTH = 930
 HEIGHT = 759
-WHITE = (0, 0, 0)
+MAP = "y:/tower-defense/tim-tower/game_assets/background.png"
+
+FILEPATH = Path(__file__).parent
+ICON_FILE = 'y:/Resources/images/Jack.png'
+GAMEDATA = "/data/Gamedata.json"
+CAPTION = "Jackmanimation PATHMAKER"
 
 def main():
     ''' main routine '''
+    pygame.init()
     window = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("PyGame Template")
-    pygame_icon = pygame.image.load('icon.png').convert()
-    background = pygame.image.load("y:/tower-defense/tim-tower/game_assets/background.png").convert()
+    pygame.display.set_caption(CAPTION)
+    pygame_icon = pygame.image.load(ICON_FILE)
+    background = pygame.image.load(MAP).convert()
     clicks = []
     pygame.display.set_icon(pygame_icon)
     done = False
-    clock = pygame.time.Clock()
     while not done:
-        pygame.time.delay(500)
         for event in pygame.event.get():
             pos = pygame.mouse.get_pos()
             if event.type == pygame.QUIT:
                 done = True
             if event.type == pygame.MOUSEBUTTONDOWN:
                 clicks.append(pos)
-        window.fill(WHITE)
         window.blit(background, (0, 0))
         for item in clicks:
             pygame.draw.circle(window, (255, 0, 0), item, 5, 0)
         pygame.display.update()
-        clock.tick(60)
     print(clicks)
+    with open(f"{FILEPATH}{GAMEDATA}", "w", encoding='utf8') as file:
+        json.dump({"npc_path": clicks,},
+                  file,
+                  indent=4,
+                  ensure_ascii=False)
+
 if __name__ == '__main__':
     main()
