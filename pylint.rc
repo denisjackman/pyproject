@@ -27,6 +27,7 @@ ignore=CVS
 ignore-paths=^pyproject-env/.*$,
              ^pyp-env/.*$,
              ^tempwork_env/.*$,
+             ^dev-env/.*$,
              ^code/HexMapExamples/djhexutil/example.py,
              ^code/HexMapExamples/HexMap/.*$,
              ^scratch/djbrowser.py,

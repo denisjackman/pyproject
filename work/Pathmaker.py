@@ -17,24 +17,70 @@
 '''
 from pathlib import Path
 import json
+import sys
+import getopt
 import pygame
 
 WIDTH = 930
 HEIGHT = 759
 MAP = "y:/tower-defense/tim-tower/game_assets/background.png"
 
+PROGRAM_NAME = sys.argv[0][2:].replace(".py", "")
+STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -m MAPNAME -mw MAPWIDTH -mh MAPHEIGHT '
+LONG_STANDARD_COMMANDS = f'{PROGRAM_NAME} --verbose <True/False> --debug <True/False> --map MAPNAME --mapwidth MAPWIDTH --mapheight MAPHEIGHT '
+COMMANDS = "hvdm:mw:mh:"
+LONG_COMMANDS = ["help", "verbose", "debug", "map=", "mapwidth=", "mapheight="]
+
 FILEPATH = Path(__file__).parent
 ICON_FILE = 'y:/Resources/images/Jack.png'
 GAMEDATA = "/data/Gamedata.json"
 CAPTION = "Jackmanimation PATHMAKER"
 
+def getargs():
+    '''
+        get the arguments from the command line
+    '''
+    argv = sys.argv[1:]
+    #runname = sys.argv[0][2:].replace(".py", "")
+    verbosemode = False
+    debugmode = False
+    mymap=MAP
+    mymapwidth=WIDTH
+    mymapheight=HEIGHT
+
+    try:
+        command_line_optionss, args = getopt.getopt(argv, COMMANDS, LONG_COMMANDS)
+    except getopt.GetoptError:
+        print(f'The commands are : {STANDARD_COMMANDS}')
+        sys.exit(2)
+    for command_line_options, arg in command_line_optionss:
+        if command_line_options in ('-h', "--help"):
+            print(f'The commands are : {STANDARD_COMMANDS}')
+            print(f'The long commands are : {LONG_STANDARD_COMMANDS}')
+            sys.exit()
+        elif command_line_options in ("-v", "--verbose"):
+            verbosemode = True
+        elif command_line_options in ("-d", "--debug"):
+            debugmode = True
+        elif command_line_options in ("-m", "--map"):
+            mymap = arg
+        elif command_line_options in ("-mw", "--mapwidth"):
+            mymapwidth = arg
+        elif command_line_options in ("-mh", "--mapheight"):
+            mymapheight = arg
+    return {"verbosemode": verbosemode,
+            "debugmode": debugmode,
+            "mymap": mymap,
+            "mymapwidth": int(mymapwidth),
+            "mymapheight":int(mymapheight)}
+
 def main():
     ''' main routine '''
     pygame.init()
-    window = pygame.display.set_mode((WIDTH, HEIGHT))
+    window = pygame.display.set_mode((mainargs["mymapwidth"], mainargs["mymapheight"]))
     pygame.display.set_caption(CAPTION)
     pygame_icon = pygame.image.load(ICON_FILE)
-    background = pygame.image.load(MAP).convert()
+    background = pygame.image.load(mainargs["mymap"]).convert()
     clicks = []
     pygame.display.set_icon(pygame_icon)
     done = False
@@ -49,7 +95,6 @@ def main():
         for item in clicks:
             pygame.draw.circle(window, (255, 0, 0), item, 5, 0)
         pygame.display.update()
-    print(clicks)
     with open(f"{FILEPATH}{GAMEDATA}", "w", encoding='utf8') as file:
         json.dump({"npc_path": clicks,},
                   file,
@@ -57,4 +102,5 @@ def main():
                   ensure_ascii=False)
 
 if __name__ == '__main__':
+    mainargs = getargs()
     main()
