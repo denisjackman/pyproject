@@ -30,11 +30,11 @@ STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -m MAPNAME 
 LONG_STANDARD_COMMANDS = f'{PROGRAM_NAME} --verbose <True/False> --debug <True/False> --map MAPNAME --mapwidth MAPWIDTH --mapheight MAPHEIGHT '
 COMMANDS = "hvdm:mw:mh:"
 LONG_COMMANDS = ["help", "verbose", "debug", "map=", "mapwidth=", "mapheight="]
-
 FILEPATH = Path(__file__).parent
-ICON_FILE = 'y:/Resources/images/Jack.png'
+
+ICON_FILE = 'y:/Resources/jackmanimation.png'
 GAMEDATA = "/data/Gamedata.json"
-CAPTION = "Jackmanimation PATHMAKER"
+CAPTION = f"Jackmanimation [{PROGRAM_NAME}]"
 
 def getargs():
     '''
