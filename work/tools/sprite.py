@@ -12,7 +12,7 @@ class GameSprite:
             add_str = str(item)
             if item < 10:
                 add_str = '0' + add_str
-            asset = f"{os.path.join('y:/tower-defense/tim-tower/game_assets/2d-monster-sprites/PNG/10')}/10_enemies_1_run_0{add_str}.png"
+            asset = f"{os.path.join('y:/tower-defense/tim-tower/game_assets/2d-monster-sprites/PNG/1')}/1_enemies_1_run_0{add_str}.png"
             asset_store = pygame.image.load(asset)
             self.images.append(asset_store)
         self.x = x/2 - self.images[0].get_width()/2
