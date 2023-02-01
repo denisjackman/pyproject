@@ -9,6 +9,8 @@
 **/tempwork-env/*
 **/dev-env/*
 **/.vscode/*
+**/work/sprites/*
+**/work/data/*
 credentials.json
 token
 **/credentials.json

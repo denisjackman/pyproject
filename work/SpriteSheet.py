@@ -48,18 +48,19 @@ def load_sprites():
     offsetheight = 0
     totalwidth = 0
     totalheight = 0
-    while totalheight + offsetheight < SPRITE_SHEET_HEIGHT:
-        while totalwidth + offsetwidth < SPRITE_SHEET_WIDTH:
-            asset = SPRITE_SHEET.subsurface((sx + offsetwidth, sy + offsetheight, swidth, sheight))
+    while totalheight + sheight < SPRITE_SHEET_HEIGHT:
+        while totalwidth + swidth < SPRITE_SHEET_WIDTH:
+            asset = SPRITE_SHEET.subsurface((sx, sy, swidth, sheight))
             asset = pygame.transform.scale(asset, (64, 64))
             SPRITES.append(asset)
-            offsetwidth += 17
+            sx += 17
             totalwidth += 17
-        offsetwidth = 0
+        sx = 0
+        sy += 17
         totalwidth = 0
         totalheight += 17
 
-def main():
+def tool_main():
     ''' main routine '''
     load_sprites()
     done = False
@@ -87,6 +88,17 @@ def main():
         window.blit(SPRITES[sprite_index], (WIDTH/2 - 8, HEIGHT/2 - 8))
         pygame.display.update()
 
+def save_sprites():
+    ''' save sprites to file '''
+    for index, sprite in enumerate(SPRITES):
+        pygame.image.save(sprite, f"{FILEPATH}/sprites/RLS_sprite_{index}.png")
+    print(f"Done! {len(SPRITES)} sprites saved.")
+
+def tool_finish():
+    ''' finish routine '''
+    pygame.quit()
+
 if __name__ == '__main__':
-    main()
-    print(f"Done! {len(SPRITES)} sprites loaded.")
+    tool_main()
+    save_sprites()
+    tool_finish()

@@ -21,9 +21,9 @@ import sys
 import getopt
 import pygame
 
-WIDTH = 930
-HEIGHT = 759
-MAP = "y:/tower-defense/tim-tower/game_assets/background.png"
+WIDTH = 1350
+HEIGHT = 700
+MAP = "Y:/tower-defense/tim-tower/game_assets/td-tilesets1-2/tower-defense-game-tilesets/PNG/game_background_2/game_background_2.png"
 
 PROGRAM_NAME = sys.argv[0][2:].replace(".py", "")
 STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -m MAPNAME -mw MAPWIDTH -mh MAPHEIGHT '
@@ -81,6 +81,7 @@ def main():
     pygame.display.set_caption(CAPTION)
     pygame_icon = pygame.image.load(ICON_FILE)
     background = pygame.image.load(mainargs["mymap"]).convert()
+    background = pygame.transform.scale(background, (mainargs["mymapwidth"], mainargs["mymapheight"]))
     clicks = []
     pygame.display.set_icon(pygame_icon)
     done = False
@@ -100,7 +101,9 @@ def main():
                   file,
                   indent=4,
                   ensure_ascii=False)
+    print(f"{clicks}")
 
 if __name__ == '__main__':
     mainargs = getargs()
     main()
+    

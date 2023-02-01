@@ -1,18 +1,21 @@
-sx = 0 
-sy = 0 
+'''
+    this is a scrtach pad program to test out some code
+'''
+SX = 0
+SY = 0
 WIDTH = 918
 HEIGHT = 203
-offsetwidth = 17
-offsetheight = 17
-tilecount = 0
+OFFSETWIDTH = 17
+OFFSETHEIGHT = 17
+TILECOUNT = 0
 
 print("Start")
-while sy < HEIGHT:
-    while sx < WIDTH:
-        print(f"(x:{sx}, y:{sy})")
-        sx += offsetwidth
-        tilecount += 1
-    sy += offsetheight
-    sx = 0
-print(f"Total tiles: {tilecount}")
+while SY < HEIGHT:
+    while SX < WIDTH:
+        print(f"(x:{SX}, y:{SY})")
+        SX += OFFSETWIDTH
+        TILECOUNT += 1
+    SY += OFFSETHEIGHT
+    SX = 0
+print(f"Total tiles: {TILECOUNT}")
 print("Done")
