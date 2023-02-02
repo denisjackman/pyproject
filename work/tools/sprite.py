@@ -8,11 +8,9 @@ class GameSprite:
         self.image = None
         self.images = []
         self.animation_count = 0
-        for item in range(20):
-            add_str = str(item)
-            if item < 10:
-                add_str = '0' + add_str
-            asset = f"{os.path.join('y:/tower-defense/tim-tower/game_assets/2d-monster-sprites/PNG/1')}/1_enemies_1_run_0{add_str}.png"
+        for item in range(6):
+            add_str = str(item + 38)
+            asset = f"{os.path.join('y:/tower-defense/tim-tower/game_assets/archer-tower-game-assets/PNG')}/{add_str}.png"
             asset_store = pygame.image.load(asset)
             self.images.append(asset_store)
         self.x = x/2 - self.images[0].get_width()/2
@@ -21,9 +19,9 @@ class GameSprite:
     def draw(self, screen):
         ''' draw the sprite '''
         self.animation_count += 1
-        if self.animation_count >= len(self.images):
+        if self.animation_count >= len(self.images) * 10:
             self.animation_count = 0
-        self.image = self.images[self.animation_count]
+        self.image = self.images[self.animation_count // 10 ]
         screen.blit(self.image, (self.x, self.y))
 
     def move(self, x, y):
