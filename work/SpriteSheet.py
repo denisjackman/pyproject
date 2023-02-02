@@ -91,7 +91,7 @@ def tool_main():
 def save_sprites():
     ''' save sprites to file '''
     for index, sprite in enumerate(SPRITES):
-        pygame.image.save(sprite, f"{FILEPATH}/sprites/RLS_sprite_{index}.png")
+        pygame.image.save(sprite, f"{FILEPATH}/sprites/RLS_sprite_{index:04}.png")
     print(f"Done! {len(SPRITES)} sprites saved.")
 
 def tool_finish():
