@@ -114,8 +114,8 @@ class Boid:
             ma_distance = self.distance(ma_boid)
             if  ma_distance < minDistance:
                 numClose += 1
-                xdiff = (self.x - ma_boid.x)
-                ydiff = (self.y - ma_boid.y)
+                xdiff = self.x - ma_boid.x
+                ydiff = self.y - ma_boid.y
 
                 if xdiff >= 0:
                     xdiff = math.sqrt(minDistance) - xdiff
