@@ -44,7 +44,7 @@ def sqlmain():
     if use_db is None:
         return None
     cursor = use_db.cursor()
-    query = ("SELECT * FROM fruit")
+    query = "SELECT * FROM fruit"
 
     counter = 0
     databasecount = 0

@@ -253,7 +253,7 @@ def hex_rect_deindex(index, rect_x, rect_y, rect_z, width, height, inc_bottom=Fa
         dx += 1
         index -= height
     if dx < 0 or dx >= width:
-        raise Exception("Hex is not inside rectangle")
+        raise Exception("Hex is not inside rectangle")  #pylint: disable=W0719
     dy = index
     return hex_rect_unknoll(dx, dy, rect_x, rect_y, rect_z, width, height, inc_bottom, inc_top)
 
