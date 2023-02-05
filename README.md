@@ -15,7 +15,10 @@ as you see fit. I will document the work and how to set it up.
 * [Pygame](https://www.pygame.org/news)
 * [Inkscape](https://inkscape.org/)
 * [Tiled](https://www.mapeditor.org/)
+* [Draw.io](https://www.draw.io/)
 
+### Reference
+* [UML Tutorial](https://www.youtube.com/watch?v=dcsvl3YqAEk)
 ### Games Assets 
 * [CraftPix](https://craftpix.net/freebies/)
 * [Itch.io](https://itch.io/game-assets/free)
@@ -31,3 +34,5 @@ as you see fit. I will document the work and how to set it up.
 * [Turn Based Game Source Code](https://github.com/hamletrpg/RPG-Battle-System/tree/master)
 * [Turn Based Game Assets](https://drive.google.com/drive/folders/1XzR4oGCKbLeHuOP37tuKnxFTKCclLnhL)
 * [Turn Based Game Reference](https://www.pygame.org/project-Simple+turn-based+strategy+game-2795-.html)
+* [Wargames Tutoria](https://www.youtube.com/@leafleft6544/videos)
+* [Wargames Tutorial](https://www.youtube.com/watch?v=hM9qbW8-roE)

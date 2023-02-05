@@ -3,7 +3,7 @@
 '''
 from pathlib import Path
 import pygame
-from tools.sprite import GameSprite
+from classes.sprite import GameSprite
 
 WIDTH = 800
 HEIGHT = 800
