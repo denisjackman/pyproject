@@ -36,3 +36,4 @@ as you see fit. I will document the work and how to set it up.
 * [Turn Based Game Reference](https://www.pygame.org/project-Simple+turn-based+strategy+game-2795-.html)
 * [Wargames Tutoria](https://www.youtube.com/@leafleft6544/videos)
 * [Wargames Tutorial](https://www.youtube.com/watch?v=hM9qbW8-roE)
+* [PyGame Tutorial](https://www.classcentral.com/subject/pygame)
