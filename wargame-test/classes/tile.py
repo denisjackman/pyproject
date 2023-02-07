@@ -20,11 +20,11 @@ class Tile:
     def getName(self):
         ''' Returns the name of the tile '''
         return self.name
-    
+
     def makePassable(self):
         ''' Makes the tile passable '''
         self.passable = True
-        
+
     def makeImpassable(self):
         ''' Makes the tile impassable '''
         self.passable = False
