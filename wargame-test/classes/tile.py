@@ -2,12 +2,12 @@
 
 class Tile:
     ''' Tile class'''
-    def __init__(self, tileid, image, name, type):
+    def __init__(self, tileid, image, name, tiletype):
         self.id = tileid
         self.image = image
         self.name = name
         self.passable = False
-        self.type = type
+        self.tiletype = tiletype
 
     def isPassable(self):
         ''' Returns whether or not the tile is passable '''
@@ -28,4 +28,13 @@ class Tile:
     def makeImpassable(self):
         ''' Makes the tile impassable '''
         self.passable = False
-        
+
+    def isClicked(self, mousepos):
+        ''' Returns whether or not the tile is clicked '''
+        if self.rect.collidepoint(mousepos):
+            return True
+        return False
+
+    def draw(self, surface):
+        ''' Draws the tile to the surface '''
+        surface.blit(self.image, self.rect)
