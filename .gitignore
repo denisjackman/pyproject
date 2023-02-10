@@ -10,7 +10,7 @@
 **/dev-env/*
 **/.vscode/*
 **/work/sprites/*
-**/work/data/*
+**/game-assets/*
 credentials.json
 token
 **/credentials.json
