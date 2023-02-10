@@ -6,8 +6,9 @@ class Tile:
         self.id = tileid
         self.image = image
         self.name = name
-        self.passable = False
+        self.passable = None
         self.tiletype = tiletype
+        self.selected = False
 
     def isPassable(self):
         ''' Returns whether or not the tile is passable '''
@@ -38,3 +39,7 @@ class Tile:
     def draw(self, surface):
         ''' Draws the tile to the surface '''
         surface.blit(self.image, self.rect)
+
+    def isSelected(self):
+        ''' Returns whether or not the tile is selected '''
+        return self.selected
