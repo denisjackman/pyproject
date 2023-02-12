@@ -13,9 +13,10 @@ GAME_WIDTH = 800
 GAME_HEIGHT = 640
 GAME_WINDOW_X = 10
 GAME_WINDOW_Y = 250
+GAME_MAP = []
 
 TITLE_WIDTH = 800
-TITLE_HEIGHT = 230 
+TITLE_HEIGHT = 230
 TITLE_WINDOW_X = 10
 TITLE_WINDOW_Y = 10
 
@@ -33,11 +34,23 @@ BROWN = (165, 42, 42)
 FILEPATH = Path(__file__).parent
 FONTDATA = "/data/Fontdata.json"
 
+def build_map( width, height):
+    '''Build the map'''
+    returnmap = []
+    for y in range(height):
+        row = []
+        for x in range(width):
+            row.append(0)
+        returnmap.append(row)
+    return returnmap
+
+
 def main():
     '''Main function'''
     # Initialise pygame
     pygame.init()
     pygame.font.init()
+    GAMEMAP = build_map(50, 40)
 
     window = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
@@ -55,7 +68,7 @@ def main():
     gametext_rect = gametext.get_rect()
     gametextwidth = gametext_rect.width
     gametextheight = gametext_rect.height
-    
+
     titlefont = pygame.font.SysFont('footlight', 24)
     titletext = titlefont.render('Title information is here', True, BLACK, GRAY)
     titletext_rect = titletext.get_rect()
@@ -82,10 +95,10 @@ def main():
                 info = f"Mouse pressed at  x:{mousepos[0]} y:{mousepos[1]}"
             elif event.type == pygame.MOUSEBUTTONUP:
                 info = f"Mouse released at  x:{mousepos[0]} y:{mousepos[1]}"
-        
+
         infotext = infofont.render(info, True, WHITE, BROWN)
         mousetext = infofont.render(f"Mouse at x:{mousepos[0]} y:{mousepos[1]}", True, WHITE, BROWN)
-
+        maptext = infofont.render(f"Map is {len(GAMEMAP[0])}:Wide x {len(GAMEMAP)}:High", True, WHITE, BROWN )
         clock.tick(100)
         window.fill((WHITE))
         game_window.fill((BLACK))
@@ -97,11 +110,12 @@ def main():
         menu_window.blit(menutext, (MENU_WIDTH//2-menutextwidth//2, 10))
         menu_window.blit(infotext, (10, 50))
         menu_window.blit(mousetext, (10, 70))
+        menu_window.blit(maptext, (10, 90))
 
         window.blit(game_window, (GAME_WINDOW_X, GAME_WINDOW_Y))
         window.blit(title_window, (TITLE_WINDOW_X, TITLE_WINDOW_Y))
         window.blit(menu_window, (MENU_WINDOW_X, MENU_WINDOW_Y))
-        
+
         pygame.display.update()
 
     # finish the game and quit
