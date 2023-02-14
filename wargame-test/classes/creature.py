@@ -1,4 +1,7 @@
 ''' This is a generic creature class. It is used to create all the creatures in the game. '''
+import pygame
+
+generic_creature = pygame.image.load('game-assets/images/generic.png')
 
 class Creature:
     ''' generic creature class '''
@@ -12,7 +15,8 @@ class Creature:
                  attacks = 1,
                  maxmagic = 0,
                  morale = 5,
-                 special = None):
+                 special = None,
+                 image  = None):
         self.name = creaturename
         self.alignment = alignment
         self.movement = movement # in feet
@@ -23,6 +27,9 @@ class Creature:
         self.maxmagic = maxmagic
         self.morale = morale
         self.special = special
+        self.image = image
+        self.width = image.get_width()
+        self.height = image.get_height()
 
     def draw(self, window):
         ''' draw the creature '''
