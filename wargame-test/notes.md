@@ -1,9 +1,24 @@
 # Wargames Project - Notes
 ## Introduction 
-This is a generic wargames project to build classes for handling wargames of all types
+This is a generic wargames project to build classes for handling wargames of all types.
+For fantasy wargames we will use "Fantasy Waragming" by Martin Hackett as a reference.
+We will base races and modifiers from the tables therin.
+
+From a technical stand point we will use the following:
+* Python to prototype the game.
+* Pygame as the base game engine.
+* Pygame GUI as the base GUI engine.
+* Open Source assets for the game. These will be credited here and in the game.
 
 ## Classes
 This will contain a list of the available classes and their purpose
+* creature - This is the base class for all creatures in the game.
+* gamemap - This is the base class for the game map.
+* map - This is the base class for the map.
+* spell - This is the base class for all spells in the game.
+* tile - This is the base class for all tiles in the game.
+* viewmap - This is the base class for the view map.
+* worldmap - this is the base class for the worldmap 
 
 ## Screen Notes 
 This is based on a tile which is 16 pixel wide and 16 pixels high.
