@@ -10,6 +10,15 @@ From a technical stand point we will use the following:
 * Pygame GUI as the base GUI engine.
 * Open Source assets for the game. These will be credited here and in the game.
 
+## To Do
+* Create a basic game engine.
+* Create a basic GUI engine.
+* Create a basic map engine.
+* Create a basic tile engine.
+* Build an editor for the map.
+* Design the game map.
+* source tiles and game tokens 
+* map out the game play 
 ## Classes
 This will contain a list of the available classes and their purpose
 * creature - This is the base class for all creatures in the game.
