@@ -13,8 +13,6 @@ def walk_through(start_dir):
     It takes one param which is the starting point directory for the search.
     It returns nothing.
     """
-
-
     listfiles = []
 
     try:
@@ -30,13 +28,35 @@ def walk_through(start_dir):
             result.append(fullpath)
     return result
 
+def check_file(filename, checkitem):
+    ''' This checks the file name and returns true or false '''
+    result = False
+    lowerfilename = filename.lower()
+    lowercheckitem = checkitem.lower()
+    if lowercheckitem in lowerfilename:
+        result = True
+    return result
+
+def rename_file(filename, newname, count):
+    ''' This renames the file '''
+    head,tail = os.path.split(filename)
+    _, ext = os.path.splitext(tail)
+    newfilename = os.path.join(head, f"{newname}-{count:03}{ext}")
+    print (f"Renaming {filename} to {newfilename}")
+    os.rename(filename, newfilename)
+
 def main():
     ''' This is the main function. '''
     print("Start")
     allfiles = walk_through("Y:\\Resources\\denis")
+    check = "Sucess"
+    count = 1
     for item in allfiles:
-        print(item)
+        if check_file(item, check):
+            rename_file(item, check, count)
+            count += 1
     print(f"Total files: {len(allfiles)}")
+    print(f"Total files renamed: {count-1}")
     print("Done")
 
 if __name__ == "__main__":
