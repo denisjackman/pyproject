@@ -1,5 +1,7 @@
 ''' This is a folder tidy up script that will rename files. '''
 import os
+TARGET_DIRECTORY = "X:\\Pictures\\Family"
+TARGET_CHECK = 'Family'
 
 def walk_through(start_dir):
     """
@@ -41,20 +43,23 @@ def rename_file(filename, newname, count):
     ''' This renames the file '''
     head,tail = os.path.split(filename)
     _, ext = os.path.splitext(tail)
-    newfilename = os.path.join(head, f"{newname}-{count:03}{ext}")
+    newfilename = os.path.join(head, f"{newname}-{count:04}{ext}")
     print (f"Renaming {filename} to {newfilename}")
     os.rename(filename, newfilename)
 
 def main():
     ''' This is the main function. '''
     print("Start")
-    allfiles = walk_through("Y:\\Resources\\denis")
-    check = "Sucess"
+    allfiles = walk_through(TARGET_DIRECTORY)
+    check = TARGET_CHECK
     count = 1
     for item in allfiles:
-        if check_file(item, check):
-            rename_file(item, check, count)
-            count += 1
+        #if check_file(item, check):
+        #    rename_file(item, check, count)
+        #    count += 1
+        rename_file(item, check, count)
+        count += 1
+
     print(f"Total files: {len(allfiles)}")
     print(f"Total files renamed: {count-1}")
     print("Done")
