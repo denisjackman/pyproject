@@ -1,7 +1,21 @@
 ''' This is a folder tidy up script that will rename files. '''
 import os
-TARGET_DIRECTORY = "X:\\Pictures\\Family"
-TARGET_CHECK = 'Family'
+from PyPDF2 import PdfReader
+
+TARGET_DIRECTORY = "Y:\\Library"
+TARGET_CHECK = '.pdf'
+
+def extract_pdf_information(pdf_path):
+    ''' This extracts the information from a pdf file. '''
+    pdf = PdfReader(pdf_path)
+    information = pdf.metadata
+    number_of_pages = len(pdf.pages)
+    result = f"{pdf_path}: "
+    if information.title is None:
+        result +=  ": No information found"
+    else:
+        result += f"{information.title}  - Pages : {number_of_pages}"
+    print(result)
 
 def walk_through(start_dir):
     """
@@ -47,6 +61,14 @@ def rename_file(filename, newname, count):
     print (f"Renaming {filename} to {newfilename}")
     os.rename(filename, newfilename)
 
+def check_file_extension(filename, ext):
+    ''' This checks the file extension and returns true or false '''
+    result = False
+    _, fileext = os.path.splitext(filename)
+    if fileext.lower() == ext.lower():
+        result = True
+    return result
+
 def main():
     ''' This is the main function. '''
     print("Start")
@@ -54,10 +76,12 @@ def main():
     check = TARGET_CHECK
     count = 1
     for item in allfiles:
-        #if check_file(item, check):
+        if check_file_extension(item, check):
+            extract_pdf_information(item)
+        # if check_file(item, check):
         #    rename_file(item, check, count)
         #    count += 1
-        rename_file(item, check, count)
+        # rename_file(item, check, count)
         count += 1
 
     print(f"Total files: {len(allfiles)}")
