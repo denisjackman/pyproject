@@ -9,13 +9,12 @@ def extract_pdf_information(pdf_path):
     ''' This extracts the information from a pdf file. '''
     pdf = PdfReader(pdf_path)
     information = pdf.metadata
-    number_of_pages = len(pdf.pages)
-    result = f"{pdf_path}: "
+    result = None
     if information.title is None:
-        result +=  ": No information found"
+        result = None
     else:
-        result += f"{information.title}  - Pages : {number_of_pages}"
-    print(result)
+        result = f"{information.title}"
+    return result    
 
 def walk_through(start_dir):
     """
@@ -57,8 +56,10 @@ def rename_file(filename, newname, count):
     ''' This renames the file '''
     head,tail = os.path.split(filename)
     _, ext = os.path.splitext(tail)
-    newfilename = os.path.join(head, f"{newname}-{count:04}{ext}")
-    print (f"Renaming {filename} to {newfilename}")
+    if count == 0:
+        newfilename = os.path.join(head, f"{newname}{ext}")
+    else:
+        newfilename = os.path.join(head, f"{newname}-{count:04}{ext}")
     os.rename(filename, newfilename)
 
 def check_file_extension(filename, ext):
@@ -77,7 +78,10 @@ def main():
     count = 1
     for item in allfiles:
         if check_file_extension(item, check):
-            extract_pdf_information(item)
+            newfilename = extract_pdf_information(item)
+            if newfilename is not None:
+                newfilename = newfilename.replace(" ", "-")
+                rename_file(item, newfilename, 0)
         # if check_file(item, check):
         #    rename_file(item, check, count)
         #    count += 1
