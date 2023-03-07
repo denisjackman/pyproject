@@ -2,8 +2,8 @@
 import os
 from PyPDF2 import PdfReader
 
-TARGET_DIRECTORY = "Y:\\Library"
-TARGET_CHECK = '.pdf'
+TARGET_DIRECTORY = "Y:\\"
+TARGET_CHECK = '.zip'
 
 def extract_pdf_information(pdf_path):
     ''' This extracts the information from a pdf file. '''
@@ -78,10 +78,13 @@ def main():
     count = 1
     for item in allfiles:
         if check_file_extension(item, check):
-            newfilename = extract_pdf_information(item)
-            if newfilename is not None:
-                newfilename = newfilename.replace(" ", "-")
-                rename_file(item, newfilename, 0)
+            print(f"Found {item}")
+            count += 1
+        #
+        #    newfilename = extract_pdf_information(item)
+        #    if newfilename is not None:
+        #        newfilename = newfilename.replace(" ", "-")
+        #        rename_file(item, newfilename, 0)
         # if check_file(item, check):
         #    rename_file(item, check, count)
         #    count += 1
@@ -90,6 +93,8 @@ def main():
 
     print(f"Total files: {len(allfiles)}")
     print(f"Total files renamed: {count-1}")
+    for item in allfiles:
+        print(f"Checking {item}")
     print("Done")
 
 if __name__ == "__main__":
