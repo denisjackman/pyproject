@@ -2,8 +2,9 @@
 import os
 from PyPDF2 import PdfReader
 
-TARGET_DIRECTORY = "Y:\\"
-TARGET_CHECK = '.zip'
+TARGET_DIRECTORY = "Y:\\Store"
+NEW_DIRECTORY = "Y:\\Store\\7Z"
+TARGET_CHECK = '.7z'
 
 def extract_pdf_information(pdf_path):
     ''' This extracts the information from a pdf file. '''
@@ -14,7 +15,7 @@ def extract_pdf_information(pdf_path):
         result = None
     else:
         result = f"{information.title}"
-    return result    
+    return result
 
 def walk_through(start_dir):
     """
@@ -70,6 +71,12 @@ def check_file_extension(filename, ext):
         result = True
     return result
 
+def move_file(filename, newdir):
+    ''' This moves the file '''
+    head,tail = os.path.split(filename)
+    newfilename = os.path.join(newdir, tail)
+    os.rename(filename, newfilename)
+
 def main():
     ''' This is the main function. '''
     print("Start")
@@ -79,6 +86,7 @@ def main():
     for item in allfiles:
         if check_file_extension(item, check):
             print(f"Found {item}")
+            move_file(item, NEW_DIRECTORY)
             count += 1
         #
         #    newfilename = extract_pdf_information(item)
@@ -89,12 +97,9 @@ def main():
         #    rename_file(item, check, count)
         #    count += 1
         # rename_file(item, check, count)
-        count += 1
 
     print(f"Total files: {len(allfiles)}")
-    print(f"Total files renamed: {count-1}")
-    for item in allfiles:
-        print(f"Checking {item}")
+    print(f"Total files moved: {count}")
     print("Done")
 
 if __name__ == "__main__":
