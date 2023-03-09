@@ -85,3 +85,4 @@ selenium
 openai
 chatgpt
 dronekit-sitl
+moviepy
