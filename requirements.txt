@@ -86,3 +86,4 @@ openai
 chatgpt
 dronekit-sitl
 moviepy
+sounddevice
