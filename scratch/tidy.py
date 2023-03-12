@@ -1,10 +1,11 @@
 ''' This is a folder tidy up script that will rename files. '''
 import os
 from PyPDF2 import PdfReader
+import zipfile
 
-TARGET_DIRECTORY = "Y:\\Store"
-NEW_DIRECTORY = "Y:\\Store\\7Z"
-TARGET_CHECK = '.7z'
+TARGET_DIRECTORY = "Y:\\Store\\Zips"
+NEW_DIRECTORY = "Y:\\Store\\Zip"
+TARGET_CHECK = '.zip'
 
 def extract_pdf_information(pdf_path):
     ''' This extracts the information from a pdf file. '''
@@ -84,22 +85,14 @@ def main():
     check = TARGET_CHECK
     count = 1
     for item in allfiles:
-        if check_file_extension(item, check):
-            print(f"Found {item}")
-            move_file(item, NEW_DIRECTORY)
-            count += 1
-        #
-        #    newfilename = extract_pdf_information(item)
-        #    if newfilename is not None:
-        #        newfilename = newfilename.replace(" ", "-")
-        #        rename_file(item, newfilename, 0)
-        # if check_file(item, check):
-        #    rename_file(item, check, count)
-        #    count += 1
-        # rename_file(item, check, count)
+        if check_file(item, check):
+            try:
+                with zipfile.ZipFile(item, 'r') as archive:
+                    print(f"Processing {item} - {len(archive.namelist())}")
+            except zipfile.BadZipFile as error:
+                print(f"Bad zip file {item} - {error}")
 
     print(f"Total files: {len(allfiles)}")
-    print(f"Total files moved: {count}")
     print("Done")
 
 if __name__ == "__main__":
