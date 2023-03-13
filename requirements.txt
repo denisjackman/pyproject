@@ -87,3 +87,4 @@ chatgpt
 dronekit-sitl
 moviepy
 sounddevice
+colorama
