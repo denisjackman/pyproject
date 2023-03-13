@@ -83,7 +83,6 @@ def main():
     print("Start")
     allfiles = walk_through(TARGET_DIRECTORY)
     check = TARGET_CHECK
-    count = 1
     for item in allfiles:
         if check_file(item, check):
             try:
