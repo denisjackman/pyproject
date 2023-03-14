@@ -1,7 +1,8 @@
 ''' This is a folder tidy up script that will rename files. '''
 import os
-from PyPDF2 import PdfReader
 import zipfile
+from PyPDF2 import PdfReader
+from colorama import Fore
 
 TARGET_DIRECTORY = "Y:\\Store\\Zips"
 NEW_DIRECTORY = "Y:\\Store\\Zip"
@@ -87,9 +88,9 @@ def main():
         if check_file(item, check):
             try:
                 with zipfile.ZipFile(item, 'r') as archive:
-                    print(f"Processing {item} - {len(archive.namelist())}")
+                    print(Fore.YELLOW + f"Processing {item} - {len(archive.namelist())}")
             except zipfile.BadZipFile as error:
-                print(f"Bad zip file {item} - {error}")
+                print(Fore.RED + f"Bad zip file {item} - {error}")
 
     print(f"Total files: {len(allfiles)}")
     print("Done")
