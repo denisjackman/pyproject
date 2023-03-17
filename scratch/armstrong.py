@@ -1,6 +1,6 @@
 ''' this is a function to check if a number is an armstrong number or not'''
 
-def armstrong(number):
+def isArmstrong(number):
     ''' this is a function to check if a number is an armstrong number or not'''
     result = False
     total = 0
@@ -16,9 +16,9 @@ def armstrong(number):
 
 def main():
     ''' this is a function to check if a number is an armstrong number or not'''
-    print (f"662 is an armstrong number {armstrong(662)}")
-    print (f"663 is an armstrong number {armstrong(663)}")
-    print (f"407 is an armstrong number {armstrong(407)}")
+    print (f"662 is an armstrong number {isArmstrong(662)}")
+    print (f"663 is an armstrong number {isArmstrong(663)}")
+    print (f"407 is an armstrong number {isArmstrong(407)}")
     
 if __name__ == "__main__":
     main()
