@@ -11,6 +11,6 @@ def main():
         print("-------------------------------")
     print(f"Number of pages: {len(reader.pages)}")
     print("Done")
-    
+
 if __name__ == '__main__':
     main()

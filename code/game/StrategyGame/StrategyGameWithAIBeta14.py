@@ -458,7 +458,7 @@ def play_turn(current_player, next_player, turnWon, turn1):  # pylint: disable=t
 
     if turn==0:
         input("\nHit enter to end your turn. ")
-        return(next_player, current_player, Won, turn1)
+    return(next_player, current_player, Won, turn1)
 
 
 

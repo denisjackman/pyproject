@@ -19,6 +19,6 @@ def main():
     print (f"662 is an armstrong number {isArmstrong(662)}")
     print (f"663 is an armstrong number {isArmstrong(663)}")
     print (f"407 is an armstrong number {isArmstrong(407)}")
-    
+
 if __name__ == "__main__":
     main()
