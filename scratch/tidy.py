@@ -1,12 +1,33 @@
 ''' This is a folder tidy up script that will rename files. '''
 import os
 import zipfile
+from openpyxl import Workbook
 from PyPDF2 import PdfReader
 from colorama import Fore
 
 TARGET_DIRECTORY = "Y:\\Store\\Zips"
 NEW_DIRECTORY = "Y:\\Store\\Zip"
 TARGET_CHECK = '.zip'
+PDF_FILENAME = "sample-50-MB-pdf-file.pdf"
+WORKBOOK_FILE = 'zip.xlsx'
+
+def pdf_reader(pdffile_path):
+    ''' This is the PDF reader function'''
+    reader = PdfReader(pdffile_path)
+    for page in reader.pages:
+        print("-------------------------------")
+        print(page.extract_text())
+        print("-------------------------------")
+    print(f"Number of pages: {len(reader.pages)}")
+
+def excel_store(data_list):
+    ''' This is the main function '''
+    title = TARGET_CHECK.upper().replace('.', '')
+    current_workbook = Workbook()
+    current_worksheet = current_workbook.create_sheet(title)
+    for item in data_list: # pylint: disable=not-an-iterable
+        current_worksheet.append([item])
+    current_workbook.save(WORKBOOK_FILE)
 
 def extract_pdf_information(pdf_path):
     ''' This extracts the information from a pdf file. '''
@@ -91,7 +112,7 @@ def main():
                     print(Fore.YELLOW + f"Processing {item} - {len(archive.namelist())}")
             except zipfile.BadZipFile as error:
                 print(Fore.RED + f"Bad zip file {item} - {error}")
-
+    excel_store(allfiles)
     print(f"Total files: {len(allfiles)}")
     print("Done")
 

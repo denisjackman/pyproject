@@ -111,6 +111,7 @@ class TGameMenu:
                         self.menuitems[self.valinta][2][1] = self.menuitems[self.valinta][2][2][1]
             if self.menuitems[self.valinta][2][0] == "value_bool_editor":
                 self.menuitems[self.valinta][2][1] = not self.menuitems[self.valinta][2][1]
+
     def get_selection(self,teksti = None):
         """
         Render the menu as long as user selects a menuitem
@@ -148,6 +149,7 @@ class TGameMenu:
                         self.edit_value(1)
                         self.draw_items(teksti)
             pygame.display.flip()
+
     def text_at(self,teksti,coords,fontti,wipe_background=True,drop_shadow=True,vari=(255,255,255),flippaa=False):
         ''' # Render text at given coordinates '''
         text = fontti.render(teksti,1,vari)
@@ -163,6 +165,7 @@ class TGameMenu:
         self.ruutu.blit(text,(coords[0]-(koko[0]/2),coords[1]))
         if flippaa:
             pygame.display.flip()
+
     def select(self):
         ''' # User selects a menu item '''
         return self.menuitems[self.valinta][1]
