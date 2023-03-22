@@ -1,0 +1,24 @@
+''' This is an example of using wordlist to crack a zip file password.'''
+import zipfile
+from colorama import Fore
+
+ZIPFILE = 'data//newtest.zip'
+RESET = Fore.RESET
+NOTE = Fore.BLUE + '[*] '
+INFO = Fore.RED + '[!] '
+
+def ZipChecker(checkfile):
+    '''Main function'''
+    print(f'{NOTE}Zip File Password Checker - Starting {RESET}')
+
+    zf = zipfile.ZipFile(checkfile)
+    for zinfo in zf.infolist():
+        is_encrypted = zinfo.flag_bits & 0x1
+        if is_encrypted:
+            print(f'{INFO}{zinfo.filename} is encrypted! {RESET}')
+        else:
+            print(f'{INFO}{zinfo.filename} is not encrypted. {RESET}')
+    print(f'{NOTE}Zip File Password Checker - Finishing {RESET}')
+
+if __name__ == '__main__':
+    ZipChecker(ZIPFILE)

@@ -11,6 +11,7 @@
 **/.vscode/*
 **/work/sprites/*
 **/game-assets/*
+**/lists/*
 credentials.json
 token
 **/credentials.json
