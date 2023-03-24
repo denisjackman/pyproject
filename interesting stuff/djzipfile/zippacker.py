@@ -4,11 +4,12 @@ import os
 from colorama import Fore
 
 RESET = Fore.RESET
-NOTE = Fore.BLUE + '[*] '
-INFO = Fore.RED + '[!] '
+NOTE = Fore.BLACK + '[*] '
+INFO = Fore.CYAN + '[!] '
 ERROR = Fore.RED + '[-] '
-NOTICE = Fore.YELLOW + '[+] '
-WORDLIST = 'lists//test.txt'
+NOTICE = Fore.GREEN + '[+] '
+
+PACKLIST = ('lists//test.txt', 'lists//wordlist.txt')
 ZIPFILE = 'data//newtest.zip'
 
 def ZipPacker(packfile, packlist):
@@ -17,7 +18,9 @@ def ZipPacker(packfile, packlist):
     # Create a ZipFile Object
     with ZipFile(packfile, 'w') as zip_object:
     # Adding files that need to be zipped
-        zip_object.write(packlist)
+        for item in packlist:
+            print(f"{INFO}Adding {item} to zip file{RESET}")
+            zip_object.write(item)
 
     # Check to see if the zip file is created
     if os.path.exists(packfile):
@@ -25,10 +28,6 @@ def ZipPacker(packfile, packlist):
     else:
         print(f"{ERROR}ZIP file not created{RESET}")
     print(f'{NOTE}Zip File Packer - Completed{RESET}')
-    
 
 if __name__ == '__main__':
-    ZipPacker(ZIPFILE, WORDLIST)
-
-
-
+    ZipPacker(ZIPFILE, PACKLIST)

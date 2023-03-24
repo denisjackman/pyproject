@@ -4,10 +4,10 @@ from tqdm import tqdm
 from colorama import Fore
 
 RESET = Fore.RESET
-NOTE = Fore.BLUE + '[*] '
-INFO = Fore.RED + '[!] '
+NOTE = Fore.BLACK + '[*] '
+INFO = Fore.CYAN + '[!] '
 ERROR = Fore.RED + '[-] '
-NOTICE = Fore.YELLOW + '[+] '
+NOTICE = Fore.GREEN + '[+] '
 WORDLIST = 'lists//wordlist.txt'
 ZIPFILE = 'data//secret.zip'
 
@@ -27,6 +27,7 @@ def ZipCracker(Crackfile, Cracklist):
                 continue
             else:
                 print(f'{NOTICE}Password found: {password.decode().strip()}{RESET}')
+                print(f'{NOTE}Zip File Password Cracker - Completed{RESET}')
                 exit(0)
     print(f'{ERROR}Password not found, try other wordlist.{RESET}')
     print(f'{NOTE}Zip File Password Cracker - Completed{RESET}')

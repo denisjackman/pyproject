@@ -4,8 +4,10 @@ from colorama import Fore
 
 ZIPFILE = 'data//newtest.zip'
 RESET = Fore.RESET
-NOTE = Fore.BLUE + '[*] '
-INFO = Fore.RED + '[!] '
+NOTE = Fore.BLACK + '[*] '
+INFO = Fore.CYAN + '[!] '
+ERROR = Fore.RED + '[-] '
+NOTICE = Fore.GREEN + '[+] '
 
 def ZipChecker(checkfile):
     '''Main function'''
