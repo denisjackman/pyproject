@@ -6,6 +6,10 @@ scratch.py
 This program is a template for python programs
 All this stuff at the top of the script is just optional metadata;
 
+TODO: finish adding the list of tages 
+TODO: divide the tags into html5 supported items 
+TODO: add a list of tags that are done 
+TDOD: code each tag into a subroutine 
 """
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
@@ -28,6 +32,41 @@ def metadefinition():
     meta += '<meta name="author" content="Denis Jackman">'
     return meta
 
+def tag_list():
+    '''
+        build a list of tags
+        From https://www.w3schools.com/tags/default.asp
+         Tag Description
+            '<!--...-->'     Defines a comment
+            <!DOCTYPE>       Defines the document type
+            <a>              Defines a hyperlink
+            <abbr>           Defines an abbreviation or an acronym
+            <acronym>        Not supported in HTML5. Use <abbr> instead. Defines an acronym
+            <address>        Defines contact information for the author/owner of a document
+            <applet>         Not supported in HTML5. Use <embed> or <object> instead. Defines an embedded applet
+            <area>           Defines an area inside an image-map
+            <article>        Defines an article
+            <aside>          Defines content aside from the page content
+            <audio>          Defines sound content
+            <b>              Defines bold text
+            <base>           Specifies the base URL/target for all relative URLs in a document
+            <basefont>       Not supported in HTML5. Use CSS instead. Specifies a default color, size, and font for all text in a document
+            <bdi>            Isolates a part of text that might be formatted in a different direction from other text outside it
+            <bdo>            Overrides the current text direction
+            <big>            Not supported in HTML5. Use CSS instead. Defines big text
+            <blockquote>     Defines a section that is quoted from another source
+            <body>           Defines the document's body
+            <br>             Defines a single line break
+            <button>         Defines a clickable button
+            <canvas>         Used to draw graphics, on the fly, via scripting (usually JavaScript)
+            <caption>        Defines a table caption
+            <center>         Not supported in HTML5. Use CSS instead. Defines centered text
+            <cite>           Defines the title of a work
+            <code>           Defines a piece of computer code
+            <col>            Specifies column properties for each column within a <colgroup> element
+            <colgroup>       Specifies a group of one or more columns in a table for formatting
+    '''
+        
 def breakline():
     '''
     build a break line
