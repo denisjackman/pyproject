@@ -65,6 +65,15 @@ def tag_list():
             <code>           Defines a piece of computer code
             <col>            Specifies column properties for each column within a <colgroup> element
             <colgroup>       Specifies a group of one or more columns in a table for formatting
+            <data>           Links the given content with a machine-readable translation
+            <dd>             Defines a description/value of a term in a description list
+            <details>        Defines additional details that the user can view or hide
+            <dfn>            Represents the defining instance of a term
+            <dialog>         Defines a dialog box or window
+            <dir>            Not supported in HTML5. Use <ul> instead. Defines a directory list
+            <div>            Defines a section in a document
+            <dl>             Defines a description list
+            <dt>             Defines a term/name in a description list            
     '''
         
 def breakline():
