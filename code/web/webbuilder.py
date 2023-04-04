@@ -73,9 +73,24 @@ def tag_list():
             <dir>            Not supported in HTML5. Use <ul> instead. Defines a directory list
             <div>            Defines a section in a document
             <dl>             Defines a description list
-            <dt>             Defines a term/name in a description list            
+            <dt>             Defines a term/name in a description list
+            <em>             Defines emphasized text
+            <embed>          Defines a container for an external (non-HTML) application
+            <fieldset>       Groups related elements in a form
+            <figcaption>     Defines a caption for a <figure> element
+            <figure>         Specifies self-contained content
+            <font>           Not supported in HTML5. Use CSS instead. Defines font, color, and size for text
+            <footer>         Defines a footer for a document or section
+            <form>           Defines an HTML form for user input
+            <frame>          Not supported in HTML5. Defines a window (a frame) in a frameset
+            <frameset>       Not supported in HTML5. Defines a set of frames
+            <h1> to <h6>     Defines HTML headings
+            <head>           Defines information about the document
+            <header>         Defines a header for a document or section
+            <hr>             Defines a thematic change in the content
+            <html>           Defines the root of an HTML document
     '''
-        
+
 def breakline():
     '''
     build a break line
