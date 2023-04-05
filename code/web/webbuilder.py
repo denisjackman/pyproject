@@ -89,6 +89,72 @@ def tag_list():
             <header>         Defines a header for a document or section
             <hr>             Defines a thematic change in the content
             <html>           Defines the root of an HTML document
+            <i>              Defines a part of text in an alternate voice or mood
+            <iframe>         Defines an inline frame
+            <img>            Defines an image
+            <input>          Defines an input control
+            <ins>            Defines a text that has been inserted into a document
+            <kbd>            Defines keyboard input
+            <label>          Defines a label for an <input> element
+            <legend>         Defines a caption for a <fieldset> element
+            <li>             Defines a list item
+            <link>           Defines the relationship between a document and an external resource (most used to link to style sheets)
+            <main>           Specifies the main content of a document
+            <map>            Defines a client-side image-map
+            <mark>           Defines marked/highlighted text
+            <meta>           Defines metadata about an HTML document
+            <meter>          Defines a scalar measurement within a known range (a gauge)
+            <nav>            Defines navigation links
+            <noframes>       Not supported in HTML5. Defines an alternate content for users that do not support frames
+            <noscript>       Defines an alternate content for users that do not support client-side scripts
+            <object>         Defines an embedded object
+            <ol>             Defines an ordered list
+            <optgroup>       Defines a group of related options in a drop-down list
+            <option>         Defines an option in a drop-down list
+            <output>         Defines the result of a calculation
+            <p>              Defines a paragraph
+            <param>          Defines a parameter for an object
+            <picture>        Defines a container for multiple image resources
+            <pre>            Defines preformatted text
+            <progress>       Represents the progress of a task
+            <q>              Defines a short quotation
+            <rp>             Defines what to show in browsers that do not support ruby annotations
+            <rt>             Defines an explanation/pronunciation of characters (for East Asian typography)
+            <ruby>           Defines a ruby annotation (for East Asian typography)
+            <s>              Defines text that is no longer correct
+            <samp>           Defines sample output from a computer program
+            <script>         Defines a client-side script
+            <section>        Defines a section in a document
+            <select>         Defines a drop-down list
+            <small>          Defines smaller text
+            <source>         Defines multiple media resources for media elements (<video> and <audio>)
+            <span>           Defines a section in a document
+            <strike>         Not supported in HTML5. Use <del> or <s> instead. Defines strikethrough text
+            <strong>         Defines important text
+            <style>          Defines style information for a document
+            <sub>            Defines subscripted text
+            <summary>        Defines a visible heading for a <details> element
+            <sup>            Defines superscripted text
+            <svg>            Defines a container for SVG graphics
+            <table>          Defines a table
+            <tbody>          Groups the body content in a table
+            <td>             Defines a cell in a table
+            <template>       Defines a template
+            <textarea>       Defines a multiline input control (text area)
+            <tfoot>          Groups the footer content in a table
+            <th>             Defines a header cell in a table
+            <thead>          Groups the header content in a table
+            <time>           Defines a date/time
+            <title>          Defines a title for the document
+            <tr>             Defines a row in a table
+            <track>          Defines text tracks for media elements (<video> and <audio>)
+            <tt>             Not supported in HTML5. Use CSS instead. Defines teletype text
+            <u>              Defines text that should be stylistically different from normal text
+            <ul>             Defines an unordered list
+            <var>            Defines a variable
+            <video>          Defines a video or movie
+            <wbr>            Defines a possible line-break
+            
     '''
 
 def breakline():
