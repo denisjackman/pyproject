@@ -13,7 +13,7 @@ def main():
 
     plt.scatter(Names, Values, color='g', s = 100)
     plt.xticks(rotation = 25)
-    
+
     plt.xlabel('Names')
     plt.ylabel('Values')
     plt.title('Patients Blood Pressure Report', fontsize = 20)
