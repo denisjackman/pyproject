@@ -6,11 +6,15 @@ def main():
     ''' main function'''
     x = []
     y = []
+    count = False
     with open('biostats.csv', 'r', encoding='utf8') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
-            x.append(row[0])
-            y.append(int(row[2]))
+            if count:
+                x.append(row[0])
+                y.append(int(row[2]))
+            else:
+                count = True
     plt.bar(x, y, color='g', width= 0.72, label='Age')
     plt.xlabel('Names')
     plt.ylabel('Ages')
