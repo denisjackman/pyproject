@@ -15,4 +15,4 @@ if __name__ == "__main__":
     main()
     mymap = folium.Map(location=[38.58, -99.09],
                        zoom_start=6, control_scale=True)
-    mymap.save("test.html")
+    mymap.save("Y:/Resources/Data/test.html")
