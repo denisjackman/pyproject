@@ -1,5 +1,4 @@
 ''' chatgpt python script
-    apikey = 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
     pip install openai
     pip install chatgpt
 '''
