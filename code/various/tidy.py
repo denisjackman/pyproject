@@ -5,11 +5,11 @@ from openpyxl import Workbook
 from PyPDF2 import PdfReader
 from colorama import Fore
 
-TARGET_DIRECTORY = "Y:\\Store\\Zips"
-NEW_DIRECTORY = "Y:\\Store\\Zip"
+TARGET_DIRECTORY = "Y:/Store/Zips"
+NEW_DIRECTORY = "Y:/Store/Zip"
 TARGET_CHECK = '.zip'
 PDF_FILENAME = "sample-50-MB-pdf-file.pdf"
-WORKBOOK_FILE = 'zip.xlsx'
+WORKBOOK_FILE = 'y:/temp/zip.xlsx'
 
 def pdf_reader(pdffile_path):
     ''' This is the PDF reader function'''
