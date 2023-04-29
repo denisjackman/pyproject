@@ -7,7 +7,7 @@ FILEPATH = Path(__file__).parent
 
 def main():
     ''' main function '''
-    filename = f"Y:/Resources/Data/allMimeTypes.json"
+    filename = "Y:/Resources/Data/allMimeTypes.json"
     with open(filename, "r", encoding='utf8') as file:
         result = json.load(file)
 

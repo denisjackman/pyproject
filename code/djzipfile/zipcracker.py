@@ -16,7 +16,10 @@ def ZipCracker(Crackfile, Cracklist):
     print(f'{NOTE}Zip File Password Cracker - Starting{RESET}')
     secret_zipfile = zipfile.ZipFile(Crackfile)
     print(f'{NOTE}{Crackfile} has {len(secret_zipfile.namelist())} file(s) in it.{RESET}')
-    total_passwords = len(list(open(Cracklist, 'rb')))
+    total_passwords = 0
+    with open(Cracklist, 'rb') as lenfile:
+        for _ in lenfile:
+            total_passwords += 1
     print(f'{NOTE}{total_passwords} passwords to test.{RESET}')
     print(f'{NOTE}Cracking, {Crackfile} please wait...{RESET}')
     with open(Cracklist, "rb") as wordfile:
