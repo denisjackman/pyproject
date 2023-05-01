@@ -76,9 +76,19 @@ def main():
                 drev_cust += float(item["return"])
                 dpot_cust += float(item["odds"])*float(item["stake"])
     print(f"[-] Dataset row = {dataset[0]}")
-    print(f"[-] Total data numbers are count: {count:,}, stake: £{mstake+dstake:,.2f}, return: £{mrev_cust+drev_cust:,.2f} potential: £{mpot_cust+dpot_cust:,.2f} void amount: £{mvoid+dvoid:,.2f} voided: {mvoidcount+dvoidcount:,} winners: {mwin+dwin:,} losers: {mlose+dlose:,} place {mplace+dplace:,}")
-    print(f"[-] Mobile data numbers are count: {mcount:,}, stake: £{mstake:,.2f}, return: £{mrev_cust:,.2f} potential: £{mpot_cust:,.2f} voided: £{mvoid:,.2f} number voided {mvoidcount:,} winners: {mwin:,} losers: {mlose:,} place {mplace:,}")
-    print(f"[-] Desktop data numbers are count: {dcount:,}, stake: £{dstake:,.2f}, return: £{drev_cust:,.2f} potential: £{dpot_cust:,.2f} voided: £{dvoid:,.2f} number voided {dvoidcount:,} winners: {dwin:,} losers: {dlose:,} place {dplace:,}")
+    output = f"[-] Total data numbers are count: {count:,}, stake: £{mstake+dstake:,.2f},"\
+             f"return: £{mrev_cust+drev_cust:,.2f} potential: £{mpot_cust+dpot_cust:,.2f} "\
+             f"void amount: £{mvoid+dvoid:,.2f} voided: {mvoidcount+dvoidcount:,} winners:"\
+             f"{mwin+dwin:,} losers: {mlose+dlose:,} place {mplace+dplace:,}"
+    print(output)
+    output = f"[-] Mobile data numbers are count: {mcount:,}, stake: £{mstake:,.2f}, return: "\
+             f"£{mrev_cust:,.2f} potential: £{mpot_cust:,.2f} voided: £{mvoid:,.2f} number voided"\
+             f" {mvoidcount:,} winners: {mwin:,} losers: {mlose:,} place {mplace:,}"
+    print(output)
+    output = f"[-] Desktop data numbers are count: {dcount:,}, stake: £{dstake:,.2f}, return: "\
+             f"£{drev_cust:,.2f} potential: £{dpot_cust:,.2f} voided: £{dvoid:,.2f} number voided "\
+             f"{dvoidcount:,} winners: {dwin:,} losers: {dlose:,} place {dplace:,}"
+    print(output)
     print("[+] --- Main Function Finish")
 
 
