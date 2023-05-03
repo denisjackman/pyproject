@@ -24,16 +24,18 @@ def gethorses(horselist):
     print("[+] --- Start Get Horse")
     for item in horselist:
         if item["horse"] not in result:
-            result[item["horse"]] = [item["result"], float(item["stake"]), float(item["return"]), 1]
+            hpotreturn = float(item["odds"])*float(item["stake"])
+            result[item["horse"]] = [item["horse"],item["result"], float(item["stake"]), float(item["return"]), hpotreturn, float(item["freebet_amount"]), 1]
         else:
-            hstake = result[item["horse"]][1] + float(item["stake"])
-            hreturn = result[item["horse"]][2] + float(item["return"])
-            hcount = result[item["horse"]][3] + 1
-            result[item["horse"]] = [item["result"], hstake, hreturn, hcount]
-            
+            hstake = result[item["horse"]][2] + float(item["stake"])
+            hreturn = result[item["horse"]][3] + float(item["return"])
+            hpotreturn = result[item["horse"]][4] + float(item["odds"])*float(item["stake"])
+            hfreebet = result[item["horse"]][5] + float(item["freebet_amount"])
+            hcount = result[item["horse"]][6] + 1
+            result[item["horse"]] = [item["horse"], item["result"], hstake, hreturn, hpotreturn, hfreebet, hcount]
     print("[+] --- Finish Get Horse")
     return result
- 
+
 def main():
     ''' main function '''
     print("[+] -- Main Function Start")
@@ -107,7 +109,8 @@ def main():
              f"{dvoidcount:,} winners: {dwin:,} losers: {dlose:,} place {dplace:,}"
     print(output)
     horses = gethorses(dataset)
-    print(f" [-] uniques horses are {len(horses)} {horses}")
+    print(f" [-] uniques horses are {len(horses)}")
+    print(f" [-] horse data is {horses['Rocky Creek']}")
     print("[+] --- Main Function Finish")
 
 
