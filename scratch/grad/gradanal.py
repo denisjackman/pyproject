@@ -111,6 +111,9 @@ def main():
     horses = gethorses(dataset)
     print(f" [-] uniques horses are {len(horses)}")
     print(f" [-] horse data is {horses['Rocky Creek']}")
+    for item in horses:
+        if horses[item][1] == 'L':
+            print(f" [-] horse is {horses[item][0]} potential return is £{horses[item][4]:,.2f}")
     print("[+] --- Main Function Finish")
 
 
