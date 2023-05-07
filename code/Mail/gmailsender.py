@@ -13,7 +13,7 @@ FILEPATH = Path(__file__).parent
 
 def main():
     ''' main function '''
-    with open(f"{FILEPATH}/../secrets/client_secrets.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/../secrets/secrets.json", "r", encoding='utf8') as file:
         cred_id = json.load(file)
     emailid = cred_id["gmail_username"]
     email_password = cred_id["gmail_token"]

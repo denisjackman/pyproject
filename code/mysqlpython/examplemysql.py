@@ -16,7 +16,7 @@ __license__ = "Python"
 
 import mysql.connector
 from djgamemodule import security as sec
-
+SECRETSFILE = 'y:/pyproject/secrets/secrets.json'
 
 def opendb(credid, database):
     """ This function opens the database connection """
@@ -33,13 +33,13 @@ def opendb(credid, database):
     except mysql.connector.errors.ProgrammingError as err:
         print(f" Error: {err}")
         return None
-    print(f"{my_db} Connected OK")
+    print(f"[-] {my_db} Connected OK")
     return my_db
 
 
 def sqlmain():
     """ This is the main routine for the program """
-    credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
+    credid = sec.credscheck(SECRETSFILE)
     use_db = opendb(credid, 'test')
     if use_db is None:
         return None
@@ -57,13 +57,13 @@ def sqlmain():
 
     mycursor = use_db.cursor()
     mycursor.execute("SHOW DATABASES")
-    print ('looking at databases')
+    print ('[-] Looking at databases')
     for itemdatabase in mycursor:
         print(itemdatabase)
         databasecount += 1
 
     mycursor.execute("SHOW TABLES")
-    print('looking at tables now')
+    print('[-] Looking at tables now')
     for itemtable in mycursor:
         print(itemtable)
         tablecount += 1
@@ -72,12 +72,12 @@ def sqlmain():
     mycursor.close()
     use_db.close()
 
-    print(f"I counted {counter} employee records that satisfied the query")
-    print(f'I counted {databasecount} databases')
-    print(f'I counted {tablecount} tables ')
+    print(f"[-] I counted {counter} employee records that satisfied the query")
+    print(f'[-] I counted {databasecount} databases')
+    print(f'[-] I counted {tablecount} tables ')
     return None
 
 if __name__ == '__main__':
-    print("Starting the sequence.")
+    print("[+] Starting the sequence.")
     sqlmain()
-    print("finishing up and closing down.")
+    print("[+] Finishing up and closing down.")

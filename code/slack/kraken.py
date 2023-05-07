@@ -16,7 +16,7 @@ from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from djgamemodule import security as sec
 
-credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
+credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
 SLACK_APP_TOKEN = credid["BoltKrakenToken"]
 SLACK_BOT_TOKEN = credid["BoltKrakenBotToken"]
 

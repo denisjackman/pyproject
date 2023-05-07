@@ -12,9 +12,6 @@
 **/work/sprites/*
 **/game-assets/*
 **/lists/*
-credentials.json
-token
-**/credentials.json
 # Compiled source #
 ###################
 *.com
@@ -53,7 +50,6 @@ token
 .Trashes
 ehthumbs.db
 Thumbs.db
-
 #IDE Generated files #
 ######################
 **/.idea/*

@@ -8,7 +8,7 @@ from djgamemodule import security as sec
 
 def main():
     ''' this is the main routine'''
-    credid = sec.credscheck('y:/pyproject/secrets/client_secrets.json')
+    credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
     pb_access = credid["PushBullet_Key"]
     pb = Pushbullet(pb_access)
     all_pushes = pb.get_pushes()

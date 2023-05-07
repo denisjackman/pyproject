@@ -17,7 +17,7 @@ from djgamemodule import security as sec
 
 filelist = ["y:/pyproject/resources/work.txt",
             "y:/pyproject/resources/chores.txt",]
-cred_id = sec.credscheck('y:/pyproject/secrets/credentials.json')
+cred_id = sec.credscheck('y:/pyproject/secrets/secrets.json')
 key = cred_id["TrelloAPIKey"]
 token = cred_id["TrelloToken"]
 

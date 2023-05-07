@@ -16,7 +16,7 @@ __license__ = "Python"
 from slack_bolt import App
 from djgamemodule import security as sec
 
-credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
+credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
 
 app = App(
           token=credid["BotToken"],
