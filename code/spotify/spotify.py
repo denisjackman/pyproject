@@ -8,7 +8,7 @@ from djgamemodule import security as sec
 
 def main():
     """ This is the main function """
-    credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
+    credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
     # client_id = cred_id["SpotifyClientID"]
     # client_secret = cred_id["SpotifyClientSecret"]
     # redirect_uri = "https://github.com/denisjackman/pyproject"

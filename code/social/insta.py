@@ -8,7 +8,7 @@ from RedDownloader import RedDownloader
 from instagrapi import Client
 
 
-CREDENTIALS = 'y:/pyproject/secrets/client_secrets.json'
+CREDENTIALS = 'y:/pyproject/secrets/secrets.json'
 with open(CREDENTIALS, 'r', encoding='utf8') as f:
     creds = json.load(f)
 username = creds['user_name']

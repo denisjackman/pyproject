@@ -9,7 +9,7 @@ def main():
     '''
         main function
     '''
-    credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
+    credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
     notion_token = credid["Notion_Token"]
     notion_url = credid["Notion_Database"]
     notion_page = credid["Notion_Page"]

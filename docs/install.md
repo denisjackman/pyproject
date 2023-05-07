@@ -23,9 +23,9 @@
 ## Environment Specific Items
 This sequence will allow you to access anything that needs privileges. And should protect your details at the same time.
 
-*  Copy `credentials-template.json` to 'credentials.json'
+*  Copy `credentials-template.json` to 'secrets.json'
 *  Update the details inside as required
-*  set up `.gitignore` file. Make sure `credentials.json` is in there.
+*  set up `.gitignore` file. Make sure `secrets.json` is in there.
 
 ## Python Specific Items
 * set up a virtual environment 

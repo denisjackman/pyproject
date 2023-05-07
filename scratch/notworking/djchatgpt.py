@@ -7,7 +7,7 @@ import openai
 from djgamemodule import security as sec
 
 # Set up the OpenAI API client
-credid = sec.credscheck('y:/pyproject/secrets/client_secrets.json')
+credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
 openai.api_key = credid["OpenAI_API_Key"]
 
 # Set up the model and prompt

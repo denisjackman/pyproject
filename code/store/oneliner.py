@@ -21,7 +21,7 @@ __license__ = "Python"
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
-    credid = sec.credscheck('y:/pyproject/secrets/credentials.json')
+    credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
     qr.wifi_qrcode(credid["wifi"], False,'WPA', credid["wifi_password"])
     print("finishing up and closing down:")
     # TODO: change this export to a file instead of stdout

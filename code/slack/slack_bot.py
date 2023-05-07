@@ -40,7 +40,7 @@ def main():
     '''
     Main function for our logic
     '''
-    channelslist = sec.credscheck('y:/pyproject/secrets/credentials.json')
+    channelslist = sec.credscheck('y:/pyproject/secrets/secrets.json')
     parser = argparse.ArgumentParser(description='Send Messages to Slack')
     parser.add_argument('--message', '-m', type=str, default='')
     parser.add_argument('--file', '-f', type=str, default='')
