@@ -85,3 +85,4 @@ moviepy
 sounddevice
 colorama
 pushbullet.py
+xmltodict
