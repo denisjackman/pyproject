@@ -1,0 +1,10 @@
+['https://www.maidenheadthicketbowls.org', 
+'https://www.maidenheadthicketbowls.org', 
+'https://www.maidenheadthicketbowls.org/join', 
+'https://maidenhead.bowlr.co.uk/account/login', 
+'https://www.maidenheadthicketbowls.org/contact', 
+'https://www.maidenheadthicketbowls.org/directions', 
+'https://www.maidenheadthicketbowls.org/gallery', 
+'https://www.maidenheadthicketbowls.org/blog-1', 
+'https://www.maidenheadthicketbowls.org/internal-competitions', 
+'https://www.maidenheadthicketbowls.org/directions']
