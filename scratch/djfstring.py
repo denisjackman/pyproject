@@ -5,6 +5,11 @@ def get_vowels(String):
     vowels = [char for char in String if char in 'aeiou']
     return vowels
 
+def defang_ip(ip):
+    '''Returns defanged IP'''
+    defanged = ip.replace('.', '[.]')
+    return defanged
+
 def main():
     '''Main function'''
     strnow = datetime.datetime.now()
@@ -12,11 +17,13 @@ def main():
     name = 'Derek'
     age = 43
     message = f'Hello {name}, you are {age} years old.'
+    ip = '40.124.45.157'
     print("[+] Main function Started""")
     print(f'[-] Today is {strnow:%Y-%m-%d %H:%M}')
     print(f'[-] My Salary is : £{salary:,}')
     print(f"[-] Message Length :  {len(message):<10}, message : '{message:^20}'")
     print(f"[-] Vowels in message : {get_vowels(message)}")
+    print(f'[-] IP: {ip} Defanged IP : {defang_ip(ip)}')
     print("[+] Main function Complete")
 
 if __name__ == '__main__':
