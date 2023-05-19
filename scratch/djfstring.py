@@ -1,6 +1,18 @@
 ''' F string example'''
 import datetime
 import random
+import requests
+from bs4 import BeautifulSoup
+
+URL = "https://www.maidenheadthicketbowls.org/"
+
+
+def webscrape(url):
+    '''Returns title of webpage'''
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    links = soup.find_all('a')
+    return links
 
 def password_generator(passlen = 8, uppernum = 2, numlen = 2, symlen = 2 ):
     '''Returns password'''
@@ -51,6 +63,7 @@ def main():
     print(f"[-] Vowels in message : {get_vowels(message)}")
     print(f'[-] IP: {ip} Defanged IP : {defang_ip(ip)}')
     print(f'[-] Password : {password_generator()} {len(password_generator())}')
+    print(f'[-] Getlinks : {webscrape(URL)}')
     print("[+] Main function Complete")
 
 if __name__ == '__main__':
