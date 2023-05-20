@@ -51,7 +51,6 @@ mysql-connector-python
 psutil
 wikipedia
 configparser
-kivymd
 openpyxl
 faker
 dumper
