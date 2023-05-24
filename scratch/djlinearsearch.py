@@ -11,7 +11,6 @@
 ##      quick sort                      - DONE
 ##      Merge sort                      - DONE
 ##      heap sort
-##      merge sort
 ##      counting sort
 
 def quick_sort(input_list):
