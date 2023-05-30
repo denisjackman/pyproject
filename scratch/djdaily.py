@@ -76,7 +76,7 @@ def main():
     commands = {"verbosemode":False, "deletemode":False, "startdirectory":DIRECTORY}
     result = walk_through(commands)
     for item in result:
-        if item.endswith(".zip"):
+        if item.endswith(".txt"):
             print(f"[+] {item}")
     print("[+] Finished")
 
