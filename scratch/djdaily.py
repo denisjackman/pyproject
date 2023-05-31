@@ -1,40 +1,7 @@
 ''' utility to find zip files '''
-import os 
+import os
 
 DIRECTORY = "Y:\\Resources"
-
-def check_file_for_name(cff_root, cff_name, cff_command_args):
-    '''
-    check_file_for_name
-
-        :param : cff_root - the root directory for the file
-                 cff_name - the name of the file in question
-                 cff_command_args - a list of the command arguments
-
-        :return: boolean - True if the file exists
-                           False if it does not
-
-        check for the existence of a file in a list.
-        If it does return True.
-        If not return False.
-
-    '''
-    result = False
-    delete_list = [".DS_Store",
-                   ".AppleDouble",
-                   "Thumbs.db",
-                   ".pydevproject"]
-    startswith = ["."]
-    endswith = [".lnk"]
-    for name in delete_list:
-        if cff_name == name:
-            if cff_command_args["deletemode"]:
-                if cff_command_args["verbosemode"]:
-                    print(f'[FOUND] {os.path.join(cff_root, cff_name)} is to be deleted')
-                result = True
-
-
-    return result
 
 def walk_through(wt_command_args):
     """
@@ -50,34 +17,43 @@ def walk_through(wt_command_args):
     It utilises check_file function to further check the file.
     """
     start_dir = wt_command_args["startdirectory"]
-    verb = wt_command_args["verbosemode"]
-    delete_mode = wt_command_args["deletemode"]
+    verbosemode = wt_command_args["verbosemode"]
+    if verbosemode:
+        print(f"[+] Starting walk through {start_dir}")
     count = 0
-    found = 0
     result = []
-    for root, dirs, files in os.walk(start_dir, topdown=False):
+    if verbosemode:
+        print(f"[+] Searching for files in {start_dir}")
+    for root, _, files in os.walk(start_dir, topdown=False):
         for name in files:
-            if check_file_for_name(root, name, wt_command_args):
-                result.append(os.path.join(root, name))
-                found += 1
-            else:
-                result.append(os.path.join(root, name))               
+            result.append(os.path.join(root, name))
             count += 1
-        for name in dirs:
-            if check_file_for_name(root, name, wt_command_args):
-                result.append(os.path.join(root, name))
-                found += 1
-            count += 1
+    if verbosemode:
+        print(f"[+] Finished walk through {start_dir}")
+        print(f"[+] Found {count} files")
     return result
 
 def main():
     ''' main function '''
     print("[+] Starting")
-    commands = {"verbosemode":False, "deletemode":False, "startdirectory":DIRECTORY}
+    commands = {"verbosemode":True, "deletemode":False, "startdirectory":DIRECTORY}
     result = walk_through(commands)
+    pdffound = 0
+    txtfound = 0
+    pdflist = []
+    txtlist = []
+
     for item in result:
         if item.endswith(".txt"):
-            print(f"[+] {item}")
+            txtlist.append(item)
+            txtfound += 1
+
+        if item.endswith(".pdf"):
+            pdflist.append(item)
+            pdffound += 1
+
+    print(f"[+] PDF Found {pdffound} files")
+    print(f"[+] TXT Found {txtfound} files")
     print("[+] Finished")
 
 if __name__ == '__main__':
