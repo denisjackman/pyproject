@@ -1,7 +1,14 @@
 ''' utility to find zip files '''
 import os
 
-DIRECTORY = "X:\\Pictures"
+#DIRECTORYLIST = ["C:\\","F:\\","G:\\","V:\\","W:\\","X:\\","Y:\\","Z:\\"]
+DIRECTORYLIST = ["V:\\","W:\\","X:\\","Y:\\","Z:\\"]
+
+def extract_file_extension(filename):
+    ''' This checks the file extension and returns true or false '''
+    _, fileext = os.path.splitext(filename)
+    result = fileext.lower()
+    return result
 
 def walk_through(wt_command_args):
     """
@@ -36,61 +43,29 @@ def walk_through(wt_command_args):
 def main():
     ''' main function '''
     print("[+] Starting")
-    commands = {"verbosemode":False, "deletemode":False, "startdirectory":DIRECTORY}
-    result = walk_through(commands)
-    pdffound = 0
-    txtfound = 0
-    jpgfound = 0
-    pngfound = 0
-    movfound = 0
-    aaefound = 0
 
-    pdflist = []
-    txtlist = []
-    jpglist = []
-    pnglist = []
-    movlist = []
-    aaelist = [] 
+    totallist = []
+    for directory in DIRECTORYLIST:
+        print (f"[-] Searching {directory}")
+        commands = {"verbosemode":False, "deletemode":False, "startdirectory":directory}
+        totallist.extend(walk_through(commands))
+        print (f"[-] Searching {directory} - records found {len(totallist)}:,")
 
-    for item in result:
-        if item.endswith(".txt"):
-            txtlist.append(item)
-            txtfound += 1
+    extensiondict = {}
 
-        if item.endswith(".pdf"):
-            pdflist.append(item)
-            pdffound += 1
-
-        if item.endswith(".jpg"):
-            jpglist.append(item)
-            jpgfound += 1
-
-        if item.endswith(".png"):
-            pnglist.append(item)
-            pngfound += 1
-
-        if item.endswith(".jpeg"):
-            jpglist.append(item)
-            jpgfound += 1
-
-        if item.endswith(".mov"):
-            movlist.append(item)
-            movfound += 1
-
-        if item.endswith(".aae"):
-            aaelist.append(item)
-            aaefound += 1
+    for item in totallist:
+        extension = extract_file_extension(item)
+        if extension not in extensiondict:
+            extensiondict[extension] = [item]
+        else:
+            extensiondict[extension].append(item)
 
     print("[-] File Inventory ")
     print("-------------------------------")
-    print(f"[*] JPG Found {jpgfound} files")
-    print(f"[*] PDF Found {pdffound} files")
-    print(f"[*] TXT Found {txtfound} files")
-    print(f"[*] PNG Found {pngfound} files")
-    print(f"[*] MOV Found {movfound} files")
-    print(f"[*] AAE Found {aaefound} files")
+    for key, value in extensiondict.items():
+        print(f"[*] {key} Found {len(value):,} files")
+    print(f"[*] Total Found {len(totallist):,} files")
     print("-------------------------------")
-    print("[+] Finished")
 
 if __name__ == '__main__':
     main()
