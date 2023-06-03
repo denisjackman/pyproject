@@ -37,7 +37,6 @@ def walk_through(wt_command_args):
             count += 1
     if verbosemode:
         print(f"[o] Finished walk through {start_dir}")
-        print(f"[o] Found {count} files")
     return result
 
 def main():
@@ -46,10 +45,10 @@ def main():
 
     totallist = []
     for directory in DIRECTORYLIST:
-        print (f"[-] Searching {directory}")
+        print(f"[-] Searching {directory}")
         commands = {"verbosemode":False, "deletemode":False, "startdirectory":directory}
         totallist.extend(walk_through(commands))
-        print (f"[-] Searching {directory} - records found {len(totallist)}:,")
+        print(f"[-] Records found {len(totallist):,}")
 
     extensiondict = {}
 
@@ -63,8 +62,8 @@ def main():
     print("[-] File Inventory ")
     print("-------------------------------")
     for key, value in extensiondict.items():
-        print(f"[*] {key} Found {len(value):,} files")
-    print(f"[*] Total Found {len(totallist):,} files")
+        print(f"[*] {key:.<25} Found {len(value):.>10,} files")
+    print(f"[*] Total Found {len(totallist):.>10,} files")
     print("-------------------------------")
 
 if __name__ == '__main__':
