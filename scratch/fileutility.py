@@ -1,8 +1,12 @@
 ''' utility to find zip files '''
 import os
+import csv
 
-#DIRECTORYLIST = ["C:\\","F:\\","G:\\","V:\\","W:\\","X:\\","Y:\\","Z:\\"]
-DIRECTORYLIST = ["V:\\","W:\\","X:\\","Y:\\","Z:\\"]
+DIRECTORYLIST = ["C:\\","F:\\","G:\\","V:\\","W:\\","X:\\","Y:\\","Z:\\"]
+DIRECTORYLISTFILE = "Y:\\Resources\\development\\directorylist.txt"
+DIRECTORYSUMMARY = "Y:\\Resources\\development\\directorysummary.txt"
+
+#DIRECTORYLIST = ["V:\\","W:\\","X:\\","Y:\\","Z:\\"]
 
 def extract_file_extension(filename):
     ''' This checks the file extension and returns true or false '''
@@ -63,8 +67,17 @@ def main():
     print("-------------------------------")
     for key, value in extensiondict.items():
         print(f"[*] {key:.<25} Found {len(value):.>10,} files")
-    print(f"[*] Total Found {len(totallist):.>10,} files")
+    print(f"[*] Total Found {len(totallist):,} files")
     print("-------------------------------")
+
+    with open(DIRECTORYSUMMARY, 'w', newline='', encoding='utf-8-sig') as csvfile:
+        csvwriter = csv.writer(csvfile, delimiter=',')
+        for key, value in extensiondict.items():
+            csvwriter.writerow([key, len(value)])
+
+    with open(DIRECTORYLISTFILE, 'w', newline='', encoding='utf-8-sig') as filelistfile:
+        csvwriter = csv.writer(filelistfile, delimiter=',')
+        csvwriter.writerows(totallist)
 
 if __name__ == '__main__':
     main()
