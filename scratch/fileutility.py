@@ -76,8 +76,8 @@ def main():
             csvwriter.writerow([key, len(value)])
 
     with open(DIRECTORYLISTFILE, 'w', newline='', encoding='utf-8-sig') as filelistfile:
-        csvwriter = csv.writer(filelistfile, delimiter=',')
-        csvwriter.writerows(totallist)
-
+        for item in totallist:
+            filelistfile.write(f"{item}\n")
+    
 if __name__ == '__main__':
     main()
