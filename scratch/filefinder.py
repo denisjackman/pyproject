@@ -13,7 +13,7 @@ def main():
         extensionlist = list(templist)
 
     with open(DIRECTORYLISTFILE, 'r', encoding='utf-8-sig') as filelistfile:
-        filelist = filelistfile.read().replace('\n', '')
+        filelist = filelistfile.readlines()
 
     print(f"[-] files found {len(filelist):,}")
     print(f"[-] extensions found {len(extensionlist):,}")
