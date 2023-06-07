@@ -14,7 +14,15 @@ def main():
 
     with open(DIRECTORYLISTFILE, 'r', encoding='utf-8-sig') as filelistfile:
         filelist = filelistfile.readlines()
-
+    testvalue = 0
+    testkey = ""
+    for item in extensionlist:
+        itemkey = item[0]
+        itemvalue = int(item[1])
+        if testvalue < itemvalue:
+            testkey = itemkey
+            testvalue = itemvalue
+    print(f"[-] Largest item is '{testkey}' and it is {testvalue:,}")
     print(f"[-] files found {len(filelist):,}")
     print(f"[-] extensions found {len(extensionlist):,}")
     print(f"[-] extension's example {extensionlist[1]} {int(extensionlist[1][1]):,}")
