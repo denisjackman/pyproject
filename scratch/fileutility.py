@@ -3,8 +3,8 @@ import os
 import csv
 
 DIRECTORYLIST = ["C:\\","F:\\","G:\\","V:\\","W:\\","X:\\","Y:\\","Z:\\"]
-DIRECTORYLISTFILE = "Y:\\Resources\\development\\directorylist.txt"
-DIRECTORYSUMMARY = "Y:\\Resources\\development\\directorysummary.txt"
+DIRECTORYLISTFILE = "Y:/pyproject/data/directorylist.txt"
+DIRECTORYSUMMARY = "Y:/pyproject/data/directorysummary.txt"
 
 #DIRECTORYLIST = ["V:\\","W:\\","X:\\","Y:\\","Z:\\"]
 
