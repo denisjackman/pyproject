@@ -15,7 +15,7 @@ FILEPATH = Path(__file__).parent
 def oracle_generator():
     '''Generates an oracle'''
 
-    with open(f"{FILEPATH}/referencedata/Oracles.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/Oracles.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     oracle_noun = choice(data["oracle_noun"])

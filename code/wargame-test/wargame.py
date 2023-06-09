@@ -186,7 +186,7 @@ def main():
 
     # finish the game and quit
     pygame.quit()
-    with open(f"{FILEPATH}{FONTDATA}", "w", encoding='utf8') as file:
+    with open(f"{FILEPATH}{FONTDATA}", "w", encoding='utf-8-sig') as file:
         json.dump({"pygame_fonts": listfonts,},
                   file,
                   indent=4,

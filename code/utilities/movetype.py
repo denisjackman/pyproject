@@ -8,7 +8,7 @@ def main():
     print("Starting the sequence:")
     print("Starting ")
     count = 0
-    with open("Y:/Resources/text/500_inn_names.txt", "r", encoding='utf8') as file:
+    with open("Y:/Resources/text/500_inn_names.txt", "r", encoding='utf-8-sig') as file:
         filelines = file.readlines()
         for files in filelines:
             count += 1

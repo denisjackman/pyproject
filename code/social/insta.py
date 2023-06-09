@@ -9,7 +9,7 @@ from instagrapi import Client
 
 
 CREDENTIALS = 'y:/pyproject/secrets/secrets.json'
-with open(CREDENTIALS, 'r', encoding='utf8') as f:
+with open(CREDENTIALS, 'r', encoding='utf-8-sig') as f:
     creds = json.load(f)
 username = creds['user_name']
 password = creds['pass_word']

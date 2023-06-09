@@ -15,7 +15,7 @@ FILEPATH = Path(__file__).parent
 def riddle_generator():
     ''' riddle generator '''
     filename = f"{FILEPATH}/referencedata/Riddles.json"
-    with open(filename, "r", encoding='utf8') as file:
+    with open(filename, "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     riddle = choice(data['riddle_question'])
@@ -27,7 +27,7 @@ def fantasy_wine_name():
     '''
         fantasy wine name generator
     '''
-    with open(f"{FILEPATH}/referencedata/FantasyWines.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/FantasyWines.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     wine_name = choice(data['wine_name'])
     result = f"{wine_name}"
@@ -398,7 +398,7 @@ def book_title_generator(catalogue = False):
     '''Generates a book title'''
     #pylint: disable=R0914
     result = ''
-    with open(f"{FILEPATH}/referencedata/BookTitles.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/BookTitles.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = dice(10)
     if roll == 1:
@@ -577,7 +577,7 @@ def plural(input_text_string):
 def coatofarms_generator():
     '''Generates a Coat of Arms'''
     #pylint: disable=R0914
-    with open(f"{FILEPATH}/referencedata/CoatArms.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/CoatArms.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     result = ''
     roll = dice()
@@ -636,7 +636,7 @@ def coatofarms_generator():
 
 def herb_name_generator():
     '''Generates a Herb Name'''
-    with open(f"{FILEPATH}/referencedata/HerbNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/HerbNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     result = ''
     roll = dice(14)
@@ -668,7 +668,7 @@ def herb_name_generator():
 def adventure_name_generator():
     '''Generates an Adventure Name'''
     #pylint: disable=R0914
-    with open(f"{FILEPATH}/referencedata/AdventureNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/AdventureNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     result = ''
     roll = dice(40)
@@ -783,7 +783,7 @@ def adventure_name_generator():
 
 def lovecraft_creature_generator():
     '''Generates a random Lovecraftian creature'''
-    with open(f"{FILEPATH}/referencedata/LovecraftCreatures.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/LovecraftCreatures.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     adjective = choice(data["lovecraft_adjective"])
     noun = choice(data["lovecraft_noun"])
@@ -810,7 +810,7 @@ def lovecraft_creature_generator():
 def orc_tribe_generator():
     '''Generates a random orc tribe name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/OrcTribes.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/OrcTribes.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = dice(7)
     if roll <= 4:
@@ -825,7 +825,7 @@ def orc_tribe_generator():
 def organization_generator():
     '''Generates a random organization name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/OrganizationNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/OrganizationNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = dice(7)
     plurals = {"city": "cities", "cross": "crosses", "fox": "foxes", "knife": "knives",
@@ -859,7 +859,7 @@ def organization_generator():
 def ship_name_generator():
     '''Generates a random ship name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/ShipNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/ShipNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     temp = choice(data['ship_person'])
     person =temp[:-2]

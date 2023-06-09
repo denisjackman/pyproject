@@ -19,7 +19,7 @@ def openfile():
     ''' open the file and read it into a list'''
     print("[+] Opening the file")
     result = []
-    with open(DATA_FILE, 'r', encoding='utf8') as csvfile:
+    with open(DATA_FILE, 'r', encoding='utf-8-sig') as csvfile:
         result = list(csv.DictReader(csvfile, delimiter=','))
     print("[+] Closing the file")
     return result

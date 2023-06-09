@@ -7,7 +7,7 @@ def main():
     Subjects = []
     Scores = []
     # Read the data from the CSV file.
-    with open('Y:/Resources/Data/SubjectMarks.csv', 'r', encoding='utf8') as csvfile:
+    with open('Y:/Resources/Data/SubjectMarks.csv', 'r', encoding='utf-8-sig') as csvfile:
         lines= csv.reader(csvfile, delimiter=',')
         for row in lines:
             Subjects.append(row[0])

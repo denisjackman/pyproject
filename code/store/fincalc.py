@@ -20,7 +20,7 @@ def main():  # pylint: disable=R0914
     year21_out = 0
     year22_out = 0
 
-    with open("Y:/house-data/consolidated.csv", encoding='utf8') as finfile:
+    with open("Y:/house-data/consolidated.csv", encoding='utf-8-sig') as finfile:
         for line in finfile:
             if line.startswith("Transaction Date"):
                 continue

@@ -61,7 +61,7 @@ def main():
     print("Starting the sequence:")
     document = docx.Document()
 
-    with open('y:/work/data/links.txt', 'r', encoding='utf8') as file:
+    with open('y:/work/data/links.txt', 'r', encoding='utf-8-sig') as file:
         for line in file:
             para = document.add_paragraph()
             para.style = 'List Bullet'

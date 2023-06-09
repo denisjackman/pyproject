@@ -27,7 +27,7 @@ def datascrapemain():
     checkfilepath = "Y:/Data/comment_votes.csv"
     #checkfilepath = "/home/share/disk1/workspace/Data/comment_votes.csv"
 
-    with open(checkfilepath, encoding="utf8") as input_file:
+    with open(checkfilepath, encoding="utf-8-sig") as input_file:
         for item in input_file.readlines():
             listitems = item.split(',')
             listfiles.append(listitems[1])

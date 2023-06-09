@@ -5,7 +5,7 @@ def main():
     ''' main function'''
     Names = []
     Values = []
-    with open('Y:/Resources/Data/bldprs_measure.csv', 'r', encoding='utf8') as csvfile:
+    with open('Y:/Resources/Data/bldprs_measure.csv', 'r', encoding='utf-8-sig') as csvfile:
         lines = csv.reader(csvfile, delimiter=',')
         for row in lines:
             Names.append(row[0])

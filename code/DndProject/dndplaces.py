@@ -16,7 +16,7 @@ FILEPATH = Path(__file__).parent
 
 def town_name_generator():
     '''Generates a town name'''
-    with open(f"{FILEPATH}/referencedata/TownNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/TownNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     result = ''
@@ -36,7 +36,7 @@ def town_name_generator():
 def woodname_generator():
     '''Generates a wood name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/WoodNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/WoodNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data['wood_name_prefix'])
     suffix = choice(data['wood_name_suffix'])
@@ -46,7 +46,7 @@ def woodname_generator():
 def streetname_generator():
     '''Generates a street name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/StreetNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/StreetNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data['street_name_prefix'])
     suffix = choice(data['street_name_suffix'])
@@ -56,7 +56,7 @@ def streetname_generator():
 def dwarven_settlement_name_generator():
     '''Generates a dwarven settlement name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/DwarvenSettlementNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DwarvenSettlementNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = dice(10)
     community = choice(data['dwarven_settlement_community'])
@@ -72,7 +72,7 @@ def dwarven_settlement_name_generator():
 def place_name_generator():
     '''Generates a place name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/PlaceNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/PlaceNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = dice(2)
     if roll == 0:
@@ -89,7 +89,7 @@ def place_name_generator():
 
 def inn_name_generator():
     '''Generates an Inn Name'''
-    with open(f"{FILEPATH}/referencedata/InnNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/InnNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = dice(16)
     result = ''
@@ -147,7 +147,7 @@ def inn_name_generator():
 def site_name_generator():
     '''Generates a random site name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/SiteNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/SiteNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = dice(3)
     if roll == 1:
