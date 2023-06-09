@@ -3,11 +3,11 @@
     colour converter routine
 '''
 
-with open('y:/resources/colours.csv', encoding="utf8") as input_file, \
-     open('rgb.py', 'w', encoding='utf8') as rgb_file, \
-     open('hex.py', 'w', encoding='utf8') as hex_file, \
-     open('rgbdict.py', 'w', encoding='utf8') as rgbdict_file, \
-     open('hexdict.py', 'w', encoding='utf8') as hexdict_file:
+with open('y:/resources/colours.csv', encoding="utf-8-sig") as input_file, \
+     open('rgb.py', 'w', encoding='utf-8-sig') as rgb_file, \
+     open('hex.py', 'w', encoding='utf-8-sig') as hex_file, \
+     open('rgbdict.py', 'w', encoding='utf-8-sig') as rgbdict_file, \
+     open('hexdict.py', 'w', encoding='utf-8-sig') as hexdict_file:
 
     rgb_file.write("'''\n RGB COLOR CODES\n'''\n")
     hex_file.write("'''\n HEX COLOR CODES\n'''\n")

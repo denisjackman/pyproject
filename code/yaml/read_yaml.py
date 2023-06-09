@@ -5,7 +5,7 @@
 
 import yaml
 
-with open('y:/pyproject/resources/yaml/items.yaml','r',encoding='utf8') as f:
+with open('y:/pyproject/resources/yaml/items.yaml','r',encoding='utf-8-sig') as f:
 
     data = yaml.load(f, Loader=yaml.FullLoader)
     print(data)

@@ -15,7 +15,7 @@ FILEPATH = Path(__file__).parent
 
 def angelic_name():
     ''' angelic names '''
-    with open(f"{FILEPATH}/referencedata/AngelNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/AngelNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data['angel_prefix'])
     suffix = choice(data['angel_suffix'])
@@ -24,7 +24,7 @@ def angelic_name():
 
 def barbarian_name():
     ''' barbarian names '''
-    with open(f"{FILEPATH}/referencedata/BarbarianNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/BarbarianNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     roll = dice(2)
@@ -42,7 +42,7 @@ def barbarian_name():
 
 def build_demon_name():
     ''' build a name '''
-    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     syllable = choice(data["demon_syllable"])
     roll = dice(7)
@@ -56,7 +56,7 @@ def build_demon_name():
 
 def demon_name_one():
     ''' demon name generator '''
-    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     syllable = choice(data["demon_syllable"])
     roll = dice(7)
@@ -73,7 +73,7 @@ def demon_name_one():
 
 def demon_name_two():
     ''' demon name generator'''
-    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DemonNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     result = ''
@@ -124,7 +124,7 @@ def dwarven_name(gender=None):
     firstname = ''
     lastname = ''
 
-    with open(f"{FILEPATH}/referencedata/DwarvenNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DwarvenNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     prefix = choice(data["dwarven_name_prefix"])
@@ -163,7 +163,7 @@ def dwarven_name(gender=None):
 
 def elfname_generator():
     '''Generates an Elf Name'''
-    with open(f"{FILEPATH}/referencedata/ElfNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/ElfNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     result = ''
     firstname = ""
@@ -181,7 +181,7 @@ def elfname_generator():
 def hyborian_name_generator():
     '''Generates a Hyborian Name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/HyborianNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/HyborianNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data["hyborian_prefix"])
     suffix = choice(data["hyborian_suffix"])
@@ -192,7 +192,7 @@ def lizardman_name_generator():
     '''Generates a random lizardman name'''
     result = ''
 
-    with open(f"{FILEPATH}/referencedata/LizardNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/LizardNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     if dice(3) == 3:
@@ -266,7 +266,7 @@ def lizardman_name_generator():
 
 def celtic_name_generator(gender=None):
     '''Generates a random Celtic name'''
-    with open(f"{FILEPATH}/referencedata/CelticNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/CelticNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     prefix_male = choice(data["celtic_prefix_male"])
@@ -296,7 +296,7 @@ def celtic_name_generator(gender=None):
 def epyptian_name_generator():
     '''Generates a random Egyptian name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/EgyptianNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/EgyptianNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data["egyptian_prefix"])
     middle = choice(data["egyptian_middle"])
@@ -320,7 +320,7 @@ def epyptian_name_generator():
 def greek_name_generator():
     '''Generates a random greek name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/GreekNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/GreekNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data["greek_prefix"])
     suffix = choice(data["greek_suffix"])
@@ -333,7 +333,7 @@ def greek_name_generator():
 def oldenglish_name_generator():
     '''Generates a random Old English name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/OldEnglishNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/OldEnglishNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data["oldenglish_prefix"])
     suffix = choice(data["oldenglish_suffix"])
@@ -344,7 +344,7 @@ def sumerian_name_generator():
     '''Generates a random Sumerian name'''
     result = ''
     roll = dice(37)
-    with open(f"{FILEPATH}/referencedata/SumerianNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/SumerianNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     if roll == 1:
@@ -429,7 +429,7 @@ def orc_name_generator():
     result = ""
     roll = dice(4)
 
-    with open(f"{FILEPATH}/referencedata/OrcNames.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/OrcNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     if dice(4) <= 3:
         if roll == 1:

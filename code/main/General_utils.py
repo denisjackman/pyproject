@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     print("SYS                         : " + str(Dice.insult_generator()))
     #open a file and read it in stripping the newline out of it
-    with open("Y:/Resources/text/shipnames.txt", "r", encoding='utf8') as shipfile:
+    with open("Y:/Resources/text/shipnames.txt", "r", encoding='utf-8-sig') as shipfile:
         shiplines = shipfile.read().strip()
         print(f"Shipname                    : {shiplines[Dice.number_generator(len(shiplines)-1)]}")
         print(f"Shipname                    : {str(len(shiplines))}")

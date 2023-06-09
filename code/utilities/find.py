@@ -18,7 +18,7 @@ COUNT = 0
 TOTAL = 0
 SIZEFILES = 0
 
-with open(LOGFILE, "w", encoding='utf8') as logreport:
+with open(LOGFILE, "w", encoding='utf-8-sig') as logreport:
     for dirName, subdirList, fileList in os.walk(ROOTDIR):
         TOTAL += 1
         for fname in fileList:

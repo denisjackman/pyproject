@@ -344,7 +344,7 @@ def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
     path = r'Y:\pyproject\scratch\index.html'
-    with open(path, "w", encoding='utf8') as file:
+    with open(path, "w", encoding='utf-8-sig') as file:
         file.write(build_page())
     print("finishing up and closing down:")
 

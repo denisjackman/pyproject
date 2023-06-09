@@ -27,7 +27,7 @@ def shakespearean_insult_generator():
     There are no inputs. The output is the insult as a string (result)
     '''
     filename = f"{FILEPATH}/referencedata/ShakespeareInsult.json"
-    with open(filename, "r", encoding='utf8') as file:
+    with open(filename, "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     column_one = choice(data["insult_column_one"])
     column_two = choice(data["insult_column_two"])
@@ -40,7 +40,7 @@ def dwarven_insult_generator():
     '''
         dwarven insult generator
     '''
-    with open(f"{FILEPATH}/referencedata/DwarvenInsult.json", "r", encoding='utf8') as file:
+    with open(f"{FILEPATH}/referencedata/DwarvenInsult.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     dwarven_insult_one = choice(data["insult_column_one"]).capitalize()
     dwarven_insult_two = choice(data["insult_column_two"])

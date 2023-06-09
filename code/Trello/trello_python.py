@@ -60,7 +60,7 @@ def main():
         if filename.endswith(".txt"):
             filename = os.path.splitext(filename)[0]
             list_name = create_list(board_id, filename.title())
-            with open(fileitem, "r", encoding="utf8") as txt_file:
+            with open(fileitem, "r", encoding="utf-8-sig") as txt_file:
                 for card_name in txt_file.readlines():
                     create_card(list_name, card_name)
 

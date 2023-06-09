@@ -96,7 +96,7 @@ def main():
         for item in clicks:
             pygame.draw.circle(window, (255, 0, 0), item, 5, 0)
         pygame.display.update()
-    with open(f"{FILEPATH}{GAMEDATA}", "w", encoding='utf8') as file:
+    with open(f"{FILEPATH}{GAMEDATA}", "w", encoding='utf-8-sig') as file:
         json.dump({"npc_path": clicks,},
                   file,
                   indent=4,
