@@ -3,8 +3,8 @@ import os
 import csv
 
 DIRECTORYLIST = ["C:\\","F:\\","G:\\","V:\\","W:\\","X:\\","Y:\\","Z:\\"]
-DIRECTORYLISTFILE = "Y:/pyproject/data/directorylist.txt"
-DIRECTORYSUMMARY = "Y:/pyproject/data/directorysummary.txt"
+DIRECTORYLISTFILE = "Y:/Resources/development/directorylist.txt"
+DIRECTORYSUMMARY = "Y:/Resources/development/directorysummary.txt"
 
 #DIRECTORYLIST = ["V:\\","W:\\","X:\\","Y:\\","Z:\\"]
 
@@ -78,6 +78,6 @@ def main():
     with open(DIRECTORYLISTFILE, 'w', newline='', encoding='utf-8-sig') as filelistfile:
         for item in totallist:
             filelistfile.write(f"{item}\n")
-    
+
 if __name__ == '__main__':
     main()

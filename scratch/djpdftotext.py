@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 ''' pdf to text conversion '''
 from PyPDF2 import PdfReader
-import os
 
 INPUTFILE = "y:/Resources/reference/python-reference.pdf"
-OUTPUTFILE = "y:/pyproject/data/output.txt"
+OUTPUTFILE = "Y:/Resources/development/output.txt"
 
 
 def convertpdftotxt(inputfile, outputfile, verbosemode = False):

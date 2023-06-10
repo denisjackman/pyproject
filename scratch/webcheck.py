@@ -4,8 +4,8 @@ import requests
 
 
 status_dict = {"Website": "Status"}
-INPUTFILE = "y:/pyproject/data/websites.txt"
-OUTPUTFILE = "y:/pyproject/data/website_status.csv"
+INPUTFILE = "Y:/Resources/development/websites.txt"
+OUTPUTFILE = "Y:/Resources/development/website_status.csv"
 
 def website_check(webdebug = False):
     ''' website status checker '''

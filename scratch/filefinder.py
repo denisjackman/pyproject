@@ -1,8 +1,8 @@
 ''' utility to find zip files '''
 import csv
 
-DIRECTORYLISTFILE = "Y:/pyproject/data/directorylist.txt"
-DIRECTORYSUMMARY = "Y:/pyproject/data/directorysummary.txt"
+DIRECTORYLISTFILE = "Y:/Resources/development/directorylist.txt"
+DIRECTORYSUMMARY = "Y:/Resources/development/directorysummary.txt"
 
 def main():
     ''' main function '''
@@ -26,7 +26,8 @@ def main():
     print(f"[-] files found {len(filelist):,}")
     print(f"[-] extensions found {len(extensionlist):,}")
     print(f"[-] extension's example {extensionlist[1]} {int(extensionlist[1][1]):,}")
-    print(f"[-] file's example {filelist[1]}")
+    temp = filelist[1].replace('\n','')
+    print(f"[-] file's example {temp}")
     print("[+] Finished")
 
 if __name__ == '__main__':
