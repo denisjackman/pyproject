@@ -1,8 +1,8 @@
 ''' JSON to CSV converter script'''
 import json
 
-INPUTFILE = "y:/pyproject/data/input.json"
-OUTPUTFILE = "y:/pyproject/data/output.csv"
+INPUTFILE = "Y:/Resources/development/input.json"
+OUTPUTFILE = "Y:/Resources/development/output.csv"
 
 def jsontocsv(inputfile, outputfile):
     '''Converts JSON file to CSV file'''

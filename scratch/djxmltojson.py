@@ -1,8 +1,8 @@
 ''' This script converts an XML file to JSON format.'''
 import json
 import xmltodict
-INPUTFILE = "y:/pyproject/data/input.xml"
-OUTPUTFILE = "y:/pyproject/data/output.json"
+INPUTFILE = "Y:/Resources/development/input.xml"
+OUTPUTFILE = "Y:/Resources/development/output.json"
 
 def xmltojson(inputfile, outputfile):
     '''Converts XML file to JSON file'''
