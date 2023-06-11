@@ -85,3 +85,5 @@ sounddevice
 colorama
 pushbullet.py
 xmltodict
+pydrive2
+pyopenssl

@@ -55,3 +55,4 @@ Thumbs.db
 **/.idea/*
 **/__pycache__/*
 **/.pytest_cache/*
+client_secrets.json
