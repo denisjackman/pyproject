@@ -1,5 +1,6 @@
 ''' openlearn.lessons.py'''
 def main():
+    ''' main function'''
     expenses = 54
     people = 6
     if people > 6:

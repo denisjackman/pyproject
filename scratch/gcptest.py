@@ -7,13 +7,14 @@ from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
 
 def main():
+    ''' main function       '''
     gauth = GoogleAuth()
     gauth.LocalWebserverAuth()
     drive = GoogleDrive(gauth)
     # Create Google Docs file
     file = drive.CreateFile({'title': 'Hello Google Drive!'})
     file.Upload()
-    print('Created file %s with mimeType %s' % (file['title'], file['mimeType']))
-    
+    print(f"Created file {file['title']} with mimeType {file['mimeType']}")
+
 if __name__ == '__main__':
     main()

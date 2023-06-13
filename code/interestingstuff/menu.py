@@ -1,5 +1,5 @@
 ''' This is a menu program that will allow you to choose from a list of options'''
-import os 
+import os
 
 def menu():
     ''' This is the main function'''
