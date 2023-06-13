@@ -9,7 +9,7 @@ URL = "https://www.maidenheadthicketbowls.org/"
 
 def webscrape(url):
     '''Returns title of webpage'''
-    page = requests.get(url)
+    page = requests.get(url, timeout=5)
     soup = BeautifulSoup(page.content, 'html.parser')
     links = soup.find_all('a')
     return links
