@@ -1,8 +1,14 @@
 '''Lambda test script '''
 FRUIT = ['apple', 'banana', 'cherry', 'kiwi', 'mango']
 
-SQUARE = lambda x: x ** 2
-ADD = lambda x, y: x + y
+def SQUARE(x):
+    ''' square function '''
+    return x ** 2
+
+def ADD(x, y):
+    ''' add function '''
+    return x + y
+
 FRUIT_TITLE = map(lambda x: x.title(), FRUIT)
 FRUIT_FILTER = filter(lambda x: len(x)<6, FRUIT)
 
