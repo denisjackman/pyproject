@@ -41,72 +41,76 @@ def main():
     print("[+] -- Main Function Start")
     dataset = opengradfile(DATA_FILE)
     print(f"[+] Number of items in dataset is {len(dataset)}")
-    count = 0
-    mcount = 0
-    mstake = 0.0
-    mrev_cust = 0.0
-    mpot_cust = 0.0
-    mvoid = 0.0
-    mvoidcount = 0
-    mwin = 0
-    mplace = 0
-    mlose = 0
 
-    dcount = 0
-    dstake = 0.0
-    drev_cust = 0.0
-    dpot_cust = 0.0
-    dvoid = 0.0
-    dvoidcount = 0
-    dwin = 0
-    dlose = 0
-    dplace = 0
+    count = 0
+    mdetails = {}
+    ddetails = {}
+
+    mdetails["mcount"] = 0
+    mdetails["mstake"] = 0.0
+    mdetails["mrev_cust"] = 0.0
+    mdetails["mpot_cust"] = 0.0
+    mdetails["mvoid"] = 0.0
+    mdetails["mvoidcount"] = 0
+    mdetails["mwin"] = 0
+    mdetails["mplace"] = 0
+    mdetails["mlose"] = 0
+
+    ddetails["dcount"] = 0
+    ddetails["dstake"] = 0.0
+    ddetails["drev_cust"] = 0.0
+    ddetails["dpot_cust"] = 0.0
+    ddetails["dvoid"] = 0.0
+    ddetails["dvoidcount"] = 0
+    ddetails["dwin"] = 0
+    ddetails["dlose"] = 0
+    ddetails["dplace"] = 0
 
     for item in dataset:
         count += 1
         if item["channel"] == "M":
-            mcount +=1
+            mdetails["mcount"] +=1
             if item["result"] == 'W':
-                mwin += 1
+                mdetails["mwin"] += 1
             if item["result"] == 'L':
-                mlose += 1
+                mdetails["mlose"] += 1
             if item["result"] == 'P':
-                mplace += 1
+                mdetails["mplace"] += 1
             if item["result"] == 'V':
-                mvoid += float(item["stake"])
-                mvoidcount += 1
+                mdetails["mvoid"] += float(item["stake"])
+                mdetails["mvoidcount"] += 1
             else:
-                mstake += float(item["stake"])
-                mrev_cust += float(item["return"])
-                mpot_cust += float(item["odds"])*float(item["stake"])
+                mdetails["mstake"] += float(item["stake"])
+                mdetails["mrev_cust"] += float(item["return"])
+                mdetails["mpot_cust"] += float(item["odds"])*float(item["stake"])
         if item["channel"] =="D":
-            dcount +=1
+            ddetails["dcount"] +=1
             if item["result"] == 'W':
-                dwin += 1
+                ddetails["dwin"] += 1
             if item["result"] == 'L':
-                dlose += 1
+                ddetails["dlose"] += 1
             if item["result"] == 'P':
-                dplace += 1
+                ddetails["dplace"] += 1
             if item["result"] == 'V':
-                dvoid += float(item["stake"])
-                dvoidcount += 1
+                ddetails["dvoid"] += float(item["stake"])
+                ddetails["dvoidcount"] += 1
             else:
-                dstake += float(item["stake"])
-                drev_cust += float(item["return"])
-                dpot_cust += float(item["odds"])*float(item["stake"])
+                ddetails["dstake"] += float(item["stake"])
+                ddetails["drev_cust"] += float(item["return"])
+                ddetails["dpot_cust"] += float(item["odds"])*float(item["stake"])
     print(f"[-] Dataset row = {dataset[0]}")
-    output = f"[-] Total data numbers are count: {count:,}, stake: £{mstake+dstake:,.2f},"\
-             f"return: £{mrev_cust+drev_cust:,.2f} potential: £{mpot_cust+dpot_cust:,.2f} "\
-             f"void amount: £{mvoid+dvoid:,.2f} voided: {mvoidcount+dvoidcount:,} winners:"\
-             f"{mwin+dwin:,} losers: {mlose+dlose:,} place {mplace+dplace:,}"
+    output = f'[-] Total data numbers are count: {count:,}, stake: £{mdetails["mstake"]+ddetails["dstake"]:,.2f},'\
+             f'return: £{mdetails["mrev_cust"]+ddetails["drev_cust"]:,.2f} potential: £{mdetails["mpot_cust"]+ddetails["dpot_cust"]:,.2f} '\
+             f'void amount: £{mdetails["mvoid"]+ddetails["dvoid"]:,.2f} voided: {mdetails["mvoidcount"]+ddetails["dvoidcount"]:,} winners:'\
+             f'{mdetails["mwin"]+ddetails["dwin"]:,} losers: {mdetails["mlose"]+ddetails["dlose"]:,} place {mdetails["mplace"]+ddetails["dplace"]:,}'
     print(output)
-    output = f"[-] Mobile data numbers are count: {mcount:,}, stake: £{mstake:,.2f}, return: "\
-             f"£{mrev_cust:,.2f} potential: £{mpot_cust:,.2f} voided: £{mvoid:,.2f} number voided"\
-             f" {mvoidcount:,} winners: {mwin:,} losers: {mlose:,} place {mplace:,}"
+    output = f'[-] Mobile data numbers are count: {mdetails["mcount"]:,}, stake: £{mdetails["mstake"]:,.2f}, return: '\
+             f'£{mdetails["mrev_cust"]:,.2f} potential: £{mdetails["mpot_cust"]:,.2f} voided: £{mdetails["mvoid"]:,.2f} number voided'\
+             f' {mdetails["mvoidcount"]:,} winners: {mdetails["mwin"]:,} losers: {mdetails["mlose"]:,} place {mdetails["mplace"]:,}'
     print(output)
-    output = f"[-] Desktop data numbers are count: {dcount:,}, stake: £{dstake:,.2f}, return: "\
-             f"£{drev_cust:,.2f} potential: £{dpot_cust:,.2f} voided: £{dvoid:,.2f} number voided "\
-             f"{dvoidcount:,} winners: {dwin:,} losers: {dlose:,} place {dplace:,}"
+    output = f'[-] Desktop data numbers are count: {ddetails["dcount"]:,}, stake: £{ddetails["dstake"]:,.2f}, return: '\
+             f'£{ddetails["drev_cust"]:,.2f} potential: £{ddetails["dpot_cust"]:,.2f} voided: £{ddetails["dvoid"]:,.2f} number voided '\
+             f'{ddetails["dvoidcount"]:,} winners: {ddetails["dwin"]:,} losers: {ddetails["dlose"]:,} place {ddetails["dplace"]:,}'
     print(output)
     horses = gethorses(dataset)
     print(f" [-] uniques horses are {len(horses)}")
