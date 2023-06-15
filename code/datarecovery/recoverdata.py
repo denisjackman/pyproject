@@ -69,7 +69,7 @@ def main():  #pylint: disable=R0914
                 REC = True
                 print('==== Found JPG at location: ' + str(hex(jfound+(SIZE*OFFSET))) + ' ====')
                 # Now lets create recovered file and search for ending signature
-                FILENAME = f"recovered/recover-{RECOVERED}.png"
+                FILENAME = f"y:/Resources/Development/recovered/recover-{RECOVERED}.png"
                 with open(FILENAME, "wb") as fileN:
                     fileN.write(byte[jfound:])
                     while REC:

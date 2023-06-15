@@ -1,6 +1,6 @@
 '''My daily pyton code habit code '''
 from PyPDF2 import PdfReader
-PDF_FILENAME = "data/sample-50-MB-pdf-file.pdf"
+PDF_FILENAME = "y:/Resources/development/data/sample-50-MB-pdf-file.pdf"
 def main():
     ''' This is the main function '''
     print("Starting")

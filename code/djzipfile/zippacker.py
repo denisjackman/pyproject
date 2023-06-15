@@ -1,5 +1,5 @@
 ''' This is an example of building  a zip file with a password.'''
-from zipfile import ZipFile
+import zipfile36 as zipfile
 import os
 from colorama import Fore
 
@@ -9,14 +9,14 @@ INFO = Fore.CYAN + '[!] '
 ERROR = Fore.RED + '[-] '
 NOTICE = Fore.GREEN + '[+] '
 
-PACKLIST = ('lists//test.txt', 'lists//wordlist.txt')
-ZIPFILE = 'data//newtest.zip'
+PACKLIST = ('y://Resources//development//lists//test.txt', 'y://Resources//development//lists//wordlist.txt')
+ZIPFILE = 'y://Resources//development//data//newtest.zip'
 
 def ZipPacker(packfile, packlist):
     ''' This is a main function '''
     print(f'{NOTE}Zip File Packer - Starting{RESET}')
     # Create a ZipFile Object
-    with ZipFile(packfile, 'w') as zip_object:
+    with zipfile.ZipFile(packfile, 'w') as zip_object:
     # Adding files that need to be zipped
         for item in packlist:
             print(f"{INFO}Adding {item} to zip file{RESET}")
