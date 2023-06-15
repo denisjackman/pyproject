@@ -1,5 +1,5 @@
 ''' This is an example of using wordlist to crack a zip file password.'''
-import zipfile
+import zipfile36 as zipfile
 from tqdm import tqdm
 from colorama import Fore
 
@@ -8,14 +8,14 @@ NOTE = Fore.BLACK + '[*] '
 INFO = Fore.CYAN + '[!] '
 ERROR = Fore.RED + '[-] '
 NOTICE = Fore.GREEN + '[+] '
-WORDLIST = 'lists//wordlist.txt'
-ZIPFILE = 'data//secret.zip'
+WORDLIST = 'y://Resources//development//lists//wordlist.txt'
+ZIPFILE = 'y://Resources//development//data//secret.zip'
 
 def ZipCracker(Crackfile, Cracklist):
     '''Main function'''
     print(f'{NOTE}Zip File Password Cracker - Starting{RESET}')
-    secret_zipfile = zipfile.ZipFile(Crackfile)
-    print(f'{NOTE}{Crackfile} has {len(secret_zipfile.namelist())} file(s) in it.{RESET}')
+    with zipfile.ZipFile(Crackfile) as secret_zipfile:
+        print(f'{NOTE}{Crackfile} has {len(secret_zipfile.namelist())} file(s) in it.{RESET}')
     total_passwords = 0
     with open(Cracklist, 'rb') as lenfile:
         for _ in lenfile:
@@ -25,8 +25,9 @@ def ZipCracker(Crackfile, Cracklist):
     with open(Cracklist, "rb") as wordfile:
         for password in tqdm(wordfile, total=total_passwords, unit='passwords'):
             try:
-                secret_zipfile.extractall(pwd=password.strip())
-            except:
+                with zipfile.ZipFile(Crackfile) as secret_zipfile:
+                    secret_zipfile.extractall(pwd=password.strip())
+            except:  # pylint: disable=bare-except
                 continue
             else:
                 print(f'{NOTICE}Password found: {password.decode().strip()}{RESET}')

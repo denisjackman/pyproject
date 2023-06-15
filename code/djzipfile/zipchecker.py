@@ -1,8 +1,8 @@
 ''' This is an example of using wordlist to crack a zip file password.'''
-import zipfile
+import zipfile36 as zipfile
 from colorama import Fore
 
-ZIPFILE = 'data//newtest.zip'
+ZIPFILE = 'y://Resources//development//data//newtest.zip'
 RESET = Fore.RESET
 NOTE = Fore.BLACK + '[*] '
 INFO = Fore.CYAN + '[!] '
