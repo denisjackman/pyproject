@@ -5,12 +5,11 @@ __date__ = "$Date: 2022/11/25 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
-from pathlib import Path
 import json
 from random import choice
 #from dnddice import dice
 
-FILEPATH = Path(__file__).parent
+FILEPATH = "Y:/Resources/development/"
 
 def oracle_generator():
     '''Generates an oracle'''
