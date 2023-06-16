@@ -16,7 +16,7 @@ def main():
         sys.exit()
 
     bag_of_words = {}
-    with open(filepath, encoding='utf8') as fp:
+    with open(filepath, encoding='utf-8-sig') as fp:
         for line in fp:
             record_word_cnt(line.strip().split(' '), bag_of_words)
     sorted_words = order_bag_of_words(bag_of_words, desc=True)

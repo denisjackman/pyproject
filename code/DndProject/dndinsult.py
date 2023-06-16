@@ -7,11 +7,10 @@ __date__ = "$Date: 2022/11/25 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
-from pathlib import Path
 import json
 from random import choice
 
-FILEPATH = Path(__file__).parent
+FILEPATH = "Y:/Resources/development/"
 
 def shakespearean_insult_generator():
     '''
@@ -26,7 +25,7 @@ def shakespearean_insult_generator():
 
     There are no inputs. The output is the insult as a string (result)
     '''
-    filename = f"{FILEPATH}/referencedata/ShakespeareInsult.json"
+    filename = f"{FILEPATH}referencedata/ShakespeareInsult.json"
     with open(filename, "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     column_one = choice(data["insult_column_one"])

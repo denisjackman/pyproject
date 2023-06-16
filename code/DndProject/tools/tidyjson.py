@@ -13,11 +13,10 @@ __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
 import os
-from pathlib import Path
 import json
 
-FILEPATH = Path(__file__).parent
-ROOTDIR = f"{FILEPATH}/../referencedata/"
+FILEPATH = "Y:/Resources/development/"
+ROOTDIR = f"{FILEPATH}referencedata/"
 
 def main():
     ''' main '''

@@ -10,11 +10,9 @@ __version__ = "$Revision: 1.00 $"
 __date__ = "$Date: 2022/11/01 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-
-from pathlib import Path
 import json
 
-FILEPATH = Path(__file__).parent
+FILEPATH = "Y:/Resources/development/"
 # pylint: disable=too-many-locals
 
 def main():
@@ -85,7 +83,7 @@ def main():
                                "The one you seek will need you more. He is hanging from the precipice of shattered dreams, and has lost what cannot be found",
                                "Trust what you know, since it is also the answer to what you do not")
 
-    with open(f"{FILEPATH}/../referencedata/Oracles.json", "w", encoding='utf-8-sig') as file:
+    with open(f"{FILEPATH}/referencedata/Oracles.json", "w", encoding='utf-8-sig') as file:
         json.dump({"oracle_noun": oracle_noun,
                    "oracle_prepostion": oracle_preposition,
                    "oracle_adverb": oracle_adverb,
