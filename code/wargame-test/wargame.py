@@ -2,10 +2,9 @@
     This is a framework test for a wargame project.
     It is not intended to be a complete game, but rather a test of the framework.
 '''
-from pathlib import Path
 import json
 import pygame
-
+# pylint: disable=too-many-locals
 WIDTH = 1200
 HEIGHT = 900
 
@@ -30,33 +29,32 @@ BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 BROWN = (165, 42, 42)
 
-FILEPATH = Path(__file__).parent
-FONTDATA = "/data/Fontdata.json"
+FONTDATA = "y:/Resources/development/data/Fontdata.json"
 TILE_WIDTH = 64
 TILE_HEIGHT = 64
 
-GRASS_TILE_01 = pygame.image.load('game-assets/tiles/grass001.png')
-GRASS_TILE_02 = pygame.image.load('game-assets/tiles/grass002.png')
-GRASS_TILE_03 = pygame.image.load('game-assets/tiles/grass003.png')
-DIRT_TILE_01 = pygame.image.load('game-assets/tiles/dirt001.png')
-DIRT_TILE_02 = pygame.image.load('game-assets/tiles/dirt002.png')
-SAND_TILE_01 = pygame.image.load('game-assets/tiles/sand001.png')
-SAND_TILE_02 = pygame.image.load('game-assets/tiles/sand002.png')
-STONE_TILE_01 = pygame.image.load('game-assets/tiles/stone001.png')
-STONE_TILE_02 = pygame.image.load('game-assets/tiles/stone002.png')
-STONE_TILE_03 = pygame.image.load('game-assets/tiles/stone003.png')
-WATER_TILE_01 = pygame.image.load('game-assets/tiles/water001.png')
-WATER_TILE_02 = pygame.image.load('game-assets/tiles/water002.png')
-WATER_TILE_03 = pygame.image.load('game-assets/tiles/water003.png')
-WATER_TILE_04 = pygame.image.load('game-assets/tiles/water004.png')
-WATER_BOTTOM = pygame.image.load('game-assets/tiles/water-bottom.png')
-WATER_BOTTOM_RIGHT = pygame.image.load('game-assets/tiles/water-bottomright.png')
-WATER_BOTTOM_LEFT = pygame.image.load('game-assets/tiles/water-bottomleft.png')
-WATER_LEFT = pygame.image.load('game-assets/tiles/water-left.png')
-WATER_RIGHT = pygame.image.load('game-assets/tiles/water-right.png')
-WATER_TOP = pygame.image.load('game-assets/tiles/water-top.png')
-WATER_TOP_LEFT = pygame.image.load('game-assets/tiles/water-topleft.png')
-WATER_TOP_RIGHT = pygame.image.load('game-assets/tiles/water-topright.png')
+GRASS_TILE_01 = pygame.image.load('y:/Resources/development/game-assets/tiles/grass001.png')
+GRASS_TILE_02 = pygame.image.load('y:/Resources/development/game-assets/tiles/grass002.png')
+GRASS_TILE_03 = pygame.image.load('y:/Resources/development/game-assets/tiles/grass003.png')
+DIRT_TILE_01 = pygame.image.load('y:/Resources/development/game-assets/tiles/dirt001.png')
+DIRT_TILE_02 = pygame.image.load('y:/Resources/development/game-assets/tiles/dirt002.png')
+SAND_TILE_01 = pygame.image.load('y:/Resources/development/game-assets/tiles/sand001.png')
+SAND_TILE_02 = pygame.image.load('y:/Resources/development/game-assets/tiles/sand002.png')
+STONE_TILE_01 = pygame.image.load('y:/Resources/development/game-assets/tiles/stone001.png')
+STONE_TILE_02 = pygame.image.load('y:/Resources/development/game-assets/tiles/stone002.png')
+STONE_TILE_03 = pygame.image.load('y:/Resources/development/game-assets/tiles/stone003.png')
+WATER_TILE_01 = pygame.image.load('y:/Resources/development/game-assets/tiles/water001.png')
+WATER_TILE_02 = pygame.image.load('y:/Resources/development/game-assets/tiles/water002.png')
+WATER_TILE_03 = pygame.image.load('y:/Resources/development/game-assets/tiles/water003.png')
+WATER_TILE_04 = pygame.image.load('y:/Resources/development/game-assets/tiles/water004.png')
+WATER_BOTTOM = pygame.image.load('y:/Resources/development/game-assets/tiles/water-bottom.png')
+WATER_BOTTOM_RIGHT = pygame.image.load('y:/Resources/development/game-assets/tiles/water-bottomright.png')
+WATER_BOTTOM_LEFT = pygame.image.load('y:/Resources/development/game-assets/tiles/water-bottomleft.png')
+WATER_LEFT = pygame.image.load('y:/Resources/development/game-assets/tiles/water-left.png')
+WATER_RIGHT = pygame.image.load('y:/Resources/development/game-assets/tiles/water-right.png')
+WATER_TOP = pygame.image.load('y:/Resources/development/game-assets/tiles/water-top.png')
+WATER_TOP_LEFT = pygame.image.load('y:/Resources/development/game-assets/tiles/water-topleft.png')
+WATER_TOP_RIGHT = pygame.image.load('y:/Resources/development/game-assets/tiles/water-topright.png')
 
 TILES = []
 TILES.append(pygame.transform.scale(GRASS_TILE_01, (TILE_WIDTH, TILE_HEIGHT))) # 0
@@ -186,7 +184,7 @@ def main():
 
     # finish the game and quit
     pygame.quit()
-    with open(f"{FILEPATH}{FONTDATA}", "w", encoding='utf-8-sig') as file:
+    with open(f"{FONTDATA}", "w", encoding='utf-8-sig') as file:
         json.dump({"pygame_fonts": listfonts,},
                   file,
                   indent=4,

@@ -11,7 +11,7 @@ works with excel from version 2010 onwards
 
 from openpyxl import load_workbook
 
-wb = load_workbook('grades.xlsx')
+wb = load_workbook('y:/Resources/excel/grades.xlsx')
 ws = wb.active
 ws['A10'].value = 'DemonBoy666'
 
@@ -20,7 +20,7 @@ print(wb['Sheet1'])
 wb.create_sheet('Test')
 print(wb.sheetnames)
 
-wb.save('grades.xlsx')
+wb.save('y:/Resources/excel/grades.xlsx')
 ws = wb['Grades']
 print(ws['A2'].value)
 print(ws['Z99'].value is None)

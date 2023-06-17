@@ -26,11 +26,11 @@ def main():
 
     ws2.append([1, 2, 3])
 
-    # Python types will automatically be converted
+    # Python types will automatically be convertedpy merge
     ws2['A2'] = datetime.datetime.now()
 
     # Save the file
-    wb.save("y:/Resources/Denis.xlsx")
+    wb.save("y:/Resources/excel/Denis.xlsx")
 
 # run the main
 if __name__ == "__main__":

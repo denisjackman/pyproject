@@ -45,7 +45,9 @@ ws.title = "New Grades"
 headings = ['Name'] + list(data['Joe'].keys())
 ws.append(headings)
 for person, grades in data.items():
-    ws.append(person + grades)
+    print(f'person is {person} and grades is {grades}')
+    tempstr = [person] + list(grades.values())
+    ws.append(tempstr)
 
 for col in range(2,len(data['Joe']) + 2):
     char = get_column_letter(col)
@@ -56,4 +58,4 @@ for newcol in range(1, 6):
     cell.font = Font(bold=True)
 
 
-wb.save('NewGrades.xls')
+wb.save('y:/Resources/excel/NewGrades.xls')
