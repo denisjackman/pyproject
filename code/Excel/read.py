@@ -4,7 +4,7 @@
 import openpyxl
 
 # Give the location of the file
-loc = openpyxl.load_workbook("y:/Resources/store/test.xlsx")
+loc = openpyxl.load_workbook("y:/Resources/excel/test.xlsx")
 
 sheet = loc.active
 

@@ -1,4 +1,5 @@
 ''' This is an example of using wordlist to crack a zip file password.'''
+import sys
 import zipfile36 as zipfile
 from tqdm import tqdm
 from colorama import Fore
@@ -32,7 +33,7 @@ def ZipCracker(Crackfile, Cracklist):
             else:
                 print(f'{NOTICE}Password found: {password.decode().strip()}{RESET}')
                 print(f'{NOTE}Zip File Password Cracker - Completed{RESET}')
-                exit(0)
+                sys.exit(0)
     print(f'{ERROR}Password not found, try other wordlist.{RESET}')
     print(f'{NOTE}Zip File Password Cracker - Completed{RESET}')
 

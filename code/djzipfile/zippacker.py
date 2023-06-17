@@ -1,6 +1,6 @@
 ''' This is an example of building  a zip file with a password.'''
-import zipfile36 as zipfile
 import os
+import zipfile36 as zipfile
 from colorama import Fore
 
 RESET = Fore.RESET
