@@ -22,9 +22,8 @@ BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
 # set up assets folders
-game_dir = os.path.dirname(__file__)
-img_dir = os.path.join(game_dir, "img")
-snd_dir = os.path.join(game_dir, 'snd')
+img_dir = 'Y:/Resources/development/shmup/img'
+snd_dir = 'Y:/Resources/development/shmup/snd'
 
 # set up the screen using WIDTH and HEIGHT
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
