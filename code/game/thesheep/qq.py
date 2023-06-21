@@ -7,7 +7,7 @@ the RPG games known from consoles, in pygame. It's not a playable game,
 but it can be turned into one. Care has been taken to comment it clearly,
 so that you can use it easily as a starting point for your game.
 
-The program reads a level definition from a "level.map" file, and uses the
+The program reads a level definition from a "Y:/Resources/development/thesheep/level.map" file, and uses the
 graphics referenced for that file to display a tiled map on the screen and
 let you move an animated player character around it.
 
@@ -53,8 +53,8 @@ class TileCache():
 
     def _load_tile_table(self, filename, width, height):
         """Load an image and split it into tiles."""
-
-        image = pygame.image.load(filename).convert()
+        tmpfilename =f'y:/Resources/development/thesheep/{filename}'
+        image = pygame.image.load(tmpfilename).convert()
         image_width, image_height = image.get_size()
         tile_table = []
         for tile_x in range(0, int(image_width/width)):
@@ -68,7 +68,6 @@ class TileCache():
     def isme(self):
         ''' am I '''
         return True
-
 
 class SortedUpdates(pygame.sprite.RenderUpdates):
     """A sprite group that sorts them by depth."""
@@ -104,7 +103,6 @@ class Shadow(pygame.sprite.Sprite):
     def isme(self):
         ''' am I '''
         return True
-
 
 class Sprite(pygame.sprite.Sprite):
     """Sprite for animated items and base class for Player."""
@@ -152,8 +150,7 @@ class Sprite(pygame.sprite.Sprite):
     def update(self):
         """Run the current animation."""
 
-        self.animation.next()
-
+        next(self.animation)
 
 class Player(Sprite):
     """ Display and animate the player character."""
@@ -192,7 +189,7 @@ class Player(Sprite):
 class Level():
     """Load and store the map of the level, together with all the items."""
 
-    def __init__(self, filename="level.map"):
+    def __init__(self, filename="Y:/Resources/development/thesheep/level.map"):
         self.tileset = ''
         self.map = []
         self.items = {}
@@ -201,7 +198,7 @@ class Level():
         self.height = 0
         self.load_file(filename)
 
-    def load_file(self, filename="level.map"):
+    def load_file(self, filename="Y:/Resources/development/thesheep/level.map"):
         """Load the level from specified file."""
 
         parser = configparser.ConfigParser()
@@ -313,6 +310,7 @@ class Game():
         self.sprites = SortedUpdates()
         self.overlays = pygame.sprite.RenderUpdates()
         self.use_level(Level())
+        self.player = pygame.sprite.RenderUpdates()
 
     def use_level(self, level):
         """set the level as the current one."""

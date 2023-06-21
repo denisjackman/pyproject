@@ -33,7 +33,7 @@ LONG_COMMANDS = ["help", "verbose", "debug", "map=", "mapwidth=", "mapheight="]
 FILEPATH = Path(__file__).parent
 
 ICON_FILE = 'y:/Resources/jackmanimation.png'
-GAMEDATA = "/data/Gamedata.json"
+GAMEDATA = "Y:/Resources/devlopement/work/data/Gamedata.json"
 CAPTION = f"Jackmanimation [{PROGRAM_NAME}]"
 
 def getargs():
