@@ -24,7 +24,7 @@ def metadefinition():
         build a meta data section
     '''
     meta = ''
-    meta += '<meta charset="UTF-8">'
+    meta += "<meta charset='utf-8-sig'>"
     meta += '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
     meta += '<meta http-equiv="X-UA-Compatible" content="ie=edge">'
     meta += '<meta name="description" content="Python Scripting example">'
@@ -343,7 +343,7 @@ def tag_list():
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
-    path = r'Y:\pyproject\scratch\index.html'
+    path = r'Y:\Resources\development\index.html'
     with open(path, "w", encoding='utf-8-sig') as file:
         file.write(build_page())
     print("finishing up and closing down:")

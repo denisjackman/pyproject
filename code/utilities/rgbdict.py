@@ -1,7 +1,7 @@
-'''
+﻿'''
  Dictionary RGB COLOR CODES
 '''
-COLOURS_RGB_LIST = {"﻿BLACK" : ('0', '0', '0'),
+COLOURS_RGB_LIST = {"BLACK" : ('0', '0', '0'),
 "NAVY" : ('0', '0', '128'),
 "MEDIUM_BLUE" : ('0', '0', '205'),
 "BLUE" : ('0', '0', '255'),

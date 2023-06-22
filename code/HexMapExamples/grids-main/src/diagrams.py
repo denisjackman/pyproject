@@ -54,7 +54,7 @@ def hex_grid_svg():
         svg += cell_text(center, x, y, z)
     svg += "</svg>"
 
-    with open("svg/hex_grid.svg", "w", encoding="utf-8") as f:
+    with open("svg/hex_grid.svg", "w", encoding='utf-8-sig') as f:
         f.write(svg)
 
 def hex_neighbours_svg():
@@ -72,7 +72,7 @@ def hex_neighbours_svg():
         svg += cell_text([center[0] * 0.85, center[1] * 0.7], pm(x), pm(y), pm(z))
     svg += "</svg>"
 
-    with open("svg/hex_neighbours.svg", "w", encoding="utf-8") as f:
+    with open("svg/hex_neighbours.svg", "w", encoding='utf-8-sig') as f:
         f.write(svg)
 
 def tri_grid_svg():
@@ -86,7 +86,7 @@ def tri_grid_svg():
         svg += cell_text(center, x, y, z)
     svg += "</svg>"
 
-    with open("svg/tri_grid.svg", "w", encoding="utf-8") as f:
+    with open("svg/tri_grid.svg", "w", encoding='utf-8-sig') as f:
         f.write(svg)
 
 def tri_neighbours_svg():
@@ -113,7 +113,7 @@ def tri_neighbours_svg():
 
     svg += "</svg>"
 
-    with open("svg/tri_neighbours.svg", "w", encoding="utf-8") as f:
+    with open("svg/tri_neighbours.svg", "w", encoding='utf-8-sig') as f:
         f.write(svg)
 
 def square_grid_svg():
@@ -126,7 +126,7 @@ def square_grid_svg():
         svg += cell_text(center, x, y)
     svg += "</svg>"
 
-    with open("svg/square_grid.svg", "w", encoding="utf-8") as f:
+    with open("svg/square_grid.svg", "w", encoding='utf-8-sig') as f:
         f.write(svg)
 
 def trihex_grid_svg():
@@ -142,7 +142,7 @@ def trihex_grid_svg():
         svg += cell_text(center, a, b, c, 1 if is_hex else 0.8)
     svg += "</svg>"
 
-    with open("svg/trihex_grid.svg", "w", encoding="utf-8") as f:
+    with open("svg/trihex_grid.svg", "w", encoding='utf-8-sig') as f:
         f.write(svg)
 
 hex_grid_svg()

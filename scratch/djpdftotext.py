@@ -18,7 +18,7 @@ def convertpdftotxt(inputfile, outputfile, verbosemode = False):
         print(f"number of pages {pdfpages}")
     for item in range(pdfpages):
         pageObj = pdfread.pages[item]
-        with open(outputfile, 'a+', encoding='utf8') as outfile:
+        with open(outputfile, 'a+', encoding='utf-8-sig') as outfile:
             outfile.write((pageObj.extract_text()))
         if verbosemode:
             print(pageObj.extract_text()) #This just provides the overview of what is being added to your output, you can remove it if want

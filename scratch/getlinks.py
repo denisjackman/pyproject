@@ -19,7 +19,7 @@ def getlinks(url, verbose= False):
 
     # Writing the output to a file (myLinks.txt) instead of to stdout
     # You can change 'a' to 'w' to overwrite the file each time
-    with open(OUTPUT_FILE, 'a', encoding='utf8') as saved:
+    with open(OUTPUT_FILE, 'a', encoding='utf-8-sig') as saved:
         print(links[:10], file=saved)
     if verbose:
         print("[+] --- Finish getlinks")

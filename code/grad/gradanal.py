@@ -10,7 +10,7 @@ def opengradfile(csvfilename):
     csvlist = []
     result =  []
     print("[+] --- Start Open CSV File ")
-    with open(csvfilename, 'r', encoding="utf-8-sig") as csvfile:
+    with open(csvfilename, 'r', encoding='utf-8-sig') as csvfile:
         csvlist = csv.DictReader(csvfile, delimiter=",")
         for row in csvlist:
             result.append(row)

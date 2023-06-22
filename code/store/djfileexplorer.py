@@ -29,7 +29,7 @@ def main():
         extension = details[-1]
         print(f" name: {name} extension: {extension} file: {file}")
 
-    with open("example.csv", 'w', encoding='utf-8', newline='') as csv_file:
+    with open("y:/Resources/development/example.csv", 'w', encoding='utf-8-sig', newline='') as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(["name", "extension", "file"])
         for file in filelist:

@@ -61,7 +61,7 @@ def new_user():
         create_password = input("Create password: ")
         users[create_login] = create_password
         print("\nUser Created \n")
-        with open("logins.txt", "a", encoding='utf-8-sig') as logins:
+        with open("Y:/Resources/development/main/logins.txt", "a", encoding='utf-8-sig') as logins:
             logins.write("\n" + create_login + " " + create_password)
 
 
