@@ -21,7 +21,7 @@ while True:
     with urllib.request.urlopen(BASE_API_LINK + USER_INPUT) as f:
         text = f.read()
 
-    decoded_text = text.decode("utf-8")
+    decoded_text = text.decode('utf-8-sig')
     obj = json.loads(decoded_text)
     # deserializes decoded_text to a Python object
     volume_info = obj["items"][0]

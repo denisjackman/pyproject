@@ -14,7 +14,7 @@ def oldmain():
     print("[+] Starting...")
     print(f"[+] Reading {DATAFILE}...")
     count = 0
-    with open(DATAFILE, 'r', encoding='utf-8') as csvfile:
+    with open(DATAFILE, 'r', encoding='utf-8-sig') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             if row['Exclusive Shelf'] == 'read':
@@ -32,7 +32,7 @@ def main():
     print("[+] Starting.")
     print(f"[+] Reading {JSONFILE}...")
     booklist = []
-    with open(JSONFILE, 'r', encoding='utf-8') as jsonfile:
+    with open(JSONFILE, 'r', encoding='utf-8-sig') as jsonfile:
         for item in jsonfile:
             bookdict = json.loads(item)
             booklist.append(bookdict)

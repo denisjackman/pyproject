@@ -13,7 +13,7 @@ def website_check(webdebug = False):
         print("[+] --- Start Website Check")
         print(f"[+] --- Input File is {INPUTFILE}")
         print(f"[+] --- Output File is {OUTPUTFILE}")
-    with open(INPUTFILE, "r", encoding='utf8') as inputfile:
+    with open(INPUTFILE, "r", encoding='utf-8-sig') as inputfile:
         for line in inputfile:
             website = line.strip()
             if webdebug:
@@ -25,7 +25,7 @@ def website_check(webdebug = False):
         print(f"[+] --- Output File is {OUTPUTFILE}")
         print(f"[+] --- Status Dict is {status_dict}")
 
-    with open(OUTPUTFILE, "w", newline="", encoding='utf8') as outputfile:
+    with open(OUTPUTFILE, "w", newline="", encoding='utf-8-sig') as outputfile:
         csv_writers = csv.writer(outputfile)
         for key, item  in status_dict.items():
             csv_writers.writerow([key, item])

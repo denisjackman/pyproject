@@ -13,7 +13,7 @@ def xmltojson(inputfile, outputfile):
 
         json_conversion = json.dumps(parsed_data)
 
-        with open(outputfile, 'w', encoding='utf8') as json_file:
+        with open(outputfile, 'w', encoding='utf-8-sig') as json_file:
             json_file.write(json_conversion)
             json_file.close()
 

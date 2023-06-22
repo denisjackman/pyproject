@@ -111,7 +111,7 @@ class TGameMenu:
                         self.menuitems[self.valinta][2][1] = self.menuitems[self.valinta][2][2][1]
             if self.menuitems[self.valinta][2][0] == "value_bool_editor":
                 self.menuitems[self.valinta][2][1] = not self.menuitems[self.valinta][2][1]
-
+    #  pylint: disable-msg=R1710
     def get_selection(self,teksti = None):
         """
         Render the menu as long as user selects a menuitem

@@ -8,7 +8,7 @@ def main():
         main routine
     '''
     count = 0
-    with open("Y:/house-data/consolidated.csv", 'r', encoding='utf-8') as csv_file:
+    with open("Y:/house-data/consolidated.csv", 'r', encoding='utf-8-sig') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for line in csv_reader:
             if line['Transaction Date'].endswith('/2022'):

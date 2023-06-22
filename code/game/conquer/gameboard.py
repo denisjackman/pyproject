@@ -134,7 +134,7 @@ class TGB:  #pylint: disable=R0904
         '''
         # Read names from file to cpu name list
         '''
-        with open(self.gamepath+"cpu_player_names", "r", encoding='utf8') as file:
+        with open(self.gamepath+"cpu_player_names", "r", encoding='utf-8-sig') as file:
             for line in file.readlines():
                 if line.endswith("\n"):
                     self.cpu_names.append(line[:-1])
@@ -145,7 +145,7 @@ class TGB:  #pylint: disable=R0904
         # Write edited map to file.
         # First six lines in map file are reserved for player info.
         '''
-        with open(filunimi, "w", encoding='utf8') as file:
+        with open(filunimi, "w", encoding='utf-8-sig') as file:
             # Add human players
             for i in range(self.map_edit_info[0]):
                 file.write("player\n")
@@ -173,7 +173,7 @@ class TGB:  #pylint: disable=R0904
         '''
         # Load configuration file and read it into sc - dictionary
         '''
-        with open(filename1,"r",encoding='utf8') as file:
+        with open(filename1,"r",encoding='utf-8-sig') as file:
             for line in file:
                 if not line:
                     # Empty line, go to next
@@ -1255,7 +1255,7 @@ class TGB:  #pylint: disable=R0904
         try:
             if self.map_edit_mode:
                 self.map_edit_info = [0,0,1]
-            with open(mapo, "r", encoding='utf8') as filu:
+            with open(mapo, "r", encoding='utf-8-sig') as filu:
                 for y,rivi in enumerate(filu):
                     if y < 6:
                         rivi2 = rivi[:-1]
