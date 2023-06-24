@@ -31,14 +31,12 @@ def walk_through(wt_command_args):
     verbosemode = wt_command_args["verbosemode"]
     if verbosemode:
         print(f"[o] Starting walk through {start_dir}")
-    count = 0
     result = []
     if verbosemode:
         print(f"[o] Searching for files in {start_dir}")
     for root, _, files in os.walk(start_dir, topdown=False):
         for name in files:
             result.append(os.path.join(root, name))
-            count += 1
     if verbosemode:
         print(f"[o] Finished walk through {start_dir}")
     return result
