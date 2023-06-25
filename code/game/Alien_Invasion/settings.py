@@ -18,4 +18,11 @@ class Settings:
         self.bullet_height = 15
         self.bullet_colour = (60,60,60)
         self.bullets_allowed = 3
-        
+
+    def isName(self):
+        ''' this is the name return '''
+        return "settings"
+
+    def isValue(self):
+        ''' this is the value return '''
+        return "settings"

@@ -26,6 +26,7 @@ class Bullet(Sprite):
         self.y = float(self.rect.y)
 
     def update(self):
+        #  pylint: disable=w0221
         """Move the bullet up the screen."""
         self.y -= self.settings.bullet_speed
 
