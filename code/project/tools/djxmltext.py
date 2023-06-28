@@ -4,7 +4,7 @@ import math
 
 def main():
     ''' main'''
-    hexxmldoc = xml.dom.minidom.parse('y:/pyproject/scratch/project/hexagonAll_sheet.xml')
+    hexxmldoc = xml.dom.minidom.parse('y:/pyproject/Resources/development/project/hexagonAll_sheet.xml')
     print(f'hexxmldoc: {hexxmldoc}')
     print(f'hexxmldoc.nodeName: {hexxmldoc.nodeName}')
     print(f'hexxmldoc.childNodes: {hexxmldoc.childNodes}')

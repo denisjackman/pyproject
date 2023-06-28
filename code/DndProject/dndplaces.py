@@ -8,7 +8,7 @@ __license__ = "Python"
 
 import json
 from random import choice
-from dnddice import dice
+from code.DndProject.dnddice import dice
 
 FILEPATH = "Y:/Resources/development/"
 # pylint: disable=too-many-locals
