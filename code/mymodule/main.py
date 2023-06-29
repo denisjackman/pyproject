@@ -2,9 +2,9 @@
     https://www.youtube.com/watch?v=GxCXiSkm6no
     https://www.youtube.com/watch?v=0oTh1CXRaQ0
 '''
-from functionality import *
-from othermodule import *
-from othermodule.submodule import fourth
+from functionality import add, sub, mul, div
+from othermodule import second
+from othermodule.submodule import third, fourth
 
 def main():
     ''' This is the main function'''
