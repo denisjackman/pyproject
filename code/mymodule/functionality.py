@@ -1,3 +1,4 @@
+''' This module contains all the functionality of the calculator'''
 def add(x, y):
     ''' This function adds two numbers'''
     return x + y
