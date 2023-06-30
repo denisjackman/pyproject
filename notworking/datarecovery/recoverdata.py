@@ -21,8 +21,8 @@ def main():  #pylint: disable=R0914
         main function
     '''
 
-    PATH = "Y:"
-    DRIVE = f"\\\\.\\{PATH}"     # Open DRIVE as raw bytes
+    PATH = "/home/share/disk1/workspace"
+    DRIVE = f"{PATH}"     # Open DRIVE as raw bytes
     SIZE = 512              # SIZE of bytes to read
     OFFSET = 0              # Offset location
     REC = False            # Recovery mode
@@ -41,13 +41,13 @@ def main():  #pylint: disable=R0914
 
     with open(DRIVE, 'rb') as fileD:
         byte = fileD.read(SIZE) # Read 'SIZE' bytes
-        print("==== Starting the scan ====")
+        print("[+] Starting the scan")
         while byte:
             jfound = byte.find(JPEGHEADER)
             found = byte.find(PNGHEADER)
             if found >= 0:
                 REC = True
-                print('==== Found PNG at location: ' + str(hex(found+(SIZE*OFFSET))) + ' ====')
+                print(f'[-] Found PNG at location: {str(hex(found+(SIZE*OFFSET)))}')
                 # Now lets create recovered file and search for ending signature
                 RFILENAME = f"recovered/recover-{RECOVERED}.png"
                 with open(RFILENAME, "wb") as fileN:
@@ -59,7 +59,7 @@ def main():  #pylint: disable=R0914
                             fileN.write(byte[:bfind+2])
                             fileD.seek((OFFSET+1)*SIZE)
 
-                            print(f"==== Wrote File to location:  {RFILENAME} ====\n")
+                            print(f"[-] Wrote File to location:  {RFILENAME} \n")
                             REC = False
                             RECOVERED += 1
                         else:
@@ -67,7 +67,7 @@ def main():  #pylint: disable=R0914
 
             if jfound >= 0:
                 REC = True
-                print('==== Found JPG at location: ' + str(hex(jfound+(SIZE*OFFSET))) + ' ====')
+                print(f'[-] Found JPG at location: {str(hex(jfound+(SIZE*OFFSET)))}')
                 # Now lets create recovered file and search for ending signature
                 FILENAME = f"y:/Resources/Development/recovered/recover-{RECOVERED}.png"
                 with open(FILENAME, "wb") as fileN:
@@ -79,7 +79,7 @@ def main():  #pylint: disable=R0914
                             fileN.write(byte[:find+2])
                             fileD.seek((OFFSET+1)*SIZE)
 
-                            print(f"==== Wrote File to location:  {FILENAME} ====\n")
+                            print(f"[-] Wrote File to location:  {FILENAME} \n")
                             REC = False
                             RECOVERED += 1
                         else:
@@ -89,10 +89,10 @@ def main():  #pylint: disable=R0914
             byte = fileD.read(SIZE)
             OFFSET += 1
             READSIZE += SIZE
-    print(f"==== Read {str(READSIZE / 2 ** 30 )} / {TOTALSIZE} gigabytes ====\n")
-    print(f"==== Recovered {RECOVERED} files ====\n")
-    print("==== Scan Complete ====")
-    print("==== Exiting ====\n")
+    print(f"[-] Read {str(READSIZE / 2 ** 30 )} / {TOTALSIZE} gigabytes\n")
+    print(f"[-] Recovered {RECOVERED} files\n")
+    print("[-] Scan Complete")
+    print("[+] Exiting \n")
 
 if __name__ == "__main__":
     main()
