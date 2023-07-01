@@ -39,10 +39,10 @@ def ZEROFILEcheck(fpath):
         return False
     return None
 
-def remove_File(fpath):
+def remove_File(fpath, dryrun=DRYRUN):
     ''' remove file '''
-    if DRYRUN:
-        print(f"I would have removed {fpath}")
+    if dryrun:
+        print(f"[-] I would have removed {fpath}")
         return
     os.remove(fpath)
 
@@ -81,30 +81,36 @@ def file_ext():
     NewExtList = list(extset)
     print(NewExtList)
 
-if DEBUGMODE:
-    print(f"The TOTAL numbers of args passed to the script: {TOTAL}")
-    print(f"Args list: {CMDARGS}")
-    print(f"Script name: {str(sys.argv[0])}")
-
-for i in range(TOTAL):
+def main():
+    ''' main '''
+    print("main")
     if DEBUGMODE:
-        print(f"Argument # {i} : {str(sys.argv[i])}")
-    if str(sys.argv[i]) == "--DRYRUN":
-        DRYRUN = True
-    if str(sys.argv[i]) == "--FILEEXT":
-        FILEEXT = True
-    if str(sys.argv[i]) == "--ZEROFILE":
-        ZEROFILE = True
-    if str(sys.argv[i]) == "--REMOVEFILE":
-        REMOVEFILE = True
-    if str(sys.argv[i]) == "--FINDDUP":
-        FINDDUP = True
+        print(f"The TOTAL numbers of args passed to the script: {TOTAL}")
+        print(f"Args list: {CMDARGS}")
+        print(f"Script name: {str(sys.argv[0])}")
 
-if ZEROFILE:
-    zero_file()
+    for i in range(TOTAL):
+        if DEBUGMODE:
+            print(f"Argument # {i} : {str(sys.argv[i])}")
+        if str(sys.argv[i]) == "--DRYRUN":
+            DRYRUN = True
+        if str(sys.argv[i]) == "--FILEEXT":
+            FILEEXT = True
+        if str(sys.argv[i]) == "--ZEROFILE":
+            ZEROFILE = True
+        if str(sys.argv[i]) == "--REMOVEFILE":
+            REMOVEFILE = True
+        if str(sys.argv[i]) == "--FINDDUP":
+            FINDDUP = True
 
-if FINDDUP:
-    find_dup()
+    if ZEROFILE:
+        zero_file()
 
-if FILEEXT:
-    file_ext()
+    if FINDDUP:
+        find_dup()
+
+    if FILEEXT:
+        file_ext()
+
+if __name__ == '__main__':
+    main()
