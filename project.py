@@ -1,7 +1,7 @@
 ''' This is a sample project to resuse utilities and stuff '''
-from code.current.fileutility import walk_through
-from code.current.fileutility import extract_file_extension
-from code.current.myfunctions.utensils import dish
+from djcode.current.fileutility import walk_through
+from djcode.current.fileutility import extract_file_extension
+from djcode.current.myfunctions.utensils import dish
 from tqdm import tqdm
 
 START_DIRECTORY ='Y:\\'
