@@ -1,12 +1,83 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 ''' utility to find zip files '''
 import os
+import sys
+import getopt
+import math
 import csv
+
+__author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
+__version__ = "$Revision: 1.0 $"
+__date__ = "$Date: 2023/07/02 00:00:00 $"
+__copyright__ = "Copyright (c) 2023 Denis J Jackman"
+__license__ = "Python"
 
 DIRECTORYLIST = ["C:\\","F:\\","G:\\","V:\\","W:\\","X:\\","Y:\\","Z:\\"]
 DIRECTORYLISTFILE = "Y:/Resources/development/directorylist.txt"
 DIRECTORYSUMMARY = "Y:/Resources/development/directorysummary.txt"
 
-#DIRECTORYLIST = ["V:\\","W:\\","X:\\","Y:\\","Z:\\"]
+def check_file_for_name(cff_root, cff_name, cff_command_args):
+    '''
+    check_file_for_name
+
+        :param : cff_root - the root directory for the file
+                 cff_name - the name of the file in question
+                 cff_command_args - a list of the command arguments
+
+        :return: boolean - True if the file exists
+                           False if it does not
+
+        check for the existence of a file in a list.
+        If it does return True.
+        If not return False.
+
+    '''
+    result = False
+    delete_list = [".DS_Store",
+                   ".AppleDouble",
+                   "Thumbs.db",
+                   ".pydevproject"]
+
+    for name in delete_list:
+        if cff_name == name:
+            if cff_command_args["deletemode"]:
+                if cff_command_args["verbosemode"]:
+                    print(f'[FOUND] {os.path.join(cff_root, cff_name)} is to be deleted')
+                result = True
+    return result
+
+
+def getargs():
+    '''
+        get the argurments from the command line
+    '''
+    st_commands = f'{os.path.basename(__file__)} -v <True/False> -d <True/False> DIRECTORY "."'
+    argv = sys.argv[1:]
+    commands = "hvds:"
+    long_commands = ["verbose", "delete", "start=", "help"]
+    verbosemode = False
+    deletemode = False
+    startdirectory = "."
+    try:
+        clopts, args = getopt.getopt(argv, commands, long_commands)
+    except getopt.GetoptError:
+        print(st_commands)
+        sys.exit(2)
+    for clopt, arg in clopts:
+        if clopt in ('-h', "--help"):
+            print(st_commands)
+            sys.exit()
+        elif clopt in ("-v", "--verbose"):
+            verbosemode = True
+        elif clopt in ("-d", "--delete"):
+            deletemode = True
+        elif clopt in ("-s", "--start"):
+            startdirectory = arg
+    return {"verbosemode": verbosemode,
+            "deletemode": deletemode,
+            "startdirectory": startdirectory}
+
 
 def extract_file_extension(filename):
     ''' This checks the file extension and returns true or false '''
@@ -40,6 +111,19 @@ def walk_through(wt_command_args):
     if verbosemode:
         print(f"[o] Finished walk through {start_dir}")
     return result
+
+def convert_size(size_bytes):
+    '''
+        size formating for bytes
+    '''
+    if size_bytes == 0:
+        return "0B"
+    size_name = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
+    i = int(math.floor(math.log(size_bytes, 1024)))
+    p = math.pow(1024, i)
+    s = round(size_bytes / p, 2)
+    return f"{s} {size_name[i]}"
+
 
 def main():
     ''' main function '''

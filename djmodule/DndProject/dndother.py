@@ -7,7 +7,7 @@ __license__ = "Python"
 
 import json
 from random import choice
-from djcode.DndProject.dnddice import dice
+from djmodule.DndProject.dnddice import dice
 
 FILEPATH = "Y:/Resources/development/"
 
