@@ -6,8 +6,10 @@ swisstool.py
 This is a os utility tool
 
 '''
+import os
 import sys
-sys.path.append('Y:/pyproject')
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('..'))
 from djmodule.djutilities.fileutility import walk_through
 from djmodule.djutilities.fileutility import getargs
 
