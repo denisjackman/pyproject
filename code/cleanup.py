@@ -5,7 +5,8 @@ a util to find files with a pattern in the name and delete them
 '''
 import os
 import sys
-sys.path.append('Y:/pyproject')
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('..'))
 from djmodule.djutilities.fileutility import walk_through
 from djmodule.djutilities.fileutility import getargs
 from djmodule.djutilities.fileutility import convert_size
