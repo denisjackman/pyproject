@@ -1,7 +1,11 @@
 '''
     a list of useful functions built in python
 '''
-from djgamemodule import functions as fn
+import os
+import sys
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from djmodule.gameitems.gamefunctions import bubbleSort
 
 def main():
     '''
@@ -9,11 +13,9 @@ def main():
     '''
     print("Starting now : ")
     arr = ['t','u','t','o','r','i','a','l']
-    x = 'a'
-    print("element found at index "+str(fn.linearsearch(arr,x)))
+    print(f"array is : {str(arr)}")
+    print(f"after array is {str(bubbleSort(arr))}")
     print("Ending now")
-    listofnumbers = [1, 2, 3, 5, 6, 7, 8, 9]
-    print(fn.findmissingnumbers(listofnumbers))
 
 
 if __name__ == '__main__':

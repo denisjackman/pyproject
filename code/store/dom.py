@@ -5,6 +5,7 @@ This is an XML script
 import xml.sax
 
 class MovieHandler(xml.sax.ContentHandler):
+    ''' call this function to print out the content of the xml file'''
     def __init__(self):
         self.CurrentData = ""
         self.type = ""
@@ -14,32 +15,33 @@ class MovieHandler(xml.sax.ContentHandler):
         self.stars = ""
         self.description = ""
 
-    # Call when an element starts
     def startElement(self, tag, attributes):
+        ''' call this function to print out the content of the xml file'''
         self.CurrentData = tag
         if tag == "movie":
-            print "*****Movie*****"
+            print("*****Movie*****")
             title = attributes["title"]
-            print "Title:", title
+            print(f"Title: {title}")
 
-    # Call when an elements ends
     def endElement(self, tag):
+        ''' call this function to print out the content of the xml file'''
+        print(f"Tag = {tag}")
         if self.CurrentData == "type":
-            print "Type:", self.type
+            print(f"Type: {self.type}")
         elif self.CurrentData == "format":
-            print "Format:", self.format
+            print (f"Format: {self.format}")
         elif self.CurrentData == "year":
-            print "Year:", self.year
+            print(f"Year: {self.year}")
         elif self.CurrentData == "rating":
-            print "Rating:", self.rating
+            print(f"Rating: {self.rating}")
         elif self.CurrentData == "stars":
-            print "Stars:", self.stars
+            print(f"Stars: {self.stars}")
         elif self.CurrentData == "description":
-            print "Description:", self.description
+            print(f"Description: {self.description}")
         self.CurrentData = ""
 
-    # Call when a character is read
     def characters(self, content):
+        ''' call this function to print out the content of the xml file'''
         if self.CurrentData == "type":
             self.type = content
         elif self.CurrentData == "format":
@@ -54,14 +56,11 @@ class MovieHandler(xml.sax.ContentHandler):
             self.description = content
 
 if __name__ == "__main__":
-
     # create an XMLReader
     parser = xml.sax.make_parser()
     # turn off namepsaces
     parser.setFeature(xml.sax.handler.feature_namespaces, 0)
-
     # override the default ContextHandler
     Handler = MovieHandler()
     parser.setContentHandler(Handler)
-
-    parser.parse("movies.xml")
+    parser.parse("Y:/Resources/xml/movies.xml")

@@ -23,7 +23,3 @@ for dirName, subdirList, fileList in os.walk(rootDir):
         if fname.find('.') == -1:
             print(dirName+"/"+fname+extTypes[fname,magic.from_file(dirName+"/"+fname)[:14]])
 
-        #fname,magic.from_file(dirName+"/"+fname)
-        #newfile =  newname+str(newnum).zfill(3)+os.path.splitext(fname)[1]
-        #os.rename(fname, newfile)
-        #newnum += 1

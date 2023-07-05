@@ -1,8 +1,9 @@
 #!/usr/bin/python
-
+'''  this is a tool to read xml'''
 import xml.sax
 
 class MovieHandler( xml.sax.ContentHandler ):
+   '''this is a class to handle xml'''
    def __init__(self):
       self.CurrentData = ""
       self.type = ""
@@ -14,30 +15,34 @@ class MovieHandler( xml.sax.ContentHandler ):
 
    # Call when an element starts
    def startElement(self, tag, attributes):
+      '''this is a function to handle xml'''
       self.CurrentData = tag
       if tag == "movie":
-         print "*****Movie*****"
+         print("*****Movie*****")
          title = attributes["title"]
-         print "Title:", title
+         print(f"Title: {title}")
 
    # Call when an elements ends
    def endElement(self, tag):
+      '''this is a function to handle xml'''
+      print(f"tag: {tag}")
       if self.CurrentData == "type":
-         print "Type:", self.type
+         print(f"Type: {self.type}")
       elif self.CurrentData == "format":
-         print "Format:", self.format
+         print(f"Format: {self.format}")
       elif self.CurrentData == "year":
-         print "Year:", self.year
+         print(f"Year: {self.year}")
       elif self.CurrentData == "rating":
-         print "Rating:", self.rating
+         print(f"Rating: {self.rating}")
       elif self.CurrentData == "stars":
-         print "Stars:", self.stars
+         print(f"Stars: {self.stars}")
       elif self.CurrentData == "description":
-         print "Description:", self.description
+         print(f"Description: {self.description}")
       self.CurrentData = ""
 
    # Call when a character is read
    def characters(self, content):
+      '''this is a function to handle xml'''
       if self.CurrentData == "type":
          self.type = content
       elif self.CurrentData == "format":
@@ -50,9 +55,8 @@ class MovieHandler( xml.sax.ContentHandler ):
          self.stars = content
       elif self.CurrentData == "description":
          self.description = content
-  
+
 if ( __name__ == "__main__"):
-   
    # create an XMLReader
    parser = xml.sax.make_parser()
    # turn off namepsaces
@@ -62,4 +66,4 @@ if ( __name__ == "__main__"):
    Handler = MovieHandler()
    parser.setContentHandler( Handler )
    
-   parser.parse("movies.xml")
+   parser.parse("y:/Resources/xml/movies.xml")

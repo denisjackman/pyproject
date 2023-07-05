@@ -3,7 +3,7 @@
     nuexifread
 '''
 from PIL import Image
-from PIL.ExifTags import TAGS, GPSTAGS
+from PIL.ExifTags import TAGS
 
 def get_exif(image_file_path):
     '''
@@ -18,19 +18,14 @@ def get_exif(image_file_path):
 
     gps_info = {}
     print(exif_table['GPSInfo'])
-    #print(GPSTAGS.get(266))
-    #for key in exif_table['GPSInfo'].keys():
-        #decode = GPSTAGS.get(266)
-        #print(decode)
-        #gps_info[decode] = exif_table['GPSInfo'][key]
 
     return gps_info
 
-filename = 'Y:/Resources/images/jester.jpg'
-exif = get_exif(filename)
-# print(isinstance(img, Image.Image))
-# print(img.size)
-# print(img.format)
-# print(img.mode)
-# print(img.info.keys())
-print(exif)
+def main():
+    ''' main function '''
+    filename = 'Y:/Resources/images/jester.jpg'
+    exif = get_exif(filename)
+    print(exif)
+
+if __name__ == "__main__":
+    main()

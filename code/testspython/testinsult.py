@@ -10,7 +10,12 @@ __version__ = "$Revision: 0.0 $"
 __date__ = "$Date: 2022/06/14 16:38:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-from djgamemodule import dice as dn
+import os
+import sys
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from djmodule.DndProject.dndinsult import shakespearean_insult_generator
+from djmodule.DndProject.dndinsult import dwarven_insult_generator
 
 
 def main():
@@ -20,7 +25,8 @@ def main():
     print("Insult generator test")
     loop = 0
     while loop < 101:
-        print(str(loop) + ": " + dn.insult_generator())
+        print(f" {str(loop)} : {shakespearean_insult_generator()}")
+        print(f" {str(loop)} : {dwarven_insult_generator()}")
         loop = loop + 1
 
 

@@ -26,11 +26,6 @@ def main(argv):
         else:
             print('projectbuild.py -p <projectname>')
             sys.exit()
-    # if projectname == "":
-    #     print 'projectbuild.py -p <projectname>'
-    #     sys.exit()
-    # else:
-    #     print 'Project Name is "', projectname, '"'
 
 def gettokenid():
     '''

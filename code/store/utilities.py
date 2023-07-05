@@ -1,35 +1,34 @@
 #!/usr/bin/python 
-'''
-Imports
-'''
-import os 
-import datetime 
+'''  this is a a game loop shell'''
 
-'''
-Variables 
-'''
-GameModeTest=True
-GameState="Init" # the game has three states Init Main End 
-GameRun=True
+# Imports
 
-'''
-Functions 
-'''
+# Variables 
+GAMEMODETEST=True
+GAMESTATE="Init" # the game has three states Init Main End 
+GAMERUN=True
+
+# Functions 
 def GameInit():
-    print"GameInit"
-    return
-def GameMainLoop():
-    print "GameMainLoop"
-    while GameRun:
-        print "Main loop"    
-    return
-def GameTerminate():
-    print "GameTerminate"
-    return
+    ''' this is the function to initialize the game'''
+    print("Game Init")
 
-'''
-Main Loop 
-'''
-GameInit
-GameMainLoop
-GameTerminate
+def GameMainLoop():
+    ''' this is the function to run the game'''
+    print("Game Main Loop")
+    while GAMERUN:
+        print("Main loop")
+
+def GameTerminate():
+    ''' this is the function to terminate the game'''
+    print("Game Terminate")
+
+def main():
+    ''' this is the main function '''
+    print("Main")
+    GameInit()
+    GameMainLoop()
+    GameTerminate()
+
+if __name__ == "__main__":
+    main()
