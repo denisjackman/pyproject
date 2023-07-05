@@ -11,19 +11,19 @@ COMMAND = "ls -al"
 os.system("say What is your command my master ?")
 os.system("say starting ssh session")
 
-ssh = subprocess.Popen(["ssh", "%s" % HOST, COMMAND],
+ssh = subprocess.Popen(["ssh", f"{HOST}", COMMAND],
                        shell=False,
                        stdout=subprocess.PIPE,
                        stderr=subprocess.PIPE)
 result = ssh.stdout.readlines()
 if result == []:
     error = ssh.stderr.readlines()
-    print >>sys.stderr, "ERROR: %s" % error
+    print (f"ERROR: {sys.stderr}")
     os.system("say Oh Oh another problem")
 else:
-    print "\n"
-    print result
-    print "\n"
+    print("\n")
+    print(result)
+    print("\n")
     os.system("say All good here")
 
 os.system("say Reactor online, Computer online, All systems functional")

@@ -53,6 +53,10 @@
 `grant select, insert, update on classicmodels.* to 'jackmanimation'@'Denis-PC.lan' with grant option;`
 `grant select, insert, update on classicmodels.* to 'jackmanimation'@'Gerialt.lan' with grant option;`
 
+`grant select, insert, update on meerkatbot.* to 'jackmanimation'@'localhost' with grant option;`
+`grant select, insert, update on meerkatbot.* to 'jackmanimation'@'Denis-PC.lan' with grant option;`
+`grant select, insert, update on meerkatbot.* to 'jackmanimation'@'Gerialt.lan' with grant option;`
+
 ### Test databases
 `CREATE TABLE IF NOT EXISTS 'fruit' (`
 `  'fruit_id' int(10) unsigned NOT NULL auto_increment,`
@@ -74,3 +78,6 @@
 `(10, 'Banana', 'Plantain'),`
 `(11, 'Banana', 'Burro'),`
 `(12, 'Banana', 'Cavendish');`
+
+
+CREATE TABLE `meerkatbot`.`posts` ( `username` TEXT NOT NULL , `postdate` DATE NOT NULL) ENGINE = InnoDB;

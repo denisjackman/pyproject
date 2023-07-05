@@ -3,12 +3,13 @@
 from PIL import Image
 from PIL.ExifTags import TAGS, GPSTAGS
 
-def get_exif(image):
+def get_exif(item):
     """
     Returns a dictionary from the exif data of an PIL Image item.
     Also converts the GPS Tags
     """
     exif_data = {}
+    image = Image.open(item)
     info = image._getexif()
     if info:
         for tag, value in info.items():

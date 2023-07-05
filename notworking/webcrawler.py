@@ -4,6 +4,7 @@
 import urllib.request
 
 def get_next_target(page):
+    '''find the next url in the page'''
     start_link = page.find('<a href=')
     if start_link == -1:
         url = None
@@ -15,6 +16,7 @@ def get_next_target(page):
     return url, end_quote
 
 def print_all_links(work_page):
+    '''print all the links in the page'''
     while True:
         result,end_point = get_next_target(work_page)
         if result:
@@ -24,6 +26,7 @@ def print_all_links(work_page):
             break
 
 def get_all_links(work_page):
+    '''get all the links in the page'''
     links=[]
     while True:
         url,end_point = get_next_target(work_page)
@@ -35,11 +38,13 @@ def get_all_links(work_page):
     return links
 
 def union(p,q):
+    '''add the elements of q to p if they are not already in p'''
     for e in q:
         if e not in p:
             p.append(e)
 
 def get_page(url):
+    '''get the page from the url'''
     # This is a simulated get_page procedure so that you can test your
     # code on two pages "http://xkcd.com/353" and "http://xkcd.com/554".
     # A procedure which actually grabs a page from the web will be
@@ -48,9 +53,9 @@ def get_page(url):
         return urllib.request.urlopen(url).read()
     except:
         return ""
-    return ""
 
 def crawl_web(seed,max_pages):
+    '''crawl the web starting at seed and stopping at max_pages'''
     tocrawl = [seed]
     crawled = []
     while tocrawl:

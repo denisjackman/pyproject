@@ -12,7 +12,7 @@ data = {
     }
 }
 
-with open("data_file.json", "w", encoding='UTF8') as write_file:
+with open("y:/Resources/development/data_file.json", "w", encoding='UTF8') as write_file:
     json.dump(data, write_file)
 
 JSON_STRING = """

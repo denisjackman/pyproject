@@ -14,12 +14,15 @@ __license__ = "Python"
 from sgmllib import SGMLParser
 
 class URLLister(SGMLParser):
+    '''Extract list of URLs in a web page'''
 	def reset(self):
+    	'''reset the parser'''
 		SGMLParser.reset(self)
 		self.urls = []
 
 	def start_a(self, attrs):
-		href = [v for k, v in attrs if k=='href']
+    	'''find the start of an anchor tag'''
+    	href = [v for k, v in attrs if k=='href']
 		if href:
 			self.urls.extend(href)
 

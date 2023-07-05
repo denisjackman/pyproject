@@ -22,22 +22,27 @@ def procDefiniton(params):
     """Does stuff
     Returns string.
     """
+    print(f"params: {params}")
     return "done!"
 
 def usage():
+    '''this is a function to show usage'''
     return
 
 def version():
+    ''' this is a function to show version'''
     return
 
 def main(argv):
-    grammar = "kant.xml"
+    '''this is a function to handle main'''
+    grammar = "y:/Resources/xml/kant.xml"
     try:
         opts, args = getopt.getopt(argv, "hvg:d", ["help","version","grammar="])
         print("Done")
     except getopt.GetoptError:
         usage()
         sys.exit(2)
+    print(f"opts: {opts} args: {args} grammar: {grammar}")
 
 if __name__ == "__main__":
     main(sys.argv[1:])
