@@ -89,5 +89,4 @@ pydrive2
 pyopenssl
 zipfile36
 praw
-sgmllib
 SimpleGUICS2Pygame.simpleguics2pygame
