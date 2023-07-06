@@ -2,7 +2,12 @@
     food generator
 '''
 from __future__ import annotations
-from myfunctions.utensils import dish
+import os
+import sys
+
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from djmodule.myfunctions.utensils import dish
 
 def main():
     '''

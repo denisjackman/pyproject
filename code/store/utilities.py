@@ -1,14 +1,14 @@
-#!/usr/bin/python 
+#!/usr/bin/python
 '''  this is a a game loop shell'''
 
 # Imports
 
-# Variables 
+# Variables
 GAMEMODETEST=True
-GAMESTATE="Init" # the game has three states Init Main End 
+GAMESTATE="Init" # the game has three states Init Main End
 GAMERUN=True
 
-# Functions 
+# Functions
 def GameInit():
     ''' this is the function to initialize the game'''
     print("Game Init")

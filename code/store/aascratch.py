@@ -1,4 +1,5 @@
 
+''' extract gif data '''
 # gps_exif_getter.py
 from PIL import Image
 from PIL.ExifTags import TAGS, GPSTAGS
@@ -10,6 +11,7 @@ def get_exif(item):
     """
     exif_data = {}
     image = Image.open(item)
+    # pylint: disable=W0212
     info = image._getexif()
     if info:
         for tag, value in info.items():

@@ -1,4 +1,7 @@
+''' This is a simple program to demonstrate how to create a unittest in'''
+
 def censor(text, word):
+    '''Censor the word in the text'''
     ban = "*" * len(word)
     result = []
     temp = text.split(" ")
@@ -11,19 +14,23 @@ def censor(text, word):
 
 
 def print_spam():
+    '''Print spam'''
     print("spam")
 
 
 def print_twice(arg):
+    ''' Print twice'''
     print(arg)
 
 
 def do_twice(f, arg):
+    ''' Do twice'''
     f(arg)
     f(arg)
 
 
 def do_four(f, arg):
+    ''' Do four'''
     do_twice(f, arg)
     do_twice(f, arg)
 
@@ -33,6 +40,7 @@ cubes_by_four = [x ** 3 for x in range(1, 11) if (x ** 3) % 4 == 0]
 
 
 def grid():
+    ''' Grid'''
     for y in range(1, 13):
         if y == 1 or y == 6 or y == 12:
             for dx in range(1, 13):
@@ -51,6 +59,7 @@ def grid():
 
 
 def grid4():
+    ''' Grid4'''
     for y in range(1, 25):
         if y == 1 or y == 6 or y == 12 or y == 18 or y == 24:
             for dx in range(1, 25):
@@ -91,13 +100,13 @@ print(filter(lambda sx: sx > 30 and sx < 70, squares))
 threes_and_fives = [x for x in range(1, 16) if x % 3 == 0 or x % 5 == 0]
 print(threes_and_fives)
 
-garbled = "!XeXgXaXsXsXeXmX XtXeXrXcXeXsX XeXhXtX XmXaX XI"
-ungarbled = garbled[::-2]
-print(garbled)
-print(ungarbled)
+GARBLED = "!XeXgXaXsXsXeXmX XtXeXrXcXeXsX XeXhXtX XmXaX XI"
+UNGARBLED = GARBLED[::-2]
+print(GARBLED)
+print(UNGARBLED)
 
-garbled = "IXXX aXXmX aXXXnXoXXXXXtXhXeXXXXrX sXXXXeXcXXXrXeXt mXXeXsXXXsXaXXXXXXgXeX!XX"
-message = filter(lambda wx: wx.replace('X', ''), garbled)
+GARBLED = "IXXX aXXmX aXXXnXoXXXXXtXhXeXXXXrX sXXXXeXcXXXrXeXt mXXeXsXXXsXaXXXXXXgXeX!XX"
+message = filter(lambda wx: wx.replace('X', ''), GARBLED)
 print("MSG: "+message)
 
 print("---------------------------------------------------------------------------------------------")
@@ -121,7 +130,8 @@ print(0b11 * 0b11)
 print("---------------------------------------------------------------------------------------------")
 
 def flip_bit(number, n):
-    mask = (0b1 << (n-1))
+    ''' Flip bit'''''
+    mask = 0b1 << (n-1)
     result = number ^ mask
     return bin(result)
 

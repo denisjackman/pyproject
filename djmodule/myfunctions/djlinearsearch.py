@@ -24,10 +24,10 @@ def quick_sort(input_list):
     if not arr:
         return []
 
-    pivots = [x for x in arr if x == arr[0]]
-    lesser = quick_sort([x for x in arr if x < arr[0]])
-    greater = quick_sort([x for x in arr if x > arr[0]])
-    result = lesser + pivots + greater
+    qspivots = [x for x in arr if x == arr[0]]
+    qslesser = quick_sort([x for x in arr if x < arr[0]])
+    qsgreater = quick_sort([x for x in arr if x > arr[0]])
+    result = qslesser + qspivots + qsgreater
     return result
 
 def radix_sort(input_list):
