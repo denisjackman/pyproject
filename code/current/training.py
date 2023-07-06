@@ -2,8 +2,13 @@
     this is a script to train using python
 '''
 from __future__ import annotations
+import os
+import sys
 import urllib3
-from myfunctions.utensils import print_results
+
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from djmodule.myfunctions.utensils import print_results
 
 def main():
     '''

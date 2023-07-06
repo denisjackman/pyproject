@@ -12,7 +12,6 @@ __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 import random
 
-
 def gold_to_silver(amount):
     '''
         convert gold to silver
@@ -157,5 +156,3 @@ def fed(population, food_units):
         fed_factor = 10
     food_units = int(max(food_units - population_check, 0))
     return(fed_factor, fed_description, food_units)
-
-if __name__ == '__main__':

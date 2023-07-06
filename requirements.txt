@@ -11,6 +11,10 @@ pyparsing
 PySocks
 pytest
 python-dateutil
+pylint
+pygame
+pandas
+plotly
 rfc3986
 six
 slack-bolt
@@ -27,10 +31,6 @@ urllib3
 wrapt
 wsproto
 yarl
-pylint
-pygame
-pandas
-plotly
 statsmodels
 moviepy
 opencv-python
@@ -89,3 +89,5 @@ pydrive2
 pyopenssl
 zipfile36
 praw
+sgmllib
+SimpleGUICS2Pygame.simpleguics2pygame

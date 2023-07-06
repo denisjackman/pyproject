@@ -31,6 +31,7 @@ def gettokenid():
     '''
         get token id
     '''
+    # pylint: disable=C0301
     tokenid = subprocess.check_output("source ~/overcloudrc && curl -s -X POST $OS_AUTH_URL/tokens   -H \"Content-Type: application/json\"   -d '{\"auth\": {\"tenantName\": \"admin\", \"passwordCredentials\": {\"username\": \"'\"$OS_USERNAME\"'\", \"password\": \"'\"$OS_PASSWORD\"'\"}}}'   | jq --raw-output .access.token.id ", shell=True)
     examplecurl = subprocess.check_output("source ~/overcloudrc && curl -s -H \"X-Auth-Token:" + tokenid + "\" http://10.236.102.21:5000/v3/endpoints | python -mjson.tool")
     print(examplecurl)

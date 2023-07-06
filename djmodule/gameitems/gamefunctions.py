@@ -349,8 +349,7 @@ def credscheck(file_details):
         message = f'[-] Danger! Danger! Will Robinson!: {err}'
         print(message)
         return []
-    else:
-        print("[-] Secrets loaded OK")
+    print("[-] Secrets loaded OK")
     creds_file.close()
     return creds
 

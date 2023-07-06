@@ -51,7 +51,7 @@ def get_page(url):
     # introduced in unit 4.
     try:
         return urllib.request.urlopen(url).read()
-    except:
+    except Exception:
         return ""
 
 def crawl_web(seed,max_pages):

@@ -32,7 +32,7 @@ JSON_STRING = """
 data = json.loads(JSON_STRING)
 print (data)
 
-response = requests.get("https://jsonplaceholder.typicode.com/todos")
+response = requests.get("https://jsonplaceholder.typicode.com/todos" , timeout=5)
 todos = json.loads(response.text)
 
 print(todos)

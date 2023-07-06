@@ -8,7 +8,7 @@ import mysql.connector
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
 from djmodule.gameitems.gamefunctions import credscheck
-def check_database(checkdb, checkusername, checkdate):
+def check_database(checkdb, checkusername):
     ''' check the database for the last time we checked '''
     result = False
     cursor = checkdb.cursor()
@@ -22,7 +22,7 @@ def check_database(checkdb, checkusername, checkdate):
             result = True
     except mysql.connector.errors.ProgrammingError as err:
         print(f"[-] Error: {err} \n Query: {query}")
-        result = False    
+        result = False
     return result
 
 def insert_row(insertdb, insertusername, insertdate):
@@ -66,7 +66,7 @@ def main():
     if use_db is None:
         print("[-] Database connection failed")
     else:
-        print("[+] Database connection OK")    
+        print("[+] Database connection OK")
     mk_client_id = credid['RedditClientID']
     mk_client_secret = credid['RedditSecret']
     mk_user_agent = 'Meerkatbot by jackmanimation'
@@ -101,7 +101,7 @@ def main():
         if author is None:
             print(f"[-] '{submission.title}' Author: None created: {itemdate} ago: {timediff.days}")
         else:
-            if check_database(use_db, author.name, itemdate):
+            if check_database(use_db, author.name):
                 print(f"[-] Author: {submission.author.name} Created: {itemdate} - NOT ADDED")
             else:
                 insert_row(use_db, author.name, itemdate)
