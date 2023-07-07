@@ -6,7 +6,7 @@
 # imports here
 import random
 import math
-import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+import simpleguitk as simplegui
 
 # initialize global variables used in your code
 SECRETNUMBER=0
@@ -18,7 +18,7 @@ NUMBERGUESSES = int(round(math.log(HIGH,2)))
 def new_game():
     ''' helper function to start and restart the game'''
     # pylint: disable=global-statement
-    global SECRETNUMBER, GAMEGUESSES, NUMBERGUESSES
+    global SECRETNUMBER, GAMEGUESSES
     SECRETNUMBER = random.randrange(LOW,HIGH)
     GAMEGUESSES = NUMBERGUESSES
     print("")
@@ -81,7 +81,7 @@ def main():
 
     # call new_game and start frame
     new_game()
-
+    frame.start()
     # always remember to check your completed program against the grading rubric
 if __name__ == '__main__':
     main()

@@ -5,6 +5,7 @@ import xml.sax
 class MovieHandler( xml.sax.ContentHandler ):
     '''this is a class to handle xml'''
     def __init__(self):
+        super().__init__()
         self.CurrentData = ""
         self.type = ""
         self.format = ""
@@ -14,18 +15,18 @@ class MovieHandler( xml.sax.ContentHandler ):
         self.description = ""
 
     # Call when an element starts
-    def startElement(self, tag, attributes):
+    def startElement(self, name, attrs):
         '''this is a function to handle xml'''
-        self.CurrentData = tag
-        if tag == "movie":
+        self.CurrentData = name
+        if name == "movie":
             print("*****Movie*****")
-            title = attributes["title"]
+            title = attrs["title"]
             print(f"Title: {title}")
 
     # Call when an elements ends
-    def endElement(self, tag):
+    def endElement(self, name):
         '''this is a function to handle xml'''
-        print(f"tag: {tag}")
+        print(f"tag: {name}")
         if self.CurrentData == "type":
             print(f"Type: {self.type}")
         elif self.CurrentData == "format":
