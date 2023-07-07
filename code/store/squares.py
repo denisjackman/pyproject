@@ -1,5 +1,6 @@
 ﻿''' squares.py'''
-import simplegui
+import simpleguitk as simplegui
+
 CLICK = False
 CX = 0
 CY = 0

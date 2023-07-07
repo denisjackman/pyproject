@@ -61,25 +61,22 @@ def opendb(credid, database):
 def main():
     ''' main function '''
     print("[+] Meerkatbot is starting up")
+
     credid = credscheck('y:/pyproject/secrets/secrets.json')
     use_db = opendb(credid, 'meerkatbot')
+
     if use_db is None:
         print("[-] Database connection failed")
     else:
         print("[+] Database connection OK")
-    mk_client_id = credid['RedditClientID']
-    mk_client_secret = credid['RedditSecret']
-    mk_user_agent = 'Meerkatbot by jackmanimation'
-    mk_username = credid['OredditUsername']
-    mk_password = credid['OredditPassword']
 
     try:
         reddit = praw.Reddit(
-            client_id=mk_client_id,
-            client_secret=mk_client_secret,
-            password=mk_password,
-            user_agent=mk_user_agent,
-            username=mk_username)
+            client_id='Meerkatbot by jackmanimation',
+            client_secret=credid['RedditSecret'],
+            password=credid['OredditPassword'],
+            user_agent='Meerkatbot by jackmanimation',
+            username=credid['OredditUsername'])
         # pylint: disable=W0702
     except:
         print("Reddit login failed")
@@ -88,8 +85,9 @@ def main():
     print(f"[-] {reddit.user.me()} is logged in")
     subreddit = reddit.subreddit('funny')
     print(f"[-] {subreddit.display_name} is being monitored")
-    user = reddit.redditor(mk_username)
+    user = reddit.redditor(credid['OredditUsername'])
     print(f"[-] {user.name} is Mod: {user.is_mod} and Gold: {user.is_gold}")
+
     for submission in subreddit.stream.submissions():
         author = submission.author
         itemdate = datetime.utcfromtimestamp(submission.created_utc).strftime('%Y-%m-%d')
