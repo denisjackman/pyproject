@@ -1,5 +1,9 @@
 ''' This is a sample project to resuse utilities and stuff '''
+import os
+import sys
 from tqdm import tqdm
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('..'))
 from djmodule.djutilities.fileutility import walk_through
 from djmodule.djutilities.fileutility import extract_file_extension
 from djmodule.myfunctions.utensils import dish
