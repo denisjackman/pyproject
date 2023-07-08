@@ -5,7 +5,7 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from djmodule.gameitems.gamefunctions import bubbleSort
+from djmodule.myfunctions.djlinearsearch import bubble_sort
 
 def main():
     '''
@@ -14,7 +14,7 @@ def main():
     print("Starting now : ")
     arr = ['t','u','t','o','r','i','a','l']
     print(f"array is : {str(arr)}")
-    print(f"after array is {str(bubbleSort(arr))}")
+    print(f"after array is {str(bubble_sort(arr))}")
     print("Ending now")
 
 

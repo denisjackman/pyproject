@@ -1,5 +1,8 @@
 ''' This is a test element for the game.'''
 import os
+import sys
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('..'))
 from djmodule.DndProject.dnddice import dice
 from djmodule.DndProject.dnddice import number_generator
 from djmodule.DndProject.dndinsult import shakespearean_insult_generator

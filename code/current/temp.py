@@ -42,7 +42,7 @@ cubes_by_four = [x ** 3 for x in range(1, 11) if (x ** 3) % 4 == 0]
 def grid():
     ''' Grid'''
     for y in range(1, 13):
-        if y == 1 or y == 6 or y == 12:
+        if y in (1, 6, 12):
             for dx in range(1, 13):
                 if dx == 1 or dx == 6 or dx == 12:
                     print('+',)
@@ -51,7 +51,7 @@ def grid():
             print("")
         else:
             for dx in range(1, 13):
-                if dx == 1 or dx == 6 or dx == 12:
+                if dx in (1, 6, 12):
                     print('|',)
                 else:
                     print(' ',)
@@ -61,16 +61,16 @@ def grid():
 def grid4():
     ''' Grid4'''
     for y in range(1, 25):
-        if y == 1 or y == 6 or y == 12 or y == 18 or y == 24:
+        if y in (1, 6, 12, 18, 24):
             for dx in range(1, 25):
-                if dx == 1 or dx == 6 or dx == 12 or dx == 18 or dx == 24:
+                if dx in (1, 6, 12, 18, 24):
                     print('+',)
                 else:
                     print('-',)
             print("")
         else:
             for dx in range(1, 25):
-                if dx == 1 or dx == 6 or dx == 12 or dx == 18 or dx == 24:
+                if dx in (1, 6, 12, 18, 24):
                     print('|',)
                 else:
                     print(' ',)

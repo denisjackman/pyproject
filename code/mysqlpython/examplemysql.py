@@ -18,40 +18,40 @@ import mysql.connector
 from djgamemodule import security as sec
 SECRETSFILE = 'y:/pyproject/secrets/secrets.json'
 
-def opendb(credid, database):
+def opendb(dbredid, dbdatabase):
     """ This function opens the database connection """
-    username = credid["username"]
-    password = credid["password"]
-    hostname = credid["hostname2"]
+    dbusername = dbredid["username"]
+    dbpassword = dbredid["password"]
+    dbhostname = dbredid["hostname2"]
     try:
-        my_db = mysql.connector.connect(
-            host=hostname,
-            user=username,
-            password=password,
-            database=database
+        exampledb = mysql.connector.connect(
+            host=dbhostname,
+            user=dbusername,
+            password=dbpassword,
+            database=dbdatabase
             )
     except mysql.connector.errors.ProgrammingError as err:
         print(f" Error: {err}")
         return None
-    print(f"[-] {my_db} Connected OK")
-    return my_db
+    print(f"[-] {exampledb} Connected OK")
+    return exampledb
 
 
 def sqlmain():
     """ This is the main routine for the program """
-    credid = sec.credscheck(SECRETSFILE)
-    use_db = opendb(credid, 'test')
+    dbredid = sec.credscheck(SECRETSFILE)
+    use_db = opendb(dbredid, 'test')
     if use_db is None:
         return None
-    cursor = use_db.cursor()
+    examplecursor = use_db.cursor()
     query = "SELECT * FROM fruit"
 
     counter = 0
     databasecount = 0
     tablecount = 0
 
-    cursor.execute(query)
-    for (fruit_id, fruit_name,fruit_variety) in cursor:
+    examplecursor.execute(query)
+    for (fruit_id, fruit_name,fruit_variety) in examplecursor:
         counter += 1
         print(f"{fruit_id}, {fruit_name} is {fruit_variety}")
 
@@ -68,7 +68,7 @@ def sqlmain():
         print(itemtable)
         tablecount += 1
 
-    cursor.close()
+    examplecursor.close()
     mycursor.close()
     use_db.close()
 
