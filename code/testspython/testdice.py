@@ -5,7 +5,7 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from djmodule.DndProject.dnddice import dice
+from jackmanimation.DndProject.dnddice import dice
 
 if __name__ == "__main__":
     print(f" Dice roll one six sided     : {str(dice())}")

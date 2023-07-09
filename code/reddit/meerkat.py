@@ -7,7 +7,7 @@ import mysql.connector
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from djmodule.gameitems.gamefunctions import credscheck
+from jackmanimation.gameitems.gamefunctions import credscheck
 def check_database(checkdb, checkusername):
     ''' check the database for the last time we checked '''
     result = False

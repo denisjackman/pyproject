@@ -8,7 +8,7 @@ import urllib3
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from djmodule.myfunctions.utensils import print_results
+from jackmanimation.myfunctions.utensils import print_results
 
 def main():
     '''
