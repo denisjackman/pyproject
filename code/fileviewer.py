@@ -9,8 +9,8 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..'))
-from djmodule.djutilities.fileutility import walk_through
-from djmodule.djutilities.fileutility import getargs
+from jackmanimation.djutilities.fileutility import walk_through
+from jackmanimation.djutilities.fileutility import getargs
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 1.0 $"

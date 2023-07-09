@@ -44,7 +44,7 @@ def grid():
     for y in range(1, 13):
         if y in (1, 6, 12):
             for dx in range(1, 13):
-                if dx == 1 or dx == 6 or dx == 12:
+                if dx in (1, 6, 12):
                     print('+',)
                 else:
                     print('-',)
@@ -95,7 +95,7 @@ print(filter(lambda bx: bx == 'Python', languages))
 
 squares = [x ** 2 for x in range(1, 11)]
 print(squares)
-print(filter(lambda sx: sx > 30 and sx < 70, squares))
+print(filter(lambda sx: 30 < sx < 70, squares))
 
 threes_and_fives = [x for x in range(1, 16) if x % 3 == 0 or x % 5 == 0]
 print(threes_and_fives)
