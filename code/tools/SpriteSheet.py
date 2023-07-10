@@ -25,7 +25,6 @@ ICON_FILE = 'y:/Resources/jackmanimation.png'
 WHITE = (255, 255, 255)
 FILEPATH = Path(__file__).parent
 SHEET_NAME = "Y:/Resources/roguelike/Spritesheet/rogueLikeSheet_Transparent.png"
-#Y:/Resources/roguelike/Spritesheet/roguelikeDungeon_transparent.png"
 
 pygame.init()
 window = pygame.display.set_mode((WIDTH, HEIGHT))

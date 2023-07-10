@@ -1,9 +1,13 @@
 '''
     This is a Sprite checking utility
 '''
+import os
+import sys
 from pathlib import Path
 import pygame
-from classes.sprite import GameSprite
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from jackmanimation.classes.sprite import GameSprite
 
 WIDTH = 800
 HEIGHT = 800
