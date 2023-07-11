@@ -38,8 +38,34 @@
 4. http://www.red3d.com/cwr/boids/
 6. Change updating system to that used by QuizMe
 
-## Fixmes:
-* scratch/mail.py  #fixme a total rewrite as it no longer works
-## Information
-* 'Y:/pyproject/resources/match3_tiles_px.png'
-* 'Y:/pyproject/code/game/Shmup/img/p1_jump.png'
+
+## To-Do List
+
+This list is a list of TODO items broken into Spike, Game and Tools.
+
+* __Spike__: means a lot of research is needed to look at the topic
+* __Tools__: these are useful tools to work on games development with
+* __Game__: these are essential items for the development of a game
+
+
+|Status|Code|Item|Status|Description|
+|----- |----|----|------|----------------------------------------------------|
+|TODO:|T001|Tools| |A Image Viewer|
+|TODO:|T002|Tools| |File Viewer|
+|TODO:|T003|Tools| |Map Viewer (Tiles)|
+|TODO:|T004|Tools| |Map Editor (Tiles)|
+|TODO:|T005|Tools| |Function Documented (from code to markdown)|
+|TODO:|G001|Game| |Introduction sequence|
+|TODO:|G002|Game| |Splash Screen|
+|TODO:|G003|Game| |End Sequence|
+|TODO:|G004|Game| |Research game types and document|
+|~~TODO~~:|~~S001~~|~~Spike~~|~~**DONE**~~|~~Pygame learning~~|
+|~~TODO~~:|~~S002~~|~~Spike~~|~~**DONE**~~|~~Setting up dev machine~~|
+|~~TODO~~:|~~S003~~|~~Spike~~|~~**DONE**~~|~~Pygame - Images~~|
+|~~TODO~~:|~~S004~~|~~Spike~~|~~**DONE**~~|~~Pygame - Sprites~~|
+|~~TODO~~:|~~S005~~|~~Spike~~|~~**DONE**~~|~~Pygame - Event Handlers~~|
+|~~TODO~~:|~~S007~~|~~Spike~~|~~**DONE**~~|~~Game Code Template~~|
+|~~TODO~~:|~~S006~~|~~Spike~~|~~**DONE**~~|~~Pygame - Sounds~~|
+
+--------
+
