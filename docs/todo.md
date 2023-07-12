@@ -3,7 +3,6 @@
 * Binary search
 * Breadth First Search
 * Depth First Search
-
 * ![Part 1](image-1-4.jpeg)
 * ![Part 2](image-5-6.jpeg)
 * ![Projects Easy](projects-easy.jpeg)
@@ -14,10 +13,11 @@
 * [Roguelike - reddit](https://www.reddit.com/r/roguelikedev/)
 
 ## TAGS
-`# FIXME: this is a Fix Tag`
-`# TODO: this is todo tag`
-`# IDEA: This is an idea tag`
-`# CONCEPT: this is a concept tag`
+
+* `# FIXME: this is a Fix Tag`
+* `# TODO: this is todo tag`
+* `# IDEA: This is an idea tag`
+* `# CONCEPT: this is a concept tag`
 
 ## TKBoids
 
@@ -48,6 +48,7 @@ This list is a list of TODO items broken into Spike, Game and Tools.
 * __Game__: these are essential items for the development of a game
 
 
+|----- |----|----|------|----------------------------------------------------|
 |Status|Code|Item|Status|Description|
 |----- |----|----|------|----------------------------------------------------|
 |TODO:|T001|Tools| |A Image Viewer|
@@ -66,6 +67,6 @@ This list is a list of TODO items broken into Spike, Game and Tools.
 |~~TODO~~:|~~S005~~|~~Spike~~|~~**DONE**~~|~~Pygame - Event Handlers~~|
 |~~TODO~~:|~~S007~~|~~Spike~~|~~**DONE**~~|~~Game Code Template~~|
 |~~TODO~~:|~~S006~~|~~Spike~~|~~**DONE**~~|~~Pygame - Sounds~~|
+|----- |----|----|------|----------------------------------------------------|
 
---------
 

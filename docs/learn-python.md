@@ -1,7 +1,7 @@
 # Python 
-# Step by Step guide to learning Python 
+## Step by Step guide to learning Python 
 
-## One list
+### One list
 * Basic Syntax
 * Indentation rules and comments 
 * variables and datatype
@@ -31,8 +31,8 @@
 * datetime and calender module 
 * pip and pypi packages
 
-## Another List 
-### Basic 
+### Another List 
+#### Basic 
 * Variables
 * conditions 
 * chained conditionals 
@@ -44,7 +44,7 @@
 * mutable vs Immutable 
 * common methods 
 * file io 
-### Intermediate
+#### Intermediate
 * OOPs 
 * Data Structures
 * Comprehensions 
@@ -58,7 +58,7 @@
 * modules 
 * async 10 
 
-### Expert
+#### Expert
 * decorators 
 * generators 
 * context managers 
@@ -68,19 +68,18 @@
 * packages 
 * cython 
 
-
-# Python in one week 
-## Day One: Basic concepts (3 hours)
+## Python in one week 
+### Day One: Basic concepts (3 hours)
 * Variables 
 * Display Output (Print command)
 * take user input (input command) 
 * conditionals 
-## Day Two: Basic Concepts (3 hours)
+### Day Two: Basic Concepts (3 hours)
 * List (index, append, remove)
 * for loop 
 * while loop 
 * functions 
-## Day Three: Simple coding problems (5 hours)
+### Day Three: Simple coding problems (5 hours)
 * convert miles into kilometers 
 * calculate simple interest 
 * find largest number in a list 
@@ -89,31 +88,28 @@
 * reverse string ( check palindromes) 
 * calculate age
 * build a simple calculator
-## Day Four: Data Structure (3 hours)
+### Day Four: Data Structure (3 hours)
 * Stack and Queue 
 * Dictionary 
 * tuples 
-## Day Five: OOP (4 hours)
+### Day Five: OOP (4 hours)
 * Object 
 * Class 
 * Method and constructor
 * oop-inheritance 
-## Day Six: Algorithim (4 Hours)
+### Day Six: Algorithim (4 Hours)
 * binary Search 
 * bubble sort 
 * selection sort
-## Day Seven: Projects (6 hours)
+### Day Seven: Projects (6 hours)
 * build a web crawler 
 * news aggregator 
 * simple game using pygame 
-
-# Learn by Gaming
+## Links
 * [Codecombat](https://codecombat.com/)
 * [CheckIO](https://checkio.org/)
 * [CodeWars](https://www.codewars.com/)
 * [CodeMonkey](https://www.codemonkey.com/)
-
-# Website
 * [Google Python Class](https://developers.google.com/edu/python)
 * [SoloLearn](https://www.sololearn.com/home)
 * [A Byte of Python](https://python.swaroopch.com/)

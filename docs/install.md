@@ -33,6 +33,7 @@ This sequence will allow you to access anything that needs privileges. And shoul
 * install everything on the `requirements.txt`
 
 for Windows
+
 `python -m venv name-env`
 `name-env\Scripts\activate.bat`
 `pip install -r requirements.txt`

@@ -1,7 +1,7 @@
-
-### Reference
+# Notes
+## Reference
 * [UML Tutorial](https://www.youtube.com/watch?v=dcsvl3YqAEk)
-### Games Assets 
+## Games Assets 
 * [CraftPix](https://craftpix.net/freebies/)
 * [Itch.io](https://itch.io/game-assets/free)
 * [Game2Art](https://www.gameart2d.com/freebies.html)
@@ -10,7 +10,7 @@
 * [Dribble](https://dribbble.com/craftpix_net/collections/4481662-Free-2D-Sprites)
 * [Bevouliin](https://bevouliin.com/category/free_game_asset/)
 
-## Notes 
+## Various Notes 
 * [Quiz Questions API](https://opentdb.com/api_config.php)
 * [Turn Based Game Tutorial](https://www.youtube.com/watch?v=JGxFPCkJzJM)
 * [Turn Based Game Source Code](https://github.com/hamletrpg/RPG-Battle-System/tree/master)
@@ -217,7 +217,7 @@ im.save('Foto.png')`
 Extract `EXIF` data using `Pillow` - there will be examples using `PIL` which is the older version of `Pillow`
 
 ## Python Fu
-## General
+### General
 * Python always starts with 0.
 * Loops run through from the first number to the (but not including) last number
 * colons define blocks and the blocks are space sensitive
@@ -324,7 +324,6 @@ I recommend the following books for web developers who want to get started with 
 * [Bog Leech](http://www.bogleech.com/games.html)
 
 ## Notes on various things
-
 ### ELO rating
 Ea is the probability of 'a' winning a match against 'b'.
 The correct equations are:

@@ -13,8 +13,6 @@ This is a list of tools that I am using to work on this project with.
 * [Tiled](https://www.mapeditor.org/)
 * [Draw.io](https://www.draw.io/)
 * [Ascii art Generator ](http://patorjk.com/software/taag/#p=display&f=Ogre&t=Jackmanimation)
-## Programming Tools
-### Code Editors and IDES
 * [Atom](https://atom.io/)
 * [Sublime](https://www.sublimetext.com/)
 * [Pycharm](https://www.jetbrains.com/pycharm/)
