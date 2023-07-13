@@ -18,7 +18,8 @@ From a technical stand point we will use the following:
 * Build an editor for the map.
 * Design the game map.
 * source tiles and game tokens 
-* map out the game play 
+* map out the game play
+
 ## Classes
 This will contain a list of the available classes and their purpose
 * creature - This is the base class for all creatures in the game.
@@ -48,7 +49,7 @@ And readjust the number if the tiles are bigger than 16x16 pixels.
 
 
 ## Map Notes
-## Tile Notes
+### Tile Notes
 | Tile ID | Tile | Filename | Notes |
 | :---: | :---: | :---: | :---: |
 | 0 | GRASS_TILE_01 | game-assets/tiles/grass001.png |  |
