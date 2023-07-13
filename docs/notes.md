@@ -1,6 +1,7 @@
 # Notes
 ## Reference
 * [UML Tutorial](https://www.youtube.com/watch?v=dcsvl3YqAEk)
+
 ## Games Assets 
 * [CraftPix](https://craftpix.net/freebies/)
 * [Itch.io](https://itch.io/game-assets/free)
@@ -19,6 +20,7 @@
 * [Wargames Tutoria](https://www.youtube.com/@leafleft6544/videos)
 * [Wargames Tutorial](https://www.youtube.com/watch?v=hM9qbW8-roE)
 * [PyGame Tutorial](https://www.classcentral.com/subject/pygame)
+
 ## Notes
 The notes section covers various links to APIs and Libraries and snippets as found on my travels.
 
@@ -107,7 +109,9 @@ The notes section covers various links to APIs and Libraries and snippets as fou
 ### ATOM API
 * [Atom API](https://flight-manual.atom.io/api/v1.57.0/AtomEnvironment/)
 -------
+
 ## Other Items
+
 ### Assets
 * [platformer](https://opengameart.org/content/platformer-art-complete-pack-often-updated)
 * [SHMUP Art](https://opengameart.org/content/space-shooter-art)
@@ -172,8 +176,10 @@ The notes section covers various links to APIs and Libraries and snippets as fou
 
 ### MySQL
 * [MySql](http://www.mysqltutorial.org/python-mysql/)
+
 ------
 ## Code Fragments
+
 ### General
 
 `pip install -r requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org`
