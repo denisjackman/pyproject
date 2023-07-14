@@ -14,14 +14,9 @@ __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 import pandas as pd
 import matplotlib.pyplot as plt
-# import plotly.express as px
-# import plotly.graph_objects as go
-# from statsmodels.tsa.seasonal import seasonal_decompose
-# from statsmodels.graphics.tsaplots import plot_pacf
-# from statsmodels.tsa.arima_model import ARIMA
-# import statsmodels.api as sm
 
-data = pd.read_csv("Thecleverprogrammer.csv")
+
+data = pd.read_csv(r"Y:/Resources/excel/Thecleverprogrammer.csv")
 print(data.head())
 data["Date"] = pd.to_datetime(data["Date"],
                               format="%d/%m/%Y")

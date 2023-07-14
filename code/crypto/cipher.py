@@ -28,7 +28,7 @@ def get_key():
     """
     skey = 0
     while True:
-        print('Enter the KEY number ({MAX_KEY_SIZE})')
+        print(f'Enter the KEY number ({MAX_KEY_SIZE})')
         skey = int(input())
         # if (skey >= 1 and skey <= MAX_KEY_SIZE):
         #    return skey
