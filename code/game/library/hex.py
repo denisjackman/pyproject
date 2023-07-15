@@ -58,6 +58,13 @@ def get_co_ords(tile_type, pos):  #pylint: disable=R0914
         result = [(x1,y1),(x2,y2),(x3,y3),(x4,y4)]
     return result
 
-print(get_co_ords("POINTHEX",(0,0)))
-print(get_co_ords("FLATHEX",(0,0)))
-print(get_co_ords("NOHEX",(0,0)))
+def main():
+    '''
+        main function
+    '''
+    print(get_co_ords("POINTHEX",(0,0)))
+    print(get_co_ords("FLATHEX",(0,0)))
+    print(get_co_ords("NOHEX",(0,0)))
+
+if __name__ == '__main__':
+    main()

@@ -25,7 +25,6 @@ def main():
     for filename in os.listdir(directory):
         if filename.endswith(target):
             file_list.append(os.path.join(directory, filename))
-            # print os.path.join(directory, filename)
 
     for _ in file_list:
         print(_)

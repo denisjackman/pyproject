@@ -18,7 +18,6 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
-
 def main():
     '''
         initialise pygame and set up the screen
@@ -48,7 +47,6 @@ def main():
         pygame.display.flip()
 
     pygame.quit()
-
 
 if __name__ == "__main__":
     # run the main routine

@@ -4,6 +4,8 @@
 import random
 import time
 
+
+
 def displayIntro():
     '''
         introduction function
@@ -44,14 +46,19 @@ def checkCave(chosenCave):
     else:
         print('Gobbles you down in one bite!')
 
-PLAYAGAIN = 'yes'
-while PLAYAGAIN in ('yes', 'y'):
+def main():
+    ''' main function '''
+    PLAYAGAIN = 'yes'
+    while PLAYAGAIN in ('yes', 'y'):
 
-    displayIntro()
+        displayIntro()
 
-    caveNumber = chooseCave()
+        caveNumber = chooseCave()
 
-    checkCave(caveNumber)
+        checkCave(caveNumber)
 
-    print('Do you want to play again? (yes or no)')
-    PLAYAGAIN = input()
+        print('Do you want to play again? (yes or no)')
+        PLAYAGAIN = input()
+
+if __name__ == '__main__':
+    main()
