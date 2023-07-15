@@ -57,3 +57,6 @@ def run_display(boids, update_function, SWIDTH, SHEIGHT):
         pygame.display.update()
 
     pygame.quit()
+
+if __name__ == '__main__':
+    run_display(10,'ANY', 800, 480)
