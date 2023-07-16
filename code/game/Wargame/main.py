@@ -88,10 +88,10 @@ def wargame_main():
         main routine
     '''
     g = Game()
-    g.show_start_screen()
+    g.show_game_start_screen()
     while g.running:
         g.new()
-        g.show_go_screen()
+        g.show_game_go_screen()
     pygame.quit()
 
 

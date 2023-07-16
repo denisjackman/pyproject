@@ -14,10 +14,6 @@ __date__ = "$Date: 2019/09/20 00:00:00 $"
 __copyright__ = "Copyright (c) 2018 Denis J Jackman"
 __license__ = "Python"
 
-# from djgamemodule import dice
-# from djgamemodule import gamemodule
-# from currency import *
-# from weight import *
 from advclasses.weapons import Weapon
 from advclasses.equipment import Equipment
 from advclasses.race import Race

@@ -70,6 +70,7 @@ pygame.event.set_blocked(pygame.MOUSEMOTION)
 screeni.fill((0,0,0))
 
 # Load images into image container, IH. (but not the interface images yet)
+
 gameboard.load_image_files_but_not_interface_image_files(IH,graphics_path)
 
 # Create the Game Board
@@ -78,6 +79,7 @@ gb = TGB(screeni,IH,path[0])
 
 # Load the interface images... at the moment they need
 # to be loaded after the Game Board has an instance
+
 IH.add_image(pygame.image.load(graphics_path+gb.sc.get("interface_filename","leiska.png")).convert(),"interface")
 IH.add_image(pygame.image.load(graphics_path+gb.sc.get("menu_interface_filename","menu.png")).convert(),"menu_interface")
 
