@@ -35,7 +35,7 @@ SCREEN_HEIGHT = 800
 pygame.mixer.init()
 pygame.init()
 # Here we load the image we want to use as an icon
-Icon = pygame.image.load('icon.png')
+Icon = pygame.image.load(r'y:/Resources/jackmanimation.png')
 
 # We use set_icon to set new icon
 pygame.display.set_icon(Icon)
