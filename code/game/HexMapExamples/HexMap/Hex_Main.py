@@ -83,9 +83,9 @@
     '''
 
 import wx
-from Hex_Game import *
-from Hex_View import *
-from Hex_Panel import *
+from Hex_Game import Game, EVT_MAP_ROT
+from Hex_View import mapView, thumb_dict
+from Hex_Panel import ColorPanel
 
 # event binder, the event declared in the hex_Game module.
 HDL_MAP_ROT = wx.PyEventBinder(EVT_MAP_ROT, 1)
@@ -257,7 +257,7 @@ class topFrame(wx.Frame):  #pylint: disable-msg=C0103
 class SliderDialog(wx.Dialog):
     ''' Enter the number of columns/rows in a map, using slider widgets. '''
     def __init__(self, parent, ID, title, \
-                 pos=wx.DefaultPosition, style=wx.DEFAULT_DIALOG_STYLE):  
+                 pos=wx.DefaultPosition, style=wx.DEFAULT_DIALOG_STYLE):
         wx.Dialog.__init__(self, parent, ID, title, size=(400, 400))
         self.SetBackgroundColour('light steel blue')
         okButton = wx.Button(self, wx.ID_OK, 'OK', pos=(50, 340))

@@ -62,6 +62,6 @@ class ColorPanel(wx.Panel):
         ''' Sets the color of the current pen.'''
         color = self.colorMap[event.GetId()]
         for bt in self.colorButtons.items():
-            bt.SetValue(False)
+            bt[1].SetValue(False)
         self.colorButtons[color].SetValue(True)
         self.topFrame.NewCPColor(color)
