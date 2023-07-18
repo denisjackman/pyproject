@@ -12,7 +12,6 @@ START_POSX = 0
 START_POSY = 0
 SPRITE_WIDTH = 64
 SPRITE_HEIGHT = 64
-sprite_size = (SPRITE_WIDTH, SPRITE_HEIGHT)
 
 
 def sprite(sprite_surface, sprite_position, sprite_screen):
@@ -116,7 +115,8 @@ def main():
                           cur_posy,
                           SPRITE_WIDTH + cur_posx,
                           SPRITE_HEIGHT + cur_posy)
-            sprite_list.append(sprite_load(imgload, sprite_pos, sprite_size))
+            sprite_list.append(sprite_load(imgload, sprite_pos, (SPRITE_WIDTH, SPRITE_HEIGHT)
+))
             cur_posx += SPRITE_WIDTH
         cur_posy += SPRITE_HEIGHT
         cur_posx = 0

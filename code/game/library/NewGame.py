@@ -37,7 +37,7 @@ def MainGame():
 def main():
     '''
         main function
-    ''' 
+    '''
     # start of it all
     pygame.init()
     MainGame()

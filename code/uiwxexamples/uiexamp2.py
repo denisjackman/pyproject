@@ -45,6 +45,6 @@ def main():
     frame.Show()
     app.MainLoop()
     print(f"Title is : {frame.isName()}")
-    
+
 if __name__ == '__main__':
     main()

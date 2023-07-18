@@ -270,6 +270,14 @@ class SliderDialog(wx.Dialog):
             style=wx.SL_HORIZONTAL | wx.SL_AUTOTICKS | wx.SL_LABELS | wx.SL_TOP)
         self.colSlider.SetTickFreq(1)
 
+    def isName(self):
+        ''' isname function '''
+        return self.title
+    
+    def isTitle(self):
+        ''' istitle function '''
+        return self.title
+
 ########################################################################
 class cApp(wx.App):  #pylint: disable-msg=C0103
     ''' this is the Controller part of the MVC model. The App component
@@ -277,6 +285,7 @@ class cApp(wx.App):  #pylint: disable-msg=C0103
     def __init__(self):
 ##        wx.App.__init__(self, redirect=True, filename='errlog.txt')
         wx.App.__init__(self) # toggle these lines for error logging.
+        self.topFrame = None
 
     def OnInit(self):
         ''' Initialize the application. '''
@@ -284,6 +293,14 @@ class cApp(wx.App):  #pylint: disable-msg=C0103
         self.SetTopWindow(self.topFrame)
         self.topFrame.Show()
         return True
+
+    def isName(self):
+        ''' isname function '''
+        return self.title
+    
+    def isTitle(self):
+        ''' istitle function '''
+        return self.title
 
 def main():
     ''' main function. '''
