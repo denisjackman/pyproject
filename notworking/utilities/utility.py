@@ -7,31 +7,19 @@ from pygame.locals import (QUIT, KEYDOWN, K_ESCAPE)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
-WIDTH = 1200
-HEIGHT = 900
-CAPTION = 'Utility Program'
-SCREEN_SIZE = (WIDTH, HEIGHT)
-FPS = 60
-
-ICON_FILE = r'y:/Resources/pumpkin_dude.png'
-
-
-SPRITE_X = 0
-SPRITE_Y = 0
 IMG_FILE = r'y:/Resources/images/stella_walk.png'
 START_POSX = 0
 START_POSY = 0
 SPRITE_WIDTH = 64
 SPRITE_HEIGHT = 64
-sprite_size = (SPRITE_WIDTH, SPRITE_HEIGHT)
 
 
-def sprite(sprite_surface, sprite_position):
+def sprite(sprite_surface, sprite_position, sprite_screen):
     '''
         sprite function
     '''
     sprite_surface.set_colorkey(BLACK)
-    game_screen.blit(sprite_surface, sprite_position)
+    sprite_screen.blit(sprite_surface, sprite_position)
 
 
 def sprite_load(source_surface,
@@ -70,9 +58,9 @@ def main():
         main routine
     '''
     pygame.init()
-    game_screen = pygame.display.set_mode(SCREEN_SIZE)
-    icon = pygame.image.load(ICON_FILE)
-    pygame.display.set_caption(CAPTION)
+    game_screen = pygame.display.set_mode(1200, 900)
+    icon = pygame.image.load(r'y:/Resources/pumpkin_dude.png')
+    pygame.display.set_caption('Utility Program')
     pygame.display.set_icon(icon)
     clock = pygame.time.Clock()
     img = []
@@ -127,7 +115,8 @@ def main():
                           cur_posy,
                           SPRITE_WIDTH + cur_posx,
                           SPRITE_HEIGHT + cur_posy)
-            sprite_list.append(sprite_load(imgload, sprite_pos, sprite_size))
+            sprite_list.append(sprite_load(imgload, sprite_pos, (SPRITE_WIDTH, SPRITE_HEIGHT)
+))
             cur_posx += SPRITE_WIDTH
         cur_posy += SPRITE_HEIGHT
         cur_posx = 0
@@ -135,9 +124,6 @@ def main():
     cur_posy = START_POSY
 
     RUNNING = True
-    screen_x = 300
-    screen_y = 300
-    screen_position = (screen_x, screen_y)
     count = 0
     counter = 0
     sprite_timer = 0
@@ -145,9 +131,9 @@ def main():
     while RUNNING:
         RUNNING = check_status()
         game_screen.fill(WHITE)
-        sprite(sprite_list[count], screen_position)
-        sprite(newimg[counter], (100, 300))
-        sprite_timer += FPS
+        sprite(sprite_list[count], (300, 300), game_screen)
+        sprite(newimg[counter], (100, 300), game_screen)
+        sprite_timer += 60
         if sprite_timer >= 600:
             counter += 1
             count += 1
@@ -158,7 +144,7 @@ def main():
         if counter >= len(img):
             counter = 0
         pygame.display.flip()
-        clock.tick(FPS)
+        clock.tick(60)
     pygame.quit()
 
 

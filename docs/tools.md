@@ -17,3 +17,8 @@ This is a list of tools that I am using to work on this project with.
 * [Sublime](https://www.sublimetext.com/)
 * [Pycharm](https://www.jetbrains.com/pycharm/)
 * [VScode](https://code.visualstudio.com/)
+
+## Homemade Tools 
+* Pathmaker : Pathmaker is a tool I have developed to help me with my building paths for python games 
+* SpriteChecker: SpriteChecker is a tool I have developed to help with looking at sprites 
+* SpriteSheet: SpriteSheet is a tool I have developed to help with unpacking SpriteSheets into individual sprites

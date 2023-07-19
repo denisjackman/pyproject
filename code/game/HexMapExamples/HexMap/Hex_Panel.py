@@ -5,7 +5,7 @@
     mainly as a experiment, to work out the bugs in having two panels
     side-by-side in the main window. Based on code from the book,
     "wxPython in Action" - you should run right out and buy a copy...'''
-
+# pylint: disable-msg=import-error
 import wx
 from wx.lib import buttons
 
@@ -62,6 +62,6 @@ class ColorPanel(wx.Panel):
         ''' Sets the color of the current pen.'''
         color = self.colorMap[event.GetId()]
         for bt in self.colorButtons.items():
-            bt.SetValue(False)
+            bt[1].SetValue(False)
         self.colorButtons[color].SetValue(True)
         self.topFrame.NewCPColor(color)

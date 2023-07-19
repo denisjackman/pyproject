@@ -31,6 +31,7 @@ def grid_build(width, height, tile):
     return map_list
 
 def main():
+    ''' main routine '''
     pygame.init()
     RUNNING = True
     game_window = pygame.display.set_mode((800, 600))

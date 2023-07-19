@@ -81,11 +81,11 @@
         whole project is to learn Python and wxPython), has been changed
         to allow a multi-colored hex map.
     '''
-
+# pylint: disable-msg=import-error
 import wx
-from Hex_Game import *
-from Hex_View import *
-from Hex_Panel import *
+from Hex_Game import Game, EVT_MAP_ROT
+from Hex_View import mapView, thumb_dict
+from Hex_Panel import ColorPanel
 
 # event binder, the event declared in the hex_Game module.
 HDL_MAP_ROT = wx.PyEventBinder(EVT_MAP_ROT, 1)
@@ -257,7 +257,7 @@ class topFrame(wx.Frame):  #pylint: disable-msg=C0103
 class SliderDialog(wx.Dialog):
     ''' Enter the number of columns/rows in a map, using slider widgets. '''
     def __init__(self, parent, ID, title, \
-                 pos=wx.DefaultPosition, style=wx.DEFAULT_DIALOG_STYLE):  
+                 pos=wx.DefaultPosition, style=wx.DEFAULT_DIALOG_STYLE):
         wx.Dialog.__init__(self, parent, ID, title, size=(400, 400))
         self.SetBackgroundColour('light steel blue')
         okButton = wx.Button(self, wx.ID_OK, 'OK', pos=(50, 340))
@@ -270,6 +270,14 @@ class SliderDialog(wx.Dialog):
             style=wx.SL_HORIZONTAL | wx.SL_AUTOTICKS | wx.SL_LABELS | wx.SL_TOP)
         self.colSlider.SetTickFreq(1)
 
+    def isName(self):
+        ''' isname function '''
+        return self.title
+
+    def isTitle(self):
+        ''' istitle function '''
+        return self.title
+
 ########################################################################
 class cApp(wx.App):  #pylint: disable-msg=C0103
     ''' this is the Controller part of the MVC model. The App component
@@ -277,6 +285,7 @@ class cApp(wx.App):  #pylint: disable-msg=C0103
     def __init__(self):
 ##        wx.App.__init__(self, redirect=True, filename='errlog.txt')
         wx.App.__init__(self) # toggle these lines for error logging.
+        self.topFrame = None
 
     def OnInit(self):
         ''' Initialize the application. '''
@@ -284,6 +293,14 @@ class cApp(wx.App):  #pylint: disable-msg=C0103
         self.SetTopWindow(self.topFrame)
         self.topFrame.Show()
         return True
+
+    def isName(self):
+        ''' isname function '''
+        return self.title
+
+    def isTitle(self):
+        ''' istitle function '''
+        return self.title
 
 def main():
     ''' main function. '''
