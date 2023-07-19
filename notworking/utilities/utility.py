@@ -124,7 +124,6 @@ def main():
     cur_posy = START_POSY
 
     RUNNING = True
-    screen_position = (300, 300)
     count = 0
     counter = 0
     sprite_timer = 0
@@ -132,7 +131,7 @@ def main():
     while RUNNING:
         RUNNING = check_status()
         game_screen.fill(WHITE)
-        sprite(sprite_list[count], screen_position, game_screen)
+        sprite(sprite_list[count], (300, 300), game_screen)
         sprite(newimg[counter], (100, 300), game_screen)
         sprite_timer += 60
         if sprite_timer >= 600:

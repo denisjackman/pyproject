@@ -109,8 +109,10 @@
         didn't seem to be happening. At least, when I put in a 'del dc'
         statement, I haven't had the program crash since.
     '''
+# pylint: disable-msg=import-error
 import wx
-from Hex_Game import *  #pylint: disable=W0401 # pylint: disable=unused-import
+from Hex_Game import ACROSS
+from Hex_Math import ShortestDist, ComputeHexPoints
 
 if __name__ == '__main__':
     print('Hex_View: starting Hex_Main')
@@ -193,7 +195,7 @@ class mapView(wx.ScrolledWindow):  #pylint: disable-msg=C0103
             dc2 = wx.PaintDC(self)
             del dc2
         except AssertionError:
-            print(f' Problems opening DC. Should not happen...')
+            print(f' Problems opening DC. Should not happen...{event}')
 
     def OnMouseMove(self, event):
         ''' As mouse is moved over the map:
@@ -447,6 +449,13 @@ class vHex():  # pylint: disable=C0103
         self.FlashStatus = 'nonflashed' # or 'flashed
         self.bitmap_dict = {'standard': None}
         self.currentBitmap = None
+        self.x_offset = 0
+        self.y_offset = 0
+        self.width = 0
+        self.height = 0
+        self.point_list = []
+        self.border_list = []
+        self.filled = False
 
     def SetupCoords(self, scdir, width, height, x_gap, y_gap):
         ''' Sets up the coordinates for the hex, based on the direction'''

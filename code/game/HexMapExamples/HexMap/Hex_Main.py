@@ -81,7 +81,7 @@
         whole project is to learn Python and wxPython), has been changed
         to allow a multi-colored hex map.
     '''
-
+# pylint: disable-msg=import-error
 import wx
 from Hex_Game import Game, EVT_MAP_ROT
 from Hex_View import mapView, thumb_dict
@@ -273,7 +273,7 @@ class SliderDialog(wx.Dialog):
     def isName(self):
         ''' isname function '''
         return self.title
-    
+
     def isTitle(self):
         ''' istitle function '''
         return self.title
@@ -297,7 +297,7 @@ class cApp(wx.App):  #pylint: disable-msg=C0103
     def isName(self):
         ''' isname function '''
         return self.title
-    
+
     def isTitle(self):
         ''' istitle function '''
         return self.title

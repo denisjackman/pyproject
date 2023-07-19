@@ -48,6 +48,7 @@ pydrive2
 pygame
 pyjokes
 pylint
+pymongo
 pyopenssl
 pyparsing
 pypdf2
@@ -82,6 +83,7 @@ wifi-qrcode-generator
 wikipedia
 wrapt
 wsproto
+#wxpython
 xmltodict
 yagmail
 yamllint

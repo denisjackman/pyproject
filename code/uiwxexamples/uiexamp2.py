@@ -1,5 +1,6 @@
 '''ui example'''
 # sample_three.py
+# pylint: disable-msg=import-error
 import wx
 
 #---------------------------------------------------------------------------

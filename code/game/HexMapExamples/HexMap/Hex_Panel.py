@@ -5,7 +5,7 @@
     mainly as a experiment, to work out the bugs in having two panels
     side-by-side in the main window. Based on code from the book,
     "wxPython in Action" - you should run right out and buy a copy...'''
-
+# pylint: disable-msg=import-error
 import wx
 from wx.lib import buttons
 

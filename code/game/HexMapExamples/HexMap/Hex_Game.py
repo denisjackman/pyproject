@@ -7,6 +7,7 @@
     Events Generated: MapRotateEvent.
 
     '''
+# pylint: disable-msg=import-error
 import wx
 from Hex_Math import ACROSS, DOWN
 

@@ -1,5 +1,6 @@
 ''' WX Example '''
 # importing wx library
+# pylint: disable-msg=import-error
 import wx
 
 APP_EXIT = 1
@@ -10,7 +11,7 @@ class Example(wx.Frame):
     # constructor
     def __init__(self, *args, **kwargs):
         ''' constructor'''
-        super(Example, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # method calling
         self.InitUI()
@@ -33,6 +34,10 @@ class Example(wx.Frame):
         # set value for the second radio button as true(checked)
         self.rb2.SetValue(True)
         self.frame = wx.Frame(None, title = 'Radio Button Example')
+
+    def isName(self):
+        ''' isname function'''
+        return self.title
 
 def main():
     ''' main function'''   
