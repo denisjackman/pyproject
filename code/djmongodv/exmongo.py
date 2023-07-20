@@ -45,7 +45,7 @@ def main():
     insertData('user_shopping_list', 'user_1_items', datalist)
     for item in readData('user_shopping_list', 'user_1_items'):
         print(item)
-        
+
     print("[-] MongoDB Test Main end")
 
 if __name__ == '__main__':
