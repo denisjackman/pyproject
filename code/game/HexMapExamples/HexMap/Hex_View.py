@@ -116,7 +116,7 @@ from Hex_Math import ShortestDist, ComputeHexPoints
 
 if __name__ == '__main__':
     print('Hex_View: starting Hex_Main')
-    from Hex_Main import * #pylint: disable=W0401
+    from Hex_Main import * # pylint: disable-msg=W0401,W0614
     main()
 
 HEX_SMALL = 41
@@ -148,6 +148,7 @@ thumb_dict = {wx.WXK_LEFT : (wx.HORIZONTAL, -SCROLL_SML, -SCROLL_BIG),
             wx.WXK_END : (wx.HORIZONTAL, SCROLL_BIG, SCROLL_BIG), }
 
 #####################################################
+# pylint: disable-msg=E0102
 class mapView(wx.ScrolledWindow):  #pylint: disable-msg=C0103
     ''' Builds three bitmap objects:
         mapBackground - original image from file, used to erase window.
@@ -459,7 +460,7 @@ class vHex():  # pylint: disable=C0103
 
     def SetupCoords(self, scdir, width, height, x_gap, y_gap):
         ''' Sets up the coordinates for the hex, based on the direction'''
-        if dir == ACROSS:
+        if scdir == ACROSS:
             self.x_offset = self.col * (width + x_gap) + \
                             (width/2) * (self.row % 2)
             self.y_offset = self.row * (height + y_gap) * .75

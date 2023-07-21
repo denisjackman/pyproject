@@ -1,6 +1,7 @@
 '''
     webcrawler
 '''
+# pylint: disable=cyclic-import
 import urllib.request
 
 def get_next_target(page):
