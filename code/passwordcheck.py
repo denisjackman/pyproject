@@ -23,7 +23,8 @@
                 Uppercase letters of European languages (A through Z, with diacritic marks, Greek and Cyrillic characters)
                 Lowercase letters of European languages (a through z, sharp-s, with diacritic marks, Greek and Cyrillic characters)
                 Base 10 digits (0 through 9)
-                Non-alphanumeric characters (special characters): (~!@#$%^&*_-+=`|\(){}[]:;"'<>,.?/) Currency symbols such as the Euro or British Pound are not counted as special characters for this policy setting.
+                Non-alphanumeric characters (special characters):
+                Currency symbols such as the Euro or British Pound are not counted as special characters for this policy setting.
                 Any Unicode character that is categorized as an alphabetic character but is not uppercase or lowercase. This includes Unicode characters from Asian languages.
         
 '''
@@ -32,7 +33,7 @@ MAXPASSWORDLENGTH = 45
 PASSWORDALPHA = 'abcdefghijklmnopqrstuvwxyz'
 PASSWORDUPPERALPHA = PASSWORDALPHA.upper()
 PASSWORDNUMBERS = '0123456789'
-PASSWORDSYMBOLS = '!@#$%^&*()_+'
+PASSWORDSYMBOLS = r"~!@#$%^&*_-+=`|\(){}[]:;'<>,.?/"
 MINALPHA = 2
 MINNUMBERS = 2
 MINSYMBOLS = 2
@@ -59,6 +60,7 @@ def check_password(password):
 
 def password_integrity(password):
     '''check password integrity'''
+    password = password.strip()
     result = True
     isupper = 0
     islower = 0
