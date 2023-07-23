@@ -5,7 +5,6 @@ import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
 from jackmanimation.dbfunctions.mongofunctions import open_mongo
-from jackmanimation.dbfunctions.mongofunctions import get_mongodb
 from jackmanimation.dbfunctions.mongofunctions import insertData
 from jackmanimation.dbfunctions.mongofunctions import getData
 from jackmanimation.dbfunctions.mongofunctions import updateData
