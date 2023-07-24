@@ -44,6 +44,7 @@ py
 pyOpenSSL
 pyautogui
 pycparser
+pycryptodome
 pydrive2
 pygame
 pyjokes
