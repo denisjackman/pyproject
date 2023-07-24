@@ -10,7 +10,7 @@ sys.path.append(os.path.realpath('..'))
 from jackmanimation.djutilities.fileutility import walk_through
 from jackmanimation.djutilities.fileutility import extract_file_extension
 
-TARGETDIRECTORY = r"Z:\library"
+TARGETDIRECTORY = r"Y:\Resources"
 TARGETSTRING = "Python"
 DEBUGMODE = True
 
@@ -53,8 +53,11 @@ def main():
     for pdfitem in tqdm(pdflist, total=len(pdflist), unit=' item'):
         with open(pdfitem, 'rb') as pdf_file:
             pdf_reader = PyPDF2.PdfReader(pdf_file, strict=False)
-            print(f'[*] PDF file is {pdfitem}')
-            debug_mode(f'[*] PDF file is {pdfitem}')
+            print(f"[*] PDF file is {pdfitem} --")
+            if pdf_reader.metadata is None:
+                debug_mode(f"[*] PDF file is {pdfitem} -- title (NO TITLE) --")
+            else:
+                debug_mode(f"[*] PDF file is {pdfitem} -- title {pdf_reader.metadata.title} --")
             try:
                 pagecount = len(pdf_reader.pages)
             except Exception as err:
@@ -67,6 +70,7 @@ def main():
                     text = pagetext.extract_text()
                     if TARGETSTRING in text:
                         targetlist.append(pdfitem)
+                        debug_mode(f"[-] Found target string {TARGETSTRING} in {pdfitem} ")
                 except Exception as err:
                     debug_mode(f'[=] Parsing Error {err} in {pdfitem}')
                     errorlist.append(f'[-] Error {err} in {pdfitem}')
