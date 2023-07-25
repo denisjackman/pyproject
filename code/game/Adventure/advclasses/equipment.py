@@ -6,10 +6,8 @@ class Equipment:
     '''
         equipment class
     '''
-    def __init__(self, name, weight, cost):
-        self.name = name
-        self.weight = weight
-        self.cost = cost
+    def __init__(self):
+        raise NotImplementedError("Do Not create raw Equipment objects")
 
     def __str__(self):
         '''
@@ -22,7 +20,14 @@ class Equipment:
             return the weight of the item in WU
         '''
         return self.weight
-
+class Clothes(Equipment):
+    '''
+        Clothes class
+    '''
+    def __init__(self):
+        self.name = "Warn Dry Clothes"
+        self.weight = 10
+        self.cost = 5
 # equipment is listed as name, weight (in wu), cost (in gp)
 # Name , Weight (in wu), Cost (in GP)
 # "Warm dry clothing and Pack", 10, 5
