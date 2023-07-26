@@ -19,6 +19,34 @@ class Player:
             how much gold do I have
         '''
         return self.gold
+
+    def isRace(self):
+        ''' Which race am I '''
+        return self.race.name
+
+class GamePlayer(Player):
+    '''
+        Game Player class
+    '''
+    def __init__(self):
+        self.name = ""
+        self.playerclass = ""  # this will be the professions (Warrior, wizard, rogue etc)
+        self.race = ""
+        self.level = 1
+        self.strength = 0
+        self.intelligence = 0
+        self.luck = 0
+        self.constitution = 0
+        self.dexterity = 0
+        self.charisma = 0
+        self.additional = 0
+        self.height = 0
+        self.weight = 0
+        self.gold = 0
+        self.experience = 0
+        self.weapons = []
+        self.armour = []
+
     # name = ""
     # type = ""  # this will be the professions (Warrior, wizard, rogue etc)
     # race = ""  # Kin: Race: This will one of the racial types as outlines in the race list

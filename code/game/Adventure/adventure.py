@@ -14,17 +14,33 @@ __date__ = "$Date: 2019/09/20 00:00:00 $"
 __copyright__ = "Copyright (c) 2018 Denis J Jackman"
 __license__ = "Python"
 
-import advclasses.weapons as Weapons
-#from advclasses.weapons import Bludgeon
 from advclasses.equipment import Clothes
 from advclasses.race import Human
-from advclasses.creature import Bat, Bees, GiantAnt, Rat, Scorpion
-
+from advclasses.weapons import Broadsword, CommonSpear, Crossbow, Dirk
+from advclasses.creature import Bat, Bee, GiantAnt, Rat, Scorpion
+from advclasses.playerclass import Mage, Warrior
+from advclasses.player import GamePlayer as Player
 # variable defaults
-player_class = ["Warrior", "Mage"]
 PLAYER_STATS = ''
-weapons_list = []
-creatures_list = []
+WORLDWIDTH = 10
+WORLDHEIGHT = 10
+
+player_class = [Warrior(), Mage()]
+weapons_list = [Broadsword(), CommonSpear(), Crossbow(), Dirk()]
+creatures_list = [Bat(), Bee(), GiantAnt(), Rat(), Scorpion()]
+newplayer = Player()
+world_map = [
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None]
+            ]
 
 def main():
     '''
@@ -32,42 +48,26 @@ def main():
     '''
     print('[ ] MAIN ')
     game_start()
-    PLAYER_NAME = input("[-] Please Enter your name: ")
-    generate_player(PLAYER_NAME)
+    player_name = input("[-] Please Enter your name: ")
+    generate_player(player_name)
     # print the introduction
-    game_intro(PLAYER_NAME)
+    game_intro(player_name)
     game_main()
     # exit the game
-    game_end(PLAYER_NAME)
+    game_end(player_name)
     print('[ ] END')
 
-def load_weapons():
+def check_tile(x_coord, y_coord):
     '''
-        load weapons function
+        check tile function
     '''
-    # weapons are listed as name, dice, adds, wpnstr, dex, cost, weight, range, handed
-    print("[-] loading weapons start")
-    result = []
-    result.append(Weapons.Bludgeon())
-    result.append(Weapons.Broadsword())
-    result.append(Weapons.CommonSpear())
-    result.append(Weapons.Crossbow())
-    result.append(Weapons.Dirk())
-    print("[-] loading weapons done")
+    result = False
+    print(f"[-] checking tile {x_coord} {y_coord}")
+    if world_map[x_coord][y_coord] == ' ':
+        print(f"[-] tile {x_coord} {y_coord} is empty")
+        result = True
     return result
-
-def load_creatures():
-    '''
-        load creatures function
-    '''
-    print("[-] loading creatures start")
-    result = []
-    result.append(Bat())
-    result.append(Bees())
-    result.append(GiantAnt())
-    result.append(Rat())
-    result.append(Scorpion())
-    return result
+    
 
 def game_start():
     '''
@@ -79,14 +79,9 @@ def game_intro(input_name):
     '''
         game intoduction function
     '''
-    global weapons_list
-    global creatures_list
-    
+
     print('[ ] GAME INTRO')
     print(input_name, "here we go!")
-
-    print('[ ] loading weapons  ')
-    weapons_list = load_weapons()
 
     print('[ ] loading equipment ')
     # equipment is listed as name, weight (in wu), cost (in gp)
@@ -99,8 +94,6 @@ def game_intro(input_name):
     race_list = []
     race_list.append(race)
 
-    print('[ ] loading creature')
-    creatures_list = load_creatures()
 
 
 
@@ -131,5 +124,7 @@ def game_main():
         print(f"[-] I have a {item.name}")
     for item in creatures_list:
         print(f"[-] I see a {item.name}")
+    for item in player_class:
+        print(f"[-] I am a {item.name}")
 if __name__ == '__main__':
     main()
