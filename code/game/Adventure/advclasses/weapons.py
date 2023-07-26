@@ -23,7 +23,7 @@ class Weapon:
             weight of weapon in WU
         '''
         return self.weight
-    
+
 class Bludgeon(Weapon):
     '''
         Bludgeon class
@@ -66,7 +66,7 @@ class CommonSpear(Weapon):
         self.cost = 22
         self.weight = 50
         self.range = 40
-        self.handed = False    
+        self.handed = False
 
 class Crossbow(Weapon):
     '''

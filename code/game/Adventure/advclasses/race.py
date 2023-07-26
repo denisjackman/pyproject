@@ -15,15 +15,28 @@ class Race:
         '''
             what is my alignment
         '''
-        return self.alignment
+        return self.alignmen
+    def hasDarkVision(self):
+        '''
+            do I have darkvision
+        '''
+        return self.darkvision
 class Human(Race):
     ''' Humans '''
     def __init__(self):
         self.name = "Human"
-    # taken from http://www.onrpg.com/boards/threads/14942-Basic-Races-and-Classes
-    # Name
-    # Human
-    # Dwarf
+        self.plural = "Humans"
+        self.alignment = "Any"
+        self.darkvision = False
+
+class Dwarf(Race):
+    ''' Dwarves '''
+    def __init__(self):
+        self.name = "Dwarf"
+        self.plural = "Dwarves"
+        self.alignment = "Lawful"
+        self.darkvision = True
+
     # Elf
     # Halfling
     # Gnome
@@ -31,3 +44,8 @@ class Human(Race):
     # Goblin
     # Drow (or Dark Elf)
     # Troll
+
+    # taken from http://www.onrpg.com/boards/threads/14942-Basic-Races-and-Classes
+    # Name
+    # Human
+    # Dwarf
