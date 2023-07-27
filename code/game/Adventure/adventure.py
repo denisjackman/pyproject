@@ -14,12 +14,17 @@ __date__ = "$Date: 2019/09/20 00:00:00 $"
 __copyright__ = "Copyright (c) 2018 Denis J Jackman"
 __license__ = "Python"
 
-from advclasses.equipment import Clothes
-from advclasses.race import Human
-from advclasses.weapons import Broadsword, CommonSpear, Crossbow, Dirk
-from advclasses.creature import Bat, Bee, GiantAnt, Rat, Scorpion
-from advclasses.playerclass import Mage, Warrior
-from advclasses.player import GamePlayer as Player
+import os
+import sys
+
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../../..'))
+from jackmanimation.advclasses.equipment import Clothes
+from jackmanimation.advclasses.race import Human
+from jackmanimation.advclasses.weapons import Broadsword, CommonSpear, Crossbow, Dirk
+from jackmanimation.advclasses.creature import Bat, Bee, GiantAnt, Rat, Scorpion
+from jackmanimation.advclasses.playerclass import Mage, Warrior
+from jackmanimation.advclasses.player import GamePlayer as Player
 # variable defaults
 PLAYER_STATS = ''
 WORLDWIDTH = 10
