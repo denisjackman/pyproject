@@ -84,7 +84,7 @@ wifi-qrcode-generator
 wikipedia
 wrapt
 wsproto
-#wxpython
+wxpython
 xmltodict
 yagmail
 yamllint
