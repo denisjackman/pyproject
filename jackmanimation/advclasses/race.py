@@ -36,7 +36,22 @@ class Dwarf(Race):
         self.plural = "Dwarves"
         self.alignment = "Lawful"
         self.darkvision = True
+class Elf(Race):
+    ''' Elves '''
+    def __init__(self):
+        self.name = "Elf"
+        self.plural = "Elves"
+        self.alignment = "Neutral"
+        self.darkvision = True
 
+clas Halfling(Race):
+    ''' Halflings '''
+    def __init__(self):
+        self.name = "Halfling"
+        self.plural = "Halflings"
+        self.alignment = "Neutral"
+        self.darkvision = False
+        
     # Elf
     # Halfling
     # Gnome
