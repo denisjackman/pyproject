@@ -44,19 +44,38 @@ class Elf(Race):
         self.alignment = "Neutral"
         self.darkvision = True
 
-clas Halfling(Race):
+class Halfling(Race):
     ''' Halflings '''
     def __init__(self):
         self.name = "Halfling"
         self.plural = "Halflings"
         self.alignment = "Neutral"
         self.darkvision = False
-        
-    # Elf
-    # Halfling
-    # Gnome
-    # Orc
-    # Goblin
+
+class Gnome(Race):
+    ''' Gnomes '''
+    def __init__(self):
+        self.name = "Gnome"
+        self.plural = "Gnomes"
+        self.alignment = "Neutral"
+        self.darkvision = True
+
+class Orc(Race):
+    ''' Orcs '''
+    def __init__(self):
+        self.name = "Orc"
+        self.plural = "Orcs"
+        self.alignment = "Chaotic"
+        self.darkvision = True
+
+class Goblin(Race):
+    ''' Goblins '''
+    def __init__(self):
+        self.name = "Goblin"
+        self.plural = "Goblins"
+        self.alignment = "Chaotic"
+        self.darkvision = True
+
     # Drow (or Dark Elf)
     # Troll
 
@@ -64,3 +83,8 @@ clas Halfling(Race):
     # Name
     # Human
     # Dwarf
+    # Elf
+    # Halfling
+    # Gnome
+    # Orc
+    # Goblin
