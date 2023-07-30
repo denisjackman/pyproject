@@ -25,6 +25,10 @@ from jackmanimation.advclasses.weapons import Broadsword, CommonSpear, Crossbow,
 from jackmanimation.advclasses.creature import Bat, Bee, GiantAnt, Rat, Scorpion
 from jackmanimation.advclasses.playerclass import Mage, Warrior
 from jackmanimation.advclasses.player import GamePlayer as Player
+from jackmanimation.advclasses.magicspells import Bubble, Hail
+# other functions
+from jackmanimation.DndProject.dnddice import number_generator
+
 # variable defaults
 PLAYER_STATS = ''
 WORLDWIDTH = 10
@@ -33,6 +37,7 @@ WORLDHEIGHT = 10
 player_class = [Warrior(), Mage()]
 weapons_list = [Broadsword(), CommonSpear(), Crossbow(), Dirk()]
 creatures_list = [Bat(), Bee(), GiantAnt(), Rat(), Scorpion()]
+spell_list = [Bubble(), Hail()]
 newplayer = Player()
 world_map = [
     [None, None, None, None, None, None, None, None, None, None],
@@ -131,5 +136,12 @@ def game_main():
         print(f"[-] I see a {item.name}")
     for item in player_class:
         print(f"[-] I am a {item.name}")
+    for item in spell_list:
+        roll = number_generator()
+        if roll > item.castscore:
+            print(f"[-] I cannot cast a {item.name} spell ({roll}) vs ({item.castscore})")
+        else:
+            print(
+                f"[-] I can cast a {item.name} spell ({roll}) vs ({item.castscore})")
 if __name__ == '__main__':
     main()
