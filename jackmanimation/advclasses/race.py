@@ -76,8 +76,21 @@ class Goblin(Race):
         self.alignment = "Chaotic"
         self.darkvision = True
 
-    # Drow (or Dark Elf)
-    # Troll
+class Drow(Race):
+    ''' Drow '''
+    def __init__(self):
+        self.name = "Drow"
+        self.plural = "Drow"
+        self.alignment = "Chaotic"
+        self.darkvision = True
+
+class Troll(Race):
+    ''' Trolls '''
+    def __init__(self):
+        self.name = "Troll"
+        self.plural = "Trolls"
+        self.alignment = "Chaotic"
+        self.darkvision = True
 
     # taken from http://www.onrpg.com/boards/threads/14942-Basic-Races-and-Classes
     # Name
@@ -88,3 +101,5 @@ class Goblin(Race):
     # Gnome
     # Orc
     # Goblin
+    # Drow (or Dark Elf)
+    # Troll
