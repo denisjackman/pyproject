@@ -19,6 +19,7 @@ import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../../..'))
+# Adventure game classes and imports
 from jackmanimation.advclasses.equipment import Clothes
 from jackmanimation.advclasses.race import Human
 from jackmanimation.advclasses.weapons import Broadsword, CommonSpear, Crossbow, Dirk
@@ -26,7 +27,7 @@ from jackmanimation.advclasses.creature import Bat, Bee, GiantAnt, Rat, Scorpion
 from jackmanimation.advclasses.playerclass import Mage, Warrior
 from jackmanimation.advclasses.player import GamePlayer as Player
 from jackmanimation.advclasses.magicspells import Bubble, Hail
-# other functions
+# custom number generator
 from jackmanimation.DndProject.dnddice import number_generator
 
 # variable defaults
