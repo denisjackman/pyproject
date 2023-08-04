@@ -10,7 +10,13 @@ __version__ = "$Revision: 0.1 $"
 __date__ = "$Date: 2022/06/14 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-import random
+
+import os
+import sys
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('..'))
+# custom number generator
+from jackmanimation.DndProject.dnddice import number_generator
 
 def gold_to_silver(amount):
     '''
@@ -59,27 +65,6 @@ def copper_to_silver(amount):
     result = amount / 10
     return result
 
-
-def dice(sides=6, rolls=1):
-    '''
-        Rolls a dice which has 'sides' sides (default is six (6))
-        for 'rolls' number of times (default is one (1))
-    '''
-    result = 0
-    loop = 0
-    while loop < rolls:
-        result = result + random.randrange(1, sides+1)
-        loop = loop + 1
-    return result
-
-
-def number_generator(number=100):
-    '''
-        Generates a random number between 1 and number
-    '''
-    return random.randint(1, number)
-
-
 def population_birth(population,
                      happieness=0,
                      global_factors=0,
@@ -95,7 +80,6 @@ def population_birth(population,
     factors = factors + global_factors + local_factors
     growth = pop * factors
     return int(growth)
-
 
 def population_decline(population,
                        happieness=0,

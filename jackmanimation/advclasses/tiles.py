@@ -36,7 +36,7 @@ class NormalTile(MapTile):
         self.name = "Normal Tile"
         self.image = "normaltile.png"
         self.description = "This is a normal tile"
-    
+
     def intro_text(self):
         ''' intro text '''
         return '''
