@@ -78,7 +78,7 @@ def check_tile(x_coord, y_coord):
         print(f"[-] tile {x_coord} {y_coord} is empty")
         result = True
     return result
-    
+
 
 def game_start():
     '''
