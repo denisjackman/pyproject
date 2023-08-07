@@ -97,6 +97,21 @@ class Dirk(Weapon):
         self.weight = 16
         self.range = 10
         self.handed = False
+
+class DoublebittedAxe(Weapon):
+    '''
+        Doublebitted Axe class
+    '''
+    def __init__(self):
+        self.name = "Doublebitted Axe"
+        self.dice = 6
+        self.adds = 3
+        self.strength = 21
+        self.dexterity = 10
+        self.cost = 140
+        self.weight = 220
+        self.range = 0
+        self.handed = True
 # WEAPONS
 # Name,Dice,Adds,Weapon Strength,Dexterity,Cost (in Gold), Weigth (in wu), Range (in yards),Doublehanded (Boolean - True or False)
 # "Doublebitted Axe",6,3,21,10,140,220,0,True
