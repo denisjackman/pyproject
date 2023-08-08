@@ -1,5 +1,6 @@
 ''' new snake game '''
 import random
+import sys
 import pygame
 
 pygame.init()
@@ -35,7 +36,7 @@ def game_loop():
     velocity_x = 0
     velocity_y = 0
     snk_list = []
-    
+
     fps = 60
 
     food_x = random.randint(20, SCREEN_WIDTH - 20)
@@ -78,7 +79,7 @@ def game_loop():
                         velocity_x = 0
             snake_x += velocity_x
             snake_y += velocity_y
-            
+
             if abs(snake_x - food_x) < 10 and abs(snake_y - food_y) < 10:
                 score += 1
                 food_x = random.randint(20, SCREEN_WIDTH - 20)
@@ -87,7 +88,7 @@ def game_loop():
             gameWindow.fill(WHITE)
             text_screen("Score: " + str(score * 10), RED, 5, 5)
             pygame.draw.rect(gameWindow, RED, [food_x, food_y, snake_size, snake_size])
-            pygame.draw.line(gameWidnow, RED, (0, 40), (SCREEN_WIDTH, 40), 5)
+            pygame.draw.line(gameWindow, RED, (0, 40), (SCREEN_WIDTH, 40), 5)
             head =[]
             head.append(snake_x)
             head.append(snake_y)
@@ -96,14 +97,14 @@ def game_loop():
                 del snk_list[0]
             if head in snk_list[:-1]:
                 game_over = True
-            
+
             if snake_x < 0 or snake_x > SCREEN_WIDTH or snake_y < 50 or snake_y > SCREEN_HEIGHT:
                 game_over = True
-                
+
             plot_snake(gameWindow, BLACK, snk_list, snake_size)
         pygame.display.update()
-        clock
+        clock.tick(fps)
     pygame.quit()
-    quit()
+    sys.exit()
 
 game_loop()
