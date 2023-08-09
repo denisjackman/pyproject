@@ -95,11 +95,13 @@ def game_loop():
             snk_list.append(head)
             if len(snk_list) > snake_size:
                 del snk_list[0]
-            if head in snk_list[:-1]:
-                game_over = True
+            #if head in snk_list[:-1]:
+                #print("Game Over 1")
+                #game_over = True
 
             if snake_x < 0 or snake_x > SCREEN_WIDTH or snake_y < 50 or snake_y > SCREEN_HEIGHT:
-                game_over = True
+                print("Game Over 2")
+                #game_over = True
 
             plot_snake(gameWindow, BLACK, snk_list, snake_size)
         pygame.display.update()
