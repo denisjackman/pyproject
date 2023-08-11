@@ -42,7 +42,7 @@ def variousdemo():
     print(f'[-] is 2020 a leap year                              : {isLeapYear(2020)}')
     print(f'[-] is 2021 a leap year                              : {isLeapYear(2021)}')
     print('[+] Finished')
-    
+
 def lineagedemo():
     ''' This is the main routine for the program '''
     pop = 1000
@@ -67,7 +67,7 @@ def searchdemo():
     print(f'[-] Binary looking for 5 in searchlist {binary_search(searchlist, 0, len(searchlist)-1, 5)}')
     print(f'[-] Binary looking for 20 in searchlist {binary_search(searchlist, 0, len(searchlist)-1, 20)}')
     print("[+] Search Algorithm finish")
-    
+
 def main():
     ''' This is the main routine for the program '''
     print("[=] Start")

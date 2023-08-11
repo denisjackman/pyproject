@@ -73,7 +73,7 @@ def population_birth(population,
         this calculates the population growth
         for a nation, city or other entity
     '''
-    result = 0 
+    result = 0
     growth = 0
     pop = population/200
     factors = 25 + happieness
@@ -91,7 +91,7 @@ def population_decline(population,
         This calculates the decline rate
         for a nation, city or other entity
     '''
-    result = 0 
+    result = 0
     decline = 0
     pop = population/400
     factors = 25 + happieness
@@ -145,10 +145,15 @@ def fed(population, food_units):
     food_units = int(max(food_units - population_check, 0))
     return(fed_factor, fed_description, food_units)
 
-def production(population):
+def production(population,
+               happieness=0,
+               global_factors=0,
+               local_factors=0):
     ''' this is the production module '''
+    factor = 0
     population_check = population / 1000
-    production_factor = int(max(population_check , 0))
-    print(f'[-] population_check is {population_check} and production_factor is {production_factor}')
-    return production_factor 
+    factor = 25 + happieness + global_factors + local_factors  + number_generator(5)
+    production_factor = int(max(factor/population_check - population_check , 0))
+    #print(f'[-] population_check is {population_check} and production_factor is {production_factor}')
+    return production_factor
        
