@@ -20,14 +20,6 @@ def passwordgenerator(pwlen):
     password = ''.join(random.sample(passcode, pwlen))
     return password
 
-def right_justify(item, itemlength=70):
-    '''
-    return a string that is right justified so the last character of item is in column 70
-    '''
-    result = ""
-    result = f'{item:>itemlength}'
-    return result
-
 def ageCalculator(inputyear, inputmonth, inputday):
     '''
         function agecalculator

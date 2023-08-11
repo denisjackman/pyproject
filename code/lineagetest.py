@@ -27,20 +27,22 @@ def lineagedemo():
     newpop = pop + ldbirth - lddeath
     production_factor = production(pop - (lddeath + ldbirth))
     print("[+] Starting the LINEAGE sequence:")
-    for i in range(1, 10):
+    for year in range(1, 10):
         ldfed = fed(pop, fu)
         ldbirth = population_birth(pop, happyfactors, globalfactors, localfactors )
         lddeath = population_decline(pop, happyfactors, globalfactors, localfactors)
         newpop = pop + ldbirth - lddeath
-        production_factor = production(pop - (lddeath + ldbirth))
-        print(f"[-] base numbers       : pop {pop} food {fu} happyfactors {happyfactors} globalfactors {globalfactors} localfactors {localfactors}")
-        print(f'[-] fed                : {ldfed}')
-        print(f'[-] population_birth   : {ldbirth}')
-        print(f'[-] population_decline : {lddeath}')
-        print(f'[-] new population     : {newpop}')
-        print(f'[-] production_factor  : {production_factor}')
+        production_factor = production(pop - (lddeath + ldbirth), happyfactors, globalfactors, localfactors)
         fu = ldfed[2] + production_factor
         localfactors = localfactors + ldfed[0]
+        print(f"[-] year                : {year}")
+        print(f" [#] base numbers       : pop {pop} food {fu} happyfactors {happyfactors} globalfactors {globalfactors} localfactors {localfactors}")
+        print(f' [#] fed                : {ldfed}')
+        print(f' [#] population_birth   : {ldbirth}')
+        print(f' [#] population_decline : {lddeath}')
+        print(f' [#] new population     : {newpop}')
+        print(f' [#] production_factor  : {production_factor}')
+        print(f' [#] food units         : {fu}')
         pop = newpop
     print('[+] Finished')
 
