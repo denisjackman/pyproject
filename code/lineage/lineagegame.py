@@ -3,7 +3,8 @@ import os
 import sys
 import pygame
 
-from empire import Empire
+from lineageclasses.empire import Empire
+from lineageclasses.world import World
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
@@ -11,6 +12,7 @@ sys.path.append(os.path.realpath('../..'))
 from jackmanimation.gameitems.colours import WHITE
 from jackmanimation.gameitems.colours import RED
 from jackmanimation.gameitems.colours import BLACK
+from jackmanimation.gameitems.colours import NAVY
 
 from jackmanimation.lineage.lineage import fed
 from jackmanimation.lineage.lineage import population_birth
@@ -49,7 +51,7 @@ def lineage_game_loop(empire):
     newfood = lgfed[2] + production_factor
     empire.updatePopulation(newpop)
     empire.updateFood(newfood)
-    return empire 
+    return empire
 
 def game_loop(gameitems):
     ''' main game loop '''
@@ -60,7 +62,11 @@ def game_loop(gameitems):
     pop = 1000
     food = 0
     clan = Empire()
+    tribe = Empire()
+    currentWorld = World()
+    currentWorld.updateName("Earth")
     clan.updateName("Jackman Clan")
+    tribe.updateName("McEoin Tribe")
     while not exit_game:
         if game_over:
             gameWindow.fill(WHITE)
@@ -75,11 +81,14 @@ def game_loop(gameitems):
                 if event.type == pygame.KEYDOWN:
                     year += 1
                     clan = lineage_game_loop(clan)
+                    tribe = lineage_game_loop(tribe)
             gameWindow.fill(WHITE)
             text_screen(f"Lineage Test # {VERSION}", RED, 5, 5,font, gameWindow)
             text_screen("Lineage Data :", BLACK, 5, 25, font, gameWindow)
             pygame.draw.line(gameWindow, RED, (0, 20), (SCREEN_WIDTH, 20), 1)
-            text_screen(f"Lineage Information : Year - [{year}] : name: [{clan}] pop - [{clan.currentPopulation():,}] food = [{clan.currentFood()}] ", BLACK, 5, 40, font, gameWindow)
+            text_screen(f"World Information : Year - [{year}] : name: [{currentWorld.name}] ", BLACK, 5, 40, font, gameWindow)
+            text_screen(f"Empire Information : name: [{clan}] pop - [{clan.currentPopulation():,}] food = [{clan.currentFood()}] ", NAVY, 5, 60, font, gameWindow)
+            text_screen(f"Empire Information : name: [{tribe}] pop - [{tribe.currentPopulation():,}] food = [{tribe.currentFood()}] ", NAVY, 5, 80, font, gameWindow)
         pygame.display.update()
         clock.tick(FPS)
     pygame.quit()
