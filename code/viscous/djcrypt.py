@@ -7,6 +7,6 @@ def main():
     print('[+] Checking password')
     print(f'[-] password : {password}')
     print('[+] Finished Checking password')
-          
+
 if __name__ == '__main__':
     main()
