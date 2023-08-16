@@ -7,10 +7,10 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..'))
-from jackmanimation.myfunctions.various import newRating
-from jackmanimation.myfunctions.various import ageCalculator
-from jackmanimation.myfunctions.various import passwordgenerator
-from jackmanimation.myfunctions.various import isLeapYear
+from jackmanimation.genfunctions.various import newRating
+from jackmanimation.genfunctions.various import ageCalculator
+from jackmanimation.genfunctions.various import passwordgenerator
+from jackmanimation.genfunctions.various import isLeapYear
 
 from jackmanimation.gameitems.constants import SMILEY1
 from jackmanimation.gameitems.colours import BLACK
@@ -20,8 +20,8 @@ from jackmanimation.lineage.lineage import fed
 from jackmanimation.lineage.lineage import population_birth
 from jackmanimation.lineage.lineage import population_decline
 
-from jackmanimation.myfunctions.djlinearsearch import linear_search
-from jackmanimation.myfunctions.djlinearsearch import binary_search
+from jackmanimation.genfunctions.searchutils import linear_search
+from jackmanimation.genfunctions.searchutils import binary_search
 
 def constantdemo():
     ''' This is the main routine for the program '''

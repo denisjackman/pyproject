@@ -8,6 +8,20 @@ import math
 
 daysOfMonths = [ 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
+def isArmstrong(number):
+    ''' this is a function to check if a number is an armstrong number or not'''
+    result = False
+    total = 0
+    temp = number
+
+    while temp > 0:
+        digit = temp % 10
+        total += digit ** 3
+        temp //= 10
+    if number == total:
+        result = True
+    return result
+
 def passwordgenerator(pwlen):
     '''
         password generator

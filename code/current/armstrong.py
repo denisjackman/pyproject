@@ -1,18 +1,11 @@
 ''' this is a function to check if a number is an armstrong number or not'''
+from __future__ import annotations
+import os
+import sys
 
-def isArmstrong(number):
-    ''' this is a function to check if a number is an armstrong number or not'''
-    result = False
-    total = 0
-    temp = number
-
-    while temp > 0:
-        digit = temp % 10
-        total += digit ** 3
-        temp //= 10
-    if number == total:
-        result = True
-    return result
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from jackmanimation.genfunctions.various import isArmstrong
 
 def main():
     ''' this is a function to check if a number is an armstrong number or not'''

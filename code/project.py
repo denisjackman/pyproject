@@ -4,9 +4,9 @@ import sys
 from tqdm import tqdm
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..'))
-from jackmanimation.djutilities.fileutility import walk_through
-from jackmanimation.djutilities.fileutility import extract_file_extension
-from jackmanimation.myfunctions.utensils import dish
+from jackmanimation.utilities.fileutility import walk_through
+from jackmanimation.utilities.fileutility import extract_file_extension
+from jackmanimation.genfunctions.utensils import dish
 
 START_DIRECTORY ='Y:\\'
 

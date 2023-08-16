@@ -7,9 +7,9 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..'))
-from jackmanimation.djutilities.fileutility import walk_through
-from jackmanimation.djutilities.fileutility import getargs
-from jackmanimation.djutilities.fileutility import convert_size
+from jackmanimation.utilities.fileutility import walk_through
+from jackmanimation.utilities.fileutility import getargs
+from jackmanimation.utilities.fileutility import convert_size
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 0.00 $"
