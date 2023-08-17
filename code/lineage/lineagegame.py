@@ -29,33 +29,33 @@ VERSION = "v1.00.00.a"
 def game_init():
     ''' initialize the game '''
     pygame.init()
-    giWindow = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    game_init_window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption(CAPTION)
     pygame.display.update()
-    giclock = pygame.time.Clock()
-    gifont = pygame.font.SysFont(None, 20)
-    return giWindow, giclock, gifont
+    game_init_clock = pygame.time.Clock()
+    game_init_font = pygame.font.SysFont(None, 20)
+    return game_init_window, game_init_clock, game_init_font
 
-def text_screen(text, color, x, y, tfont, tgameWindow):
+def text_screen(text_screen_text, text_screen_color, text_screen_x, text_screen_y, text_screen_font, text_screen_gameWindow):
     ''' display text on screen '''
-    screen_text = tfont.render(text, True, color)
-    tgameWindow.blit(screen_text, [x,y])
+    screen_text = text_screen_font.render(text_screen_text, True, text_screen_color)
+    text_screen_gameWindow.blit(screen_text, [text_screen_x,text_screen_y])
 
 def lineage_game_loop(empire):
     ''' This is the main lineage game loop '''
-    lgfed = fed(empire.currentPopulation(), empire.currentFood())
-    ldbirth = population_birth(empire.currentPopulation())
-    lddeath = population_decline(empire.currentPopulation())
-    production_factor = production(empire.currentPopulation() - (lddeath + ldbirth))
-    newpop = empire.currentPopulation() + ldbirth - lddeath
-    newfood = lgfed[2] + production_factor
-    empire.updatePopulation(newpop)
-    empire.updateFood(newfood)
+    lineage_fed = fed(empire.currentPopulation(), empire.currentFood())
+    lineage_birth = population_birth(empire.currentPopulation())
+    lineage_death = population_decline(empire.currentPopulation())
+    production_factor = production(empire.currentPopulation() - (lineage_death + lineage_birth))
+    new_pop = empire.currentPopulation() + lineage_birth - lineage_death
+    new_food = lineage_fed[2] + production_factor
+    empire.updatePopulation(new_pop)
+    empire.updateFood(new_food)
     return empire
 
 def game_loop(gameitems):
     ''' main game loop '''
-    gameWindow, clock, font = gameitems
+    game_window, clock, font = gameitems
     exit_game = False
     game_over = False
     year = 1
@@ -63,14 +63,14 @@ def game_loop(gameitems):
     food = 0
     clan = Empire()
     tribe = Empire()
-    currentWorld = World()
-    currentWorld.updateName("Earth")
+    current_window = World()
+    current_window.updateName("Earth")
     clan.updateName("Jackman Clan")
     tribe.updateName("McEoin Tribe")
     while not exit_game:
         if game_over:
-            gameWindow.fill(WHITE)
-            text_screen("Game Over! Press Enter To Continue", RED, 100, 250, font, gameWindow)
+            game_window.fill(WHITE)
+            text_screen("Game Over! Press Enter To Continue", RED, 100, 250, font, game_window)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit_game = True
@@ -82,13 +82,13 @@ def game_loop(gameitems):
                     year += 1
                     clan = lineage_game_loop(clan)
                     tribe = lineage_game_loop(tribe)
-            gameWindow.fill(WHITE)
-            text_screen(f"Lineage Test # {VERSION}", RED, 5, 5,font, gameWindow)
-            text_screen("Lineage Data :", BLACK, 5, 25, font, gameWindow)
-            pygame.draw.line(gameWindow, RED, (0, 20), (SCREEN_WIDTH, 20), 1)
-            text_screen(f"World Information : Year - [{year}] : name: [{currentWorld.name}] ", BLACK, 5, 40, font, gameWindow)
-            text_screen(f"Empire Information : name: [{clan}] pop - [{clan.currentPopulation():,}] food = [{clan.currentFood()}] ", NAVY, 5, 60, font, gameWindow)
-            text_screen(f"Empire Information : name: [{tribe}] pop - [{tribe.currentPopulation():,}] food = [{tribe.currentFood()}] ", NAVY, 5, 80, font, gameWindow)
+            game_window.fill(WHITE)
+            text_screen(f"Lineage Test # {VERSION}", RED, 5, 5,font, game_window)
+            text_screen("Lineage Data :", BLACK, 5, 25, font, game_window)
+            pygame.draw.line(game_window, RED, (0, 20), (SCREEN_WIDTH, 20), 1)
+            text_screen(f"World Information : Year - [{year}] : name: [{current_window.name}] ", BLACK, 5, 40, font, game_window)
+            text_screen(f"Empire Information : name: [{clan}] pop - [{clan.currentPopulation():,}] food = [{clan.currentFood()}] ", NAVY, 5, 60, font, game_window)
+            text_screen(f"Empire Information : name: [{tribe}] pop - [{tribe.currentPopulation():,}] food = [{tribe.currentFood()}] ", NAVY, 5, 80, font, game_window)
         pygame.display.update()
         clock.tick(FPS)
     pygame.quit()
