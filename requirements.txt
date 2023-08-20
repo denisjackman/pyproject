@@ -57,6 +57,7 @@ pytest
 python-dateutil
 python-docx
 python-magic
+python-nmap
 python-pptx
 pyttsx3
 pywhatkit
