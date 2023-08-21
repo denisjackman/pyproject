@@ -58,7 +58,7 @@ def main():
                 if do_threading:
                     t = Thread(target=extractFile, args=(zFile, password))
                     t.start()
-                else:                    
+                else:
                     answer = extractFile(zFile, password)
                     if answer:
                         print(f'[+] Password = {password}')

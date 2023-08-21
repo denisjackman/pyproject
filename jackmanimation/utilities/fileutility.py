@@ -50,33 +50,33 @@ def check_file_for_name(cff_root, cff_name, cff_command_args):
 
 def getargs():
     '''
-        get the argurments from the command line
+        get the arguements from the command line
     '''
-    st_commands = f'{os.path.basename(__file__)} -v <True/False> -d <True/False> DIRECTORY "."'
+    system_commands = f'{os.path.basename(__file__)} -v <True/False> -d <True/False> DIRECTORY "."'
     argv = sys.argv[1:]
     commands = "hvds:"
     long_commands = ["verbose", "delete", "start=", "help"]
-    verbosemode = False
-    deletemode = False
-    startdirectory = "."
+    verbose_mode = False
+    delete_mode = False
+    start_directory = "."
     try:
-        clopts, args = getopt.getopt(argv, commands, long_commands)
+        command_line_options, args = getopt.getopt(argv, commands, long_commands)
     except getopt.GetoptError:
-        print(st_commands)
+        print(system_commands)
         sys.exit(2)
-    for clopt, arg in clopts:
-        if clopt in ('-h', "--help"):
-            print(st_commands)
+    for command_line_option, arg in command_line_options:
+        if command_line_option in ('-h', "--help"):
+            print(system_commands)
             sys.exit()
-        elif clopt in ("-v", "--verbose"):
-            verbosemode = True
-        elif clopt in ("-d", "--delete"):
-            deletemode = True
-        elif clopt in ("-s", "--start"):
-            startdirectory = arg
-    return {"verbosemode": verbosemode,
-            "deletemode": deletemode,
-            "startdirectory": startdirectory}
+        elif command_line_option in ("-v", "--verbose"):
+            verbose_mode = True
+        elif command_line_option in ("-d", "--delete"):
+            delete_mode = True
+        elif command_line_option in ("-s", "--start"):
+            start_directory = arg
+    return {"verbosemode": verbose_mode,
+            "deletemode": delete_mode,
+            "startdirectory": start_directory}
 
 
 def extract_file_extension(filename):
@@ -99,16 +99,16 @@ def walk_through(wt_command_args):
     It utilises check_file function to further check the file.
     """
     start_dir = wt_command_args["startdirectory"]
-    verbosemode = wt_command_args["verbosemode"]
-    if verbosemode:
+    verbose_mode = wt_command_args["verbosemode"]
+    if verbose_mode:
         print(f"[o] Starting walk through {start_dir}")
     result = []
-    if verbosemode:
+    if verbose_mode:
         print(f"[o] Searching for files in {start_dir}")
     for root, _, files in os.walk(start_dir, topdown=False):
         for name in files:
             result.append(os.path.join(root, name))
-    if verbosemode:
+    if verbose_mode:
         print(f"[o] Finished walk through {start_dir}")
     return result
 
