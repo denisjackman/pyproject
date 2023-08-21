@@ -1,7 +1,7 @@
 ''' nmap scanner '''
 import sys 
 import nmap
-import optparse
+import argparse
 
 def nmapScan(tgtHost, tgtPort):
     ''' Scan ports on target host '''
@@ -12,7 +12,7 @@ def nmapScan(tgtHost, tgtPort):
 
 def main():
     ''' Main function '''
-    parser = optparse.OptionParser('usage %prog -H <target host> -p <target port>')
+    parser = argparse.OptionParser('usage %prog -H <target host> -p <target port>')
     parser.add_option('-H', dest='tgtHost', type='string', help='specify target host')
     parser.add_option('-p', dest='tgtPort', type='string', help='specify target port[s] separated by comma')
     (options, args) = parser.parse_args()
