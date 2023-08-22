@@ -1,11 +1,18 @@
 '''example port scan'''
-import optparse
-parser = optparse.OptionParser('usage %prog -H <target host> -p <target port>')
-parser.add_option('-H', dest='tgtHost', type='string', help='specify target host')
-parser.add_option('-p', dest='tgtPort', type='string', help='specify target port[s] separated by comma')
-(options, args) = parser.parse_args()
-tgtHost = options.tgtHost
-tgtPorts = str(options.tgtPort).split(',')
-if (tgtHost is None) | (tgtPorts[0] is None):
-    print(parser.usage)
-    exit(0)
+import sys
+import argparse
+
+def main():
+    '''main function'''
+    parser = argparse.ArgumentParser(usage='djex.py -H TARGET_HOST -p TARGET_PORTS')
+    parser.add_argument('-H', metavar='TARGET_HOST', type=str, help='specify target host')
+    parser.add_argument('-p', metavar='TARGET_PORT', type=str, help='specify target port[s] separated by comma')
+    args = parser.parse_args()
+    args.tgtHost = str(args.H)
+    args.tgtPorts = str(args.p).split(',')
+    if (args.tgtHost is None) | (args.tgtPorts[0] is None):
+        print(parser.usage)
+        sys.exit(0)
+
+if __name__ == '__main__':
+    main()

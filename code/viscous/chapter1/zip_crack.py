@@ -6,7 +6,7 @@ import sys
 import getopt
 
 
-def getargs():
+def get_args():
     '''
         get the argurments from the command line
     '''
@@ -36,7 +36,7 @@ def getargs():
             "dictionary": dictionary,
             "zipfile": zipfilename}
 
-def extractFile(zFile, password):
+def extract_file(zFile, password):
     ''' extract file from zip file '''''
     result = False
     try:
@@ -49,17 +49,17 @@ def extractFile(zFile, password):
 
 def main():
     ''' main function '''
-    main_args = getargs()
+    main_args = get_args()
     do_threading = False
     with zipfile.ZipFile(main_args["zipfile"]) as zFile:
         with open(main_args["dictionary"], 'r', encoding='utf-8-sig') as passFile:
             for line in passFile.readlines():
                 password = line.strip('\n')
                 if do_threading:
-                    t = Thread(target=extractFile, args=(zFile, password))
+                    t = Thread(target=extract_file, args=(zFile, password))
                     t.start()
                 else:
-                    answer = extractFile(zFile, password)
+                    answer = extract_file(zFile, password)
                     if answer:
                         print(f'[+] Password = {password}')
                         break
