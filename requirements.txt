@@ -30,6 +30,7 @@ osmnx
 packaging
 pandas
 pdf2docx
+pexpect
 phonenumbers
 pillow
 platformdirs
