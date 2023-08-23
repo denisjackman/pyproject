@@ -75,7 +75,6 @@ soundfile
 speechrecognition
 statsmodels
 tekore
-termios
 tk
 tomli
 tomlkit
@@ -87,7 +86,6 @@ wifi-qrcode-generator
 wikipedia
 wrapt
 wsproto
-#wxpython
 xmltodict
 yagmail
 yamllint
