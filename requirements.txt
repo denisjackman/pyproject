@@ -75,6 +75,7 @@ soundfile
 speechrecognition
 statsmodels
 tekore
+termios
 tk
 tomli
 tomlkit

