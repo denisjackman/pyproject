@@ -23,13 +23,13 @@ def connect(user, host, password):
     ret = child.expect([pexpect.TIMEOUT, ssh_newkey, '[P|p]assword:'])
     if ret == 0:
         print('[-] Error Connecting')
-        return
+        return None
     if ret == 1:
         child.sendline('yes')
         ret = child.expect([pexpect.TIMEOUT, '[P|p]assword:'])
         if ret == 0:
             print('[-] Error Connecting')
-            return
+            return None
     child.sendline(password)
     child.expect(PROMPT)
     return child

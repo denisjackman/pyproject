@@ -8,17 +8,12 @@ import sys
 import argparse
 import threading
 import pexpect
+import config
 
-
-MAX_CONNECTIONS = 5
-connection_lock = threading.BoundedSemaphore(value=MAX_CONNECTIONS)
-STOP = False
-FAILS = 0
+connection_lock = threading.BoundedSemaphore(value=config.MAX_CONNECTIONS)
 
 def connect(user, host, keyfile, release):
     ''' connect to the host'''
-    global STOP
-    global FAILS
     try:
         perm_denied = 'Permission denied'
         ssh_newkey = 'Are you sure you want to continue'
@@ -33,10 +28,10 @@ def connect(user, host, keyfile, release):
             connect(user, host, keyfile, False)
         elif ret == 3:
             print('[-] Connection Closed By Remote Host')
-            FAILS += 1
+            config.FAILS += 1
         elif ret > 3:
             print('[+] Success. ' + str(keyfile))
-            STOP = True
+            config.STOP = True
     finally:
         if release:
             connection_lock.release()
@@ -56,10 +51,10 @@ def main():
         sys.exit(0)
 
     for filename in os.listdir(passDir):
-        if STOP:
+        if config.STOP:
             print('[*] Exiting: Key Found.')
             sys.exit(0)
-        if FAILS > 5:
+        if config.FAILS > 5:
             print('[!] Exiting: Too Many Connections Closed By Remote Host.')
             print('[!] Adjust number of simultaneous threads.')
             sys.exit(0)
