@@ -8,9 +8,11 @@ import sys
 import argparse
 import threading
 import pexpect
-import config
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('.'))
+import vpconfig
 
-connection_lock = threading.BoundedSemaphore(value=config.MAX_CONNECTIONS)
+connection_lock = threading.BoundedSemaphore(value=vpconfig.MAX_CONNECTIONS)
 
 def connect(user, host, keyfile, release):
     ''' connect to the host'''
@@ -28,10 +30,10 @@ def connect(user, host, keyfile, release):
             connect(user, host, keyfile, False)
         elif ret == 3:
             print('[-] Connection Closed By Remote Host')
-            config.FAILS += 1
+            vpconfig.FAILS += 1
         elif ret > 3:
             print('[+] Success. ' + str(keyfile))
-            config.STOP = True
+            vpconfig.STOP = True
     finally:
         if release:
             connection_lock.release()
@@ -51,10 +53,10 @@ def main():
         sys.exit(0)
 
     for filename in os.listdir(passDir):
-        if config.STOP:
+        if vpconfig.STOP:
             print('[*] Exiting: Key Found.')
             sys.exit(0)
-        if config.FAILS > 5:
+        if vpconfig.FAILS > 5:
             print('[!] Exiting: Too Many Connections Closed By Remote Host.')
             print('[!] Adjust number of simultaneous threads.')
             sys.exit(0)
