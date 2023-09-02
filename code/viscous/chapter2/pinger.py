@@ -24,7 +24,7 @@ def pinger(job_q, results_q):
             subprocess.check_call(['ping', '-c1', ip],
                                   stdout=DEVNULL)
             results_q.put(ip)
-        except:
+        except: # pylint: disable=bare-except
             pass
 
 
