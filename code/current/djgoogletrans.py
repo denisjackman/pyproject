@@ -1,4 +1,7 @@
-''' google trans example '''
+'''     google trans example 
+
+        https://zetcode.com/python/googletrans/
+'''
 import os
 import googletrans
 from googletrans import Translator
