@@ -52,7 +52,7 @@ def main():
             if vpconfig.FAILS > 5:
                 print('[!] Exiting: Too Many Socket Timeouts')
                 sys.exit(0)
-            connection_lock.acquire()
+            connection_lock.acquire() #pylint: disable=R1732
             password = line.strip('\r').strip('\n')
             print('[-] Testing: ' + str(password))
             t = threading.Thread(target=connect, args=(host, user, password, True))

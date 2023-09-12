@@ -10,7 +10,7 @@ import threading
 import pexpect
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('.'))
-import vpconfig
+import vpconfig # pylint: disable=E0401
 
 connection_lock = threading.BoundedSemaphore(value=vpconfig.MAX_CONNECTIONS)
 
@@ -60,7 +60,7 @@ def main():
             print('[!] Exiting: Too Many Connections Closed By Remote Host.')
             print('[!] Adjust number of simultaneous threads.')
             sys.exit(0)
-        connection_lock.acquire()
+        connection_lock.acquire() # pylint: disable=R1732
         fullpath = os.path.join(passDir, filename)
         print('[-] Testing keyfile ' + str(fullpath))
         t = threading.Thread(target=connect, args=(user, host, fullpath, True))

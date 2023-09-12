@@ -12,7 +12,7 @@ def pinger(job_q, results_q):
     :param results_q:
     :return:
     """
-    DEVNULL = open(os.devnull, 'w')
+    DEVNULL = open(os.devnull, 'w', encoding='utf-8')
     while True:
 
         ip = job_q.get()
@@ -46,7 +46,7 @@ def map_network(pool_size=255):
     :param pool_size: amount of parallel ping processes
     :return: list of valid ip addresses
     """
-    ip_list = list()
+    ip_list = []
 
     # get my IP and compose a base like 192.168.1.xxx
     ip_parts = get_my_ip().split('.')

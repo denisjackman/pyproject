@@ -31,6 +31,6 @@ def printNets():
 def main():
     ''' main'''
     printNets()
-    
+
 if __name__ == '__main__':
     main()
