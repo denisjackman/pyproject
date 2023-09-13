@@ -12,7 +12,7 @@ def pinger(job_q, results_q):
     :param results_q:
     :return:
     """
-    DEVNULL = open(os.devnull, 'w', encoding='utf-8')
+    DEVNULL = open(os.devnull, 'w', encoding='utf-8') # pylint: disable=R1732
     while True:
 
         ip = job_q.get()
@@ -63,7 +63,7 @@ def map_network(pool_size=255):
 
     # cue the ping processes
     for i in range(1, 255):
-        jobs.put(base_ip + '{0}'.format(i))
+        jobs.put(base_ip + '{0}'.format(i)) # pylint: disable=C0209
 
     for p in pool:
         jobs.put(None)
