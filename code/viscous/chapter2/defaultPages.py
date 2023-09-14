@@ -4,20 +4,20 @@ import ftplib
 def returnDefault(rdftp):
     ''' return the default pages for the chapter 2'''
     try:
-        dirList = rdftp.nlst()
+        rd_dirList = rdftp.nlst()
     except: # pylint: disable=bare-except
-        dirList = []
-        print('[-] Could not list directory contents.')
-        print('[-] Skipping To Next Target.')
+        rd_dirList = []
+        print('[-] Oh Dear ! Could not list directory contents.')
+        print('[-] Whoops ! Skipping To Next Target.')
         return None
 
-    retList = []
-    for fileName in dirList:
-        fn = fileName.lower()
-        if '.php' in fn or '.htm' in fn or '.asp' in fn or '.html' in fn:
-            print('[+] Found default page: ' + fileName)
-            retList.append(fileName)
-    return retList
+    rd_retList = []
+    for rd_fileName in rd_dirList:
+        rd_fn = rd_fileName.lower()
+        if '.php' in rd_fn or '.htm' in rd_fn or '.asp' in rd_fn or '.html' in rd_fn:
+            print('[+] Found default page: ' + rd_fileName)
+            rd_retList.append(rd_fileName)
+    return rd_retList
 
 def main():
     ''' main function'''
