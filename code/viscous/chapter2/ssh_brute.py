@@ -3,8 +3,8 @@ import argparse
 import sys
 import time
 import threading
+import vpconfig
 from pexpect import pxssh
-import code.viscous.chapter2.vpconfig as vpconfig
 
 connection_lock = threading.BoundedSemaphore(value=vpconfig.MAX_CONNECTIONS)
 
