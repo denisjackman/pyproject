@@ -7,7 +7,6 @@ OS_NAME = platform.system()
 RUN_CHECK = False
 
 if OS_NAME == 'Windows':
-    from winreg import *
     RUN_CHECK = True
 
 def sys_check():

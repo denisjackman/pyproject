@@ -1,8 +1,8 @@
 ''' win reg exploration '''
 import os
 import platform
-import requests
 import ctypes
+import requests
 import config
 
 RUN_NAME = os.path.basename(__file__)
