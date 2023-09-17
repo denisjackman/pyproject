@@ -54,7 +54,7 @@ pylint
 pymongo
 pyopenssl
 pyparsing
-pypdf2
+pypdf4
 pytest
 python-dateutil
 python-docx
