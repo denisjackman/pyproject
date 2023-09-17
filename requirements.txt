@@ -44,7 +44,7 @@ psutil
 pushbullet.py
 py
 pyOpenSSL
-ypyautogui
+pyautogui
 pycparser
 pycryptodome
 pydrive2
