@@ -44,7 +44,7 @@ psutil
 pushbullet.py
 py
 pyOpenSSL
-pyautogui
+ypyautogui
 pycparser
 pycryptodome
 pydrive2
@@ -54,7 +54,7 @@ pylint
 pymongo
 pyopenssl
 pyparsing
-pypdf2
+pypdf4
 pytest
 python-dateutil
 python-docx
