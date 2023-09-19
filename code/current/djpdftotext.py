@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 ''' pdf to text conversion '''
-from PyPDF2 import PdfReader
+from PyPDF4 import PdfFileReader
 
-INPUTFILE = "y:/Resources/reference/python-reference.pdf"
-OUTPUTFILE = "Y:/Resources/development/output.txt"
+INPUTFILE = r"y:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"
+OUTPUTFILE = r"Y:/Resources/development/anon.txt"
 
 
 def convertpdftotxt(inputfile, outputfile, verbosemode = False):
@@ -12,16 +12,16 @@ def convertpdftotxt(inputfile, outputfile, verbosemode = False):
         print("[-] Converting PDF to text")
         print(f"[-] inputfile {inputfile}")
         print(f"[-] outputfile {outputfile}")
-    pdfread = PdfReader(inputfile)
+    pdfread = PdfFileReader(inputfile)
     pdfpages = len(pdfread.pages)
     if verbosemode:
         print(f"number of pages {pdfpages}")
     for item in range(pdfpages):
         pageObj = pdfread.pages[item]
         with open(outputfile, 'a+', encoding='utf-8-sig') as outfile:
-            outfile.write((pageObj.extract_text()))
+            outfile.write((pageObj.extractText()))
         if verbosemode:
-            print(pageObj.extract_text()) #This just provides the overview of what is being added to your output, you can remove it if want
+            print(pageObj.extractText()) #This just provides the overview of what is being added to your output, you can remove it if want
 
 def main():
     '''Main function'''
