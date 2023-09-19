@@ -3,7 +3,7 @@ import os
 import platform
 import ctypes
 import requests
-import config
+import config# pylint: disable=E0401
 
 RUN_NAME = os.path.basename(__file__)
 OS_NAME = platform.system()
@@ -12,7 +12,7 @@ IS_ADMIN = ctypes.windll.shell32.IsUserAnAdmin() != 0
 WIGLE_CHECK = False
 
 if OS_NAME == 'Windows':
-    import winreg
+    import winreg # pylint: disable=E0401
     RUN_CHECK = True
 
 def val2addr(val):
@@ -75,7 +75,7 @@ def print_nets():
             if WIGLE_CHECK:
                 wigle_print(config.WIGLE_ENCODED, mac_addr)
             winreg.CloseKey(net_key)
-        except (WindowsError,OSError):
+        except (WindowsError,OSError):# pylint: disable=E0602
             break
         except IndexError:
             break

@@ -9,7 +9,7 @@ RUN_CHECK = False
 IS_ADMIN = ctypes.windll.shell32.IsUserAnAdmin() != 0
 
 if OS_NAME == 'Windows':
-    import winreg # pylint: disable=C0412
+    import winreg # pylint: disable=E0401
     RUN_CHECK = True
 
 def sid2user(sid):
@@ -21,7 +21,7 @@ def sid2user(sid):
         (value, _) = winreg.QueryValueEx(key, 'ProfileImagePath')
         user = value.split('\\')[-1]
         return user
-    except WindowsError:
+    except WindowsError: # pylint: disable=E0602
         return sid
 def return_dir():
     ''' return recycle bin directory '''

@@ -2,21 +2,21 @@
 import os
 import zipfile
 from openpyxl import Workbook
-from PyPDF2 import PdfReader
+from PyPDF4 import PdfFileReader
 from colorama import Fore
 
-TARGET_DIRECTORY = "Y:/Store/Zips"
-NEW_DIRECTORY = "Y:/Store/Zip"
+TARGET_DIRECTORY = r"Y:/Store/Zips"
+NEW_DIRECTORY = r"Y:/Store/Zip"
 TARGET_CHECK = '.zip'
-PDF_FILENAME = "sample-50-MB-pdf-file.pdf"
-WORKBOOK_FILE = 'y:/temp/zip.xlsx'
+PDF_FILENAME =  r"y:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"
+WORKBOOK_FILE = r'y:/Resources/zip.xlsx'
 
 def pdf_reader(pdffile_path):
     ''' This is the PDF reader function'''
-    reader = PdfReader(pdffile_path)
+    reader = PdfFileReader(pdffile_path)
     for page in reader.pages:
         print("-------------------------------")
-        print(page.extract_text())
+        print(page.extractText())
         print("-------------------------------")
     print(f"Number of pages: {len(reader.pages)}")
 
@@ -31,7 +31,7 @@ def excel_store(data_list):
 
 def extract_pdf_information(pdf_path):
     ''' This extracts the information from a pdf file. '''
-    pdf = PdfReader(pdf_path)
+    pdf = PdfFileReader(pdf_path)
     information = pdf.metadata
     result = None
     if information.title is None:

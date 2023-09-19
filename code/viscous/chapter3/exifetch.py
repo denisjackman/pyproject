@@ -14,7 +14,7 @@ from PIL.ExifTags import TAGS
 def findImages(url):
     ''' Find all images on a web page'''
     print('[o] Finding images on ' + url)
-    urlContent = urllib.request.urlopen(url).read()
+    urlContent = urllib.request.urlopen(url).read()#pylint: disable=R1732
     soup = BeautifulSoup(urlContent, features='html.parser')
     imgTags = soup.findAll('img')
     return imgTags
@@ -24,9 +24,11 @@ def downloadImage(imgTag):
     try:
         print('[-] Dowloading image...')
         imgSrc = imgTag['src']
-        imgContent = urllib.request.urlopen(imgSrc).read()
+        print(f"[+] Image: {imgSrc}")
+        imgContent = urllib.request.urlopen(imgSrc).read() #pylint: disable=R1732
+        print(f'[+] Downloaded image: {basename(urlsplit(imgSrc))}')
         imgFileName = f'data//{basename(urlsplit(imgSrc)[2])}'
-        imgFile = open(imgFileName, 'wb')
+        imgFile = open(imgFileName, 'wb')#pylint: disable=R1732
         imgFile.write(imgContent)
         imgFile.close()
         return imgFileName

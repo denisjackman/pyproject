@@ -3,7 +3,7 @@
 '''
 import os
 import sys
-import PyPDF2
+import PyPDF4
 from tqdm import tqdm
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..'))
@@ -52,7 +52,7 @@ def main():
     print(f'[-] Target string is {TARGETSTRING}')
     for pdfitem in tqdm(pdflist, total=len(pdflist), unit=' item'):
         with open(pdfitem, 'rb') as pdf_file:
-            pdf_reader = PyPDF2.PdfReader(pdf_file, strict=False)
+            pdf_reader = PyPDF4.PdfFileReader(pdf_file, strict=False)
             print(f"[*] PDF file is {pdfitem} --")
             if pdf_reader.metadata is None:
                 debug_mode(f"[*] PDF file is {pdfitem} -- title (NO TITLE) --")
