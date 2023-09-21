@@ -22,7 +22,7 @@ def brute_login(hostname, passwd_file):
 def main():
     ''' main '''
     host = '192.168.95.179'
-    passwd_file = 'userpass.txt'
+    passwd_file = r'data/userpass.txt'
     print('[+] Starting FTP brute force')
     brute_login(host, passwd_file)
     print('[+] FTP brute force finished')
