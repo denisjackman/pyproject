@@ -3,7 +3,7 @@ import argparse
 import sys
 import time
 import threading
-import vpconfig
+import vpconfig # pylint: disable=E0401
 from pexpect import pxssh
 
 connection_lock = threading.BoundedSemaphore(value=vpconfig.MAX_CONNECTIONS)
