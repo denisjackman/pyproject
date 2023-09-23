@@ -3,7 +3,7 @@ import re
 import sqlite3
 import argparse
 import os
-
+import sys
 
 def print_downloads(download_db):
     ''' print downloads '''
@@ -31,7 +31,7 @@ def print_cookies(cookies_db):
         if 'encrypted' in str(e):
             print('[*] Error reading your cookies database.')
             print('[*] Upgrade your Python-Sqlite3 Library')
-            exit(0)
+            sys.exit(0)
 
 def print_history(places_db):
     ''' print history '''
@@ -50,7 +50,7 @@ def print_history(places_db):
         if 'encrypted' in str(e):
             print('[*] Error reading your places database.')
             print('[*] Upgrade your Python-Sqlite3 Library')
-            exit(0)
+            sys.exit(0)
 def print_google(places_db):
     ''' print google '''
     with sqlite3.connect(places_db) as conn:
