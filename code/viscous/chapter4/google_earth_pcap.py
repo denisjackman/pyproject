@@ -37,34 +37,6 @@ def plot_IPs(pcap_file):
             print(f'{"":>3}[-] Exception: {e.__class__.__name__}')
     return kml_pts
 
-def ret_geo_str(ip):
-    ''' return geo string'''
-    try:
-        with geoip2.database.Reader(r'Y:\violent-python3\chapter04\geolite2_city.mmdb') as gi:
-            rec = gi.city(ip)
-            city = rec.city.name
-            country = rec.country.name
-            if city != '':
-                geo_loc = f'{city}, {country}'
-            else:
-                geo_loc = country
-            return geo_loc
-    except Exception as e:
-        print(f'{"":>3}[-] Exception: {e.__class__.__name__}')
-        return 'Unregistered'
-
-def print_pcap(pcap_file):
-    ''' print direction of the flow'''
-    for ts, buf in pcap_file:
-        try:
-            eth = dpkt.ethernet.Ethernet(buf)
-            ip = eth.data
-            src = socket.inet_ntoa(ip.src)
-            dst = socket.inet_ntoa(ip.dst)
-            print(f'[+] Source: {ret_geo_str(src)} --> Destination: {ret_geo_str(dst)}')
-        except Exception as e:
-            print(f'{"":>3}[-] Exception: {e.__class__.__name__}')
-
 def main():
     ''' main function'''
     parser = argparse.ArgumentParser(usage= 'python google_earth_pcap.py PCAP_FILE')
