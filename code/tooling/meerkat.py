@@ -44,6 +44,6 @@ def main():
     for item in newlist:
         shutil.copy(item, TARGET_DIR)
     print('[=] meerkat shutting down')
-    
+
 if __name__ == '__main__':
     main()

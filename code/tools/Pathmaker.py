@@ -77,6 +77,7 @@ def getargs():
 def main():
     ''' main routine '''
     pygame.init()
+    mainargs = getargs()
     window = pygame.display.set_mode((mainargs["mymapwidth"], mainargs["mymapheight"]))
     pygame.display.set_caption(CAPTION)
     pygame_icon = pygame.image.load(ICON_FILE)
@@ -104,5 +105,4 @@ def main():
     print(f"{clicks}")
 
 if __name__ == '__main__':
-    mainargs = getargs()
     main()
