@@ -8,7 +8,6 @@ This is a os utility tool
 '''
 import os
 import sys
-import shutil
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
 from jackmanimation.utilities.fileutility import walk_through
@@ -40,10 +39,7 @@ def main():
             newlist.append(file)
     print(f'[-] {len(newlist)} images found')
     print(f'[-] {newlist[0]}')
-    print("[+] meerkat copying files")
-    for item in newlist:
-        shutil.copy(item, TARGET_DIR)
     print('[=] meerkat shutting down')
-
+    
 if __name__ == '__main__':
     main()
