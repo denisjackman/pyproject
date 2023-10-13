@@ -40,6 +40,6 @@ def main():
     print(f'[-] {len(newlist)} images found')
     print(f'[-] {newlist[0]}')
     print('[=] meerkat shutting down')
-    
+
 if __name__ == '__main__':
     main()
