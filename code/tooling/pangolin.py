@@ -9,7 +9,7 @@ This is a os utility tool
 import os
 import sys
 import hashlib
-#from tqdm import tqdm
+from tqdm import tqdm
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
 #from jackmanimation.utilities.fileutility import walk_through
@@ -40,11 +40,11 @@ def find_duplicate_files(directory_path):
     print(f'[-] {PANGOLIN_TARGET_DIR}')
     print('[-] find_duplicate_file walking through files')
     for root, directories, files in os.walk(directory_path):
-        for item_file in files:
+        for item_file in tqdm(files, total=len(files), unit=' item_file'):        
             file_count += 1
             # Calculate the hash of the file.
             file_path = os.path.join(root, item_file)
-            file_hash = hashlib.md5(open(file_path, "rb").read()).hexdigest()
+            file_hash = hashlib.md5(open(file_path, "rb").read()).hexdigest() #pylint: disable=consider-using-with
 
             # If the hash is already in the dictionary, the file is a duplicate.
             if file_hash in file_hashes:
@@ -58,6 +58,7 @@ def find_duplicate_files(directory_path):
                 except WindowsError:
                     os.remove(new_target)
                     os.rename(file_path, new_target)
+                    pass
             else:
                 file_hashes[file_hash] = file_path
     print(f'[-] {count} duplicates found')
@@ -72,6 +73,7 @@ def validate_file_contents(vfc_file1, vfc_file2):
             vfc_contents2 = vfc_f2.read()
     except: # pylint: disable=bare-except
         return False
+
     return vfc_contents1 == vfc_contents2
 
 def main():
