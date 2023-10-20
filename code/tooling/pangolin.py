@@ -21,7 +21,7 @@ __date__ = "$Date: 2022/07/28 01:17:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
-PANGOLIN_TARGET_DIR = 'Y:/duplicates/'
+PANGOLIN_TARGET_DIR = 'G:/Duplicates/'
 
 def find_duplicate_files(directory_path):
     """Steps through a directory of files and compares each file to find duplicates and delete the duplicates.
@@ -44,7 +44,10 @@ def find_duplicate_files(directory_path):
             file_count += 1
             # Calculate the hash of the file.
             file_path = os.path.join(root, item_file)
-            file_hash = hashlib.md5(open(file_path, "rb").read()).hexdigest() #pylint: disable=consider-using-with
+            try:
+                file_hash = hashlib.md5(open(file_path, "rb").read()).hexdigest() #pylint: disable=consider-using-with
+            except OSError:
+                print(f'[-] {file_path} already exists in {PANGOLIN_TARGET_DIR}')
 
             # If the hash is already in the dictionary, the file is a duplicate.
             if file_hash in file_hashes:
@@ -58,7 +61,6 @@ def find_duplicate_files(directory_path):
                 except WindowsError:
                     os.remove(new_target)
                     os.rename(file_path, new_target)
-                    pass
             else:
                 file_hashes[file_hash] = file_path
     print(f'[-] {count} duplicates found')
