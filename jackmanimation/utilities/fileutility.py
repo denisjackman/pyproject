@@ -54,11 +54,12 @@ def getargs():
     '''
     system_commands = f'{os.path.basename(__file__)} -v <True/False> -d <True/False> DIRECTORY "."'
     argv = sys.argv[1:]
-    commands = "hvds:"
-    long_commands = ["verbose", "delete", "start=", "help"]
+    commands = "hvds:t:"
+    long_commands = ["verbose", "delete", "start=", "help", "target="]
     verbose_mode = False
     delete_mode = False
     start_directory = "."
+    target_directory = "."
     try:
         command_line_options, args = getopt.getopt(argv, commands, long_commands)
     except getopt.GetoptError:
@@ -74,10 +75,12 @@ def getargs():
             delete_mode = True
         elif command_line_option in ("-s", "--start"):
             start_directory = arg
+        elif command_line_option in ("-t", "--target"):
+            target_directory = arg
     return {"verbosemode": verbose_mode,
             "deletemode": delete_mode,
-            "startdirectory": start_directory}
-
+            "startdirectory": start_directory,
+            "targetdirectory": target_directory}
 
 def extract_file_extension(filename):
     ''' This checks the file extension and returns true or false '''
