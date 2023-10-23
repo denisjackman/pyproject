@@ -39,8 +39,8 @@ def find_duplicate_files(directory_path):
     print(f'[-] {directory_path}')
     print(f'[-] {PANGOLIN_TARGET_DIR}')
     print('[-] find_duplicate_file walking through files')
-    for root, directories, files in os.walk(directory_path):
-        for item_file in tqdm(files, total=len(files), unit=' item_file'):        
+    for root, directories, files in os.walk(directory_path): #pylint: disable=unused-variable
+        for item_file in tqdm(files, total=len(files), unit=' item_file'):   
             file_count += 1
             # Calculate the hash of the file.
             file_path = os.path.join(root, item_file)
@@ -88,29 +88,7 @@ def main():
     print(f'[-] {pango_mainargs}')
     print("[+] pangolin walking through files")
     find_duplicate_files(pango_mainargs["startdirectory"])
-#    print("[+] pangolin walking through files")
-#    pango_filelist = walk_through(pango_mainargs)
-#    compare_list = pango_filelist
-#    print(f'[-] {len(pango_filelist)} files found')
-#    print("[+] pangolin validating files")
-#    total_duplicates = 0
-#    loop_count = 0
-#    for item in tqdm(pango_filelist, total=len(pango_filelist), unit=' item'):
-#        duplicate_count = 0
-#        list_store = compare_list
-#        for pango_file in tqdm(compare_list, total=len(compare_list), unit=' item'):
-#            if pango_file != item:
-#                if validate_file_contents(pango_file, item):
-#                    list_store.remove(pango_file)
-#                    duplicate_count += 1
-#                    total_duplicates += 1
-#        if duplicate_count == 0:
-#            break
-#        compare_list = list_store
-#
-#    print(f'[-] {loop_count} iterations')
-#    print(f'[-] {total_duplicates} duplicates found')
-#    print(f'[-] {len(compare_list)} unique files found')
+
     print('[=] pangolin shutting down')
 
 if __name__ == '__main__':

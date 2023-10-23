@@ -7,6 +7,7 @@ sys.path.append(os.path.realpath('../..'))
 from jackmanimation.utilities.fileutility import getargs
 
 def main():
+    ''' This is the main function for the kitten project.'''
     print('[*] kitten starting up')
     print('[-] kitten getting arguments')
     kitten_command_args = getargs()
