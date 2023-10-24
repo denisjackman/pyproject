@@ -40,7 +40,7 @@ def find_duplicate_files(directory_path):
     print(f'[-] {PANGOLIN_TARGET_DIR}')
     print('[-] find_duplicate_file walking through files')
     for root, directories, files in os.walk(directory_path): #pylint: disable=unused-variable
-        for item_file in tqdm(files, total=len(files), unit=' item_file'):   
+        for item_file in tqdm(files, total=len(files), unit=' item_file'):
             file_count += 1
             # Calculate the hash of the file.
             file_path = os.path.join(root, item_file)

@@ -13,6 +13,7 @@ discord.py
 dpkt
 dronekit-sitl
 dumper
+ExifRead
 faker
 folium
 geocoder
