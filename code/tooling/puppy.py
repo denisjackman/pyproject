@@ -4,6 +4,7 @@ import shutil
 import zipfile36 as zipfile
 import exifread
 from tqdm import tqdm
+import datetime
 # variables
 ZIPFILE = 'T://pictures.zip'
 TARGETDIR = 'S:'
@@ -19,14 +20,17 @@ def main():
     ''' main '''
     print('[*] puppy main starting up')
     print(f'[-] extracting {ZIPFILE} to {TARGETDIR}')
+    filedate = datetime.datetime.now()
+    filedatestr = f'T:puppy_{filedate.year}{filedate.month}{filedate.day}.txt'
     try:
         with zipfile.ZipFile(ZIPFILE) as archive:
             archive.extractall(path=TARGETDIR)
     except:  # pylint: disable=bare-except
         print('[o] error extracting zipfile')
     file_count = 0
-    print('[-] opening target file ')
-    with open('S:puppy.txt', 'w', encoding='utf-8-sig') as puppy_file:
+    print('[-] opening target file '
+          )
+    with open(filedatestr, 'w', encoding='utf-8-sig') as puppy_file:
         print('[-] puppy main walking through files')
         for root, _, files in os.walk(TARDIR):
             for item_file in tqdm(files, total=len(files), unit=' item_file'):
