@@ -1,10 +1,10 @@
 ''' this is the puppy utility '''
 import os
 import shutil
+import datetime
 import zipfile36 as zipfile
 import exifread
 from tqdm import tqdm
-import datetime
 # variables
 ZIPFILE = 'T://pictures.zip'
 TARGETDIR = 'S:'
