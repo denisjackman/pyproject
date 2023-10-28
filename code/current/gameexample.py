@@ -2,7 +2,7 @@
 import os
 import sys
 # pylint: disable=C0413
-sys.path.append(os.path.realpath('..'))
+sys.path.append(os.path.realpath('../..'))
 from jackmanimation.DndProject.dnddice import dice
 from jackmanimation.DndProject.dnddice import number_generator
 from jackmanimation.DndProject.dndinsult import shakespearean_insult_generator
