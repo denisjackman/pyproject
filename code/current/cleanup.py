@@ -6,7 +6,7 @@ a util to find files with a pattern in the name and delete them
 import os
 import sys
 # pylint: disable=C0413
-sys.path.append(os.path.realpath('..'))
+sys.path.append(os.path.realpath('../..'))
 from jackmanimation.utilities.fileutility import walk_through
 from jackmanimation.utilities.fileutility import getargs
 from jackmanimation.utilities.fileutility import convert_size

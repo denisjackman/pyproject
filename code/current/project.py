@@ -3,7 +3,7 @@ import os
 import sys
 from tqdm import tqdm
 # pylint: disable=C0413
-sys.path.append(os.path.realpath('..'))
+sys.path.append(os.path.realpath('..\..'))
 from jackmanimation.utilities.fileutility import walk_through
 from jackmanimation.utilities.fileutility import extract_file_extension
 from jackmanimation.genfunctions.utensils import dish
