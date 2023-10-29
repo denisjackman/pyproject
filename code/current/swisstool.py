@@ -9,7 +9,7 @@ This is a os utility tool
 import os
 import sys
 # pylint: disable=C0413
-sys.path.append(os.path.realpath('..\..'))
+sys.path.append(os.path.realpath('..\\..'))
 from jackmanimation.utilities.fileutility import walk_through
 from jackmanimation.utilities.fileutility import getargs
 
