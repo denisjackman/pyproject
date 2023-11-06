@@ -1,7 +1,6 @@
 ''' This is a questions scratch pad'''
 def question1():
     ''' This is a question 1'''
-    print('[-] This questions 1 ')
     name1 = 'Dhoni'
     name2 = 'Kohli'
     result = name1[:3] + name2[1:]
@@ -30,15 +29,28 @@ def question4():
     x = [1, 2, 3, 4]
     y = [sum(x[0:i-1]) for i in range(0,4)]
     print(f'[-] question 4 : {y}')
-
+    
+def question5():
+    ''' This is a question 5'''
+    roman= {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500}
+    d,r = roman
+    print(f'[-] question 5 : {d} {r}')
+          
 def main():
     ''' This is the main function'''
-    print('[+] This is the main function starting')
+    print('[*] This is the main function starting')
     question1()
     #question2()
-    print(f'[-] question 3 {question3(10,5,2)}')
+    print('[-] question 2 : is an infinite loop ')
+    print(f'[-] question 3 : {question3(10,5,2)}')
     question4()
-    print('[+] This is the main function ending')
+    try:
+        question5()
+    except Exception as err:
+        print(f'[-] question 5 : {err}')
+    print('[*] This is the main function ending')
 
 if __name__ == '__main__':
+    print('[+] This is the questions program starting')
     main()
+    print('[+] This is the questions program ending')
