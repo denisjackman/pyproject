@@ -58,7 +58,7 @@ def find_duplicate_files(directory_path):
                 new_target = os.path.join(PANGOLIN_TARGET_DIR, file_name)
                 try:
                     os.rename(file_path, new_target)
-                except WindowsError:
+                except WindowsError:# pylint: disable=E0602
                     os.remove(new_target)
                     os.rename(file_path, new_target)
             else:

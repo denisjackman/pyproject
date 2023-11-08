@@ -10,7 +10,7 @@ def question2():
     ''' This is a question 2'''
     mylist = ["python", "hub"]
     for i in mylist:
-        mylist.append(i.upper())
+        mylist.append(i.upper()) #pylint: disable=W4701
     print(f'[-] question 2 : {mylist}')
 
 def question3(a, b, c):
@@ -29,13 +29,13 @@ def question4():
     x = [1, 2, 3, 4]
     y = [sum(x[0:i-1]) for i in range(0,4)]
     print(f'[-] question 4 : {y}')
-    
+
 def question5():
     ''' This is a question 5'''
     roman= {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500}
-    d,r = roman
+    d,r = roman #pylint: disable=W0644
     print(f'[-] question 5 : {d} {r}')
-          
+
 def main():
     ''' This is the main function'''
     print('[*] This is the main function starting')
