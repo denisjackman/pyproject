@@ -39,3 +39,9 @@ if __name__ == '__main__':
     print('[=] mongoose tool starting')
     main()
     print('[=] mongoose tool finished')
+    
+TRACK YOUR PACKAGE
+Date	Tracking Details
+11/09/23	Evri 48 Hour –
+It may take up to 2 days for a tracking number to provide an update.
+SHIPPING INFO
