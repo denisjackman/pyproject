@@ -8,8 +8,8 @@ def main():
         if 'a' in x:
             newlist.append(x)
     listnew = [x for x in fruits if x != 'apple' ]
-    newlistnew = [x for x in fruits] #pylint: disable=W1721
-    nlist = [x for x in range(10)] #pylint: disable=W1721
+    newlistnew = [x for x in fruits] #pylint: disable=R1721
+    nlist = [x for x in range(10)] #pylint: disable=R1721
     slist = [x for x in range(10) if x < 5]
     ulist = [x.upper() for x in fruits]
     hlist = ['hello' for x in fruits]
