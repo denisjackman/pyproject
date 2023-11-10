@@ -33,6 +33,10 @@ def main():
     moongoose_filelist = walk_through(mongoose_mainargs)
     if mongoose_mainargs["verbosemode"]:
         print(f'[-] {len(moongoose_filelist)} files found')
+    for mongoose_file in moongoose_filelist:
+        print(f'[-] {mongoose_file}')
+        if os.path.splitext(mongoose_file)[1] == '.zip':
+            unzip(mongoose_file, mongoose_mainargs["targetdirectory"])
     print('[-] mongoose tool main finished')
 
 if __name__ == '__main__':
