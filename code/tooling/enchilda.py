@@ -40,6 +40,8 @@ def main():
         else:
             delete_count += 1
             os.remove(enchilda_file)
+    print(f'[-] {pdf_count} pdf files found')
+    print(f'[-] {delete_count} delete files found')
     print('[=] enchilda shutting down')
 
 if __name__ == '__main__':
