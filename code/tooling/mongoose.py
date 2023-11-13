@@ -21,15 +21,16 @@ def unzip(zipfile_path, unzip_path, unzip_verbose=False):
 
 def unrar(rarfile_path, unrar_path, unrar_verbose=False):
     '''unrar'''
+    rarfile__err_count = 0
     if unrar_verbose:
         print(f'[-] unrar {rarfile_path} to {unrar_path}')
     try:
         with rarfile.RarFile(rarfile_path) as rar_ref:
             rar_ref.extractall(unrar_path)
     except rarfile.RarCannotExec:
-        print(f'[!] rarfile.RarCannotExec {rarfile_path} to {unrar_path}')
+        rarfile__err_count += 1
     except rarfile.NeedFirstVolume:
-        print(f'[!] rarfile.NeedFirstVolume {rarfile_path} to {unrar_path}')
+        rarfile__err_count += 1
 
 def main():
     '''main function'''
