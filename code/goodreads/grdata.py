@@ -6,12 +6,33 @@ DATA_FILE = 'X:/goodreads_library_export.csv'
 SAMPLE_FILE = 'X:/sample_export.csv'
 OUTPUT_FILE = 'X:/goodreads_DJ_fixed.csv'
 
+# title
+# author
+# isbn
+# My Rating = if 0 then use Average Rating
+# Average Rating
+# Publisher
+# Binding
+# Year Published
+# Original Publication Year
+# Date Read if none should be year added 
+# Date Added
+# Shelves
+# Bookshelves
+# My Review
+
 def main():
     ''' This is the main function'''
     print('[*] This is the main function starting')
     input_csv_file = csv_file_reader(DATA_FILE)
     sample_csv_file = csv_file_reader(SAMPLE_FILE)
-
+    count = 0
+    print(f'[*] This is the input_csv_file length: {len(input_csv_file)}')
+    print(f'[*] This is the sample_csv_file length: {len(sample_csv_file)}')
+    for item in input_csv_file:
+        if item['My Rating'] == '0':
+            count = +1
+    print(f'[*] This is the count: {count}')
     print('[*] This is the main function ending')
 
 def csv_file_reader(csv_data_file):
