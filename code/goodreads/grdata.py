@@ -1,6 +1,7 @@
 ''' Good reads data fixer'''
 import csv
 import pandas as pd
+import isbntools.app as isbn_app
 
 DATA_FILE = 'X:/goodreads_library_export.csv'
 SAMPLE_FILE = 'X:/sample_export.csv'
@@ -21,14 +22,46 @@ BOOKS_FILE = 'X:/books.csv'
 # Shelves
 # Bookshelves
 # My Review
+def write_item_list(item_list):
+    ''' This is the write item list function'''
+    print('[*] This is the write item list function starting')
+    result = []
+    for item in item_list:
+        if item['My Rating'] == '0':
+            count = +1
+            my_rating = item['Average Rating']
+        else:
+            my_rating = item['My Rating']
+        if item['Date Read'] == '':
+            date_read = item['Date Added']
+        else:
+            date_read = item['Date Read']
+        record = {'Title': item["Title"],
+                  'Author': item['Author'], 
+                  'ISBN': item['ISBN'],
+                  'My Rating': item['ISBN'],
+                  'Average Rating': my_rating,
+                  'Publisher': item['Publisher'],
+                  'Binding': item['Binding'],
+                  'Year Published': item['Year Published'],
+                  'Original Publication Year': item['Original Publication Year'],
+                  'Date Read': date_read,
+                  'Date Added': item['Date Added'],
+                  'Bookshelves': item['Bookshelves'],
+                  'My Review': item['My Review']}
+        result.append(record)
+    print('[*] This is the write item list function ending')
+    return result
 
 def main():
     ''' This is the main function'''
     print('[*] This is the main function starting')
     # Variables
     new_list = []
+    save_list = []
     record = {}
     count = 0
+    save_count = 0
     # Load the csv files
     input_csv_file = csv_file_reader(DATA_FILE)
     sample_csv_file = csv_file_reader(SAMPLE_FILE)
@@ -37,71 +70,47 @@ def main():
     print(f'[*] This is the input_csv_file length: {len(input_csv_file)}')
     print(f'[*] This is the sample_csv_file length: {len(sample_csv_file)}')
     print(f'[*] This is the books_list length: {len(books_list)}')
-    for item in input_csv_file:
-        title = item['Title']
-        author = item['Author']
-        isbn = item['ISBN']
-        if item['My Rating'] == '0':
-            count = +1
-            my_rating = item['Average Rating']
-        else:
-            my_rating = item['My Rating']
-        publisher = item['Publisher']
-        binding = item['Binding']
-        year_published = item['Year Published']
-        original_publication_year = item['Original Publication Year']
-        if item['Date Read'] == '':
-            date_read = item['Date Added']
-        else:
-            date_read = item['Date Read']
-        date_added = item['Date Added']
-        bookshelves = item['Bookshelves']
-        my_review = item['My Review']
-        record = {'Title': title,
-                  'Author': author, 
-                  'ISBN': isbn,
-                  'My Rating': my_rating,
-                  'Average Rating': my_rating,
-                  'Publisher': publisher,
-                  'Binding': binding,
-                  'Year Published': year_published,
-                  'Original Publication Year': original_publication_year,
-                  'Date Read': date_read,
-                  'Date Added': date_added,
-                  'Bookshelves': bookshelves,
-                  'My Review': my_review}
-        new_list.append(record)
+    found_count = 0
     for item in books_list:
-        title = item['Title']
-        author = item['Author']
-        isbn = 'ISBN'
-        my_rating = 5
-        publisher = ''
-        binding = ''
-        year_published = ''
-        original_publication_year = ''
+        found = False
+        for lookup in input_csv_file:
+            if item['Title'] == lookup['Title']:
+                found = True
+                found_count += 1
+                break
+        if found:
+            print(f'[*] This is in the lookup: {item["Title"], lookup["ISBN"]}')
+
+    new_list = write_item_list(input_csv_file)
+    for item in books_list:
         date_read = f'01/02/{item["Year"]}'
-        date_added = date_read
-        bookshelves = ''
-        my_review = ''
-        record = {'Title': title,
-                'Author': author, 
-                'ISBN': isbn,
-                'My Rating': my_rating,
-                'Average Rating': my_rating,
-                'Publisher': publisher,
-                'Binding': binding,
-                'Year Published': year_published,
-                'Original Publication Year': original_publication_year,
+        isbn_number = isbn_app.isbn_from_words(item['Title'])
+        record = {'Title': item['Title'],
+                'Author': item['Author'], 
+                'ISBN': isbn_number,
+                'My Rating': 5,
+                'Average Rating': 5,
+                'Publisher': '',
+                'Binding': '',
+                'Year Published': '',
+                'Original Publication Year': '',
                 'Date Read': date_read,
-                'Date Added': date_added,
-                'Bookshelves': bookshelves,
-                'My Review': my_review}
+                'Date Added': date_read,
+                'Bookshelves': '',
+                'My Review': ''}
         new_list.append(record)
     print(f'[*] This is the new_list length: {len(new_list)}')
-    print(f'[*] This is the count: {count}')
-    df = pd.DataFrame(new_list)
+    print(f'[*] This is the found_count: {found_count}')
+    for item in new_list:
+        if item['ISBN'] == '':
+            save_count += 1
+        else:
+            save_list.append(item)
+            
+    df = pd.DataFrame(save_list)
     df.to_csv(OUTPUT_FILE, index=False)
+    print(f'[*] This is the count: {count}')
+    print(f'[*] This is the saved count: {save_count}')
     print('[*] This is the main function ending')
 
 def csv_file_reader(csv_data_file):

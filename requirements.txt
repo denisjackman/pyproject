@@ -23,6 +23,7 @@ googletrans
 hexy
 importlib-metadata
 instagrapi
+isbntools
 matplotlib
 moviepy
 mysql-connector-python
