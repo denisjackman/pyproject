@@ -2,10 +2,11 @@
 import csv
 import pandas as pd
 import isbntools.app as isbn_app
+import time
 
 DATA_FILE = 'X:/goodreads_library_export.csv'
 SAMPLE_FILE = 'X:/sample_export.csv'
-OUTPUT_FILE = 'X:/goodreads_DJ_fixed.csv'
+OUTPUT_FILE = 'X:/goodreads_DJ_new_fixed.csv'
 BOOKS_FILE = 'X:/books.csv'
 
 # title
@@ -27,25 +28,16 @@ def write_item_list(item_list):
     print('[*] This is the write item list function starting')
     result = []
     for item in item_list:
-        if item['My Rating'] == '0':
-            count = +1
-            my_rating = item['Average Rating']
-        else:
-            my_rating = item['My Rating']
-        if item['Date Read'] == '':
-            date_read = item['Date Added']
-        else:
-            date_read = item['Date Read']
         record = {'Title': item["Title"],
                   'Author': item['Author'], 
                   'ISBN': item['ISBN'],
-                  'My Rating': item['ISBN'],
-                  'Average Rating': my_rating,
+                  'My Rating': 5,
+                  'Average Rating': item['Average Rating'],
                   'Publisher': item['Publisher'],
                   'Binding': item['Binding'],
                   'Year Published': item['Year Published'],
                   'Original Publication Year': item['Original Publication Year'],
-                  'Date Read': date_read,
+                  'Date Read': item['Date Added'],
                   'Date Added': item['Date Added'],
                   'Bookshelves': item['Bookshelves'],
                   'My Review': item['My Review']}
@@ -58,6 +50,7 @@ def main():
     print('[*] This is the main function starting')
     # Variables
     new_list = []
+    old_list = []
     save_list = []
     record = {}
     count = 0
@@ -78,16 +71,22 @@ def main():
                 found = True
                 found_count += 1
                 break
-        if found:
-            print(f'[*] This is in the lookup: {item["Title"], lookup["ISBN"]}')
 
-    new_list = write_item_list(input_csv_file)
+    old_list = write_item_list(input_csv_file)
     for item in books_list:
         date_read = f'01/02/{item["Year"]}'
-        isbn_number = isbn_app.isbn_from_words(item['Title'])
+        isbn_number = ''
+
+        try:
+            isbn_number = isbn_app.isbn_from_words(item['Title'])
+        except Exception as my_error:
+            print(f'[*] This is the error: {my_error}')
+            isbn_number = ''
+            time.sleep(30)
+
         record = {'Title': item['Title'],
                 'Author': item['Author'], 
-                'ISBN': isbn_number,
+                'ISBN': f'{isbn_number}',
                 'My Rating': 5,
                 'Average Rating': 5,
                 'Publisher': '',
@@ -106,8 +105,8 @@ def main():
             save_count += 1
         else:
             save_list.append(item)
-            
-    df = pd.DataFrame(save_list)
+
+    df = pd.DataFrame(old_list)
     df.to_csv(OUTPUT_FILE, index=False)
     print(f'[*] This is the count: {count}')
     print(f'[*] This is the saved count: {save_count}')
