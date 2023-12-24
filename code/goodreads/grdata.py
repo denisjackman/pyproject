@@ -86,6 +86,8 @@ def main():
     record = {}
     count = 0
     save_count = 0
+    book_meta = ''
+
     # Load the csv files
     input_csv_file = csv_file_reader(DATA_FILE)
     notfound_file = csv_file_reader(NOT_FOUND)
@@ -94,11 +96,20 @@ def main():
 
     old_list = write_item_list(input_csv_file)
     new_list = convert_books(books_list)
+    
     for item in new_list:
         if item['ISBN'] == '':
             save_count += 1
         else:
             save_list.append(item)
+
+    try:
+        book_meta = isbn_app.meta(notfound_file[0]['ISBN'])
+    except Exception as my_error:
+        print (f'[-] This is the error: {my_error} for {notfound_file[0]["ISBN"]}')
+        book_meta = 'not found'
+        time.sleep(30)
+
     csv_file_writer(save_list, OUTPUT_FILE)
 
     print(f'[-] This is the count: {count}')
@@ -107,7 +118,8 @@ def main():
     print(f'[-] This is the notfound_file length: {len(notfound_file)}')
     print(f'[-] This is the books_list length: {len(books_list)}')
     print(f'[-] This is the new_list length: {len(new_list)}')
-    print(f'[-] This is the save_list length: {len(save_list)}')
+    print(f'[-] This is the save_list length: {len(save_list)}\n\n')
+    print(f'[-] This is the book_meta: {book_meta}\n\n')
     print('[-] This is the main function ending')
 
 if __name__ == '__main__':
