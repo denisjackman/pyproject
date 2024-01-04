@@ -1,5 +1,5 @@
 ''' This is a list of systems for the imperial side of the Xander Graves UNiverse'''
-import random 
+import random
 
 DATA_DIR = 'G:/Writing/Fiction/Stories/Xander graves/Data'
 SUFFIXS = 'suffixs.dat'
@@ -60,7 +60,6 @@ def main():
     print(f'[-] before {len(namelist)}')
     namelist = list(dict.fromkeys(namelist))
     print(f'[-] after {len(namelist)}')
-        
     write_file(f'{DATA_DIR}/{RESULT}', namelist)
     print('[-] This is the main function ending')
 
