@@ -11,6 +11,9 @@ def main():
     df.sort_values(by=['continent', 'age'])
     print('[o]')
     print(f'{df}')
+    df.index.name = 'user_id'
+    print(f'{df.index}')
+    print(f'{df}')
     print('[-] dapandas.py main()   : end')
 
 if __name__ == '__main__':
