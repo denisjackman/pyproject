@@ -14,6 +14,12 @@ def main():
     df.index.name = 'user_id'
     print(f'{df.index}')
     print(f'{df}')
+    df.reindex([1000,1001,1002,1003])
+    print(f'{df}')
+    df.sort_index()
+    print(f'{df}')
+    print(f'{df.columns}')
+    print(f'{df.loc[:, "continent"]}')
     print('[-] dapandas.py main()   : end')
 
 if __name__ == '__main__':
