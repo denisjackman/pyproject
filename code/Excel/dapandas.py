@@ -11,15 +11,12 @@ def main():
     df.sort_values(by=['continent', 'age'])
     print('[o]')
     print(f'{df}')
-    df.index.name = 'user_id'
-    print(f'{df.index}')
-    print(f'{df}')
-    df.reindex([1000,1001,1002,1003])
-    print(f'{df}')
-    df.sort_index()
-    print(f'{df}')
     print(f'{df.columns}')
     print(f'{df.loc[:, "continent"]}')
+    df2=df.copy()
+    df2.loc[1, "name"] = "JOHN"
+    df2.replace("USA", "United States")
+    print(f'{df2}')
     print('[-] dapandas.py main()   : end')
 
 if __name__ == '__main__':
