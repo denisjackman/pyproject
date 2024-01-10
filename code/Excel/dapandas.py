@@ -18,6 +18,10 @@ def main():
     df2.replace("USA", "United States")
     print(f'{df2}')
     print('[-] dapandas.py main()   : end')
+    users = pd.DataFrame(data=[" mArk ", "JOHN ", "Tim", " jenny"], columns=["name"])
+    print(f'{users}')
+    users_clean = users.loc[:, "name"].str.strip().str.capitalize()
+    print(f'{users_clean}')
 
 if __name__ == '__main__':
     main()
