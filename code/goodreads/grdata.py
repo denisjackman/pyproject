@@ -96,7 +96,7 @@ def main():
 
     old_list = write_item_list(input_csv_file)
     new_list = convert_books(books_list)
-    
+
     for item in new_list:
         if item['ISBN'] == '':
             save_count += 1
