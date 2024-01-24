@@ -14,7 +14,6 @@ __copyright__ = "Copyright (c) 2024 Denis J Jackman"
 __license__ = "Python"
 
 TARGET_DIR = 'G:'
-TARGET_FILE = 'Z:/Store/target/filelist.xlsx'
 PROJECT_FILE = 'Z:/Store/target/projectlist.xlsx'
 
 def main():
@@ -27,25 +26,26 @@ def main():
     project_filelist = walk_through(project_mainargs)
     print(f'[-] {len(project_filelist)} files found')
     df = pd.DataFrame(project_filelist)
-    writer = pd.ExcelWriter(PROJECT_FILE, engine='xlsxwriter')
+    writer = pd.ExcelWriter(PROJECT_FILE, engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
     df.to_excel(writer, sheet_name='all files')
-    final_filelist = sift_files(project_filelist)
+    final_filelist = sift_files(project_filelist, ['.csv', '.xlsx'])
     print(f'[-] {len(final_filelist)} files found')
     df = pd.DataFrame(final_filelist)
     df.to_excel(writer, sheet_name='xl files')
     writer.close()
     print('[-] Main Function Finished.')
 
-def sift_files(sift_list):
+def sift_files(sift_list, search_list):
     '''Sift files function'''
     print('[-] Sift Files Function Starting...')
     result = []
     for item in sift_list:
-        if item.endswith('.csv') or item.endswith('.xlsx'):
+        tempstr = os.path.splitext(item)[1]
+        if tempstr in search_list:
             result.append(item)
     print('[-] Sift Files Function Finished.')
     return result
-  
+
 if __name__ == '__main__':
     print('[+] Project python script starting.')
     main()
