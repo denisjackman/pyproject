@@ -25,16 +25,21 @@ def main():
                         "targetdirectory": TARGET_DIR}
     project_filelist = walk_through(project_mainargs)
     print(f'[-] {len(project_filelist)} files found')
-    df = pd.DataFrame(project_filelist)
     writer = pd.ExcelWriter(PROJECT_FILE, engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
-    df.to_excel(writer, sheet_name='all files')
+    write_to_excel(project_filelist, writer, 'all files')
     final_filelist = sift_files(project_filelist, ['.csv', '.xlsx'])
     print(f'[-] {len(final_filelist)} files found')
-    df = pd.DataFrame(final_filelist)
-    df.to_excel(writer, sheet_name='xl files')
+    write_to_excel(final_filelist, writer, 'csv files')
     writer.close()
     print('[-] Main Function Finished.')
 
+def write_to_excel(writelist, writefile, writesheetname):  
+    '''Write to excel function'''
+    print('[-] Write to Excel Function Starting...')
+    df = pd.DataFrame(writelist)
+    df.to_excel(writefile, sheet_name=writesheetname)
+    print('[-] Write to Excel Function Finished.')
+ 
 def sift_files(sift_list, search_list):
     '''Sift files function'''
     print('[-] Sift Files Function Starting...')
