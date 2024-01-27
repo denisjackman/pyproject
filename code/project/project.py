@@ -13,8 +13,8 @@ __date__ = "$Date: 2024/01/22 12:48:00 $"
 __copyright__ = "Copyright (c) 2024 Denis J Jackman"
 __license__ = "Python"
 
-TARGET_DIR = 'Z:'
-PROJECT_FILE = 'Z:/Store/target/z_projectlist.xlsx'
+TARGET_DIR = 'y:/'
+PROJECT_FILE = 'Z:/Store/target/y_projectlist.xlsx'
 
 def main():
     '''Main function'''
@@ -43,7 +43,7 @@ def write_to_excel(writelist, writefile, writesheetname):
     '''Write to excel function'''
     print('[-] Write to Excel Function Starting...')
     df = pd.DataFrame(writelist)
-    df.to_excel(writefile, sheet_name=writesheetname)
+    df.to_excel(writefile, sheet_name=writesheetname, index=False)
     print('[-] Write to Excel Function Finished.')
 
 def sift_files(sift_list, search_list):
