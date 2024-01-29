@@ -14,12 +14,12 @@ __copyright__ = "Copyright (c) 2024 Denis J Jackman"
 __license__ = "Python"
 
 TARGET_DIR = 'y:/'
-PROJECT_FILE = 'Z:/Store/target/y_projectlist.xlsx'
+PROJECT_FILE = 'Z:/Store/target/y_projectlist'
 
 def main():
     '''Main function'''
     print('[-] Main Function Starting...')
-    writer = pd.ExcelWriter(PROJECT_FILE, engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
+    writer = pd.ExcelWriter(f'{PROJECT_FILE}.xlsx', engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
     project_mainargs = {"verbosemode": False,
                         "deletemode": False,
                         "startdirectory": TARGET_DIR,
@@ -28,10 +28,10 @@ def main():
     final_filelist = sift_files(project_filelist, ['.csv', '.xlsx'])
     pdf_filelist = sift_files(project_filelist, ['.pdf'])
     doc_filelist = sift_files(project_filelist, ['.docx', '.doc'])
-    write_to_excel(project_filelist, writer, 'all files')
-    write_to_excel(final_filelist, writer, 'csv files')
-    write_to_excel(pdf_filelist, writer, 'pdf files')
-    write_to_excel(doc_filelist, writer, 'doc files')
+    write_to_csv(project_filelist, f'{PROJECT_FILE}_full.csv', 'all files')
+    write_to_csv(final_filelist, f'{PROJECT_FILE}_csv.csv', 'csv files')
+    write_to_csv(pdf_filelist, f'{PROJECT_FILE}_pdf.csv', 'pdf files')
+    write_to_csv(doc_filelist, f'{PROJECT_FILE}_full.csv', 'doc files')
     print(f'[-] {len(project_filelist)} files found')
     print(f'[-] {len(final_filelist)} excel files found')
     print(f'[-] {len(pdf_filelist)} pdf files found')
@@ -45,6 +45,13 @@ def write_to_excel(writelist, writefile, writesheetname):
     df = pd.DataFrame(writelist)
     df.to_excel(writefile, sheet_name=writesheetname, index=False)
     print('[-] Write to Excel Function Finished.')
+
+def write_to_csv(writelist, writefile, writesheetname):
+    '''Write to csv function'''
+    print('[-] Write to CSV Function Starting...')
+    df = pd.DataFrame(writelist)
+    df.to_excel(writefile,  encoding='utf-8',index=False)
+    print('[-] Write to CSV Function Finished.')
 
 def sift_files(sift_list, search_list):
     '''Sift files function'''
