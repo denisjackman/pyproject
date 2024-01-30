@@ -13,31 +13,41 @@ __date__ = "$Date: 2024/01/22 12:48:00 $"
 __copyright__ = "Copyright (c) 2024 Denis J Jackman"
 __license__ = "Python"
 
-TARGET_DIR = 'y:/'
-PROJECT_FILE = 'Z:/Store/target/y_projectlist'
+TARGET_DIR_LIST = ['Y:/', 'Z:/', 'X:/', 'C:/']
+PROJECT_FILE = 'Z:/Store/target/projectlist'
 
 def main():
     '''Main function'''
     print('[-] Main Function Starting...')
-    writer = pd.ExcelWriter(f'{PROJECT_FILE}.xlsx', engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
+    for item in TARGET_DIR_LIST:
+        process_files(item)
+    process_files(TARGET_DIR_LIST[0])
+    print('[-] Main Function Finished.')
+
+def process_files(pf_target):
+    '''Process files function'''
+    print('[-] Process Files Function Starting...')
+    pf_target_name = f'{PROJECT_FILE}_{pf_target[0]}'
+    print(f'[-] Target Directory: {pf_target_name}')
+    writer = pd.ExcelWriter(f'{pf_target_name}.xlsx', engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
     project_mainargs = {"verbosemode": False,
                         "deletemode": False,
-                        "startdirectory": TARGET_DIR,
-                        "targetdirectory": TARGET_DIR}
+                        "startdirectory": pf_target,
+                        "targetdirectory": pf_target,}
     project_filelist = walk_through(project_mainargs)
     final_filelist = sift_files(project_filelist, ['.csv', '.xlsx'])
     pdf_filelist = sift_files(project_filelist, ['.pdf'])
     doc_filelist = sift_files(project_filelist, ['.docx', '.doc'])
-    write_to_csv(project_filelist, f'{PROJECT_FILE}_full.csv', 'all files')
-    write_to_csv(final_filelist, f'{PROJECT_FILE}_csv.csv', 'csv files')
-    write_to_csv(pdf_filelist, f'{PROJECT_FILE}_pdf.csv', 'pdf files')
-    write_to_csv(doc_filelist, f'{PROJECT_FILE}_full.csv', 'doc files')
+    write_to_csv(project_filelist, f'{pf_target_name}_full.csv', 'all files')
+    write_to_csv(final_filelist, f'{pf_target_name}_csv.csv', 'csv files')
+    write_to_csv(pdf_filelist, f'{pf_target_name}_pdf.csv', 'pdf files')
+    write_to_csv(doc_filelist, f'{pf_target_name}_doc.csv', 'doc files')
     print(f'[-] {len(project_filelist)} files found')
     print(f'[-] {len(final_filelist)} excel files found')
     print(f'[-] {len(pdf_filelist)} pdf files found')
     print(f'[-] {len(doc_filelist)} word files found')
-    print('[-] Main Function Finished.')
     writer.close()
+    print('[-] Process Files Function Finished.')
 
 def write_to_excel(writelist, writefile, writesheetname):
     '''Write to excel function'''
@@ -50,7 +60,7 @@ def write_to_csv(writelist, writefile, writesheetname):
     '''Write to csv function'''
     print('[-] Write to CSV Function Starting...')
     df = pd.DataFrame(writelist)
-    df.to_excel(writefile,  encoding='utf-8',index=False)
+    df.to_csv(writefile,  encoding='utf-8',index=False)
     print('[-] Write to CSV Function Finished.')
 
 def sift_files(sift_list, search_list):
