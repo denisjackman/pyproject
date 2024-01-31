@@ -29,7 +29,7 @@ def process_files(pf_target):
     print('[-] Process Files Function Starting...')
     pf_target_name = f'{PROJECT_FILE}_{pf_target[0]}'
     print(f'[-] Target Directory: {pf_target_name}')
-    writer = pd.ExcelWriter(f'{pf_target_name}.xlsx', engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
+    #writer = pd.ExcelWriter(f'{pf_target_name}.xlsx', engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
     project_mainargs = {"verbosemode": False,
                         "deletemode": False,
                         "startdirectory": pf_target,
@@ -38,15 +38,15 @@ def process_files(pf_target):
     final_filelist = sift_files(project_filelist, ['.csv', '.xlsx'])
     pdf_filelist = sift_files(project_filelist, ['.pdf'])
     doc_filelist = sift_files(project_filelist, ['.docx', '.doc'])
-    write_to_csv(project_filelist, f'{pf_target_name}_full.csv', 'all files')
-    write_to_csv(final_filelist, f'{pf_target_name}_csv.csv', 'csv files')
-    write_to_csv(pdf_filelist, f'{pf_target_name}_pdf.csv', 'pdf files')
-    write_to_csv(doc_filelist, f'{pf_target_name}_doc.csv', 'doc files')
+    write_to_csv(project_filelist, f'{pf_target_name}_full.csv')
+    write_to_csv(final_filelist, f'{pf_target_name}_csv.csv')
+    write_to_csv(pdf_filelist, f'{pf_target_name}_pdf.csv')
+    write_to_csv(doc_filelist, f'{pf_target_name}_doc.csv')
     print(f'[-] {len(project_filelist)} files found')
     print(f'[-] {len(final_filelist)} excel files found')
     print(f'[-] {len(pdf_filelist)} pdf files found')
     print(f'[-] {len(doc_filelist)} word files found')
-    writer.close()
+    #writer.close()
     print('[-] Process Files Function Finished.')
 
 def write_to_excel(writelist, writefile, writesheetname):
@@ -56,7 +56,7 @@ def write_to_excel(writelist, writefile, writesheetname):
     df.to_excel(writefile, sheet_name=writesheetname, index=False)
     print('[-] Write to Excel Function Finished.')
 
-def write_to_csv(writelist, writefile, writesheetname):
+def write_to_csv(writelist, writefile):
     '''Write to csv function'''
     print('[-] Write to CSV Function Starting...')
     df = pd.DataFrame(writelist)
