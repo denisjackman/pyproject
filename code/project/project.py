@@ -35,17 +35,10 @@ def process_files(pf_target):
                         "startdirectory": pf_target,
                         "targetdirectory": pf_target,}
     project_filelist = walk_through(project_mainargs)
-    final_filelist = sift_files(project_filelist, ['.csv', '.xlsx'])
-    pdf_filelist = sift_files(project_filelist, ['.pdf'])
-    doc_filelist = sift_files(project_filelist, ['.docx', '.doc'])
-    write_to_csv(project_filelist, f'{pf_target_name}_full.csv')
-    write_to_csv(final_filelist, f'{pf_target_name}_csv.csv')
-    write_to_csv(pdf_filelist, f'{pf_target_name}_pdf.csv')
-    write_to_csv(doc_filelist, f'{pf_target_name}_doc.csv')
+    odt_filelist = sift_files(project_filelist, ['.odt'])
+    write_to_csv(odt_filelist, f'{pf_target_name}_odt.csv')
     print(f'[-] {len(project_filelist)} files found')
-    print(f'[-] {len(final_filelist)} excel files found')
-    print(f'[-] {len(pdf_filelist)} pdf files found')
-    print(f'[-] {len(doc_filelist)} word files found')
+    print(f'[-] {len(odt_filelist)} ODT files found')
     #writer.close()
     print('[-] Process Files Function Finished.')
 
