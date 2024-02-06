@@ -50,9 +50,11 @@ def pictures_remove_file(picture_remove_file, verbose_mode=False, delete_mode=Fa
     if delete_mode:
         if verbose_mode:
             print(f'[-] Removing {picture_remove_file}')
-        else:
-            if os.path.exists(picture_remove_file):
+        if os.path.exists(picture_remove_file):
+            try:
                 os.remove(picture_remove_file)
+            except OSError as error:
+                print(f'[-] Error: {error}')
     if verbose_mode:
         print('[-] Remove File Function Finished.')
 
