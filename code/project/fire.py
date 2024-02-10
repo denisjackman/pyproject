@@ -17,6 +17,6 @@ def main():
                         "startdirectory": CONSOLIDATE_DIR,
                         "targetdirectory": CONSOLIDATE_DIR,}
     picture_filelist = walk_through(picture_mainargs)
-    
+
 if __name__ == '__main__':
     main()
