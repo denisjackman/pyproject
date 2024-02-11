@@ -23,22 +23,39 @@ def fk_url(fk_url_gen):
         result.append(Faker().url())
     return result
 
+def fk_address(fk_add_gen):
+    '''Address generator'''
+    result = []
+    for _ in range(fk_add_gen):
+        result.append(Faker().address())
+    return result
+
+def fk_text(fk_text_gen):
+    '''Text generator'''
+    result = []
+    for _ in range(fk_text_gen):
+        result.append(Faker().text())
+    return result
+
 def main():
     '''Main function'''
     print('[+] Main Function Starting...')
     gen_emails = fk_email(10)
     gen_names = fk_name(10)
     gen_urls = fk_url(10)
+    gen_adds = fk_address(10)
+    gen_texts = fk_text(10)
     for item in gen_emails:
         print(f'[*] {item}')
     for item in gen_names:
         print(f'[*] {item}')
     for item in gen_urls:
         print(f'[*] {item}')
-            
+    for item in gen_adds:
+        print(f'[*] {item}')
+    for item in gen_texts:
+        print(f'[*] {item}')
 #    for _ in range(10):
-#        print(f'[*] {fake.address()}')
-#        print(f'[*] {fake.text()}')
 #        print(f'[*] {fake.date()}')
 #        print(f'[*] {fake.country()}')
     print('[-] Main Function Finished.')
