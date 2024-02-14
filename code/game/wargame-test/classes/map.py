@@ -23,4 +23,4 @@ class Map:
     def getName(self):
         ''' Returns the name of the map '''
         return self.name
-    
+

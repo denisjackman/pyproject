@@ -4,7 +4,7 @@ import crypt
 def test_pass(cryptPass):
     ''' testPass function for the viscous case.'''
     salt = cryptPass[0:2]
-    with open('dictionary.txt','r', encoding='utf-8-sig') as dictFile:
+    with open('Z:/Store/visious/dictionary.txt','r', encoding='utf-8-sig') as dictFile:
         for word in dictFile.readlines():
             word = word.strip('\n')
             cryptWord = crypt.crypt(word,salt)
@@ -16,7 +16,7 @@ def test_pass(cryptPass):
 
 def main():
     ''' main function for the viscous case.'''
-    with open('passwords.txt','r', encoding='utf-8-sig') as passFile:
+    with open('Z:/Store/visious/passwords.txt','r', encoding='utf-8-sig') as passFile:
         for line in passFile.readlines():
             if ":" in line:
                 user = line.split(':')[0]

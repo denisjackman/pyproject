@@ -34,6 +34,7 @@ openpyxl
 osmnx
 packaging
 pandas
+passlib
 pdf2docx
 pexpect
 phonenumbers
