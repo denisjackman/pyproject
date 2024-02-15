@@ -62,4 +62,3 @@ if __name__ == '__main__':
     print('[+] SSH Brute Force Tool starting')
     main()
     print('[+] SSH Brute Force Tool finished')
-        

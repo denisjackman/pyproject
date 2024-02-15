@@ -70,4 +70,3 @@ if __name__ == '__main__':
     print('[+] Exif data extraction from images start')
     main()
     print('[+] Exif data extraction from images end')
-  
