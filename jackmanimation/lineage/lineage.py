@@ -156,4 +156,3 @@ def production(population,
     production_factor = int(max(factor/population_check - population_check , 0))
     #print(f'[-] population_check is {population_check} and production_factor is {production_factor}')
     return production_factor
-       
