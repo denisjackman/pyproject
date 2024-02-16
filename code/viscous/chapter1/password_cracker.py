@@ -1,5 +1,5 @@
 ''' djegg python script for the viscous case.'''
-import crypt
+from passlib.hash import pbkdf2_sha256 as passlib
 
 def test_pass(cryptPass):
     ''' testPass function for the viscous case.'''
@@ -7,7 +7,8 @@ def test_pass(cryptPass):
     with open('Z:/Store/visious/dictionary.txt','r', encoding='utf-8-sig') as dictFile:
         for word in dictFile.readlines():
             word = word.strip('\n')
-            cryptWord = crypt.crypt(word,salt)
+            cryptWordPass = passlib.using(rounds=5000, salt_size=16)
+            cryptWord = cryptWordPass.hash(word)
             if cryptWord == cryptPass:
                 print(f"[+] Found Password: {word}")
                 return

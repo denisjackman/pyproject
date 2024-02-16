@@ -44,7 +44,7 @@ def main():
     print('[-] Main Function Finished.')
 
 def pictures_remove_file(picture_remove_file, verbose_mode=False, delete_mode=False):
-    '''Remove file function'''  
+    '''Remove file function'''
     if verbose_mode:
         print('[-] Remove File Function Starting...')
     if delete_mode:

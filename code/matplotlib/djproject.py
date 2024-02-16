@@ -1,14 +1,13 @@
-''' 
-    matplotlib project and play 
+'''
+    matplotlib project and play
 
-    The plan is to to create a simple script which will open file and chart it 
+    The plan is to to create a simple script which will open file and chart it
     
-    steps 
+    steps
     1. open the target file
     2. read the file into a list
-    3. sort the list and consolidate it 
+    3. sort the list and consolidate it
     4. plot the list
-    
 '''
 import csv
 import matplotlib.pyplot as plt

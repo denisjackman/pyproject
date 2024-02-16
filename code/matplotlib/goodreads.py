@@ -1,5 +1,5 @@
-''' 
-this is a script to sift a goodreads csv file for books 
+'''
+this is a script to sift a goodreads csv file for books
 
 '''
 import csv

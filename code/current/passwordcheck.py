@@ -1,5 +1,5 @@
-''' 
-    password checker 
+'''
+    password checker
         get the password froma password file
         check if the password meets the listed requirements
         if it does not meet the requirements - print out a message
@@ -16,7 +16,7 @@
         Your new password may not be the same as your login
 
 
-        Minimum of 14 Characters 
+        Minimum of 14 Characters
         Not the same as the previous 12 passwords
         Must be a complex password:
             The password contains characters from three of the following categories:
@@ -26,7 +26,7 @@
                 Non-alphanumeric characters (special characters):
                 Currency symbols such as the Euro or British Pound are not counted as special characters for this policy setting.
                 Any Unicode character that is categorized as an alphabetic character but is not uppercase or lowercase. This includes Unicode characters from Asian languages.
-        
+
 '''
 MINPASSWORDLENGTH = 14
 MAXPASSWORDLENGTH = 45

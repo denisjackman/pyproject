@@ -7,3 +7,10 @@ class GameMap(Map):
         super().__init__(width, height)
         self.orginX = x
         self.originY = y
+    def getOrigin(self):
+        ''' get the origin of the map '''
+        return (self.orginX, self.originY)
+    def setOrigin(self, x, y):
+        ''' set the origin of the map '''
+        self.orginX = x
+        self.originY = y
