@@ -40,7 +40,7 @@ class Example(wx.Frame):
         return self.title
 
 def main():
-    ''' main function'''   
+    ''' main function'''
     # create an App object
     app = wx.App()
     # create an Example object

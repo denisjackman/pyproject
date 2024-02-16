@@ -1,4 +1,4 @@
-''' This is a primer for using custom modules in Python. 
+''' This is a primer for using custom modules in Python.
     https://www.youtube.com/watch?v=GxCXiSkm6no
     https://www.youtube.com/watch?v=0oTh1CXRaQ0
 '''

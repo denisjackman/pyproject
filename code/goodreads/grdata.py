@@ -45,7 +45,7 @@ def convert_books(cbbooks_list):
             time.sleep(30)
 
         record = {'Title': item['Title'],
-                'Author': item['Author'], 
+                'Author': item['Author'],
                 'ISBN': f'{isbn_number}',
                 'My Rating': 5,
                 'Average Rating': 5,
