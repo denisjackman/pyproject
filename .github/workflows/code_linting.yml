@@ -1,4 +1,4 @@
-name: Linting with Flake8
+name: Linting
 
 on: [push]
 
@@ -20,6 +20,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -i https://test.pypi.org/simple/ djgamemodule
-    - name: Flake8 lint Analysis
+        pip install flake8
+    - name: Pylint Lint Analysis
+      run: |
+        pylint --rcfile=pylint.rc $(git ls-files '*.py')
+    - name: Flake8 Lint Analysis
       run: |
         flake8  $(git ls-files '*.py')
