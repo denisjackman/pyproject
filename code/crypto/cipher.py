@@ -4,6 +4,7 @@
 """
 MAX_KEY_SIZE = 26
 
+
 def get_mode():
     """
     get_mode Function
@@ -15,12 +16,14 @@ def get_mode():
             return smode
         print('Enter either "encrypt" or "e" or "decrypt" or "d".')
 
+
 def get_message():
     """
     get_message Function
     """
     print('Enter your message:')
     return input()
+
 
 def get_key():
     """
@@ -34,6 +37,7 @@ def get_key():
         #    return skey
         if 1 <= skey <= MAX_KEY_SIZE:
             return skey
+
 
 def get_translated_message(amode, amessage, akey):
     """
@@ -64,9 +68,10 @@ def get_translated_message(amode, amessage, akey):
             translated += symbol
     return translated
 
+
 mode = get_mode()
 message = get_message()
 KEY = get_key()
 codePack = chr(KEY+65)+get_translated_message(mode, message, KEY)
-emessage =  get_translated_message(mode, message, KEY)
+emessage = get_translated_message(mode, message, KEY)
 print(f'Your translated text is: {message}  : {emessage}')

@@ -32,7 +32,8 @@ LISTENER = sr.Recognizer()
 LISTENER.energy_threshold = 4000
 ENGINE = pyttsx3.init()
 VOICES = ENGINE.getProperty('voices')
-ENGINE.setProperty('voice',VOICES[0].id)
+ENGINE.setProperty('voice', VOICES[0].id)
+
 
 def talk(text):
     ''' this is the talk module '''
@@ -41,10 +42,12 @@ def talk(text):
     if DEBUG_FLAG:
         print(f'OUTPUT : {text}')
 
+
 def googlesearch(searchterm):
     ''' this is the watsapp module '''
     pywhatkit.search(searchterm)
     talk(f"Search for {searchterm} complete")
+
 
 def listen():
     ''' this is the listen module '''
@@ -62,22 +65,26 @@ def listen():
 
     return listencommand
 
+
 def wiki(search):
     ''' this is the wiki module '''
     info = wikipedia.summary(search, 1)
     print(info)
     talk(info)
 
+
 def jasontime():
     ''' this is the time module '''
     ytime = datetime.datetime.now().strftime('%I:%M %p')
     talk('Current time is ' + ytime)
-    print (ytime)
+    print(ytime)
+
 
 def command(localcommand):
     ''' this is the command module '''
     if DEBUG_FLAG:
         print(f'INPUT : {localcommand}')
+
 
 def startup_sequence():
     ''' this is the statup sequence '''
@@ -87,6 +94,7 @@ def startup_sequence():
     talk("weapons online")
     talk("all systems nominal")
 
+
 def systemscheck():
     ''' check function '''
     checkfile = 'Y:/Resources/sounds/reactor.wav'
@@ -95,11 +103,13 @@ def systemscheck():
     status = sd.wait()
     print(f"status: {status}")
 
+
 def joke():
     ''' joke function '''
     tempjoke = pyjokes.get_joke()
     print(f"{tempjoke}")
     talk(tempjoke)
+
 
 def video(videotext):
     ''' this is the video module '''
@@ -108,9 +118,13 @@ def video(videotext):
         pywhatkit.playonyt(videotext)
         messagetext = f"playing {videotext}"
     except Exception as djerror:  # pylint: disable=bare-except
-        messagetext = f"Error: {djerror} {type(djerror)} {djerror.args} for {videotext}"
+        messagetext = f"Error: {djerror} "\
+                      f"{type(djerror)} "\
+                      f"{djerror.args} for "\
+                      f"{videotext}"
     print(messagetext)
     talk(messagetext)
+
 
 def main():
     ''' main function '''
@@ -137,6 +151,7 @@ def main():
         else:
             talk("I did not understand that")
     print("done")
+
 
 if __name__ == '__main__':
     main()

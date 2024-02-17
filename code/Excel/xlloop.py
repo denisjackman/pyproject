@@ -4,6 +4,8 @@ a contining series of xl tutorials
 import sys
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
+
+
 def main():
     ''' main function'''
     wb = load_workbook('y:/Resources/excel/tim.xlsx')
@@ -19,11 +21,9 @@ def main():
     ws.append(['Tim', 'Is', 'Great', 'Always', '!'])
     ws.append(['Tim', 'Is', 'Great', 'Always', '!'])
     ws.append(['end'])
-
-
     wb.save('y:/Resources/excel/tim4.xlsx')
-
     print(f'Your version is {sys.version_info[0]}.{sys.version_info[1]} ')
+
 
 if __name__ == '__main__':
     main()

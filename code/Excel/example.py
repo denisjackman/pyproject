@@ -6,7 +6,7 @@
 import datetime
 from openpyxl import Workbook
 
-# define the main sub routine to play with
+
 def main():
     '''
         main function
@@ -32,6 +32,6 @@ def main():
     # Save the file
     wb.save("y:/Resources/excel/Denis.xlsx")
 
-# run the main
+
 if __name__ == "__main__":
     main()

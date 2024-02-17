@@ -9,6 +9,7 @@ INFO = Fore.CYAN + '[!] '
 ERROR = Fore.RED + '[-] '
 NOTICE = Fore.GREEN + '[+] '
 
+
 def ZipChecker(checkfile):
     '''Main function'''
     print(f'{NOTE}Zip File Password Checker - Starting {RESET}')
@@ -21,6 +22,7 @@ def ZipChecker(checkfile):
         else:
             print(f'{INFO}{zinfo.filename} is not encrypted. {RESET}')
     print(f'{NOTE}Zip File Password Checker - Finishing {RESET}')
+
 
 if __name__ == '__main__':
     ZipChecker(ZIPFILE)

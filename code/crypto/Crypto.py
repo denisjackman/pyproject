@@ -20,88 +20,89 @@ def encryptScytal(code, columns=5, debug=False):
         encryptScytal
     '''
     result = ""
-    result = code.replace(' ','')
+    result = code.replace(' ', '')
     result = result.lower()
-    d=[]
+    d = []
     loop = 0
-    aloop =0
+    aloop = 0
 
     while loop <= columns:
-        a=""
+        a = ""
         d.append(a)
-        loop+=1
+        loop += 1
     loop = 0
     while loop < len(result):
         while aloop < columns:
             d[aloop] += result[loop]
-            aloop+=1
-            loop+=1
+            aloop += 1
+            loop += 1
             if loop >= len(result):
                 aloop = 10
-        aloop=0
+        aloop = 0
     loop = 0
-    a=""
+    a = ""
     while loop <= columns:
         a += d[loop]
-        loop+=1
+        loop += 1
     result = a
     if debug is True:
         print("debug mode")
 
     return result
+
 
 def decryptScytal(code, columns=5, debug=False):
     '''
         decrypt Scytal
     '''
-    result=""
+    result = ""
     print(code)
-    b=len(code)/columns
-    c=len(code)/columns
-    e=len(code)%columns
-    print(b,c,e)
+    b = len(code) / columns
+    c = len(code) / columns
+    e = len(code) % columns
+    print(b, c, e)
     if e > 0:
-        b+=1
+        b += 1
     else:
         oldcode = code
-        code = code[:-(len(code)%columns)]
+        code = code[:-(len(code) % columns)]
         print(oldcode)
     print(code)
-    d=[]
-    loop =0
+    d = []
+    loop = 0
     while loop <= b:
-        a=""
+        a = ""
         d.append(a)
-        loop+=1
+        loop += 1
     loop = 0
     aloop = 0
     while loop < len(code):
         while aloop < b:
             d[aloop] += code[loop]
-            print(aloop, loop , d[aloop], code[loop])
-            aloop +=1
-            loop +=1
+            print(aloop, loop, d[aloop], code[loop])
+            aloop += 1
+            loop += 1
 
             if loop >= len(code):
                 aloop = 9999
         aloop = 0
-    loop=0
-    a=""
+    loop = 0
+    a = ""
     while loop <= c:
         a += d[loop]
-        loop+=1
+        loop += 1
     result = a
     if debug is True:
         print("debug mode")
     return result
 
 
-def encryptCaesar(code,offset=5,debug=False):
+def encryptCaesar(code, offset=5, debug=False):
     '''
         encrypt the code
     '''
-    result =""
-    core=[]
+    result = ""
+    core = []
     core.append("abcdefghijklmnopqrstuvwxyz")
     core.append("bcdefghijklmnopqrstuvwxyza")
     core.append("cdefghijklmnopqrstuvwxyzab")
@@ -132,21 +133,22 @@ def encryptCaesar(code,offset=5,debug=False):
     offset -= 1
     while loop < len(code):
         seek = core[0].find(store[loop])
-        if core[0].find(store[loop]) > -1 :
+        if core[0].find(store[loop]) > -1:
             result += core[offset][seek]
         else:
-            result +=store[loop]
+            result += store[loop]
         loop += 1
     if debug is True:
         print("debug mode")
     return result
 
-def decryptCaesar(code,offset=5,debug=False):
+
+def decryptCaesar(code, offset=5, debug=False):
     '''
         decrypt the code
     '''
-    result =""
-    core=[]
+    result = ""
+    core = []
     core.append("abcdefghijklmnopqrstuvwxyz")
     core.append("bcdefghijklmnopqrstuvwxyza")
     core.append("cdefghijklmnopqrstuvwxyzab")
@@ -177,14 +179,15 @@ def decryptCaesar(code,offset=5,debug=False):
     offset -= 1
     while loop < len(code):
         seek = core[offset].find(store[loop])
-        if core[offset].find(store[loop]) > -1  :
+        if core[offset].find(store[loop]) > -1:
             result += core[0][seek]
         else:
-            result +=store[loop]
+            result += store[loop]
         loop += 1
     if debug is True:
         print("debug mode")
     return result
+
 
 def bruteCaesar(code):
     '''
@@ -193,18 +196,16 @@ def bruteCaesar(code):
     loop = 0
     result = ''
     while loop <= 23:
-        result = decryptCaesar(code,loop)
-        print (f'{loop+1} {decryptCaesar(code,loop)} ')
+        result = decryptCaesar(code, loop)
+        print(f'{loop+1} {decryptCaesar(code, loop)} ')
         code = result
         loop += 1
     return result
 
 
 if __name__ == '__main__':
-    ENCODE="Denis was here and here and here coding happily and working away thinkiong about a makeup selfie"
-    #encode="Denis think selfy alway"
-    #result = encryptScytal(encode)
-    #uncode = decryptScytal(result)
-    #print encryptCaesar("Denis was here!",10)
-    #print decryptCaesar(encryptCaesar("Denis was here!",10),10)
+    ENCODE = "Denis was here and here and here "\
+             "coding happily and working away "\
+             "thinking about a makeup selfie"
+
     bruteCaesar(encryptCaesar("Denis was here!", 12))

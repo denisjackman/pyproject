@@ -195,10 +195,7 @@ def _make_range(x, width, bloat, grid_size):
 class HexGrid(namedtuple("HexGrid", "width height")):
     # pylint: disable=W1401
     """Represents the dimensions of a hex grid as painted on the screen.
-    The hex grid is assumed to be aligned horizontally, like so:
-       / \ / \ / \
-      |   |   |   |
-       \ / \ / \ /
+    The hex grid is assumed to be aligned horizontally.
     The center of hex (0, 0) is assumed to be on pixel (0, 0).
     The hexgrid is determined by width and height, which are the screen coordinates
     of the upper-right corner of the central hex.

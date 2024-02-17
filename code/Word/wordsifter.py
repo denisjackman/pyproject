@@ -6,6 +6,7 @@ import sys
 import docx
 from tqdm import tqdm
 # pylint: disable=C0413
+# flake8: noqa: E402
 sys.path.append(os.path.realpath('..\\..'))
 from jackmanimation.utilities.fileutility import walk_through
 from jackmanimation.utilities.fileutility import extract_file_extension
@@ -13,13 +14,16 @@ from jackmanimation.utilities.fileutility import extract_file_extension
 TARGETDIRECTORY = r"G:\PPB\Projects\migration status"
 TARGETSTRING = "Exchange"
 
+
 def main():
     '''
         main routine
     '''
     print('[+] Starting project file running ')
     totallist = []
-    commands = {"verbosemode":False, "deletemode":False, "startdirectory":TARGETDIRECTORY}
+    commands = {"verbosemode": False,
+                "deletemode": False,
+                "startdirectory": TARGETDIRECTORY}
     totallist.extend(walk_through(commands))
     doclist = []
     print(f"[-] Records found {len(totallist):,}")
@@ -52,6 +56,7 @@ def main():
         for erritem in errorlist:
             print(f'[-] Error {erritem}')
     print('[+] Finishing project file running ')
+
 
 if __name__ == '__main__':
     main()

@@ -5,13 +5,16 @@ __version__ = "$Revision: 1.00 $"
 __date__ = "$Date: 2022/11/25 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-
+import platform
 import json
 from random import choice
 from jackmanimation.DndProject.dnddice import dice
-
-FILEPATH = "Y:/Resources/development/"
+if platform.system() == "Windows":
+    FILEPATH = "Y:/Resources/development"
+else:
+    FILEPATH = "/mnt/y/Resources/development"
 # pylint: disable=too-many-locals
+
 
 def town_name_generator():
     '''Generates a town name'''
