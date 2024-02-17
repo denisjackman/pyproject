@@ -3,6 +3,7 @@ a contining series of xl tutorials
 '''
 from openpyxl import load_workbook
 
+
 def main():
     ''' main function '''
     wb = load_workbook('y:/Resources/excel/tim.xlsx')
@@ -14,6 +15,7 @@ def main():
     ws.unmerge_cells('A1:E1')
 
     wb.save('y:/Resources/excel/tim2.xlsx')
+
 
 if __name__ == '__main__':
     main()

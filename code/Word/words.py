@@ -1,5 +1,5 @@
 '''
-	more word python fun
+    more word python fun
 '''
 import docx
 
@@ -8,7 +8,7 @@ import docx
 doc = docx.Document("y:/Resources/word/my_word_file.docx")
 
 all_paras = doc.paragraphs
-print (len(all_paras))
+print(len(all_paras))
 for para in all_paras:
     print(para.text)
     print('-----------')
@@ -33,5 +33,7 @@ mydoc.add_heading("This is level 1 heading", 0)
 mydoc.add_heading("This is level 2 heading", 1)
 mydoc.add_heading("This is level 3 heading", 2)
 mydoc.save("y:/Resources/word/newmy_written_file_new.docx")
-mydoc.add_picture("Y:/Resources/images/Casper.png", width=docx.shared.Inches(5), height=docx.shared.Inches(7))
+mydoc.add_picture("Y:/Resources/images/Casper.png",
+                  width=docx.shared.Inches(5),
+                  height=docx.shared.Inches(7))
 mydoc.save("y:/Resources/word/newmy_written_file_new.docx")

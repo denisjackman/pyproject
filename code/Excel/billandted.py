@@ -3,13 +3,14 @@
     bill and ted python
 '''
 import openpyxl
+
+
 def main():
     ''' main function '''
     workbook = openpyxl.load_workbook(filename="Y:/Resources/excel/hello.xlsx")
 
     # The workbook object is then used to add new
     # worksheet via the add_worksheet() method.
-    sheet = workbook.active
     worksheet = workbook.create_sheet("test2")
 
     # Use the worksheet object to write
@@ -20,6 +21,7 @@ def main():
     worksheet['D1'] = 'Geeks'
     worksheet['E1'] = 'WooooWooooo'
     workbook.save('Y:/Resources/excel/hello2.xlsx')
+
 
 if __name__ == '__main__':
     main()

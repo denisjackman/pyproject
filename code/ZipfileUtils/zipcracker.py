@@ -12,11 +12,14 @@ NOTICE = Fore.GREEN + '[+] '
 WORDLIST = 'y://Resources//development//lists//wordlist.txt'
 ZIPFILE = 'y://Resources//development//data//secret.zip'
 
+
 def ZipCracker(Crackfile, Cracklist):
     '''Main function'''
     print(f'{NOTE}Zip File Password Cracker - Starting{RESET}')
     with zipfile.ZipFile(Crackfile) as secret_zipfile:
-        print(f'{NOTE}{Crackfile} has {len(secret_zipfile.namelist())} file(s) in it.{RESET}')
+        print(f'{NOTE}{Crackfile} has '
+              f'{len(secret_zipfile.namelist())} '
+              f'file(s) in it.{RESET}')
     total_passwords = 0
     with open(Cracklist, 'rb') as lenfile:
         for _ in lenfile:
@@ -29,6 +32,7 @@ def ZipCracker(Crackfile, Cracklist):
                 with zipfile.ZipFile(Crackfile) as secret_zipfile:
                     secret_zipfile.extractall(pwd=password.strip())
             except:  # pylint: disable=bare-except
+                # flake8: noqa E722 
                 continue
             else:
                 print(f'{NOTICE}Password found: {password.decode().strip()}{RESET}')
@@ -36,6 +40,7 @@ def ZipCracker(Crackfile, Cracklist):
                 sys.exit(0)
     print(f'{ERROR}Password not found, try other wordlist.{RESET}')
     print(f'{NOTE}Zip File Password Cracker - Completed{RESET}')
+
 
 if __name__ == '__main__':
     ZipCracker(ZIPFILE, WORDLIST)

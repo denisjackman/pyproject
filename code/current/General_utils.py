@@ -14,7 +14,7 @@ __date__ = "$Date: 2013/12/04 17:17:00 $"
 __copyright__ = "Copyright (c) 2013 Denis J Jackman"
 __license__ = "Python"
 
-from PIL import Image, ImageFilter
+
 from djgamemodule import dice as Dice
 from djgamemodule import constants as StaticItems
 
@@ -22,7 +22,10 @@ from djgamemodule import constants as StaticItems
 if __name__ == "__main__":
     LOOP = 0
     while LOOP < 101:
-        print("Die Rolls                   : " + str(LOOP) + " : "+  str(Dice.dice()) + " : " + str(Dice.number_generator(100)))
+        print("Die Rolls                   : "
+              f"{str(LOOP)} : "
+              f"{str(Dice.dice())} : "
+              f"{str(Dice.number_generator(100))}")
         LOOP = LOOP +1
     print("Dice roll one six sided     : " + str(Dice.dice()))
     print("Dice roll one hundred sided : " + str(Dice.dice(100)))

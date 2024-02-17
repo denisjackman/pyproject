@@ -6,11 +6,15 @@ __version__ = "$Revision: 1.00 $"
 __date__ = "$Date: 2022/11/25 00:00:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-
+import platform
 import json
 from random import choice
 
-FILEPATH = "Y:/Resources/development/"
+if platform.system() == "Windows":
+    FILEPATH = "Y:/Resources/development/"
+else:
+    FILEPATH = "/mnt/y/Resources/development/"
+
 
 def shakespearean_insult_generator():
     '''
@@ -35,22 +39,29 @@ def shakespearean_insult_generator():
     # return it
     return result
 
+
 def dwarven_insult_generator():
     '''
         dwarven insult generator
     '''
-    with open(f"{FILEPATH}/referencedata/DwarvenInsult.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{FILEPATH}/referencedata/DwarvenInsult.json",
+              "r",
+              encoding='utf-8-sig') as file:
         data = json.load(file)
     dwarven_insult_one = choice(data["insult_column_one"]).capitalize()
     dwarven_insult_two = choice(data["insult_column_two"])
     dwarven_insult_three = choice(data["insult_column_three"])
-    result = f"{dwarven_insult_one} {dwarven_insult_two} {dwarven_insult_three}."
+    result = f"{dwarven_insult_one} "\
+             f"{dwarven_insult_two} "\
+             f"{dwarven_insult_three}."
     return result
+
 
 def main():
     ''' main function '''
     print(f"Shakey  insult          : {shakespearean_insult_generator()}")
     print(f"Dwarven insult          : {dwarven_insult_generator()}")
+
 
 if __name__ == '__main__':
     main()
