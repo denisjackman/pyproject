@@ -8,21 +8,21 @@ __license__ = "Python"
 import platform
 import json
 from random import choice
-from jackmanimation.DndProject.dnddice import dice
+from djgamemodule import dice as Dice
 if platform.system() == "Windows":
-    FILEPATH = "Y:/Resources/development"
+    DNDP_FILEPATH = "Y:/Resources/development"
 else:
-    FILEPATH = "/mnt/y/Resources/development"
+    DNDP_FILEPATH = "/mnt/y/Resources/development"
 # pylint: disable=too-many-locals
 
 
 def town_name_generator():
     '''Generates a town name'''
-    with open(f"{FILEPATH}/referencedata/TownNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/TownNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
     result = ''
-    roll = dice(4)
+    roll = Dice.dice(4)
     affix = choice(data['town_name_affix'])
     prefix = choice(data['town_name_prefix'])
     suffix = choice(data['town_name_suffix'])
@@ -38,7 +38,7 @@ def town_name_generator():
 def woodname_generator():
     '''Generates a wood name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/WoodNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/WoodNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data['wood_name_prefix'])
     suffix = choice(data['wood_name_suffix'])
@@ -48,7 +48,7 @@ def woodname_generator():
 def streetname_generator():
     '''Generates a street name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/StreetNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/StreetNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data['street_name_prefix'])
     suffix = choice(data['street_name_suffix'])
@@ -58,9 +58,9 @@ def streetname_generator():
 def dwarven_settlement_name_generator():
     '''Generates a dwarven settlement name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/DwarvenSettlementNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/DwarvenSettlementNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
-    roll = dice(10)
+    roll = Dice.dice(10)
     community = choice(data['dwarven_settlement_community'])
     prefix = choice(data['dwarven_settlement_prefix'])
     suffix = choice(data['dwarven_settlement_suffix'])
@@ -74,9 +74,9 @@ def dwarven_settlement_name_generator():
 def place_name_generator():
     '''Generates a place name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/PlaceNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/PlaceNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
-    roll = dice(2)
+    roll = Dice.dice(2)
     if roll == 0:
         prefix = choice(data['place_name_prefix_1'])
         suffix = choice(data['place_name_suffix_1'])
@@ -91,9 +91,9 @@ def place_name_generator():
 
 def inn_name_generator():
     '''Generates an Inn Name'''
-    with open(f"{FILEPATH}/referencedata/InnNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/InnNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
-    roll = dice(16)
+    roll = Dice.dice(16)
     result = ''
     name = ''
     adj = choice(data["inn_adj"])
@@ -141,7 +141,7 @@ def inn_name_generator():
         name = f"{person}'s {place}"
 
     result = f"The {name}"
-    if dice(2) == 2:
+    if Dice.dice(2) == 2:
         result = f'{result} {blding}'
     result = result.title().replace("'S", "'s").replace("And", "and")
     return result
@@ -149,9 +149,9 @@ def inn_name_generator():
 def site_name_generator():
     '''Generates a random site name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/SiteNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/SiteNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
-    roll = dice(3)
+    roll = Dice.dice(3)
     if roll == 1:
         result = f"{choice(data['site_place'])} of {choice(data['site_thing'])}"
     elif roll == 2:

@@ -16,6 +16,7 @@
 # and prints out what to do.
 '''
 
+
 def jungle_animal(animal, my_speed):
     '''
     # YOUR CODE HERE
@@ -31,7 +32,6 @@ def jungle_animal(animal, my_speed):
                 print("Stay calm and wait!")
         else:
             print("Introduce yourself!")
-
 
 
 jungle_animal('cheetah', 30)
