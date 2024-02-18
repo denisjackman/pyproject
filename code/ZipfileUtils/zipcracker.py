@@ -32,7 +32,7 @@ def ZipCracker(Crackfile, Cracklist):
                 with zipfile.ZipFile(Crackfile) as secret_zipfile:
                     secret_zipfile.extractall(pwd=password.strip())
             except:  # pylint: disable=bare-except
-                # flake8: noqa E722 
+                # flake8: noqa E722
                 continue
             else:
                 print(f'{NOTICE}Password found: {password.decode().strip()}{RESET}')

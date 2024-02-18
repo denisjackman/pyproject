@@ -8,17 +8,17 @@ __license__ = "Python"
 import platform
 import json
 from random import choice
-from jackmanimation.DndProject.dnddice import dice
+from djgamemodule import dice as Dice
 
 if platform.system() == "Windows":
-    FILEPATH = "Y:/Resources/development"
+    DNDO_FILEPATH = "Y:/Resources/development"
 else:
-    FILEPATH = "/mnt/y/Resources/development"
+    DNDO_FILEPATH = "/mnt/y/Resources/development"
 
 
 def riddle_generator():
     ''' riddle generator '''
-    filename = f"{FILEPATH}/referencedata/Riddles.json"
+    filename = f"{DNDO_FILEPATH}/referencedata/Riddles.json"
     with open(filename, "r", encoding='utf-8-sig') as file:
         data = json.load(file)
 
@@ -31,7 +31,7 @@ def fantasy_wine_name():
     '''
         fantasy wine name generator
     '''
-    with open(f"{FILEPATH}/referencedata/FantasyWines.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDO_FILEPATH}/referencedata/FantasyWines.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     wine_name = choice(data['wine_name'])
     result = f"{wine_name}"
@@ -114,8 +114,8 @@ def currency_converter(amount, fromcurr="copper", tocurr="gold"):
 def hexmap_tile_type():
     '''Returns a random hexmap tile type'''
     result = ''
-    roll = dice(20)
-    typeroll = dice()
+    roll = Dice.dice(20)
+    typeroll = Dice.dice()
     if roll == 1:
         result = "City"
         if typeroll == 1:
@@ -402,12 +402,12 @@ def book_title_generator(catalogue = False):
     '''Generates a book title'''
     #pylint: disable=R0914
     result = ''
-    with open(f"{FILEPATH}/referencedata/BookTitles.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDO_FILEPATH}/referencedata/BookTitles.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
-    roll = dice(10)
+    roll = Dice.dice(10)
     if roll == 1:
         #religious book
-        newroll = dice(4)
+        newroll = Dice.dice(4)
         if newroll ==1:
             names = choice(data['names'])
             result = f"Life of Saint {names}"
@@ -438,7 +438,7 @@ def book_title_generator(catalogue = False):
             result = f"{result} (Travel)"
     elif roll == 3:
         #biology book
-        bioroll = dice(2)
+        bioroll = Dice.dice(2)
         creature = choice(data['creature']).capitalize()
         if bioroll == 1:
             bio = choice(data['bio']).capitalize()
@@ -450,7 +450,7 @@ def book_title_generator(catalogue = False):
             result = f"{result} (Biology)"
     elif roll == 4:
         #magick book
-        magicroll = dice(4)
+        magicroll = Dice.dice(4)
         adj = choice(data['adj'])
         arcana = choice(data['arcana'])
         things = choice(data['things'])
@@ -475,7 +475,7 @@ def book_title_generator(catalogue = False):
             result = f"{result} (Craftwork)"
     elif roll == 6:
         #tales book
-        talesroll = dice(3)
+        talesroll = Dice.dice(3)
         story = choice(data['story']).capitalize()
         adj2 = choice(data['adj2'])
         adj3 = choice(data['adj3'])
@@ -498,7 +498,7 @@ def book_title_generator(catalogue = False):
             result = f"{result} (Art)"
     elif roll == 8:
         #history  book
-        historyroll = dice(4)
+        historyroll = Dice.dice(4)
         history = choice(data['history']).capitalize()
         histtype = choice(data['histtype']).capitalize()
         things = choice(data['things']).capitalize()
@@ -517,7 +517,7 @@ def book_title_generator(catalogue = False):
             result = f"{result} (History)"
     elif roll == 9:
         #geography book
-        georoll = dice(3)
+        georoll = Dice.dice(3)
         adj2 = choice(data['adj2']).capitalize()
         geo = choice(data['geo']).capitalize()
 
@@ -533,7 +533,7 @@ def book_title_generator(catalogue = False):
             result = f"{result} (Geography)"
     else:
         #linguitics book
-        lingroll = dice(2)
+        lingroll = Dice.dice(2)
         language = choice(data['language']).capitalize()
         if lingroll == 1:
             lang = choice(data['language']).capitalize()
@@ -581,17 +581,17 @@ def plural(input_text_string):
 def coatofarms_generator():
     '''Generates a Coat of Arms'''
     #pylint: disable=R0914
-    with open(f"{FILEPATH}/referencedata/CoatArms.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDO_FILEPATH}/referencedata/CoatArms.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     result = ''
-    roll = dice()
+    roll = Dice.dice()
 
     metal = choice(data["metal"])
     blazon1 = choice(data["blazon1"])
 
     if blazon1 == "Creature":
         blazon1 = choice(data["creatures"])
-    blaz2roll = dice(3)
+    blaz2roll = Dice.dice(3)
     if blaz2roll == 1:
         blaz2metal = choice(data["metal"])
         blaz2blaz1 = choice(data["blazon1"])
@@ -607,7 +607,7 @@ def coatofarms_generator():
     else:
         blazon2 = ' '
 
-    blaz3roll = dice(3)
+    blaz3roll = Dice.dice(3)
     if blaz3roll == 1:
         blaz3colour = choice(data["colour"])
         blaz2blaz1 = choice(data["blazon1"])
@@ -640,11 +640,11 @@ def coatofarms_generator():
 
 def herb_name_generator():
     '''Generates a Herb Name'''
-    with open(f"{FILEPATH}/referencedata/HerbNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDO_FILEPATH}/referencedata/HerbNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     result = ''
-    roll = dice(14)
-    approll = dice()
+    roll = Dice.dice(14)
+    approll = Dice.dice()
     appsuff = ''
     if approll <= 5:
         appsuff = f" {choice(data['herb_suff'])}"
@@ -672,10 +672,10 @@ def herb_name_generator():
 def adventure_name_generator():
     '''Generates an Adventure Name'''
     #pylint: disable=R0914
-    with open(f"{FILEPATH}/referencedata/AdventureNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDO_FILEPATH}/referencedata/AdventureNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     result = ''
-    roll = dice(40)
+    roll = Dice.dice(40)
     action = choice(data["adventure_action"])
     monster = choice(data["adventure_monster"])
     if monster == 'creature':
@@ -787,7 +787,7 @@ def adventure_name_generator():
 
 def lovecraft_creature_generator():
     '''Generates a random Lovecraftian creature'''
-    with open(f"{FILEPATH}/referencedata/LovecraftCreatures.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDO_FILEPATH}/referencedata/LovecraftCreatures.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     adjective = choice(data["lovecraft_adjective"])
     noun = choice(data["lovecraft_noun"])
@@ -795,7 +795,7 @@ def lovecraft_creature_generator():
     prefixc = choice(data["lovecraft_prefixc"])
     suffix = choice(data["lovecraft_suffix"])
     result = ''
-    roll = dice(11)
+    roll = Dice.dice(11)
     if roll <= 2:
         result = f"{adjective.capitalize()} {noun.capitalize()} of {prefixv.capitalize()} {suffix}"
     elif roll <= 5:
@@ -814,9 +814,9 @@ def lovecraft_creature_generator():
 def orc_tribe_generator():
     '''Generates a random orc tribe name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/OrcTribes.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDO_FILEPATH}/referencedata/OrcTribes.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
-    roll = dice(7)
+    roll = Dice.dice(7)
     if roll <= 4:
         result = f"{choice(data['orc_adj'])} {choice(data['orc_thing'])}"
     elif roll <= 6:
@@ -829,9 +829,9 @@ def orc_tribe_generator():
 def organization_generator():
     '''Generates a random organization name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/OrganizationNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDO_FILEPATH}/referencedata/OrganizationNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
-    roll = dice(7)
+    roll = Dice.dice(7)
     plurals = {"city": "cities", "cross": "crosses", "fox": "foxes", "knife": "knives",
                "lotus": "lotuses", "staff": "staves", "wolf": "wolves"}
     item = choice(data['org_obj'])
@@ -842,7 +842,7 @@ def organization_generator():
 
     if roll == 1:
         result = f"{choice(data['org_group']).capitalize()} of the {choice(data['org_adj']).capitalize()}"
-        if dice(2) == 1:
+        if Dice.dice(2) == 1:
             result = f"{result}{choice(data['org_obj']).capitalize()}"
         else:
             result = f"{result}{temp.capitalize()}"
@@ -863,13 +863,13 @@ def organization_generator():
 def ship_name_generator():
     '''Generates a random ship name'''
     result = ''
-    with open(f"{FILEPATH}/referencedata/ShipNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDO_FILEPATH}/referencedata/ShipNames.json", "r", encoding='utf-8-sig') as file:
         data = json.load(file)
     temp = choice(data['ship_person'])
     person =temp[:-2]
     gender = temp[-1]
 
-    roll = dice(6)
+    roll = Dice.dice(6)
     if roll == 1:
         result = f"The {choice(data['ship_adj'])} {choice(data['ship_noun'])}"
     elif roll == 2:
