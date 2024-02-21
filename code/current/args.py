@@ -18,17 +18,21 @@ __license__ = "Python"
 import sys
 import getopt
 
+
 def usage():
     '''
         usage
     '''
     return
 
+
 def version():
     '''
         version
     '''
+    print("This is the Veriosn piece")
     return
+
 
 def main(argv):
     '''
@@ -36,11 +40,16 @@ def main(argv):
     '''
     # grammar = "kant.xml"
     try:
-        opts, args = getopt.getopt(argv, "hvg:d", ["help","version","grammar="])
+        opts, args = getopt.getopt(argv,
+                                   "hvg:d",
+                                   ["help",
+                                    "version",
+                                    "grammar="])
         print(f"Done {opts} {args}")
     except getopt.GetoptError:
         usage()
         sys.exit(2)
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

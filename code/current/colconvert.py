@@ -3,11 +3,20 @@
     colour converter routine
 '''
 
-with open('y:/resources/sample-data/colours.csv', encoding='utf-8-sig') as input_file, \
-     open('rgb.py', 'w', encoding='utf-8-sig') as rgb_file, \
-     open('hex.py', 'w', encoding='utf-8-sig') as hex_file, \
-     open('rgbdict.py', 'w', encoding='utf-8-sig') as rgbdict_file, \
-     open('hexdict.py', 'w', encoding='utf-8-sig') as hexdict_file:
+with open('y:/resources/sample-data/colours.csv',
+          encoding='utf-8-sig') as input_file, \
+     open('rgb.py',
+          'w',
+          encoding='utf-8-sig') as rgb_file, \
+     open('hex.py',
+          'w',
+          encoding='utf-8-sig') as hex_file, \
+     open('rgbdict.py',
+          'w',
+          encoding='utf-8-sig') as rgbdict_file, \
+     open('hexdict.py',
+          'w',
+          encoding='utf-8-sig') as hexdict_file:
 
     rgb_file.write("'''\n RGB COLOR CODES\n'''\n")
     hex_file.write("'''\n HEX COLOR CODES\n'''\n")
@@ -20,7 +29,7 @@ with open('y:/resources/sample-data/colours.csv', encoding='utf-8-sig') as input
         item = item.strip()
         new_item = item.split(',')
         name = new_item[0].upper()
-        nametable = name.maketrans(' ','_')
+        nametable = name.maketrans(' ', '_')
         newname = name.translate(nametable)
         colorrgb = new_item[1].split('-')
         outputrgb = (colorrgb[0], colorrgb[1], colorrgb[2])
