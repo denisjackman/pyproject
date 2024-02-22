@@ -7,18 +7,21 @@ import googletrans
 from googletrans import Translator
 RUN_NAME = os.path.basename(__file__)
 
+
 def main():
     ''' main '''
     print(f'[-] {googletrans.LANGUAGES}')
     try:
         text1 = '''
-        A Római Birodalom (latinul Imperium Romanum) az ókori Róma által létrehozott 
+        A Római Birodalom (latinul Imperium Romanum)
+         az ókori Róma által létrehozott
         államalakulat volt a Földközi-tenger medencéjében
         '''
 
         text2 = '''
-        Vysoké Tatry sú najvyššie pohorie na Slovensku a v Poľsku a sú zároveň jediným 
-        horstvom v týchto štátoch s alpským charakterom. 
+        Vysoké Tatry sú najvyššie pohorie na Slovensku
+         a v Poľsku a sú zároveň jediným
+        horstvom v týchto štátoch s alpským charakterom.
         '''
 
         translator = Translator()
@@ -38,6 +41,7 @@ def main():
         print(translated.text)
     except Exception as ex:
         print(f'[-] Translate Exception: {ex}')
+
 
 if __name__ == '__main__':
     print(f'[-] {RUN_NAME} Start')

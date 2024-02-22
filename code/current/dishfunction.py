@@ -6,8 +6,10 @@ import os
 import sys
 
 # pylint: disable=C0413
+# flake8: noqa E402
 sys.path.append(os.path.realpath('../..'))
 from jackmanimation.genfunctions.utensils import dish
+
 
 def main():
     '''
@@ -15,6 +17,7 @@ def main():
     '''
     for _ in range(10):
         print(dish())
+
 
 # Main loops
 if __name__ == "__main__":
