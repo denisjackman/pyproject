@@ -1,5 +1,7 @@
 ''' country check '''
 from countryinfo import CountryInfo
+
+
 def main():
     ''' main '''
     country = input('Enter country name: ')
@@ -13,6 +15,7 @@ def main():
     print(f'Country calling code : {country_information.calling_codes()}')
     print(f'Country area         : {country_information.area()}')
     print(f'Country population   : {country_information.population()}')
+
 
 if __name__ == '__main__':
     main()
