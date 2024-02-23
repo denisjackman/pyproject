@@ -23,7 +23,7 @@ import pygame
 
 WIDTH = 1350
 HEIGHT = 700
-MAP = "Y:/tower-defense/tim-tower/game_assets/td-tilesets1-2/tower-defense-game-tilesets/PNG/game_background_2/game_background_2.png"
+MAP = "Z:/tower-defense/tim-tower/game_assets/td-tilesets1-2/tower-defense-game-tilesets/PNG/game_background_2/game_background_2.png"
 
 PROGRAM_NAME = sys.argv[0][2:].replace(".py", "")
 STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -m MAPNAME -mw MAPWIDTH -mh MAPHEIGHT '
@@ -33,7 +33,7 @@ LONG_COMMANDS = ["help", "verbose", "debug", "map=", "mapwidth=", "mapheight="]
 FILEPATH = Path(__file__).parent
 
 ICON_FILE = 'y:/Resources/jackmanimation.png'
-GAMEDATA = "Y:/Resources/devlopement/work/data/Gamedata.json"
+GAMEDATA = "Z:/Resources/devlopement/work/data/Gamedata.json"
 CAPTION = f"Jackmanimation [{PROGRAM_NAME}]"
 
 def getargs():

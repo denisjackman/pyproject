@@ -12,12 +12,16 @@ __date__ = "$Date: 2022/06/08 07:14:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 import os
+import sys
 import requests
-from djgamemodule import security as sec
+
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from jackmanimation.gameitems.gamefunctions import credscheck # noqa: E402
 
 filelist = ["y:/pyproject/resources/work.txt",
             "y:/pyproject/resources/chores.txt",]
-cred_id = sec.credscheck('y:/pyproject/secrets/secrets.json')
+cred_id = credscheck('y:/pyproject/secrets/secrets.json')
 key = cred_id["trello-api-key"]
 token = cred_id["TrelloToken"]
 

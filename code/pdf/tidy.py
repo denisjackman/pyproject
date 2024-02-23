@@ -5,8 +5,8 @@ from openpyxl import Workbook
 from PyPDF4 import PdfFileReader
 from colorama import Fore
 
-TARGET_DIRECTORY = r"Y:/Store/Zips"
-NEW_DIRECTORY = r"Y:/Store/Zip"
+TARGET_DIRECTORY = r"Z:/Store/Zips"
+NEW_DIRECTORY = r"Z:/Store/Zip"
 TARGET_CHECK = '.zip'
 PDF_FILENAME =  r"y:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"
 WORKBOOK_FILE = r'y:/Resources/zip.xlsx'

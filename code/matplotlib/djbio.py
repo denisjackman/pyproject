@@ -7,7 +7,7 @@ def main():
     x = []
     y = []
     count = False
-    with open('Y:/Resources/Data/biostats.csv', 'r', encoding='utf-8-sig') as csvfile:
+    with open('Z:/Resources/Data/biostats.csv', 'r', encoding='utf-8-sig') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             if count:

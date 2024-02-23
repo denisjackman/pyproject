@@ -9,9 +9,11 @@ import os
 ROOTDIR = '.'
 NEWNAME = "pic"
 NEWNUM = 1
-
-for dirName, subdirList, fileList in os.walk(ROOTDIR):
-    for fname in fileList:
-        newfile =  NEWNAME+str(NEWNUM).zfill(3)+os.path.splitext(fname)[1]
-        os.rename(fname, newfile)
-        NEWNUM += 1
+if ROOTDIR == '.':
+    print("You are in the wrong directory")
+else:
+    for dirName, subdirList, fileList in os.walk(ROOTDIR):
+        for fname in fileList:
+            newfile = NEWNAME+str(NEWNUM).zfill(3)+os.path.splitext(fname)[1]
+            os.rename(fname, newfile)
+            NEWNUM += 1

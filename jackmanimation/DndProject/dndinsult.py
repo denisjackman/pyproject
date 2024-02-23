@@ -11,7 +11,7 @@ import json
 from random import choice
 
 if platform.system() == "Windows":
-    FILEPATH = "Y:/Resources/development/"
+    FILEPATH = "Z:/Resources/development/"
 else:
     FILEPATH = "/mnt/y/Resources/development/"
 

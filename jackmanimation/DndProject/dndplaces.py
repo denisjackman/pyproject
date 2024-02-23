@@ -10,7 +10,7 @@ import json
 from random import choice
 from djgamemodule import dice as Dice
 if platform.system() == "Windows":
-    DNDP_FILEPATH = "Y:/Resources/development"
+    DNDP_FILEPATH = "Z:/Resources/development"
 else:
     DNDP_FILEPATH = "/mnt/y/Resources/development"
 # pylint: disable=too-many-locals

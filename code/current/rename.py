@@ -14,7 +14,10 @@ ROOTDIR = '.'
 RENAME = False
 
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "hrn:f:", ["newname=", "filename="])
+    opts, args = getopt.getopt(sys.argv[1:],
+                               "hrn:f:",
+                               ["newname=",
+                                "filename="])
 except getopt.GetoptError:
     print('RENAME.py -f <FileName> -n <NewName> -r')
     sys.exit(2)
@@ -35,7 +38,7 @@ for opt, arg in opts:
 
 for dirName, subdirList, fileList in os.walk(ROOTDIR):
     for fname in fileList:
-        if fname.find(oldname) >=0:
+        if fname.find(oldname) >= 0:
             name = fname[len(oldname):]
             if RENAME:
                 print(f"{newname} {name} RENAMEd")
@@ -46,7 +49,7 @@ for dirName, subdirList, fileList in os.walk(ROOTDIR):
 STR1 = "please help me out so that I could solve this"
 STR2 = "please help me out"
 
-if STR1.find(STR2)>=0:
+if STR1.find(STR2) >= 0:
     print("True")
 else:
-    print ("False")
+    print("False")

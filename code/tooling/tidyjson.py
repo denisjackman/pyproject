@@ -15,7 +15,7 @@ __license__ = "Python"
 import os
 import json
 
-FILEPATH = "Y:/Resources/development/"
+FILEPATH = "Z:/Resources/development/"
 ROOTDIR = f"{FILEPATH}referencedata/"
 
 def main():

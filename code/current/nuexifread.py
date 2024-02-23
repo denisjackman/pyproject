@@ -5,6 +5,7 @@
 from PIL import Image
 from PIL.ExifTags import TAGS
 
+
 def get_exif(image_file_path):
     '''
         get exif data
@@ -21,11 +22,13 @@ def get_exif(image_file_path):
 
     return gps_info
 
+
 def main():
     ''' main function '''
-    filename = 'Y:/Resources/images/jester.jpg'
+    filename = 'Z:/Resources/images/jester.jpg'
     exif = get_exif(filename)
     print(exif)
+
 
 if __name__ == "__main__":
     main()

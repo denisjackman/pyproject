@@ -14,8 +14,8 @@ __copyright__ = "Copyright (c) 2023 Denis J Jackman"
 __license__ = "Python"
 
 DIRECTORYLIST = ["C:\\","F:\\","G:\\","V:\\","W:\\","X:\\","Y:\\","Z:\\"]
-DIRECTORYLISTFILE = "Y:/Resources/development/directorylist.txt"
-DIRECTORYSUMMARY = "Y:/Resources/development/directorysummary.txt"
+DIRECTORYLISTFILE = "Z:/Resources/development/directorylist.txt"
+DIRECTORYSUMMARY = "Z:/Resources/development/directorysummary.txt"
 
 def check_file_for_name(cff_root, cff_name, cff_command_args):
     '''

@@ -4,7 +4,7 @@
 from pdf2docx import Converter
 
 INPUT_PDF_FILE = "y:/temp/The_Fifth_Edition_Gamemasters_Survival_Guide_-_v1.8.pdf"
-OUTPUT_DOC_FILE = "Y:/temp/example.docx"
+OUTPUT_DOC_FILE = "Z:/temp/example.docx"
 
 def convert_pdf_to_docx(pdf_file: str, doc_file: str):
     '''

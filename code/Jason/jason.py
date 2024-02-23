@@ -97,7 +97,7 @@ def startup_sequence():
 
 def systemscheck():
     ''' check function '''
-    checkfile = 'Y:/Resources/sounds/reactor.wav'
+    checkfile = 'Z:/Resources/sounds/reactor.wav'
     data, fs = sf.read(checkfile, dtype='float32')
     sd.play(data, fs)
     status = sd.wait()

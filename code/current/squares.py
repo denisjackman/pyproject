@@ -5,6 +5,7 @@ CLICK = False
 CX = 0
 CY = 0
 
+
 def new_game():
     ''' helper function to initialize globals'''
     # helper function to initialize globals
@@ -48,6 +49,7 @@ def draw(canvas):
                             "Red",
                             "Green")
 
+
 def main():
     ''' main function'''
     frame = simplegui.create_frame("Example", 1000, 750)
@@ -56,6 +58,7 @@ def main():
 
     new_game()
     frame.start()
+
 
 if __name__ == '__main__':
     main()

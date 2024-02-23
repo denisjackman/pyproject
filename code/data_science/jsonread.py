@@ -12,7 +12,9 @@ data = {
     }
 }
 
-with open("y:/Resources/development/data_file.json", "w", encoding='UTF8') as write_file:
+with open("Z:/Resources/development/data_file.json",
+          "w",
+          encoding='UTF8') as write_file:
     json.dump(data, write_file)
 
 JSON_STRING = """
@@ -30,9 +32,10 @@ JSON_STRING = """
 }
 """
 data = json.loads(JSON_STRING)
-print (data)
+print(data)
 
-response = requests.get("https://jsonplaceholder.typicode.com/todos" , timeout=5)
+response = requests.get("https://jsonplaceholder.typicode.com/todos",
+                        timeout=5)
 todos = json.loads(response.text)
 
 print(todos)

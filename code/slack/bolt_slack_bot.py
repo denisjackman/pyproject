@@ -3,16 +3,20 @@
     This is a slack bot item
     Based on the tutorial at https://www.youtube.com/watch?v=oDoFvpDftBA
 """
-
+import os
+import sys
 import logging
 import re
 import pyjokes
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
-from djgamemodule import security as sec
+
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from jackmanimation.gameitems.gamefunctions import credscheck # noqa: E402
 
 
-credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
+credid = credscheck('y:/pyproject/secrets/secrets.json')
 SLACK_APP_TOKEN = credid["BoltJokesToken"]
 SLACK_BOT_TOKEN = credid["BoltBotToken"]
 

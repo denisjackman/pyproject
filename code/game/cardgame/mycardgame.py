@@ -6,8 +6,8 @@ import sys
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import pygame as pg  # pylint: disable=C0413
 
-FILE_LOCATION = 'Y:/Resources/development/cardgame/image/cards'
-BACK_LOCATION = 'Y:/Resources/development/cardgame/image/backs/back-side.png'
+FILE_LOCATION = 'Z:/Resources/development/cardgame/image/cards'
+BACK_LOCATION = 'Z:/Resources/development/cardgame/image/backs/back-side.png'
 SCREEN_SIZE = (1200, 800)
 SCREEN_COLOR = (230, 230, 230)
 SPRITE_SIZE = (64, 64)

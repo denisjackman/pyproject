@@ -12,7 +12,7 @@ __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 import json
 
-FILEPATH = "Y:/Resources/development/"
+FILEPATH = "Z:/Resources/development/"
 # pylint: disable=too-many-locals
 
 def main():

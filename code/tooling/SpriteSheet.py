@@ -10,10 +10,10 @@
     MARGIN:	   1
 
     Sheets:
-    Y:/Resources/roguelike/Spritesheet/rogueLikeChar_Transparent.png
-    Y:/Resources/roguelike/Spritesheet/rogueLikeCity_Transparent.png
-    Y:/Resources/roguelike/Spritesheet/roguelikeDungeon_transparent.png
-    Y:/Resources/roguelike/Spritesheet/rogueLikeSheet_Transparent.png
+    Z:/Resources/roguelike/Spritesheet/rogueLikeChar_Transparent.png
+    Z:/Resources/roguelike/Spritesheet/rogueLikeCity_Transparent.png
+    Z:/Resources/roguelike/Spritesheet/roguelikeDungeon_transparent.png
+    Z:/Resources/roguelike/Spritesheet/rogueLikeSheet_Transparent.png
 '''
 from pathlib import Path
 import pygame
@@ -24,7 +24,7 @@ CAPTION = "Jackmanimation [SpriteSheet]"
 ICON_FILE = 'y:/Resources/jackmanimation.png'
 WHITE = (255, 255, 255)
 FILEPATH = Path(__file__).parent
-SHEET_NAME = "Y:/Resources/roguelike/Spritesheet/rogueLikeSheet_Transparent.png"
+SHEET_NAME = "Z:/Resources/roguelike/Spritesheet/rogueLikeSheet_Transparent.png"
 
 pygame.init()
 window = pygame.display.set_mode((WIDTH, HEIGHT))

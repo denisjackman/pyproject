@@ -3,7 +3,7 @@
     colour converter routine
 '''
 
-with open('y:/resources/sample-data/colours.csv',
+with open('Z:/resources/sample-data/colours.csv',
           encoding='utf-8-sig') as input_file, \
      open('rgb.py',
           'w',

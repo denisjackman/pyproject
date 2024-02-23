@@ -4,7 +4,8 @@ import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.dbfunctions.mongofunctions import open_mongo
+from jackmanimation.dbfunctions.mongofunctions import open_mongo  # noqa: E402
+
 
 def main():
     ''' main    '''
@@ -17,6 +18,7 @@ def main():
         collections = currentdb.list_collection_names()
         for collection in collections:
             print(f"[-] Collection Name is {collection}")
+
 
 if __name__ == '__main__':
     print("[+] Starting MongoDB Test")

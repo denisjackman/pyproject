@@ -18,31 +18,38 @@ __license__ = "Python"
 import sys
 import getopt
 
-def procDefiniton(params):
-    """Does stuff
-    Returns string.
-    """
-    print(f"params: {params}")
-    return "done!"
 
 def usage():
-    '''this is a function to show usage'''
+    '''
+        usage
+    '''
     return
+
 
 def version():
-    ''' this is a function to show version'''
+    '''
+        version
+    '''
+    print("This is the Veriosn piece")
     return
 
+
 def main(argv):
-    '''this is a function to handle main'''
-    grammar = "y:/Resources/xml/kant.xml"
+    '''
+        main function
+    '''
+    # grammar = "kant.xml"
     try:
-        opts, args = getopt.getopt(argv, "hvg:d", ["help","version","grammar="])
-        print("Done")
+        opts, args = getopt.getopt(argv,
+                                   "hvg:d",
+                                   ["help",
+                                    "version",
+                                    "grammar="])
+        print(f"Done {opts} {args}")
     except getopt.GetoptError:
         usage()
         sys.exit(2)
-    print(f"opts: {opts} args: {args} grammar: {grammar}")
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

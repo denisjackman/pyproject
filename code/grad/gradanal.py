@@ -3,7 +3,7 @@
 '''
 import csv
 
-DATA_FILE = "Y:/Resources/development/GN-2016-sample-data.csv"
+DATA_FILE = "Z:/Resources/development/GN-2016-sample-data.csv"
 
 def opengradfile(csvfilename):
     ''' open csv file and send it back as a list '''

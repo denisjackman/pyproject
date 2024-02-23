@@ -6,8 +6,8 @@ import csv
 import json
 import pandas as pd
 
-DATAFILE = 'Y:/Resources/excel/goodreads_library_export.csv'
-JSONFILE = 'Y:/Resources/Data/track_book_origins.json'
+DATAFILE = 'Z:/Resources/excel/goodreads_library_export.csv'
+JSONFILE = 'Z:/Resources/Data/track_book_origins.json'
 
 def oldmain():
     ''' main function '''

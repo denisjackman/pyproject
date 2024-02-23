@@ -1,6 +1,8 @@
 '''
     finance calculator
 '''
+
+
 def main():  # pylint: disable=R0914
     """ This is the main routine for the program """
     print("Starting the sequence:")
@@ -20,12 +22,20 @@ def main():  # pylint: disable=R0914
     year21_out = 0
     year22_out = 0
 
-    with open("Y:/house-data/consolidated.csv", encoding='utf-8-sig') as finfile:
+    with open("Z:/Store/house-data/consolidated.csv",
+              encoding='utf-8-sig') as finfile:
         for line in finfile:
             if line.startswith("Transaction Date"):
                 continue
             data = line.split(',')
-            print(f' date: {data[0]} desc: {data[4]} amount-out: {data[5]} amount-in: {data[6]}')
+            print(" date: "
+                  f"{data[0]}"
+                  " desc: "
+                  f"{data[4]}"
+                  " amount-out: "
+                  f"{data[5]}"
+                  " amount-in: "
+                  f"{data[6]}")
             count += 1
             datedata = data[0].split('/')
 
@@ -78,6 +88,7 @@ def main():  # pylint: disable=R0914
     print(f"total records   : {count}")
     print('----------------------------------------')
     print("finishing up and closing down:")
+
 
 if __name__ == '__main__':
     main()

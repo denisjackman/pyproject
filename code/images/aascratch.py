@@ -29,5 +29,5 @@ def get_exif(item):
 
 
 if __name__ == "__main__":
-    exif = get_exif("Y:/Resources/images/jester.jpg")
+    exif = get_exif("Z:/Resources/images/jester.jpg")
     print(exif)

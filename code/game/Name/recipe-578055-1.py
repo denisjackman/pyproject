@@ -21,7 +21,7 @@ def adduser():
         if k=='':
             break
         a.append(k)
-        with open('Y:/Resources/development/name/random_members.data', 'wb') as f:
+        with open('Z:/Resources/development/name/random_members.data', 'wb') as f:
             pickle.dump(a, f)
 
 
@@ -37,9 +37,9 @@ def deluser():
         for l in range(0,len(a)):
             if k==a[l-1]:
                 del a[l-1]
-                with open('Y:/Resources/development/name/random_members.data', 'wb') as fdump:
+                with open('Z:/Resources/development/name/random_members.data', 'wb') as fdump:
                     pickle.dump(a, fdump)
-if os.path.isfile('Y:/Resources/development/name/random_members.data') is not True:
+if os.path.isfile('Z:/Resources/development/name/random_members.data') is not True:
     # checking if the data file is already present in the computer,
     # will make one if it is being run for the first time
     a = ['warun',
@@ -56,7 +56,7 @@ if os.path.isfile('Y:/Resources/development/name/random_members.data') is not Tr
         # dumps the default list
 else:
     # this block grabs the list from the data file
-    with open('Y:/Resources/development/name/random_members.data', 'rb') as fload:
+    with open('Z:/Resources/development/name/random_members.data', 'rb') as fload:
         a = pickle.load(fload)
 
 y = input('would you like to add more users to the list y/n or press d to delete users:')

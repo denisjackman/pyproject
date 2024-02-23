@@ -13,7 +13,7 @@ __date__ = "$Date: 2024/01/22 12:48:00 $"
 __copyright__ = "Copyright (c) 2024 Denis J Jackman"
 __license__ = "Python"
 
-TARGET_DIR_LIST = ['Y:/', 'Z:/', 'X:/', 'C:/']
+TARGET_DIR_LIST = ['Z:/', 'Z:/', 'X:/', 'C:/']
 PROJECT_FILE = 'Z:/Store/target/projectlist'
 
 def main():

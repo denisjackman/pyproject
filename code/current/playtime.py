@@ -1,36 +1,102 @@
-''' This is a play area to test ideas and concepts'''
-def remove_identical_items(check_list1, check_list2):
-    """Compares two lists looking for identical items and removes all the items from one of the lists that are identical, leaving you with a list of unique items.
-        Args:
-        check_list1 (list): The first list to compare.
-        check_list2 (list): The second list to compare.
+'''new playtime file for p2'''
+
+
+def compare_files(cf_file1_path, cf_file2_path):
+    """Compares two files and checks if they are identical.
+
+    Args:
+        cf_file1_path (str): The path to the first file.
+        cf_file2_path (str): The path to the second file.
 
     Returns:
-        list: A list of unique items, containing the items that are present in either list1 or list2, but not both.
+        bool: True if the two files are identical, False otherwise.
     """
-    # Create a new list to store the unique items.
-    unique_items = []
-    # Iterate through the first list.
-    for item in check_list1:
-    # If the item is not present in the second list, add it to the unique items list.
-        if item not in check_list2:
-            unique_items.append(item)
-    # Return the list of unique items.
-    return unique_items
+
+    # Open the two files in read mode.
+    with open(cf_file1_path,
+              "r",
+              encoding='utf-8-sig') as file1, open(cf_file2_path,
+                                                   "r",
+                                                   encoding='utf-8-sig') as file2:  # noqa: E501
+
+        # Read the contents of both files into lists.
+        file1_contents = file1.readlines()
+        file2_contents = file2.readlines()
+
+    # Compare the two lists of file contents.
+    if file1_contents != file2_contents:
+        return False
+    return True
+
+
+def compare_binary_files(cbf_file1_path, cbf_file2_path):
+    """Compares two binary files and checks if they are identical.
+
+    Args:
+    cbf_file1_path (str): The path to the first file.
+    cbf_file2_path (str): The path to the second file.
+
+    Returns:
+    bool: True if the two files are identical, False otherwise.
+    """
+
+    # Open the two files in binary read mode.
+    with open(cbf_file1_path,
+              "rb") as file1, open(cbf_file2_path,
+                                   "rb") as file2:
+
+        # Read the contents of both files into byte arrays.
+        file1_contents = file1.read()
+        file2_contents = file2.read()
+
+        # Compare the two byte arrays.
+    if file1_contents != file2_contents:
+        return False
+    return True
+
 
 def main():
-    ''' main function '''
+    ''' main function'''
     # Example usage:
-    compare_list1 = [1, 2, 3, 4, 5]
-    compare_list2 = [2, 4, 6, 7, 8]
-    # Remove all the items from list1 that are also present in list2.
-    unique_items = remove_identical_items(compare_list1, compare_list2)
-    # Print the list of unique items.
-    print(f'[-] The first list {compare_list1}')
-    print(f'[-] The Second list {compare_list2}')
-    print(f'[-] The unique items{unique_items}')
-    unique_items += remove_identical_items(compare_list2, compare_list1)
-    print(f'[-] The unique items{unique_items}')
+
+    file1_path = "playtime.py"
+    file2_path = "movie.py"
+    bin_file1_path = r'Y:\Resources\images\AngryDevil.png'
+    bin_file2_path = r'Y:\Resources\images\AlienTears.png'
+
+    # Compare the two files and check if they are identical.
+    are_files_identical = compare_files(file1_path, file2_path)
+
+    # If the files are identical, print a message.
+    if are_files_identical:
+        print("[-] run 1 The two files are identical.")
+    else:
+        print("[-] run 1 The two files are different.")
+    # Compare the two files and check if they are identical.
+    are_files_identical = compare_files(file1_path, file1_path)
+
+    # If the files are identical, print a message.
+    if are_files_identical:
+        print("[-] run 2 The two files are identical.")
+    else:
+        print("[-] run 2 The two files are different.")
+
+    are_files_identical = compare_binary_files(bin_file1_path, bin_file2_path)
+
+    # If the files are identical, print a message.
+    if are_files_identical:
+        print("[-] run 1 The two binary files are identical.")
+    else:
+        print("[-] run 1 The two binary files are different.")
+
+    are_files_identical = compare_binary_files(bin_file1_path, bin_file1_path)
+
+    # If the files are identical, print a message.
+    if are_files_identical:
+        print("[-] run 1 The two binary files are identical.")
+    else:
+        print("[-] run 1 The two binary files are different.")
+
 
 if __name__ == '__main__':
     print('[=] playtime starting up')

@@ -6,7 +6,7 @@ def main():
     ''' main function'''
     x = []
     y = []
-    with open('Y:/Resources/Data/Weatherdata.csv', 'r', encoding='utf-8-sig') as csvfile:
+    with open('Z:/Resources/Data/Weatherdata.csv', 'r', encoding='utf-8-sig') as csvfile:
         lines = csv.reader(csvfile, delimiter=',')
         for row in lines:
             x.append(row[0])

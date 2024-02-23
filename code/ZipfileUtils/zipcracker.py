@@ -27,15 +27,17 @@ def ZipCracker(Crackfile, Cracklist):
     print(f'{NOTE}{total_passwords} passwords to test.{RESET}')
     print(f'{NOTE}Cracking, {Crackfile} please wait...{RESET}')
     with open(Cracklist, "rb") as wordfile:
-        for password in tqdm(wordfile, total=total_passwords, unit='passwords'):
+        for password in tqdm(wordfile,
+                             total=total_passwords,
+                             unit='passwords'):
             try:
                 with zipfile.ZipFile(Crackfile) as secret_zipfile:
                     secret_zipfile.extractall(pwd=password.strip())
-            except:  # pylint: disable=bare-except
-                # flake8: noqa E722
+            except:  # pylint: disable=bare-except  # noqa: E722
                 continue
             else:
-                print(f'{NOTICE}Password found: {password.decode().strip()}{RESET}')
+                print(f'{NOTICE}Password found: '
+                      f'{password.decode().strip()}{RESET}')
                 print(f'{NOTE}Zip File Password Cracker - Completed{RESET}')
                 sys.exit(0)
     print(f'{ERROR}Password not found, try other wordlist.{RESET}')
