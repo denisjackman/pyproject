@@ -45,7 +45,7 @@ def old_user():
     password = input("Enter Password : ")
     if login in users and users[login] == password:
         print("\nLogin successful \n")
-        print("User: ", login," accessed the system at ", time.asctime())
+        print(f"User: {login} accessed the system at {time.asctime()}")
     else:
         print("\n User does not exist or has wrong password\n")
 
@@ -61,7 +61,9 @@ def new_user():
         create_password = input("Create password: ")
         users[create_login] = create_password
         print("\nUser Created \n")
-        with open("Y:/Resources/development/main/logins.txt", "a", encoding='utf-8-sig') as logins:
+        with open("Z:/Resources/development/main/logins.txt",
+                  "a",
+                  encoding='utf-8-sig') as logins:
             logins.write("\n" + create_login + " " + create_password)
 
 
@@ -72,6 +74,7 @@ def main():
     main_running = True
     while main_running:
         main_running = main_menu()
+
 
 if __name__ == "__main__":
     # run the main

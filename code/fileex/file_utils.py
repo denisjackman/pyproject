@@ -19,11 +19,11 @@ def move_file(source_path, destination_path):
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
-    if move_file(r'file.txt', r'Y:/pyproject/scratch/output'):
+    if move_file(r'file.txt', r'Z:/pyproject/scratch/output'):
         print('moved the file')
     else:
         print('did not move the file')
-    if move_file(r'Y:/pyproject/scratch/output/file.txt', r'.'):
+    if move_file(r'Z:/pyproject/scratch/output/file.txt', r'.'):
         print('moved the file')
     else:
         print('did not move the file')

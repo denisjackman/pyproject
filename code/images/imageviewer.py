@@ -19,7 +19,7 @@ def main():
     main
     '''
     target = ".png"
-    directory = 'Y:/Resources/images'
+    directory = 'Z:/Resources/images'
     file_list = []
     for filename in os.listdir(directory):
         if filename.endswith(target):

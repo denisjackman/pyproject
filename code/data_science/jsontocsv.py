@@ -1,8 +1,9 @@
 ''' JSON to CSV converter script'''
 import json
 
-INPUTFILE = "Y:/Resources/development/input.json"
-OUTPUTFILE = "Y:/Resources/development/output.csv"
+INPUTFILE = "Z:/Resources/development/input.json"
+OUTPUTFILE = "Z:/Resources/development/output.csv"
+
 
 def jsontocsv(inputfile, outputfile):
     '''Converts JSON file to CSV file'''
@@ -19,9 +20,11 @@ def jsontocsv(inputfile, outputfile):
     except Exception as ex:
         print(f'Error: {str(ex)}')
 
+
 def main():
     '''Main function'''
     jsontocsv(INPUTFILE, OUTPUTFILE)
+
 
 if __name__ == '__main__':
     main()

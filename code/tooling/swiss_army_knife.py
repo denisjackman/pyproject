@@ -19,7 +19,7 @@ def loadjsonfile(jf_filename, jf_debug = False, jf_verbose = False):
         print(f'DEBUG: loadjsonfile - {jf_filename}')
     if jf_verbose:
         print(f'Verbose: loadjsonfile - {jf_filename}')
-    filename = "Y:/Resources/Data/allMimeTypes.json"
+    filename = "Z:/Resources/Data/allMimeTypes.json"
     with open(filename, "r", encoding='utf-8-sig') as file:
         result = json.load(file)
     return result

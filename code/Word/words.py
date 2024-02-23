@@ -33,7 +33,7 @@ mydoc.add_heading("This is level 1 heading", 0)
 mydoc.add_heading("This is level 2 heading", 1)
 mydoc.add_heading("This is level 3 heading", 2)
 mydoc.save("y:/Resources/word/newmy_written_file_new.docx")
-mydoc.add_picture("Y:/Resources/images/Casper.png",
+mydoc.add_picture("Z:/Resources/images/Casper.png",
                   width=docx.shared.Inches(5),
                   height=docx.shared.Inches(7))
 mydoc.save("y:/Resources/word/newmy_written_file_new.docx")

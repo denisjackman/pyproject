@@ -12,9 +12,9 @@ random.shuffle(lst)
 print(lst)
 for i in range(20):
     print(random.randrange(0, 200, 7))
-output = {"Heads":0, "Tails":0 }
+output = {"Heads": 0, "Tails": 0}
 coins = list(output.keys())
 for i in range(10000):
-    output[random.choice(coins)]+=1
+    output[random.choice(coins)] += 1
 print("Heads : ", output["Heads"])
 print("Tails : ", output["Tails"])

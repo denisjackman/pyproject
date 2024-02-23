@@ -16,7 +16,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-data = pd.read_csv(r"Y:/Resources/excel/Thecleverprogrammer.csv")
+data = pd.read_csv(r"Z:/Resources/excel/Thecleverprogrammer.csv")
 print(data.head())
 data["Date"] = pd.to_datetime(data["Date"],
                               format="%d/%m/%Y")

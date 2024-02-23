@@ -20,7 +20,7 @@ def main():
         main routine
     '''
     target = ".wav"
-    directory = 'Y:/Resources/sounds'
+    directory = 'Z:/Resources/sounds'
     file_list = []
     for filename in os.listdir(directory):
         if filename.endswith(target):

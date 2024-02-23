@@ -9,20 +9,22 @@ import math
 import simpleguitk as simplegui
 
 # initialize global variables used in your code
-SECRETNUMBER=0
-GAMEGUESSES=0
-LOW=0
-HIGH=100
-NUMBERGUESSES = int(round(math.log(HIGH,2)))
+SECRETNUMBER = 0
+GAMEGUESSES = 0
+LOW = 0
+HIGH = 100
+NUMBERGUESSES = int(round(math.log(HIGH, 2)))
+
 
 def new_game():
     ''' helper function to start and restart the game'''
     # pylint: disable=global-statement
     global SECRETNUMBER, GAMEGUESSES
-    SECRETNUMBER = random.randrange(LOW,HIGH)
+    SECRETNUMBER = random.randrange(LOW, HIGH)
     GAMEGUESSES = NUMBERGUESSES
     print("")
     print(f"New Game! You have {str(GAMEGUESSES)} guesses left to go ")
+
 
 def range100():
     ''' button that changes range to range [0,100) and restarts'''
@@ -31,15 +33,16 @@ def range100():
     # pylint: disable=global-statement
     global HIGH, NUMBERGUESSES
     HIGH = 100
-    NUMBERGUESSES = int(round(math.log(HIGH,2)))
+    NUMBERGUESSES = int(round(math.log(HIGH, 2)))
     new_game()
+
 
 def range1000():
     ''' button that changes range to range [0,1000) and restarts '''
     # pylint: disable=global-statement
     global HIGH, NUMBERGUESSES
-    HIGH=1000
-    NUMBERGUESSES = int(round(math.log(HIGH,2)))
+    HIGH = 1000
+    NUMBERGUESSES = int(round(math.log(HIGH, 2)))
     new_game()
 
 
@@ -56,6 +59,7 @@ def check_game():
     else:
         print(f"you have {str(GAMEGUESSES)} guesses left")
 
+
 def input_guess(guess):
     ''' main game logic goes here'''
     guess_number = int(guess)
@@ -69,19 +73,23 @@ def input_guess(guess):
         print("Lower!")
         check_game()
 
+
 def main():
     ''' main function'''
     # create frame
-    frame = simplegui.create_frame("Guess the Number",200,200)
+    frame = simplegui.create_frame("Guess the Number", 200, 200)
 
     # register event handlers for control elements
-    frame.add_button("Range (0, 100)",range100,200)
-    frame.add_button("Range (0, 1000)",range1000,200)
-    frame.add_input("Enter a Guess",input_guess,200)
+    frame.add_button("Range (0, 100)", range100, 200)
+    frame.add_button("Range (0, 1000)", range1000, 200)
+    frame.add_input("Enter a Guess", input_guess, 200)
 
     # call new_game and start frame
     new_game()
     frame.start()
-    # always remember to check your completed program against the grading rubric
+    # always remember to check your completed
+    # program against the grading rubric
+
+
 if __name__ == '__main__':
     main()

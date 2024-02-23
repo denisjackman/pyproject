@@ -3,10 +3,14 @@
     This is another slackbot module
     and it is based on  https://www.youtube.com/watch?v=09GG8GzfWhs
 """
+import os
+import sys
 import argparse
 import requests
-from djgamemodule import security as sec
 
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from jackmanimation.gameitems.gamefunctions import credscheck # noqa: E402
 
 def send_slack_message(message: str, channels: str):
     '''
@@ -40,7 +44,7 @@ def main():
     '''
     Main function for our logic
     '''
-    channelslist = sec.credscheck('y:/pyproject/secrets/secrets.json')
+    channelslist = credscheck('y:/pyproject/secrets/secrets.json')
     parser = argparse.ArgumentParser(description='Send Messages to Slack')
     parser.add_argument('--message', '-m', type=str, default='')
     parser.add_argument('--file', '-f', type=str, default='')

@@ -16,6 +16,7 @@ __license__ = "Python"
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
+
 def datascrapemain():
     '''
         this is the main function
@@ -24,7 +25,7 @@ def datascrapemain():
 
     # set up the variables
     listfiles = []
-    checkfilepath = "Y:/Resources/Data/Reddit-data/comment_votes.csv"
+    checkfilepath = "Z:/Resources/Data/Reddit-data/comment_votes.csv"
 
     with open(checkfilepath, encoding='utf-8-sig') as input_file:
         for item in input_file.readlines():
@@ -41,6 +42,7 @@ def datascrapemain():
                     if stuff is not None:
                         print(f"file: {item} title: {stuff['content']}")
     print("Finished a data scrape")
+
 
 if __name__ == '__main__':
     datascrapemain()

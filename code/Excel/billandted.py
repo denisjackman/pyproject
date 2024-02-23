@@ -7,7 +7,7 @@ import openpyxl
 
 def main():
     ''' main function '''
-    workbook = openpyxl.load_workbook(filename="Y:/Resources/excel/hello.xlsx")
+    workbook = openpyxl.load_workbook(filename="Z:/Resources/excel/hello.xlsx")
 
     # The workbook object is then used to add new
     # worksheet via the add_worksheet() method.
@@ -20,7 +20,7 @@ def main():
     worksheet['C1'] = 'For'
     worksheet['D1'] = 'Geeks'
     worksheet['E1'] = 'WooooWooooo'
-    workbook.save('Y:/Resources/excel/hello2.xlsx')
+    workbook.save('Z:/Resources/excel/hello2.xlsx')
 
 
 if __name__ == '__main__':

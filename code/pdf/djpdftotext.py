@@ -3,7 +3,7 @@
 from PyPDF4 import PdfFileReader
 
 INPUTFILE = r"y:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"
-OUTPUTFILE = r"Y:/Resources/development/anon.txt"
+OUTPUTFILE = r"Z:/Resources/development/anon.txt"
 
 
 def convertpdftotxt(inputfile, outputfile, verbosemode = False):

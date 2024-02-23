@@ -7,7 +7,12 @@ This program is a template for python programs
 All this stuff at the top of the script is just optional metadata;
 
 """
-from djgamemodule import security as sec
+import os
+import sys
+
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from jackmanimation.gameitems.gamefunctions import credscheck # noqa: E402
 import wifi_qrcode_generator as qr
 
 
@@ -21,9 +26,11 @@ __license__ = "Python"
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
-    credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
-    qr.wifi_qrcode(credid["wifi"], False,'WPA', credid["wifi_password"])
+    credid = credscheck('Z:/pyproject/secrets/secrets.json')
+    qr.wifi_qrcode(credid["wifi"], False, 'WPA', credid["wifi_password"])
     print("finishing up and closing down:")
     # TODO: change this export to a file instead of stdout
+
+
 if __name__ == '__main__':
     main()

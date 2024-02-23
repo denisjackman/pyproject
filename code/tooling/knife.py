@@ -1,7 +1,7 @@
 '''
     knife tool for DnDProject
 '''
-FILEPATH = "Y:/Resources/development/"
+FILEPATH = "Z:/Resources/development/"
 def main():
     '''
         main function

@@ -1,8 +1,8 @@
 ''' utility to find zip files '''
 import csv
 
-DIRECTORYLISTFILE = "Y:/Resources/development/directorylist.txt"
-DIRECTORYSUMMARY = "Y:/Resources/development/directorysummary.txt"
+DIRECTORYLISTFILE = "Z:/Resources/development/directorylist.txt"
+DIRECTORYSUMMARY = "Z:/Resources/development/directorysummary.txt"
 
 def main():
     ''' main function '''

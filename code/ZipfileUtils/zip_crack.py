@@ -22,9 +22,8 @@ def main():
             try:
                 with zipfile.ZipFile(ZIPFILE) as archive:
                     archive.extractall(pwd=word.strip(),
-                                       path="y://Resources//development//data//")
-            except:  # pylint: disable=bare-except
-                # flake8: noqa: E722
+                                       path="Z://Resources//development//data//")  # noqa: E501
+            except:  # pylint: disable=bare-except  # noqa: E722
                 continue
             else:
                 print(f"[+] Password found: {word.decode().strip()}")

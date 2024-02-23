@@ -11,7 +11,7 @@ from random import choice
 from djgamemodule import dice as Dice
 
 if platform.system() == "Windows":
-    DNDO_FILEPATH = "Y:/Resources/development"
+    DNDO_FILEPATH = "Z:/Resources/development"
 else:
     DNDO_FILEPATH = "/mnt/y/Resources/development"
 

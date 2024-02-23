@@ -12,11 +12,15 @@ __version__ = "$Revision: 1.0 $"
 __date__ = "$Date: 2022/06/01 00:31:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
-
+import os
+import sys
 from slack_bolt import App
-from djgamemodule import security as sec
 
-credid = sec.credscheck('y:/pyproject/secrets/secrets.json')
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from jackmanimation.gameitems.gamefunctions import credscheck # noqa: E402
+
+credid = credscheck('y:/pyproject/secrets/secrets.json')
 
 app = App(
           token=credid["BotToken"],

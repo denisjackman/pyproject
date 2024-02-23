@@ -11,7 +11,7 @@ from random import choice
 from jackmanimation.DndProject.dnddice import dice
 
 if platform.system() == 'Windows':
-    FILEPATH = "Y:/Resources/development"
+    FILEPATH = "Z:/Resources/development"
 else:
     FILEPATH = "/mnt/y/Resources/development"
 # pylint: disable=too-many-locals
