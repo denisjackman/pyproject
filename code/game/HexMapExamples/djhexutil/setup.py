@@ -5,7 +5,7 @@ https://packaging.python.org/en/latest/distributing.html
 https://github.com/pypa/sampleproject
 """
 
-from codecs import open  #pylint: disable=redefined-builtin
+from codecs import open  # pylint: disable=redefined-builtin
 from os import path
 # Always prefer setuptools over distutils
 from setuptools import setup, find_packages

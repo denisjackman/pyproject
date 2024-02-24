@@ -3,6 +3,7 @@
 '''
 import shutil
 
+
 def move_file(source_path, destination_path):
     '''
         a function to move a file
@@ -15,6 +16,7 @@ def move_file(source_path, destination_path):
     except OSError as err:
         print(f'File {source_path} NOT moved to {destination_path} : {err}')
     return result
+
 
 def main():
     """ This is the main routine for the program """

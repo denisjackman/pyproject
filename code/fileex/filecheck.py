@@ -42,5 +42,6 @@ def record_word_cnt(words, bag_of_words):
             else:
                 bag_of_words[word.lower()] = 1
 
+
 if __name__ == '__main__':
     main()
