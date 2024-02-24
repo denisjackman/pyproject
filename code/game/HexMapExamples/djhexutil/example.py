@@ -7,6 +7,7 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 import hexutil
 
+
 class Level():
     """Represents a level in the game.
     Currently there is only one.
@@ -16,9 +17,9 @@ class Level():
         """Create level with a random walk"""
         tiles = {}
         for tile in hexutil.origin.random_walk(100):
-            tiles[tile] = '~' # add water
+            tiles[tile] = '~'  # add water
         for tile in hexutil.origin.random_walk(size):
-            tiles[tile] = '.' # add floor tiles
+            tiles[tile] = '.'  # add floor tiles
         self.tiles = tiles
         self.seen_tiles = {}
 
@@ -47,18 +48,16 @@ class Level():
 class GameWidget(QtWidgets.QWidget):
     """The Qt Widget which shows the game."""
 
-    _tile_brushes = {
-            '.' : QtGui.QBrush(QtGui.QColor("yellow")),
-            '~' : QtGui.QBrush(QtGui.QColor("blue")),
-            '#' : QtGui.QBrush(QtGui.QColor("brown")),
-            }
+    _tile_brushes = {'.': QtGui.QBrush(QtGui.QColor("yellow")),
+                     '~': QtGui.QBrush(QtGui.QColor("blue")),
+                     '#': QtGui.QBrush(QtGui.QColor("brown"))}
 
     selected_hexagon = None
     selected_path = frozenset()
 
     def __init__(self, *args, **kws):
         super().__init__(*args, **kws)
-        self.setMouseTracking(True) # we want to receive mouseMoveEvents
+        self.setMouseTracking(True)  # we want to receive mouseMoveEvents
 
         self.level = Level(500)
         self.player = hexutil.origin
@@ -76,7 +75,7 @@ class GameWidget(QtWidgets.QWidget):
 
     def update_fov(self):
         '''Update the field of view.'''
-        self.fov = self.player.field_of_view(transparent=self.level.is_transparent, max_distance=10)
+        self.fov = self.player.field_of_view(transparent=self.level.is_transparent, max_distance=10)  # noqa: E501
         self.level.update_fov(self.fov)
 
     def hexagon_of_pos(self, pos):
@@ -84,7 +83,7 @@ class GameWidget(QtWidgets.QWidget):
         size = self.size()
         xc = size.width()//2
         yc = size.height()//2
-        return self.player + self.hexgrid.hex_at_coordinate(pos.x() - xc, pos.y() - yc)
+        return self.player + self.hexgrid.hex_at_coordinate(pos.x() - xc, pos.y() - yc)  # noqa: E501
 
     def mousePressEvent(self, event):
         '''Move the player to the clicked hexagon.'''
@@ -139,7 +138,7 @@ class GameWidget(QtWidgets.QWidget):
             painter.translate(xc, yc)
             # draw each hexagon which is in the window
             for hexagon in hexgrid.hexes_in_rectangle(bbox):
-                polygon = QtGui.QPolygon([QtCore.QPoint(*corner) for corner in hexgrid.corners(hexagon)])
+                polygon = QtGui.QPolygon([QtCore.QPoint(*corner) for corner in hexgrid.corners(hexagon)])  # noqa: E501
                 hexagon2 = hexagon + self.player
                 tile = self.level.get_seen_tile(hexagon2)
                 if tile == ' ':
@@ -154,7 +153,7 @@ class GameWidget(QtWidgets.QWidget):
                     painter.drawPolygon(polygon)
                 if hexagon2 == self.player:
                     rect = hexgrid.bounding_box(hexagon)
-                    rect = QtCore.QRectF(*rect) # convert to Qt RectF
+                    rect = QtCore.QRectF(*rect)  # convert to Qt RectF
                     painter.drawText(rect, QtCore.Qt.AlignCenter, '@')
         finally:
             painter.end()
@@ -166,6 +165,7 @@ def main():
     window = GameWidget()
     window.show()
     app.exec_()
+
 
 if __name__ == '__main__':
     main()

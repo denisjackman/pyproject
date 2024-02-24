@@ -13,7 +13,9 @@ class AlienInvasion:
         """Initalise the game and create game resources."""
         pygame.init()
         self.settings = Settings()
-        self.screen = pygame.display.set_mode((self.settings.screen_width,self.settings.screen_height)) # surface
+        self.screen = pygame.display.set_mode((self.settings.screen_width,
+                                               self.settings.screen_height))
+        # surface
         self.screen_width = self.screen.get_rect().width
         self.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Alien Invasion")
@@ -26,7 +28,6 @@ class AlienInvasion:
 
         # set background colour
         self.bg_colour = self.settings.bg_colour
-
 
     def run_game(self):
         """Start the main loop of the game."""
@@ -72,7 +73,8 @@ class AlienInvasion:
         """Create a new bullet and add it to the bullets group."""
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
-            self.bullets.add(new_bullet) # add() method specifcally for pygame groups
+            self.bullets.add(new_bullet)
+            # add() method specifcally for pygame groups
 
     def _update_bullets(self):
         # Update bullets position
@@ -99,7 +101,6 @@ class AlienInvasion:
             alien.rect.x = alien.x
             self.aliens.add(alien)
 
-
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.bg_colour)
@@ -108,9 +109,11 @@ class AlienInvasion:
             bullet.draw_bullet()
 
         self.aliens.draw(self.screen)
-        # draws each element in the group at the position defined by it's rect. Only requires one arguement, a surface to draw on.
+        # draws each element in the group at the position defined
+        # by it's rect. Only requires one arguement, a surface to draw on.
 
         pygame.display.flip()
+
 
 if __name__ == "__main__":
     ai = AlienInvasion()

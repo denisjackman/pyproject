@@ -5,6 +5,7 @@ import os
 import csv
 import sys
 
+
 def main():
     '''
         main routine
@@ -29,7 +30,10 @@ def main():
         extension = details[-1]
         print(f" name: {name} extension: {extension} file: {file}")
 
-    with open("y:/Resources/development/example.csv", 'w', encoding='utf-8-sig', newline='') as csv_file:
+    with open("Z:/Resources/development/example.csv",
+              'w',
+              encoding='utf-8-sig',
+              newline='') as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(["name", "extension", "file"])
         for file in filelist:
@@ -38,6 +42,7 @@ def main():
             extension = details[-1]
             data = [name, extension, file.strip()]
             writer.writerow(data)
+
 
 if __name__ == '__main__':
     main()

@@ -12,8 +12,10 @@ import operator
 import math
 import random
 
+
 class InvalidHex(ValueError):
     '''Raised when an invalid hex is created.'''
+
 
 class Hex(namedtuple("Hex", "x y")):
     "A single hexagon in a hexagonal grid."""
@@ -70,26 +72,33 @@ class Hex(namedtuple("Hex", "x y")):
         return dy + max(0, (dx - dy)//2)
 
     def rotate_left(self):
-        """Given a hex return the hex when rotated 60° counter-clock-wise around the origin.
+        """
+        Given a hex return the hex when rotated 60°
+        counter-clock-wise around the origin.
         """
         x, y = self
         return Hex((x - 3 * y) >> 1, (x + y) >> 1)
 
     def rotate_right(self):
-        """Given a hex return the hex when rotated 60° clock-wise around the origin.
+        """
+        Given a hex return the hex when rotated 60°
+        clock-wise around the origin.
         """
         x, y = self
         return Hex((x + 3 * y) >> 1, (y - x) >> 1)
 
     def field_of_view(self, transparent, max_distance, visible=None):
         """Calculate field-of-view.
-        transparent  -- from a Hex to a boolean, indicating of the Hex is transparent
+        transparent  -- from a Hex to a boolean, indicating of the Hex is
+                        transparent
         max_distance -- maximum distance you can view
-        visible      -- if provided, should be a dict which will be filled and returned
+        visible      -- if provided, should be a dict which will be filled
+                        and returned
 
         Returns a dict which has as its keys the hexagons which are visible.
-        The value is a bitmask which indicates which sides of the hexagon are visible.
-        The bitmask is useful if you want to use this function also to compute light sources.
+        The value is a bitmask which indicates which sides of the hexagon are
+        visible. The bitmask is useful if you want to use this function also
+        to compute light sources.
 
         view_set = player_pos.field_of_view(...)
         light_set = light_source.field_of_view(...)
@@ -102,15 +111,22 @@ class Hex(namedtuple("Hex", "x y")):
             visible = {}
         visible[self] = ALL_DIRECTIONS
         for direction in range(6):
-            _fovtree._field_of_view(self, direction, transparent, max_distance, visible)  # pylint: disable=protected-access
+            _fovtree._field_of_view(self,
+                                    direction,
+                                    transparent,
+                                    max_distance,
+                                    visible)
+        # pylint: disable=protected-access
         return visible
 
     def find_path(self, destination, passable, cost=lambda pos: 1):
         """Perform path-finding.
         self        -- Starting position for path finding.
         destination -- Destination position for path finding.
-        passable    -- Function of one position, returning True if we can move through this hex.
-        cost        -- cost function for moving through a hex. Should return a value ≥ 1. By default all costs are 1.
+        passable    -- Function of one position, returning
+                       True if we can move through this hex.
+        cost        -- cost function for moving through a hex.
+                       Should return a value ≥ 1. By default all costs are 1.
         """
         pathfinder = HexPathFinder(self, destination, passable, cost)
         pathfinder.run()
@@ -128,6 +144,7 @@ Hex.rotations = (
         lambda x: -x.rotate_left(),
         operator.methodcaller("rotate_right")
         )
+
 
 class _FovTree:
     _corners = ((0, -2), (1, -1), (1, 1), (0, 2))
@@ -148,14 +165,24 @@ class _FovTree:
         x, y = self.hexagon
         return (3*y + cy)/float(x + cx)
 
-    def _field_of_view(self, offset, direction, transparent, max_distance, visible):
+    def _field_of_view(self,
+                       offset,
+                       direction,
+                       transparent,
+                       max_distance,
+                       visible):
         if self.distance > max_distance:
             return
         hexagon = offset + self.hexagons[direction]
         if transparent(hexagon):
             visible[hexagon] = ALL_DIRECTIONS
             for succ in self.successors():
-                succ._field_of_view(offset, direction, transparent, max_distance, visible)  # pylint: disable=protected-access
+                succ._field_of_view(offset,
+                                    direction,
+                                    transparent,
+                                    max_distance,
+                                    visible)
+                # pylint: disable=protected-access
         else:
             directions = 1 << ((self.direction + direction) % 6)
             visible[hexagon] = directions | visible.get(hexagon, 0)
@@ -172,12 +199,17 @@ class _FovTree:
                 c2 = min(self.angle2, angles[i+1])
                 if c1 < c2:
                     nb = self._neighbours[i]
-                    _cached_successors.append(_FovTree(hexagon + nb, (i-1) % 6, c1, c2))
+                    _cached_successors.append(_FovTree(hexagon + nb,
+                                                       (i-1) % 6,
+                                                       c1,
+                                                       c2))
             self._cached_successors = _cached_successors
 
         return _cached_successors
 
+
 _fovtree = _FovTree(Hex(2, 0), 0, -1.0, 1.0)
+
 
 class Rectangle(namedtuple("Rectangle", "x y width height")):
     """Represents a rectangle.
@@ -186,27 +218,39 @@ class Rectangle(namedtuple("Rectangle", "x y width height")):
     height -- height of rectangle
     """
 
+
 def _tiled_range(lo, hi, tile_size):
     return range(lo // tile_size, (hi + tile_size - 1) // tile_size)
 
+
 def _make_range(x, width, bloat, grid_size):
-    return _tiled_range(x + grid_size - 1 - bloat, x + width + bloat, grid_size)
+    return _tiled_range(x + grid_size - 1 - bloat,
+                        x + width + bloat,
+                        grid_size)
+
 
 class HexGrid(namedtuple("HexGrid", "width height")):
     # pylint: disable=W1401
     """Represents the dimensions of a hex grid as painted on the screen.
     The hex grid is assumed to be aligned horizontally.
     The center of hex (0, 0) is assumed to be on pixel (0, 0).
-    The hexgrid is determined by width and height, which are the screen coordinates
+    The hexgrid is determined by width and height,
+    which are the screen coordinates
     of the upper-right corner of the central hex.
 
-    To have equilateral hexes, width:height should be approximately √3 : 1.
-    If you only pass in width to the constructor, the height is computed to be
+    To have equilateral hexes, width:height should be
+    approximately √3 : 1. If you only pass in width to the
+    constructor, the height is computed to be
     an integer as close as possible to width / √3 .
     """
 
     _hex_factor = math.sqrt(1.0/3.0)
-    _corners = ((1, 1), (0, 2), (-1, 1), (-1, -1), (0, -2), (1, -1))
+    _corners = ((1, 1),
+                (0, 2),
+                (-1, 1),
+                (-1, -1),
+                (0, -2),
+                (1, -1))
 
     def __new__(cls, width, height=None):
         if height is None:
@@ -218,7 +262,9 @@ class HexGrid(namedtuple("HexGrid", "width height")):
         width, height = self
         x0, y0 = chex
         y0 *= 3
-        return [(width * (x + x0), height * (y + y0)) for x, y in self._corners]
+        return [(width * (x + x0),
+                 height * (y + y0)) for x,
+                y in self._corners]
 
     def center(self, chex):
         """Get the center (as (x, y) tuple) of a hexagon."""
@@ -254,7 +300,8 @@ class HexGrid(namedtuple("HexGrid", "width height")):
         width, height = self
         x_range = _make_range(rx, r_width, width, width)
         y_range = _make_range(ry, r_height, 2*height, 3*height)
-        return (Hex(x, y) for y in y_range for x in x_range if (x + y) % 2 == 0)
+        return (Hex(x, y) for y in y_range for x in x_range if (x + y) % 2 == 0)  # noqa: E501
+
 
 class HexPathFinder:
     """A* path-finding on the hex grid.
@@ -262,8 +309,10 @@ class HexPathFinder:
 
     Important data attributes:
     found -- True if path-finding is complete and we found a path
-    done  -- True if path-finding is complete: we either found a path or know there isn't one
-    path  -- The path, as a tuple of positions from start to destination (including both). Empty tuple if found is False.
+    done  -- True if path-finding is complete:
+             we either found a path or know there isn't one
+    path  -- The path, as a tuple of positions from start to
+             destination (including both). Empty tuple if found is False.
     """
 
     found = False
@@ -274,8 +323,10 @@ class HexPathFinder:
         """Create a new HexPathFinder object.
         start       -- Starting position for path finding.
         destination -- Destination position for path finding.
-        passable    -- Function of one position, returning True if we can move through this hex.
-        cost        -- cost function for moving through a hex. Should return a value ≥ 1. By default all costs are 1.
+        passable    -- Function of one position, returning True
+                       if we can move through this hex.
+        cost        -- cost function for moving through a hex.
+                       Should return a value ≥ 1. By default all costs are 1.
         """
         self.start = start
         self.destination = destination
@@ -329,7 +380,9 @@ class HexPathFinder:
                 heappush(openset, (new_h, new_cost, new_pos, new_path))
 
     def run(self):
-        """Run path-finding until done, that is, we either found a path or know there isn't one.
+        """
+        Run path-finding until done,
+        that is, we either found a path or know there isn't one.
         """
         while not self.done:
             self.run_n(100)

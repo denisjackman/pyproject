@@ -11,17 +11,19 @@ import os
 g = os.getlogin()
 # gets the name of the computer
 
+
 def adduser():
     '''
         function definition for adding users to the list
     '''
     while True:
         print(a)
-        k=input('enter the name of the user(leave blank if none):')
-        if k=='':
+        k = input('enter the name of the user(leave blank if none):')
+        if k == '':
             break
         a.append(k)
-        with open('Z:/Resources/development/name/random_members.data', 'wb') as f:
+        with open('Z:/Resources/development/name/random_members.data',
+                  'wb') as f:
             pickle.dump(a, f)
 
 
@@ -32,14 +34,17 @@ def deluser():
     while True:
         print(a)
         k = input('enter the name of the user(leave blank if none):')
-        if k=='':
+        if k == '':
             break
-        for l in range(0,len(a)):
-            if k==a[l-1]:
-                del a[l-1]
-                with open('Z:/Resources/development/name/random_members.data', 'wb') as fdump:
+        for item in range(0, len(a)):
+            if k == a[item - 1]:
+                del a[item - 1]
+                with open('Z:/Resources/development/name/random_members.data',
+                          'wb') as fdump:
                     pickle.dump(a, fdump)
-if os.path.isfile('Z:/Resources/development/name/random_members.data') is not True:
+
+
+if os.path.isfile('Z:/Resources/development/name/random_members.data') is not True:  # noqa: E501
     # checking if the data file is already present in the computer,
     # will make one if it is being run for the first time
     a = ['warun',
@@ -56,15 +61,18 @@ if os.path.isfile('Z:/Resources/development/name/random_members.data') is not Tr
         # dumps the default list
 else:
     # this block grabs the list from the data file
-    with open('Z:/Resources/development/name/random_members.data', 'rb') as fload:
+    with open('Z:/Resources/development/name/random_members.data',
+              'rb') as fload:
         a = pickle.load(fload)
 
-y = input('would you like to add more users to the list y/n or press d to delete users:')
+y = input('would you like to add more users to the list y/n or press'
+          ' d to delete users:')
 if y == 'y':
     # block for adding users
     adduser()
     print(a)
-    t = input('do you want to delete some users(y/n):')#provides one chance to remove some users
+    t = input('do you want to delete some users(y/n):')
+    # provides one chance to remove some users
     if t == 'y':
         deluser()
         # function call to delete users
@@ -77,7 +85,8 @@ elif y == 'n':
 elif y == 'd':
     deluser()
     print(a)
-    t = input('do you want to add new users(y/n):')#provides one chance to add some users
+    t = input('do you want to add new users(y/n):')
+    # provides one chance to add some users
     if t == 'y':
         adduser()
         # function call to add users
@@ -85,5 +94,6 @@ elif y == 'd':
     else:
         print(f'and the random member is {random.choice(a)}')
 else:
-    # this block is used if the input taken is unrecognisable however, I need to figure out a way to get it back to the beginning
+    # this block is used if the input taken is unrecognisable
+    # however, I need to figure out a way to get it back to the beginning
     print('unrecognisable command')

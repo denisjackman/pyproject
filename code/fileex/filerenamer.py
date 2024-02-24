@@ -9,13 +9,13 @@ import getopt
 import magic
 
 
-ext = {   "Apple QuickTi":"mov",
-          "ISO Media, MP":"mp4",
-          "Longer, Uncut":"avi",
-          "Matroska data":"mkv",
-          "MPEG sequence":"mpeg",
-          "Ogg data, OGM":"ogg",
-          "RIFF (little-":"avi"}
+ext = {"Apple QuickTi": "mov",
+       "ISO Media, MP": "mp4",
+       "Longer, Uncut": "avi",
+       "Matroska data": "mkv",
+       "MPEG sequence": "mpeg",
+       "Ogg data, OGM": "ogg",
+       "RIFF (little-": "avi"}
 
 SERIES = ''
 SEASON = ''

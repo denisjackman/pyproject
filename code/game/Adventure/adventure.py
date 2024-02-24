@@ -20,15 +20,15 @@ import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../../..'))
 # Adventure game classes and imports
-from jackmanimation.advclasses.equipment import Clothes
-from jackmanimation.advclasses.race import Human
-from jackmanimation.advclasses.weapons import Broadsword, CommonSpear, Crossbow, Dirk
-from jackmanimation.advclasses.creature import Bat, Bee, GiantAnt, Rat, Scorpion
-from jackmanimation.advclasses.playerclass import Mage, Warrior
-from jackmanimation.advclasses.player import GamePlayer as Player
-from jackmanimation.advclasses.magicspells import Bubble, Hail
+from jackmanimation.advclasses.equipment import Clothes  # noqa: E402
+from jackmanimation.advclasses.race import Human  # noqa: E402
+from jackmanimation.advclasses.weapons import Broadsword, CommonSpear, Crossbow, Dirk  # noqa: E402, E501
+from jackmanimation.advclasses.creature import Bat, Bee, GiantAnt, Rat, Scorpion  # noqa: E402, E501
+from jackmanimation.advclasses.playerclass import Mage, Warrior  # noqa: E402
+from jackmanimation.advclasses.player import GamePlayer as Player  # noqa: E402
+from jackmanimation.advclasses.magicspells import Bubble, Hail  # noqa: E402
 # custom number generator
-from jackmanimation.DndProject.dnddice import number_generator
+from jackmanimation.DndProject.dnddice import number_generator  # noqa: E402
 
 # variable defaults
 PLAYER_STATS = ''
@@ -53,6 +53,7 @@ world_map = [
     [None, None, None, None, None, None, None, None, None, None]
             ]
 
+
 def main():
     '''
         Main Function
@@ -67,6 +68,7 @@ def main():
     # exit the game
     game_end(player_name)
     print('[ ] END')
+
 
 def check_tile(x_coord, y_coord):
     '''
@@ -85,6 +87,7 @@ def game_start():
         game start function
     '''
     print('[ ] GAME START')
+
 
 def game_intro(input_name):
     '''
@@ -106,8 +109,6 @@ def game_intro(input_name):
     race_list.append(race)
 
 
-
-
 def game_end(input_name):
     '''
         game end function
@@ -127,6 +128,7 @@ def generate_player(input_name):
     # TODO: choose the class and race
     # TODO: Display the Player data to the player
 
+
 def game_main():
     '''
         main game function
@@ -140,9 +142,12 @@ def game_main():
     for item in spell_list:
         roll = number_generator()
         if roll > item.castscore:
-            print(f"[-] I cannot cast a {item.name} spell ({roll}) vs ({item.castscore})")
+            print(f"[-] I cannot cast a {item.name} "
+                  f"spell ({roll}) vs ({item.castscore})")
         else:
-            print(
-                f"[-] I can cast a {item.name} spell ({roll}) vs ({item.castscore})")
+            print(f"[-] I can cast a {item.name} spell "
+                  f"({roll}) vs ({item.castscore})")
+
+
 if __name__ == '__main__':
     main()

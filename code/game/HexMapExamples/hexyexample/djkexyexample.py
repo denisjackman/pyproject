@@ -18,7 +18,8 @@ COLORS = np.array([
 
 
 class Selection:
-    '''A class for storing the type of selection and the hexes that are selected.'''
+    '''A class for storing the type of selection
+    and the hexes that are selected.'''
     class Type:
         '''An enum for the different types of selections.'''
         POINT = 0
@@ -65,9 +66,11 @@ class Selection:
         '''Returns the name of the class.'''
         return "Selection"
 
+
 class ClampedInteger:
     """
-    A simple class for "clamping" an integer value between a range. Its value will not increase beyond `upper_limit`
+    A simple class for "clamping" an integer value
+    between a range. Its value will not increase beyond `upper_limit`
     and will not decrease below `lower_limit`.
     """
     def __init__(self, initial_value, lower_limit, upper_limit):
@@ -86,8 +89,10 @@ class ClampedInteger:
 
 class CyclicInteger:
     """
-    A simple helper class for "cycling" an integer through a range of values. Its value will be set to `lower_limit`
-    if it increases above `upper_limit`. Its value will be set to `upper_limit` if its value decreases below
+    A simple helper class for "cycling" an integer through a range of values.
+    Its value will be set to `lower_limit`
+    if it increases above `upper_limit`. Its value will be set to
+    `upper_limit` if its value decreases below
     `lower_limit`.
     """
     def __init__(self, initial_value, lower_limit, upper_limit):
@@ -108,10 +113,12 @@ class CyclicInteger:
         return self
 
 
-
 class ExampleHexMap:
     '''A class for creating a hex map.'''
-    def __init__(self, size=(1000, 1000), hex_radius=22, caption="ExampleHexMap"):
+    def __init__(self,
+                 size=(1000, 1000),
+                 hex_radius=22,
+                 caption="ExampleHexMap"):
         self.caption = caption
         self.size = np.array(size)
         self.width, self.height = self.size
@@ -136,11 +143,12 @@ class ExampleHexMap:
         # Get all possible coordinates within `self.max_coord` as radius.
         all_coordinates = hx.get_disk(np.array((0, 0, 0)), self.max_coord)
 
-        # Convert `all_coordinates` to axial coordinates, create hexes and randomly filter out some hexes.
+        # Convert `all_coordinates` to axial coordinates,
+        # create hexes and randomly filter out some hexes.
         hexes = []
         num_shown_hexes = np.random.binomial(len(all_coordinates), .95)
         axial_coordinates = hx.cube_to_axial(all_coordinates)
-        axial_coordinates = axial_coordinates[np.random.choice(len(axial_coordinates), num_shown_hexes, replace=False)]
+        axial_coordinates = axial_coordinates[np.random.choice(len(axial_coordinates), num_shown_hexes, replace=False)]  # noqa: E501
 
         for i, axial in enumerate(axial_coordinates):
             hex_color = list(COLORS[COL_IDX[i]])
@@ -209,10 +217,10 @@ class ExampleHexMap:
         # pylint: disable=too-many-locals
         # show all hexes
         hexagons = list(self.hex_map.values())
-        hex_positions = np.array([hexagon.get_draw_position() for hexagon in hexagons])
+        hex_positions = np.array([hexagon.get_draw_position() for hexagon in hexagons])  # noqa: E501
         sorted_indexes = np.argsort(hex_positions[:, 1])
         for index in sorted_indexes:
-            self.main_surf.blit(hexagons[index].image, hex_positions[index] + self.center)
+            self.main_surf.blit(hexagons[index].image, hex_positions[index] + self.center)  # noqa: E501
 
         # draw numbers on the hexes
         for hexagon in list(self.hex_map.values()):
@@ -224,12 +232,17 @@ class ExampleHexMap:
 
         mouse_pos = np.array([pg.mouse.get_pos()]) - self.center
 
-        # pixel_to_cube is meant to be able to convert many pixels to cube coordinates, so it's output and input
-        # `mouse_pos` are 2d arrays. We want the only want the first element here; hence the `[0]`
+        # pixel_to_cube is meant to be able to convert many pixels
+        # to cube coordinates, so it's output and input
+        # `mouse_pos` are 2d arrays. We want the only want the
+        # first element here; hence the `[0]`
         cube_mouse = hx.pixel_to_cube(mouse_pos, self.hex_radius)[0]
 
         # choose either ring or disk
-        rad_hex = Selection.get_selection(self.selection_type.value, cube_mouse, self.rad, self.clicked_hex)
+        rad_hex = Selection.get_selection(self.selection_type.value,
+                                          cube_mouse,
+                                          self.rad,
+                                          self.clicked_hex)
 
         rad_hex_axial = hx.cube_to_axial(rad_hex)
         hexes = self.hex_map[rad_hex_axial]
@@ -238,14 +251,15 @@ class ExampleHexMap:
 
         # draw "HUD"
         selection_type_text = self.font.render(
-                "(Right Click To Change) Selection Type: " + Selection.Type.to_string(self.selection_type.value),
+                "(Right Click To Change) Selection Type: " + Selection.Type.to_string(self.selection_type.value),  # noqa: E501
                 True,
                 (50, 50, 50))
         radius_text = self.font.render(
-                "(Scroll Mouse Wheel To Change) Radius: " + str(self.rad.value),
+                "(Scroll Mouse Wheel To Change) Radius: " + str(self.rad.value),  # noqa: E501
                 True,
                 (50, 50, 50))
-        fps_text = self.font.render(" FPS: " + str(int(self.clock.get_fps())), True, (50, 50, 50))
+        fps_text = self.font.render(" FPS: " + str(int(self.clock.get_fps())),
+                                    True, (50, 50, 50))
         self.main_surf.blit(fps_text, (5, 0))
         self.main_surf.blit(radius_text, (5, 15))
         self.main_surf.blit(selection_type_text, (5, 30))
@@ -257,7 +271,8 @@ class ExampleHexMap:
 
     def draw_hex(self, hexagon):
         '''Draw a hexagon on the screen.'''
-        self.main_surf.blit(self.selected_hex_image, hexagon.get_draw_position() + self.center)
+        self.main_surf.blit(self.selected_hex_image,
+                            hexagon.get_draw_position() + self.center)
 
     def quit_app(self):
         '''Quit the application.'''

@@ -1,4 +1,6 @@
 ''' module function '''
+
+
 def mod(x, y):
     ''' Returns the positive remainder of x divided by y '''
     # In Python, this function is identical to the remainder operator.
