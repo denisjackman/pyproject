@@ -22,11 +22,20 @@
 '''
 import pygame
 
+
 class TGameMenu:
     '''
         tgamemenu
     '''
-    def __init__(self,screen,bg_image,logo1,menuitems, start_x, start_y ,spacing = 50):
+
+    def __init__(self,
+                 screen,
+                 bg_image,
+                 logo1,
+                 menuitems,
+                 start_x,
+                 start_y,
+                 spacing=50):
         # Currently selected menuitem's index
         self.valinta = 0
         # List of menuitems
@@ -34,7 +43,7 @@ class TGameMenu:
         # Pointer to pygame screen
         self.ruutu = screen
         # Font to be used with the menu
-        self.used_font = pygame.font.Font("yanone_regular.otf",24)
+        self.used_font = pygame.font.Font("yanone_regular.otf", 24)
         # Coordinates where to render the menu
         self.start_x = start_x
         self.start_y = start_y
@@ -43,27 +52,34 @@ class TGameMenu:
         # Background picture is oddly here as well the top logo
         self.menukuva = bg_image
         self.logo = logo1
+
     def draw_items(self, teksti=None):
         '''
         # If images and/or text are supplied, draw them
         '''
         if self.menukuva:
-            self.ruutu.blit(self.menukuva,(0,0))
+            self.ruutu.blit(self.menukuva,
+                            (0, 0))
         if self.logo:
-            self.ruutu.blit(self.logo,(263,0))
+            self.ruutu.blit(self.logo,
+                            (263, 0))
         if teksti:
-            self.text_at(teksti[0],(teksti[1],teksti[2]),self.used_font,wipe_background=True,vari=(255,255,255))
+            self.text_at(teksti[0],
+                         (teksti[1], teksti[2]),
+                         self.used_font,
+                         wipe_background=True,
+                         vari=(255, 255, 255))
 
         # Iterate through menu items
-        for i,itemi in enumerate(self.menuitems):
+        for i, itemi in enumerate(self.menuitems):
 
             # Menu item color is white
-            kolori = (0,0,0)
+            kolori = (0, 0, 0)
             shadow = True
             if i == self.valinta:
                 # Selected menu item is red
                 shadow = False
-                kolori = (255,0,0)
+                kolori = (255, 0, 0)
 
             # Text to be rendered
             teksti = itemi[0]
@@ -79,40 +95,57 @@ class TGameMenu:
                         teksti = f"{teksti} (off)"
 
             # Draw the menu item text
-            self.text_at(teksti,(self.start_x,self.start_y+self.spacing*i),
-            self.used_font,vari = kolori, wipe_background=False, drop_shadow = shadow)
+            self.text_at(teksti,
+                         (self.start_x,
+                          self.start_y + self.spacing * i),
+                         self.used_font,
+                         vari=kolori,
+                         wipe_background=False,
+                         drop_shadow=shadow)
 
         # Caption Text
         if self.menuitems[self.valinta][3]:
             # It has caption text, draw it
-            self.text_at(self.menuitems[self.valinta][3],(400,75),self.used_font)
+            self.text_at(self.menuitems[self.valinta][3],
+                         (400, 75),
+                         self.used_font)
 
         # Some info :)
-        self.text_at("Contact:", (400,520), self.used_font, vari = (50,185,10), wipe_background = False)
-        self.text_at("Conquer Dev Team http://pyconquer.googlecode.com/",(400,545)
-        ,self.used_font,vari=(50,185,10),wipe_background=False)
-    def rullaa(self,dy):
+        self.text_at("Contact:",
+                     (400, 520),
+                     self.used_font,
+                     vari=(50, 185, 10),
+                     wipe_background=False)
+        self.text_at("Conquer Dev Team http://pyconquer.googlecode.com/",
+                     (400, 545),
+                     self.used_font,
+                     vari=(50, 185, 10),
+                     wipe_background=False)
+
+    def rullaa(self, dy):
         '''# Change the selected menu item'''
         self.valinta += dy
         if self.valinta < 0:
             self.valinta = len(self.menuitems) - 1
         if self.valinta == len(self.menuitems):
             self.valinta = 0
-    def edit_value(self,dv):
+
+    def edit_value(self, dv):
         '''# This is totally unreadable :D
         # Well it edits values in their border values'''
         if len(self.menuitems[self.valinta][2]) >= 2:
             if self.menuitems[self.valinta][2][0] == "value_int_editor":
                 self.menuitems[self.valinta][2][1] += dv
                 if len(self.menuitems[self.valinta][2]) >= 3:
-                    if self.menuitems[self.valinta][2][1] < self.menuitems[self.valinta][2][2][0]:
-                        self.menuitems[self.valinta][2][1] = self.menuitems[self.valinta][2][2][0]
-                    if self.menuitems[self.valinta][2][1] > self.menuitems[self.valinta][2][2][1]:
-                        self.menuitems[self.valinta][2][1] = self.menuitems[self.valinta][2][2][1]
+                    if self.menuitems[self.valinta][2][1] < self.menuitems[self.valinta][2][2][0]:  # noqa: E501
+                        self.menuitems[self.valinta][2][1] = self.menuitems[self.valinta][2][2][0]  # noqa: E501
+                    if self.menuitems[self.valinta][2][1] > self.menuitems[self.valinta][2][2][1]:  # noqa: E501
+                        self.menuitems[self.valinta][2][1] = self.menuitems[self.valinta][2][2][1]  # noqa: E501
             if self.menuitems[self.valinta][2][0] == "value_bool_editor":
-                self.menuitems[self.valinta][2][1] = not self.menuitems[self.valinta][2][1]
+                self.menuitems[self.valinta][2][1] = not self.menuitems[self.valinta][2][1]  # noqa: E501
     #  pylint: disable-msg=R1710
-    def get_selection(self,teksti = None):
+
+    def get_selection(self, teksti=None):
         """
         Render the menu as long as user selects a menuitem
         teksti -> optional text to be rendered
@@ -150,19 +183,39 @@ class TGameMenu:
                         self.draw_items(teksti)
             pygame.display.flip()
 
-    def text_at(self,teksti,coords,fontti,wipe_background=True,drop_shadow=True,vari=(255,255,255),flippaa=False):
+    def text_at(self,
+                teksti,
+                coords,
+                fontti,
+                wipe_background=True,
+                drop_shadow=True,
+                vari=(255, 255, 255),
+                flippaa=False):
         ''' # Render text at given coordinates '''
-        text = fontti.render(teksti,1,vari)
+        text = fontti.render(teksti, 1, vari)
         koko = fontti.size(teksti)
         if wipe_background:
-            pygame.draw.rect(self.ruutu,(0,0,0),(coords[0]-(koko[0]/2),coords[1],koko[0],koko[1]))
+            pygame.draw.rect(self.ruutu,
+                             (0, 0, 0),
+                             (coords[0] - (koko[0] / 2),
+                              coords[1],
+                              koko[0],
+                              koko[1]))
 
         # Shadow
         if drop_shadow:
-            shadow_text_ = fontti.render(teksti,1,(255 - vari[0],255 - vari[1],255 - vari[2]))
-            self.ruutu.blit(shadow_text_,(coords[0]-(koko[0]/2)+1,coords[1]+1))
+            shadow_text_ = fontti.render(teksti,
+                                         1,
+                                         (255 - vari[0],
+                                          255 - vari[1],
+                                          255 - vari[2]))
+            self.ruutu.blit(shadow_text_,
+                            (coords[0] - (koko[0] / 2) + 1,
+                             coords[1] + 1))
 
-        self.ruutu.blit(text,(coords[0]-(koko[0]/2),coords[1]))
+        self.ruutu.blit(text,
+                        (coords[0] - (koko[0] / 2),
+                         coords[1]))
         if flippaa:
             pygame.display.flip()
 
