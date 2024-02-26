@@ -11,6 +11,7 @@ __date__ = "$Date: 2019/09/20 00:00:00 $"
 __copyright__ = "Copyright (c) 2018 Denis J Jackman"
 __license__ = "Python"
 
+
 class Game():
     '''
         game object
@@ -62,7 +63,6 @@ class Game():
         '''
         self.all_sprites.update()
 
-
     def draw(self):
         '''
             render
@@ -82,6 +82,7 @@ class Game():
         '''
             go screen
         '''
+
 
 def wargame_main():
     '''
