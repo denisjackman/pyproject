@@ -4,8 +4,10 @@
 import tkinter
 import os
 
-root= tkinter.Tk()
+root = tkinter.Tk()
 root.geometry("300x300")
+
+
 def shut():
     '''
     This function is used to shutdown the system
@@ -13,5 +15,5 @@ def shut():
     os.system("shutdown /s /t 1")
 
 
-TTK = tkinter.Button(root,text="SHUT DOWN",command=shut).pack() #  pylint: disable=E1111
+TTK = tkinter.Button(root, text="SHUT DOWN", command=shut).pack()  # pylint: disable=E1111  # noqa: E501
 root.mainloop()

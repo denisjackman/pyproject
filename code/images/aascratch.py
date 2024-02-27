@@ -4,6 +4,7 @@
 from PIL import Image
 from PIL.ExifTags import TAGS, GPSTAGS
 
+
 def get_exif(item):
     """
     Returns a dictionary from the exif data of an PIL Image item.

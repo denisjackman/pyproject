@@ -19,16 +19,17 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
+
 class Player(pygame.sprite.Sprite):
     '''
         player class
     '''
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((50,50))
+        self.image = pygame.Surface((50, 50))
         self.image.fill(GREEN)
         self.rect = self.image.get_rect()
-        self.rect.center = (WIDTH/2, HEIGHT/2)
+        self.rect.center = (WIDTH / 2, HEIGHT / 2)
 
     def update(self):
         '''
@@ -70,7 +71,6 @@ def main():
                 main_running = False
         # update
         all_sprites.update()
-
 
         # render
         screen.fill(BLACK)

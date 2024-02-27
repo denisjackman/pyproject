@@ -8,8 +8,9 @@ from colorama import Fore
 TARGET_DIRECTORY = r"Z:/Store/Zips"
 NEW_DIRECTORY = r"Z:/Store/Zip"
 TARGET_CHECK = '.zip'
-PDF_FILENAME =  r"y:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"
-WORKBOOK_FILE = r'y:/Resources/zip.xlsx'
+PDF_FILENAME = r"Z:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"  # noqa: E501
+WORKBOOK_FILE = r'Z:/Resources/zip.xlsx'
+
 
 def pdf_reader(pdffile_path):
     ''' This is the PDF reader function'''
@@ -20,14 +21,16 @@ def pdf_reader(pdffile_path):
         print("-------------------------------")
     print(f"Number of pages: {len(reader.pages)}")
 
+
 def excel_store(data_list):
     ''' This is the main function '''
     title = TARGET_CHECK.upper().replace('.', '')
     current_workbook = Workbook()
     current_worksheet = current_workbook.create_sheet(title)
-    for item in data_list: # pylint: disable=not-an-iterable
+    for item in data_list:  # pylint: disable=not-an-iterable
         current_worksheet.append([item])
     current_workbook.save(WORKBOOK_FILE)
+
 
 def extract_pdf_information(pdf_path):
     ''' This extracts the information from a pdf file. '''
@@ -39,6 +42,7 @@ def extract_pdf_information(pdf_path):
     else:
         result = f"{information.title}"
     return result
+
 
 def walk_through(start_dir):
     """
@@ -67,6 +71,7 @@ def walk_through(start_dir):
             result.append(fullpath)
     return result
 
+
 def check_file(filename, checkitem):
     ''' This checks the file name and returns true or false '''
     result = False
@@ -76,15 +81,17 @@ def check_file(filename, checkitem):
         result = True
     return result
 
+
 def rename_file(filename, newname, count):
     ''' This renames the file '''
-    head,tail = os.path.split(filename)
+    head, tail = os.path.split(filename)
     _, ext = os.path.splitext(tail)
     if count == 0:
         newfilename = os.path.join(head, f"{newname}{ext}")
     else:
         newfilename = os.path.join(head, f"{newname}-{count:04}{ext}")
     os.rename(filename, newfilename)
+
 
 def check_file_extension(filename, ext):
     ''' This checks the file extension and returns true or false '''
@@ -94,11 +101,13 @@ def check_file_extension(filename, ext):
         result = True
     return result
 
+
 def move_file(filename, newdir):
     ''' This moves the file '''
-    head,tail = os.path.split(filename)
+    head, tail = os.path.split(filename)
     newfilename = os.path.join(newdir, tail)
     os.rename(filename, newfilename)
+
 
 def main():
     ''' This is the main function. '''
@@ -109,12 +118,13 @@ def main():
         if check_file(item, check):
             try:
                 with zipfile.ZipFile(item, 'r') as archive:
-                    print(Fore.YELLOW + f"Processing {item} - {len(archive.namelist())}")
+                    print(Fore.YELLOW + f"Processing {item} - {len(archive.namelist())}")  # noqa: E501
             except zipfile.BadZipFile as error:
                 print(Fore.RED + f"Bad zip file {item} - {error}")
     excel_store(allfiles)
     print(f"Total files: {len(allfiles)}")
     print("Done")
+
 
 if __name__ == "__main__":
     main()

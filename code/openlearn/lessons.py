@@ -1,4 +1,6 @@
 ''' openlearn.lessons.py'''
+
+
 def main():
     ''' main function'''
     expenses = 54
@@ -9,7 +11,8 @@ def main():
         percentage = 0
     tip = expenses * percentage
     bill = expenses + tip
-    print (f"Total bill: {bill}")
+    print(f"Total bill: {bill}")
+
 
 if __name__ == '__main__':
     main()

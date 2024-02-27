@@ -5,6 +5,7 @@ import tkinter
 from datetime import date
 RESULT = ""
 
+
 def calculator():
     '''
         calculator
@@ -16,10 +17,10 @@ def calculator():
     date1 = int(dob_data[0])
     month = int(dob_data[1])
     year = int(dob_data[2])
-    dob = date(year,month,date1)
+    dob = date(year, month, date1)
     numberOfDays = (today - dob).days
     age = numberOfDays // 365
-    label=tkinter.Label(root, text="Your age is " +str(age))
+    label = tkinter.Label(root, text="Your age is " + str(age))
     label.pack()
 
 

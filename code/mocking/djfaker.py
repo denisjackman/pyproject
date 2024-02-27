@@ -13,8 +13,6 @@ print(f"country: {fake.country()}")
 print(f"email: {fake.email()}")
 
 localelist = list(AVAILABLE_LOCALES)
-#print(f"localelist: {localelist}")
-#print(f"{dir(fake)}")
 
 print(f"text: {fake.text()}")
 print(f"paragraph: {fake.paragraph()}")

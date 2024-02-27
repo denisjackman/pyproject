@@ -5,14 +5,15 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.genfunctions.searchutils import bubble_sort
+from jackmanimation.genfunctions.searchutils import bubble_sort  # noqa: E402
+
 
 def main():
     '''
         main routine
     '''
     print("Starting now : ")
-    arr = ['t','u','t','o','r','i','a','l']
+    arr = ['t', 'u', 't', 'o', 'r', 'i', 'a', 'l']
     print(f"array is : {str(arr)}")
     print(f"after array is {str(bubble_sort(arr))}")
     print("Ending now")

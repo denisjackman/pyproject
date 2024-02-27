@@ -136,10 +136,10 @@ def init():
     game_deck = Deck()
     game_deck.shuffle()
 
-    foundation_hearts = Hand()
-    foundation_spades = Hand()
-    foundation_clubs = Hand()
-    foundation_diamonds = Hand()
+    # foundation_hearts = Hand()
+    # foundation_spades = Hand()
+    # foundation_clubs = Hand()
+    # foundation_diamonds = Hand()
 
     base1 = Hand()
     base2 = Hand()
@@ -172,7 +172,6 @@ def init():
             pile.add_card(game_deck.deal_card())
         card += 1
 
-
         print("Base 1: " + str(len(base1))+" : " + str(base1))
         print("Base 2: " + str(len(base2))+" : " + str(base2))
         print("Base 3: " + str(len(base3))+" : " + str(base3))
@@ -182,6 +181,7 @@ def init():
         print("Base 7: " + str(len(base7))+" : " + str(base7))
         print("Pile  : " + str(len(pile))+" : " + str(pile))
         print("Waste : " + str(len(waste))+" : " + str(waste))
+
 
 # Main loop for the game
 if __name__ == '__main__':

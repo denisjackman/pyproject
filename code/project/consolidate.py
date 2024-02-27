@@ -5,9 +5,10 @@ import pandas as pd
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import walk_through
+from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
 
 CONSOLIDATE_DIR = 'Z:/Store/target/'
+
 
 def main():
     '''Main function'''
@@ -15,13 +16,14 @@ def main():
     consolidate_files()
     print('[+] Main Function Finished.')
 
+
 def consolidate_files():
     '''Consolidate files function'''
     print('[-] Consolidate Files Function Starting...')
     cf_mainargs = {"verbosemode": False,
                    "deletemode": False,
                    "startdirectory": CONSOLIDATE_DIR,
-                   "targetdirectory": CONSOLIDATE_DIR,}
+                   "targetdirectory": CONSOLIDATE_DIR}
     cf_filelist = walk_through(cf_mainargs)
     cf_full = []
     cf_csv = []
@@ -43,14 +45,16 @@ def consolidate_files():
     cf_write_to_csv(cf_full, f'{CONSOLIDATE_DIR}fullist_full.csv')
     print('[-] Consolidate Files Function Finished.')
 
-def cf_write_to_csv(cf_writelist,cf_writefile):
+
+def cf_write_to_csv(cf_writelist, cf_writefile):
     '''Write to csv function'''
     print('[-] Write to CSV Function Starting...')
     df = pd.concat(
         [pd.read_csv(f) for f in cf_writelist],
         ignore_index=True)
-    df.to_csv(cf_writefile, encoding='utf-8',index=False)
+    df.to_csv(cf_writefile, encoding='utf-8', index=False)
     print('[-] Write to CSV Function Finished.')
+
 
 if __name__ == '__main__':
     main()

@@ -5,7 +5,6 @@ import random
 import time
 
 
-
 def displayIntro():
     '''
         introduction function
@@ -15,6 +14,7 @@ def displayIntro():
     print('and will share his treasure with you. The other dragon')
     print('is greedy and hungry, and will eat you on sight.')
     print()
+
 
 def chooseCave():
     '''
@@ -26,6 +26,7 @@ def chooseCave():
         cave = input()
 
     return cave
+
 
 def checkCave(chosenCave):
     '''
@@ -46,6 +47,7 @@ def checkCave(chosenCave):
     else:
         print('Gobbles you down in one bite!')
 
+
 def main():
     ''' main function '''
     PLAYAGAIN = 'yes'
@@ -59,6 +61,7 @@ def main():
 
         print('Do you want to play again? (yes or no)')
         PLAYAGAIN = input()
+
 
 if __name__ == '__main__':
     main()

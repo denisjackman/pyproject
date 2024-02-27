@@ -1,7 +1,6 @@
 '''
     https://levelup.gitconnected.com/10-interesting-python-tkinter-programs-with-code-df52174993e1
 '''
-#from tkinter import *
 import tkinter
 import random
 import string
@@ -11,20 +10,24 @@ def gen():
     '''
     Generate a random string of length n
     '''
-    password= []
+    password = []
     for i in range(4):
-        lower=random.choice(string.ascii_lowercase)
-        upper=random.choice(string.ascii_uppercase)
+        lower = random.choice(string.ascii_lowercase)
+        upper = random.choice(string.ascii_uppercase)
         password.append(lower)
         password.append(upper)
-        passs=" ".join(str(x)for x in password)
+        passs = " ".join(str(x)for x in password)
         label.config(text=passs)
     return passs
 
-root =tkinter.Tk()
-label = tkinter.Label(root, font = ('arial', 40, 'bold'))
+
+root = tkinter.Tk()
+label = tkinter.Label(root, font=('arial', 40, 'bold'))
 label.pack()
-BUTTON1 = tkinter.Button(root, text="Generate", font = ('arial', 40, 'bold'), command=gen). place(x=100,y=200)  # pylint: disable=E1111
+BUTTON1 = tkinter.Button(root,
+                         text="Generate",
+                         font=('arial', 40, 'bold'),
+                         command=gen). place(x=100, y=200)  # pylint: disable=E1111  # noqa: E501
 root.geometry("500x500")
 root.title("password ")
 root.mainloop()

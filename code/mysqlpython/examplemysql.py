@@ -12,9 +12,9 @@ import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck
-from jackmanimation.dbfunctions.mysqlfunctions import open_mysql
-from jackmanimation.dbfunctions.mysqlfunctions import mysqlquery
+from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.dbfunctions.mysqlfunctions import open_mysql  # noqa: E402
+from jackmanimation.dbfunctions.mysqlfunctions import mysqlquery  # noqa: E402
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 0.01 $"
@@ -22,9 +22,10 @@ __date__ = "$Date: 2022/07/31 19:19:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
 
+
 def sqlmain():
     """ This is the main routine for the program """
-    dbredid = credscheck('y:/pyproject/secrets/secrets.json')
+    dbredid = credscheck('Z:/pyproject/secrets/secrets.json')
     mysqlusername = dbredid["BotUsername"]
     mysqlpassword = dbredid["BotPassword"]
     mysqlhostname = dbredid["hostname2"]
@@ -38,12 +39,12 @@ def sqlmain():
     databasecount = 0
     tablecount = 0
 
-    for (fruit_id, fruit_name,fruit_variety) in examplecursor:
+    for (fruit_id, fruit_name, fruit_variety) in examplecursor:
         counter += 1
         print(f"{fruit_id}, {fruit_name} is {fruit_variety}")
 
     mycursor = mysqlquery(use_db, "SHOW DATABASES")
-    print ('[-] Looking at databases')
+    print('[-] Looking at databases')
     for itemdatabase in mycursor:
         print(itemdatabase)
         databasecount += 1
@@ -58,6 +59,7 @@ def sqlmain():
     print(f'[-] I counted {databasecount} databases')
     print(f'[-] I counted {tablecount} tables ')
     return None
+
 
 if __name__ == '__main__':
     print("[+] Starting the sequence.")

@@ -1,4 +1,6 @@
-''' This is the tile class. It is used to create the tiles that make up the map. '''
+''' This is the tile class.
+    It is used to create the tiles that make up the map. '''
+
 
 class Tile:
     ''' Tile class'''

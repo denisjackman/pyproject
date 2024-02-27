@@ -9,7 +9,8 @@
             Set the WIDTH and HEIGHT to the size of your map.
             Set the MAP to the path of your map.
             Run the program and click on the map to create a path.
-            exit the program and a file will be created in the data folder with the path data.
+            exit the program and a file will be created
+            in the data folder with the path data.
             The path data is a list of tuples.
             the path data is stored in a json file.
             the path data is stored in a dictionary with the key "npc_path"
@@ -23,33 +24,33 @@ import pygame
 
 WIDTH = 1350
 HEIGHT = 700
-MAP = "Z:/tower-defense/tim-tower/game_assets/td-tilesets1-2/tower-defense-game-tilesets/PNG/game_background_2/game_background_2.png"
+MAP = "Z:/tower-defense/tim-tower/game_assets/td-tilesets1-2/tower-defense-game-tilesets/PNG/game_background_2/game_background_2.png"  # noqa: E501
 
 PROGRAM_NAME = sys.argv[0][2:].replace(".py", "")
-STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -m MAPNAME -mw MAPWIDTH -mh MAPHEIGHT '
-LONG_STANDARD_COMMANDS = f'{PROGRAM_NAME} --verbose <True/False> --debug <True/False> --map MAPNAME --mapwidth MAPWIDTH --mapheight MAPHEIGHT '
+STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -m MAPNAME -mw MAPWIDTH -mh MAPHEIGHT '  # noqa: E501
+LONG_STANDARD_COMMANDS = f'{PROGRAM_NAME} --verbose <True/False> --debug <True/False> --map MAPNAME --mapwidth MAPWIDTH --mapheight MAPHEIGHT '  # noqa: E501
 COMMANDS = "hvdm:mw:mh:"
-LONG_COMMANDS = ["help", "verbose", "debug", "map=", "mapwidth=", "mapheight="]
+LONG_COMMANDS = ["help", "verbose", "debug", "map=", "mapwidth=", "mapheight="]  # noqa: E501
 FILEPATH = Path(__file__).parent
 
-ICON_FILE = 'y:/Resources/jackmanimation.png'
+ICON_FILE = 'Z:/Resources/jackmanimation.png'
 GAMEDATA = "Z:/Resources/devlopement/work/data/Gamedata.json"
 CAPTION = f"Jackmanimation [{PROGRAM_NAME}]"
+
 
 def getargs():
     '''
         get the arguments from the command line
     '''
     argv = sys.argv[1:]
-    #runname = sys.argv[0][2:].replace(".py", "")
     verbosemode = False
     debugmode = False
-    mymap=MAP
-    mymapwidth=WIDTH
-    mymapheight=HEIGHT
+    mymap = MAP
+    mymapwidth = WIDTH
+    mymapheight = HEIGHT
 
     try:
-        command_line_optionss, args = getopt.getopt(argv, COMMANDS, LONG_COMMANDS)
+        command_line_optionss, args = getopt.getopt(argv, COMMANDS, LONG_COMMANDS)  # noqa: E501
     except getopt.GetoptError:
         print(f'The commands are : {STANDARD_COMMANDS}')
         sys.exit(2)
@@ -72,17 +73,18 @@ def getargs():
             "debugmode": debugmode,
             "mymap": mymap,
             "mymapwidth": int(mymapwidth),
-            "mymapheight":int(mymapheight)}
+            "mymapheight": int(mymapheight)}
+
 
 def main():
     ''' main routine '''
     pygame.init()
     mainargs = getargs()
-    window = pygame.display.set_mode((mainargs["mymapwidth"], mainargs["mymapheight"]))
+    window = pygame.display.set_mode((mainargs["mymapwidth"], mainargs["mymapheight"]))  # noqa: E501
     pygame.display.set_caption(CAPTION)
     pygame_icon = pygame.image.load(ICON_FILE)
     background = pygame.image.load(mainargs["mymap"]).convert()
-    background = pygame.transform.scale(background, (mainargs["mymapwidth"], mainargs["mymapheight"]))
+    background = pygame.transform.scale(background, (mainargs["mymapwidth"], mainargs["mymapheight"]))  # noqa: E501
     clicks = []
     pygame.display.set_icon(pygame_icon)
     done = False
@@ -98,11 +100,12 @@ def main():
             pygame.draw.circle(window, (255, 0, 0), item, 5, 0)
         pygame.display.update()
     with open(f"{FILEPATH}{GAMEDATA}", "w", encoding='utf-8-sig') as file:
-        json.dump({"npc_path": clicks,},
+        json.dump({"npc_path": clicks},
                   file,
                   indent=4,
                   ensure_ascii=False)
     print(f"{clicks}")
+
 
 if __name__ == '__main__':
     main()

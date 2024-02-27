@@ -5,15 +5,17 @@
 import tkinter as tk
 from random import randint
 
-color_changer= tk.Tk()
+color_changer = tk.Tk()
+
 
 def update():
     '''
     This function will update the color of the window every second
     '''
-    color=f"{randint(0,0xFFFFFF)}"
-    color_changer.config(background ='#fcba03' + color)
+    color = f"{randint(0, 0xFFFFFF)}"
+    color_changer.config(background='#fcba03' + color)
     color_changer.after(1000, update)
+
 
 update()
 color_changer.title('color')
