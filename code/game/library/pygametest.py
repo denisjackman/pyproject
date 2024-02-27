@@ -4,12 +4,14 @@
 '''
 # https://stackoverflow.com/questions/18067219/pygame-image-screen-fill
 import pygame
+
+
 def main():
     '''
         main function
     '''
     pygame.init()
-    img = pygame.image.load(r"y:/Resources/images/oreg.PNG")
+    img = pygame.image.load(r"Z:/Resources/images/oreg.PNG")
     white = (255, 255, 255)
     WIDTH = 843
     HEIGHT = 798
@@ -25,6 +27,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 RUNGAME = False
+
 
 if __name__ == '__main__':
     main()

@@ -9,15 +9,22 @@
 
 import pygame
 
-def recursive_draw(x, y, width, height, count, screen, color):
+
+def recursive_draw(x,
+                   y,
+                   width,
+                   height,
+                   count,
+                   screen,
+                   color):
     '''
         raw the rectangle
     '''
     # pygame.draw.rect(screen,black,[x,y,width,height],1)
     pygame.draw.line(screen,
                      color,
-                     [x + width*.25, height // 2 + y],
-                     [x + width*.75, height // 2 + y],
+                     [x + width * .25, height // 2 + y],
+                     [x + width * .75, height // 2 + y],
                      3)
     pygame.draw.line(screen,
                      color,
@@ -33,13 +40,38 @@ def recursive_draw(x, y, width, height, count, screen, color):
     if count > 0:
         count -= 1
         # Top left
-        recursive_draw(x, y, width // 2, height // 2, count, screen, color)
+        recursive_draw(x,
+                       y,
+                       width // 2,
+                       height // 2,
+                       count,
+                       screen,
+                       color)
         # Top right
-        recursive_draw(x + width // 2, y, width // 2, height // 2, count, screen, color)
+        recursive_draw(x + width // 2,
+                       y,
+                       width // 2,
+                       height // 2,
+                       count,
+                       screen,
+                       color)
         # Bottom left
-        recursive_draw(x, y + width // 2, width // 2, height // 2, count, screen, color)
+        recursive_draw(x,
+                       y + width // 2,
+                       width // 2,
+                       height // 2,
+                       count,
+                       screen,
+                       color)
         # Bottom right
-        recursive_draw(x + width // 2, y + width // 2, width // 2, height // 2, count, screen, color)
+        recursive_draw(x + width // 2,
+                       y + width // 2,
+                       width // 2,
+                       height // 2,
+                       count,
+                       screen,
+                       color)
+
 
 def main():
     ''' main function'''
@@ -47,8 +79,8 @@ def main():
     # Define some colors
     black = (0, 0, 0)
     white = (255, 255, 255)
-    green = (0, 255, 0)
-    red = (255, 0, 0)
+    # green = (0, 255, 0)
+    # red = (255, 0, 0)
     # set the height and width of the screen
     size = [700, 700]
     screen = pygame.display.set_mode(size)
@@ -76,9 +108,10 @@ def main():
         pygame.display.flip()
         # Limit to 20 frames per second
         clock.tick(20)
-    # Be IDLE friendly. If you forget this line, the program will 'hang'
-    # on exit.
+        # Be IDLE friendly. If you forget this line, the program will 'hang'
+        # on exit.
     pygame.quit()
+
 
 if __name__ == '__main__':
     main()

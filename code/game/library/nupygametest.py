@@ -4,6 +4,8 @@
 # Install libraries
 # pip install pygame
 import pygame
+
+
 def main():
     '''
         main function
@@ -25,6 +27,7 @@ def main():
 
         pygame.draw.rect(screen, color, pygame.Rect(30, 30, 60, 60))
         pygame.display.flip()
+
 
 if __name__ == '__main__':
     main()

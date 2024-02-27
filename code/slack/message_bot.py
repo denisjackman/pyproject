@@ -18,7 +18,7 @@ from slack_bolt import App
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
 
 credid = credscheck('y:/pyproject/secrets/secrets.json')
 
@@ -29,14 +29,14 @@ app = App(
 # Add functionality here
 # @app.event("app_home_opened") etc
 
+
 @app.command("/kraken")
 def hello_command(ack, body):
     """ this is a hello command function """
     user_id = body["user_id"]
     ack(f"Hi <@{user_id}>!")
 
+
 # Start your app
-
-
 if __name__ == '__main__':
     app.start(port=3000)

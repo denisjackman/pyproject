@@ -14,8 +14,8 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.DndProject.dndinsult import shakespearean_insult_generator
-from jackmanimation.DndProject.dndinsult import dwarven_insult_generator
+from jackmanimation.DndProject.dndinsult import shakespearean_insult_generator  # noqa: E402, E501
+from jackmanimation.DndProject.dndinsult import dwarven_insult_generator  # noqa: E402, E501
 
 
 def main():

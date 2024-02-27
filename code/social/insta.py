@@ -8,7 +8,7 @@ from RedDownloader import RedDownloader
 from instagrapi import Client
 
 
-CREDENTIALS = 'y:/pyproject/secrets/secrets.json'
+CREDENTIALS = 'Z:/pyproject/secrets/secrets.json'
 with open(CREDENTIALS, 'r', encoding='utf-8-sig') as f:
     creds = json.load(f)
 username = creds['user_name']
@@ -21,7 +21,7 @@ def GetMeme():
     '''
     post = RedDownloader.DownloadBySubreddit('dankmemes',
                                              1,
-                                             output='y:/Resources/meme',
+                                             output='Z:/Resources/meme',
                                              SortBy='new')
     authorname = post.GetPostAuthors()[0]
     return authorname
@@ -32,22 +32,21 @@ def GenerateCaption():
         generate insta caption
     '''
     captions = ['#pythoncoding #python #pythonprogramming #pythoncode #coding',
-				'#programming #pythonlearning #pythondeveloper',
-				'#pythonprogrammer #programmer #pythonprogramminglanguage',
-				'#coder #pythonprojects #code #developer #codinglife #java',
-				'#learnpython #datascience #machinelearning #codingbootcamp',
-				'#computerscience #pythoncoder #codingisfun #programminglife',
-				'#learncoding #programmingmemes #javascript #pythonlove',
-				'#softwaredeveloper #learnprogramming #programmers #tech',
-				'#artificialintelligence #programmerlife #learntocode',
-				'#pythonsofinstagram #coderlife',
-				'#softwareengineer #pycoders #codingmemes #technology',
-				'#programmingisfun #pythonlanguage #coderslife #developerlife',
-				'#codingfun #programmerslife #coders #programmerhumor',
-				'#javaprogramming #ai #webdevelopment #programminglanguage',
-				'#datascientist #codingforbeginners #codingproblems',
-				'#codingtime #cprogramming #codingpics'
-    ]
+                '#programming #pythonlearning #pythondeveloper',
+                '#pythonprogrammer #programmer #pythonprogramminglanguage',
+                '#coder #pythonprojects #code #developer #codinglife #java',
+                '#learnpython #datascience #machinelearning #codingbootcamp',
+                '#computerscience #pythoncoder #codingisfun #programminglife',
+                '#learncoding #programmingmemes #javascript #pythonlove',
+                '#softwaredeveloper #learnprogramming #programmers #tech',
+                '#artificialintelligence #programmerlife #learntocode',
+                '#pythonsofinstagram #coderlife',
+                '#softwareengineer #pycoders #codingmemes #technology',
+                '#programmingisfun #pythonlanguage #coderslife #developerlife',
+                '#codingfun #programmerslife #coders #programmerhumor',
+                '#javaprogramming #ai #webdevelopment #programminglanguage',
+                '#datascientist #codingforbeginners #codingproblems',
+                '#codingtime #cprogramming #codingpics']
     return random.choice(captions)
 
 
@@ -68,7 +67,7 @@ author = GetMeme()
 hashtags = GenerateCaption()
 caption = f'Credit to {author} \n {hashtags}'
 try:
-    client.photo_upload('y:/Resources/meme/meme1.jpeg', caption)
+    client.photo_upload('Z:/Resources/meme/meme1.jpeg', caption)
 except client.ClientError as err:
     print(err)
 finally:

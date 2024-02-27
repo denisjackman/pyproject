@@ -15,12 +15,18 @@ __license__ = "Python"
 
 def direction(position, direction_travel, wrap=True):
     """
-    This function takes the current X,Y and direction of travel and returns a new X,Y based on these.
-    :param position : This is a tuple which contains the X,Y position of an object
-                        X = This is a positive number between zero (0) and the width limit of the screen or board.
-                        Y = This is a positive number between zero (0) and the height limit of the screen or board.
-    :param direction_travel: This is the direction of travel expressed as a key work "UP", "DOWN", "LEFT", "RIGHT" etc.
-    :param wrap: a boolean set to True if the width or height can wrap around to the other side (default is True)
+    This function takes the current X,Y and direction of travel
+    and returns a new X,Y based on these.
+    :param position : This is a tuple which contains the
+    X,Y position of an object
+                        X = This is a positive number between zero (0)
+                            and the width limit of the screen or board.
+                        Y = This is a positive number between zero (0)
+                            and the height limit of the screen or board.
+    :param direction_travel: This is the direction of travel expressed
+                             as a key work "UP", "DOWN", "LEFT", "RIGHT" etc.
+    :param wrap: a boolean set to True if the width or height can wrap around
+                 to the other side (default is True)
     :return:    new_x the new x co-ordinate
                 new_y the new y co-ordinate
     """
@@ -32,40 +38,40 @@ def direction(position, direction_travel, wrap=True):
 
     direction_travel = direction_travel.upper()
     if direction_travel not in ("UP",
-                         'U',
-                         'N',
-                         'NORTH',
-                         'DOWN',
-                         'D',
-                         'S',
-                         'SOUTH',
-                         "LEFT",
-                         'L',
-                         'W',
-                         'WEST',
-                         "RIGHT",
-                         'R',
-                         'E',
-                         'EAST'):
+                                'U',
+                                'N',
+                                'NORTH',
+                                'DOWN',
+                                'D',
+                                'S',
+                                'SOUTH',
+                                'LEFT',
+                                'L',
+                                'W',
+                                'WEST',
+                                'RIGHT',
+                                'R',
+                                'E',
+                                'EAST'):
         print(f'Wrong Way {direction_travel}')
         return direction_x, direction_y
 
-    if direction_travel in ("UP", 'U', 'N', 'NORTH'):
+    if direction_travel in ('UP', 'U', 'N', 'NORTH'):
         # This should be heading towards the 0 y axis
         new_x = direction_x
         new_y = direction_y - 1
 
-    if direction_travel in ("DOWN", 'D', 'S', 'SOUTH'):
+    if direction_travel in ('DOWN', 'D', 'S', 'SOUTH'):
         # This should be heading towards the height limit y axis
         new_x = direction_x
         new_y = direction_y + 1
 
-    if direction_travel in ("LEFT", 'L', 'W', 'WEST'):
+    if direction_travel in ('LEFT', 'L', 'W', 'WEST'):
         # This should be heading towards the 0 x axis
         new_x = direction_x - 1
         new_y = direction_y
 
-    if direction_travel in ("RIGHT", 'R', 'E', 'EAST'):
+    if direction_travel in ('RIGHT', 'R', 'E', 'EAST'):
         # This should be heading towards the width limit x axis
 
         new_x = direction_x + 1
@@ -77,28 +83,30 @@ def direction(position, direction_travel, wrap=True):
 
     return new_x, new_y
 
+
 def main():
     ''' main function '''
     x = (1, 2)
-    print(type(direction(x, "Up")))
-    x = direction(x, "Up")
-    print(direction(x, "N"))
-    x = direction(x, "North")
-    print(direction(x, "down"))
-    x = direction(x, "S")
-    print(direction(x, "South"))
-    x =direction(x, "d")
-    print(direction(x, "W"))
-    x = direction(x, "West")
-    print(direction(x, "left"))
-    x = direction(x, "l")
-    print(direction(x, "right"))
-    x = direction(x, "r")
-    print(direction(x, "west"))
-    x = direction(x, "w")
-    print(direction(x, "wrong"))
-    print(direction(x, "wrong"))
-    print(direction(x, "wrong"))
+    print(type(direction(x, 'Up')))
+    x = direction(x, 'Up')
+    print(direction(x, 'N'))
+    x = direction(x, 'North')
+    print(direction(x, 'down'))
+    x = direction(x, 'S')
+    print(direction(x, 'South'))
+    x = direction(x, 'd')
+    print(direction(x, 'W'))
+    x = direction(x, 'West')
+    print(direction(x, 'left'))
+    x = direction(x, 'l')
+    print(direction(x, 'right'))
+    x = direction(x, 'r')
+    print(direction(x, 'west'))
+    x = direction(x, 'w')
+    print(direction(x, 'wrong'))
+    print(direction(x, 'wrong'))
+    print(direction(x, 'wrong'))
+
 
 if __name__ == '__main__':
     main()

@@ -1,13 +1,13 @@
 ''' this is a fire script'''
 import os
 import sys
-#import pandas as pd
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import walk_through
+from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
 
 CONSOLIDATE_DIR = 'This PC/Fire/Storage device/Books'
+
 
 def main():
     '''Main function'''
@@ -15,8 +15,10 @@ def main():
     picture_mainargs = {"verbosemode": False,
                         "deletemode": False,
                         "startdirectory": CONSOLIDATE_DIR,
-                        "targetdirectory": CONSOLIDATE_DIR,}
+                        "targetdirectory": CONSOLIDATE_DIR}
     picture_filelist = walk_through(picture_mainargs)
+    print(picture_filelist)
+
 
 if __name__ == '__main__':
     main()

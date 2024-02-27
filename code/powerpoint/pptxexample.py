@@ -17,6 +17,7 @@
 '''
 from pptx import Presentation
 
+
 def main():
     '''
         main function
@@ -27,6 +28,7 @@ def main():
     slide.shapes.title.text = "Hello, World!"
     slide.placeholders[1].text = "python-pptx was here!"
     prs.save('test.pptx')
+
 
 if __name__ == "__main__":
     main()

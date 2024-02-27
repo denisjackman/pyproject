@@ -7,18 +7,22 @@ import PyPDF4
 from tqdm import tqdm
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..\\..'))
-from jackmanimation.utilities.fileutility import walk_through
-from jackmanimation.utilities.fileutility import extract_file_extension
+from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
+from jackmanimation.utilities.fileutility import extract_file_extension  # noqa: E402, E501
 
-TARGETDIRECTORY = r"Y:\Library"
+TARGETDIRECTORY = r"Z:\Library"
 TARGETSTRING = "Python"
 DEBUGMODE = True
+
 
 def debug_mode(debugstring):
     ''' debug mode'''
     if DEBUGMODE:
-        with open(r'y:\Resources\development\debug.txt', 'a', encoding='utf-8-sig') as debug_file:
+        with open(r'Z:\Resources\development\debug.txt',
+                  'a',
+                  encoding='utf-8-sig') as debug_file:
             debug_file.write(f'[*] {debugstring}\n')
+
 
 def unique(sortlist):
     ''' sort a list for unique items '''
@@ -26,7 +30,6 @@ def unique(sortlist):
     listset = set(sortlist)
     result = list(listset)
     return result
-
 
 
 def main():
@@ -40,7 +43,7 @@ def main():
     targetlist = []
     errorlist = []
 
-    totallist.extend(walk_through({"verbosemode":False, "deletemode":False, "startdirectory":TARGETDIRECTORY}))
+    totallist.extend(walk_through({"verbosemode": False, "deletemode": False, "startdirectory": TARGETDIRECTORY}))  # noqa: E501
     print(f"[-] Records found {len(totallist):,}")
     for item in tqdm(totallist, total=len(totallist), unit=' item'):
         tmpext = extract_file_extension(item)
@@ -57,7 +60,7 @@ def main():
             if pdf_reader.metadata is None:
                 debug_mode(f"[*] PDF file is {pdfitem} -- title (NO TITLE) --")
             else:
-                debug_mode(f"[*] PDF file is {pdfitem} -- title {pdf_reader.metadata.title} --")
+                debug_mode(f"[*] PDF file is {pdfitem} -- title {pdf_reader.metadata.title} --")  # noqa: E501
             try:
                 pagecount = len(pdf_reader.pages)
             except Exception as err:
@@ -70,7 +73,7 @@ def main():
                     text = pagetext.extract_text()
                     if TARGETSTRING in text:
                         targetlist.append(pdfitem)
-                        debug_mode(f"[-] Found target string {TARGETSTRING} in {pdfitem} ")
+                        debug_mode(f"[-] Found target string {TARGETSTRING} in {pdfitem} ")  # noqa: E501
                 except Exception as err:
                     debug_mode(f'[=] Parsing Error {err} in {pdfitem}')
                     errorlist.append(f'[-] Error {err} in {pdfitem}')
@@ -87,6 +90,7 @@ def main():
     for erritem in tqdm(errorlist, total=len(errorlist), unit=' item'):
         print(f'[-] Error {erritem}')
     print('[+] Finishing project file running ')
+
 
 if __name__ == '__main__':
     main()

@@ -2,12 +2,14 @@
 
 from faker import Faker
 
+
 def fk_email(fk_em_gen):
     '''Email generator'''
     result = []
     for _ in range(fk_em_gen):
         result.append(Faker().email())
     return result
+
 
 def fk_name(fk_name_gen):
     '''Name generator'''
@@ -16,12 +18,14 @@ def fk_name(fk_name_gen):
         result.append(Faker().name())
     return result
 
+
 def fk_url(fk_url_gen):
     '''URL generator'''
     result = []
     for _ in range(fk_url_gen):
         result.append(Faker().url())
     return result
+
 
 def fk_address(fk_add_gen):
     '''Address generator'''
@@ -30,12 +34,14 @@ def fk_address(fk_add_gen):
         result.append(Faker().address())
     return result
 
+
 def fk_text(fk_text_gen):
     '''Text generator'''
     result = []
     for _ in range(fk_text_gen):
         result.append(Faker().text())
     return result
+
 
 def main():
     '''Main function'''
@@ -55,10 +61,8 @@ def main():
         print(f'[*] {item}')
     for item in gen_texts:
         print(f'[*] {item}')
-#    for _ in range(10):
-#        print(f'[*] {fake.date()}')
-#        print(f'[*] {fake.country()}')
     print('[-] Main Function Finished.')
+
 
 if __name__ == '__main__':
     main()

@@ -11,7 +11,7 @@ canvas = pygame.Surface((DISPLAY_W, DISPLAY_H))
 window = pygame.display.set_mode(((DISPLAY_W, DISPLAY_H)))
 RUNNING = True
 
-my_spritesheet = Spritesheet(r'Y:\Resources\development\sprite_sheet\trainer_sheet.png')
+my_spritesheet = Spritesheet(r'Z:\Resources\development\sprite_sheet\trainer_sheet.png')  # noqa: E501
 trainer = [my_spritesheet.parse_sprite('trainer1.png'),
            my_spritesheet.parse_sprite('trainer2.png'),
            my_spritesheet.parse_sprite('trainer3.png'),

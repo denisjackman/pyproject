@@ -56,6 +56,7 @@ SQUARECOLOUR = gc.DIM_GRAY
 SNAKECOLOUR = gc.WHITE
 FOODCOLOUR = gc.DARK_GREEN
 
+
 def imageload(load_color, size, position):
     '''
         image load function
@@ -66,16 +67,20 @@ def imageload(load_color, size, position):
     result_rect.center = position
     return result_surface
 
+
 def snake_main():
     '''
         main routine for the snake game
     '''
-    score = 0
+    # score = 0
     main_running = True
 
-    square_image = imageload(SQUARECOLOUR,(SQUARESIZE, SQUARESIZE), (0, 0))
-    snake_image = imageload(SNAKECOLOUR,(SQUARESIZE, SQUARESIZE), (0, 0))
-    food_image = imageload(FOODCOLOUR,(SQUARESIZE, SQUARESIZE), (0, 0))
+    # square_image = imageload(SQUARECOLOUR,(SQUARESIZE,
+    # SQUARESIZE), (0, 0))
+    # snake_image = imageload(SNAKECOLOUR,(SQUARESIZE,
+    # SQUARESIZE), (0, 0))
+    # food_image = imageload(FOODCOLOUR,(SQUARESIZE,
+    # SQUARESIZE), (0, 0))
 
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption(GAME_TITLE)
@@ -95,6 +100,7 @@ def snake_main():
         pygame.display.flip()
 
     pygame.quit()
+
 
 if __name__ == '__main__':
     snake_main()

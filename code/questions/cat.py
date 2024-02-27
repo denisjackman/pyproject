@@ -81,6 +81,5 @@ def main():
     my_monster.decrease_health(110)
 
 
-
 if __name__ == '__main__':
     main()

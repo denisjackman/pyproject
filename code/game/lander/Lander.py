@@ -6,6 +6,7 @@ http://www.cs.carleton.edu/faculty/dmusican/cs111s10/lunarlander.html
 '''
 from Classes import LunarLander
 
+
 def main():
     '''
         main function
@@ -19,5 +20,6 @@ def main():
         lander.tick(x)
         if lander.start is False:
             running = False
+
 
 main()

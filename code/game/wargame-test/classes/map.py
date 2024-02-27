@@ -1,5 +1,6 @@
 ''' This is the map class. It is used to create the various maps. '''
 
+
 class Map:
     ''' Map class '''
     def __init__(self, width, height):

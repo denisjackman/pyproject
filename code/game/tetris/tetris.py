@@ -24,7 +24,7 @@
 
     REFERENCES:
     [Original Instagram Idea](https://www.instagram.com/p/Cf3iihuDafs/)
-    [Game Mechanics](https://www.interaction-design.org/literature/article/a-game-explained-an-example-of-a-single-game-and-how-it-meets-the-rules-of-fun)
+    [Game Mechanics](https://www.interaction-design.org/literature/article/a-game-explained-an-example-of-a-single-game-and-how-it-meets-the-rules-of-fun)  # noqa: E501
     [how to](https://www.instagram.com/p/CJqfW5yneYa/?igshid=YmMyMTA2M2Y=)
 '''
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"

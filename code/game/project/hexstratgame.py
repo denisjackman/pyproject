@@ -35,7 +35,7 @@ SCREEN_SIZE = (WIDTH, HEIGHT)
 CAPTION = 'Hex Strat Game'
 
 ICON_FILE = 'y:/Resources/Logo-001.jpg'
-#HEX_SHEET = 'y:/pyproject/scratch/project/hexagonAll_sheet.png'
+# HEX_SHEET = 'y:/pyproject/scratch/project/hexagonAll_sheet.png'
 HEX_TILE = 'y:/Resources/development/project/images/grass_01.png'
 
 SPRITE_X = 0
@@ -60,11 +60,13 @@ sprite_size = (SPRITE_WIDTH, SPRITE_HEIGHT)
 grasstile = pygame.image.load(HEX_TILE).convert_alpha()
 grasstile = pygame.transform.scale(grasstile, sprite_size)
 
+
 def game_initialise():
     '''Initialises the game'''
     icon = pygame.image.load(ICON_FILE)
     pygame.display.set_caption(CAPTION)
     pygame.display.set_icon(icon)
+
 
 def dice(sides=6, rolls=1):
     '''
@@ -77,6 +79,7 @@ def dice(sides=6, rolls=1):
         result = result + randint(1, sides)
         item += 1
     return result
+
 
 def game_hexmap_type():
     '''Returns a random hexmap tile type'''
@@ -365,6 +368,7 @@ def game_hexmap_type():
             result = f"{result} : Hidden Temple"
     return result
 
+
 def check_game_status():
     '''
         this checks the status of the game and return True is it should keep
@@ -381,9 +385,11 @@ def check_game_status():
             game_status = False
     return game_status
 
+
 def draw_hexagon(tile_x, tile_y, tile_image):
     ''' draw a hexagon at the given x,y coordinates using the given image'''
     GAME_SCREEN.blit(tile_image, (tile_x, tile_y))
+
 
 def draw_map():
     ''' draw the map '''
@@ -400,13 +406,16 @@ def draw_map():
             screenx = screenx + SPRITE_WIDTH + SEPARATION
         screeny += VERT
 
+
 def game_housekeeping():
     ''' housekeeping for the game '''
-    mouse_x,mouse_y = pygame.mouse.get_pos()
+    mouse_x, mouse_y = pygame.mouse.get_pos()
     hx = round(mouse_x / SPRITE_WIDTH)
     hy = round(mouse_y / SPRITE_HEIGHT)
-    newcaption = f'Hex Strat Game - ( x: {mouse_x} y: {mouse_y} ) ( hx: {hx} hy: {hy} )'
+    newcaption = f'Hex Strat Game - ( x: {mouse_x} '\
+                 f'y: {mouse_y} ) ( hx: {hx} hy: {hy} )'
     pygame.display.set_caption(newcaption)
+
 
 def game_main():
     '''
@@ -422,6 +431,7 @@ def game_main():
         pygame.display.flip()
         GAME_CLOCK.tick(30)
     pygame.quit()
+
 
 if __name__ == '__main__':
     game_initialise()

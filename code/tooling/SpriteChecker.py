@@ -7,14 +7,15 @@ from pathlib import Path
 import pygame
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.classes.sprite import GameSprite
+from jackmanimation.classes.sprite import GameSprite  # noqa: E402
 
 WIDTH = 800
 HEIGHT = 800
 CAPTION = "Jackmanimation [SpriteChecker]"
-ICON_FILE = 'y:/Resources/jackmanimation.png'
+ICON_FILE = 'Z:/Resources/jackmanimation.png'
 WHITE = (255, 255, 255)
 FILEPATH = Path(__file__).parent
+
 
 def main():
     ''' main routine '''
@@ -34,6 +35,7 @@ def main():
         window.fill((WHITE))
         playsprite.draw(window)
         pygame.display.update()
+
 
 if __name__ == '__main__':
     main()

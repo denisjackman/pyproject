@@ -15,6 +15,7 @@ import os
 
 CAPTION = "audioplayer"
 
+
 def main():
     '''
         main routine
@@ -28,6 +29,7 @@ def main():
 
     for _ in file_list:
         print(_)
+
 
 if __name__ == '__main__':
     main()

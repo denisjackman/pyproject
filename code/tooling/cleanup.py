@@ -7,15 +7,16 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import walk_through
-from jackmanimation.utilities.fileutility import getargs
-from jackmanimation.utilities.fileutility import convert_size
+from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
+from jackmanimation.utilities.fileutility import getargs  # noqa: E402
+from jackmanimation.utilities.fileutility import convert_size  # noqa: E402
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 0.00 $"
 __date__ = "$Date: 2022/09/01 12:50:00 $"
 __copyright__ = "Copyright (c) 2022 Denis J Jackman"
 __license__ = "Python"
+
 
 def main():
     """ This is the main routine for the program """
@@ -41,7 +42,7 @@ def main():
             delete_list.append(item)
 
     print(mainargs)
-    print(f"total count is {len(filelist)} - with {len(delete_list)} to be deleted")
+    print(f"total count is {len(filelist)} - with {len(delete_list)} to be deleted")  # noqa: E501
     print(f"total size is {convert_size(totalsize)}")
     if mainargs["deletemode"]:
         for item in delete_list:
@@ -53,6 +54,7 @@ def main():
                 print(f"failed to delete {item}")
 
     print("finishing up and closing down:")
+
 
 if __name__ == '__main__':
     main()

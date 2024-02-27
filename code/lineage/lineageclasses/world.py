@@ -1,4 +1,6 @@
 '''World class for Lineage game'''
+
+
 class World:
     '''World class for Lineage game'''
 

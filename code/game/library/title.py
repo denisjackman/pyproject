@@ -14,6 +14,7 @@ screen_r = screen.get_rect()
 font = pygame.font.SysFont("Courier", 40)
 clock = pygame.time.Clock()
 
+
 def end_titles():
     '''
         end-titles function
@@ -41,7 +42,7 @@ def end_titles():
         # it may be a good idea to use sprites instead
         # we give each rect the correct starting position
         render = screen_credit.get_rect(centerx=screen_r.centerx,
-                                   y=screen_r.bottom + item * 45)
+                                        y=screen_r.bottom + item * 45)
         texts.append((render, screen_credit))
 
     while end_titles_running:
@@ -49,7 +50,7 @@ def end_titles():
             if title_event.type == QUIT or \
                title_event.type == KEYDOWN and \
                title_event.key == K_ESCAPE:
-                return
+                   return  # noqa: E111,E117
 
         screen.fill(NEAR_BLACK)
 
@@ -68,6 +69,7 @@ def end_titles():
 
         # cap framerate at 60 FPS
         clock.tick(60)
+
 
 if __name__ == '__main__':
     end_titles()

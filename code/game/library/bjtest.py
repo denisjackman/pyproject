@@ -5,17 +5,21 @@ import random
 
 # define globals for cards
 SUITS = ('C', 'S', 'H', 'D')
-RANKS = ('A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K')
-VALUES = {'A':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, 'T':10, 'J':10, 'Q':10, 'K':10}
+RANKS = ('A', '2', '3', '4',
+         '5', '6', '7', '8',
+         '9', 'T', 'J', 'Q', 'K')
+VALUES = {'A': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6,
+          '7': 7, '8': 8, '9': 9, 'T': 10, 'J': 10, 'Q': 10, 'K': 10}
 
 # DEBUG mode
 DEBUG = False
 
-# define card class
+
 class Card:
     '''
         Card Object
     '''
+
     def __init__(self, bjsuit, bjrank):
         if (bjsuit in SUITS) and (bjrank in RANKS):
             self.suit = bjsuit
@@ -56,12 +60,14 @@ class Card:
         '''
         print(canvas, pos)
 
+
 class Hand:
     '''
         hand object
     '''
+
     def __init__(self):
-        self.hand=[]
+        self.hand = []
 
     def __str__(self):
         result = "Hand is  : "
@@ -71,7 +77,6 @@ class Hand:
 
     def __len__(self):
         return len(self.hand)
-
 
     def add_card(self, card):
         '''
@@ -84,7 +89,7 @@ class Hand:
             get the card value
         '''
         ace = False
-        value=0
+        value = 0
         for bjcard in self.hand:
             if ace:
                 value += VALUES[bjcard.get_rank()]
@@ -100,7 +105,8 @@ class Hand:
                     if value < 12:
                         value += 10
                     ace = True
-        # count aces as 1, if the hand has an ace, then add 10 to hand value if it doesn't bust
+        # count aces as 1, if the hand has an ace,
+        # then add 10 to hand value if it doesn't bust
         return value
 
     def draw(self, canvas, pos):
@@ -109,15 +115,16 @@ class Hand:
         '''
         print(canvas, pos)
 
+
 class Deck:
     '''
         deck object
     '''
     def __init__(self):
-        self.bjdeck=[]
+        self.bjdeck = []
         for suit in SUITS:
             for rank in RANKS:
-                self.bjdeck.append(Card(suit,rank))
+                self.bjdeck.append(Card(suit, rank))
 
     def shuffle(self):
         '''
@@ -153,23 +160,23 @@ def init():
     GAME_DECK = Deck()
     GAME_DECK.shuffle()
 
-    FOUNDATION_HEARTS = Hand()
-    FOUNDATION_SPADES = Hand()
-    FOUNDATION_CLUBS = Hand()
-    FOUNDATION_DIAMONDS = Hand()
+    # FOUNDATION_HEARTS = Hand()
+    # FOUNDATION_SPADES = Hand()
+    # FOUNDATION_CLUBS = Hand()
+    # FOUNDATION_DIAMONDS = Hand()
 
-    BASE1= Hand()
-    BASE2= Hand()
-    BASE3= Hand()
-    BASE4= Hand()
-    BASE5= Hand()
+    BASE1 = Hand()
+    BASE2 = Hand()
+    BASE3 = Hand()
+    BASE4 = Hand()
+    BASE5 = Hand()
     BASE6 = Hand()
     BASE7 = Hand()
 
     PILE = Hand()
     WASTE = Hand()
 
-    card=0
+    card = 0
     while card < len(GAME_DECK):
         if len(BASE1) < 1:
             BASE1.add_card(GAME_DECK.deal_card())
@@ -197,6 +204,7 @@ def init():
         print(f"Base 7: {str(len(BASE7))} : {str(BASE7)}")
         print(f"Pile  : {str(len(PILE))} : {str(PILE)}")
         print(f"Waste : {str(len(WASTE))} : {str(WASTE)}")
+
 
 if __name__ == '__main__':
     init()

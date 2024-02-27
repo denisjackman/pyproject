@@ -7,7 +7,9 @@ import mysql.connector
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck
+from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+
+
 def check_database(checkdb, checkusername):
     ''' check the database for the last time we checked '''
     result = False
@@ -25,11 +27,12 @@ def check_database(checkdb, checkusername):
         result = False
     return result
 
+
 def insert_row(insertdb, insertusername, insertdate):
     ''' insert the row into the database'''
     result = False
     cursor = insertdb.cursor()
-    query = f"INSERT INTO posts(postdate, username) VALUES ('{insertdate}', '{insertusername}')"
+    query = f"INSERT INTO posts(postdate, username) VALUES ('{insertdate}', '{insertusername}')"  # noqa: E501
     try:
         cursor.execute(query)
         insertdb.commit()
@@ -38,6 +41,7 @@ def insert_row(insertdb, insertusername, insertdate):
         print(f"[-] Error: {err} \n Query: {query}")
         result = False
     return result
+
 
 def opendb(credid, database):
     """ This function opens the database connection """
@@ -62,7 +66,7 @@ def main():
     ''' main function '''
     print("[+] Meerkatbot is starting up")
 
-    credid = credscheck('y:/pyproject/secrets/secrets.json')
+    credid = credscheck('Z:/pyproject/secrets/secrets.json')
     use_db = opendb(credid, 'meerkatbot')
 
     if use_db is None:
@@ -78,7 +82,7 @@ def main():
             user_agent='Meerkatbot by jackmanimation',
             username=credid['OredditUsername'])
         # pylint: disable=W0702
-    except:
+    except:  # noqa: E722
         print("Reddit login failed")
         sys.exit(1)
 
@@ -90,21 +94,25 @@ def main():
 
     for submission in subreddit.stream.submissions():
         author = submission.author
-        itemdate = datetime.utcfromtimestamp(submission.created_utc).strftime('%Y-%m-%d')
+        itemdate = datetime.utcfromtimestamp(submission.created_utc).strftime('%Y-%m-%d')  # noqa: E501
         submissiondate = datetime.utcfromtimestamp(submission.created_utc)
         timenow = datetime.utcnow()
         timenow = timenow.replace(hour=0, minute=0, second=0, microsecond=0)
-        submissiondate = submissiondate.replace(hour=0, minute=0, second=0, microsecond=0)
+        submissiondate = submissiondate.replace(hour=0,
+                                                minute=0,
+                                                second=0,
+                                                microsecond=0)
         timediff = timenow - submissiondate
         if author is None:
-            print(f"[-] '{submission.title}' Author: None created: {itemdate} ago: {timediff.days}")
+            print(f"[-] '{submission.title}' Author: None created: {itemdate} ago: {timediff.days}")  # noqa: E501
         else:
             if check_database(use_db, author.name):
-                print(f"[-] Author: {submission.author.name} Created: {itemdate} - NOT ADDED")
+                print(f"[-] Author: {submission.author.name} Created: {itemdate} - NOT ADDED")  # noqa: E501
             else:
                 insert_row(use_db, author.name, itemdate)
-                print(f"[-] Author: {submission.author.name} Created: {itemdate} - ADDED")
+                print(f"[-] Author: {submission.author.name} Created: {itemdate} - ADDED")  # noqa: E501
     print("[+] Meerkatbot is shutting down")
+
 
 if __name__ == '__main__':
     main()

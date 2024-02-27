@@ -1,4 +1,6 @@
 '''Empire class for Lineage game'''
+
+
 class Empire:
     '''Empire class for Lineage game'''
 

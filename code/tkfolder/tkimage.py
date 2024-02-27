@@ -4,12 +4,11 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
-
-root= tk.Tk()
-upload= Image.open("y:/Resources/images/lenna.jpeg")
-image=ImageTk.PhotoImage(upload)
-label= tk.Label(root,image=image,height = 128, width =128)
-label.place(x=0,y=0)
+root = tk.Tk()
+upload = Image.open("Z:/Resources/images/lenna.jpeg")
+image = ImageTk.PhotoImage(upload)
+label = tk.Label(root, image=image, height=128, width=128)
+label.place(x=0, y=0)
 
 root.title('image')
 root.geometry('600x400')

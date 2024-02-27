@@ -6,6 +6,7 @@ from functionality import add, sub, mul, div
 from othermodule import second
 from othermodule.submodule import third, fourth
 
+
 def main():
     ''' This is the main function'''
     print('[+] This is the main function starting')
@@ -17,6 +18,7 @@ def main():
     second.myfunction()
     third.another_function()
     fourth.last_fct()
+
 
 if __name__ == '__main__':
     main()

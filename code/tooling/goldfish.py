@@ -5,15 +5,15 @@ import datetime
 from tqdm import tqdm
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import walk_through
-from jackmanimation.utilities.fileutility import getargs
+from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
+from jackmanimation.utilities.fileutility import getargs  # noqa: E402
 
-SEARCH_LIST = [
-               ".DS_Store",
+SEARCH_LIST = [".DS_Store",
                ".AppleDouble",
                "Thumbs.db",
-               ".pydevproject"
-               ]
+               ".pydevproject"]
+
+
 def main():
     ''' main '''
     gf_now = datetime.datetime.now()
@@ -32,7 +32,9 @@ def main():
     print('[-] goldfish main walking through files')
     goldfish_filelist = walk_through(goldfish_command_args)
     print(f'[-] {len(goldfish_filelist)} files found')
-    for goldfish_file in tqdm(goldfish_filelist, total=len(goldfish_filelist), unit=' goldfish_file'):
+    for goldfish_file in tqdm(goldfish_filelist,
+                              total=len(goldfish_filelist),
+                              unit=' goldfish_file'):
         if os.path.basename(goldfish_file) in SEARCH_LIST:
             delete_files.append(goldfish_file)
         if os.path.splitext(goldfish_file)[1] == ".pdf":
