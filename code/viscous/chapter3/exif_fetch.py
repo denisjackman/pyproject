@@ -11,13 +11,15 @@ from bs4 import BeautifulSoup
 from PIL import Image
 from PIL.ExifTags import TAGS
 
+
 def findImages(url):
     ''' Find all images on a web page'''
     print('[o] Finding images on ' + url)
-    urlContent = urllib.request.urlopen(url).read()#pylint: disable=R1732
+    urlContent = urllib.request.urlopen(url).read()  # pylint: disable=R1732
     soup = BeautifulSoup(urlContent, features='html.parser')
     imgTags = soup.findAll('img')
     return imgTags
+
 
 def downloadImage(imgTag):
     ''' Download an image and save it to the current directory'''
@@ -25,22 +27,23 @@ def downloadImage(imgTag):
         print('[-] Dowloading image...')
         imgSrc = imgTag['src']
         print(f"[+] Image: {imgSrc}")
-        imgContent = urllib.request.urlopen(imgSrc).read() #pylint: disable=R1732
+        imgContent = urllib.request.urlopen(imgSrc).read()  # pylint: disable=R1732  # noqa: E501
         print(f'[+] Downloaded image: {basename(urlsplit(imgSrc))}')
         imgFileName = f'data//{basename(urlsplit(imgSrc)[2])}'
-        imgFile = open(imgFileName, 'wb')#pylint: disable=R1732
+        imgFile = open(imgFileName, 'wb')  # pylint: disable=R1732
         imgFile.write(imgContent)
         imgFile.close()
         return imgFileName
-    except: #pylint: disable=W0702
+    except:  # pylint: disable=W0702  # noqa: E722
         return ''
+
 
 def test_for_exif(imgFileName):
     ''' Test if an image has exif data'''
     try:
         exifData = {}
         imgFile = Image.open(imgFileName)
-        info = imgFile._getexif() #pylint: disable=W0212
+        info = imgFile._getexif()  # pylint: disable=W0212
         if info:
             print('[*] Found Exif data in image ' + imgFileName)
             for (tag, value) in info.items():
@@ -48,13 +51,14 @@ def test_for_exif(imgFileName):
                 exifData[decoded] = value
                 if decoded == 'GPSInfo':
                     print('[*] ' + str(decoded) + ': ' + str(value))
-    except: #pylint: disable=W0702
+    except:  # pylint: disable=W0702  # noqa: E722
         pass
+
 
 def main():
     ''' Main function'''
-    parser = argparse.ArgumentParser(usage='exifetch.py -u <target url>')
-    parser.add_argument('-u', dest='url', type=str, help='specify url address')
+    parser = argparse.ArgumentParser(usage='exifetch.py -u <target url>')  # noqa: E501
+    parser.add_argument('-u', dest='url', type=str, help='specify url address')  # noqa: E501
     args = parser.parse_args()
     url = args.url
     if url is None:
@@ -65,6 +69,7 @@ def main():
         for imgTag in imgTags:
             imgFileName = downloadImage(imgTag)
             test_for_exif(imgFileName)
+
 
 if __name__ == '__main__':
     print('[+] Exif data extraction from images start')

@@ -1,6 +1,7 @@
 ''' anon login script'''
 import ftplib
 
+
 def anon_login(hostname):
     ''' anon login '''
     try:
@@ -14,10 +15,12 @@ def anon_login(hostname):
         print(e)
         return False
 
+
 def main():
     ''' main '''
     host = '192.168.95.179'
     anon_login(host)
+
 
 if __name__ == '__main__':
     main()

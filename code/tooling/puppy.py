@@ -8,13 +8,16 @@ from tqdm import tqdm
 # variables
 ZIPFILE = 'T://pictures.zip'
 TARGETDIR = 'S:'
-TARDIR= 'S://pictures'
+TARDIR = 'S://pictures'
+
 
 def get_exif_data(ged_filename):
     ''' get exif data '''
-    with open(ged_filename, 'rb') as ged_file:
+    with open(ged_filename,
+              'rb') as ged_file:
         ged_tags = exifread.process_file(ged_file, details=False)
     return ged_tags
+
 
 def main():
     ''' main '''
@@ -25,7 +28,7 @@ def main():
     try:
         with zipfile.ZipFile(ZIPFILE) as archive:
             archive.extractall(path=TARGETDIR)
-    except:  # pylint: disable=bare-except
+    except:  # pylint: disable=bare-except  # noqa: E722
         print('[o] error extracting zipfile')
     file_count = 0
     print('[-] opening target file '
@@ -44,6 +47,7 @@ def main():
     shutil.rmtree(TARDIR)
     print(f'[-] {TARDIR} removed')
     print('[*] puppy main shutting down')
+
 
 if __name__ == "__main__":
     print('[+] puppy starting up')

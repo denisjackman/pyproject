@@ -2,12 +2,12 @@
 import csv
 import requests
 
-
 status_dict = {"Website": "Status"}
 INPUTFILE = "Z:/Resources/development/websites.txt"
 OUTPUTFILE = "Z:/Resources/development/website_status.csv"
 
-def website_check(webdebug = False):
+
+def website_check(webdebug=False):
     ''' website status checker '''
     if webdebug:
         print("[+] --- Start Website Check")
@@ -25,17 +25,22 @@ def website_check(webdebug = False):
         print(f"[+] --- Output File is {OUTPUTFILE}")
         print(f"[+] --- Status Dict is {status_dict}")
 
-    with open(OUTPUTFILE, "w", newline="", encoding='utf-8-sig') as outputfile:
+    with open(OUTPUTFILE,
+              "w",
+              newline="",
+              encoding='utf-8-sig') as outputfile:
         csv_writers = csv.writer(outputfile)
-        for key, item  in status_dict.items():
+        for key, item in status_dict.items():
             csv_writers.writerow([key, item])
 
     if webdebug:
         print("[+] --- Website Check complete")
 
+
 def main():
     ''' main function '''
     website_check()
+
 
 if __name__ == '__main__':
     main()

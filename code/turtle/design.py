@@ -2,6 +2,8 @@
     turtle design piece
 '''
 import turtle
+
+
 def main():
     ''' turtle main function '''
     # Creating turtle
@@ -26,6 +28,7 @@ def main():
         t.hideturtle()
 
     turtle.done()
+
 
 if __name__ == '__main__':
     main()

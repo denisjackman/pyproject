@@ -9,10 +9,11 @@ import json
 COMMANDS = "hvds:x:"
 LONG_COMMANDS = ["verbose", "debug", "start=", "help", "xmode="]
 PROGRAM_NAME = sys.argv[0][2:].replace(".py", "")
-STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -s DIRECTORY -x XMODE "."'
+STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -s DIRECTORY -x XMODE "."'  # noqa: E501
 FILEPATH = Path(__file__).parent
 
-def loadjsonfile(jf_filename, jf_debug = False, jf_verbose = False):
+
+def loadjsonfile(jf_filename, jf_debug=False, jf_verbose=False):
     ''' load a json file '''
     result = None
     if jf_debug:
@@ -24,18 +25,18 @@ def loadjsonfile(jf_filename, jf_debug = False, jf_verbose = False):
         result = json.load(file)
     return result
 
+
 def getargs():
     '''
         get the argurments from the command line
     '''
     argv = sys.argv[1:]
-    #runname = sys.argv[0][2:].replace(".py", "")
     verbosemode = False
     debugmode = False
     startdirectory = "."
     xmode = ""
     try:
-        command_line_optionss, args = getopt.getopt(argv, COMMANDS, LONG_COMMANDS)
+        command_line_optionss, args = getopt.getopt(argv, COMMANDS, LONG_COMMANDS)  # noqa: E501
     except getopt.GetoptError:
         print(f'The commands are : {STANDARD_COMMANDS}')
         sys.exit(2)
@@ -56,6 +57,7 @@ def getargs():
             "startdirectory": startdirectory,
             "xmode": xmode}
 
+
 def dir_example(ex_command_args):
     ''' example function '''
     verb = ex_command_args["verbosemode"]
@@ -66,7 +68,7 @@ def dir_example(ex_command_args):
         print(f'DEBUG: rootdir - {rootdir}')
     for dirName, subdirList, fileList in os.walk(rootdir):
         if debug:
-            print(f'DEBUG: Found directory: {dirName} - {subdirList} - {fileList} - {len(fileList)}')
+            print(f'DEBUG: Found directory: {dirName} - {subdirList} - {fileList} - {len(fileList)}')  # noqa: E501
         for fname in fileList:
             temp = f'{FILEPATH}\\{fname}'
             if debug:
@@ -76,17 +78,19 @@ def dir_example(ex_command_args):
             result.append(temp)
     return result
 
-def check_file_type(cf_filename, cf_debug = False, cf_verbose = False):
+
+def check_file_type(cf_filename, cf_debug=False, cf_verbose=False):
     ''' check the file type '''
     result = None
     if cf_debug:
         print(f'DEBUG: check_file_type - {cf_filename}')
     if cf_verbose:
         print(f'Verbose: check_file_type - {cf_filename}')
-    result =  mimetypes.guess_type(cf_filename)
+    result = mimetypes.guess_type(cf_filename)
     return result
 
-def check_file_extension(cfe_filename, cfe_debug = False, cfe_verbose = False):
+
+def check_file_extension(cfe_filename, cfe_debug=False, cfe_verbose=False):
     ''' check the file extension '''
     result = None
     if cfe_debug:
@@ -96,7 +100,8 @@ def check_file_extension(cfe_filename, cfe_debug = False, cfe_verbose = False):
     result = Path(cfe_filename).suffix.replace(".", "")
     return result
 
-def check_file_mime(cfm_mimetype, cfm_debug = False, cfm_verbose = False):
+
+def check_file_mime(cfm_mimetype, cfm_debug=False, cfm_verbose=False):
     ''' check the file mime '''
     result = None
     mimetype_list = loadjsonfile('allMimeTypes.json', cfm_debug, cfm_verbose)
@@ -110,18 +115,24 @@ def check_file_mime(cfm_mimetype, cfm_debug = False, cfm_verbose = False):
             result = item.values()
     return result
 
+
 def main():
     ''' main function'''
     mainargs = getargs()
-    items  = dir_example(mainargs)
+    items = dir_example(mainargs)
 
     print(f'List : {len(items)} items')
 
     for item in items:
-        itemtype = check_file_type(item, mainargs["debugmode"], mainargs["verbosemode"])
-        exttype = check_file_extension(item, mainargs["debugmode"], mainargs["verbosemode"])
-        print(f'{check_file_mime(itemtype[0], mainargs["debugmode"], mainargs["verbosemode"])}')
+        itemtype = check_file_type(item,
+                                   mainargs["debugmode"],
+                                   mainargs["verbosemode"])
+        exttype = check_file_extension(item,
+                                       mainargs["debugmode"],
+                                       mainargs["verbosemode"])
+        print(f'{check_file_mime(itemtype[0], mainargs["debugmode"],mainargs["verbosemode"])}')  # noqa: E501
         print(f'{item} - {itemtype} - {exttype} -{itemtype[0]}')
+
 
 if __name__ == '__main__':
     main()

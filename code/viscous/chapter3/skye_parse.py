@@ -4,8 +4,12 @@ import argparse
 import os
 import sys
 
+
 def print_profile(skype_db):
-    ''' This function prints the profile information for a skype database.'''
+    '''
+    This function prints the profile
+    information for a skype database.
+    '''
     conn = sqlite3.connect(skype_db)
     c = conn.cursor()
     c.execute("SELECT fullname, skypename, city, country, \
@@ -16,6 +20,7 @@ def print_profile(skype_db):
         print(f'[+] Skype Username: {str(row[1])}')
         print(f'[+] Location: {str(row[2])},{str(row[3])}')
         print(f'[+] Profile Date: {str(row[4])}')
+
 
 def print_contacts(skype_db):
     ''' This function prints the contacts for a skype database.'''
@@ -34,6 +39,7 @@ def print_contacts(skype_db):
         if str(row[5]) != 'None':
             print(f'[+] Birthday: {str(row[5])}')
 
+
 def print_calls(skype_db):
     ''' This function prints the calls for a skype database.'''
     conn = sqlite3.connect(skype_db)
@@ -44,6 +50,7 @@ def print_calls(skype_db):
     print('[*] -- Found Calls --')
     for row in c:
         print(f'[+] Time: {str(row[0])} | Partner: {str(row[1])}')
+
 
 def print_messages(skype_db):
     ''' This function prints the messages for a skype database.'''
@@ -59,16 +66,19 @@ def print_messages(skype_db):
                     msg_direction = 'To ' + str(row[1]) + ': '
                 else:
                     msg_direction = 'From ' + str(row[2]) + ': '
-                print(f'[*] Time: {str(row[0])} {msg_direction} {str(row[3])}')
-        except: # pylint: disable=bare-except
+                print(f'[*] Time: {str(row[0])} {msg_direction} {str(row[3])}')  # noqa: E501
+        except:  # pylint: disable=bare-except  # noqa: E722
             pass
+
 
 def main():
     ''' Main function.'''
     print('[*] Skype Parser Starting')
     parser = argparse.ArgumentParser(description='Skype Parser')
-    parser.add_argument('-p', dest='pathName', type=str, \
-        help='specify path name of Skype profile')
+    parser.add_argument('-p',
+                        dest='pathName',
+                        type=str,
+                        help='specify path name of Skype profile')
     options = parser.parse_args()
     path_name = options.pathName
     if path_name is None:
@@ -87,6 +97,7 @@ def main():
         else:
             print(f'[!] Skype Database does not exist: {skype_db}')
     print('[*] Skype Parser Ending')
+
 
 if __name__ == '__main__':
     main()
