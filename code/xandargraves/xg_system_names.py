@@ -1,4 +1,7 @@
-''' This is a list of systems for the imperial side of the Xander Graves UNiverse'''
+'''
+This is a list of systems for the
+imperial side of the Xander Graves Universe
+'''
 import random
 
 DATA_DIR = 'G:/Writing/Fiction/Stories/Xander graves/Data'
@@ -6,6 +9,7 @@ SUFFIXS = 'suffixs.dat'
 TOPPERS = 'toppers.dat'
 PREFIXS = 'prefixs.dat'
 RESULT = 'result.dat'
+
 
 def read_file(file_name, verbose=False):
     ''' This is the read file function'''
@@ -18,6 +22,7 @@ def read_file(file_name, verbose=False):
     if verbose:
         print('[o] This is the read file function ending')
     return result
+
 
 def generate_names(gn_suffix, gn_topper, gn_prefix, verbose=False):
     ''' This is the generate names function'''
@@ -33,6 +38,7 @@ def generate_names(gn_suffix, gn_topper, gn_prefix, verbose=False):
         print('[o] This is the generate names function ending')
     return result
 
+
 def write_file(file_name, write_list, verbose=False):
     ''' This is the write file function'''
     if verbose:
@@ -42,6 +48,7 @@ def write_file(file_name, write_list, verbose=False):
             file_handle.write(f'{item}\n')
     if verbose:
         print('[o] This is the write file function ending')
+
 
 def main():
     ''' This is the main function'''
@@ -55,13 +62,14 @@ def main():
     print(f'[-] {len(prefix_list)}')
     namelist = []
     for _ in range(1000):
-        namelist.append(f'{generate_names(suffix_list, topper_list, prefix_list)}')
+        namelist.append(f'{generate_names(suffix_list, topper_list, prefix_list)}')  # noqa: E501
     namelist.sort()
     print(f'[-] before {len(namelist)}')
     namelist = list(dict.fromkeys(namelist))
     print(f'[-] after {len(namelist)}')
     write_file(f'{DATA_DIR}/{RESULT}', namelist)
     print('[-] This is the main function ending')
+
 
 if __name__ == '__main__':
     print('[+] This is the xg_system_names program starting')

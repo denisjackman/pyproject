@@ -2,7 +2,8 @@
     Name : tidyjson.py
 
     Function :
-    This takes all the JSON files in the referencedata folder and tidies them up.
+    This takes all the JSON files in the
+    referencedata folder and tidies them up.
 
 '''
 
@@ -18,6 +19,7 @@ import json
 FILEPATH = "Z:/Resources/development/"
 ROOTDIR = f"{FILEPATH}referencedata/"
 
+
 def main():
     ''' main '''
     for dirName, subdirList, fileList in os.walk(ROOTDIR):
@@ -27,6 +29,7 @@ def main():
                 data = json.load(file)
             with open(filename, "w", encoding='utf-8-sig') as file:
                 json.dump(data, file, indent=4, ensure_ascii=False)
+
 
 if __name__ == "__main__":
     main()

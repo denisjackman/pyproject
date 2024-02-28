@@ -3,8 +3,8 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-#from jackmanimation.utilities.fileutility import walk_through
-from jackmanimation.utilities.fileutility import getargs
+from jackmanimation.utilities.fileutility import getargs  # noqa: E402
+
 
 def main():
     ''' This is the main function for the kitten project.'''
@@ -19,6 +19,7 @@ def main():
     if kitten_command_args["verbosemode"]:
         print('[-] kitten verbose mode')
     print('[*] kitten finished')
+
 
 if __name__ == "__main__":
     main()

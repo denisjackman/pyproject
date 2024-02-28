@@ -9,8 +9,9 @@ RUN_CHECK = False
 IS_ADMIN = ctypes.windll.shell32.IsUserAnAdmin() != 0
 
 if OS_NAME == 'Windows':
-    import winreg # pylint: disable=E0401
+    import winreg  # pylint: disable=E0401
     RUN_CHECK = True
+
 
 def sid2user(sid):
     ''' convert SID to username '''
@@ -21,15 +22,20 @@ def sid2user(sid):
         (value, _) = winreg.QueryValueEx(key, 'ProfileImagePath')
         user = value.split('\\')[-1]
         return user
-    except WindowsError: # pylint: disable=E0602
+    except WindowsError:  # pylint: disable=E0602  # noqa: F841
         return sid
+
+
 def return_dir():
     ''' return recycle bin directory '''
-    dirs = ['C:\\Recycler\\', 'C:\\Recycled\\', 'C:\\$Recycle.Bin\\']
+    dirs = ['C:\\Recycler\\',
+            'C:\\Recycled\\',
+            'C:\\$Recycle.Bin\\']
     for recycle_dir in dirs:
         if os.path.isdir(recycle_dir):
             return recycle_dir
     return None
+
 
 def find_recycled(recycle_dir):
     ''' find files in recycle bin '''
@@ -41,10 +47,12 @@ def find_recycled(recycle_dir):
         for file in files:
             print(f'[+] Found File: {str(file)}')
 
+
 def main():
     ''' main '''
     recycle_dir = return_dir()
     find_recycled(recycle_dir)
+
 
 if __name__ == '__main__':
     print(f'[-] {RUN_NAME} starting')

@@ -5,7 +5,7 @@ import wx
 
 APP_EXIT = 1
 
-# create a Example class
+
 class Example(wx.Frame):
     ''' WX frame class'''
     # constructor
@@ -23,21 +23,22 @@ class Example(wx.Frame):
         self.pnl = wx.Panel(self)
         # create radio buttons
         self.rb1 = wx.RadioButton(self.pnl,
-                                  label = 'Button 1',
-                                  pos = (30, 10))
+                                  label='Button 1',
+                                  pos=(30, 10))
         self.rb2 = wx.RadioButton(self.pnl,
-                                  label = 'Button 2',
-                                  pos = (30, 30))
+                                  label='Button 2',
+                                  pos=(30, 30))
         self.rb3 = wx.RadioButton(self.pnl,
-                                  label = 'Button 3',
-                                  pos = (30, 50))
+                                  label='Button 3',
+                                  pos=(30, 50))
         # set value for the second radio button as true(checked)
         self.rb2.SetValue(True)
-        self.frame = wx.Frame(None, title = 'Radio Button Example')
+        self.frame = wx.Frame(None, title='Radio Button Example')
 
     def isName(self):
         ''' isname function'''
         return self.title
+
 
 def main():
     ''' main function'''
@@ -50,7 +51,7 @@ def main():
     # running a app
     app.MainLoop()
 
-# Driver code
+
 if __name__ == '__main__':
     # main function call
     main()

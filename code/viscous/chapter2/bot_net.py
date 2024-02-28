@@ -1,6 +1,7 @@
 ''' Botnet simulation   '''
 from pexpect import pxssh
 
+
 class Client:
     ''' Client class '''
 
@@ -27,6 +28,7 @@ class Client:
         self.session.prompt()
         return self.session.before
 
+
 def botnet_command(command, botNetItem):
     ''' send command to all the bots '''
     for client in botNetItem:
@@ -34,17 +36,19 @@ def botnet_command(command, botNetItem):
         print('[*] Output from ' + client.host)
         print('[+] ' + output + '\n')
 
+
 def add_client(host, user, password, botNetClient):
     ''' add a new client to the botnet '''
     client = Client(host, user, password)
     botNetClient.append(client)
 
+
 if __name__ == '__main__':
     botNet = []
     print('[-] Botnet starting')
-    add_client('10.10.10.110','root','toor',botNet)
-    add_client('10.10.10.120','root','toor',botNet)
-    add_client('10.10.10.130','root','toor',botNet)
+    add_client('10.10.10.110', 'root', 'toor', botNet)
+    add_client('10.10.10.120', 'root', 'toor', botNet)
+    add_client('10.10.10.130', 'root', 'toor', botNet)
     botnet_command('uname -v', botNet)
     botnet_command('cat /etc/issue', botNet)
     print('[-] Botnet complete')

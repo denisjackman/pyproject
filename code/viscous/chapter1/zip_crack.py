@@ -10,7 +10,7 @@ def get_args():
     '''
         get the argurments from the command line
     '''
-    st_commands = f'{os.path.basename(__file__)} -v <True/False> -f <Zipfile> -d <Dictionary> -h <help>'
+    st_commands = f'{os.path.basename(__file__)} -v <True/False> -f <Zipfile> -d <Dictionary> -h <help>'  # noqa: E501
     argv = sys.argv[1:]
     commands = "hvf:d:"
     long_commands = ["help", "verbose", "file=", "dictionary="]
@@ -36,23 +36,27 @@ def get_args():
             "dictionary": dictionary,
             "zipfile": zipfilename}
 
+
 def extract_file(zFile, password):
     ''' extract file from zip file '''''
     result = False
     try:
         zFile.extractall(pwd=password.encode())
-    except Exception as err:
+    except Exception as err:  # noqa: F841
         result = False
     else:
         result = True
     return result
+
 
 def main():
     ''' main function '''
     main_args = get_args()
     do_threading = False
     with zipfile.ZipFile(main_args["zipfile"]) as zFile:
-        with open(main_args["dictionary"], 'r', encoding='utf-8-sig') as passFile:
+        with open(main_args["dictionary"],
+                  'r',
+                  encoding='utf-8-sig') as passFile:
             for line in passFile.readlines():
                 password = line.strip('\n')
                 if do_threading:
@@ -63,6 +67,7 @@ def main():
                     if answer:
                         print(f'[+] Password = {password}')
                         break
+
 
 if __name__ == '__main__':
     main()

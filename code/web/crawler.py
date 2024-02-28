@@ -14,8 +14,8 @@ from html import escape
 
 import multiprocessing as mp
 
-
 from bs4 import BeautifulSoup
+
 
 class Link():
     '''
@@ -37,42 +37,58 @@ class Link():
     def __str__(self):
         return self.src + " -> " + self.dst
 
+
 class Crawler():
     '''
         crawler object to be used in the graph
     '''
-    def __init__(self, root, depth_limit, confine=None, exclude=None, locked=True, filter_seen=True):
+    def __init__(self,
+                 root,
+                 depth_limit,
+                 confine=None,
+                 exclude=None,
+                 locked=True,
+                 filter_seen=True):
         self.root = root
         self.host = urllib.parse.urlparse(root)[1]
 
-        ## Data for filters:
-        self.depth_limit = depth_limit # Max depth (number of hops from root)
-        self.locked = locked           # Limit search to a single host?
-        self.confine_prefix=confine    # Limit search to this prefix
-        self.exclude_prefixes=exclude  # URL prefixes NOT to visit
+        # Data for filters:
+        self.depth_limit = depth_limit
+        # Max depth (number of hops from root)
+        self.locked = locked
+        # Limit search to a single host?
+        self.confine_prefix = confine
+        # Limit search to this prefix
+        self.exclude_prefixes = exclude
+        # URL prefixes NOT to visit
 
+        self.urls_seen = set()
+        # Used to avoid putting duplicates in queue
+        self.urls_remembered = set()
+        # For reporting to user
+        self.visited_links = set()
+        # Used to avoid re-processing a page
+        self.links_remembered = set()
+        # For reporting to user
 
-        self.urls_seen = set()          # Used to avoid putting duplicates in queue
-        self.urls_remembered = set()    # For reporting to user
-        self.visited_links= set()       # Used to avoid re-processing a page
-        self.links_remembered = set()   # For reporting to user
-
-        self.num_links = 0              # Links found (and not excluded by filters)
-        self.num_followed = 0           # Links followed.
+        self.num_links = 0
+        # Links found (and not excluded by filters)
+        self.num_followed = 0
+        # Links followed.
 
         # Pre-visit filters:  Only visit a URL if it passes these tests
-        self.pre_visit_filters=[self._prefix_ok,
-                                self._exclude_ok,
-                                self._not_visited,
-                                self._same_host]
+        self.pre_visit_filters = [self._prefix_ok,
+                                  self._exclude_ok,
+                                  self._not_visited,
+                                  self._same_host]
 
         # Out-url filters: When examining a visited page, only process
         # links where the target matches these filters.
         if filter_seen:
-            self.out_url_filters=[self._prefix_ok,
-                                     self._same_host]
+            self.out_url_filters = [self._prefix_ok,
+                                    self._same_host]
         else:
-            self.out_url_filters=[]
+            self.out_url_filters = []
 
     def _pre_visit_url_condense(self, url):
 
@@ -87,19 +103,18 @@ class Crawler():
         base, frag = urllib.parse.urldefrag(url)
         return base
 
-    ## URL Filtering functions.  These all use information from the
-    ## state of the Crawler to evaluate whether a given URL should be
-    ## used in some context.  Return value of True indicates that the
-    ## URL should be used.
+    # URL Filtering functions.  These all use information from the
+    # state of the Crawler to evaluate whether a given URL should be
+    # used in some context.  Return value of True indicates that the
+    # URL should be used.
 
     def _prefix_ok(self, url):
         """Pass if the URL has the correct prefix, or none is specified"""
-        return (self.confine_prefix is None  or
-                url.startswith(self.confine_prefix))
+        return (self.confine_prefix is None or url.startswith(self.confine_prefix))  # noqa: E501
 
     def _exclude_ok(self, url):
         """Pass if the URL does not match any exclude patterns"""
-        prefixes_ok = [ not url.startswith(p) for p in self.exclude_prefixes]
+        prefixes_ok = [not url.startswith(p) for p in self.exclude_prefixes]
         return all(prefixes_ok)
 
     def _not_visited(self, url):
@@ -139,33 +154,35 @@ class Crawler():
         q = mp.Queue()
         q.put((self.root, 0))
 
-        while not q.empty():  #pylint: disable=too-many-nested-blocks
+        while not q.empty():  # pylint: disable=too-many-nested-blocks
             this_url, depth = q.get()
 
-            #Non-URL-specific filter: Discard anything over depth limit
+            # Non-URL-specific filter: Discard anything over depth limit
             if depth > self.depth_limit:
                 continue
 
-            #Apply URL-based filters.
-            do_not_follow = [f for f in self.pre_visit_filters if not f(this_url)]
+            # Apply URL-based filters.
+            do_not_follow = [f for f in self.pre_visit_filters if not f(this_url)]  # noqa: E501
 
-            #Special-case depth 0 (starting URL)
+            # Special-case depth 0 (starting URL)
             if depth == 0 and [] != do_not_follow:
-                print(sys.stderr, "Whoops! Starting URL %s rejected by the following filters:", do_not_follow)
+                print(sys.stderr, "Whoops! Starting URL %s rejected by the following filters:", do_not_follow)  # noqa: E501
 
-            #If no filters failed (that is, all passed), process URL
+            # If no filters failed
+            # (that is, all passed), process URL
+
             if [] == do_not_follow:
                 try:
                     self.visited_links.add(this_url)
                     self.num_followed += 1
                     page = Fetcher(this_url)
                     page.fetch()
-                    for link_url in [self._pre_visit_url_condense(l) for l in page.out_links()]:
+                    for link_url in [self._pre_visit_url_condense(item) for item in page.out_links()]:  # noqa: E501
                         if link_url not in self.urls_seen:
                             q.put((link_url, depth+1))
                             self.urls_seen.add(link_url)
 
-                        do_not_remember = [f for f in self.out_url_filters if not f(link_url)]
+                        do_not_remember = [f for f in self.out_url_filters if not f(link_url)]  # noqa: E501
                         if [] == do_not_remember:
                             self.num_links += 1
                             self.urls_remembered.add(link_url)
@@ -173,19 +190,23 @@ class Crawler():
                             if link not in self.links_remembered:
                                 self.links_remembered.add(link)
                 except Exception as e:
-                    print(sys.stderr, f"ERROR: Can't process url {this_url} ({e})")
-                    #print format_exc()
+                    print(sys.stderr, f"ERROR: Can't process url {this_url} ({e})")  # noqa: E501
+
 
 class OpaqueDataException (Exception):
-    ''' Exception to be raised when the data is not in the expected format '''
+    '''
+    Exception to be raised when the
+    data is not in the expected format '''
     def __init__(self, message, mimetype, url):
         Exception.__init__(self, message)
-        self.mimetype=mimetype
-        self.url=url
+        self.mimetype = mimetype
+        self.url = url
 
 
 class Fetcher():
-    """The name Fetcher is a slight misnomer: This class retrieves and interprets web pages."""
+    """
+    The name Fetcher is a slight misnomer:
+    This class retrieves and interprets web pages."""
 
     def __init__(self, url):
         self.url = url
@@ -200,13 +221,10 @@ class Fetcher():
         '''
         return self.out_urls
 
-    #def _addHeaders(self, request):
-    #    request.add_header("User-Agent", AGENT)
-
     def _open(self):
         url = self.url
         try:
-            request = urllib.request.urlopen(url)  #pylint: disable=consider-using-with
+            request = urllib.request.urlopen(url)  # pylint: disable=consider-using-with  # noqa: E501
             handle = urllib.request.build_opener()
         except IOError:
             return None
@@ -215,28 +233,30 @@ class Fetcher():
     def fetch(self):
         ''' fetch the url and parse the results '''
         request, handle = self._open()
-        #self._addHeaders(request)
+        # self._addHeaders(request)
         if handle:
             try:
-                data=handle.open(request)
-                mime_type=data.info().gettype()
-                url=data.geturl()
+                data = handle.open(request)
+                mime_type = data.info().gettype()
+                url = data.geturl()
                 if mime_type != "text/html":
-                    raise OpaqueDataException(f"Not interested in files of type {mime_type} ({url})", mime_type, url)
+                    raise OpaqueDataException(f"Not interested in files of type {mime_type} ({url})", mime_type, url)  # noqa: E501
                 content = data.read()
                 soup = BeautifulSoup(content)
                 tags = soup('a')
             except urllib.request.HTTPError as error:
                 if error.code == 404:
-                    print(f"ERROR: {error} -> {error.url}", sys.stderr)
+                    print(f"ERROR: {error} -> {error.url}",
+                          sys.stderr)
                     return
                 print(f"ERROR: {error}", sys.stderr)
                 tags = []
             except urllib.request.URLError as error:
-                print (f"ERROR: {error}", sys.stderr)
+                print(f"ERROR: {error}", sys.stderr)
                 tags = []
             except OpaqueDataException as error:
-                print(f"Skipping {error.url}, has type {error.mimetype}", sys.stderr)
+                print(f"Skipping {error.url}, has type {error.mimetype}",
+                      sys.stderr)
                 tags = []
             for tag in tags:
                 href = tag.get("href")
@@ -244,6 +264,7 @@ class Fetcher():
                     url = urllib.parse.urljoin(self.url, escape(href))
                     if url not in self:
                         self.out_urls.append(url)
+
 
 def getLinks(glurl):
     '''
@@ -254,9 +275,10 @@ def getLinks(glurl):
 
     j = 1
     for i, listurl in enumerate(page):
-        if listurl.find("http")>=0:
+        if listurl.find("http") >= 0:
             print(f"{j} {listurl}")
             j += 1
+
 
 def parse_options():
     """parse_options() -> opts, args
@@ -267,35 +289,63 @@ def parse_options():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("-q", "--quiet",
-            action="store_true", default=False, dest="quiet",
-            help="Enable quiet mode")
+    parser.add_argument("-q",
+                        "--quiet",
+                        action="store_true",
+                        default=False,
+                        dest="quiet",
+                        help="Enable quiet mode")
 
-    parser.add_argument("-l", "--links",
-            action="store_true", default=False, dest="links",
-            help="Get links for specified url only")
+    parser.add_argument("-l",
+                        "--links",
+                        action="store_true",
+                        default=False,
+                        dest="links",
+                        help="Get links for specified url only")
 
-    parser.add_argument("-d", "--depth",
-            action="store", type="int", default=30, dest="depth_limit",
-            help="Maximum depth to traverse")
+    parser.add_argument("-d",
+                        "--depth",
+                        action="store",
+                        type="int",
+                        default=30,
+                        dest="depth_limit",
+                        help="Maximum depth to traverse")
 
-    parser.add_argument("-c", "--confine",
-            action="store", type="string", dest="confine",
-            help="Confine crawl to specified prefix")
+    parser.add_argument("-c",
+                        "--confine",
+                        action="store",
+                        type="string",
+                        dest="confine",
+                        help="Confine crawl to specified prefix")
 
-    parser.add_argument("-x", "--exclude", action="append", type="string",
-                      dest="exclude", default=[], help="Exclude URLs by prefix")
+    parser.add_argument("-x",
+                        "--exclude",
+                        action="append",
+                        type="string",
+                        dest="exclude",
+                        default=[],
+                        help="Exclude URLs by prefix")
 
-    parser.add_argument("-L", "--show-links", action="store_true", default=False,
-                      dest="out_links", help="Output links found")
+    parser.add_argument("-L",
+                        "--show-links",
+                        action="store_true",
+                        default=False,
+                        dest="out_links",
+                        help="Output links found")
 
-    parser.add_argument("-u", "--show-urls", action="store_true", default=False,
-                      dest="out_urls", help="Output URLs found")
+    parser.add_argument("-u",
+                        "--show-urls",
+                        action="store_true",
+                        default=False,
+                        dest="out_urls",
+                        help="Output URLs found")
 
-    parser.add_argument("-D", "--dot", action="store_true", default=False,
-                      dest="out_dot", help="Output Graphviz dot file")
-
-
+    parser.add_argument("-D",
+                        "--dot",
+                        action="store_true",
+                        default=False,
+                        dest="out_dot",
+                        help="Output Graphviz dot file")
 
     opts, args = parser.parse_args()
 
@@ -309,6 +359,7 @@ def parse_options():
 
     return opts, args
 
+
 class DotWriter:
 
     """ Formats a collection of Link objects as a Graphviz (Dot)
@@ -316,7 +367,7 @@ class DotWriter:
     name which Graphviz will accept, and declaring links between those
     nodes."""
 
-    def __init__ (self):
+    def __init__(self):
         self.node_alias = {}
 
     def _safe_alias(self, url, silent=False):
@@ -330,11 +381,10 @@ class DotWriter:
         m = hashlib.md5()
         m.update(url)
         name = "N"+m.hexdigest()
-        self.node_alias[url]=name
+        self.node_alias[url] = name
         if not silent:
             print("\t{name} [label=\"{url}\"];")
         return name
-
 
     def asDot(self, links):
 
@@ -342,15 +392,13 @@ class DotWriter:
 
         print("digraph Crawl {")
         print("\t edge [K=0.2, len=0.1];")
-        for l in links:
-            print("\t" + self._safe_alias(l.src) + " -> " + self._safe_alias(l.dst) + ";")
+        for item in links:
+            print("\t" + self._safe_alias(item.src) + " -> " + self._safe_alias(item.dst) + ";")  # noqa: E501
         print("}")
 
     def DWName(self):
         ''' public method '''
         return True
-
-
 
 
 def main():
@@ -364,8 +412,8 @@ def main():
         raise SystemExit(0)
 
     depth_limit = opts.depth_limit
-    confine_prefix=opts.confine
-    exclude=opts.exclude
+    confine_prefix = opts.confine
+    exclude = opts.exclude
 
     sTime = time.time()
 
@@ -377,7 +425,7 @@ def main():
         print(f"\n {crawler.urls_seen} URLs found")
 
     if opts.out_links:
-        print("\n".join([str(l) for l in crawler.links_remembered]))
+        print("\n".join([str(item) for item in crawler.links_remembered]))
 
     if opts.out_dot:
         d = DotWriter()
@@ -388,7 +436,8 @@ def main():
 
     print(sys.stderr, f"Found:    {crawler.num_links}")
     print(sys.stderr, f"Followed: {crawler.num_followed}")
-    print(sys.stderr, f"Stats:    {tTime} after {(int(math.ceil(float(crawler.num_links) / tTime)), tTime)}")
+    print(sys.stderr, f"Stats:    {tTime} after {(int(math.ceil(float(crawler.num_links) / tTime)), tTime)}")  # noqa: E501
+
 
 if __name__ == "__main__":
     main()

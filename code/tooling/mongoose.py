@@ -9,8 +9,9 @@ from tqdm import tqdm
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import walk_through
-from jackmanimation.utilities.fileutility import getargs
+from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
+from jackmanimation.utilities.fileutility import getargs  # noqa: E402
+
 
 def unzip(zipfile_path, unzip_path, unzip_verbose=False):
     '''unzip'''
@@ -18,6 +19,7 @@ def unzip(zipfile_path, unzip_path, unzip_verbose=False):
         print(f'[-] unzip {zipfile_path} to {unzip_path}')
     with zipfile.ZipFile(zipfile_path, 'r') as zip_ref:
         zip_ref.extractall(unzip_path)
+
 
 def unrar(rarfile_path, unrar_path, unrar_verbose=False):
     '''unrar'''
@@ -32,6 +34,7 @@ def unrar(rarfile_path, unrar_path, unrar_verbose=False):
     except rarfile.NeedFirstVolume:
         rarfile__err_count += 1
 
+
 def main():
     '''main function'''
     print('[-] mongoose tool main starting')
@@ -42,13 +45,20 @@ def main():
     mongoose_filelist = walk_through(mongoose_mainargs)
     if mongoose_mainargs["verbosemode"]:
         print(f'[-] {len(mongoose_filelist)} files found')
-    for mongoose_file in tqdm(mongoose_filelist, total=len(mongoose_filelist), unit=' mongoose_file'):
+    for mongoose_file in tqdm(mongoose_filelist,
+                              total=len(mongoose_filelist),
+                              unit=' mongoose_file'):
         if os.path.splitext(mongoose_file)[1] == '.zip':
-            unzip(mongoose_file, mongoose_mainargs["targetdirectory"], mongoose_mainargs["verbosemode"])
+            unzip(mongoose_file,
+                  mongoose_mainargs["targetdirectory"],
+                  mongoose_mainargs["verbosemode"])
         if os.path.splitext(mongoose_file)[1] == '.rar':
-            unrar(mongoose_file, "Y:\\playspace\\library", mongoose_mainargs["verbosemode"])
+            unrar(mongoose_file,
+                  "Y:\\playspace\\library",
+                  mongoose_mainargs["verbosemode"])
 
     print('[-] mongoose tool main finished')
+
 
 if __name__ == '__main__':
     print('[=] mongoose tool starting')

@@ -3,7 +3,7 @@ import os
 import platform
 import ctypes
 import requests
-import config# pylint: disable=E0401
+import config  # pylint: disable=E0401
 
 RUN_NAME = os.path.basename(__file__)
 OS_NAME = platform.system()
@@ -12,8 +12,9 @@ IS_ADMIN = ctypes.windll.shell32.IsUserAnAdmin() != 0
 WIGLE_CHECK = False
 
 if OS_NAME == 'Windows':
-    import winreg # pylint: disable=E0401
+    import winreg  # pylint: disable=E0401
     RUN_CHECK = True
+
 
 def val2addr(val):
     ''' convert MAC address to string '''
@@ -28,14 +29,16 @@ def val2addr(val):
     addr = addr.strip(' ').replace(' ', ':')[0:17]
     return addr
 
+
 def wigle_print(api_key, netid):
     """ This gathers information from net """
     print(f'{"":>3}[-] Searching with Wigle.net for {netid}')
-    headers = {'Accept': 'application/json', 'Authorization': f'Basic {api_key}' }
+    headers = {'Accept': 'application/json',
+               'Authorization': f'Basic {api_key}'}
     url = 'https://api.wigle.net/api/v2/network/search'
     payload = {'onlymine': False,
                'freenet': False,
-               'paynet': False,}
+               'paynet': False}
 
     payload['ssid'] = netid
 
@@ -58,9 +61,10 @@ def wigle_print(api_key, netid):
     finally:
         print(f'{"":>3}[-] {netid}')
 
+
 def print_nets():
     ''' print network info'''
-    net = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\\NetworkList\Signatures\Unmanaged"
+    net = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\\NetworkList\Signatures\Unmanaged"  # noqa: E501
     key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, net)
     print('[*] Networks You have Joined.')
     for i in range(100):
@@ -75,10 +79,11 @@ def print_nets():
             if WIGLE_CHECK:
                 wigle_print(config.WIGLE_ENCODED, mac_addr)
             winreg.CloseKey(net_key)
-        except (WindowsError,OSError):# pylint: disable=E0602
+        except (WindowsError, OSError):  # pylint: disable=E0602
             break
         except IndexError:
             break
+
 
 def main():
     ''' main'''
@@ -90,6 +95,7 @@ def main():
             print(f'[-] {RUN_NAME} must be run as admin')
     else:
         print(f'[-] {OS_NAME} not supported')
+
 
 if __name__ == '__main__':
     print(f'[*] {RUN_NAME} starting')

@@ -42,18 +42,26 @@ def main():
     print(f'[-] {len(gf_files)} pdf files found')
     print(f'[-] {len(delete_files)} delete files found')
 
-    with open(gf_filename, 'w', encoding='utf-8-sig') as goldfishfile:
+    with open(gf_filename,
+              'w',
+              encoding='utf-8-sig') as goldfishfile:
         print('[-] goldfish main walking through files')
-        for gf_file in tqdm(gf_files, total=len(gf_files), unit=' gf_file'):
+        for gf_file in tqdm(gf_files,
+                            total=len(gf_files),
+                            unit=' gf_file'):
             goldfishfile.write(f'{gf_date},{gf_file}\n')
 
-    with open(delete_filename, 'w', encoding='utf-8-sig') as deletefile:
+    with open(delete_filename,
+              'w',
+              encoding='utf-8-sig') as deletefile:
         print('[-] goldfish main walking through files')
-        for delete_file in tqdm(delete_files, total=len(delete_files), unit=' delete_file'):
+        for delete_file in tqdm(delete_files,
+                                total=len(delete_files),
+                                unit=' delete_file'):
             deletefile.write(f'{gf_date},{delete_file}\n')
 
-
     print('[*] goldfish main shutting down')
+
 
 if __name__ == "__main__":
     print('[+] goldfish starting up')

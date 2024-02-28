@@ -6,6 +6,7 @@ from PyPDF4 import PdfFileReader
 
 RUN_NAME = os.path.basename(__file__)
 
+
 def print_meta(filename):
     ''' print metadata '''
     with open(filename, 'rb') as pdf_file:
@@ -14,6 +15,7 @@ def print_meta(filename):
         print(f'[*] PDF MetaData For: {str(filename)}')
         for meta_item in doc_info:
             print(f'[+] {meta_item}: {doc_info[meta_item]}')
+
 
 def main():
     ''' main '''
@@ -33,6 +35,7 @@ def main():
     else:
         print_meta(filename)
     print(f'[*] {RUN_NAME} ending')
+
 
 if __name__ == '__main__':
     main()

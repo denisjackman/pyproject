@@ -5,6 +5,7 @@ import argparse
 import os
 import sys
 
+
 def print_downloads(download_db):
     ''' print downloads '''
     with sqlite3.connect(download_db) as conn:
@@ -13,7 +14,8 @@ def print_downloads(download_db):
         \'unixepoch\') FROM moz_downloads;')
         print('[*] --- Files Downloaded --- ')
         for row in c:
-            print(f'[+] File: {str(row[0])} from source: {str(row[1])} at: {str(row[2])}')
+            print(f'[+] File: {str(row[0])} from source: {str(row[1])} at: {str(row[2])}')  # noqa: E501
+
 
 def print_cookies(cookies_db):
     ''' print cookies '''
@@ -33,6 +35,7 @@ def print_cookies(cookies_db):
             print('[*] Upgrade your Python-Sqlite3 Library')
             sys.exit(0)
 
+
 def print_history(places_db):
     ''' print history '''
     try:
@@ -51,6 +54,8 @@ def print_history(places_db):
             print('[*] Error reading your places database.')
             print('[*] Upgrade your Python-Sqlite3 Library')
             sys.exit(0)
+
+
 def print_google(places_db):
     ''' print google '''
     with sqlite3.connect(places_db) as conn:
@@ -69,11 +74,12 @@ def print_google(places_db):
                     search = search.replace('q=', '').replace('+', ' ')
                     print(f'[+] {date} - Searched For: {search}')
 
+
 def main():
     ''' main function '''
     print('[-] Firefox parse started')
-    parser = argparse.ArgumentParser(description='Firefox History Parser',
-                                     usage='firefox_parse.py --fireprofile <path to firefox profile>')
+    parser = argparse.ArgumentParser(description='Firefox History Parser',  # noqa: E501
+                                     usage='firefox_parse.py --fireprofile <path to firefox profile>')  # noqa: E501
     parser.add_argument('--fireprofile',
                         type=str,
                         metavar='FIREFOX_PROFILE',
@@ -98,6 +104,7 @@ def main():
     else:
         print(f'[-] PlacesDb does not exist: {places_db}')
     print('[-] Firefox parse finished')
+
 
 if __name__ == '__main__':
     main()
