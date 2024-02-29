@@ -1,17 +1,18 @@
 ''' linear search algorithm in python '''
-## Search Algorithms
-##      Liner Search Algorithm          - DONE
-##      Binary Search Algorithm         - DONE
-##      Depth First Search Algorithm
-##      Breadth First Search Algorithm
+# Search Algorithms
+#      Liner Search Algorithm          - DONE
+#      Binary Search Algorithm         - DONE
+#      Depth First Search Algorithm
+#      Breadth First Search Algorithm
 
-## Sort Algorithms
-##      insertion sort                  - DONE
-##      selection sort                  - DONE
-##      quick sort                      - DONE
-##      Merge sort                      - DONE
-##      heap sort
-##      counting sort
+# Sort Algorithms
+#      insertion sort                  - DONE
+#      selection sort                  - DONE
+#      quick sort                      - DONE
+#      Merge sort                      - DONE
+#      heap sort
+#      counting sort
+
 
 def quick_sort(input_list):
     """ Quicksort a list
@@ -29,6 +30,7 @@ def quick_sort(input_list):
     qsgreater = quick_sort([x for x in arr if x > arr[0]])
     result = qslesser + qspivots + qsgreater
     return result
+
 
 def radix_sort(input_list):
     '''
@@ -67,6 +69,7 @@ def radix_sort(input_list):
 
     return outputArray
 
+
 def insertion_sort(input_list):
     '''
         insertion sort routine
@@ -82,6 +85,7 @@ def insertion_sort(input_list):
 
     return array
 
+
 def selection_sort(input_list):
     '''
         selection sort routine
@@ -95,6 +99,7 @@ def selection_sort(input_list):
         if minimum != item:
             result[item], result[minimum] = result[minimum], result[item]
     return result
+
 
 def merge_sort(input_list):
     '''
@@ -133,6 +138,7 @@ def merge_sort(input_list):
             loop += 1
     return my_list
 
+
 def bubble_sort(input_list):
     '''
         bubblesort routine
@@ -144,6 +150,7 @@ def bubble_sort(input_list):
                 input_list[j], input_list[j+1] = input_list[j+1], input_list[j]
     return input_list
 
+
 def linear_search(targetlist, target):
     ''' returns the target if found, else returns None '''
     result = False
@@ -152,6 +159,7 @@ def linear_search(targetlist, target):
             if targetlist[item] == target:
                 return targetlist[item]
     return result
+
 
 def binary_search(targetlist, low, high, target):
     ''' Binary Search Algorithm in Python '''
@@ -165,15 +173,21 @@ def binary_search(targetlist, low, high, target):
         return binary_search(targetlist, mid + 1, high, target)
     return result
 
+
 def main():
     ''' main function '''
     print("[+] Linear Search Algorithm start[+]")
-    searchlist=[1,2,3,4,5,6,7,8,9,10]
-    print(f'[-] Linear looking for 5 in searchlist {linear_search(searchlist, 5)}')
-    print(f'[-] Linear looking for 20 in searchlist {linear_search(searchlist, 20)}')
-    print(f'[-] Binary looking for 5 in searchlist {binary_search(searchlist, 0, len(searchlist)-1, 5)}')
-    print(f'[-] Binary looking for 20 in searchlist {binary_search(searchlist, 0, len(searchlist)-1, 20)}')
-    print("[+] Linear Search Algorithm finish[+]")
+    searchlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print('[-] Linear looking for 5 in searchlist '
+          f'{linear_search(searchlist, 5)}')
+    print('[-] Linear looking for 20 in searchlist'
+          f'{linear_search(searchlist, 20)}')
+    print('[-] Binary looking for 5 in searchlist'
+          f'{binary_search(searchlist, 0, len(searchlist)-1, 5)}')
+    print('[-] Binary looking for 20 in searchlist'
+          f'{binary_search(searchlist, 0, len(searchlist)-1, 20)}')
+    print('[+] Linear Search Algorithm finish[+]')
+
 
 if __name__ == "__main__":
     main()

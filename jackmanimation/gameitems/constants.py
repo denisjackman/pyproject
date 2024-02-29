@@ -50,7 +50,7 @@ CHINESEYEARS = ("Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse",
                 "Goat", "Monkey", "Rooster", "Dog", "Pig")
 THREESTOOGES = ("Larry", "Moe", "Curly")
 # Dictionaries
-WhereEaglesDare = {"Traitor" : "Renegade", "Punk" : "SecondRate"}
+WhereEaglesDare = {"Traitor": "Renegade", "Punk": "SecondRate"}
 PHONETIC_ALPHABET = {"a": "Alpha", "b": "Bravo", "c": "Charlie", "d": "Delta",
                      "e": "Echo", "f": "Foxtrot", "g": "Golf", "h": "Hotel",
                      "i": "India", "j": "Juliet", "k": "Kilo", "l": "Lima",

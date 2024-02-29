@@ -1,4 +1,6 @@
 ''' Player Class object '''
+
+
 class PlayerClass:
     ''' Player Class object'''
     def __init__(self):
@@ -16,6 +18,7 @@ class PlayerClass:
         ''' return true if the class is immune to poison '''
         return self.immune_poison
 
+
 class Mage(PlayerClass):
     ''' Mage Player Class '''
     def __init__(self):
@@ -23,6 +26,7 @@ class Mage(PlayerClass):
         self.magicuser = True
         self.immune_poison = False
         self.plural = "Mages"
+
 
 class Warrior(PlayerClass):
     ''' Warrior Player Class '''

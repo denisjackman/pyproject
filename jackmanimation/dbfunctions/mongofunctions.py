@@ -6,7 +6,8 @@ from pymongo.server_api import ServerApi
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..'))
-from jackmanimation.gameitems.gamefunctions import credscheck
+from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+
 
 def open_mongo():
     ''' open mongo db '''
@@ -14,15 +15,17 @@ def open_mongo():
     mongodbuser = dbdid["BotUsername"]
     mongodbpassword = dbdid["MongoPassword"]
     mongodbconnection = dbdid["MongoDatabase"]
-    conn_str = f"mongodb+srv://{mongodbuser}:{mongodbpassword}@{mongodbconnection}/?retryWrites=true&w=majority"
+    conn_str = f"mongodb+srv://{mongodbuser}:{mongodbpassword}@{mongodbconnection}/?retryWrites=true&w=majority"  # noqa: E501
     client = MongoClient(conn_str, server_api=ServerApi('1'))
     return client
+
 
 def get_mongodb(client, database):
     ''' get the mongo db string '''
     print("[#] MongoDB Test Read data start")
     print("[#] MongoDB Test Read data start")
     return client[database]
+
 
 def insertData(client, database, collection, datalist):
     ''' write mongodb data '''
@@ -32,6 +35,7 @@ def insertData(client, database, collection, datalist):
     collection_name.insert_many(datalist)
     print("[=] MongoDB Test Insert data end")
 
+
 def getData(client, database, collection):
     ''' read mongodb data '''
     print("[=] MongoDB Test Read data start")
@@ -40,14 +44,16 @@ def getData(client, database, collection):
     print("[=] MongoDB Test Read data Finish")
     return collection_name.find()
 
+
 def updateData(client, database, collection, itemid, field, value):
     ''' update mongodb data '''
     print("[=] MongoDB update data start")
     dbname = get_mongodb(client, database)
     collection_name = dbname[collection]
-    update_result = collection_name.update_one({"_id": itemid}, {"$set": {field: value}})
+    update_result = collection_name.update_one({"_id": itemid}, {"$set": {field: value}})  # noqa: E501
     print("[=] MongoDB update data Finish")
     return update_result
+
 
 def deleteData(client, database, collection, itemid):
     ''' delete mongodb data '''
@@ -58,10 +64,12 @@ def deleteData(client, database, collection, itemid):
     print("[=] MongoDB delete data Finish")
     return delete_result
 
+
 def main():
     ''' main function '''
     print("[-] MongoDB Test Main start")
     print("[-] MongoDB Test Main end")
+
 
 if __name__ == '__main__':
     main()

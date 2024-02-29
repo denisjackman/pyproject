@@ -39,7 +39,7 @@ def gram_to_wu(amount):
     '''
         grams to weight unit (wu)
     '''
-    result = amount *(20.0/1000)
+    result = amount * (20.0 / 1000)
     return result
 
 
@@ -77,9 +77,18 @@ def wu_to_gram(amount):
     result = amount / (20*1000)
     return result
 
+
 if __name__ == '__main__':
     print("This is a test for the weight function")
-    print("Test 1: 1 pound = " + str(pound_to_wu(1)) + " Weight units = " + str(wu_to_kilo(pound_to_wu(1.0))) +" Kilos")
-    print("Test 2: 1 kilo = " + str(kilo_to_wu(1)) + " Weight units = " + str(wu_to_pound(kilo_to_wu(1.0))) +" pounds")
-    print("Test 3: 16 oz = " + str(ounce_to_wu(16.0)) + " Weight units = " + str(wu_to_pound(ounce_to_wu(16))) + " pounds")
-    print("Test 4: 1000g = " + str(gram_to_wu(1000.0)) + " Weight units = " + str(wu_to_kilo(gram_to_wu(1000))) + " kilos")
+    print("Test 1: 1 pound = "
+          f"{str(pound_to_wu(1))} Weight units = "
+          f"{str(wu_to_kilo(pound_to_wu(1.0)))} Kilos")
+    print("Test 2: 1 kilo = "
+          f"{str(kilo_to_wu(1))} Weight units = "
+          f"{str(wu_to_pound(kilo_to_wu(1.0)))} pounds")
+    print("Test 3: 16 oz = "
+          f"{str(ounce_to_wu(16.0))} Weight units = "
+          f"{str(wu_to_pound(ounce_to_wu(16)))} pounds")
+    print("Test 4: 1000g = "
+          f"{str(gram_to_wu(1000.0))} Weight units = "
+          f"{str(wu_to_kilo(gram_to_wu(1000)))} kilos")

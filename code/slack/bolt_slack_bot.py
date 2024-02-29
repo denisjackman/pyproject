@@ -13,10 +13,10 @@ from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
 
 
-credid = credscheck('y:/pyproject/secrets/secrets.json')
+credid = credscheck('Z:/pyproject/secrets/secrets.json')
 SLACK_APP_TOKEN = credid["BoltJokesToken"]
 SLACK_BOT_TOKEN = credid["BoltBotToken"]
 

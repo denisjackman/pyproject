@@ -66,7 +66,7 @@ def get_mode(input_list):
     result = 0
     frequency = {}
     for item in input_list:
-        frequency.setdefault(item,0)
+        frequency.setdefault(item, 0)
         frequency[item] += 1
     frequent = max(frequency.values())
     for item, content in frequency.items():
@@ -78,8 +78,10 @@ def get_mode(input_list):
 def get_fib(number, start):
     '''
         (int, int) -> int
-        Returns the nth Fibonacci number where start defines whether the squence
-        starts at 0 or 1 and n is a whole number greater than or equal to 1
+        Returns the nth Fibonacci number where start
+        defines whether the squence
+        starts at 0 or 1 and n is a whole number greater
+        than or equal to 1
         >>>get_fib(1,0)
         0
         >>>get_fib(1,1)
@@ -116,10 +118,10 @@ def heapify(arr, n, i):
     '''
     # Find largest among root and children
     largest = i
-    l = 2 * i + 1
+    item = 2 * i + 1
     r = 2 * i + 2
-    if l < n and arr[i] < arr[l]:
-        largest = l
+    if item < n and arr[i] < arr[item]:
+        largest = item
     if r < n and arr[largest] < arr[r]:
         largest = r
     # If root is not largest, swap with largest and continue heapifying
@@ -143,6 +145,7 @@ def heapSort(input_list):
         # Heapify root element
         heapify(arr, i, 0)
     return arr
+
 
 def getNextGap(gap):
     '''
@@ -183,9 +186,10 @@ def combSort(input_list):
         # Compare all elements with current gap
         for item in range(0, note - gap):
             if result[item] > result[item + gap]:
-                result[item], result[item + gap] = result[item + gap], result[item]
+                result[item], result[item + gap] = result[item + gap], result[item]  # noqa: E501
                 swapped = True
     return result
+
 
 def credscheck(file_details):
     """

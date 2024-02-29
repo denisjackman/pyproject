@@ -27,3 +27,10 @@ and the python path is set to the virtual environment.
 finally do a test run of the code 
 
 `python3 CODE.py`
+
+## Utility 
+
+These command precheck the complete code repository locally prior to commiting it to the repository.
+
+' flake8 $(git ls-files | grep .py$) '> ./mnt/y/store/flake8.txt '
+' pylint $(git ls-files | grep .py$) '> ./mnt/y/store/pylint.txt '

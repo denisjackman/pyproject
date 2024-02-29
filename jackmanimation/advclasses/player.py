@@ -1,6 +1,8 @@
 '''
-    player class
+    player object
 '''
+
+
 class Player:
     '''
         player class
@@ -24,13 +26,15 @@ class Player:
         ''' Which race am I '''
         return self.race.name
 
+
 class GamePlayer(Player):
     '''
         Game Player class
     '''
     def __init__(self):
         self.name = ""
-        self.playerclass = ""  # this will be the professions (Warrior, wizard, rogue etc)
+        self.playerclass = ""
+        # this will be the professions (Warrior, wizard, rogue etc)
         self.race = ""
         self.level = 1
         self.strength = 0
@@ -49,7 +53,8 @@ class GamePlayer(Player):
 
     # name = ""
     # type = ""  # this will be the professions (Warrior, wizard, rogue etc)
-    # race = ""  # Kin: Race: This will one of the racial types as outlines in the race list
+    # race = ""  # Kin: Race: This will one of the racial types as outlines
+    #            in the race list
     # level = 1  # level always starts at 1
     # strength = 0
     # intelligence = 0

@@ -13,9 +13,10 @@ __date__ = "$Date: 2023/07/02 00:00:00 $"
 __copyright__ = "Copyright (c) 2023 Denis J Jackman"
 __license__ = "Python"
 
-DIRECTORYLIST = ["C:\\","F:\\","G:\\","V:\\","W:\\","X:\\","Y:\\","Z:\\"]
+DIRECTORYLIST = ["C:\\", "F:\\", "G:\\", "V:\\", "W:\\", "X:\\", "Y:\\", "Z:\\"]  # noqa: E501
 DIRECTORYLISTFILE = "Z:/Resources/development/directorylist.txt"
 DIRECTORYSUMMARY = "Z:/Resources/development/directorysummary.txt"
+
 
 def check_file_for_name(cff_root, cff_name, cff_command_args):
     '''
@@ -43,7 +44,7 @@ def check_file_for_name(cff_root, cff_name, cff_command_args):
         if cff_name == name:
             if cff_command_args["deletemode"]:
                 if cff_command_args["verbosemode"]:
-                    print(f'[FOUND] {os.path.join(cff_root, cff_name)} is to be deleted')
+                    print(f'[FOUND] {os.path.join(cff_root, cff_name)} is to be deleted')  # noqa: E501
                 result = True
     return result
 
@@ -52,7 +53,7 @@ def getargs():
     '''
         get the arguements from the command line
     '''
-    system_commands = f'{os.path.basename(__file__)} -v <True/False> -d <True/False> DIRECTORY "."'
+    system_commands = f'{os.path.basename(__file__)} -v <True/False> -d <True/False> DIRECTORY "."'  # noqa: E501
     argv = sys.argv[1:]
     commands = "hvds:t:"
     long_commands = ["verbose", "delete", "start=", "help", "target="]
@@ -61,7 +62,7 @@ def getargs():
     start_directory = "."
     target_directory = "."
     try:
-        command_line_options, args = getopt.getopt(argv, commands, long_commands)
+        command_line_options, args = getopt.getopt(argv, commands, long_commands)  # noqa: E501
     except getopt.GetoptError:
         print(system_commands)
         sys.exit(2)
@@ -82,11 +83,13 @@ def getargs():
             "startdirectory": start_directory,
             "targetdirectory": target_directory}
 
+
 def extract_file_extension(filename):
     ''' This checks the file extension and returns true or false '''
     _, fileext = os.path.splitext(filename)
     result = fileext.lower()
     return result
+
 
 def walk_through(wt_command_args):
     """
@@ -115,6 +118,7 @@ def walk_through(wt_command_args):
         print(f"[o] Finished walk through {start_dir}")
     return result
 
+
 def convert_size(size_bytes):
     '''
         size formating for bytes
@@ -135,7 +139,9 @@ def main():
     totallist = []
     for directory in DIRECTORYLIST:
         print(f"[-] Searching {directory}")
-        commands = {"verbosemode":False, "deletemode":False, "startdirectory":directory}
+        commands = {"verbosemode": False,
+                    "deletemode": False,
+                    "startdirectory": directory}
         totallist.extend(walk_through(commands))
         print(f"[-] Records found {len(totallist):,}")
 
@@ -155,14 +161,21 @@ def main():
     print(f"[*] Total Found {len(totallist):,} files")
     print("-------------------------------")
 
-    with open(DIRECTORYSUMMARY, 'w', newline='', encoding='utf-8-sig') as csvfile:
+    with open(DIRECTORYSUMMARY,
+              'w',
+              newline='',
+              encoding='utf-8-sig') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=',')
         for key, value in extensiondict.items():
             csvwriter.writerow([key, len(value)])
 
-    with open(DIRECTORYLISTFILE, 'w', newline='', encoding='utf-8-sig') as filelistfile:
+    with open(DIRECTORYLISTFILE,
+              'w',
+              newline='',
+              encoding='utf-8-sig') as filelistfile:
         for item in totallist:
             filelistfile.write(f"{item}\n")
+
 
 if __name__ == '__main__':
     main()

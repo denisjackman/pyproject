@@ -16,7 +16,8 @@ import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..'))
 # custom number generator
-from jackmanimation.DndProject.dnddice import number_generator
+from jackmanimation.DndProject.dnddice import number_generator  # noqa: E402
+
 
 def gold_to_silver(amount):
     '''
@@ -65,6 +66,7 @@ def copper_to_silver(amount):
     result = amount / 10
     return result
 
+
 def population_birth(population,
                      happieness=0,
                      global_factors=0,
@@ -80,8 +82,9 @@ def population_birth(population,
     factors = factors + number_generator(5)
     factors = factors + global_factors + local_factors
     growth = pop * factors
-    result =  int(growth)
+    result = int(growth)
     return result
+
 
 def population_decline(population,
                        happieness=0,
@@ -98,7 +101,7 @@ def population_decline(population,
     factors = factors + number_generator(5)
     factors = factors + global_factors + local_factors
     decline = pop * factors
-    result =  int(decline)
+    result = int(decline)
     return result
 
 
@@ -143,7 +146,8 @@ def fed(population, food_units):
         fed_description = "Overfed"
         fed_factor = 10
     food_units = int(max(food_units - population_check, 0))
-    return(fed_factor, fed_description, food_units)
+    return (fed_factor, fed_description, food_units)
+
 
 def production(population,
                happieness=0,
@@ -152,7 +156,6 @@ def production(population,
     ''' this is the production module '''
     factor = 0
     population_check = population / 1000
-    factor = 25 + happieness + global_factors + local_factors  + number_generator(5)
-    production_factor = int(max(factor/population_check - population_check , 0))
-    #print(f'[-] population_check is {population_check} and production_factor is {production_factor}')
+    factor = 25 + happieness + global_factors + local_factors + number_generator(5)  # noqa: E501
+    production_factor = int(max(factor/population_check - population_check, 0))  # noqa: E501
     return production_factor

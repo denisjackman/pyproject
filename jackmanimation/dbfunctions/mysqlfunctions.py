@@ -1,6 +1,7 @@
 ''' mysql functions '''
 import mysql.connector
 
+
 def open_mysql(dbdatabase, mysqlusername, mysqlpassword, mysqlhostname):
     ''' open mysql db '''
     try:
@@ -16,14 +17,17 @@ def open_mysql(dbdatabase, mysqlusername, mysqlpassword, mysqlhostname):
     print(f"[-] {client} Connected OK")
     return client
 
+
 def mysqlquery(querydb, query):
     ''' mysql query'''
     resultcursor = querydb.cursor()
     resultcursor.execute(query)
     return resultcursor
 
+
 def main():
     ''' main function '''
+
 
 if __name__ == '__main__':
     print("[+] Starting MySQL Test")

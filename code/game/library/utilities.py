@@ -4,7 +4,7 @@
 '''
 
 GAMEMODETEST = True
-GAMESTATE = "Init" 
+GAMESTATE = "Init"
 # the game has three states Init Main End
 GAMERUN = True
 

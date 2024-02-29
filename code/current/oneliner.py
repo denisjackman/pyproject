@@ -9,11 +9,11 @@ All this stuff at the top of the script is just optional metadata;
 """
 import os
 import sys
+import wifi_qrcode_generator as qr
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck # noqa: E402
-import wifi_qrcode_generator as qr
+from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
 
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"

@@ -1,13 +1,14 @@
 '''
     this is the holder for a weapons class
 '''
+
+
 class Weapon:
     '''
         weapons class
     '''
     def __init__(self):
         raise NotImplementedError("Do not create raw Weapon Objects")
-
 
     def __str__(self):
         return self.name
@@ -24,6 +25,7 @@ class Weapon:
         '''
         return self.weight
 
+
 class Bludgeon(Weapon):
     '''
         Bludgeon class
@@ -38,6 +40,8 @@ class Bludgeon(Weapon):
         self.weight = 50
         self.range = 0
         self.handed = False
+
+
 class Broadsword(Weapon):
     '''
         Broadsword class
@@ -53,8 +57,9 @@ class Broadsword(Weapon):
         self.range = 0
         self.handed = False
 
+
 class CommonSpear(Weapon):
-    ''' 
+    '''
         Common Spear class
     '''
     def __init__(self):
@@ -67,6 +72,7 @@ class CommonSpear(Weapon):
         self.weight = 50
         self.range = 40
         self.handed = False
+
 
 class Crossbow(Weapon):
     '''
@@ -83,6 +89,7 @@ class Crossbow(Weapon):
         self.range = 100
         self.handed = True
 
+
 class Dirk(Weapon):
     '''
         Dirk class
@@ -98,6 +105,7 @@ class Dirk(Weapon):
         self.range = 10
         self.handed = False
 
+
 class DoublebittedAxe(Weapon):
     '''
         Doublebitted Axe class
@@ -112,8 +120,11 @@ class DoublebittedAxe(Weapon):
         self.weight = 220
         self.range = 0
         self.handed = True
+
+
 # WEAPONS
-# Name,Dice,Adds,Weapon Strength,Dexterity,Cost (in Gold), Weigth (in wu), Range (in yards),Doublehanded (Boolean - True or False)
+# Name,Dice,Adds,Weapon Strength,Dexterity,Cost (in Gold),
+# Weigth (in wu), Range (in yards),Doublehanded (Boolean - True or False)
 # "Doublebitted Axe",6,3,21,10,140,220,0,True
 # "Falchion",4,4,12,13,75,110
 # "Great Sword",6,0,21,18,120,170,0,True
