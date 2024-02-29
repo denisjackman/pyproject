@@ -7,7 +7,7 @@ import pygame
 pygame.init()
 
 BYC_AUDIO_FILE = "Z:/Resources/sounds/byc.wav"
-KLAXON_AUDIO_FILE ="Z:/Resources/sounds/klaxon.wav"
+KLAXON_AUDIO_FILE = "Z:/Resources/sounds/klaxon.wav"
 ATTENTION_AUDIO_FILE = "Z:/Resources/sounds/attention.wav"
 TOS_AUDIO_FILE = "Z:/Resources/sounds/tos-redalert.wav"
 TALK = False

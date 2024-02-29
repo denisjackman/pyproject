@@ -24,7 +24,7 @@ CAPTION = "Jackmanimation [SpriteSheet]"
 ICON_FILE = 'y:/Resources/jackmanimation.png'
 WHITE = (255, 255, 255)
 FILEPATH = Path(__file__).parent
-SHEET_NAME = "Z:/Resources/roguelike/Spritesheet/rogueLikeSheet_Transparent.png"
+SHEET_NAME = "Z:/Resources/roguelike/Spritesheet/rogueLikeSheet_Transparent.png"  # noqa: E501
 
 pygame.init()
 window = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -37,14 +37,13 @@ SPRITE_SHEET_HEIGHT = SPRITE_SHEET.get_height()
 
 SPRITES = []
 
+
 def load_sprites():
     ''' load sprites from sprite sheet'''
     sx = 0
     sy = 0
     swidth = 16
     sheight = 16
-    offsetwidth = 0
-    offsetheight = 0
     totalwidth = 0
     totalheight = 0
     while totalheight + sheight < SPRITE_SHEET_HEIGHT:
@@ -58,6 +57,7 @@ def load_sprites():
         sy += 17
         totalwidth = 0
         totalheight += 17
+
 
 def tool_main():
     ''' main routine '''
@@ -87,15 +87,19 @@ def tool_main():
         window.blit(SPRITES[sprite_index], (WIDTH/2 - 8, HEIGHT/2 - 8))
         pygame.display.update()
 
+
 def save_sprites():
     ''' save sprites to file '''
     for index, sprite in enumerate(SPRITES):
-        pygame.image.save(sprite, f"{FILEPATH}/sprites/RLS_sprite_{index:04}.png")
+        pygame.image.save(sprite,
+                          f"{FILEPATH}/sprites/RLS_sprite_{index:04}.png")
     print(f"Done! {len(SPRITES)} sprites saved.")
+
 
 def tool_finish():
     ''' finish routine '''
     pygame.quit()
+
 
 if __name__ == '__main__':
     tool_main()

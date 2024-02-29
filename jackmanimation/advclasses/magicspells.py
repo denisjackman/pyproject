@@ -1,9 +1,11 @@
-''' 
-    Magic Spells class
-    
-    based on Chapter 3 of Fantasy Wargaming by Martin Hackett 
-    
 '''
+    Magic Spells class
+
+    based on Chapter 3 of Fantasy Wargaming by Martin Hackett
+
+'''
+
+
 class MagicSpell:
     ''' generic spell class '''
     def __init__(self):
@@ -24,6 +26,7 @@ class MagicSpell:
         '''
         return self.cost
 
+
 class Bubble(MagicSpell):
     ''' Bubble class '''
     def __init__(self):
@@ -36,7 +39,8 @@ class Bubble(MagicSpell):
         self.area = 0
         self.number_effected = 1
         self.effect = "Adds 5 to the target's defence factor"
-        self.castscore = 95 # 95 or less to cast
+        self.castscore = 95  # 95 or less to cast
+
 
 class Hail(MagicSpell):
     ''' Hail class '''

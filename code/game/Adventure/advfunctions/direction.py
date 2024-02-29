@@ -2,6 +2,7 @@
     direction function
 '''
 
+
 def direction(player_input):
     '''
         direction function
@@ -18,6 +19,7 @@ def direction(player_input):
     else:
         result = "Invalid action!"
     return result
+
 
 if __name__ == '__main__':
     print(direction("North"))

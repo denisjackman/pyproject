@@ -8,7 +8,7 @@ import sys
 import os
 
 DEBUGMODE = False
-STARTDIR ="/Users/username/Documents/workspace/tools/"
+STARTDIR = "/Users/username/Documents/workspace/tools/"
 
 DRYRUN = True
 FILEEXT = False
@@ -19,17 +19,21 @@ FINDDUP = False
 TOTAL = len(sys.argv)
 CMDARGS = str(sys.argv)
 
+
 def is_file(fpath):
     '''	is file '''
     return bool(os.path.isfile(fpath))
+
 
 def is_non_zero_file(fpath):
     '''	is non zero file '''
     return bool(os.path.isfile(fpath) and os.path.getsize(fpath) > 0)
 
+
 def is_zero_file(fpath):
     '''	is zero file '''
-    return bool(os.path.isfile(fpath) and os.path.getsize(fpath) == 0 )
+    return bool(os.path.isfile(fpath) and os.path.getsize(fpath) == 0)
+
 
 def zerofilecheck(fpath):
     ''' zero file check '''
@@ -39,6 +43,7 @@ def zerofilecheck(fpath):
         return False
     return None
 
+
 def remove_File(fpath, dryrun=DRYRUN):
     ''' remove file '''
     if dryrun:
@@ -46,9 +51,10 @@ def remove_File(fpath, dryrun=DRYRUN):
         return
     os.remove(fpath)
 
+
 def zero_file():
     ''' zero file '''
-    fileList=os.listdir(STARTDIR)
+    fileList = os.listdir(STARTDIR)
     for file in fileList:
         fileName = STARTDIR+"/"+file
         if zerofilecheck(fileName):
@@ -57,9 +63,10 @@ def zero_file():
             else:
                 print(file)
 
+
 def find_dup():
     ''' find duplicate files '''
-    fileList=os.listdir(STARTDIR)
+    fileList = os.listdir(STARTDIR)
     for file in fileList:
         fileName = STARTDIR+"/"+file
         if file.find("(") != -1:
@@ -68,11 +75,12 @@ def find_dup():
             else:
                 print(file)
 
+
 def file_ext():
     ''' file extension '''
-    extList=[]
-    fileListExt=os.listdir(STARTDIR)
-    for file in fileListExt :
+    extList = []
+    fileListExt = os.listdir(STARTDIR)
+    for file in fileListExt:
         fileName = STARTDIR+"/"+file
         if is_file(fileName):
             extName = os.path.splitext(fileName)[-1].lower()
@@ -80,6 +88,7 @@ def file_ext():
     extset = set(extList)
     NewExtList = list(extset)
     print(NewExtList)
+
 
 def main():
     ''' main '''

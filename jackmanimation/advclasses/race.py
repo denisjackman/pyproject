@@ -1,6 +1,8 @@
 '''
     race class
 '''
+
+
 class Race:
     '''
         race class
@@ -16,11 +18,14 @@ class Race:
             what is my alignment
         '''
         return self.alignmen
+
     def hasDarkVision(self):
         '''
             do I have darkvision
         '''
         return self.darkvision
+
+
 class Human(Race):
     ''' Humans '''
     def __init__(self):
@@ -29,6 +34,7 @@ class Human(Race):
         self.alignment = "Any"
         self.darkvision = False
 
+
 class Dwarf(Race):
     ''' Dwarves '''
     def __init__(self):
@@ -36,6 +42,8 @@ class Dwarf(Race):
         self.plural = "Dwarves"
         self.alignment = "Lawful"
         self.darkvision = True
+
+
 class Elf(Race):
     ''' Elves '''
     def __init__(self):
@@ -43,6 +51,7 @@ class Elf(Race):
         self.plural = "Elves"
         self.alignment = "Neutral"
         self.darkvision = True
+
 
 class Halfling(Race):
     ''' Halflings '''
@@ -52,6 +61,7 @@ class Halfling(Race):
         self.alignment = "Neutral"
         self.darkvision = False
 
+
 class Gnome(Race):
     ''' Gnomes '''
     def __init__(self):
@@ -59,6 +69,7 @@ class Gnome(Race):
         self.plural = "Gnomes"
         self.alignment = "Neutral"
         self.darkvision = True
+
 
 class Orc(Race):
     ''' Orcs '''
@@ -68,6 +79,7 @@ class Orc(Race):
         self.alignment = "Chaotic"
         self.darkvision = True
 
+
 class Goblin(Race):
     ''' Goblins '''
     def __init__(self):
@@ -75,6 +87,7 @@ class Goblin(Race):
         self.plural = "Goblins"
         self.alignment = "Chaotic"
         self.darkvision = True
+
 
 class Drow(Race):
     ''' Drow '''
@@ -84,6 +97,7 @@ class Drow(Race):
         self.alignment = "Chaotic"
         self.darkvision = True
 
+
 class Troll(Race):
     ''' Trolls '''
     def __init__(self):
@@ -92,7 +106,7 @@ class Troll(Race):
         self.alignment = "Chaotic"
         self.darkvision = True
 
-    # taken from http://www.onrpg.com/boards/threads/14942-Basic-Races-and-Classes
+    # taken from http://www.onrpg.com/boards/threads/14942-Basic-Races-and-Classes  # noqa: E501
     # Name
     # Human
     # Dwarf

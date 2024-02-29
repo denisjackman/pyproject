@@ -18,7 +18,9 @@ else:
 
 def town_name_generator():
     '''Generates a town name'''
-    with open(f"{DNDP_FILEPATH}/referencedata/TownNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/TownNames.json",
+              "r",
+              encoding='utf-8-sig') as file:
         data = json.load(file)
 
     result = ''
@@ -35,30 +37,39 @@ def town_name_generator():
         result = f"{prefix}{suffix}"
     return result.title()
 
+
 def woodname_generator():
     '''Generates a wood name'''
     result = ''
-    with open(f"{DNDP_FILEPATH}/referencedata/WoodNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/WoodNames.json",
+              "r",
+              encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data['wood_name_prefix'])
     suffix = choice(data['wood_name_suffix'])
     result = f"{prefix}{suffix}"
     return result.title()
 
+
 def streetname_generator():
     '''Generates a street name'''
     result = ''
-    with open(f"{DNDP_FILEPATH}/referencedata/StreetNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/StreetNames.json",
+              "r",
+              encoding='utf-8-sig') as file:
         data = json.load(file)
     prefix = choice(data['street_name_prefix'])
     suffix = choice(data['street_name_suffix'])
     result = f"{prefix}{suffix}"
     return result.title()
 
+
 def dwarven_settlement_name_generator():
     '''Generates a dwarven settlement name'''
     result = ''
-    with open(f"{DNDP_FILEPATH}/referencedata/DwarvenSettlementNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/DwarvenSettlementNames.json",
+              "r",
+              encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = Dice.dice(10)
     community = choice(data['dwarven_settlement_community'])
@@ -71,10 +82,13 @@ def dwarven_settlement_name_generator():
         result = f"{prefix}{suffix} {community}"
     return result
 
+
 def place_name_generator():
     '''Generates a place name'''
     result = ''
-    with open(f"{DNDP_FILEPATH}/referencedata/PlaceNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/PlaceNames.json",
+              "r",
+              encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = Dice.dice(2)
     if roll == 0:
@@ -89,9 +103,12 @@ def place_name_generator():
     result = f"{prefix}{suffix}"
     return result.title()
 
+
 def inn_name_generator():
     '''Generates an Inn Name'''
-    with open(f"{DNDP_FILEPATH}/referencedata/InnNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/InnNames.json",
+              "r",
+              encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = Dice.dice(16)
     result = ''
@@ -146,19 +163,23 @@ def inn_name_generator():
     result = result.title().replace("'S", "'s").replace("And", "and")
     return result
 
+
 def site_name_generator():
     '''Generates a random site name'''
     result = ''
-    with open(f"{DNDP_FILEPATH}/referencedata/SiteNames.json", "r", encoding='utf-8-sig') as file:
+    with open(f"{DNDP_FILEPATH}/referencedata/SiteNames.json",
+              "r",
+              encoding='utf-8-sig') as file:
         data = json.load(file)
     roll = Dice.dice(3)
     if roll == 1:
-        result = f"{choice(data['site_place'])} of {choice(data['site_thing'])}"
+        result = f"{choice(data['site_place'])} of {choice(data['site_thing'])}"  # noqa: E501
     elif roll == 2:
         result = f"{choice(data['site_adj'])} {choice(data['site_place'])}"
     else:
-        result = f"{choice(data['site_adj'])} {choice(data['site_place'])} of {choice(data['site_thing'])}"
+        result = f"{choice(data['site_adj'])} {choice(data['site_place'])} of {choice(data['site_thing'])}"  # noqa: E501
     return result
+
 
 def main():
     ''' main function '''
@@ -169,6 +190,7 @@ def main():
     print(f"Place Name              : {place_name_generator()}")
     print(f'Inn Name                : {inn_name_generator()}')
     print(f"Site Name               : {site_name_generator()}")
+
 
 if __name__ == '__main__':
     main()

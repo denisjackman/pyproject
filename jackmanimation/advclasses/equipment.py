@@ -2,6 +2,7 @@
     placeholder for equipment class
 '''
 
+
 class Equipment:
     '''
         equipment class
@@ -26,6 +27,8 @@ class Equipment:
             return the cost of the item in GP
         '''
         return self.cost
+
+
 class Clothes(Equipment):
     '''
         Clothes class
@@ -36,6 +39,7 @@ class Clothes(Equipment):
         self.cost = 5
         self.plural = "Clothes"
         self.number = 1
+
 
 class Provision(Equipment):
     '''
@@ -48,6 +52,7 @@ class Provision(Equipment):
         self.plural = "Provisions"
         self.number = 1
 
+
 class DelversPackage(Equipment):
     ''' Delvers Package class '''
     def __init__(self):
@@ -56,6 +61,7 @@ class DelversPackage(Equipment):
         self.cost = 20
         self.plural = "Delver's Packages"
         self.number = 1
+
 
 class Torch(Equipment):
     ''' Torch class '''
@@ -66,6 +72,7 @@ class Torch(Equipment):
         self.plural = "Torches"
         self.number = 1
 
+
 class RopeSilk(Equipment):
     ''' Rope, Silk, 1ft class '''
     def __init__(self):
@@ -74,6 +81,7 @@ class RopeSilk(Equipment):
         self.cost = 1
         self.plural = "Rope, Silk"
         self.number = 1
+
 
 class RopeHemp(Equipment):
     ''' Rope, Hemp, 1ft class '''
@@ -84,6 +92,7 @@ class RopeHemp(Equipment):
         self.plural = "Rope, Hemp"
         self.number = 1
 
+
 class LanternOil(Equipment):
     ''' Lantern and Oil class '''
     def __init__(self):
@@ -92,6 +101,8 @@ class LanternOil(Equipment):
         self.cost = 0.1
         self.plural = "Oil Lanterns"
         self.number = 1
+
+
 class OilFlask(Equipment):
     ''' Oil Flask class '''
     def __init__(self):
@@ -100,6 +111,7 @@ class OilFlask(Equipment):
         self.cost = 10
         self.plural = "Oil Flasks"
         self.number = 1
+
 
 class MagneticCompass(Equipment):
     ''' Magnetic Compass class '''
@@ -110,6 +122,7 @@ class MagneticCompass(Equipment):
         self.plural = "Magnetic Compasses"
         self.number = 1
 
+
 class BootsKneeHigh(Equipment):
     ''' Boots, knee high class '''
     def __init__(self):
@@ -118,6 +131,8 @@ class BootsKneeHigh(Equipment):
         self.cost = 10
         self.plural = "Knee High Boots"
         self.number = 1
+
+
 class BootsCalfHigh(Equipment):
     ''' Boots, calf high class '''
     def __init__(self):
@@ -126,6 +141,8 @@ class BootsCalfHigh(Equipment):
         self.cost = 5
         self.plural = "Calf High Boots"
         self.number = 1
+
+
 class Sandals(Equipment):
     ''' Sandals class '''
     def __init__(self):
@@ -134,6 +151,8 @@ class Sandals(Equipment):
         self.cost = 2
         self.plural = "Sandals"
         self.number = 1
+
+
 class Piton(Equipment):
     ''' Piton class '''
     def __init__(self):
@@ -142,6 +161,8 @@ class Piton(Equipment):
         self.cost = 10
         self.plural = "Pitons"
         self.number = 10
+
+
 class PitonHammer(Equipment):
     ''' Piton Hammer class '''
     def __init__(self):
@@ -150,6 +171,8 @@ class PitonHammer(Equipment):
         self.cost = 4
         self.plural = "Piton Hammers"
         self.number = 1
+
+
 class OrdinaryMagicStaff(Equipment):
     ''' Ordinary Magic Staff class '''
     def __init__(self):
@@ -158,6 +181,8 @@ class OrdinaryMagicStaff(Equipment):
         self.cost = 100
         self.plural = "Ordinary Magic Staves"
         self.number = 1
+
+
 class DeluxeMagicStaff(Equipment):
     ''' Deluxe Magic Staff class '''
     def __init__(self):
@@ -166,6 +191,7 @@ class DeluxeMagicStaff(Equipment):
         self.cost = 5000
         self.plural = "Deluxe Magic Staves"
         self.number = 1
+
 
 # equipment is listed as name, weight (in wu), cost (in gp)
 # Name , Weight (in wu), Cost (in GP)

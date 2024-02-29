@@ -1,4 +1,6 @@
 ''' Tiles class'''
+
+
 class MapTile:
     ''' Map Tile class '''
     def __init__(self, x, y):
@@ -16,6 +18,7 @@ class MapTile:
         ''' name '''
         return self.name
 
+
 class StartTile(MapTile):
     ''' Start Tile class '''
     def __init__(self, x, y):
@@ -29,6 +32,8 @@ class StartTile(MapTile):
         return '''
         You are standing in a dark cave.
         '''
+
+
 class NormalTile(MapTile):
     ''' Normal Tile class '''
     def __init__(self, x, y):
@@ -42,6 +47,8 @@ class NormalTile(MapTile):
         return '''
         You are standing in a clearing.
         '''
+
+
 class VictoryTile(MapTile):
     ''' Victory Tile class '''
     def __init__(self, x, y):
@@ -49,6 +56,7 @@ class VictoryTile(MapTile):
         self.name = "Victory Tile"
         self.image = "victorytile.png"
         self.description = "This is the victory tile"
+
     def intro_text(self):
         ''' intro text '''
         return '''
