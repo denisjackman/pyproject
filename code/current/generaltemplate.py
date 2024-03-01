@@ -40,17 +40,19 @@ def version():
 def main(argv):
     '''this is a function to handle main'''
     grammar = "y:/Resources/xml/kant.xml"
+    gt_opts = []
+    gt_args = []
     try:
-        opts, args = getopt.getopt(argv,
-                                   "hvg:d",
-                                   ["help",
-                                    "version",
-                                    "grammar="])
+        gt_opts, gt_args = getopt.getopt(argv,
+                                         "hvg:d",
+                                         ["help",
+                                          "version",
+                                          "grammar="])
         print("Done")
         usage()
         sys.exit(2)
     except getopt.GetoptError:
-        print(f"opts: {opts} args: {args} grammar: {grammar}")
+        print(f"gt_opts: {gt_opts} gt_args: {gt_args} grammar: {grammar}")
 
 
 if __name__ == "__main__":

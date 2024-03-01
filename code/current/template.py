@@ -31,7 +31,6 @@ def version():
         version
     '''
     print("This is the Veriosn piece")
-    return
 
 
 def main(argv):

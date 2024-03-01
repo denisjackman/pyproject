@@ -12,9 +12,9 @@ def pinger(job_q, results_q):
     :param results_q:
     :return:
     """
-    DEVNULL = open(os.devnull,
+    DEVNULL = open(os.devnull,  # pylint: disable=R1732
                    'w',
-                   encoding='utf-8')  # pylint: disable=R1732
+                   encoding='utf-8')
     while True:
 
         ip = job_q.get()

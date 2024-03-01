@@ -50,7 +50,7 @@ def end_titles():
             if title_event.type == QUIT or \
                title_event.type == KEYDOWN and \
                title_event.key == K_ESCAPE:
-                   return  # noqa: E111,E117
+                return  # noqa: E111,E117
 
         screen.fill(NEAR_BLACK)
 

@@ -1000,8 +1000,8 @@ class TGB:  # pylint: disable=R0904
             self.draw_map_edit_utilities()
 
         # Loop pieces to be drawn (horizontally there is scrolling too)
-        for x in range(self.cursor.scroll_x,
-                       15+self.cursor.scroll_x):  # pylint: disable=R1702
+        for x in range(self.cursor.scroll_x,  # pylint: disable=R1702
+                       15+self.cursor.scroll_x):
             for y in range(14):
                 # There is land to draw
                 if self.data[self.gct(x, y)] > 0:
