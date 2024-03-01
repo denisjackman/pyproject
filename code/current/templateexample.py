@@ -30,13 +30,11 @@ def procDefiniton(params):
 def usage():
     '''this is a function to show usage'''
     print("usage: template.py [-h] [-v] [-g grammar]")
-    return
 
 
 def version():
     ''' this is a function to show version'''
     print(f"version: {__version__}")
-    return
 
 
 def main(argv):

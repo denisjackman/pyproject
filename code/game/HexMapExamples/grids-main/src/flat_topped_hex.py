@@ -255,7 +255,7 @@ def hex_rect(rect_x,
             y -= 1
 
 
-def hex_rect_knoll(x,
+def hex_rect_knoll(x,  # pylint: disable=R0914
                    y,
                    z,
                    rect_x,
@@ -264,7 +264,7 @@ def hex_rect_knoll(x,
                    width,
                    height,
                    inc_bottom=False,
-                   inc_top=False):  # pylint: disable=R0914
+                   inc_top=False):
     """
     Given a hex and a rectangle, gives a pair of integer cartesian co-ordinates
     that identify the square in the rectangle
