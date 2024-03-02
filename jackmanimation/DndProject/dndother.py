@@ -53,7 +53,7 @@ def currency_converter(amount, fromcurr="copper", tocurr="gold"):
         elif tocurr == "silver":
             result = f"{amount / 10}"
         elif tocurr == "electrum":
-            result = f"{amount /50}"
+            result = f"{amount / 50}"
         elif tocurr == "gold":
             result = f"{amount / 100}"
         elif tocurr == "platinum":
@@ -793,7 +793,7 @@ def adventure_name_generator():
     elif roll == 35:
         result = f"{quest} {adjective.capitalize()} {place.title()}"
     elif roll == 36:
-        result = f"{quest.replace('the','')} {name}'s  {item.capitalize()}"
+        result = f"{quest.replace('the', '')} {name}'s  {item.capitalize()}"
     elif roll == 37:
         result = f"{ruler.capitalize()} of the {monster} {place.title()}"
     elif roll == 38:

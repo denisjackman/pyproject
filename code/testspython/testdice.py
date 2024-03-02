@@ -11,4 +11,4 @@ if __name__ == "__main__":
     print(f" Dice roll one six sided     : {str(dice())}")
     print(f" Dice roll one hundred sided : {str(dice(100))}")
     print(f" Dice roll five six sided    : {str(dice(rolls=5))}")
-    print(f" Dice roll ten four sided    : {str(dice(4,10))}")
+    print(f" Dice roll ten four sided    : {str(dice(4, 10))}")

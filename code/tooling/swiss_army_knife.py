@@ -130,7 +130,7 @@ def main():
         exttype = check_file_extension(item,
                                        mainargs["debugmode"],
                                        mainargs["verbosemode"])
-        print(f'{check_file_mime(itemtype[0], mainargs["debugmode"],mainargs["verbosemode"])}')  # noqa: E501
+        print(f'{check_file_mime(itemtype[0], mainargs["debugmode"], mainargs["verbosemode"])}')  # noqa: E501
         print(f'{item} - {itemtype} - {exttype} -{itemtype[0]}')
 
 

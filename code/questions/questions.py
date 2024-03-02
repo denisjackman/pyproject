@@ -45,7 +45,7 @@ def question5():
 
 def question6():
     ''' This is a question 6'''
-    print(f'[-] question 6 : {round(1 / 3 , 2)} ')
+    print(f'[-] question 6 : {round(1 / 3, 2)} ')
 
 
 def main():
@@ -54,7 +54,7 @@ def main():
     question1()
     # question2()
     print('[-] question 2 : is an infinite loop ')
-    print(f'[-] question 3 : {question3(10,5,2)}')
+    print(f'[-] question 3 : {question3(10, 5, 2)}')
     question4()
     try:
         question5()
