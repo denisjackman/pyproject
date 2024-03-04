@@ -65,7 +65,7 @@ def lineagedemo():
           f"{happyfactors} globalfactors {globalfactors} localfactors "
           f"{localfactors}")
     print(f'[-] fed                : {fed(pop, fu)}')
-    print(f'[-] population_birth   : {population_birth(pop, happyfactors, globalfactors, localfactors )}')  # noqa: E501
+    print(f'[-] population_birth   : {population_birth(pop, happyfactors, globalfactors, localfactors)}')  # noqa: E501
     print(f'[-] population_decline : {population_decline(pop, happyfactors, globalfactors, localfactors)}')  # noqa: E501
     print('[+] Finished')
 
