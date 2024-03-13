@@ -71,6 +71,7 @@ pywhatkit
 pyyaml
 rarfile
 rfc3986
+seaborn
 selenium
 six
 slack-bolt
