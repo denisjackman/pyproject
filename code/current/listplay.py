@@ -3,6 +3,7 @@
 
 def main():
     ''' main function '''
+    print('[-] Main function is running')
     states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
               'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
               'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas',
@@ -14,12 +15,24 @@ def main():
               'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah',
               'Vermont', 'Virginia', 'Washington', 'West Virginia',
               'Wisconsin', 'Wyoming']
+    print('[*] Making a copy of the list')
     new_states = states.copy()
-    print(len(new_states))
+    print('[*] Printing the length of the new list')
+    print(f'[*] before ({len(states)}) after ({len(new_states)})')
     for state in new_states:
-        if len(state) > 8:
-            print(f'{state} ({len(state)})')
+        if state[0] == 'N':
+            print(f'{state}')
+    print('[*] Removing Nevada')
+    new_states.remove('Nevada')
+    for state in new_states:
+        if state[0] == 'N':
+            print(f'{state}')
+    print('[*] Printing the new length of the new list')
+    print(f'[*] before ({len(states)}) after ({len(new_states)})')
+    print('[-] Main function is done')
 
 
 if __name__ == "__main__":
+    print('[+] Running listplay.py')
     main()
+    print('[+] listplay.py is done')
