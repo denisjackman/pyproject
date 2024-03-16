@@ -29,10 +29,17 @@ def main():
             print(f'{state}')
     print('[*] Printing the new length of the new list')
     print(f'[*] before ({len(states)}) after ({len(new_states)})')
+    print('[*] clearing the list')
+    new_states.clear()
+    print(f'[*] before ({len(states)}) after ({len(new_states)})')
+    new_states = states.copy()
+    new_states.sort()
+    print('[*] Printing the sorted list')
+    for state in new_states:
+        print(f'\t{state}')
     print('[-] Main function is done')
 
 
 if __name__ == "__main__":
     print('[+] Running listplay.py')
     main()
-    print('[+] listplay.py is done')
