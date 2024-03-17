@@ -43,3 +43,4 @@ def main():
 if __name__ == "__main__":
     print('[+] Running listplay.py')
     main()
+    print('[+] Finished listplay.py')
