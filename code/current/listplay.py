@@ -4,6 +4,8 @@
 def main():
     ''' main function '''
     print('[-] Main function is running')
+    d = {1: 2, 3: 4, 6: 727, 83: 422}
+    lst = [1, 82, -6, 4, 3, 8]
     states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
               'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
               'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas',
@@ -15,6 +17,7 @@ def main():
               'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah',
               'Vermont', 'Virginia', 'Washington', 'West Virginia',
               'Wisconsin', 'Wyoming']
+
     print('[*] Making a copy of the list')
     new_states = states.copy()
     print('[*] Printing the length of the new list')
@@ -37,6 +40,24 @@ def main():
     print('[*] Printing the sorted list')
     for state in new_states:
         print(f'\t{state}')
+    print(lst[2])
+    print(lst[-1])
+    print(4 in lst)
+    print(lst.index(8))
+    print(lst.index(4))
+    print(lst)
+    lst.append(632)
+    print(lst)
+    print(lst.pop())
+    print(lst)
+    print(lst.pop(4))
+    print(lst)
+    if 4 in lst:
+        lst.remove(4)
+    print(lst)
+    print(d)
+    d[1] = 37
+    print(d)
     print('[-] Main function is done')
 
 
