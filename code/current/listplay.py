@@ -55,9 +55,9 @@ def main():
     if 4 in lst:
         lst.remove(4)
     print(f'[*] {lst}')
-    print(d)
+    print(f'[*] {d}')
     d[1] = 37
-    print(d)
+    print(f'[*] {d}')
     print('[-] Main function is done')
 
 
