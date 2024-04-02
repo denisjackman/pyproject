@@ -40,7 +40,10 @@ def on_button_click():
     ''' button click event '''
     print('[*] on_button_click: start')
     print('[-] on_button_click: button clicked')
-    button.config(text='Button Clicked')
+    if button.cget('text') == 'Button Clicked':
+        button.config(text='Click Me')
+    else:
+        button.config(text='Button Clicked')
     print('[*] on_button_click: end')
 
 
@@ -92,4 +95,20 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main_window = tk.Tk()
+    main_window.title('tk example')
+    main_window.minsize(100, 100)
+    main_window.maxsize(800, 800)
+    label = tk.Label(main_window,
+                     text='tk example label in my window',
+                     font=('Arial', 15, 'bold'),
+                     bg='red',
+                     padx=20,
+                     pady=20)
+    label.pack()
+    button = tk.Button(main_window,
+                       text='Click Me',
+                       command=on_button_click)
+    button.pack()
+    main_window.mainloop()
+    
