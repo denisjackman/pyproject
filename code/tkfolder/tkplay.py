@@ -82,11 +82,11 @@ def main():
                       font=('Monospace', 16, 'italic'),
                       bg='green', padx=20, pady=20)
     label2.pack()
-    
+
     logo = load_image(LOGO)
     label3 = tk.Label(main_window, image=logo)
     label3.pack()
-    
+
     main_window.mainloop()
     print('[*] tk example end')
 
