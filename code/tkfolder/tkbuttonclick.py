@@ -1,6 +1,6 @@
 '''
     tkplay - play with tkinter
-    geometry managers are 
+    geometry managers are
         pack,
         grid,
         place
@@ -28,7 +28,7 @@
         Image,
         PhotoImage,
         Toplevel,
-    
+
 '''
 
 import tkinter as tk
@@ -47,21 +47,19 @@ def on_button_click():
     print('[*] on_button_click: end')
 
 
-def build_window(bw_name, bw_geometry):
-    ''' build a window '''
-    print('[*] build_window: start')
-    print(f'[-] build_window: name: {bw_name}, geometry: {bw_geometry}')
-    bw_window = tk.Tk()
-    bw_window.title(bw_name)
-    bw_window.geometry(bw_geometry)
-    print('[*] build_window: end')
-    return bw_window
+def on_entry_submit():
+    ''' entry submit event '''
+    print('[*] on_entry_submit: start')
+    print('[-] on_entry_submit: entry submitted')
+    print(f'[-] on_entry_submit: entry: {entry.get()}')
+    button.config(text=f"Follow {entry.get()}")
+    print('[*] on_entry_submit: end')
 
 
 def load_image(li_image):
     ''' load an image '''
     print('[*] load_image: start')
-    print(f'[-] load_image: image: {li_image}' )
+    print(f'[-] load_image: image: {li_image}')
     li_photo = tk.PhotoImage(file=li_image)
     print('[*] load_image: end')
     return li_photo
@@ -85,11 +83,11 @@ def main():
                       font=('Monospace', 16, 'italic'),
                       bg='green', padx=20, pady=20)
     label2.pack()
-    
+
     logo = load_image(LOGO)
     label3 = tk.Label(main_window, image=logo)
     label3.pack()
-    
+
     main_window.mainloop()
     print('[*] tk example end')
 
@@ -97,7 +95,7 @@ def main():
 if __name__ == '__main__':
     main_window = tk.Tk()
     main_window.title('tk example')
-    main_window.minsize(100, 100)
+    main_window.minsize(400, 400)
     main_window.maxsize(800, 800)
     label = tk.Label(main_window,
                      text='tk example label in my window',
@@ -106,9 +104,23 @@ if __name__ == '__main__':
                      padx=20,
                      pady=20)
     label.pack()
+    entry = tk.Entry(main_window, width=30, show='*')
+    entry.pack()
+
     button = tk.Button(main_window,
-                       text='Click Me',
-                       command=on_button_click)
+                       text='Submit',
+                       command=on_entry_submit)
+    frame = tk.Frame(main_window)
+    frame.pack()
+
+    button1 = tk.Button(frame,
+                        text='Block1',
+                        fg='red')
+    button1.pack(side=tk.LEFT)
+    button2 = tk.Button(frame,
+                        text='Block2',
+                        fg='blue')
+    button2.pack(side=tk.LEFT)
+
     button.pack()
     main_window.mainloop()
-    
