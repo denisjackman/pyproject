@@ -11,11 +11,11 @@ def populate(frame):
     '''Put in the fonts'''
     listnumber = 1
     for item in fonts:
-        label = f"listlabel {str(listnumber)}"
+        label_text = f"{str(listnumber)} {item} "
         label = tk.Label(frame,
-                         text=item,
-                         font=(item, 16)).pack()
-        label = label
+                         text=label_text,
+                         font=(item, 16))
+        label.pack()
         listnumber += 1
 
 

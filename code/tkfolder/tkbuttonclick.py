@@ -68,7 +68,7 @@ def load_image(li_image):
 def main():
     ''' main function '''
     print('[*] tk example start')
-    main_window = build_window('tk example', '800x800')
+    main_window = tk.build_window('tk example', '800x800')
     label = tk.Label(main_window,
                      text='tk example label in my window',
                      bg='red', padx=20, pady=20)
