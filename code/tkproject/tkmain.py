@@ -2,12 +2,21 @@
     this is a play project to use TKINTER
     to develop a GUI application
 '''
+import os
+import sys
 import tkinter as tk
 from PIL import Image, ImageTk
+
+
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
+
 
 MAIN_WINDOW = tk.Tk()
 LOGO = 'Z:/Resources/jackmanimation.png'
 ALOGO = 'Z:/jackmanimation/jackmanimation/images/logo.jpg'
+TM_TARGET_DIR = 'Y:'
 
 
 def load_image(li_image):
@@ -18,6 +27,18 @@ def load_image(li_image):
     li_photo = ImageTk.PhotoImage(li_temp)
     print('[*] load_image: end')
     return li_photo
+
+
+def populate(pop_frame, pop_list):
+    '''Put in the fonts'''
+    listnumber = 1
+    for item in pop_list:
+        label_text = f"{str(listnumber)} {item} "
+        pop_label = tk.Label(pop_frame,
+                             text=label_text,
+                             font=('Arial', 16))
+        pop_label.pack()
+        listnumber += 1
 
 
 def main():
@@ -33,9 +54,23 @@ def main():
     MAIN_WINDOW.geometry(geometry)
     MAIN_WINDOW.minsize(minx, miny)
     MAIN_WINDOW.maxsize(maxx, maxy)
-    image = load_image(LOGO)
-    aimage = load_image(ALOGO)  # noqa: F841
-    MAIN_WINDOW.iconphoto(False, image)
+    image = tk.PhotoImage(file=LOGO)
+    aimage = load_image(ALOGO)
+    button_image = image.subsample(5, 5)
+    tm_mainargs = {"verbosemode": False,
+                   "deletemode": False,
+                   "startdirectory": TM_TARGET_DIR,
+                   "targetdirectory": TM_TARGET_DIR}
+    tm_filelist = walk_through(tm_mainargs)
+    mw_label = tk.Label(MAIN_WINDOW,
+                        text=f'Total files found {len(tm_filelist)}',
+                        font=('Arial', 15, 'bold'))
+    mw_label.pack()
+    mw_button = tk.Button(MAIN_WINDOW,
+                          text='Submit',
+                          image=button_image)
+    mw_button.pack()
+    MAIN_WINDOW.iconphoto(False, aimage)
     print('[*] main: end')
 
 

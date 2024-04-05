@@ -1,6 +1,6 @@
 '''
     tkplay - play with tkinter
-    geometry managers are 
+    geometry managers are
         pack,
         grid,
         place
@@ -28,7 +28,7 @@
         Image,
         PhotoImage,
         Toplevel,
-    
+
 '''
 
 import tkinter as tk
@@ -40,7 +40,7 @@ def on_button_click():
     ''' button click event '''
     print('[*] on_button_click: start')
     print('[-] on_button_click: button clicked')
-    button.config(text='Button Clicked')
+    button.config(text='Button Clicked')  # noqa: F821
     print('[*] on_button_click: end')
 
 
@@ -58,7 +58,7 @@ def build_window(bw_name, bw_geometry):
 def load_image(li_image):
     ''' load an image '''
     print('[*] load_image: start')
-    print(f'[-] load_image: image: {li_image}' )
+    print(f'[-] load_image: image: {li_image}')
     li_photo = tk.PhotoImage(file=li_image)
     print('[*] load_image: end')
     return li_photo
