@@ -16,7 +16,7 @@ from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
 MAIN_WINDOW = tk.Tk()
 LOGO = 'Z:/Resources/jackmanimation.png'
 ALOGO = 'Z:/jackmanimation/jackmanimation/images/logo.jpg'
-TM_TARGET_DIR = 'Y:'
+TM_TARGET_DIR = 'Z:/Resources/'
 
 
 def load_image(li_image):
@@ -71,6 +71,9 @@ def main():
                           image=button_image)
     mw_button.pack()
     MAIN_WINDOW.iconphoto(False, aimage)
+    selected_option = tk.StringVar()
+    dropdown = tk.OptionMenu(MAIN_WINDOW, selected_option, *tm_filelist)
+    dropdown.pack(pady=10)
     print('[*] main: end')
 
 
