@@ -71,9 +71,11 @@ def main():
                           image=button_image)
     mw_button.pack()
     MAIN_WINDOW.iconphoto(False, aimage)
-    selected_option = tk.StringVar()
-    dropdown = tk.OptionMenu(MAIN_WINDOW, selected_option, *tm_filelist)
-    dropdown.pack(pady=10)
+    selected_option = tk.StringVar(value='Please Choose Wisely')
+    dropdown = tk.OptionMenu(MAIN_WINDOW,
+                             selected_option,
+                             *tm_filelist)
+    dropdown.pack(pady=10, padx=10)
     print('[*] main: end')
 
 

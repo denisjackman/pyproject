@@ -36,14 +36,6 @@ import tkinter as tk
 LOGO = 'Z:/Resources/jackmanimation.png'
 
 
-def on_button_click():
-    ''' button click event '''
-    print('[*] on_button_click: start')
-    print('[-] on_button_click: button clicked')
-    button.config(text='Button Clicked')  # noqa: F821
-    print('[*] on_button_click: end')
-
-
 def build_window(bw_name, bw_geometry):
     ''' build a window '''
     print('[*] build_window: start')
@@ -67,27 +59,27 @@ def load_image(li_image):
 def main():
     ''' main function '''
     print('[*] tk example start')
-    main_window = build_window('tk example', '800x800')
-    label = tk.Label(main_window,
+    tkp_main_window = build_window('tk example', '800x800')
+    label = tk.Label(tkp_main_window,
                      text='tk example label in my window',
                      bg='red', padx=20, pady=20)
     label.pack()
-    label1 = tk.Label(main_window,
-                      text='tk example label1 in my window',
+    tkp_label1 = tk.Label(tkp_main_window,
+                      text='tk example tkp_label1 in my window',
                       font=('Arial', 15, 'bold'),
                       bg='yellow', padx=20, pady=20)
-    label1.pack()
-    label2 = tk.Label(main_window,
-                      text='tk example label2 in my window',
+    tkp_label1.pack()
+    tkp_label2 = tk.Label(tkp_main_window,
+                      text='tk example tkp_label2 in my window',
                       font=('Monospace', 16, 'italic'),
                       bg='green', padx=20, pady=20)
-    label2.pack()
+    tkp_label2.pack()
 
     logo = load_image(LOGO)
-    label3 = tk.Label(main_window, image=logo)
+    label3 = tk.Label(tkp_main_window, image=logo)
     label3.pack()
 
-    main_window.mainloop()
+    tkp_main_window.mainloop()
     print('[*] tk example end')
 
 
