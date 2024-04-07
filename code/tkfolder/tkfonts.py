@@ -1,3 +1,4 @@
+'''Display all the fonts available to Tkinter in a scrollable list.'''
 import tkinter as tk
 from tkinter import font
 
@@ -7,21 +8,21 @@ fonts = list(font.families())
 fonts.sort()
 
 
-def populate(frame):
+def populate(pop_frame):
     '''Put in the fonts'''
     listnumber = 1
     for item in fonts:
         label_text = f"{str(listnumber)} {item} "
-        label = tk.Label(frame,
+        label = tk.Label(pop_frame,
                          text=label_text,
                          font=(item, 16))
         label.pack()
         listnumber += 1
 
 
-def onFrameConfigure(canvas):
+def onFrameConfigure(ofc_canvas):
     '''Reset the scroll region to encompass the inner frame'''
-    canvas.configure(scrollregion=canvas.bbox("all"))
+    ofc_canvas.configure(scrollregion=ofc_canvas.bbox("all"))
 
 
 canvas = tk.Canvas(root, borderwidth=0, background="#ffffff")
