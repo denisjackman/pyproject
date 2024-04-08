@@ -65,14 +65,14 @@ def main():
                      bg='red', padx=20, pady=20)
     label.pack()
     tkp_label1 = tk.Label(tkp_main_window,
-                      text='tk example tkp_label1 in my window',
-                      font=('Arial', 15, 'bold'),
-                      bg='yellow', padx=20, pady=20)
+                          text='tk example tkp_label1 in my window',
+                          font=('Arial', 15, 'bold'),
+                          bg='yellow', padx=20, pady=20)
     tkp_label1.pack()
     tkp_label2 = tk.Label(tkp_main_window,
-                      text='tk example tkp_label2 in my window',
-                      font=('Monospace', 16, 'italic'),
-                      bg='green', padx=20, pady=20)
+                          text='tk example tkp_label2 in my window',
+                          font=('Monospace', 16, 'italic'),
+                          bg='green', padx=20, pady=20)
     tkp_label2.pack()
 
     logo = load_image(LOGO)
