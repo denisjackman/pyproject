@@ -5,6 +5,7 @@
 import os
 import sys
 import tkinter as tk
+from tkinter import filedialog
 from PIL import Image, ImageTk
 
 
@@ -17,6 +18,12 @@ MAIN_WINDOW = tk.Tk()
 LOGO = 'Z:/Resources/jackmanimation.png'
 ALOGO = 'Z:/jackmanimation/jackmanimation/images/logo.jpg'
 TM_TARGET_DIR = 'Z:/Resources/'
+
+
+def open_filename():
+    ''' open a file '''
+    filename = filedialog.askopenfilename(title='open')
+    return filename
 
 
 def load_image(li_image):
@@ -79,6 +86,21 @@ def main():
     print('[*] main: end')
 
 
+def image_button():
+    ''' image button '''
+    ib_file = open_filename()
+    ib_image = Image.open(ib_file)
+    ib_image = ib_image.resize((250, 250), Image.Resampling.LANCZOS)
+    ib_image = ImageTk.PhotoImage(ib_image)
+    ib_panel = tk.Label(MAIN_WINDOW, image=ib_image)
+    ib_panel.image = ib_image
+    ib_panel.pack()
+
+
 if __name__ == '__main__':
     main()
+    main_button = tk.Button(MAIN_WINDOW,
+                            text='Image Button',
+                            command=image_button)
+    main_button.pack()
     MAIN_WINDOW.mainloop()
