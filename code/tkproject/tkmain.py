@@ -61,9 +61,9 @@ def main():
     MAIN_WINDOW.geometry(geometry)
     MAIN_WINDOW.minsize(minx, miny)
     MAIN_WINDOW.maxsize(maxx, maxy)
-    image = tk.PhotoImage(file=LOGO)
+    mw_image = tk.PhotoImage(file=LOGO)
     aimage = load_image(ALOGO)
-    button_image = image.subsample(5, 5)
+    button_image = mw_image.subsample(5, 5)
     tm_mainargs = {"verbosemode": False,
                    "deletemode": False,
                    "startdirectory": TM_TARGET_DIR,
@@ -74,15 +74,20 @@ def main():
                         font=('Arial', 15, 'bold'))
     mw_label.pack()
     mw_button = tk.Button(MAIN_WINDOW,
-                          text='Submit',
-                          image=button_image)
+                          image=mw_image)
     mw_button.pack()
     MAIN_WINDOW.iconphoto(False, aimage)
+
     selected_option = tk.StringVar(value='Please Choose Wisely')
     dropdown = tk.OptionMenu(MAIN_WINDOW,  # pylint: disable=E1120
                              selected_option,
                              *tm_filelist)
     dropdown.pack(pady=10, padx=10)
+
+    mw_list = tk.Listbox(MAIN_WINDOW, bg='yellow', width=120)
+    mw_list.insert(tk.END, *tm_filelist)
+    mw_list.pack()
+
     print('[*] main: end')
 
 
