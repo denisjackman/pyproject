@@ -74,7 +74,7 @@ def main():
                         font=('Arial', 15, 'bold'))
     mw_label.pack()
     mw_button = tk.Button(MAIN_WINDOW,
-                          image=mw_image)
+                          image=button_image)
     mw_button.pack()
     MAIN_WINDOW.iconphoto(False, aimage)
 
@@ -88,6 +88,23 @@ def main():
     mw_list.insert(tk.END, *tm_filelist)
     mw_list.pack()
 
+    mw_menu = tk.Menu(MAIN_WINDOW)
+    mw_filemenu = tk.Menu(mw_menu, tearoff=0)
+    mw_filemenu.add_command(label='New')
+    mw_filemenu.add_separator()
+    mw_filemenu.add_command(label='Open')
+    mw_filemenu.add_command(label='Save')
+    mw_filemenu.add_command(label='Save As')
+    mw_filemenu.add_command(label='Close')
+    mw_filemenu.add_command(label='Print')
+    mw_menu.add_cascade(label='File', menu=mw_filemenu)
+
+    mw_helpmenu = tk.Menu(mw_menu, tearoff=0)
+    mw_helpmenu.add_command(label='Help Index')
+    mw_helpmenu.add_command(label='About')
+    mw_menu.add_cascade(label='Help', menu=mw_helpmenu)
+
+    MAIN_WINDOW.config(menu=mw_menu)
     print('[*] main: end')
 
 
