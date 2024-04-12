@@ -51,19 +51,13 @@ def populate(pop_frame, pop_list):
 def main():
     ''' main function '''
     print('[*] main: start')
-    name = 'TK Project'
-    minx = 800
-    miny = 600
-    maxx = 1000
-    maxy = 900
-    geometry = f'{minx}x{miny}'
-    MAIN_WINDOW.title(name)
-    MAIN_WINDOW.geometry(geometry)
-    MAIN_WINDOW.minsize(minx, miny)
-    MAIN_WINDOW.maxsize(maxx, maxy)
+    MAIN_WINDOW.title('TK Project')
+    MAIN_WINDOW.geometry('800x600')
+    MAIN_WINDOW.minsize(800, 600)
+    MAIN_WINDOW.maxsize(1000, 900)
     mw_image = tk.PhotoImage(file=LOGO)
-    aimage = load_image(ALOGO)
-    button_image = mw_image.subsample(5, 5)
+    mw_aimage = load_image(ALOGO)
+    button_image = mw_aimage.subsample(5, 5)
     tm_mainargs = {"verbosemode": False,
                    "deletemode": False,
                    "startdirectory": TM_TARGET_DIR,
@@ -76,7 +70,7 @@ def main():
     mw_button = tk.Button(MAIN_WINDOW,
                           image=button_image)
     mw_button.pack()
-    MAIN_WINDOW.iconphoto(False, aimage)
+    MAIN_WINDOW.iconphoto(False, mw_image)
 
     selected_option = tk.StringVar(value='Please Choose Wisely')
     dropdown = tk.OptionMenu(MAIN_WINDOW,  # pylint: disable=E1120
@@ -97,6 +91,8 @@ def main():
     mw_filemenu.add_command(label='Save As')
     mw_filemenu.add_command(label='Close')
     mw_filemenu.add_command(label='Print')
+    mw_filemenu.add_separator()
+    mw_filemenu.add_command(label='Exit', command=MAIN_WINDOW.quit)
     mw_menu.add_cascade(label='File', menu=mw_filemenu)
 
     mw_helpmenu = tk.Menu(mw_menu, tearoff=0)
