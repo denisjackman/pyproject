@@ -52,12 +52,13 @@ def main():
     ''' main function '''
     print('[*] main: start')
     MAIN_WINDOW.title('TK Project')
+    MAIN_WINDOW.config(bg='black')
     MAIN_WINDOW.geometry('800x600')
     MAIN_WINDOW.minsize(800, 600)
     MAIN_WINDOW.maxsize(1000, 900)
     mw_image = tk.PhotoImage(file=LOGO)
     mw_aimage = load_image(ALOGO)
-    button_image = mw_aimage.subsample(5, 5)
+    button_image = mw_aimage
     tm_mainargs = {"verbosemode": False,
                    "deletemode": False,
                    "startdirectory": TM_TARGET_DIR,
