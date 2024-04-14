@@ -54,8 +54,8 @@ def main():
     MAIN_WINDOW.title('TK Project')
     MAIN_WINDOW.config(bg='black')
     MAIN_WINDOW.geometry('800x600')
-    MAIN_WINDOW.minsize(800, 600)
-    MAIN_WINDOW.maxsize(1000, 900)
+    MAIN_WINDOW.minsize(1000, 1000)
+    MAIN_WINDOW.maxsize(1100, 1100)
     mw_image = tk.PhotoImage(file=LOGO)
     mw_aimage = load_image(ALOGO)
     button_image = mw_aimage
@@ -102,6 +102,13 @@ def main():
     mw_menu.add_cascade(label='Help', menu=mw_helpmenu)
 
     MAIN_WINDOW.config(menu=mw_menu)
+    
+    mw_message = tk.Message(MAIN_WINDOW,
+                            text='This is a message',
+                            font=('Arial', 20),
+                            relief=tk.RAISED,
+                            bg='blue',)
+    mw_message.pack()    
     print('[*] main: end')
 
 
