@@ -71,16 +71,16 @@ def main():
                               value=1)
     mw_radio.pack()
     mw_radio1 = tk.Radiobutton(MAIN_WINDOW,
-                              text='Radio Button 2',
-                              variable=mw_radiovar,
-                              value=2)
+                               text='Radio Button 2',
+                               variable=mw_radiovar,
+                               value=2)
     mw_radio1.pack()
     mw_radio2 = tk.Radiobutton(MAIN_WINDOW,
-                              text='Radio Button 3',
-                              variable=mw_radiovar,
-                              value=3)
+                               text='Radio Button 3',
+                               variable=mw_radiovar,
+                               value=3)
     mw_radio2.pack()
-    
+
     mw_label = tk.Label(MAIN_WINDOW,
                         text=f'Total files found {len(tm_filelist)}',
                         font=('Arial', 15, 'bold'))
@@ -119,13 +119,13 @@ def main():
     mw_menu.add_cascade(label='Help', menu=mw_helpmenu)
 
     MAIN_WINDOW.config(menu=mw_menu)
-    
+
     mw_message = tk.Message(MAIN_WINDOW,
                             text='This is a message',
                             font=('Arial', 20),
                             relief=tk.RAISED,
                             bg='blue',)
-    mw_message.pack()    
+    mw_message.pack()
     print('[*] main: end')
 
 
