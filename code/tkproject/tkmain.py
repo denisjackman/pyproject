@@ -44,7 +44,7 @@ def populate(pop_frame, pop_list):
         pop_label = tk.Label(pop_frame,
                              text=label_text,
                              font=('Arial', 16))
-        pop_label.pack()
+        # pop_label.pack()
         listnumber += 1
 
 
@@ -56,6 +56,9 @@ def main():
     MAIN_WINDOW.geometry('800x600')
     MAIN_WINDOW.minsize(1000, 1000)
     MAIN_WINDOW.maxsize(1100, 1100)
+    MAIN_WINDOW.columnconfigure(0, weight=1)
+    MAIN_WINDOW.rowconfigure(1, weight=1)
+
     mw_image = tk.PhotoImage(file=LOGO)
     mw_aimage = load_image(ALOGO)
     button_image = mw_aimage
@@ -69,36 +72,37 @@ def main():
                               text='Radio Button 1',
                               variable=mw_radiovar,
                               value=1)
-    mw_radio.pack()
+    # mw_radio.pack()
     mw_radio1 = tk.Radiobutton(MAIN_WINDOW,
                                text='Radio Button 2',
                                variable=mw_radiovar,
                                value=2)
-    mw_radio1.pack()
+    # mw_radio1.pack()
     mw_radio2 = tk.Radiobutton(MAIN_WINDOW,
                                text='Radio Button 3',
                                variable=mw_radiovar,
                                value=3)
-    mw_radio2.pack()
+    # mw_radio2.pack()
 
     mw_label = tk.Label(MAIN_WINDOW,
                         text=f'Total files found {len(tm_filelist)}',
                         font=('Arial', 15, 'bold'))
-    mw_label.pack()
+    mw_label.grid(row=0, column=0, columnspan=2, sticky='nsew')
+    # mw_label.pack()
     mw_button = tk.Button(MAIN_WINDOW,
                           image=button_image)
-    mw_button.pack()
+    # mw_button.pack()
     MAIN_WINDOW.iconphoto(False, mw_image)
 
     selected_option = tk.StringVar(value='Please Choose Wisely')
     dropdown = tk.OptionMenu(MAIN_WINDOW,  # pylint: disable=E1120
                              selected_option,
                              *tm_filelist)
-    dropdown.pack(pady=10, padx=10)
+    # dropdown.pack(pady=10, padx=10)
 
     mw_list = tk.Listbox(MAIN_WINDOW, bg='yellow', width=120)
     mw_list.insert(tk.END, *tm_filelist)
-    mw_list.pack()
+    # mw_list.pack()
 
     mw_menu = tk.Menu(MAIN_WINDOW)
     mw_filemenu = tk.Menu(mw_menu, tearoff=0)
@@ -125,7 +129,7 @@ def main():
                             font=('Arial', 20),
                             relief=tk.RAISED,
                             bg='blue',)
-    mw_message.pack()
+    # mw_message.pack()
     print('[*] main: end')
 
 
@@ -137,7 +141,7 @@ def image_button():
     ib_image = ImageTk.PhotoImage(ib_image)
     ib_panel = tk.Label(MAIN_WINDOW, image=ib_image)
     ib_panel.image = ib_image
-    ib_panel.pack()
+    # ib_panel.pack()
 
 
 if __name__ == '__main__':
@@ -145,5 +149,5 @@ if __name__ == '__main__':
     main_button = tk.Button(MAIN_WINDOW,
                             text='Image Button',
                             command=image_button)
-    main_button.pack()
+    # main_button.pack()
     MAIN_WINDOW.mainloop()
