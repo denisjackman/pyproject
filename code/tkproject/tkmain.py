@@ -57,8 +57,6 @@ def main():
     MAIN_WINDOW.geometry('800x600')
     MAIN_WINDOW.minsize(1000, 1000)
     MAIN_WINDOW.maxsize(1100, 1100)
-    MAIN_WINDOW.columnconfigure(10, weight=1)
-    MAIN_WINDOW.rowconfigure(10, weight=1)
 
     mw_image = tk.PhotoImage(file=LOGO)
     mw_aimage = load_image(ALOGO)
@@ -68,47 +66,6 @@ def main():
                    "startdirectory": TM_TARGET_DIR,
                    "targetdirectory": TM_TARGET_DIR}
     tm_filelist = walk_through(tm_mainargs)
-    mw_radiovar = tk.IntVar()
-    mw_radio = tk.Radiobutton(MAIN_WINDOW,
-                              text='Radio Button 1',
-                              variable=mw_radiovar,
-                              value=1)
-    # mw_radio.pack()
-    mw_radio.grid(row=2, column=1, columnspan=1, sticky=tk.E)
-    mw_radio1 = tk.Radiobutton(MAIN_WINDOW,
-                               text='Radio Button 2',
-                               variable=mw_radiovar,
-                               value=2)
-    # mw_radio1.pack()
-    mw_radio1.grid(row=3, column=1, columnspan=1, sticky=tk.E)
-    mw_radio2 = tk.Radiobutton(MAIN_WINDOW,
-                               text='Radio Button 3',
-                               variable=mw_radiovar,
-                               value=3)
-    # mw_radio2.pack()
-    mw_radio2.grid(row=4, column=1, columnspan=1, sticky=tk.E)
-
-    mw_label = tk.Label(MAIN_WINDOW,
-                        text=f'Total files found {len(tm_filelist)}',
-                        font=('Arial', 15, 'bold'))
-    # mw_label.pack()
-    mw_label.grid(row=0, column=0, columnspan=1, sticky=tk.W)
-    mw_button = tk.Button(MAIN_WINDOW,
-                          image=button_image)
-    # mw_button.pack()
-    mw_button.grid(row=0, column=3, columnspan=1, sticky=tk.W)
-    MAIN_WINDOW.iconphoto(False, mw_image)
-
-    selected_option = tk.StringVar(value='Please Choose Wisely')
-    dropdown = tk.OptionMenu(MAIN_WINDOW,  # pylint: disable=E1120
-                             selected_option,
-                             *tm_filelist)
-    # dropdown.pack(pady=10, padx=10)
-    dropdown.grid(row=5, column=0, columnspan=5, sticky=tk.E)
-    mw_list = tk.Listbox(MAIN_WINDOW, bg='yellow', width=120)
-    mw_list.insert(tk.END, *tm_filelist)
-    # mw_list.pack()
-    mw_list.grid(row=6, column=0, columnspan=8, sticky=tk.W)
 
     mw_menu = tk.Menu(MAIN_WINDOW)
     mw_filemenu = tk.Menu(mw_menu, tearoff=0)
@@ -130,13 +87,65 @@ def main():
 
     MAIN_WINDOW.config(menu=mw_menu)
 
+    MAIN_WINDOW.iconphoto(False, mw_image)
+
+    for grid_count in range(10):
+        MAIN_WINDOW.columnconfigure(grid_count, weight=1)
+        MAIN_WINDOW.rowconfigure(grid_count, weight=1)
+
+    mw_radiovar = tk.IntVar()
+    mw_radio = tk.Radiobutton(MAIN_WINDOW,
+                              text='Radio Button 1',
+                              variable=mw_radiovar,
+                              value=1)
+    
+    mw_radio1 = tk.Radiobutton(MAIN_WINDOW,
+                               text='Radio Button 2',
+                               variable=mw_radiovar,
+                               value=2)
+
+    mw_radio2 = tk.Radiobutton(MAIN_WINDOW,
+                               text='Radio Button 3',
+                               variable=mw_radiovar,
+                               value=3)
+
+    mw_label = tk.Label(MAIN_WINDOW,
+                        text=f'Total files found {len(tm_filelist)}',
+                        font=('Arial', 15, 'bold'))
+
+    mw_button = tk.Button(MAIN_WINDOW,
+                          image=button_image)
+    selected_option = tk.StringVar(value='Please Choose Wisely')
+    dropdown = tk.OptionMenu(MAIN_WINDOW,  # pylint: disable=E1120
+                             selected_option,
+                             *tm_filelist)
+
+    mw_list = tk.Listbox(MAIN_WINDOW, bg='yellow', width=120)
+    mw_list.insert(tk.END, *tm_filelist)
+
     mw_message = tk.Message(MAIN_WINDOW,
                             text='This is a message',
                             font=('Arial', 20),
                             relief=tk.RAISED,
                             bg='blue',)
+
+    # mw_radio.pack()
+    mw_radio.grid(row=2, column=1, columnspan=1, sticky=tk.E)
+    # mw_radio1.pack()
+    mw_radio1.grid(row=3, column=1, columnspan=1, sticky=tk.E)
+    # mw_radio2.pack()
+    mw_radio2.grid(row=4, column=1, columnspan=1, sticky=tk.E)
+    # mw_label.pack()
+    mw_label.grid(row=0, column=0, columnspan=1, sticky=tk.W)
+    # mw_button.pack()
+    mw_button.grid(row=0, column=3, columnspan=1, sticky=tk.W)
+    # dropdown.pack(pady=10, padx=10)
+    dropdown.grid(row=5, column=0, columnspan=5, sticky=tk.E)
+    # mw_list.pack()
+    mw_list.grid(row=6, column=0, columnspan=8, sticky=tk.W)
     # mw_message.pack()
     mw_message.grid(row=7, column=0, columnspan=2, sticky=tk.E)
+
     print('[*] main: end')
 
 
