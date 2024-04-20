@@ -49,14 +49,27 @@ def populate(pop_frame, pop_list):
         listnumber += 1
 
 
+def image_button():
+    ''' image button '''
+    ib_file = open_filename()
+    ib_image = Image.open(ib_file)
+    ib_image = ib_image.resize((50, 50), Image.Resampling.LANCZOS)
+    ib_image = ImageTk.PhotoImage(ib_image)
+    ib_panel = tk.Label(MAIN_WINDOW, image=ib_image)
+    ib_panel.image = ib_image
+    # ib_panel.pack()
+    # ib_panel.grid(row=8, column=0, columnspan=2, sticky=tk.E)
+    ib_panel.place(x=20, y=60, width=50, height=50)
+
+
 def main():
     ''' main function '''
     print('[*] main: start')
     MAIN_WINDOW.title('TK Project')
     MAIN_WINDOW.config(bg='black')
     MAIN_WINDOW.geometry('800x600')
-    MAIN_WINDOW.minsize(1000, 1000)
-    MAIN_WINDOW.maxsize(1100, 1100)
+    MAIN_WINDOW.minsize(400, 400)
+    MAIN_WINDOW.maxsize(800, 600)
 
     mw_image = tk.PhotoImage(file=LOGO)
     mw_aimage = load_image(ALOGO)
@@ -98,7 +111,7 @@ def main():
                               text='Radio Button 1',
                               variable=mw_radiovar,
                               value=1)
-    
+
     mw_radio1 = tk.Radiobutton(MAIN_WINDOW,
                                text='Radio Button 2',
                                variable=mw_radiovar,
@@ -130,35 +143,30 @@ def main():
                             bg='blue',)
 
     # mw_radio.pack()
-    mw_radio.grid(row=2, column=1, columnspan=1, sticky=tk.E)
+    # mw_radio.grid(row=2, column=1, columnspan=1, sticky=tk.E)
     # mw_radio1.pack()
-    mw_radio1.grid(row=3, column=1, columnspan=1, sticky=tk.E)
+    # mw_radio1.grid(row=3, column=1, columnspan=1, sticky=tk.E)
     # mw_radio2.pack()
-    mw_radio2.grid(row=4, column=1, columnspan=1, sticky=tk.E)
+    # mw_radio2.grid(row=4, column=1, columnspan=1, sticky=tk.E)
     # mw_label.pack()
-    mw_label.grid(row=0, column=0, columnspan=1, sticky=tk.W)
+    # mw_label.grid(row=0, column=0, columnspan=1, sticky=tk.W)
     # mw_button.pack()
-    mw_button.grid(row=0, column=3, columnspan=1, sticky=tk.W)
+    # mw_button.grid(row=0, column=3, columnspan=1, sticky=tk.W)
     # dropdown.pack(pady=10, padx=10)
-    dropdown.grid(row=5, column=0, columnspan=5, sticky=tk.E)
+    # dropdown.grid(row=5, column=0, columnspan=5, sticky=tk.E)
     # mw_list.pack()
-    mw_list.grid(row=6, column=0, columnspan=8, sticky=tk.W)
+    # mw_list.grid(row=6, column=0, columnspan=8, sticky=tk.W)
     # mw_message.pack()
-    mw_message.grid(row=7, column=0, columnspan=2, sticky=tk.E)
-
+    # mw_message.grid(row=7, column=0, columnspan=2, sticky=tk.E)
+    mw_radio.place(x=20, y=120, width=100, height=20)
+    mw_radio1.place(x=20, y=140, width=100, height=20)
+    mw_radio2.place(x=20, y=160, width=100, height=20)
+    mw_label.place(x=100, y=0, width=100, height=20)
+    mw_button.place(x=200, y=0, width=50, height=50)
+    dropdown.place(x=300, y=0, width=100, height=20)
+    mw_list.place(x=20, y=200, width=100, height=100)
+    mw_message.place(x=200, y=200, width=100, height=50)
     print('[*] main: end')
-
-
-def image_button():
-    ''' image button '''
-    ib_file = open_filename()
-    ib_image = Image.open(ib_file)
-    ib_image = ib_image.resize((250, 250), Image.Resampling.LANCZOS)
-    ib_image = ImageTk.PhotoImage(ib_image)
-    ib_panel = tk.Label(MAIN_WINDOW, image=ib_image)
-    ib_panel.image = ib_image
-    # ib_panel.pack()
-    ib_panel.grid(row=8, column=0, columnspan=2, sticky=tk.E)
 
 
 if __name__ == '__main__':
@@ -167,4 +175,7 @@ if __name__ == '__main__':
                             text='Image Button',
                             command=image_button)
     # main_button.pack()
+    # main_button.grid(row=9, column=0, columnspan=2, sticky=tk.W)
+    main_button.place(x=20, y=0, width=100, height=50)
+
     MAIN_WINDOW.mainloop()
