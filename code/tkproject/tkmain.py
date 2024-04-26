@@ -59,7 +59,7 @@ def image_button():
     ib_panel.image = ib_image
     # ib_panel.pack()
     # ib_panel.grid(row=8, column=0, columnspan=2, sticky=tk.E)
-    ib_panel.place(x=20, y=60, width=50, height=50)
+    ib_panel.place(x=400, y=60, width=50, height=50)
 
 
 def main_menu():
@@ -167,10 +167,10 @@ def main():
     mw_radio1.place(x=20, y=140, width=100, height=20)
     mw_radio2.place(x=20, y=160, width=100, height=20)
     mw_label.place(x=100, y=0, width=100, height=20)
-    mw_button.place(x=200, y=0, width=50, height=50)
+    mw_button.place(x=0, y=50, width=50, height=50)
     mw_dropdown.place(x=300, y=0, width=100, height=20)
-    mw_list.place(x=20, y=200, width=100, height=100)
-    mw_message.place(x=200, y=200, width=100, height=50)
+    mw_list.place(x=200, y=200, width=150, height=100)
+    mw_message.place(x=0, y=400, width=150, height=50)
 
     print('[*] main: end')
 
@@ -182,6 +182,6 @@ if __name__ == '__main__':
                             command=image_button)
     # main_button.pack()
     # main_button.grid(row=9, column=0, columnspan=2, sticky=tk.W)
-    main_button.place(x=20, y=0, width=100, height=50)
+    main_button.place(x=0, y=0, width=100, height=50)
 
     MAIN_WINDOW.mainloop()
