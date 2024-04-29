@@ -8,7 +8,7 @@ sys.path.append(os.path.realpath('../..'))
 from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
 
 MODEL_ENGINE = "gpt-3.5-turbo-instruct"
-MAX_TOKENS = 7
+MAX_TOKENS = 1024
 TEMPERATURE = 0.5
 STOP = None
 
@@ -17,7 +17,7 @@ def chat_response(cr_client, cr_prompt):
     ''' Use the ChatGPT model to generate a response '''
     cr_model_engine = MODEL_ENGINE
     cr_prompt = f"{cr_prompt}\n"
-    cr_message = ''
+    cr_result = ''
     try:
         cr_completions = cr_client.completions.create(model=cr_model_engine,
                                                       prompt=cr_prompt,
@@ -26,10 +26,10 @@ def chat_response(cr_client, cr_prompt):
                                                       stop=STOP,
                                                       temperature=TEMPERATURE)
     except Exception as e:
-        cr_message = f'Error in generating response : {e}'
-    if cr_message == '':
-        cr_message = cr_completions.choices[0].text
-    return cr_message.strip()
+        cr_result = f'Error in generating response : {e}'
+    if cr_result == '':
+        cr_result = cr_completions.choices[0].text
+    return cr_result.strip()
 
 
 def create_assistant(cr_client, cr_name, cr_intruction):
@@ -59,7 +59,16 @@ def main():
     credid = credscheck('Z:/pyproject/secrets/secrets.json')
     open_ai_key = credid['OpenAI_API_Key']
     open_ai_org = credid['OpenAI_Org_ID']
-    mw_prompt = "explain to me the concept of the Delta Green roleplaying game"
+    mw_prompt = "You are a games designer." \
+                " Design a fantasy roleplay scenario" \
+                " based in a library for players to explore." \
+                " The players will be level 1." \
+                " The library is a vast, ancient building" \
+                " with many rooms and hidden secrets." \
+                " The players will encounter a variety of" \
+                " challenges and puzzles as they explore." \
+                " The library is home to many magical" \
+                " artifacts and creatures."
     mw_client = OpenAI(api_key=open_ai_key)
     mw_response = chat_response(mw_client, mw_prompt)
     # mw_instruction = "You are a designer of RPG game." \
