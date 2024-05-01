@@ -116,26 +116,26 @@ def main():
     mw_response = chat_response(mw_client, mw_messages)
     mw_image = image_response(mw_client, "a white siamese cat")
     mw_instruction = "You are a designer of RPG game." \
-                     "Use your knowlegdge base to help" \
+                     "Use your knowledge base to help" \
                      "write a scenario for a new game."
     mw_assistant = create_assistant(mw_client,
                                     'Delta Green Assistant',
                                     mw_instruction)
-    mw_filelist = ['Z:/pyproject/jackmanimation/gameitems/deltagreen.txt']
-    mw_vector_store = create_vector_store(mw_client,
-                                          'Delta Green Vector Store',
-                                          mw_filelist)
+    mw_filelist = ['Z:/Store/deltagreen.txt']
+    try:
+        mw_vector_store = create_vector_store(mw_client,
+                                              'Delta Green Vector Store',
+                                              mw_filelist)
+    except Exception as e:
+        print(f'[x] Error in creating vector store : {e}')
+
     try:
         mw_assistant = mw_client.beta.asssistants.update(assistant_id=mw_assistant.id,  # noqa: E501
                                                          tool_resources={"file_search": {"vector_sctore_ids": [mw_vector_store.id]}})  # noqa: E501
     except Exception as e:
         print(f'[x] Error in updating assistant : {e}')
 
-    print(f'[o] OpenAI Org ID  : {mw_open_ai_org}')
-    print(f'[o] Prompt         : {mw_prompt}')
-    print(f'[o] Response       : {mw_response}')
     print(f'[o] Image URL      : {mw_image}')
-    print(f'[o] Assistant ID   : {mw_assistant.id}')
     print('[*] main: end')
 
 
