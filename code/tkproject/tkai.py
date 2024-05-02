@@ -17,6 +17,12 @@ TEMPERATURE = 0.5
 STOP = None
 
 
+def write_output_file(wof_filename, wof_data):
+    ''' Write data to a file '''
+    with open(wof_filename, 'w') as wof_file:
+        wof_file.write(wof_data)
+
+
 def chat_response(cr_client, cr_prompt):
     ''' Use the ChatGPT model to generate a response '''
     cr_model_engine = MODEL_ENGINE
@@ -130,12 +136,15 @@ def main():
         print(f'[x] Error in creating vector store : {e}')
 
     try:
-        mw_assistant = mw_client.beta.asssistants.update(assistant_id=mw_assistant.id,  # noqa: E501
-                                                         tool_resources={"file_search": {"vector_sctore_ids": [mw_vector_store.id]}})  # noqa: E501
+        mw_assistant = mw_client.beta.assistants.update(assistant_id=mw_assistant.id,  # noqa: E501
+                                                         tool_resources={"file_search": {"vector_store_ids": [mw_vector_store.id]}})  # noqa: E501
     except Exception as e:
         print(f'[x] Error in updating assistant : {e}')
 
-    print(f'[o] Image URL      : {mw_image}')
+    write_output_file(f'Z:/Store/{mw_open_ai_org}_image.txt',
+                      mw_image)
+    write_output_file(f'Z:/Store/{mw_open_ai_org}_response.txt',
+                      mw_response[0].text)
     print('[*] main: end')
 
 
