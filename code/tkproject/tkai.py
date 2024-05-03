@@ -1,6 +1,7 @@
 ''' this is tk ai module '''
 import sys
 import os
+import datetime
 from openai import OpenAI
 
 # pylint: disable=C0413
@@ -15,11 +16,12 @@ IMAGE_QUALITY = "standard"
 MAX_TOKENS = 1024
 TEMPERATURE = 0.5
 STOP = None
+TODAY = datetime.datetime.now().strftime('%Y%m%d_%H%M')
 
 
 def write_output_file(wof_filename, wof_data):
     ''' Write data to a file '''
-    with open(wof_filename, 'w') as wof_file:
+    with open(wof_filename, 'w', encoding='utf-8-sig') as wof_file:
         wof_file.write(wof_data)
 
 
@@ -120,7 +122,13 @@ def main():
         ]
     mw_client = OpenAI(api_key=mw_open_ai_key)
     mw_response = chat_response(mw_client, mw_messages)
-    mw_image = image_response(mw_client, "a white siamese cat")
+    mw_ir_prompt = "Detailed wacky caricature of a little tired brunette" \
+                   " woman with long curly hair and piercings in her ears," \
+                   " pale brown eyes, black clothes, holding a kitten," \
+                   " VRay render, UHD, professional lighting, bright " \
+                   " colours, details! White background"
+
+    mw_image = image_response(mw_client, mw_ir_prompt)
     mw_instruction = "You are a designer of RPG game." \
                      "Use your knowledge base to help" \
                      "write a scenario for a new game."
@@ -137,13 +145,13 @@ def main():
 
     try:
         mw_assistant = mw_client.beta.assistants.update(assistant_id=mw_assistant.id,  # noqa: E501
-                                                         tool_resources={"file_search": {"vector_store_ids": [mw_vector_store.id]}})  # noqa: E501
+                                                        tool_resources={"file_search": {"vector_store_ids": [mw_vector_store.id]}})  # noqa: E501
     except Exception as e:
         print(f'[x] Error in updating assistant : {e}')
 
-    write_output_file(f'Z:/Store/{mw_open_ai_org}_image.txt',
+    write_output_file(f'Z:/Store/{TODAY}_{mw_open_ai_org}_image.txt',
                       mw_image)
-    write_output_file(f'Z:/Store/{mw_open_ai_org}_response.txt',
+    write_output_file(f'Z:/Store/{TODAY}_{mw_open_ai_org}_response.txt',
                       mw_response[0].text)
     print('[*] main: end')
 
