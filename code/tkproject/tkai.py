@@ -40,7 +40,7 @@ def chat_response(cr_client, cr_prompt):
     except Exception as e:
         cr_result = f'Error in generating response : {e}'
     if cr_result == '':
-        cr_result = cr_completions.choices
+        cr_result = cr_completions.choices[0].text
     return cr_result
 
 
@@ -148,11 +148,32 @@ def main():
                                                         tool_resources={"file_search": {"vector_store_ids": [mw_vector_store.id]}})  # noqa: E501
     except Exception as e:
         print(f'[x] Error in updating assistant : {e}')
+    mw_image_check = 'https://images.nightcafe.studio/jobs/KEW9N1NcIb4xiejYM4oH/KEW9N1NcIb4xiejYM4oH--1--ci4ap.jpg'  # noqa: E501
+
+    mw_message = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text",
+                 "text": "Analyse this image and generate a prompt for dall-e-3"},  # noqa: E501
+                {"type": "image_url",
+                 "image_url": {
+                     "url": mw_image_check,
+                     },
+                 },
+                ],
+            }
+        ]
 
     write_output_file(f'Z:/Store/{TODAY}_{mw_open_ai_org}_image.txt',
                       mw_image)
     write_output_file(f'Z:/Store/{TODAY}_{mw_open_ai_org}_response.txt',
-                      mw_response[0].text)
+                      mw_response)
+
+    mw_response = chat_response(mw_client, mw_message)
+    write_output_file(f'Z:/Store/{TODAY}_{mw_open_ai_org}_prompt.txt',
+                      mw_response)
+
     print('[*] main: end')
 
 

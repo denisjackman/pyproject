@@ -1,10 +1,10 @@
 ''' zip file cracker '''
 import zipfile
 from threading import Thread
+
 import os
 import sys
 import getopt
-
 
 def get_args():
     '''
