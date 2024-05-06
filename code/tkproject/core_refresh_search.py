@@ -6,7 +6,9 @@ import pandas as pd
 
 def help_message():
     ''' help message '''
-    print('[*] core_refresh_search.py -t <tla> REQUIRED -f <filename> REQUIRED -v True/False optional')
+    print("[*] core_refresh_search.py -t"
+          " <tla> REQUIRED -f <filename>"
+          " REQUIRED -v True/False optional")
     print('[-] core_refresh_search ended')
     sys.exit()
 
@@ -17,7 +19,12 @@ def get_core_args(gca_argv):
     gca_tla = ''
     gca_filename = ''
     try:
-        gc_opts, _ = getopt.getopt(gca_argv, 'hvt:f:', ['help','verbose','tla=','file='])
+        gc_opts, _ = getopt.getopt(gca_argv,
+                                   'hvt:f:',
+                                   ['help',
+                                    'verbose',
+                                    'tla=',
+                                    'file='])
     except getopt.GetoptError as gce:
         print(f'[*] Error in get_core_args : {gce}')
         help_message()
@@ -44,7 +51,7 @@ def check_tla(ct_tla, ct_vmname):
             break
         else:
             ct_check_tla += ct_item
-    
+
     if ct_tla == ct_check_tla:
         ct_result = True
     return ct_result
@@ -64,7 +71,8 @@ def main():
     main_filename = main_args['file']
     main_verbose = main_args['verbose']
 
-    print(f'[o] TLA : {main_tla}, Filename : {main_filename}, Verbose : {main_verbose}')
+    print('[o] TLA : {main_tla}, Filename '
+          f': {main_filename}, Verbose : {main_verbose}')
 
     main_df = pd.read_csv(main_filename)
     main_tlalist = main_df.to_dict(orient='records')
