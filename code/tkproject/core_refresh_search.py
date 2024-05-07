@@ -1,6 +1,7 @@
 ''' core refresh search module '''
 import sys
 import getopt
+import csv
 import pandas as pd
 
 
@@ -11,6 +12,20 @@ def help_message():
           " REQUIRED -v True/False optional")
     print('[-] core_refresh_search ended')
     sys.exit()
+
+
+def read_csv_file(rcf_filename):
+    ''' read csv file '''
+    rcf_result = []
+    with open(rcf_filename,
+              'r',
+              encoding='utf-8-sig') as rcf_csvfile:
+        rcf_data = csv.reader(rcf_csvfile, delimiter=',')
+        for row in rcf_data:
+            if row[0] != 'VMName':
+                rcf_result.append(row[0])
+
+    return rcf_result
 
 
 def get_core_args(gca_argv):
@@ -78,7 +93,7 @@ def main():
     main_tlalist = main_df.to_dict(orient='records')
     for item in main_tlalist:
         if check_tla(main_tla, item['VMName']):
-            print(item)
+            print(item['VMName'])
 
     print('[-] core_refresh_search ended')
 
