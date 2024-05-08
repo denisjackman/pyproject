@@ -2,7 +2,7 @@
 import sys
 import getopt
 import csv
-import pandas as pd
+# import pandas as pd
 
 
 def help_message():
@@ -89,11 +89,12 @@ def main():
     print('[o] TLA : {main_tla}, Filename '
           f': {main_filename}, Verbose : {main_verbose}')
 
-    main_df = pd.read_csv(main_filename)
-    main_tlalist = main_df.to_dict(orient='records')
+    # main_df = pd.read_csv(main_filename)
+    # main_tlalist = main_df.to_dict(orient='records')
+    main_tlalist = read_csv_file(main_filename)
     for item in main_tlalist:
-        if check_tla(main_tla, item['VMName']):
-            print(item['VMName'])
+        if check_tla(main_tla, item):
+            print(item)
 
     print('[-] core_refresh_search ended')
 
