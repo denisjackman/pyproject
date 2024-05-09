@@ -6,6 +6,7 @@ import os
 import sys
 import getopt
 
+
 def get_args():
     '''
         get the argurments from the command line
