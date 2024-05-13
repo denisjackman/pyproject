@@ -19,8 +19,8 @@ def summarize_text_with_openai(text, model="text-davinci-003"):
 
 
 def generate_prompt(directory, file_count, openai_api_key):
-    ''' 
-    Generate a prompt for a discussion based on 
+    '''
+    Generate a prompt for a discussion based on
     summaries of files in a directory
     '''
     OpenAI.api_key = openai_api_key
