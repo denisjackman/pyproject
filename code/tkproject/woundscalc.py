@@ -26,9 +26,18 @@ def calc_wounds(cw_hit_points):
 
 def main():
     ''' main function '''
-    print("Enter the total hit points of the creature")
-    hit_points = int(input())
-    calc_wounds(hit_points)
+    main_loop = True
+    while main_loop:
+        print("Enter the total hit points of the creature (q to quit):")
+        main_input = input()
+        if main_input[0].lower() == 'q':
+            main_loop = False
+            break
+        if not main_input.isnumeric():
+            print("Please enter a number")
+            continue
+        hit_points = int(main_input)
+        calc_wounds(hit_points)
 
 
 if __name__ == '__main__':
