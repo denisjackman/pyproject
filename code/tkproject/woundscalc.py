@@ -19,9 +19,9 @@ def calc_wounds(cw_hit_points):
     cw_severe = cw_hit_points * 0.60
     print(f"The total hit points of the creature are: {cw_hit_points}")
     print("The severity of the wounds are as follows:")
-    print(f"Light wounds: {cw_light}")
-    print(f"Moderate wounds: {cw_moderate}")
-    print(f"Severe wounds: {cw_severe}")
+    print(f"Light wounds: {int(cw_light)}")
+    print(f"Moderate wounds: {int(cw_moderate)}")
+    print(f"Severe wounds: {int(cw_severe)}")
 
 
 def main():
