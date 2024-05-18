@@ -6,7 +6,7 @@
         if it does - print out a message
 
         Your password must conform to the following constraints:
-            Minimum length: 8
+            Minimum length: 12
             Maximum length: 45
             Minimum number of lowercase characters: 2
             Minimum number of uppercase characters: 2
@@ -36,7 +36,7 @@
                 This includes Unicode characters from Asian languages.
 
 '''
-MINPASSWORDLENGTH = 14
+MINPASSWORDLENGTH = 12
 MAXPASSWORDLENGTH = 45
 PASSWORDALPHA = 'abcdefghijklmnopqrstuvwxyz'
 PASSWORDUPPERALPHA = PASSWORDALPHA.upper()
