@@ -12,7 +12,7 @@ def books(num_books):
     ''' generate book titles '''
     books_list = []
     for _ in range(num_books):
-        books_list.append(book_title_generator())
+        books_list.append(book_title_generator(True))
     return books_list
 
 
