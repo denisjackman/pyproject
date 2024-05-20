@@ -6,6 +6,7 @@ import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
 from jackmanimation.DndProject.dndother import book_title_generator  # noqa: E402, E501
+from jackmanimation.DndProject.dndother import riddle_generator  # noqa: E402, E501
 
 
 def books(num_books):
@@ -16,6 +17,14 @@ def books(num_books):
     return books_list
 
 
+def riddles(num_riddles):
+    ''' generate riddles '''
+    riddles_list = []
+    for _ in range(num_riddles):
+        riddles_list.append(riddle_generator())
+    return riddles_list
+
+
 def main():
     ''' main function'''
     print("[Maturam] Starting...")
@@ -24,6 +33,12 @@ def main():
     count = 0
     for book_title in book_list:
         print(f"\t[-] [{count}] The book title is: {book_title}")
+        count += 1
+    print("[Maturam] Generating a riddle...")
+    riddle_list = riddles(10)
+    count = 0
+    for riddle in riddle_list:
+        print(f"\t[-] [{count}] The riddle is: {riddle}")
         count += 1
     print("[Maturam] Exiting...")
 
