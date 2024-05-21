@@ -18,7 +18,6 @@ faker
 folium
 geocoder
 geoip2
-git+https://github.com/jamalex/notion-py.git@refs/pull/294/merge
 googletrans
 hexy
 importlib-metadata
