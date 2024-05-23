@@ -2,7 +2,6 @@
 
 import os
 import sys
-from random import randint
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
@@ -12,6 +11,7 @@ from jackmanimation.DndProject.dndnames import dwarven_name  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import elfname_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import orc_name_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import lizardman_name_generator  # noqa: E402, E501
+from jackmanimation.DndProject.dnddice import dice  # noqa: E402, E501
 
 
 def name_generator(ng_number, ng_type="random"):
@@ -19,27 +19,27 @@ def name_generator(ng_number, ng_type="random"):
     name_list = []
     if ng_type == "dwarf":
         for _ in range(ng_number):
-            name_list.append(dwarven_name())
+            name_list.append(f'(d): {dwarven_name()}')
     elif ng_type == "elf":
         for _ in range(ng_number):
-            name_list.append(elfname_generator())
+            name_list.append(f'(e): {elfname_generator()}')
     elif ng_type == "orc":
         for _ in range(ng_number):
-            name_list.append(orc_name_generator())
+            name_list.append(f'(o): {orc_name_generator()}')
     elif ng_type == "lizardman":
         for _ in range(ng_number):
-            name_list.append(lizardman_name_generator())
+            name_list.append(f'(l): {lizardman_name_generator()}')
     else:
         for _ in range(ng_number):
-            ng_roll = randint(1, 4)
+            ng_roll = dice(4, 1)
             if ng_roll == 1:
-                name_list.append(dwarven_name())
+                name_list.append(f'(d): {dwarven_name()}')
             elif ng_roll == 2:
-                name_list.append(elfname_generator())
+                name_list.append(f'(e): {elfname_generator()}')
             elif ng_roll == 3:
-                name_list.append(orc_name_generator())
+                name_list.append(f'(o): {orc_name_generator()}')
             else:
-                name_list.append(lizardman_name_generator())
+                name_list.append(f'(l): {lizardman_name_generator()}')
     return name_list
 
 
