@@ -55,7 +55,8 @@ def riddles(num_riddles):
     ''' generate riddles '''
     riddles_list = []
     for _ in range(num_riddles):
-        riddles_list.append(riddle_generator())
+        r_temp = riddle_generator()
+        riddles_list.append(r_temp)
     return riddles_list
 
 

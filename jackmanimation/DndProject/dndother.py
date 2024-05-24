@@ -25,7 +25,7 @@ def riddle_generator():
     riddle = choice(data['riddle_question'])
     itemcount = data['riddle_question'].index(riddle)
     result = f"question ({itemcount}): {data['riddle_question'][itemcount]},"\
-             " answer: {data['riddle_answer'][itemcount]}"
+             f" answer: {data['riddle_answer'][itemcount]}"
     return result
 
 
