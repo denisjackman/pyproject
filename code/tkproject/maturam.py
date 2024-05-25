@@ -7,11 +7,17 @@ import sys
 sys.path.append(os.path.realpath('../..'))
 from jackmanimation.DndProject.dndother import book_title_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndother import riddle_generator  # noqa: E402, E501
+from jackmanimation.DndProject.dndother import currency_converter  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import dwarven_name  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import elfname_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import orc_name_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import lizardman_name_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dnddice import dice  # noqa: E402, E501
+
+
+def convert_currency(cc_amount, cc_from, cc_to):
+    ''' convert currency '''
+    return currency_converter(cc_amount, cc_from, cc_to)
 
 
 def name_generator(ng_number, ng_type="random"):
@@ -79,6 +85,10 @@ def main():
     name_list = name_generator(10)
     for name in name_list:
         print(f"\t[-] The name is: {name}")
+
+    print("[Maturam] Converting currency...")
+    main_temp = convert_currency(1000, 'gold', 'silver')
+    print(f"\t[-] 1000 gold pieces is {main_temp} silver pieces")
     print("[Maturam] Exiting...")
 
 
