@@ -857,7 +857,7 @@ def orc_tribe_generator():
     return result.title()
 
 
-def organization_generator():
+def organization_name_generator():
     '''Generates a random organization name'''
     result = ''
     with open(f"{DNDO_FILEPATH}/referencedata/OrganizationNames.json",
@@ -975,7 +975,7 @@ def main():
     print("Orc Tribe Name          : "
           f"{orc_tribe_generator()}")
     print("Organization Name       : "
-          f"{organization_generator()}")
+          f"{organization_name_generator()}")
     print("Ship Name               : "
           f"{ship_name_generator()}")
 
