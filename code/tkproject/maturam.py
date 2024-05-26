@@ -8,11 +8,20 @@ sys.path.append(os.path.realpath('../..'))
 from jackmanimation.DndProject.dndother import book_title_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndother import riddle_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndother import currency_converter  # noqa: E402, E501
+from jackmanimation.DndProject.dndother import organization_name_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import dwarven_name  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import elfname_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import orc_name_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dndnames import lizardman_name_generator  # noqa: E402, E501
 from jackmanimation.DndProject.dnddice import dice  # noqa: E402, E501
+
+
+def organization_name(on_num):
+    ''' generate organization names '''
+    on_list = []
+    for _ in range(on_num):
+        on_list.append(organization_name_generator())
+    return on_list
 
 
 def convert_currency(cc_amount, cc_from, cc_to):
@@ -89,6 +98,11 @@ def main():
     print("[Maturam] Converting currency...")
     main_temp = convert_currency(1000, 'gold', 'silver')
     print(f"\t[-] 1000 gold pieces is {main_temp} silver pieces")
+    
+    print("[Maturam] Generating organization names...")
+    organisation_lists = organization_name(10)
+    for organisation in organisation_lists:
+        print(f"\t[-] The organization name is: {organisation}")
     print("[Maturam] Exiting...")
 
 
