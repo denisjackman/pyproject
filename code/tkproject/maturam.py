@@ -98,7 +98,7 @@ def main():
     print("[Maturam] Converting currency...")
     main_temp = convert_currency(1000, 'gold', 'silver')
     print(f"\t[-] 1000 gold pieces is {main_temp} silver pieces")
-    
+
     print("[Maturam] Generating organization names...")
     organisation_lists = organization_name(10)
     for organisation in organisation_lists:
