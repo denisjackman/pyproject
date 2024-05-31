@@ -94,9 +94,10 @@ def main():
         if not main_monster.isnumeric():
             print("[+] Please enter a number")
         else:
-            main_bm = enc_buget_multiplier(int(main_monster), int(main_party_size))
+            main_bm = enc_buget_multiplier(int(main_monster),
+                                           int(main_party_size))
             final_enc_budget = float(enc_budget) * main_bm
-            print(f'[*] {int(final_enc_budget)}') 
+            print(f'[*] {int(final_enc_budget)}')
     # print("[Encounter Builder] Generating a monster...")
     # print("[Encounter Builder] Generating a trap...")
     # print("[Encounter Builder] Generating a treasure...")
