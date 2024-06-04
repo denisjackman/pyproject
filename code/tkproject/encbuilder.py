@@ -1,5 +1,17 @@
-''' encounter builder'''
+'''
+    encounter builder
+    References: https://github.com/blawson69/ItemDB
+
+'''
+
 import csv
+import os
+import sys
+
+# pylint: disable=C0413
+sys.path.append(os.path.realpath('../..'))
+from jackmanimation.DndProject.dnddice import number_generator  # noqa: E402, E501
+
 
 ENC_FILE = "Z:/Maturam/encbuilder.csv"
 BESTIARY_FILE = "Z:/Maturam/d20-bestiary.csv"
@@ -80,7 +92,9 @@ def main():
     ''' encounter builder'''
     print("[Encounter Builder] Starting...")
     enc_data = enc_read_csv_file(ENC_FILE)
-
+    beast_data = enc_read_csv_file(BESTIARY_FILE)
+    print("[Encounter Builder] Data loaded from CSV files"
+          f"monsters : {len(beast_data)} LOADED")
     print("[Encounter Builder] Generating an encounter")
     main_input = input("[-] Party Level: ")
     if not main_input.isnumeric():
@@ -96,10 +110,14 @@ def main():
             print("[+] Please enter a number")
         else:
             main_bm = enc_budget_multiplier(int(main_monster),
-                                           int(main_party_size))
+                                            int(main_party_size))
             final_enc_budget = float(enc_budget) * main_bm
             print(f'[*] {int(final_enc_budget)}')
-    # print("[Encounter Builder] Generating a monster...")
+    print("[Encounter Builder] Generating a monster...")
+    beast_number = number_generator(len(beast_data))
+    beast_name = 0
+    print(f'[-] Monster:[{beast_number}]'
+          f' {beast_data[beast_number][beast_name]}')
     # print("[Encounter Builder] Generating a trap...")
     # print("[Encounter Builder] Generating a treasure...")
     # print("[Encounter Builder] Generating a name...")
