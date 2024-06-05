@@ -13,8 +13,9 @@ sys.path.append(os.path.realpath('../..'))
 from jackmanimation.DndProject.dnddice import number_generator  # noqa: E402, E501
 
 
-ENC_FILE = "Z:/Maturam/encbuilder.csv"
-BESTIARY_FILE = "Z:/Maturam/d20-bestiary.csv"
+ENC_FILE = "Z:/Maturam/data/encbuilder.csv"
+BESTIARY_FILE = "Z:/Maturam/data/d20-bestiary.csv"
+NPC_FILE = "Z:/Maturam/data/d20-npcs.csv"
 
 
 def enc_budget_multiplier(ebm_num_creatures, ebm_party_size):
@@ -93,8 +94,11 @@ def main():
     print("[Encounter Builder] Starting...")
     enc_data = enc_read_csv_file(ENC_FILE)
     beast_data = enc_read_csv_file(BESTIARY_FILE)
+    npc_data = enc_read_csv_file(NPC_FILE)
     print("[Encounter Builder] Data loaded from CSV files"
           f"monsters : {len(beast_data)} LOADED")
+    print("[Encounter Builder] Data loaded from CSV files"
+          f"npcs : {len(npc_data)} LOADED")
     print("[Encounter Builder] Generating an encounter")
     main_input = input("[-] Party Level: ")
     if not main_input.isnumeric():
