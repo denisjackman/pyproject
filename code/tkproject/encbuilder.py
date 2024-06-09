@@ -18,6 +18,7 @@ BESTIARY_FILE = "Z:/Maturam/data/d20-bestiary.csv"
 NPC_FILE = "Z:/Maturam/data/d20-npcs.csv"
 SPELLS_FILE = "Z:/Maturam/data/d20-spells.csv"
 FEATS_FILE = "Z:/Maturam/data/d20-feats.csv"
+MONSTERS_FILE = "Z:/Maturam/data/dnd_monsters.csv"
 
 
 def enc_budget_multiplier(ebm_num_creatures, ebm_party_size):
@@ -29,54 +30,54 @@ def enc_budget_multiplier(ebm_num_creatures, ebm_party_size):
         case 1:
             match party:
                 case 2:
-                    return 0.67
+                    ebm_result = 0.67
                 case party if 3 <= party <= 5:
-                    return 1.00
+                    ebm_result = 1.00
                 case _:
-                    return 1.50
+                    ebm_result = 1.50
         case 2:
             match party:
                 case 2:
-                    return 0.5
+                    ebm_result = 0.5
                 case party if 3 <= party <= 5:
-                    return 0.67
+                    ebm_result = 0.67
                 case _:
-                    return 1.00
+                    ebm_result = 1.00
         case choice if 3 <= choice <= 6:
             match party:
                 case 2:
-                    return 0.4
+                    ebm_result = 0.4
                 case party if 3 <= party <= 5:
-                    return 0.5
+                    ebm_result = 0.5
                 case _:
-                    return 0.67
+                    ebm_result = 0.67
         case choice if 7 <= choice <= 10:
             match party:
                 case 2:
-                    return 0.33
+                    ebm_result = 0.33
                 case party if 3 <= party <= 5:
-                    return 0.4
+                    ebm_result = 0.4
                 case _:
-                    return 0.33
+                    ebm_result = 0.33
         case choice if 11 <= choice <= 14:
             match party:
                 case 2:
-                    return 0.25
+                    ebm_result = 0.25
                 case party if 3 <= party <= 5:
-                    return 0.33
+                    ebm_result = 0.33
                 case _:
-                    return 0.25
+                    ebm_result = 0.25
         case choice if choice >= 15:
             match party:
                 case 2:
-                    return 0.20
+                    ebm_result = 0.20
                 case party if 3 <= party <= 5:
-                    return 0.25
+                    ebm_result = 0.25
                 case _:
-                    return 0.20
+                    ebm_result = 0.20
         case _:
             print("[-] Error Defaulting to 1.0")
-            return ebm_result
+    return ebm_result
 
 
 def enc_read_csv_file(ercf_filename):
@@ -99,10 +100,12 @@ def main():
     npc_data = enc_read_csv_file(NPC_FILE)
     spell_data = enc_read_csv_file(SPELLS_FILE)
     feat_data = enc_read_csv_file(FEATS_FILE)
+    monsters_data = enc_read_csv_file(MONSTERS_FILE)
     print("[Encounter Builder] Data loaded from CSV files"
-          f"\n\tmonsters : {len(beast_data)} LOADED"
+          f"\n\tbeasts   : {len(beast_data)} LOADED"
           f"\n\tnpcs     : {len(npc_data)} LOADED"
           f"\n\tfeats    : {len(feat_data)} LOADED"
+          f"\n\tmonsters : {len(monsters_data)} LOADED"
           f"\n\tspells   : {len(spell_data)} LOADED")
     print("[Encounter Builder] Generating an encounter")
     main_input = input("[-] Party Level: ")
@@ -113,13 +116,18 @@ def main():
         if not main_party_size.isnumeric():
             print("[+] Please enter a number")
         else:
-            enc_budget = enc_data[int(main_input)][int(main_party_size)-1]
+            if int(main_party_size) > 5:
+                print("[+] Party size is too large")
+                party = 5
+            else:
+                party = int(main_party_size)
+            enc_budget = enc_data[int(main_input)][party-1]
         main_monster = input("[-] Monster: ")
         if not main_monster.isnumeric():
             print("[+] Please enter a number")
         else:
             main_bm = enc_budget_multiplier(int(main_monster),
-                                            int(main_party_size))
+                                            party)
             final_enc_budget = float(enc_budget) * main_bm
             print(f'[*] {int(final_enc_budget)}')
     print("[Encounter Builder] Generating a monster...")
