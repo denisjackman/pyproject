@@ -18,7 +18,8 @@ BESTIARY_FILE = "Z:/Maturam/data/d20-bestiary.csv"
 NPC_FILE = "Z:/Maturam/data/d20-npcs.csv"
 SPELLS_FILE = "Z:/Maturam/data/d20-spells.csv"
 FEATS_FILE = "Z:/Maturam/data/d20-feats.csv"
-MONSTERS_FILE = "Z:/Maturam/data/dnd_monsters.csv"
+MONSTERS_FILE = "Z:/Maturam/data/d20-monsters.csv"
+MAGIC_ITEMS_FILE = "Z:/Maturam/data/d20-magicitems.csv"
 
 
 def enc_budget_multiplier(ebm_num_creatures, ebm_party_size):
@@ -101,12 +102,14 @@ def main():
     spell_data = enc_read_csv_file(SPELLS_FILE)
     feat_data = enc_read_csv_file(FEATS_FILE)
     monsters_data = enc_read_csv_file(MONSTERS_FILE)
+    magic_items_data = enc_read_csv_file(MAGIC_ITEMS_FILE)
     print("[Encounter Builder] Data loaded from CSV files"
           f"\n\tbeasts   : {len(beast_data)} LOADED"
           f"\n\tnpcs     : {len(npc_data)} LOADED"
           f"\n\tfeats    : {len(feat_data)} LOADED"
           f"\n\tmonsters : {len(monsters_data)} LOADED"
-          f"\n\tspells   : {len(spell_data)} LOADED")
+          f"\n\tspells   : {len(spell_data)} LOADED"
+          f"\n\tmagic items : {len(magic_items_data)} LOADED")
     print("[Encounter Builder] Generating an encounter")
     main_input = input("[-] Party Level: ")
     if not main_input.isnumeric():
