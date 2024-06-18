@@ -12,6 +12,7 @@ import sys
 sys.path.append(os.path.realpath('../..'))
 from jackmanimation.DndProject.dnddice import number_generator  # noqa: E402, E501
 
+BEAST_NAME = 0
 
 ENC_FILE = "Z:/Maturam/data/encbuilder.csv"
 BESTIARY_FILE = "Z:/Maturam/data/d20-bestiary.csv"
@@ -20,6 +21,7 @@ SPELLS_FILE = "Z:/Maturam/data/d20-spells.csv"
 FEATS_FILE = "Z:/Maturam/data/d20-feats.csv"
 MONSTERS_FILE = "Z:/Maturam/data/d20-monsters.csv"
 MAGIC_ITEMS_FILE = "Z:/Maturam/data/d20-magicitems.csv"
+CONSTRUCTS_FILE = "Z:/Maturam/data/d20-constructs.csv"
 
 
 def enc_budget_multiplier(ebm_num_creatures, ebm_party_size):
@@ -103,19 +105,21 @@ def main():
     feat_data = enc_read_csv_file(FEATS_FILE)
     monsters_data = enc_read_csv_file(MONSTERS_FILE)
     magic_items_data = enc_read_csv_file(MAGIC_ITEMS_FILE)
+    constructs_data = enc_read_csv_file(CONSTRUCTS_FILE)
     print("[Encounter Builder] Data loaded from CSV files"
-          f"\n\tbeasts   : {len(beast_data)} LOADED"
-          f"\n\tnpcs     : {len(npc_data)} LOADED"
-          f"\n\tfeats    : {len(feat_data)} LOADED"
-          f"\n\tmonsters : {len(monsters_data)} LOADED"
-          f"\n\tspells   : {len(spell_data)} LOADED"
-          f"\n\tmagic items : {len(magic_items_data)} LOADED")
+          f"\n\tbeasts      : {len(beast_data)} LOADED"
+          f"\n\tnpcs        : {len(npc_data)} LOADED"
+          f"\n\tfeats       : {len(feat_data)} LOADED"
+          f"\n\tmonsters    : {len(monsters_data)} LOADED"
+          f"\n\tspells      : {len(spell_data)} LOADED"
+          f"\n\tmagic items : {len(magic_items_data)} LOADED"
+          f"\n\tconstructs  : {len(constructs_data)} LOADED")
     print("[Encounter Builder] Generating an encounter")
-    main_input = input("[-] Party Level: ")
+    main_input = input("[-] Party Level : ")
     if not main_input.isnumeric():
         print("[+] Please enter a number")
     else:
-        main_party_size = input("[-] Party Size: ")
+        main_party_size = input("[-] Party Size  : ")
         if not main_party_size.isnumeric():
             print("[+] Please enter a number")
         else:
@@ -125,19 +129,18 @@ def main():
             else:
                 party = int(main_party_size)
             enc_budget = enc_data[int(main_input)][party-1]
-        main_monster = input("[-] Monster: ")
+        main_monster = input("[-] Monster     : ")
         if not main_monster.isnumeric():
             print("[+] Please enter a number")
         else:
             main_bm = enc_budget_multiplier(int(main_monster),
                                             party)
             final_enc_budget = float(enc_budget) * main_bm
-            print(f'[*] {int(final_enc_budget)}')
+            print(f'[*] Budget      : {int(final_enc_budget)}')
     print("[Encounter Builder] Generating a monster...")
     beast_number = number_generator(len(beast_data))
-    beast_name = 0
     print(f'[-] Monster:[{beast_number}]'
-          f' {beast_data[beast_number][beast_name]}')
+          f' {beast_data[beast_number][BEAST_NAME]}')
     # print("[Encounter Builder] Generating a trap...")
     # print("[Encounter Builder] Generating a treasure...")
     # print("[Encounter Builder] Generating a name...")
