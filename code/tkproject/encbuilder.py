@@ -107,19 +107,19 @@ def main():
     magic_items_data = enc_read_csv_file(MAGIC_ITEMS_FILE)
     constructs_data = enc_read_csv_file(CONSTRUCTS_FILE)
     print("[Encounter Builder] Data loaded from CSV files"
-          f"\n\tbeasts      : {len(beast_data)} LOADED"
-          f"\n\tnpcs        : {len(npc_data)} LOADED"
-          f"\n\tfeats       : {len(feat_data)} LOADED"
-          f"\n\tmonsters    : {len(monsters_data)} LOADED"
-          f"\n\tspells      : {len(spell_data)} LOADED"
-          f"\n\tmagic items : {len(magic_items_data)} LOADED"
-          f"\n\tconstructs  : {len(constructs_data)} LOADED")
+          f"\n\t[*] beasts      : {len(beast_data)} LOADED"
+          f"\n\t[*] npcs        : {len(npc_data)} LOADED"
+          f"\n\t[*] feats       : {len(feat_data)} LOADED"
+          f"\n\t[*] monsters    : {len(monsters_data)} LOADED"
+          f"\n\t[*] spells      : {len(spell_data)} LOADED"
+          f"\n\t[*] magic items : {len(magic_items_data)} LOADED"
+          f"\n\t[*] constructs  : {len(constructs_data)} LOADED")
     print("[Encounter Builder] Generating an encounter")
-    main_input = input("[-] Party Level : ")
+    main_input = input("\t[-] Party Level : ")
     if not main_input.isnumeric():
         print("[+] Please enter a number")
     else:
-        main_party_size = input("[-] Party Size  : ")
+        main_party_size = input("\t[-] Party Size  : ")
         if not main_party_size.isnumeric():
             print("[+] Please enter a number")
         else:
@@ -129,17 +129,17 @@ def main():
             else:
                 party = int(main_party_size)
             enc_budget = enc_data[int(main_input)][party-1]
-        main_monster = input("[-] Monster     : ")
+        main_monster = input("\t[-] Monster     : ")
         if not main_monster.isnumeric():
             print("[+] Please enter a number")
         else:
             main_bm = enc_budget_multiplier(int(main_monster),
                                             party)
             final_enc_budget = float(enc_budget) * main_bm
-            print(f'[*] Budget      : {int(final_enc_budget)}')
+            print(f'\t[*] Budget      : {int(final_enc_budget)}')
     print("[Encounter Builder] Generating a monster...")
     beast_number = number_generator(len(beast_data))
-    print(f'[-] Monster:[{beast_number}]'
+    print(f'\t[-] Monster:[{beast_number}]'
           f' {beast_data[beast_number][BEAST_NAME]}')
     # print("[Encounter Builder] Generating a trap...")
     # print("[Encounter Builder] Generating a treasure...")
