@@ -24,6 +24,7 @@ importlib-metadata
 instagrapi
 isbntools
 matplotlib
+mobi
 moviepy
 mysql-connector-python
 networkx
@@ -58,7 +59,7 @@ pylint
 pymongo
 pyopenssl
 pyparsing
-pypdf4
+pypdf
 pytest
 python-dateutil
 python-docx
