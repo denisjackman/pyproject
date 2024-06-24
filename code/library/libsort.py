@@ -9,6 +9,7 @@ import shutil
 import csv
 from pypdf import PdfReader
 from mobi import extract
+from datetime import datetime
 # from pathlib import Path
 
 
@@ -89,9 +90,10 @@ def move_files_and_generate_csv(source_dir, target_dir, csv_path):
 
 
 if __name__ == "__main__":
+    time_now = datetime.now().strftime('%Y%m%d')
     source_directory = 'Z:/Nulibrary/Done'
     target_directory = 'Z:/Library'
-    csv_file_path = 'Z:/Logs/libsort.csv'
+    csv_file_path = f'Z:/Logs/libsort-{time_now}.csv'
 
     move_files_and_generate_csv(source_directory,
                                 target_directory,
