@@ -9,8 +9,8 @@ from selenium import webdriver
 CHROMEDRIVER = webdriver.Chrome()
 EDGEDRIVER = webdriver.Edge()
 FOXDRIVER = webdriver.Firefox()
-URL = "https://docs.google.com/forms/d/e/1FAIpQLScAc1lzIxpLmvgmW0AZPqrv4xIWvGChKq7lkkdhxLKECca9Nw/viewform"
-TEST_URL = "https://forms.gle/RnPoU5pcJaTdcLTV7"
+URL = "https://denisjackman.github.io/jackmanimationtest/"
+TEST_URL = "https://denisjackman.github.io/jackmanimationtest/"
 
 
 def main():
@@ -30,6 +30,6 @@ def main():
     EDGEDRIVER.close()
     FOXDRIVER.close()
 
-    
+
 if __name__ == "__main__":
     main()
