@@ -15,20 +15,20 @@ TEST_URL = "https://denisjackman.github.io/jackmanimationtest/"
 
 def main():
     '''Main function.'''
-    print("Starting form run...")
-    print("Opening browser...")
+    print("[-] Starting form run...")
+    print("[-] Opening browser...")
     CHROMEDRIVER.get(URL)
     EDGEDRIVER.get(URL)
     FOXDRIVER.get(URL)
-    print(f'Chrome  :  {CHROMEDRIVER.title}')
-    print(f'Edge    :  {EDGEDRIVER.title}')
-    print(f'Firefox :  {FOXDRIVER.title}')
-    print("Filling form...")
-    print("Submitting form...")
-    print("Form run complete.")
+    print(f'[=] Chrome  :  {CHROMEDRIVER.title}')
+    print(f'[=] Edge    :  {EDGEDRIVER.title}')
+    print(f'[=] Firefox :  {FOXDRIVER.title}')
+    print("[-] Filling form...")
+    print("[-] Submitting form...")
     CHROMEDRIVER.close()
     EDGEDRIVER.close()
     FOXDRIVER.close()
+    print("[-] Form run complete.")
 
 
 if __name__ == "__main__":
