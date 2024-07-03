@@ -54,6 +54,7 @@ pycparser
 pycryptodome
 pydrive2
 pygame
+PyGithub
 pyjokes
 pylint
 pymongo
