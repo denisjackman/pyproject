@@ -13,6 +13,7 @@ from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
 POST_FOLDER = "Z:/jackmanimationtest/_posts/"
 POST_LOCATION = 'https://denisjackman.github.io/jackmanimationtest'
 SECRET_FILE = 'Z:/pyproject/secrets/jackmanimation.json'
+GITHUB_REPO = 'denisjackman/jackmanimationtest'
 
 
 def create_post(cp_title,
@@ -46,7 +47,7 @@ def create_post(cp_title,
 def open_github():
     '''Opens a connection to Github.'''
     og_credid = credscheck(SECRET_FILE)
-    og_token = og_credid['alt_jack_dev_key']
+    og_token = og_credid['jack_dev_key']
     og_auth = Auth.Token(og_token)
     og_github = Github(auth=og_auth)
     return og_github
@@ -55,24 +56,30 @@ def open_github():
 def write_post(wp_post):
     '''Writes a post to a file.'''
     wp_file_name = f'{POST_FOLDER}{datetime.datetime.now().strftime("%Y-%m-%d")}-test-post.md'  # noqa E501
-    with open(wp_file_name, 'w') as wp_file:
+    wp_target = f'_posts/{datetime.datetime.now().strftime("%Y-%m-%d")}-test-post.md'  # noqa E501
+    with open(wp_file_name, 'w', encoding='utf-8-sig') as wp_file:
         wp_file.write(wp_post)
+    return wp_target
 
 
 def main():
     '''Main function.'''
     print("[-] Starting post creation...")
+    main_content = ''
+    main_github = open_github()
     print("[+] Creating post...")
-    main_post = create_post("Test Post", datetime.datetime.now().strftime("%Y-%m-%d")) # noqa E501
-    print(f"[+] Post created.{main_post}")
+    for repo in main_github.get_user().get_repos():
+        main_content += f"* [{repo.name}](https://github.com/{repo.owner.login}/{repo.name})\n"  # noqa E501
+    main_post = create_post("Test Post",
+                            datetime.datetime.now().strftime("%Y-%m-%d"),
+                            main_content)
+    print("[+] Post created.")
     print("[+] Writing post...")
-    write_post(main_post)
-    print("[+] Post written.")
-    print("[+] Post saved.")
-    print("[+] Post published.")
-    print("[+] Post complete.")
+    main_file = write_post(main_post)
     print(f'[+] Post folder  : {POST_FOLDER}')
     print(f'[+] Post URL     : {POST_LOCATION}')
+    print(f'[+] Post Content : {main_file}')
+    main_github.close()
     print("[-] Finished.")
 
 
