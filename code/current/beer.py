@@ -2,6 +2,7 @@
 '''
     99 bottles of beer
 '''
+SUFFIX = ''
 for quant in range(99, 0, -1):
     if quant > 1:
         print(f"{quant}"

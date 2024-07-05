@@ -7,9 +7,9 @@ and generate a CSV file with details of the files moved.
 import os
 import shutil
 import csv
+from datetime import datetime
 from pypdf import PdfReader
 from mobi import extract
-from datetime import datetime
 # from pathlib import Path
 
 
@@ -19,8 +19,8 @@ def extract_text_from_pdf(pdf_path):
     try:
         with open(pdf_path, 'rb') as file:
             reader = PdfReader(file)
-            if reader.numPages > 0:
-                page = reader.pages(0)
+            if len(reader.pages) > 0:
+                page = reader.pages[0]
                 text = page.extract_text()
     except Exception:
         text = "Error reading PDF"
@@ -91,10 +91,10 @@ def move_files_and_generate_csv(source_dir, target_dir, csv_path):
 
 if __name__ == "__main__":
     time_now = datetime.now().strftime('%Y%m%d')
-    source_directory = 'Z:/Nulibrary/Done'
-    target_directory = 'Z:/Library'
+    SOURCE_DIRECTORY = 'Z:/Nulibrary/Done'
+    TARGET_DIRECTORY = 'Z:/Library'
     csv_file_path = f'Z:/Logs/libsort-{time_now}.csv'
 
-    move_files_and_generate_csv(source_directory,
-                                target_directory,
+    move_files_and_generate_csv(SOURCE_DIRECTORY,
+                                TARGET_DIRECTORY,
                                 csv_file_path)

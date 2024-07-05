@@ -15,7 +15,9 @@ def log(log_message):
     if MATURAM_DEBUG:
         print(log_message)
         if MATURAM_LOG:
-            with open(MATURAM_LOG_FILE, 'a') as log_file:
+            with open(MATURAM_LOG_FILE,
+                      'a',
+                      encoding='utf-8-sig') as log_file:
                 log_file.write(log_message)
                 log_file.write('\n')
 

@@ -2,7 +2,7 @@
 import os
 import argparse
 import sys
-from PyPDF4 import PdfFileReader
+from pypdf import PdfReader
 
 RUN_NAME = os.path.basename(__file__)
 
@@ -10,7 +10,7 @@ RUN_NAME = os.path.basename(__file__)
 def print_meta(filename):
     ''' print metadata '''
     with open(filename, 'rb') as pdf_file:
-        pdf_file = PdfFileReader(pdf_file)
+        pdf_file = PdfReader(pdf_file)
         doc_info = pdf_file.getDocumentInfo()
         print(f'[*] PDF MetaData For: {str(filename)}')
         for meta_item in doc_info:

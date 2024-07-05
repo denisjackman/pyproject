@@ -106,6 +106,7 @@ def main():
     monsters_data = enc_read_csv_file(MONSTERS_FILE)
     magic_items_data = enc_read_csv_file(MAGIC_ITEMS_FILE)
     constructs_data = enc_read_csv_file(CONSTRUCTS_FILE)
+    enc_budget = 0 
     print("[Encounter Builder] Data loaded from CSV files"
           f"\n\t[*] beasts      : {len(beast_data)} LOADED"
           f"\n\t[*] npcs        : {len(npc_data)} LOADED"
@@ -119,15 +120,15 @@ def main():
     if not main_input.isnumeric():
         print("[+] Please enter a number")
     else:
-        main_party_size = input("\t[-] Party Size  : ")
-        if not main_party_size.isnumeric():
+        main_input = input("\t[-] Party Size  : ")
+        if not main_input.isnumeric():
             print("[+] Please enter a number")
         else:
-            if int(main_party_size) > 5:
+            if int(main_input) > 5:
                 print("[+] Party size is too large")
                 party = 5
             else:
-                party = int(main_party_size)
+                party = int(main_input)
             enc_budget = enc_data[int(main_input)][party-1]
         main_monster = input("\t[-] Monster     : ")
         if not main_monster.isnumeric():
@@ -141,9 +142,6 @@ def main():
     beast_number = number_generator(len(beast_data))
     print(f'\t[-] Monster:[{beast_number}]'
           f' {beast_data[beast_number][BEAST_NAME]}')
-    # print("[Encounter Builder] Generating a trap...")
-    # print("[Encounter Builder] Generating a treasure...")
-    # print("[Encounter Builder] Generating a name...")
     print("[Encounter Builder] Complete")
 
 

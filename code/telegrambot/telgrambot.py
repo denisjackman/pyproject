@@ -44,8 +44,6 @@ def bot_message(bm_bot):
     def send_welcome(message):
         bm_bot.reply_to(message, BOT_MESSAGE)
         if message.text.lower() == '/quit':
-            global BOT_RUNNING
-            BOT_RUNNING = False
             bm_bot.reply_to(message, "[-] TelegramBot is ending")
             bm_bot.stop_polling()
 
