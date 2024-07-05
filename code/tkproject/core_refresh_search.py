@@ -64,8 +64,7 @@ def check_tla(ct_tla, ct_vmname):
     for ct_item in ct_temp:
         if ct_item.isdigit():
             break
-        else:
-            ct_check_tla += ct_item
+        ct_check_tla += ct_item
 
     if ct_tla == ct_check_tla:
         ct_result = True

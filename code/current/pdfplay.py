@@ -1,5 +1,5 @@
 '''My daily pyton code habit code '''
-from PyPDF4 import PdfFileReader
+from pypdf import PdfReader
 PDF_FILENAME = r"Z:/pyproject/code/"\
                 "viscous/chapter3/data/"\
                 "ANONOPS_The_Press_Release.pdf"
@@ -8,10 +8,12 @@ PDF_FILENAME = r"Z:/pyproject/code/"\
 def main():
     ''' This is the main function '''
     print("Starting")
-    reader = PdfFileReader(PDF_FILENAME)
-    for page in reader.pages:
+    reader = PdfReader(PDF_FILENAME)
+    if len(reader.pages) > 0:
+        page = reader.pages[0]
+        text = page.extract_text()
         print("-------------------------------")
-        print(page.extractText())
+        print(text)
         print("-------------------------------")
     print(f"Number of pages: {len(reader.pages)}")
     print("Done")

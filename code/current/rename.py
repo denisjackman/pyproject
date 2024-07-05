@@ -12,11 +12,13 @@ import getopt
 # Doctor.Who.2005.S0
 ROOTDIR = '.'
 RENAME = False
+OLDNAME = ""
+NEWNAME = ""
 
 try:
     opts, args = getopt.getopt(sys.argv[1:],
                                "hrn:f:",
-                               ["newname=",
+                               ["NEWNAME=",
                                 "filename="])
 except getopt.GetoptError:
     print('RENAME.py -f <FileName> -n <NewName> -r')
@@ -26,9 +28,9 @@ for opt, arg in opts:
         print('RENAME.py -f <FileName> -n <NewName> -r')
         sys.exit()
     elif opt in ("-f", "--filename"):
-        oldname = arg
-    elif opt in ("-n", "--newname"):
-        newname = arg
+        OLDNAME = arg
+    elif opt in ("-n", "--NEWNAME"):
+        NEWNAME = arg
     elif opt in ("-r", "--RENAME"):
         RENAME = True
     else:
@@ -38,13 +40,13 @@ for opt, arg in opts:
 
 for dirName, subdirList, fileList in os.walk(ROOTDIR):
     for fname in fileList:
-        if fname.find(oldname) >= 0:
-            name = fname[len(oldname):]
+        if fname.find(OLDNAME) >= 0:
+            name = fname[len(OLDNAME):]
             if RENAME:
-                print(f"{newname} {name} RENAMEd")
-                os.RENAME(fname, newname)
+                print(f"{NEWNAME} {name} RENAMEd")
+                os.RENAME(fname, NEWNAME)
             else:
-                print(f"{newname}  {name} Tested ")
+                print(f"{NEWNAME}  {name} Tested ")
 
 STR1 = "please help me out so that I could solve this"
 STR2 = "please help me out"

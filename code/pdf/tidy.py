@@ -2,7 +2,7 @@
 import os
 import zipfile
 from openpyxl import Workbook
-from PyPDF4 import PdfFileReader
+from pypdf import PdfReader
 from colorama import Fore
 
 TARGET_DIRECTORY = r"Z:/Store/Zips"
@@ -14,10 +14,10 @@ WORKBOOK_FILE = r'Z:/Resources/zip.xlsx'
 
 def pdf_reader(pdffile_path):
     ''' This is the PDF reader function'''
-    reader = PdfFileReader(pdffile_path)
+    reader = PdfReader(pdffile_path)
     for page in reader.pages:
         print("-------------------------------")
-        print(page.extractText())
+        print(page.extract_text())
         print("-------------------------------")
     print(f"Number of pages: {len(reader.pages)}")
 
@@ -34,7 +34,7 @@ def excel_store(data_list):
 
 def extract_pdf_information(pdf_path):
     ''' This extracts the information from a pdf file. '''
-    pdf = PdfFileReader(pdf_path)
+    pdf = PdfReader(pdf_path)
     information = pdf.metadata
     result = None
     if information.title is None:
