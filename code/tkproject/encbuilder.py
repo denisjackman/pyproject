@@ -106,7 +106,7 @@ def main():
     monsters_data = enc_read_csv_file(MONSTERS_FILE)
     magic_items_data = enc_read_csv_file(MAGIC_ITEMS_FILE)
     constructs_data = enc_read_csv_file(CONSTRUCTS_FILE)
-    enc_budget = 0 
+    enc_budget = 0
     print("[Encounter Builder] Data loaded from CSV files"
           f"\n\t[*] beasts      : {len(beast_data)} LOADED"
           f"\n\t[*] npcs        : {len(npc_data)} LOADED"

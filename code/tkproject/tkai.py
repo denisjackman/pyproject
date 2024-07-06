@@ -87,16 +87,16 @@ def create_vector_store(cvs_client, cvs_name, cvs_filelist):
     if cvs_result != '':
         print(f'[x] {cvs_result}')
     cvs_file_paths = cvs_filelist
-    cvs_file_streams = [open(file_path, "rb") for file_path in cvs_file_paths]  # noqa: E501
-    try:
-        cvs_file_batch = cvs_client.beta.vector_stores.file_batches.upload_and_poll(cvs_vector_store.id,  # noqa: E501
-                                                                                    files=cvs_file_streams)  # noqa: E501
-    except Exception as e:
-        cvs_result = f'Error in uploading files : {e}'
+    with open(cvs_file_paths[0], "rb") as cvs_file_stream:
+        try:
+            cvs_file = cvs_client.beta.vector_stores.files.upload(cvs_vector_store.id,  # noqa: E501
+                                                                  file=cvs_file_stream)
+        except Exception as e:
+            cvs_result = f'Error in uploading file : {e}'
     if cvs_result != '':
         print(f'[x] {cvs_result}')
-    print(f'[o] File batch ID : {cvs_file_batch.id}')
-    print(f'[o] File batch status : {cvs_file_batch.status}')
+    print(f'[o] File batch ID : {cvs_file.id}')
+    print(f'[o] File batch status : {cvs_file.status}')
     return cvs_vector_store
 
 
