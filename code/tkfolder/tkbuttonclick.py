@@ -40,7 +40,7 @@ def on_entry_submit():
     ''' entry submit event '''
     print('[*] on_entry_submit: start')
     print('[-] on_entry_submit: entry submitted')
-    button.config(text=f"Follow {entry.get()}")  # pylint: disable=E0601
+    button.config(text=f"Follow {entry.get()}")  # pylint: disable=E0606
     print('[*] on_entry_submit: end')
 
 

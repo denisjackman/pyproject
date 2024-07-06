@@ -65,7 +65,7 @@ def wigle_print(api_key, netid):
 def print_nets():
     ''' print network info'''
     net = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\\NetworkList\Signatures\Unmanaged"  # noqa: E501
-    key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, net)
+    key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, net)  # pylint: disable=E0606
     print('[*] Networks You have Joined.')
     for i in range(100):
         try:
