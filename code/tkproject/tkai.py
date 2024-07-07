@@ -90,7 +90,7 @@ def create_vector_store(cvs_client, cvs_name, cvs_filelist):
     with open(cvs_file_paths[0], "rb") as cvs_file_stream:
         try:
             cvs_file = cvs_client.beta.vector_stores.files.upload(cvs_vector_store.id,  # noqa: E501
-                                                                  file=cvs_file_stream)
+                                                                  file=cvs_file_stream)  # noqa: E501
         except Exception as e:
             cvs_result = f'Error in uploading file : {e}'
     if cvs_result != '':

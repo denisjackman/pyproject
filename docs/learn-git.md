@@ -1,3 +1,3 @@
 # GIT how to
 
-![Git Cheat Sheet](git001.png)
+![Git Cheat Sheet](assets/git001.png)
