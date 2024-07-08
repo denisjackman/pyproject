@@ -104,8 +104,7 @@ def main():
     ''' main function '''
     print('[*] main: start')
     mw_credid = credscheck('Z:/pyproject/secrets/secrets.json')
-    mw_open_ai_key = mw_credid['OpenAI_API_Key']
-    mw_open_ai_org = mw_credid['OpenAI_Org_ID']
+
     mw_prompt = "You are a games designer." \
                 " Design a fantasy roleplay scenario" \
                 " based in a library for players to explore." \
@@ -120,7 +119,7 @@ def main():
         {"role": "user",
          "content": mw_prompt}
         ]
-    mw_client = OpenAI(api_key=mw_open_ai_key)
+    mw_client = OpenAI(api_key=mw_credid['OpenAI_API_Key'])
     mw_response = chat_response(mw_client, mw_messages)
     mw_ir_prompt = "Detailed wacky caricature of a little tired brunette" \
                    " woman with long curly hair and piercings in her ears," \
@@ -164,16 +163,13 @@ def main():
                 ],
             }
         ]
-
-    write_output_file(f'Z:/Store/{TODAY}_{mw_open_ai_org}_image.txt',
+    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_image.txt",
                       mw_image)
-    write_output_file(f'Z:/Store/{TODAY}_{mw_open_ai_org}_response.txt',
+    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_response.txt",
                       mw_response)
-
     mw_response = chat_response(mw_client, mw_message)
-    write_output_file(f'Z:/Store/{TODAY}_{mw_open_ai_org}_prompt.txt',
+    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_prompt.txt",
                       mw_response)
-
     print('[*] main: end')
 
 
