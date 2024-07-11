@@ -92,6 +92,7 @@ trio
 trio-websocket
 typing_extensions
 urllib3
+virtualbox
 wifi-qrcode-generator
 wikipedia
 wrapt

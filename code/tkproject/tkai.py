@@ -163,12 +163,12 @@ def main():
                 ],
             }
         ]
-    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_image.txt",
+    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_image.txt",  # noqa: E501
                       mw_image)
-    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_response.txt",
+    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_response.txt",  # noqa: E501
                       mw_response)
     mw_response = chat_response(mw_client, mw_message)
-    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_prompt.txt",
+    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_prompt.txt",  # noqa: E501
                       mw_response)
     print('[*] main: end')
 
