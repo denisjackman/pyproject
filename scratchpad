@@ -1,0 +1,5 @@
+
+
+Root: /usr/local/apache2/htdocs
+
+docker cp index.html <ContainerID>"/usr/local/apache2/htdocs/index.html"
