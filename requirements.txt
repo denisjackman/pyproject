@@ -27,7 +27,7 @@ isbntools
 matplotlib
 mobi
 moviepy
-mysql-connector-python
+mysql-connector-python-rf
 networkx
 openai
 opencv-python
