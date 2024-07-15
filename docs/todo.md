@@ -70,3 +70,12 @@ This list is a list of TODO items broken into Spike, Game and Tools.
 |----- |----|----|------|----------------------------------------------------|
 
 
+## Immediate to do 
+* In /code/current 
+** change mp3towav.py to check OS and only run in linux
+** change mp3towav2.py to check OS and only run in linux
+** change colconvert.py to to store the output in a folder (not the current one )
+** change phone.py to fix type
+** fix projectbuild.py
+(* fix sqllistexample.py 
+

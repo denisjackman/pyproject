@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 '''
     this gives you some details for a phone number
     pip install phonenumbers

@@ -1,4 +1,3 @@
-#!/usr/bin/python
 '''
     colour converter routine
 '''
