@@ -1,4 +1,3 @@
-#!/usr/bin/python
 """Simple MP3 to WAV converter
 This program takes all the MP3 files in a sprites and converts them to WAV
 format files.

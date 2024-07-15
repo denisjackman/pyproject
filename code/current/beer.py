@@ -1,4 +1,3 @@
-#!/usr/bin/python
 '''
     99 bottles of beer
 '''

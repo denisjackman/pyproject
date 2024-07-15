@@ -1,4 +1,3 @@
-#!/usr/bin/python
 '''  this is a tool to read xml'''
 import xml.sax
 

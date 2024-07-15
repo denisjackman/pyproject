@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 """
 weight.py
     This convert weight measure to and from weight units.

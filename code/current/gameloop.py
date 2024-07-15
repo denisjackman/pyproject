@@ -1,4 +1,3 @@
-#!/usr/bin/python
 '''  this is a a game loop shell'''
 
 # Imports
