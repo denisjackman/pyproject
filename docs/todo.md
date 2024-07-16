@@ -19,26 +19,6 @@
 * `# IDEA: This is an idea tag`
 * `# CONCEPT: this is a concept tag`
 
-## TKBoids
-
-### TODO: further tweaks
-2. Add wind or current that "blows" the boids around
-3. Have boids tend towards a place; travel through waypoints
-6. Allow boids to "perch" on the ground at random.
-
-### TODO: anti-flocking behaviour
-1. Get the boid group to scatter from each other; add more rules
-2. Send the boids away from certain areas; danger or obstacles
-3. Introduce predators that boids will always run from
-
-### TODO: some other details
-1. Boids need to "see" each other
-2. Unseen boids should be ignored
-3. Refer to the original algorithm
-4. http://www.red3d.com/cwr/boids/
-6. Change updating system to that used by QuizMe
-
-
 ## To-Do List
 
 This list is a list of TODO items broken into Spike, Game and Tools.
@@ -46,36 +26,27 @@ This list is a list of TODO items broken into Spike, Game and Tools.
 * __Spike__: means a lot of research is needed to look at the topic
 * __Tools__: these are useful tools to work on games development with
 * __Game__: these are essential items for the development of a game
+* __CODE__: these are items that need to be fixed in the code
 
-
-|----- |----|----|------|----------------------------------------------------|
 |Status|Code|Item|Status|Description|
 |----- |----|----|------|----------------------------------------------------|
-|TODO:|T001|Tools| |A Image Viewer|
-|TODO:|T002|Tools| |File Viewer|
-|TODO:|T003|Tools| |Map Viewer (Tiles)|
-|TODO:|T004|Tools| |Map Editor (Tiles)|
-|TODO:|T005|Tools| |Function Documented (from code to markdown)|
-|TODO:|G001|Game| |Introduction sequence|
-|TODO:|G002|Game| |Splash Screen|
-|TODO:|G003|Game| |End Sequence|
-|TODO:|G004|Game| |Research game types and document|
-|~~TODO~~:|~~S001~~|~~Spike~~|~~**DONE**~~|~~Pygame learning~~|
-|~~TODO~~:|~~S002~~|~~Spike~~|~~**DONE**~~|~~Setting up dev machine~~|
-|~~TODO~~:|~~S003~~|~~Spike~~|~~**DONE**~~|~~Pygame - Images~~|
-|~~TODO~~:|~~S004~~|~~Spike~~|~~**DONE**~~|~~Pygame - Sprites~~|
-|~~TODO~~:|~~S005~~|~~Spike~~|~~**DONE**~~|~~Pygame - Event Handlers~~|
-|~~TODO~~:|~~S007~~|~~Spike~~|~~**DONE**~~|~~Game Code Template~~|
-|~~TODO~~:|~~S006~~|~~Spike~~|~~**DONE**~~|~~Pygame - Sounds~~|
-|----- |----|----|------|----------------------------------------------------|
-
-
-## Immediate to do 
-* In /code/current 
-** change mp3towav.py to check OS and only run in linux
-** change mp3towav2.py to check OS and only run in linux
-** change colconvert.py to to store the output in a folder (not the current one )
-** change phone.py to fix type
-** fix projectbuild.py
-(* fix sqllistexample.py 
-
+|TODO:|C001|CODE| |change mp3towav.py to check OS and only run in linux|
+|TODO:|C002|CODE| |change mp3towav2.py to check OS and only run in linux|
+|TODO:|C003|CODE| |change colconvert.py to to store the output in a folder (not the current one )|
+|TODO:|C004|CODE| |change phone.py to fix type|
+|TODO:|C005|CODE| |fix projectbuild.py|
+|TODO:|C006|CODE| |fix sqllistexample.py |
+|TODO:|C007|CODE| |fix everything in code/slack directory|
+|TODO:|C008|CODE| |fix code/spotify/spotify.py|
+|TODO:|C009|CODE| |TKBOIDS Add wind or current that "blows" the boids around|
+|TODO:|C010|CODE| |TKBOIDS Have boids tend towards a place; travel through waypoints|
+|TODO:|C011|CODE| |TKBOIDS Allow boids to "perch" on the ground at random.|
+|TODO:|C012|CODE| |TKBOIDS Add a "flock" of boids that move together|
+|TODO:|C013|CODE| |TKBOIDS ANTI-Flocking Behavior Get the boid group to scatter from each other; add more rules|
+|TODO:|C014|CODE| |TKBOIDS ANTI-Flocking Send the boids away from certain areas; danger or obstacles|
+|TODO:|C015|CODE| |TKBOIDS ANTI-Flocking Introduce predators that boids will always run from|
+|TODO:|C016|CODE| |TKBOIDS Boids need to "see" each other|
+|TODO:|C017|CODE| |TKBOIDS Unseen boids should be ignored|
+|TODO:|C018|CODE| |TKBOIDS Refer to the original algorithm|
+|TODO:|C019|CODE| |TKBOIDS http://www.red3d.com/cwr/boids/ |
+|TODO:|C020|CODE| |TKBOIDS  Change updating system to that used by QuizMe|

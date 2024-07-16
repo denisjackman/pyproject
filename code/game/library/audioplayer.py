@@ -1,4 +1,3 @@
-#!/usr/bin/python
 """
     audioplayer.py
     This is the main source.
