@@ -1,4 +1,3 @@
-#!/usr/bin/python
 '''
 # Conquer is strategy-flavoured game written with PyGame
 #------------------------------------------------------------------------

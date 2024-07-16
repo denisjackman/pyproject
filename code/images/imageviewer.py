@@ -1,4 +1,3 @@
-#!/usr/bin/python
 """
     imageviewer.py
     This is the main source.

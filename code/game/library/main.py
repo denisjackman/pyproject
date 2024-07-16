@@ -1,4 +1,3 @@
-#!/usr/bin/python
 '''
     pygame main
 '''

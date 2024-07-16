@@ -1,4 +1,3 @@
-#!/usr/bin/python
 '''
 lunar_lander.py
 basic lunar lander simulation based on constraints found at:

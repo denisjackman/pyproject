@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 '''
 a util to find files with a pattern in the name and delete them
 '''

@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 ''' utility to find zip files '''
 import os
 import sys

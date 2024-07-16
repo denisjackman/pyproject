@@ -1,4 +1,3 @@
-#!/usr/bin/python
 '''
     NAME: snake game
 

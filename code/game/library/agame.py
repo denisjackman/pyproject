@@ -1,4 +1,3 @@
-#!/usr/bin/python
 '''
     a game template
 '''

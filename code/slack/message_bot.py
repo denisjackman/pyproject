@@ -1,4 +1,3 @@
-#!/usr/bin/python
 """
 message_bot.py
 
