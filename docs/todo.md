@@ -1,27 +1,13 @@
 # To-Do list
 
-* Binary search
-* Breadth First Search
-* Depth First Search
-* ![Part 1](assets/image-1-4.jpeg)
-* ![Part 2](assets/image-5-6.jpeg)
-* ![Projects Easy](assets/projects-easy.jpeg)
-* ![Projects Medium](assets/projects-medium.jpeg)
-* ![Projects Hard](assets/projects-hard.jpeg)
-* [Data Science Projects](https://python.plainenglish.io/85-data-science-projects-c03c8750599e)
-* [POstGres install](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04)
-* [Roguelike - reddit](https://www.reddit.com/r/roguelikedev/)
-
-## TAGS
+## Tags
 
 * `# FIXME: this is a Fix Tag`
 * `# TODO: this is todo tag`
 * `# IDEA: This is an idea tag`
 * `# CONCEPT: this is a concept tag`
 
-## To-Do List
-
-This list is a list of TODO items broken into Spike, Game and Tools.
+The list is a list of TODO items broken into Spike, Game and Tools.
 
 * __Spike__: means a lot of research is needed to look at the topic
 * __Tools__: these are useful tools to work on games development with
@@ -30,8 +16,8 @@ This list is a list of TODO items broken into Spike, Game and Tools.
 
 |Status|Code|Item|Status|Description|
 |----- |----|----|------|----------------------------------------------------|
-|TODO:|C001|CODE| |change mp3towav.py to check OS and only run in linux|
-|TODO:|C002|CODE| |change mp3towav2.py to check OS and only run in linux|
+|TODO:|C001|CODE|COMPLETE|change mp3towav.py to check OS and only run in linux|
+|TODO:|C002|CODE|COMPLETE|change mp3towav2.py to check OS and only run in linux|
 |TODO:|C003|CODE| |change colconvert.py to to store the output in a folder (not the current one )|
 |TODO:|C004|CODE| |change phone.py to fix type|
 |TODO:|C005|CODE| |fix projectbuild.py|
@@ -50,3 +36,18 @@ This list is a list of TODO items broken into Spike, Game and Tools.
 |TODO:|C018|CODE| |TKBOIDS Refer to the original algorithm|
 |TODO:|C019|CODE| |TKBOIDS http://www.red3d.com/cwr/boids/ |
 |TODO:|C020|CODE| |TKBOIDS  Change updating system to that used by QuizMe|
+|TODO:|C021|CODE| |Breadth First Search|
+|TODO:|C022|CODE| |Depth First Search|
+
+## Other To-Do Items
+
+* ![Part 1](assets/image-1-4.jpeg)
+* ![Part 2](assets/image-5-6.jpeg)
+* ![Projects Easy](assets/projects-easy.jpeg)
+* ![Projects Medium](assets/projects-medium.jpeg)
+* ![Projects Hard](assets/projects-hard.jpeg)
+* [Data Science Projects](https://python.plainenglish.io/85-data-science-projects-c03c8750599e)
+* [POstGres install](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04)
+* [Roguelike - reddit](https://www.reddit.com/r/roguelikedev/)
+
+
