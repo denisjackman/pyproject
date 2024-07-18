@@ -4,16 +4,16 @@
 
 with open('Z:/resources/sample-data/colours.csv',
           encoding='utf-8-sig') as input_file, \
-     open('rgb.py',
+     open('Z:/Store/target/rgb.py',
           'w',
           encoding='utf-8-sig') as rgb_file, \
-     open('hex.py',
+     open('Z:/Store/target/hex.py',
           'w',
           encoding='utf-8-sig') as hex_file, \
-     open('rgbdict.py',
+     open('Z:/Store/target/rgbdict.py',
           'w',
           encoding='utf-8-sig') as rgbdict_file, \
-     open('hexdict.py',
+     open('Z:/Store/target/hexdict.py',
           'w',
           encoding='utf-8-sig') as hexdict_file:
 
