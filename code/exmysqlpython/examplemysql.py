@@ -29,7 +29,7 @@ def sqlmain():
     mysqlpassword = dbredid["BotPassword"]
     mysqlhostname = dbredid["hostname2"]
 
-    use_db = open_mysql('test', mysqlusername, mysqlpassword, mysqlhostname)
+    use_db = open_mysql(mysqlusername, mysqlpassword, mysqlhostname, 'test')
     if use_db is None:
         return None
     examplecursor = mysqlquery(use_db, "SELECT * FROM fruit")

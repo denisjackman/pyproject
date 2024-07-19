@@ -20,8 +20,8 @@ The list is a list of TODO items broken into Spike, Game and Tools.
 |TODO:|C002|CODE|COMPLETE|change mp3towav2.py to check OS and only run in linux|
 |TODO:|C003|CODE|COMPLETE |change colconvert.py to to store the output in a folder (not the current one )|
 |TODO:|C004|CODE| |change phone.py to fix type|
-|TODO:|C005|CODE| |fix projectbuild.py|
-|TODO:|C006|CODE| |fix sqllistexample.py |
+|TODO:|C005|CODE|REMOVED|fix projectbuild.py|
+|TODO:|C006|CODE|COMPLETE |fix sqllitexample.py |
 |TODO:|C007|CODE| |fix everything in code/slack directory|
 |TODO:|C008|CODE| |fix code/spotify/spotify.py|
 |TODO:|C009|CODE| |TKBOIDS Add wind or current that "blows" the boids around|
