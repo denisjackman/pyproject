@@ -31,6 +31,7 @@
 `create user 'jackmanimation'@'localhost' identified by 'password';`
 `create user 'jackmanimation'@'Denis-PC.lan' identified by 'password';`
 `create user 'jackmanimation'@'Gerialt.lan' identified by 'password'`
+`create user 'jackmanimation'@'%' identified by 'password';`
 
 ### Basics
 `use testdb;`
@@ -40,22 +41,27 @@
 `grant select, insert, update on testdb.* to 'jackmanimation'@'localhost' with grant option;`
 `grant select, insert, update on testdb.* to 'jackmanimation'@'Denis-PC.lan' with grant option;`
 `grant select, insert, update on testdb.* to 'jackmanimation'@'Gerialt.lan' with grant option;`
+`grant select, insert, update on testdb.* to 'jackmanimation'@'%' with grant option;`
 
 `grant select, insert, update on test.* to 'jackmanimation'@'localhost' with grant option;`
 `grant select, insert, update on test.* to 'jackmanimation'@'Denis-PC.lan' with grant option;`
 `grant select, insert, update on test.* to 'jackmanimation'@'Gerialt.lan' with grant option;`
+`grant select, insert, update on test.* to 'jackmanimation'@'%' with grant option;`
 
 `grant select, insert, update on employees.* to 'jackmanimation'@'localhost' with grant option;`
 `grant select, insert, update on employees.* to 'jackmanimation'@'Denis-PC.lan' with grant option;`
 `grant select, insert, update on employees.* to 'jackmanimation'@'Gerialt.lan' with grant option;`
+`grant select, insert, update on employees.* to 'jackmanimation'@'%' with grant option;`
 
 `grant select, insert, update on classicmodels.* to 'jackmanimation'@'localhost' with grant option;`
 `grant select, insert, update on classicmodels.* to 'jackmanimation'@'Denis-PC.lan' with grant option;`
 `grant select, insert, update on classicmodels.* to 'jackmanimation'@'Gerialt.lan' with grant option;`
+`grant select, insert, update on classicmodels.* to 'jackmanimation'@'%' with grant option;`
 
 `grant select, insert, update on meerkatbot.* to 'jackmanimation'@'localhost' with grant option;`
 `grant select, insert, update on meerkatbot.* to 'jackmanimation'@'Denis-PC.lan' with grant option;`
 `grant select, insert, update on meerkatbot.* to 'jackmanimation'@'Gerialt.lan' with grant option;`
+`grant select, insert, update on meerkatbot.* to 'jackmanimation'@'%' with grant option;`
 
 ### Test databases
 `CREATE TABLE IF NOT EXISTS 'fruit' (`

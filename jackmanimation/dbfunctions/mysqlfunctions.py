@@ -2,14 +2,19 @@
 import mysql.connector
 
 
-def open_mysql(dbdatabase, mysqlusername, mysqlpassword, mysqlhostname):
+def open_mysql(mysqlusername,
+               mysqlpassword,
+               mysqlhostname,
+               dbdatabase=None,
+               mysqlport=3306):
     ''' open mysql db '''
     try:
         client = mysql.connector.connect(
             host=mysqlhostname,
             user=mysqlusername,
             password=mysqlpassword,
-            database=dbdatabase
+            database=dbdatabase,
+            port=mysqlport
             )
     except mysql.connector.errors.ProgrammingError as err:
         print(f" Error: {err}")
