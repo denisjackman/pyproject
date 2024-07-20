@@ -1,11 +1,20 @@
 # To-Do list
 
-## Tags
+## Type Tags
 
 * `# FIXME: this is a Fix Tag`
 * `# TODO: this is todo tag`
 * `# IDEA: This is an idea tag`
 * `# CONCEPT: this is a concept tag`
+
+## Status Tag
+* # COMPLETE: this is a complete tag
+* # INPROGRESS: this is an in progress tag  
+* # REMOVED: this is a removed tag
+* # ONHOLD: this is an on hold tag
+* # CANCELLED: this is a cancelled tag
+* # REJECTED: this is a rejected tag
+* # NOFIX: this is a no fix tag
 
 The list is a list of TODO items broken into Spike, Game and Tools.
 
@@ -14,12 +23,12 @@ The list is a list of TODO items broken into Spike, Game and Tools.
 * __Game__: these are essential items for the development of a game
 * __CODE__: these are items that need to be fixed in the code
 
-|Status|Code|Item|Status|Description|
+|Type|Code|Item|Status|Description|
 |----- |----|----|------|----------------------------------------------------|
 |TODO:|C001|CODE|COMPLETE|change mp3towav.py to check OS and only run in linux|
 |TODO:|C002|CODE|COMPLETE|change mp3towav2.py to check OS and only run in linux|
 |TODO:|C003|CODE|COMPLETE |change colconvert.py to to store the output in a folder (not the current one )|
-|TODO:|C004|CODE| |change phone.py to fix type|
+|TODO:|C004|CODE|NOFIX |change phone.py to fix type|
 |TODO:|C005|CODE|REMOVED|fix projectbuild.py|
 |TODO:|C006|CODE|COMPLETE |fix sqllitexample.py |
 |TODO:|C007|CODE| |fix everything in code/slack directory|
