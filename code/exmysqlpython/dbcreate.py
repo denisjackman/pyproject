@@ -15,7 +15,7 @@ def main():
                         if not line.startswith('CREATE DATABASE'):
                             print(line.strip())
                             linecount += 1
-    print(f"[-] Line count {linecount}")        
+    print(f"[-] Line count {linecount}")
     print("[-] Main Complete")
 
 

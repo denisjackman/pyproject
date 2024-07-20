@@ -9,30 +9,118 @@
 """
 import sqlite3
 
-FILE_LOCATION = "C:/Users/Denis/AppData/Roaming/Mozilla/Firefox/Profiles/bg26yjup.default-release-1632146279182/places.sqlite"  # noqa: E501
+FIREFOX_FILE_LOCATION = "Z:/Data/Firefox/places.sqlite"
+CHROME_LOCATION = "Z:/Data/Chrome/History"
+EDGE_LOCATION = "Z:/Data/Edge/History"
 
 
-try:
-    conn = sqlite3.connect(FILE_LOCATION)
-except sqlite3.Error as err:
-    message = f'oops! I did it again: {err}'
-    print(message)
-finally:
-    print("Connection made")
+def firefox_history_scan(fhs_file):
+    ''' this utility function scans the firefox history '''
+    try:
+        fhs_connection = sqlite3.connect(fhs_file)
+    except sqlite3.Error as err:
+        message = f'[o] oops! I did it again: {err}'
+        return False, message
+    finally:
+        print("[+] Connection made")
 
-try:
-    c = conn.cursor()
-except sqlite3.Error as err:
-    message = f'oops! I did it again: {err}'
-    print(message)
-finally:
-    print("Cursor set up")
+    try:
+        fhs_cursor = fhs_connection.cursor()
+    except sqlite3.Error as err:
+        message = f'[o] oops! I did it again: {err}'
+        return False, message
+    finally:
+        print("[+] Cursor set up")
 
-try:
-    url_number = c.execute('SELECT count(1) from moz_places').fetchone()[0]
-except sqlite3.Error as err:
-    message = f'oops! I did it again: {err}'
-    print(message)
-finally:
-    print("Query ran")
-print(f"history length  {url_number}")
+    try:
+        fhs_query = fhs_cursor.execute('SELECT * from moz_places').fetchall()
+    except sqlite3.Error as err:
+        message = f'[o] oops! I did it again: {err}'
+        return False, message
+    finally:
+        print("[+] Query ran")
+    return True, fhs_query
+
+
+def chrome_history_scan(chs_file):
+    ''' this utility function scans the chrome history '''
+    try:
+        chs_connection = sqlite3.connect(chs_file)
+    except sqlite3.Error as err:
+        message = f'[o] oops! I did it again: {err}'
+        return False, message
+    finally:
+        print("[+] Connection made")
+    try:
+        chs_cursor = chs_connection.cursor()
+    except sqlite3.Error as err:
+        message = f'[o] oops! I did it again: {err}'
+        return False, message
+    finally:
+        print("[+] Cursor set up")
+    try:
+        chs_query = chs_cursor.execute('SELECT * from urls')
+        chs_query = chs_query.fetchall()
+    except sqlite3.Error as err:
+        message = f'[o] oops! I did it again: {err}'
+        return False, message
+    finally:
+        print("[+] Query ran")
+    return True, chs_query
+
+
+def edge_history_scan(ehs_file):
+    ''' this utility function scans the edge history '''
+    try:
+        ehs_connection = sqlite3.connect(ehs_file)
+    except sqlite3.Error as err:
+        message = f'[o] oops! I did it again: {err}'
+        print(message)
+        return False, message
+    finally:
+        print("[+] Connection made")
+
+    try:
+        ehs_cursor = ehs_connection.cursor()
+    except sqlite3.Error as err:
+        message = f'[o] oops! I did it again: {err}'
+        print(message)
+        return False, message
+    finally:
+        print("[+] Cursor set up")
+
+    try:
+        ehs_query = ehs_cursor.execute('SELECT * from urls')
+        ehs_query = ehs_query.fetchall()
+    except sqlite3.Error as err:
+        message = f'[o] oops! I did it again: {err}'
+        print(message)
+        return False, message
+    finally:
+        print("[+] Query ran")
+    return True, ehs_query
+
+
+def main():
+    ''' main function '''
+    print("[-] Starting the sequence.")
+    firefox_result = firefox_history_scan(FIREFOX_FILE_LOCATION)
+    if firefox_result[0]:
+        print(f"[=] Firefox history length {firefox_result[0]} : {len(firefox_result[1])}")
+    else:
+        print(f"[=] Firefox Error message  {firefox_result[1]}")
+    chrome_result = chrome_history_scan(CHROME_LOCATION)
+    if chrome_result[0]:
+        print(f"[=] Chrome history length {chrome_result[0]} : {len(chrome_result[1])}")
+    else:
+        print(f"[=] Chrome Error message  {chrome_result[1]}")
+    edge_result = edge_history_scan(EDGE_LOCATION)
+    if edge_result[0]:
+        print(f"[=] Edge history length {edge_result[0]} : {len(edge_result[1])}")
+    else:
+        print(f"[=] Edge Error message  {edge_result[1]}")
+    print("[-] Finished the sequence.")
+
+
+if __name__ == '__main__':
+    main()
