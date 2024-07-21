@@ -106,17 +106,17 @@ def main():
     print("[-] Starting the sequence.")
     firefox_result = firefox_history_scan(FIREFOX_FILE_LOCATION)
     if firefox_result[0]:
-        print(f"[=] Firefox history length {firefox_result[0]} : {len(firefox_result[1])}")
+        print(f"[=] Firefox history length {firefox_result[0]} : {len(firefox_result[1])}")  # noqa: E501
     else:
         print(f"[=] Firefox Error message  {firefox_result[1]}")
     chrome_result = chrome_history_scan(CHROME_LOCATION)
     if chrome_result[0]:
-        print(f"[=] Chrome history length {chrome_result[0]} : {len(chrome_result[1])}")
+        print(f"[=] Chrome history length {chrome_result[0]} : {len(chrome_result[1])}")  # noqa: E501
     else:
         print(f"[=] Chrome Error message  {chrome_result[1]}")
     edge_result = edge_history_scan(EDGE_LOCATION)
     if edge_result[0]:
-        print(f"[=] Edge history length {edge_result[0]} : {len(edge_result[1])}")
+        print(f"[=] Edge history length {edge_result[0]} : {len(edge_result[1])}")  # noqa: E501
     else:
         print(f"[=] Edge Error message  {edge_result[1]}")
     print("[-] Finished the sequence.")
