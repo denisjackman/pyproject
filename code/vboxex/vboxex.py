@@ -27,5 +27,6 @@ def main():
     # vbox_stop(main_session)
     print(f'Virtual machine state: {main_session.console.state}')
 
+
 if __name__ == '__main__':
     main()
