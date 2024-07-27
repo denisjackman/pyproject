@@ -59,6 +59,7 @@ def scan_start():
 
 
 def scan_zip(sz_filename):
+    ''' unzip a file passed to us '''
     if SCAN_DEBUG:
         print(f'[+] unpacking {sz_filename}')
     with zipfile.ZipFile(sz_filename, 'r') as sz_zip_ref:
@@ -67,13 +68,30 @@ def scan_zip(sz_filename):
         print(f'[+] unpacked {sz_filename}')
 
 
+def scan_process():
+    ''' process the files in the unpack directory '''
+    result = []
+    sp_filelist = scan_walk_through({"verbosemode": SCAN_DEBUG,
+                                    "startdirectory": SCAN_UNPACK_DIRECTORY})
+    for sp_item in sp_filelist:
+        if sp_item.find('tla_facts', 0) != -1:
+            if sp_item.find('defaults.yml', 0) == -1:
+                if sp_item.endswith('.yml'):
+                    temp_str = sp_item.split('\\')
+                    result.append((temp_str[1], temp_str[3].split(".")[0]))
+    return result
+
+
 def main():
     '''
         This is the main function of the scanner.
     '''
     print('[-] Scanner Starting')
     print('[-] Scanner Startup')
-    scan_start()
+    # scan_start()
+    main_list = scan_process()
+    for item in main_list:
+        print(f'[-] Found {item[0]} in {item[1]}')
     print('[-] Scanner is done.')
 
 
