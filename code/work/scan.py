@@ -4,11 +4,12 @@
 '''
 import os
 import zipfile36 as zipfile
-
+from tqdm import tqdm
+import csv
 
 SCAN_ZIP_DIRECTORY = 'z:/work/store'
 SCAN_UNPACK_DIRECTORY = 'z:/work/store/unpack'
-SCAN_DEBUG = True
+SCAN_DEBUG = False
 
 
 def scan_walk_through(swt_command_args):
@@ -32,7 +33,9 @@ def scan_walk_through(swt_command_args):
     if swt_verbose_mode:
         print(f"[o] Searching for files in {swt_start_dir}")
     for root, _, files in os.walk(swt_start_dir, topdown=False):
-        for name in files:
+        for name in tqdm(files,
+                         total=len(files),
+                         unit=' files'):
             swt_result.append(os.path.join(root, name))
     if swt_verbose_mode:
         print(f"[o] Finished walk through {swt_start_dir}")
@@ -78,7 +81,8 @@ def scan_process():
             if sp_item.find('defaults.yml', 0) == -1:
                 if sp_item.endswith('.yml'):
                     temp_str = sp_item.split('\\')
-                    result.append((temp_str[1], temp_str[3].split(".")[0]))
+                    result.append({"Service": temp_str[1],
+                                   "Environment": temp_str[3].split(".")[0]})
     return result
 
 
@@ -90,8 +94,13 @@ def main():
     print('[-] Scanner Startup')
     # scan_start()
     main_list = scan_process()
-    for item in main_list:
-        print(f'[-] Found {item[0]} in {item[1]}')
+    fieldnames = ['Service', 'Environment']
+    with open(f'{SCAN_ZIP_DIRECTORY}/environments.csv',
+              'w',
+              newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(main_list)
     print('[-] Scanner is done.')
 
 
