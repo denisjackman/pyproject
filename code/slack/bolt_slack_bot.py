@@ -16,7 +16,7 @@ from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
 
 
 credid = credscheck('Z:/pyproject/secrets/secrets.json')
-SLACK_APP_TOKEN = credid["BoltJokesToken"]
+SLACK_APP_TOKEN = credid["BoltAppToken"]
 SLACK_BOT_TOKEN = credid["BoltBotToken"]
 
 app = App(token=SLACK_BOT_TOKEN, name="Joke Bot")
@@ -32,7 +32,7 @@ def ask_who(message, say):
         say(f"<@{user}> called the bot.", channel=channel_id)
 
 
-@app.message(re.compile("^duck$"))  # type: ignore
+@app.message(re.compile("^joke$"))  # type: ignore
 def show_random_joke(message, say):
     """Send a random pyjoke back """
     channel_type = message["channel_type"]
