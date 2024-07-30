@@ -97,7 +97,8 @@ def main():
     fieldnames = ['Service', 'Environment']
     with open(f'{SCAN_ZIP_DIRECTORY}/environments.csv',
               'w',
-              newline='') as csvfile:
+              newline='',
+              encoding='utf-8-sig') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(main_list)

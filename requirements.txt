@@ -26,7 +26,6 @@ instagrapi
 isbntools
 matplotlib
 mobi
-moviepy
 mysql-connector-python-rf
 networkx
 openai
