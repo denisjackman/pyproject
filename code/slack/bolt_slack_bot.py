@@ -18,7 +18,7 @@ from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
 credid = credscheck('Z:/pyproject/secrets/secrets.json')
 SLACK_APP_TOKEN = credid["BoltAppToken"]
 SLACK_BOT_TOKEN = credid["BoltBotToken"]
-SLACK_CHANNELS = ['CJJ5NE54G']
+SLACK_CHANNELS = ['CJJ5NE54G', 'G0CNSJKED', 'C0CNN2UQM', 'C0CNNJEH5']
 
 app = App(token=SLACK_BOT_TOKEN, name="Joke Bot")
 logger = logging.getLogger(__name__)
@@ -47,7 +47,7 @@ def show_random_joke(message, say):
 
     say(text=joke, channel=dm_channel)
     for channel_id in SLACK_CHANNELS:
-        say(f"<@{user_id}> asked for a joke.", channel=channel_id)
+        say(f"<@{user_id}> asked for a joke.:\n[{joke}]", channel=channel_id)
 
 
 @app.message(re.compile("^kraken"))  # type: ignore

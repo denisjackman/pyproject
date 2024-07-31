@@ -19,9 +19,10 @@ from slack_bolt.adapter.socket_mode import SocketModeHandler
 sys.path.append(os.path.realpath('../..'))
 from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
 
-credid = credscheck('y:/pyproject/secrets/secrets.json')
+credid = credscheck('Z:/pyproject/secrets/secrets.json')
 SLACK_APP_TOKEN = credid["BoltKrakenToken"]
 SLACK_BOT_TOKEN = credid["BoltKrakenBotToken"]
+SLACK_CHANNELS = ['CJJ5NE54G', 'G0CNSJKED', 'C0CNN2UQM', 'C0CNNJEH5']
 
 app = App(token=SLACK_BOT_TOKEN, name="Kraken")
 logger = logging.getLogger(__name__)
@@ -32,8 +33,8 @@ def show_release_the_kraken(message, say):
     """ broadcast the message to the channels  """
 
     broadcast = message["text"][6:]
-    for channel_id in ['CJJ5NE54G', 'G0CNSJKED', 'C0CNN2UQM', 'C0CNNJEH5']:
-        say(f"{broadcast}", channel=channel_id)
+    for channel_id in SLACK_CHANNELS:
+        say(f"{message}", channel=channel_id)
 
 
 def main():

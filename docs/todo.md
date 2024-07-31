@@ -2,19 +2,19 @@
 
 ## Type Tags
 
-* `# FIXME: this is a Fix Tag`
-* `# TODO: this is todo tag`
-* `# IDEA: This is an idea tag`
-* `# CONCEPT: this is a concept tag`
+* __FIXME__: this is a fix tag
+* __TODO__: this is todo tag
+* __IDEA__: This is an idea tag
+* __CONCEPT__: this is a concept tag
 
 ## Status Tag
-* # COMPLETE: this is a complete tag
-* # INPROGRESS: this is an in progress tag  
-* # REMOVED: this is a removed tag
-* # ONHOLD: this is an on hold tag
-* # CANCELLED: this is a cancelled tag
-* # REJECTED: this is a rejected tag
-* # NOFIX: this is a no fix tag
+* __COMPLETE__: this is a complete tag
+* __INPROGRESS__: this is an in progress tag  
+* __REMOVED__: this is a removed tag
+* __ONHOLD__: this is an on hold tag
+* __CANCELLED__: this is a cancelled tag
+* __REJECTED__: this is a rejected tag
+* __NOFIX__: this is a no fix tag
 
 The list is a list of TODO items broken into Spike, Game and Tools.
 
@@ -31,7 +31,7 @@ The list is a list of TODO items broken into Spike, Game and Tools.
 |TODO:|C004|CODE|NOFIX |change phone.py to fix type|
 |TODO:|C005|CODE|REMOVED|fix projectbuild.py|
 |TODO:|C006|CODE|COMPLETE |fix sqllitexample.py |
-|TODO:|C007|CODE| |fix everything in code/slack directory|
+|TODO:|C007|CODE|INPROGRESS|fix everything in code/slack directory|
 |TODO:|C008|CODE| |fix code/spotify/spotify.py|
 |TODO:|C009|CODE| |TKBOIDS Add wind or current that "blows" the boids around|
 |TODO:|C010|CODE| |TKBOIDS Have boids tend towards a place; travel through waypoints|
