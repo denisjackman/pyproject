@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 def show_release_the_kraken(message, say):
     """ broadcast the message to the channels  """
 
-    broadcast = message["text"][6:]
+    # broadcast = message["text"][6:]
     for channel_id in SLACK_CHANNELS:
         say(f"{message}", channel=channel_id)
 
