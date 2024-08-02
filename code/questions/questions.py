@@ -1,14 +1,6 @@
 ''' This is a questions scratch pad'''
 
 
-def question1():
-    ''' This is a question 1'''
-    name1 = 'Dhoni'
-    name2 = 'Kohli'
-    result = name1[:3] + name2[1:]
-    print(f'[-] question 1 : {result}')
-
-
 def question2():
     ''' This is a question 2'''
     mylist = ["python", "hub"]
@@ -51,8 +43,6 @@ def question6():
 def main():
     ''' This is the main function'''
     print('[*] This is the main function starting')
-    question1()
-    # question2()
     print('[-] question 2 : is an infinite loop ')
     print(f'[-] question 3 : {question3(10, 5, 2)}')
     question4()
