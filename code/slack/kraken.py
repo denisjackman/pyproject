@@ -61,7 +61,7 @@ def show_marsys(message, say):
     channel_type = message["channel_type"]
     dm_channel = message["channel"]
     user_id = message["user"]
-    broadcast = f'[-] Marsys message is : [{ message["text"][6:]}]'
+    broadcast = f'[-] Marsys message is : [{message["text"][6:]}]'
 
     if channel_type != "im":
         say(text=f'DM: {broadcast}', channel=dm_channel)
