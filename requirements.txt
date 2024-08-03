@@ -65,6 +65,7 @@ pyTelegramBotAPI
 pytest
 python-dateutil
 python-docx
+python-dotenv
 python-magic
 python-nmap
 python-pptx
@@ -73,6 +74,7 @@ pywhatkit
 pyyaml
 rarfile
 rfc3986
+requests
 seaborn
 selenium
 six
@@ -84,7 +86,6 @@ sounddevice
 soundfile
 speechrecognition
 statsmodels
-tekore
 tk
 tomli
 tomlkit

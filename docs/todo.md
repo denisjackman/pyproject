@@ -31,8 +31,8 @@ The list is a list of TODO items broken into Spike, Game and Tools.
 |TODO:|C004|CODE|NOFIX |change phone.py to fix type|
 |TODO:|C005|CODE|REMOVED|fix projectbuild.py|
 |TODO:|C006|CODE|COMPLETE |fix sqllitexample.py |
-|TODO:|C007|CODE|INPROGRESS|fix everything in code/slack directory|
-|TODO:|C008|CODE| |fix code/spotify/spotify.py|
+|TODO:|C007|CODE|COMPLETE|fix everything in code/slack directory|
+|TODO:|C008|CODE|COMPLETE|fix code/spotify/spotify.py|
 |TODO:|C009|CODE| |TKBOIDS Add wind or current that "blows" the boids around|
 |TODO:|C010|CODE| |TKBOIDS Have boids tend towards a place; travel through waypoints|
 |TODO:|C011|CODE| |TKBOIDS Allow boids to "perch" on the ground at random.|
