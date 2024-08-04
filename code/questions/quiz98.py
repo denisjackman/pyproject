@@ -20,8 +20,7 @@ def my_fun(n):
     ''' my_fun '''
     if n == 1:
         return 1
-    else:
-        return n + my_fun(n-1)
+    return n + my_fun(n-1)
 
 
 def main():

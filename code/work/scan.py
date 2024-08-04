@@ -3,9 +3,9 @@
     It is used to scan the environment and record the environment information.
 '''
 import os
+import csv
 import zipfile36 as zipfile
 from tqdm import tqdm
-import csv
 
 SCAN_ZIP_DIRECTORY = 'z:/work/store'
 SCAN_UNPACK_DIRECTORY = 'z:/work/store/unpack'

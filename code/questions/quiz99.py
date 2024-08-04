@@ -22,7 +22,7 @@
 def main():
     ''' main function '''
     text = 'hello'
-    text[1] = 'i'
+    text[1] = 'i'  # pylint: disable=unsupported-assignment-operation
     print(text)
 
 
