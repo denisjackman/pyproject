@@ -1,6 +1,10 @@
 
 # MYSQL
 
+## Overview
+
+This section covers how to perform mysql database operations using MySQL in Python.
+
 ## References
 * [tutorial](https://www3.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Beginner.html)
 * [Official Tutorial](https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/)
