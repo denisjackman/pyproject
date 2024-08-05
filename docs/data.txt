@@ -1,0 +1,23 @@
+1. NASA
+Type of data: Space
+Access: Mostly free, no registration required
+
+2. Data.gov
+Type of data: Government
+Access: Free, no registration required
+
+3. Datahub.io
+Type of data: Business and finance
+Access: Mostly free, no registration required
+
+4. Google Dataset Search
+Type of data: Miscellaneous
+Access: Free to search, some results may require a fee
+
+5. Amazon Registry of Open Data
+Type of data: Miscellaneous
+Access: Mostly free, no registration required
+
+6. Global Health Observatory Data Repository
+Type of data: Health
+Access: Mostly free, no registration required
