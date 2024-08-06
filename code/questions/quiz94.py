@@ -1,4 +1,4 @@
-'''quiz94 
+'''quiz94
 what is the output of the following code?
 
 a: [6, None, 1, 3]
@@ -20,6 +20,8 @@ The answer is C
     The final list is [6, 0, 1, 3].
 
 '''
+
+
 def main():
     ''' This is the main function'''
     x = [1, 2, 3, 4]
