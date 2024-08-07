@@ -4,7 +4,7 @@
 1. Install [Python](https://www.python.org/)
 2. Install [MySql](https://dev.mysql.com/)
 3. Install [Git](https://git-scm.com/) locally
-4. Install and IDE or Editor of choice (I use [ATOM](https://atom.io/))
+4. Install and IDE or Editor of choice (I use [Visual Studio Code](https://code.visualstudio.com/))
 5. Make sure you have a [GitHub](https://github.com) presence
 
 ## MySql Specific Items
