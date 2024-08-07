@@ -6,14 +6,14 @@
 This section covers how to perform mysql database operations using MySQL in Python.
 
 ## References
-* [tutorial](https://www3.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Beginner.html)
+* [Tutorial](https://www3.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Beginner.html)
 * [Official Tutorial](https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/)
 * [Example Data](https://electrictoolbox.com/mysql-example-table/)
 * [example database](https://www.mysqltutorial.org/mysql-sample-database.aspx)
 * [Example database 2](https://dev.mysql.com/doc/employee/en/)
 * [Example database 3](https://www3.ntu.edu.sg/home/ehchua/programming/sql/SampleDatabases.html)
 * [Remote access](https://www.digitalocean.com/community/tutorials/how-to-allow-remote-access-to-mysql)
-* [example database 4](https://www.sqlservertutorial.net/sql-server-sample-database/)
+* [Example database 4](https://www.sqlservertutorial.net/sql-server-sample-database/)
 * [Intro Session](https://realpython.com/python-mysql/)
 * [MySQL example database code](https://github.com/datacharmer/test_db.git)
 * [MySQL example database docs](https://dev.mysql.com/doc/employee/en/)

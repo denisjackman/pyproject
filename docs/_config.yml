@@ -1,9 +1,9 @@
-theme: jekyll-theme-minimal
 title: PyProject
 description: A personal project. Bookmark this to keep updated.
 email: denis_jackman@hotmail.com
-
-
+show_downloads: true
+google_analytics:
+theme: jekyll-theme-modernist
 
 
 

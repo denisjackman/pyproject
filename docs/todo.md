@@ -24,7 +24,7 @@ The list is a list of TODO items broken into Spike, Game and Tools.
 * __CODE__: these are items that need to be fixed in the code
 
 |Type|Code|Item|Status|Description|
-|----- |----|----|------|----------------------------------------------------|
+|-----|----|----|------|----------------------------------------------------|
 |TODO:|C001|CODE|COMPLETE|change mp3towav.py to check OS and only run in linux|
 |TODO:|C002|CODE|COMPLETE|change mp3towav2.py to check OS and only run in linux|
 |TODO:|C003|CODE|COMPLETE |change colconvert.py to to store the output in a folder (not the current one )|
