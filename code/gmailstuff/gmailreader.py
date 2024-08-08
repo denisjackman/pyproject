@@ -8,24 +8,29 @@ project name:  jackmaninationgmail
 '''
 import os.path
 import base64
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
+import gspread
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
 
 # If modifying these SCOPES, delete the file TOKEN_FILE.
-SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
-          'https://www.googleapis.com/auth/gmail.send']
+MAIL_SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
+               'https://www.googleapis.com/auth/gmail.send']
+SPRD_SCOPES = ['https://www.googleapis.com/auth/drive',
+               'https://www.googleapis.com/auth/spreadsheets']
+DOCS_SCOPES = ['https://www.googleapis.com/auth/documents',
+               'https://www.googleapis.com/auth/drive']
 
 TOKEN_FILE = 'Z:/pyproject/secrets/token.json'
 CREDENTIALS_FILE = 'Z:/pyproject/secrets/gmail.json'
 
 
-def get_gmail_credentials():
+def get_google_credentials(ggc_scope):
     '''get gmail credentials'''
     ggc_creds = None
     # The file TOKEN_FILE stores the user's access and refresh tokens, and is
@@ -33,17 +38,17 @@ def get_gmail_credentials():
     # time.
     if os.path.exists(TOKEN_FILE):
         ggc_creds = Credentials.from_authorized_user_file(TOKEN_FILE,
-                                                          SCOPES)
+                                                          ggc_scope)
     # If there are no (valid) credentials available, let the user log in.
     if not ggc_creds or not ggc_creds.valid:
         if ggc_creds and ggc_creds.expired and ggc_creds.refresh_token:
             ggc_creds.refresh(Request())
         else:
             ggc_flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE,  # noqa E501
-                                                                 SCOPES)
+                                                                 ggc_scope)
             ggc_creds = ggc_flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open(TOKEN_FILE, 'w') as ggc_token:
+        with open(TOKEN_FILE, 'w') as ggc_token:  # pylint: disable=w1514
             ggc_token.write(ggc_creds.to_json())
     return ggc_creds
 
@@ -138,32 +143,45 @@ def main():
     Lists the user's Gmail labels.
     """
     print('[-] Gmail utility starting')
-    creds = get_gmail_credentials()
-    messages = get_gmail_messages(creds)
+    creds = get_google_credentials(SPRD_SCOPES)
+    # messages = get_gmail_messages(creds)
+    messages = None
     print('[-] Gmail messages starting')
     if not messages:
         print('[o] No messages found.')
     else:
         print(f'[-] Messages: {len(messages)}')
-        for message in messages:
-            message_detail = get_gmail_message(creds, message['id'])
-            print(f'[+] {message_detail["snippet"]}')
+        # for message in messages:
+        #     message_detail = get_gmail_message(creds, message['id'])
+        #     print(f'[+] {message_detail["snippet"]}')
     print('[-] Gmail sender starting')
-    sent_message = send_gmail_message(creds,
-                                      'me',
-                                      'denis.jackman@gmail.com',
-                                      'Test',
-                                      'Test message')
+    # sent_message = send_gmail_message(creds,
+    #                                   'me',
+    #                                   'denis.jackman@gmail.com',
+    #                                   'Test',
+    #                                   'Test message')
 
-    print(f'[+] Message sent: {sent_message["id"]}')
-    sent_message = send_gmail_message(creds,
-                                      'me',
-                                      'denis.jackman@gmail.com',
-                                      'Test 2',
-                                      'Test message2',
-                                      'Z:/Resources/text/stuff.txt')
+    # print(f'[+] Message sent: {sent_message["id"]}')
+    # sent_message = send_gmail_message(creds,
+    #                                  'me',
+    #                                   'denis.jackman@gmail.com',
+    #                                  'Test 2',
+    #                                  'Test message2',
+    #                                  'Z:/Resources/text/stuff.txt')
 
     print('[-] Gmail sender complete.')
+    print('[-] Google Sheets Test Start')
+    client = gspread.authorize(creds)
+    spreadsheet = client.open('Test')
+    worksheet = spreadsheet.get_worksheet(0)
+    worksheet.update_cell(1, 1, 'Updated Value')
+    worksheet.append_row(['New Value 1',
+                          'New Value 2',
+                          'New Value 3',
+                          'New Value 4',
+                          'New Value 5',
+                          'New Value 6'])
+    print('[-] Google Sheets Test Complete')
     print('[-] Gmail utility complete.')
 
 
