@@ -23,6 +23,7 @@ googletrans
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
+gspread
 hexy
 importlib-metadata
 instagrapi
