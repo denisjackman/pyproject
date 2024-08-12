@@ -7,7 +7,7 @@ import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.genfunctions.utensils import dish  # noqa: E402
+from jackmanimation.genfunctions.utensils import dish
 
 
 def main():

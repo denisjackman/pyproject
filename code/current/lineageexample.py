@@ -6,10 +6,10 @@ import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
 
-from jackmanimation.lineage.lineage import fed  # noqa: E402
-from jackmanimation.lineage.lineage import population_birth  # noqa: E402
-from jackmanimation.lineage.lineage import population_decline  # noqa: E402
-from jackmanimation.lineage.lineage import production  # noqa: E402
+from jackmanimation.lineage.lineage import fed
+from jackmanimation.lineage.lineage import population_birth
+from jackmanimation.lineage.lineage import population_decline
+from jackmanimation.lineage.lineage import production
 
 
 def lineagedemo():
