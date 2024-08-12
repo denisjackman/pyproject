@@ -3,44 +3,44 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.DndProject.dnddice import dice  # noqa: E402
-from jackmanimation.DndProject.dnddice import number_generator  # noqa: E402
-from jackmanimation.DndProject.dndinsult import shakespearean_insult_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndinsult import dwarven_insult_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndnames import dwarven_name  # noqa: E402
-from jackmanimation.DndProject.dndnames import elfname_generator  # noqa: E402
-from jackmanimation.DndProject.dndnames import angelic_name  # noqa: E402
-from jackmanimation.DndProject.dndnames import barbarian_name  # noqa: E402
-from jackmanimation.DndProject.dndnames import demon_name  # noqa: E402
-from jackmanimation.DndProject.dndnames import hyborian_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndnames import lizardman_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndother import currency_converter  # noqa: E402
-from jackmanimation.DndProject.dndother import riddle_generator  # noqa: E402
-from jackmanimation.DndProject.dndother import fantasy_wine_name  # noqa: E402
-from jackmanimation.DndProject.dndother import hexmap_tile_type  # noqa: E402
-from jackmanimation.DndProject.dndother import book_title_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndother import aoran  # noqa: E402
-from jackmanimation.DndProject.dndother import plural  # noqa: E402
-from jackmanimation.DndProject.dndother import coatofarms_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndother import herb_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndother import adventure_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndother import lovecraft_creature_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndother import orc_tribe_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndother import organization_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndother import ship_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndnames import celtic_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndnames import epyptian_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndnames import greek_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndnames import orc_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndnames import oldenglish_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndnames import sumerian_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndplaces import town_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndplaces import woodname_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndplaces import streetname_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndplaces import dwarven_settlement_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndplaces import place_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndplaces import inn_name_generator  # noqa: E402,E501
-from jackmanimation.DndProject.dndplaces import site_name_generator  # noqa: E402,E501
+from jackmanimation.DndProject.dnddice import dice
+from jackmanimation.DndProject.dnddice import number_generator
+from jackmanimation.DndProject.dndinsult import shakespearean_insult_generator
+from jackmanimation.DndProject.dndinsult import dwarven_insult_generator
+from jackmanimation.DndProject.dndnames import dwarven_name
+from jackmanimation.DndProject.dndnames import elfname_generator
+from jackmanimation.DndProject.dndnames import angelic_name
+from jackmanimation.DndProject.dndnames import barbarian_name
+from jackmanimation.DndProject.dndnames import demon_name
+from jackmanimation.DndProject.dndnames import hyborian_name_generator
+from jackmanimation.DndProject.dndnames import lizardman_name_generator
+from jackmanimation.DndProject.dndother import currency_converter
+from jackmanimation.DndProject.dndother import riddle_generator
+from jackmanimation.DndProject.dndother import fantasy_wine_name
+from jackmanimation.DndProject.dndother import hexmap_tile_type
+from jackmanimation.DndProject.dndother import book_title_generator
+from jackmanimation.DndProject.dndother import aoran
+from jackmanimation.DndProject.dndother import plural
+from jackmanimation.DndProject.dndother import coatofarms_generator
+from jackmanimation.DndProject.dndother import herb_name_generator
+from jackmanimation.DndProject.dndother import adventure_name_generator
+from jackmanimation.DndProject.dndother import lovecraft_creature_generator
+from jackmanimation.DndProject.dndother import orc_tribe_generator
+from jackmanimation.DndProject.dndother import organization_generator
+from jackmanimation.DndProject.dndother import ship_name_generator
+from jackmanimation.DndProject.dndnames import celtic_name_generator
+from jackmanimation.DndProject.dndnames import epyptian_name_generator
+from jackmanimation.DndProject.dndnames import greek_name_generator
+from jackmanimation.DndProject.dndnames import orc_name_generator
+from jackmanimation.DndProject.dndnames import oldenglish_name_generator
+from jackmanimation.DndProject.dndnames import sumerian_name_generator
+from jackmanimation.DndProject.dndplaces import town_name_generator
+from jackmanimation.DndProject.dndplaces import woodname_generator
+from jackmanimation.DndProject.dndplaces import streetname_generator
+from jackmanimation.DndProject.dndplaces import dwarven_settlement_name_generator
+from jackmanimation.DndProject.dndplaces import place_name_generator
+from jackmanimation.DndProject.dndplaces import inn_name_generator
+from jackmanimation.DndProject.dndplaces import site_name_generator
 
 
 def main():

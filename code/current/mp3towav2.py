@@ -27,7 +27,7 @@ if __name__ == "__main__":
         for files in os.listdir("."):
             if files.endswith(".mp3"):
                 tempstr = files.split(".")
-                CMDSYS = f"ffmpeg -loglevel quiet -i {tempstr[0]}.mp3 -ar 8000 -ac 1 -acodec pcm_u8 {tempstr[0]}.wav"  # noqa: E501
+                CMDSYS = f"ffmpeg -loglevel quiet -i {tempstr[0]}.mp3 -ar 8000 -ac 1 -acodec pcm_u8 {tempstr[0]}.wav"
                 os.system(CMDSYS)
                 print(f'executing [{CMDSYS}]')
     else:
