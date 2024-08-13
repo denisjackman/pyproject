@@ -34,52 +34,52 @@ FONTDATA = "Z:/Resources/development/data/Fontdata.json"
 TILE_WIDTH = 64
 TILE_HEIGHT = 64
 
-GRASS_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/grass001.png')  # noqa: E501
-GRASS_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/grass002.png')  # noqa: E501
-GRASS_TILE_03 = pygame.image.load('Z:/Resources/development/game-assets/tiles/grass003.png')  # noqa: E501
-DIRT_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/dirt001.png')  # noqa: E501
-DIRT_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/dirt002.png')  # noqa: E501
-SAND_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/sand001.png')  # noqa: E501
-SAND_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/sand002.png')  # noqa: E501
-STONE_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/stone001.png')  # noqa: E501
-STONE_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/stone002.png')  # noqa: E501
-STONE_TILE_03 = pygame.image.load('Z:/Resources/development/game-assets/tiles/stone003.png')  # noqa: E501
-WATER_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/water001.png')  # noqa: E501
-WATER_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/water002.png')  # noqa: E501
-WATER_TILE_03 = pygame.image.load('Z:/Resources/development/game-assets/tiles/water003.png')  # noqa: E501
-WATER_TILE_04 = pygame.image.load('Z:/Resources/development/game-assets/tiles/water004.png')  # noqa: E501
-WATER_BOTTOM = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-bottom.png')  # noqa: E501
-WATER_BOTTOM_RIGHT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-bottomright.png')  # noqa: E501
-WATER_BOTTOM_LEFT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-bottomleft.png')  # noqa: E501
-WATER_LEFT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-left.png')  # noqa: E501
-WATER_RIGHT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-right.png')  # noqa: E501
-WATER_TOP = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-top.png')  # noqa: E501
-WATER_TOP_LEFT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-topleft.png')  # noqa: E501
-WATER_TOP_RIGHT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-topright.png')  # noqa: E501
+GRASS_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/grass001.png')
+GRASS_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/grass002.png')
+GRASS_TILE_03 = pygame.image.load('Z:/Resources/development/game-assets/tiles/grass003.png')
+DIRT_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/dirt001.png')
+DIRT_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/dirt002.png')
+SAND_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/sand001.png')
+SAND_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/sand002.png')
+STONE_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/stone001.png')
+STONE_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/stone002.png')
+STONE_TILE_03 = pygame.image.load('Z:/Resources/development/game-assets/tiles/stone003.png')
+WATER_TILE_01 = pygame.image.load('Z:/Resources/development/game-assets/tiles/water001.png')
+WATER_TILE_02 = pygame.image.load('Z:/Resources/development/game-assets/tiles/water002.png')
+WATER_TILE_03 = pygame.image.load('Z:/Resources/development/game-assets/tiles/water003.png')
+WATER_TILE_04 = pygame.image.load('Z:/Resources/development/game-assets/tiles/water004.png')
+WATER_BOTTOM = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-bottom.png')
+WATER_BOTTOM_RIGHT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-bottomright.png')
+WATER_BOTTOM_LEFT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-bottomleft.png')
+WATER_LEFT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-left.png')
+WATER_RIGHT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-right.png')
+WATER_TOP = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-top.png')
+WATER_TOP_LEFT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-topleft.png')
+WATER_TOP_RIGHT = pygame.image.load('Z:/Resources/development/game-assets/tiles/water-topright.png')
 
 TILES = []
-TILES.append(pygame.transform.scale(GRASS_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 0  # noqa: E501
-TILES.append(pygame.transform.scale(GRASS_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 1  # noqa: E501
-TILES.append(pygame.transform.scale(GRASS_TILE_03, (TILE_WIDTH, TILE_HEIGHT)))  # 2  # noqa: E501
-TILES.append(pygame.transform.scale(DIRT_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 3  # noqa: E501
-TILES.append(pygame.transform.scale(DIRT_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 4  # noqa: E501
-TILES.append(pygame.transform.scale(SAND_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 5  # noqa: E501
-TILES.append(pygame.transform.scale(SAND_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 6  # noqa: E501
-TILES.append(pygame.transform.scale(STONE_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 7  # noqa: E501
-TILES.append(pygame.transform.scale(STONE_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 8  # noqa: E501
-TILES.append(pygame.transform.scale(STONE_TILE_03, (TILE_WIDTH, TILE_HEIGHT)))  # 9  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 10  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 11  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_TILE_03, (TILE_WIDTH, TILE_HEIGHT)))  # 12  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_TILE_04, (TILE_WIDTH, TILE_HEIGHT)))  # 13  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_BOTTOM, (TILE_WIDTH, TILE_HEIGHT)))  # 14  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_BOTTOM_RIGHT, (TILE_WIDTH, TILE_HEIGHT)))  # 15  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_BOTTOM_LEFT, (TILE_WIDTH, TILE_HEIGHT)))  # 16  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_LEFT, (TILE_WIDTH, TILE_HEIGHT)))  # 17  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_RIGHT, (TILE_WIDTH, TILE_HEIGHT)))  # 18  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_TOP, (TILE_WIDTH, TILE_HEIGHT)))  # 19  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_TOP_LEFT, (TILE_WIDTH, TILE_HEIGHT)))  # 20  # noqa: E501
-TILES.append(pygame.transform.scale(WATER_TOP_RIGHT, (TILE_WIDTH, TILE_HEIGHT)))  # 21  # noqa: E501
+TILES.append(pygame.transform.scale(GRASS_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 0
+TILES.append(pygame.transform.scale(GRASS_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 1
+TILES.append(pygame.transform.scale(GRASS_TILE_03, (TILE_WIDTH, TILE_HEIGHT)))  # 2
+TILES.append(pygame.transform.scale(DIRT_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 3
+TILES.append(pygame.transform.scale(DIRT_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 4
+TILES.append(pygame.transform.scale(SAND_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 5
+TILES.append(pygame.transform.scale(SAND_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 6
+TILES.append(pygame.transform.scale(STONE_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 7
+TILES.append(pygame.transform.scale(STONE_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 8
+TILES.append(pygame.transform.scale(STONE_TILE_03, (TILE_WIDTH, TILE_HEIGHT)))  # 9
+TILES.append(pygame.transform.scale(WATER_TILE_01, (TILE_WIDTH, TILE_HEIGHT)))  # 10
+TILES.append(pygame.transform.scale(WATER_TILE_02, (TILE_WIDTH, TILE_HEIGHT)))  # 11
+TILES.append(pygame.transform.scale(WATER_TILE_03, (TILE_WIDTH, TILE_HEIGHT)))  # 12
+TILES.append(pygame.transform.scale(WATER_TILE_04, (TILE_WIDTH, TILE_HEIGHT)))  # 13
+TILES.append(pygame.transform.scale(WATER_BOTTOM, (TILE_WIDTH, TILE_HEIGHT)))  # 14
+TILES.append(pygame.transform.scale(WATER_BOTTOM_RIGHT, (TILE_WIDTH, TILE_HEIGHT)))  # 15
+TILES.append(pygame.transform.scale(WATER_BOTTOM_LEFT, (TILE_WIDTH, TILE_HEIGHT)))  # 16
+TILES.append(pygame.transform.scale(WATER_LEFT, (TILE_WIDTH, TILE_HEIGHT)))  # 17
+TILES.append(pygame.transform.scale(WATER_RIGHT, (TILE_WIDTH, TILE_HEIGHT)))  # 18
+TILES.append(pygame.transform.scale(WATER_TOP, (TILE_WIDTH, TILE_HEIGHT)))  # 19
+TILES.append(pygame.transform.scale(WATER_TOP_LEFT, (TILE_WIDTH, TILE_HEIGHT)))  # 20
+TILES.append(pygame.transform.scale(WATER_TOP_RIGHT, (TILE_WIDTH, TILE_HEIGHT)))  # 21
 
 GAMEMAP = [[0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0],
@@ -163,11 +163,11 @@ def main():
                 info = f"Mouse released at  x:{mousepos[0]} y:{mousepos[1]}"
 
         infotext = infofont.render(info, True, WHITE, BROWN)
-        mousetext = infofont.render(f"Mouse at x:{mousepos[0]} y:{mousepos[1]}",  # noqa: E501
+        mousetext = infofont.render(f"Mouse at x:{mousepos[0]} y:{mousepos[1]}",
                                     True, WHITE, BROWN)
-        maptext = infofont.render(f"Map is {len(GAMEMAP[0])}:Wide x {len(GAMEMAP)}:High", True, WHITE, BROWN)  # noqa: E501
-        spritetext = infofont.render(f"Sprite is {TILES[0].get_width()}:Wide x {TILES[0].get_height()}:High", True, WHITE, BROWN)  # noqa: E501
-        tiletext = infofont.render(f"map is {len(GAMEMAP[0])}:Wide x {len(GAMEMAP)}:High", True, WHITE, BROWN)  # noqa: E501
+        maptext = infofont.render(f"Map is {len(GAMEMAP[0])}:Wide x {len(GAMEMAP)}:High", True, WHITE, BROWN)
+        spritetext = infofont.render(f"Sprite is {TILES[0].get_width()}:Wide x {TILES[0].get_height()}:High", True, WHITE, BROWN)
+        tiletext = infofont.render(f"map is {len(GAMEMAP[0])}:Wide x {len(GAMEMAP)}:High", True, WHITE, BROWN)
 
         clock.tick(100)
         window.fill((WHITE))

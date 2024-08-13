@@ -17,7 +17,7 @@ def compare_files(cf_file1_path, cf_file2_path):
               "r",
               encoding='utf-8-sig') as file1, open(cf_file2_path,
                                                    "r",
-                                                   encoding='utf-8-sig') as file2:  # noqa: E501
+                                                   encoding='utf-8-sig') as file2:
 
         # Read the contents of both files into lists.
         file1_contents = file1.readlines()

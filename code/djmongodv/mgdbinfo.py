@@ -4,7 +4,7 @@ import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.dbfunctions.mongofunctions import open_mongo  # noqa: E402
+from jackmanimation.dbfunctions.mongofunctions import open_mongo
 
 
 def main():

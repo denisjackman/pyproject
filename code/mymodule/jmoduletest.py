@@ -5,21 +5,21 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.genfunctions.various import newRating  # noqa: E402
-from jackmanimation.genfunctions.various import ageCalculator  # noqa: E402
-from jackmanimation.genfunctions.various import passwordgenerator  # noqa: E402
-from jackmanimation.genfunctions.various import isLeapYear  # noqa: E402
+from jackmanimation.genfunctions.various import newRating
+from jackmanimation.genfunctions.various import ageCalculator
+from jackmanimation.genfunctions.various import passwordgenerator
+from jackmanimation.genfunctions.various import isLeapYear
 
-from jackmanimation.gameitems.constants import SMILEY1  # noqa: E402
-from jackmanimation.gameitems.colours import BLACK  # noqa: E402
-from jackmanimation.gameitems.colours import COLOURS_RGB_LIST  # noqa: E402
+from jackmanimation.gameitems.constants import SMILEY1
+from jackmanimation.gameitems.colours import BLACK
+from jackmanimation.gameitems.colours import COLOURS_RGB_LIST
 
-from jackmanimation.lineage.lineage import fed  # noqa: E402
-from jackmanimation.lineage.lineage import population_birth  # noqa: E402
-from jackmanimation.lineage.lineage import population_decline  # noqa: E402
+from jackmanimation.lineage.lineage import fed
+from jackmanimation.lineage.lineage import population_birth
+from jackmanimation.lineage.lineage import population_decline
 
-from jackmanimation.genfunctions.searchutils import linear_search  # noqa: E402
-from jackmanimation.genfunctions.searchutils import binary_search  # noqa: E402
+from jackmanimation.genfunctions.searchutils import linear_search
+from jackmanimation.genfunctions.searchutils import binary_search
 
 
 def constantdemo():
@@ -63,8 +63,8 @@ def lineagedemo():
           f"{happyfactors} globalfactors {globalfactors} localfactors "
           f"{localfactors}")
     print(f'[-] fed                : {fed(pop, fu)}')
-    print(f'[-] population_birth   : {population_birth(pop, happyfactors, globalfactors, localfactors)}')  # noqa: E501
-    print(f'[-] population_decline : {population_decline(pop, happyfactors, globalfactors, localfactors)}')  # noqa: E501
+    print(f'[-] population_birth   : {population_birth(pop, happyfactors, globalfactors, localfactors)}')
+    print(f'[-] population_decline : {population_decline(pop, happyfactors, globalfactors, localfactors)}')
     print('[+] Finished')
 
 
@@ -73,10 +73,10 @@ def searchdemo():
     print("[+] Search Algorithm start")
     searchlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     print(f'[-] searchlist is {searchlist}')
-    print(f'[-] Linear looking for 5 in searchlist {linear_search(searchlist, 5)}')  # noqa: E501
-    print(f'[-] Linear looking for 20 in searchlist {linear_search(searchlist, 20)}')  # noqa: E501
-    print(f'[-] Binary looking for 5 in searchlist {binary_search(searchlist, 0, len(searchlist)-1, 5)}')  # noqa: E501
-    print(f'[-] Binary looking for 20 in searchlist {binary_search(searchlist, 0, len(searchlist)-1, 20)}')  # noqa: E501
+    print(f'[-] Linear looking for 5 in searchlist {linear_search(searchlist, 5)}')
+    print(f'[-] Linear looking for 20 in searchlist {linear_search(searchlist, 20)}')
+    print(f'[-] Binary looking for 5 in searchlist {binary_search(searchlist, 0, len(searchlist)-1, 5)}')
+    print(f'[-] Binary looking for 20 in searchlist {binary_search(searchlist, 0, len(searchlist)-1, 20)}')
     print("[+] Search Algorithm finish")
 
 

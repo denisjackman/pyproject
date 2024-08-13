@@ -15,8 +15,8 @@ def main():
             tick_label=labels,
             label='data science',
             bottom=web_usage)
-    web_and_games_usage = [web_usage[i] + data_science_usage[i] for i in range(len(web_usage))]  # noqa: E501
-    plt.bar(index, games_usage, tick_label=labels, label='games', bottom=web_and_games_usage)  # noqa: E501
+    web_and_games_usage = [web_usage[i] + data_science_usage[i] for i in range(len(web_usage))]
+    plt.bar(index, games_usage, tick_label=labels, label='games', bottom=web_and_games_usage)
     plt.ylabel('Usage')
     plt.xlabel('Programming Languages')
     plt.legend()

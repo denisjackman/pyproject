@@ -299,7 +299,7 @@ class HexGrid(namedtuple("HexGrid", "width height")):
         width, height = self
         x_range = _make_range(rx, r_width, width, width)
         y_range = _make_range(ry, r_height, 2*height, 3*height)
-        return (Hex(x, y) for y in y_range for x in x_range if (x + y) % 2 == 0)  # noqa: E501
+        return (Hex(x, y) for y in y_range for x in x_range if (x + y) % 2 == 0)
 
 
 class HexPathFinder:

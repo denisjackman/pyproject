@@ -1,6 +1,6 @@
 '''Test flat_topped_trihex.py'''
 import unittest
-from flat_topped_trihex import *  # pylint: disable=wildcard-import,unused-wildcard-import  # noqa: F403, E501
+from flat_topped_trihex import *  # pylint: disable=wildcard-import,unused-wildcard-import
 
 
 class TestFlatToppedTriHex(unittest.TestCase):
@@ -11,7 +11,7 @@ class TestFlatToppedTriHex(unittest.TestCase):
                           (0, 1, 0),
                           (5, -2, -3),
                           (-3, 0, 2)]:
-            self.assertEqual(pick_trihex(*trihex_center(a, b, c)),  # noqa: F405, E501
+            self.assertEqual(pick_trihex(*trihex_center(a, b, c)),
                              (a, b, c))
 
     def test_tri_convert(self):
@@ -20,8 +20,8 @@ class TestFlatToppedTriHex(unittest.TestCase):
                           (0, 1, 0),
                           (5, -2, -3),
                           (-3, 0, 2)]:
-            for tri in trihex_to_tris(a, b, c):  # noqa: F405
-                self.assertEqual(tri_to_trihex(*tri), (a, b, c))  # noqa: F405
+            for tri in trihex_to_tris(a, b, c):
+                self.assertEqual(tri_to_trihex(*tri), (a, b, c))
 
 
 if __name__ == '__main__':

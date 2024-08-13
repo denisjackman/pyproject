@@ -4,7 +4,7 @@
 import os
 import sys
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
-import pygame as pg  # pylint: disable=C0413  # noqa: E402
+import pygame as pg  # pylint: disable=C0413
 
 FILE_LOCATION = 'Z:/Resources/development/cardgame/image/cards'
 BACK_LOCATION = 'Z:/Resources/development/cardgame/image/backs/back-side.png'

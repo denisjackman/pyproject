@@ -78,8 +78,8 @@ gb = TGB(screeni, IH, path[0])
 # Load the interface images... at the moment they need
 # to be loaded after the Game Board has an instance
 
-IH.add_image(pygame.image.load(graphics_path+gb.sc.get("interface_filename", "leiska.png")).convert(), "interface")  # noqa: E501
-IH.add_image(pygame.image.load(graphics_path+gb.sc.get("menu_interface_filename", "menu.png")).convert(), "menu_interface")  # noqa: E501
+IH.add_image(pygame.image.load(graphics_path+gb.sc.get("interface_filename", "leiska.png")).convert(), "interface")
+IH.add_image(pygame.image.load(graphics_path+gb.sc.get("menu_interface_filename", "menu.png")).convert(), "menu_interface")
 
 # We have nothing to lose if we try to use psyco.
 try:
@@ -126,14 +126,14 @@ optionsmenu = gamemenu.TGameMenu(screeni,
                                    0,
                                    ["value_bool_editor",
                                     gb.show_cpu_moves_with_lines],
-                                   "(Use left and right arrow key) Show CPU soldiers moves with lines."),  # noqa: E501
+                                   "(Use left and right arrow key) Show CPU soldiers moves with lines."),
                                   ("CPU AI Recursion Depth",
                                    1,
                                    ["value_int_editor",
                                     gb.ai_recursion_depth,
                                     [1,
                                      20]],
-                                   "(Use left and right arrow key) Increase AI Recursion Depth: computer may play better but uses more CPU."),  # noqa: E501
+                                   "(Use left and right arrow key) Increase AI Recursion Depth: computer may play better but uses more CPU."),
                                   ("Return", 2, [], None)],
                                  800/2-10,
                                  200,

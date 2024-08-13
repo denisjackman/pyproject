@@ -133,11 +133,11 @@ class TRecurser:
             edm = self.board.get_right_edm(y1)
             for i in range(6):
                 if self.board.validxy(x1+edm[i][0], y1+edm[i][1]):
-                    if self.board.data[self.board.gct(x1+edm[i][0], y1+edm[i][1])] != island_owner:  # noqa: E501
+                    if self.board.data[self.board.gct(x1+edm[i][0], y1+edm[i][1])] != island_owner:
                         if self.board.data[self.board.gct(x1+edm[i][0],
                                                           y1+edm[i][1])] != 0:
                             # This works because set can't have duplicates
-                            border_area_set.add(self.board.gct(x1+edm[i][0], y1+edm[i][1]))  # noqa: E501
+                            border_area_set.add(self.board.gct(x1+edm[i][0], y1+edm[i][1]))
         return border_area_set
 
     def recurse_own_island(self, x, y):

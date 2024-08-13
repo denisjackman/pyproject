@@ -20,15 +20,15 @@ import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../../..'))
 # Adventure game classes and imports
-from jackmanimation.advclasses.equipment import Clothes  # noqa: E402
-from jackmanimation.advclasses.race import Human  # noqa: E402
-from jackmanimation.advclasses.weapons import Broadsword, CommonSpear, Crossbow, Dirk  # noqa: E402, E501
-from jackmanimation.advclasses.creature import Bat, Bee, GiantAnt, Rat, Scorpion  # noqa: E402, E501
-from jackmanimation.advclasses.playerclass import Mage, Warrior  # noqa: E402
-from jackmanimation.advclasses.player import GamePlayer as Player  # noqa: E402
-from jackmanimation.advclasses.magicspells import Bubble, Hail  # noqa: E402
+from jackmanimation.advclasses.equipment import Clothes
+from jackmanimation.advclasses.race import Human
+from jackmanimation.advclasses.weapons import Broadsword, CommonSpear, Crossbow, Dirk
+from jackmanimation.advclasses.creature import Bat, Bee, GiantAnt, Rat, Scorpion
+from jackmanimation.advclasses.playerclass import Mage, Warrior
+from jackmanimation.advclasses.player import GamePlayer as Player
+from jackmanimation.advclasses.magicspells import Bubble, Hail
 # custom number generator
-from jackmanimation.DndProject.dnddice import number_generator  # noqa: E402
+from jackmanimation.DndProject.dnddice import number_generator
 
 # variable defaults
 PLAYER_STATS = ''

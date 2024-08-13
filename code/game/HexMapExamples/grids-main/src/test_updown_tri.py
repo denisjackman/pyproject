@@ -1,6 +1,6 @@
 '''Test updown_tri.py'''
 import unittest
-from updown_tri import *  # pylint: disable=wildcard-import,unused-wildcard-import  # noqa: F403, E501
+from updown_tri import *  # pylint: disable=wildcard-import,unused-wildcard-import
 
 
 class TestUpDownTri(unittest.TestCase):
@@ -9,14 +9,14 @@ class TestUpDownTri(unittest.TestCase):
         '''Test tri_line_intersect'''
         x1, y1 = tri_center(0, 1, 0)  # noqa: F405
         x2, y2 = tri_center(1, 1, 0)  # noqa: F405
-        self.assertListEqual(list(tri_line_intersect(x1, y1, x2, y2)), [  # noqa: F405, E501
+        self.assertListEqual(list(tri_line_intersect(x1, y1, x2, y2)), [
             (0, 1, 0),
             (1, 1, 0),
         ])
 
         x1, y1 = tri_center(0, 1, 0)  # noqa: F405
         x2, y2 = tri_center(2, -1, 1)  # noqa: F405
-        self.assertListEqual(list(tri_line_intersect(x1, y1, x2, y2)), [  # noqa: F405, E501
+        self.assertListEqual(list(tri_line_intersect(x1, y1, x2, y2)), [
             (0, 1, 0),
             (1, 1, 0),
             (1, 0, 0),
@@ -27,7 +27,7 @@ class TestUpDownTri(unittest.TestCase):
 
         x1, y1 = tri_center(0, 1, 0)  # noqa: F405
         x2, y2 = tri_center(2, 0, -1)  # noqa: F405
-        self.assertListEqual(list(tri_line_intersect(x1, y1, x2, y2)), [  # noqa: F405, E501
+        self.assertListEqual(list(tri_line_intersect(x1, y1, x2, y2)), [
             (0, 1, 0),
             (1, 1, 0),
             (1, 1, -1),
@@ -37,7 +37,7 @@ class TestUpDownTri(unittest.TestCase):
 
     def test_line(self):
         ''' Test tri_line'''
-        self.assertListEqual(list(tri_line(1, 0, 1, 2, 0, 0)), [  # noqa: F405, E501
+        self.assertListEqual(list(tri_line(1, 0, 1, 2, 0, 0)), [
             (1, 0, 1),
             (1, 0, 0),
             (2, 0, 0),

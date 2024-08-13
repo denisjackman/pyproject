@@ -71,7 +71,7 @@ class HexMap:
                     pos = hexutil.Hex(x, y)
                     if pos == self.player:
                         ch = '@'
-                    elif fov is None or (fov.get(pos, 0) & light_fov.get(pos, 0)):  # noqa: E501
+                    elif fov is None or (fov.get(pos, 0) & light_fov.get(pos, 0)):
                         if pos in path:
                             ch = '%'
                         else:
@@ -147,15 +147,15 @@ class TestHex(unittest.TestCase):
     def test_rotations(self):
         ''' Test that hexutil.Hex.rotations returns the correct rotations.'''
         trhex = hexutil.Hex(2, 0)
-        self.assertEqual([r(trhex) for r in hexutil.Hex.rotations], hexutil.origin.neighbours())  # noqa: E501
+        self.assertEqual([r(trhex) for r in hexutil.Hex.rotations], hexutil.origin.neighbours())
 
     def test_add(self):
         ''' Test that hexutil.Hex.__add__ and hexutil.Hex.__sub__ work.'''
-        self.assertEqual(hexutil.Hex(2, 4) + hexutil.Hex(4, 6), hexutil.Hex(6, 10))  # noqa: E501
+        self.assertEqual(hexutil.Hex(2, 4) + hexutil.Hex(4, 6), hexutil.Hex(6, 10))
 
     def test_sub(self):
         ''' Test that hexutil.Hex.__add__ and hexutil.Hex.__sub__ work.'''
-        self.assertEqual(hexutil.Hex(2, 4) - hexutil.Hex(3, 7), hexutil.Hex(-1, -3))  # noqa: E501
+        self.assertEqual(hexutil.Hex(2, 4) - hexutil.Hex(3, 7), hexutil.Hex(-1, -3))
 
     def test_neg(self):
         ''' Test that hexutil.Hex.__neg__ works.'''
@@ -177,7 +177,7 @@ class TestHex(unittest.TestCase):
         for nb in h.neighbours():
             self.assertEqual(nb.distance(nb), 0)
             self.assertEqual(nb.distance(h), 1)
-            self.assertEqual(max(nb2.distance(h) for nb2 in nb.neighbours()), 2)  # noqa: E501
+            self.assertEqual(max(nb2.distance(h) for nb2 in nb.neighbours()), 2)
 
     def test_rotate_left(self):
         '''

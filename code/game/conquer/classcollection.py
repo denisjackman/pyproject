@@ -77,13 +77,13 @@ class TCursor:
             # skin configuration file if we clicked any gui elements.
             if self.mouse_pos[0] >= self.board.sc["button_endturn"][0][0]:
                 if self.mouse_pos[1] >= self.board.sc["button_endturn"][0][1]:
-                    if self.mouse_pos[0] <= self.board.sc["button_endturn"][1][0]:  # noqa: E501
-                        if self.mouse_pos[1] <= self.board.sc["button_endturn"][1][1]:  # noqa: E501
+                    if self.mouse_pos[0] <= self.board.sc["button_endturn"][1][0]:
+                        if self.mouse_pos[1] <= self.board.sc["button_endturn"][1][1]:
                             self.board.end_turn()
             if self.mouse_pos[0] >= self.board.sc["button_quit"][0][0]:
                 if self.mouse_pos[1] >= self.board.sc["button_quit"][0][1]:
                     if self.mouse_pos[0] <= self.board.sc["button_quit"][1][0]:
-                        if self.mouse_pos[1] <= self.board.sc["button_quit"][1][1]:  # noqa: E501
+                        if self.mouse_pos[1] <= self.board.sc["button_quit"][1][1]:
                             self.chosen_actor = None
                             self.chosen_dump = None
                             self.board.gamerunning = False
@@ -126,16 +126,16 @@ class TCursor:
                 if self.mouse_pos[1] >= 366:
                     if self.mouse_pos[0] <= 782:
                         if self.mouse_pos[1] <= 416:
-                            self.board.write_edit_map(self.board.gamepath + "scenarios" + sep + self.board.text_input("[SAVE MAP] Map name?",  # noqa: E501
-                                                                                                                      (800/2-110, 300),  # noqa: E501
-                                                                                                                      (240, 45)))  # noqa: E501
+                            self.board.write_edit_map(self.board.gamepath + "scenarios" + sep + self.board.text_input("[SAVE MAP] Map name?",
+                                                                                                                      (800/2-110, 300),
+                                                                                                                      (240, 45)))
             if self.mouse_pos[0] >= 618:
                 if self.mouse_pos[1] >= 429:
                     if self.mouse_pos[0] <= 782:
                         if self.mouse_pos[1] <= 472:
-                            filessi = self.board.gamepath + "scenarios" + sep + self.board.text_input("[LOAD MAP] Map name?",  # noqa: E501
-                                                                                                      (800/2-110, 300),  # noqa: E501
-                                                                                                      (240, 45))  # noqa: E501
+                            filessi = self.board.gamepath + "scenarios" + sep + self.board.text_input("[LOAD MAP] Map name?",
+                                                                                                      (800/2-110, 300),
+                                                                                                      (240, 45))
                             if path.exists(filessi):
                                 self.board.load_map(filessi)
             if self.mouse_pos[0] >= 607:
@@ -145,7 +145,7 @@ class TCursor:
                             self.board.gamerunning = False
             if self.mouse_pos[0] < 573 and self.mouse_pos[1] < 444:
                 if self.x > 0 and self.y > 0 and self.y < 13 and self.x < 29:
-                    self.board.data[self.board.gct(self.x, self.y)] = self.board.map_edit_info[2]  # noqa: E501
+                    self.board.data[self.board.gct(self.x, self.y)] = self.board.map_edit_info[2]
 
     def get_color(self):
         '''

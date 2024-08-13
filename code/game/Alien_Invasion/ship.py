@@ -15,7 +15,7 @@ class Ship:
         self.settings = ai_game.settings
 
         # Load the ship and get its rect.
-        self.image = pygame.image.load('Z:/Resources/development/alien_invasion/images/ship.bmp')  # noqa: E501
+        self.image = pygame.image.load('Z:/Resources/development/alien_invasion/images/ship.bmp')
         self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen.

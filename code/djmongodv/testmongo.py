@@ -6,7 +6,7 @@ from pymongo.server_api import ServerApi
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
 
 
 def main():

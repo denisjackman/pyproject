@@ -4,11 +4,11 @@ import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.dbfunctions.mongofunctions import open_mongo  # noqa: E402
-from jackmanimation.dbfunctions.mongofunctions import insertData  # noqa: E402
-from jackmanimation.dbfunctions.mongofunctions import getData  # noqa: E402
-from jackmanimation.dbfunctions.mongofunctions import updateData  # noqa: E402
-from jackmanimation.dbfunctions.mongofunctions import deleteData  # noqa: E402
+from jackmanimation.dbfunctions.mongofunctions import open_mongo
+from jackmanimation.dbfunctions.mongofunctions import insertData
+from jackmanimation.dbfunctions.mongofunctions import getData
+from jackmanimation.dbfunctions.mongofunctions import updateData
+from jackmanimation.dbfunctions.mongofunctions import deleteData
 
 
 def main():

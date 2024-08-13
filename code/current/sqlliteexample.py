@@ -5,15 +5,15 @@
     The query is SELECT count(1) from moz_places
     Moz_places is a table in the database that contains the urls
     reference link
-    https://medium.com/@jsaxena017/web-browser-forensics-part-2-firefox-browser-3dc6ef104607#:~:text=sqlite%20which%20is%20located%20in,are%20associated%20with%20browsing%20history.  # noqa: E501
+    https://medium.com/@jsaxena017/web-browser-forensics-part-2-firefox-browser-3dc6ef104607#:~:text=sqlite%20which%20is%20located%20in,are%20associated%20with%20browsing%20history.
 """
 import os
 import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.dbfunctions.slitefunc import open_sqllite  # noqa: E402
-from jackmanimation.dbfunctions.slitefunc import sqllitequery  # noqa: E402
+from jackmanimation.dbfunctions.slitefunc import open_sqllite
+from jackmanimation.dbfunctions.slitefunc import sqllitequery
 
 FIREFOX_FILE_LOCATION = "Z:/Data/Firefox/places.sqlite"
 CHROME_LOCATION = "Z:/Data/Chrome/History"
