@@ -163,7 +163,7 @@ class TGB:  # pylint: disable=R0904
                 # Add absent players: 6 - ((Human Players) + (Cpu Players))
                 # If 0 then "none\n" does not get written
             if (self.map_edit_info[0] + self.map_edit_info[1]) > 0:
-                for i in range(6 - (self.map_edit_info[0] + self.map_edit_info[1])):  # noqa: E501
+                for i in range(6 - (self.map_edit_info[0] + self.map_edit_info[1])):
                     file.write("none\n")
             # Iterate keys and values in board
             # DATA and write them (separated with |)
@@ -239,8 +239,8 @@ class TGB:  # pylint: disable=R0904
                                               (int(rivi[3]),
                                                int(rivi[4])))
                 if rivi[0] == "making_moves_text_topleft_corner":
-                    self.sc["making_moves_text_topleft_corner"] = (int(rivi[1]),  # noqa: E501
-                                                                   int(rivi[2]))  # noqa: E501
+                    self.sc["making_moves_text_topleft_corner"] = (int(rivi[1]),
+                                                                   int(rivi[2]))
                 if rivi[0] == "menu_interface_filename":
                     self.sc["menu_interface_filename"] = rivi[1]
                 if rivi[0] == "making_moves_text_color":
@@ -269,7 +269,7 @@ class TGB:  # pylint: disable=R0904
             for eventti in pygame.event.get():
                 # Mouse click
                 if eventti.type == pygame.MOUSEBUTTONDOWN:
-                    x1, y1 = self.pixelToHexMap(eventti.pos[0], eventti.pos[1])  # noqa: E501
+                    x1, y1 = self.pixelToHexMap(eventti.pos[0], eventti.pos[1])
                     # Scrolling included in calculations
                     x1 += self.cursor.scroll_x
                     # Coordinates into cursor's memory
@@ -346,7 +346,7 @@ class TGB:  # pylint: disable=R0904
                                                   self.screen,
                                                   None))
             for i in range(randomplayers_cpu):
-                self.playerlist.append(cc.TPlayer(f"{ai.random.choice(self.cpu_names)} (cpu)",  # noqa: E501
+                self.playerlist.append(cc.TPlayer(f"{ai.random.choice(self.cpu_names)} (cpu)",
                                                   i + (humanplayers + 1),
                                                   self.screen,
                                                   ai.TAi(self)))
@@ -360,7 +360,7 @@ class TGB:  # pylint: disable=R0904
             self.generate_map(50, random.randint(13, 27))
         else:
             # Read a scenario
-            self.load_map(os.path.join(self.gamepath, "scenarios") + os.sep + scenariofile)   # noqa: E501
+            self.load_map(os.path.join(self.gamepath, "scenarios") + os.sep + scenariofile) 
 
         # Add resource dumps
         self.fill_dumps()
@@ -504,7 +504,7 @@ class TGB:  # pylint: disable=R0904
                     if self.validxy(actor.x + edm[i][0],
                                     actor.y + edm[i][1]):
                         if self.data[self.gct(actor.x+edm[i][0],
-                                              actor.y+edm[i][1])] == actor.side:  # noqa: E501
+                                              actor.y+edm[i][1])] == actor.side:
                             # If there is friendly land next to actor,
                             # it is not isolated
                             found = True
@@ -583,13 +583,13 @@ class TGB:  # pylint: disable=R0904
         else:
             # Target is blocked, show the reason for blocking
             # but only if attacker is human player and seen on the screen
-            if self.seenxy(tulos[1], tulos[2]) and not self.get_player_by_side(actori.side).ai_controller:  # noqa: E501
+            if self.seenxy(tulos[1], tulos[2]) and not self.get_player_by_side(actori.side).ai_controller:
                 # Clear selected actor
                 self.cursor.chosen_actor = None
                 # Convert (scrolled) hex map coordinates into screen pixels
                 # and draw circle there
-                pixelX, pixelY = self.hexMapToPixel(tulos[1]-self.cursor.scroll_x,  # noqa: E501
-                                                    tulos[2])  # noqa: E501
+                pixelX, pixelY = self.hexMapToPixel(tulos[1]-self.cursor.scroll_x,
+                                                    tulos[2])
                 pygame.draw.circle(self.screen,
                                    (0, 255, 0),
                                    (pixelX + 20, pixelY + 20),
@@ -663,7 +663,7 @@ class TGB:  # pylint: disable=R0904
                     # Check if found actor is actually a
                     # dump (good to be careful)
                     # and it's side is the same as islands
-                    if current_dump.dump and current_dump.side == self.data[self.gct(x11, y11)]:  # noqa: E501
+                    if current_dump.dump and current_dump.side == self.data[self.gct(x11, y11)]:
                         # We'll add the dumps supplies in the sum counter
                         summed_supplies += current_dump.supplies
 
@@ -800,7 +800,7 @@ class TGB:  # pylint: disable=R0904
                         break
                     x = random.randint(1, 28)
                     y = random.randint(1, 13)
-                    if ((self.data[self.gct(x, y)] in pelaajat) and (self.actorat(x, y) is None)):  # noqa: E501
+                    if ((self.data[self.gct(x, y)] in pelaajat) and (self.actorat(x, y) is None)):
                         ok = True
                 if retry < 500:
                     self.actors.add(cc.TActor(x,
@@ -881,10 +881,10 @@ class TGB:  # pylint: disable=R0904
             # I splitted the lines here, see the last comma
             self.screen.blit(self.pics.gi(f"{jau[0].id}"),
                              (self.sc["scoreboard_text_topleft_corner"][0],
-                              self.sc["scoreboard_text_topleft_corner"][1] + 35 * counter - 13))  # noqa: E501
+                              self.sc["scoreboard_text_topleft_corner"][1] + 35 * counter - 13))
             self.text_at(f"{jau[1]}     {jau[0].nimi}",
-                         (self.sc["scoreboard_text_topleft_corner"][0] + 15,  # noqa: E501
-                          self.sc["scoreboard_text_topleft_corner"][1] + 35 * counter),  # noqa: E501
+                         (self.sc["scoreboard_text_topleft_corner"][0] + 15,
+                          self.sc["scoreboard_text_topleft_corner"][1] + 35 * counter),
                          color=(self.sc["scoreboard_text_color"][0],
                                 self.sc["scoreboard_text_color"][1],
                                 self.sc["scoreboard_text_color"][2]),
@@ -938,7 +938,7 @@ class TGB:  # pylint: disable=R0904
         if self.map_edit_info[2] == 0:
             teksti = "Eraser"
         else:
-            if self.map_edit_info[2] <= (self.map_edit_info[0] + self.map_edit_info[1]):  # noqa: E501
+            if self.map_edit_info[2] <= (self.map_edit_info[0] + self.map_edit_info[1]):
                 teksti = f"Player {self.map_edit_info[2]} land"
             else:
                 # Land without player in the map, good for connecting player
@@ -1007,10 +1007,10 @@ class TGB:  # pylint: disable=R0904
                 if self.data[self.gct(x, y)] > 0:
 
                     # Get pixel coordinates
-                    pixelX, pixelY = self.hexMapToPixel(x-self.cursor.scroll_x, y)  # noqa: E501
+                    pixelX, pixelY = self.hexMapToPixel(x-self.cursor.scroll_x, y)
 
                     # Draw the piece
-                    self.screen.blit(self.pics.gi(str(self.data[self.gct(x, y)])),  # noqa: E501
+                    self.screen.blit(self.pics.gi(str(self.data[self.gct(x, y)])),
                                      (pixelX, pixelY))
 
                     # Check if actor is found at the coordinates
@@ -1024,7 +1024,7 @@ class TGB:  # pylint: disable=R0904
                             # If the dump is on our side
                             # and we are not AI controlled, then we'll
                             # draw the supply count on the dump.
-                            if actor.side == self.turn and not self.get_player_by_side(actor.side).ai_controller:  # noqa: E501
+                            if actor.side == self.turn and not self.get_player_by_side(actor.side).ai_controller:
                                 # self.text_at("%d"%actor.supplies,
                                 # (pixelX+16,pixelY+11),
                                 # fontti=font2,
@@ -1049,7 +1049,7 @@ class TGB:  # pylint: disable=R0904
                                          fontti=font)
         # If an actor is selected, then we'll draw red box around the actor
         if self.cursor.chosen_actor:
-            pixelX, pixelY = self.hexMapToPixel(self.cursor.x - self.cursor.scroll_x,  # noqa: E501
+            pixelX, pixelY = self.hexMapToPixel(self.cursor.x - self.cursor.scroll_x,
                                                 self.cursor.y)
             pygame.draw.rect(self.screen,
                              self.cursor.get_color(),
@@ -1062,7 +1062,7 @@ class TGB:  # pylint: disable=R0904
             kolorissi = (self.sc["unit_status_text_color"][0],
                          self.sc["unit_status_text_color"][1],
                          self.sc["unit_status_text_color"][2])
-            x1, y1 = self.sc["unit_status_text_topleft_corner"][0], self.sc["unit_status_text_topleft_corner"][1]   # noqa: E501
+            x1, y1 = self.sc["unit_status_text_topleft_corner"][0], self.sc["unit_status_text_topleft_corner"][1] 
             self.text_at("Resource dump",
                          (x1, y1+30),
                          fontti=font4,
@@ -1096,7 +1096,7 @@ class TGB:  # pylint: disable=R0904
         okei = False
         while not okei:
             try:
-                montako_h = int(self.text_input("How many human players (1-6)?",  # noqa: E501
+                montako_h = int(self.text_input("How many human players (1-6)?",
                                                 800/2-110,
                                                 300,
                                                 240,
@@ -1120,7 +1120,7 @@ class TGB:  # pylint: disable=R0904
                 minssi = 1
             while not okei:
                 try:
-                    montako_c = int(self.text_input(f"How many cpu players ({minssi}-{6-montako_h})?",  # noqa: E501
+                    montako_c = int(self.text_input(f"How many cpu players ({minssi}-{6-montako_h})?",
                                                     800/2-110,
                                                     300,
                                                     240,
@@ -1189,7 +1189,7 @@ class TGB:  # pylint: disable=R0904
             # Is the coordinate valid?
             if self.validxy(x+edm[i][0], y+edm[i][1]):
                 # Is the targets neighbour same side as the target
-                if self.data[self.gct(x+edm[i][0], y+edm[i][1])] == self.data[self.gct(x, y)]:  # noqa: E501
+                if self.data[self.gct(x+edm[i][0], y+edm[i][1])] == self.data[self.gct(x, y)]:
                     # Has the neighbourds adjacent
                     # own piece a soldier defending?
                     defenderi = self.actorat(x+edm[i][0], y+edm[i][1])
@@ -1231,7 +1231,7 @@ class TGB:  # pylint: disable=R0904
         ok = False
         while not ok:
             self.fill_random_boxes(1, [1, 2, 3, 4, 5, 6], max_x)
-            if self.rek.is_the_whole_earth_connected(max_x=max_x) and self.count_world_area() >= minsize:  # noqa: E501
+            if self.rek.is_the_whole_earth_connected(max_x=max_x) and self.count_world_area() >= minsize:
                 ok = True
         self.fill_dumps()
         self.salary_time_to_dumps_by_turn(self.get_player_id_list(), True)
@@ -1251,15 +1251,15 @@ class TGB:  # pylint: disable=R0904
 
         # Iterate through a copy as original actors
         # is probably going to be modified
-        for city in self.actors.copy():  # pylint: disable=too-many-nested-blocks  # noqa: E501
+        for city in self.actors.copy():  # pylint: disable=too-many-nested-blocks
 
             # Alive Dump & current turn player's & has (supplies > 0)
-            if not city.dead and city.dump and city.supplies > 0 and city.side == self.turn:  # noqa: E501
+            if not city.dead and city.dump and city.supplies > 0 and city.side == self.turn:
 
                 # Has the island space for a new soldier?
                 # tulos[0] new random place for actor (not checked if legal)
                 # tulos[1] island's land coordinates
-                tulos = self.rek.recurse_new_random_coord_for_dump_on_island(city.x, city.y)  # noqa: E501
+                tulos = self.rek.recurse_new_random_coord_for_dump_on_island(city.x, city.y)
 
                 # No space for actor
                 if not tulos:
@@ -1284,7 +1284,7 @@ class TGB:  # pylint: disable=R0904
                 for gctee in tulos[1]:
                     hei = self.actorgctat(gctee)
                     if hei:
-                        if hei.side == self.turn and not hei.dump and not hei.dead:  # noqa: E501
+                        if hei.side == self.turn and not hei.dump and not hei.dead:
                             soldiercounter2 += 1
                             if hei.level == 1:
                                 ykkoscount += 1
@@ -1344,17 +1344,17 @@ class TGB:  # pylint: disable=R0904
                                 if self.gct(xy[0]+edm[i][0],
                                             xy[1]+edm[i][1]) in a_searched:
                                     continue
-                                if self.data[self.gct(xy[0]+edm[i][0],  # noqa: E501
-                                                      xy[1]+edm[i][1])] != self.turn:  # noqa: E501
-                                    a_searched.append(self.gct(xy[0]+edm[i][0],  # noqa: E501
-                                                               xy[1]+edm[i][1]))  # noqa: E501
-                                    urpo.x, urpo.y, side = xy[0], xy[1], self.turn  # noqa: E501,F841
+                                if self.data[self.gct(xy[0]+edm[i][0],
+                                                      xy[1]+edm[i][1])] != self.turn:
+                                    a_searched.append(self.gct(xy[0]+edm[i][0],
+                                                               xy[1]+edm[i][1]))
+                                    urpo.x, urpo.y, side = xy[0], xy[1], self.turn,F841
                                     found_hardguy = soldiercounter
                                     for haastaja in levellista:
                                         urpo.level = haastaja
                                         if self.is_blocked(urpo,
                                                            xy[0] + edm[i][0],
-                                                           xy[1] + edm[i][1])[3] == "tooweak":  # noqa: E501
+                                                           xy[1] + edm[i][1])[3] == "tooweak":
                                             found_hardguy -= 1
                                     if found_hardguy == 0:
                                         tooweakcount += 1
@@ -1381,7 +1381,7 @@ class TGB:  # pylint: disable=R0904
                     m11 = random.randint(0, 1)
                     m22 = random.randint(0, 1)
                     # Little variation...
-                    while city.supplies > m11 and (city.income - city.expends) > m22:  # noqa: E501
+                    while city.supplies > m11 and (city.income - city.expends) > m22:
                         ok2 = False
                         while not ok2 and tries < 500:
                             tries += 1
@@ -1411,7 +1411,7 @@ class TGB:  # pylint: disable=R0904
                             # 34%
                             # And so on...
 
-                            while city.supplies > 0 and (city.income-city.expends) > 0 and urpo.level < 6:  # noqa: E501
+                            while city.supplies > 0 and (city.income-city.expends) > 0 and urpo.level < 6:
                                 if random.randint(1, 10) <= (9 - urpo.level):
                                     urpo.level += 1
                                     city.expends += 1
@@ -1448,7 +1448,7 @@ class TGB:  # pylint: disable=R0904
 
         running = True
         # We'll update as long as supplies are used or panic has arisen
-        while city.supplies > critical_cash and running:  # pylint: disable-msg=R1702  # noqa: E501
+        while city.supplies > critical_cash and running:  # pylint: disable-msg=R1702
             tries += 1
             # We'll try one hundred times
             if tries == 100:
@@ -1463,14 +1463,14 @@ class TGB:  # pylint: disable=R0904
                 # Do we still have income...?
                 if (city.income - city.expends) > 0:
                     # Self - explanatory
-                    if self.gct(ukko.x, ukko.y) in tulos[1] and not ukko.dump and not ukko.dead and ukko.side == city.side:  # noqa: E501
+                    if self.gct(ukko.x, ukko.y) in tulos[1] and not ukko.dump and not ukko.dead and ukko.side == city.side:
                         # Level 6 are not updated, level 1 have
                         # better chance to be updated.
                         # But if we just need better
                         # soldiers we'll update everyone (paatos).
                         if ukko.level < 6:
                             # Level 1 soldiers found
-                            if ykkoscount > 0 and (soldiercounter2 - ykkoscount) > 0:  # noqa: E501
+                            if ykkoscount > 0 and (soldiercounter2 - ykkoscount) > 0:
                                 if ukko.level == 1:
                                     # No critical need for updates?
                                     if not paatos:
@@ -1513,7 +1513,7 @@ class TGB:  # pylint: disable=R0904
                         rivi2 = rivi[:-1]
                         if rivi2 == "player":
                             if not self.map_edit_mode:
-                                self.playerlist.append(cc.TPlayer(f"Player {(y + 1)}",  # noqa: E501
+                                self.playerlist.append(cc.TPlayer(f"Player {(y + 1)}",
                                                                   y + 1,
                                                                   self.screen,
                                                                   None))
@@ -1521,10 +1521,10 @@ class TGB:  # pylint: disable=R0904
                                 self.map_edit_info[0] += 1
                         if rivi2 == "ai":
                             if not self.map_edit_mode:
-                                self.playerlist.append(cc.TPlayer(f"{random.choice(self.cpu_names)} (cpu)",  # noqa: E501
+                                self.playerlist.append(cc.TPlayer(f"{random.choice(self.cpu_names)} (cpu)",
                                                                   y + 1,
                                                                   self.screen,
-                                                                  ai.TAi(self)))  # noqa: E501
+                                                                  ai.TAi(self)))
                             else:
                                 self.map_edit_info[1] += 1
                     else:
@@ -1544,7 +1544,7 @@ class TGB:  # pylint: disable=R0904
         #    - not marked as lost and has 0 dumps
         '''
         for possible_new_loser in self.playerlist:
-            if self.count_dumps_on_world(possible_new_loser.id) == 0 and not possible_new_loser.lost:  # noqa: E501
+            if self.count_dumps_on_world(possible_new_loser.id) == 0 and not possible_new_loser.lost:
                 possible_new_loser.lost = True
 
     def count_dumps_on_world(self, pid):
@@ -1560,7 +1560,7 @@ class TGB:  # pylint: disable=R0904
         for actor in self.actors:
             if not actor.moved and actor.side == self.turn and not actor.dump:
                 if self.seenxy(actor.x, actor.y):
-                    pixelX, pixelY = self.hexMapToPixel(actor.x-self.cursor.scroll_x,  # noqa: E501
+                    pixelX, pixelY = self.hexMapToPixel(actor.x-self.cursor.scroll_x,
                                                         actor.y)
                     pygame.draw.circle(self.screen,
                                        (255, 255, 20),
@@ -1588,7 +1588,7 @@ class TGB:  # pylint: disable=R0904
             koordilista.clear()
             tulot = 0
             menot = 0
-            if not kaupunki.dead and kaupunki.dump and kaupunki.side in sidelist:  # noqa: E501
+            if not kaupunki.dead and kaupunki.dump and kaupunki.side in sidelist:
                 self.rek.crawl(kaupunki.x,
                                kaupunki.y,
                                koordilista,
@@ -1596,9 +1596,9 @@ class TGB:  # pylint: disable=R0904
                 tulot = len(koordilista)
                 for otus in self.actors:
                     # Soldiers are costly for dump
-                    if self.gct(otus.x, otus.y) in koordilista and not otus.dump:  # noqa: E501
+                    if self.gct(otus.x, otus.y) in koordilista and not otus.dump:
                         menot += 1
-                    if not otus.dead and not otus.dump and otus.side == kaupunki.side:  # noqa: E501
+                    if not otus.dead and not otus.dump and otus.side == kaupunki.side:
                         if self.gct(otus.x, otus.y) in koordilista:
                             mahdollinen_kuolema.append(otus)
                             menot += otus.level
@@ -1618,7 +1618,7 @@ class TGB:  # pylint: disable=R0904
                 tmp = kuolema.pop()
                 if self.seenxy(tmp.x, tmp.y):
                     # a Skull is drawn on the dead soldier
-                    pixelX, pixelY = self.hexMapToPixel(tmp.x-self.cursor.scroll_x,  # noqa: E501
+                    pixelX, pixelY = self.hexMapToPixel(tmp.x-self.cursor.scroll_x,
                                                         tmp.y)
                     self.screen.blit(self.pics.gi("skull"),
                                      (pixelX + 10, pixelY + 10))
@@ -1642,11 +1642,11 @@ class TGB:  # pylint: disable=R0904
         gridPixelX = x % hex_system.GRID_WIDTH
         gridPixelY = y % hex_system.GRID_HEIGHT
         if gridY & 1:
-            hexMapX = gridX + hex_system.gridOddRows[gridPixelY][gridPixelX][0]  # noqa: E501
-            hexMapY = gridY + hex_system.gridOddRows[gridPixelY][gridPixelX][1]  # noqa: E501
+            hexMapX = gridX + hex_system.gridOddRows[gridPixelY][gridPixelX][0]
+            hexMapY = gridY + hex_system.gridOddRows[gridPixelY][gridPixelX][1]
         else:
-            hexMapX = gridX + hex_system.gridEvenRows[gridPixelY][gridPixelX][0]  # noqa: E501
-            hexMapY = gridY + hex_system.gridEvenRows[gridPixelY][gridPixelX][1]  # noqa: E501
+            hexMapX = gridX + hex_system.gridEvenRows[gridPixelY][gridPixelX][0]
+            hexMapY = gridY + hex_system.gridEvenRows[gridPixelY][gridPixelX][1]
         return (hexMapX, hexMapY)
 
     def text_at(self,
@@ -1828,10 +1828,10 @@ class TGB:  # pylint: disable=R0904
                     if self.seenxy(int(rivi1[0]), int(rivi1[1])):
                         if self.seenxy(int(rivi2[0]),
                                        int(rivi1[1])):
-                            pixelX1, pixelY1 = self.hexMapToPixel(int(rivi1[0]) - self.cursor.scroll_x,  # noqa: E501
-                                                                  int(rivi1[1]))  # noqa: E501
-                            pixelX2, pixelY2 = self.hexMapToPixel(int(rivi2[0]) - self.cursor.scroll_x,  # noqa: E501
-                                                                  int(rivi2[1]))  # noqa: E501
+                            pixelX1, pixelY1 = self.hexMapToPixel(int(rivi1[0]) - self.cursor.scroll_x,
+                                                                  int(rivi1[1]))
+                            pixelX2, pixelY2 = self.hexMapToPixel(int(rivi2[0]) - self.cursor.scroll_x,
+                                                                  int(rivi2[1]))
                             pygame.draw.line(self.screen,
                                              (255, 0, 0),
                                              (pixelX1 + 20,
@@ -1885,5 +1885,5 @@ def load_image_files_but_not_interface_image_files(imagehandler,
     temppi = pygame.image.load(graphics_path+"hextile6_.png").convert()
     temppi.set_colorkey(temppi.get_at((0, 0)))
     imagehandler.add_image(temppi, "6")
-    imagehandler.add_image(pygame.image.load(graphics_path+"teksti.png").convert(), "logo")  # noqa: E501
-    imagehandler.add_image(pygame.image.load(graphics_path+"mapedit.png").convert(), "mapedit")  # noqa: E501
+    imagehandler.add_image(pygame.image.load(graphics_path+"teksti.png").convert(), "logo")
+    imagehandler.add_image(pygame.image.load(graphics_path+"mapedit.png").convert(), "mapedit")

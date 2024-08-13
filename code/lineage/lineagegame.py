@@ -9,15 +9,15 @@ from lineageclasses.world import World
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
 
-from jackmanimation.gameitems.colours import WHITE  # noqa: E402
-from jackmanimation.gameitems.colours import RED  # noqa: E402
-from jackmanimation.gameitems.colours import BLACK  # noqa: E402
-from jackmanimation.gameitems.colours import NAVY  # noqa: E402
+from jackmanimation.gameitems.colours import WHITE
+from jackmanimation.gameitems.colours import RED
+from jackmanimation.gameitems.colours import BLACK
+from jackmanimation.gameitems.colours import NAVY
 
-from jackmanimation.lineage.lineage import fed  # noqa: E402
-from jackmanimation.lineage.lineage import population_birth  # noqa: E402
-from jackmanimation.lineage.lineage import population_decline  # noqa: E402
-from jackmanimation.lineage.lineage import production  # noqa: E402
+from jackmanimation.lineage.lineage import fed
+from jackmanimation.lineage.lineage import population_birth
+from jackmanimation.lineage.lineage import population_decline
+from jackmanimation.lineage.lineage import production
 
 
 SCREEN_WIDTH = 900
@@ -57,7 +57,7 @@ def lineage_game_loop(empire):
     lineage_fed = fed(empire.currentPopulation(), empire.currentFood())
     lineage_birth = population_birth(empire.currentPopulation())
     lineage_death = population_decline(empire.currentPopulation())
-    production_factor = production(empire.currentPopulation() - (lineage_death + lineage_birth))  # noqa: E501
+    production_factor = production(empire.currentPopulation() - (lineage_death + lineage_birth))
     new_pop = empire.currentPopulation() + lineage_birth - lineage_death
     new_food = lineage_fed[2] + production_factor
     empire.updatePopulation(new_pop)
@@ -117,13 +117,13 @@ def game_loop(gameitems):
                              (0, 20),
                              (SCREEN_WIDTH, 20),
                              1)
-            text_screen(f"World Information : Year - [{year}] : name: [{current_window.name}] ",  # noqa: E501
+            text_screen(f"World Information : Year - [{year}] : name: [{current_window.name}] ",
                         BLACK,
                         5,
                         40,
                         font, game_window)
-            text_screen(f"Empire Information : name: [{clan}] pop - [{clan.currentPopulation():,}] food = [{clan.currentFood()}] ", NAVY, 5, 60, font, game_window)  # noqa: E501
-            text_screen(f"Empire Information : name: [{tribe}] pop - [{tribe.currentPopulation():,}] food = [{tribe.currentFood()}] ", NAVY, 5, 80, font, game_window)  # noqa: E501
+            text_screen(f"Empire Information : name: [{clan}] pop - [{clan.currentPopulation():,}] food = [{clan.currentFood()}] ", NAVY, 5, 60, font, game_window)
+            text_screen(f"Empire Information : name: [{tribe}] pop - [{tribe.currentPopulation():,}] food = [{tribe.currentFood()}] ", NAVY, 5, 80, font, game_window)
         pygame.display.update()
         clock.tick(FPS)
     pygame.quit()

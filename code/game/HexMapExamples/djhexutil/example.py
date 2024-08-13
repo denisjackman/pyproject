@@ -75,7 +75,7 @@ class GameWidget(QtWidgets.QWidget):
 
     def update_fov(self):
         '''Update the field of view.'''
-        self.fov = self.player.field_of_view(transparent=self.level.is_transparent, max_distance=10)  # noqa: E501
+        self.fov = self.player.field_of_view(transparent=self.level.is_transparent, max_distance=10)
         self.level.update_fov(self.fov)
 
     def hexagon_of_pos(self, pos):
@@ -83,7 +83,7 @@ class GameWidget(QtWidgets.QWidget):
         size = self.size()
         xc = size.width()//2
         yc = size.height()//2
-        return self.player + self.hexgrid.hex_at_coordinate(pos.x() - xc, pos.y() - yc)  # noqa: E501
+        return self.player + self.hexgrid.hex_at_coordinate(pos.x() - xc, pos.y() - yc)
 
     def mousePressEvent(self, event):
         '''Move the player to the clicked hexagon.'''
@@ -138,7 +138,7 @@ class GameWidget(QtWidgets.QWidget):
             painter.translate(xc, yc)
             # draw each hexagon which is in the window
             for hexagon in hexgrid.hexes_in_rectangle(bbox):
-                polygon = QtGui.QPolygon([QtCore.QPoint(*corner) for corner in hexgrid.corners(hexagon)])  # noqa: E501
+                polygon = QtGui.QPolygon([QtCore.QPoint(*corner) for corner in hexgrid.corners(hexagon)])
                 hexagon2 = hexagon + self.player
                 tile = self.level.get_seen_tile(hexagon2)
                 if tile == ' ':

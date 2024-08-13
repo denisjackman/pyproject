@@ -43,16 +43,16 @@ class TAi:
         act_list = {}
         own_soldier_actor_set = set([])
         for soldier in self.board.actors:
-            if not soldier.dump and soldier.side == self.board.turn and not soldier.moved:  # noqa: E501
+            if not soldier.dump and soldier.side == self.board.turn and not soldier.moved:
                 own_soldier_actor_set.add(soldier)
         # More CPU, more depth
-        for askellin in range(self.board.ai_recursion_depth):  # pylint: disable-msg=R1702 # noqa: E501
+        for askellin in range(self.board.ai_recursion_depth):  # pylint: disable-msg=R1702
             # We'll iterate every actor through a copy
             for current_actor in own_soldier_actor_set.copy():
                 if current_actor.dead:
                     continue
                 # We'll move only own soldiers that have not moved yet
-                if not current_actor.dump and not current_actor.moved and current_actor.side == self.board.turn:  # noqa: E501
+                if not current_actor.dump and not current_actor.moved and current_actor.side == self.board.turn:
                     # Memory for found move
                     m_x = None
                     m_y = None
@@ -67,7 +67,7 @@ class TAi:
                     loppulaskija = 0
                     found_not_brute_force_solution = False
 
-                    possible_moves = self.board.rek.get_island_border_lands(current_actor.x, current_actor.y)  # noqa: E501
+                    possible_moves = self.board.rek.get_island_border_lands(current_actor.x, current_actor.y)
                     possible_moves = list(possible_moves)
                     random.shuffle(possible_moves)
 
@@ -83,32 +83,32 @@ class TAi:
                         if pala2 not in (self.board.turn,  0):
 
                             # Is the move possible?
-                            blokkastu = self.board.is_blocked(current_actor, x2, y2)  # noqa: E501
+                            blokkastu = self.board.is_blocked(current_actor, x2, y2)
                             if blokkastu[0] is False:
 
                                 # The move is possible, we'll simulate it
-                                self.board.try_to_conquer(current_actor, x2, y2, True)  # noqa: E501
+                                self.board.try_to_conquer(current_actor, x2, y2, True)
 
                                 # The points of the move
-                                rekursiotulos = self.board.rek.recurse_own_island(current_actor.x, current_actor.y)  # noqa: E501
+                                rekursiotulos = self.board.rek.recurse_own_island(current_actor.x, current_actor.y)
 
                                 # Land area of the target island
-                                vastustajan_saaren_vahvuus = self.board.rek.recurse_new_random_coord_for_dump_on_island(x2, y2)  # noqa: E501
+                                vastustajan_saaren_vahvuus = self.board.rek.recurse_new_random_coord_for_dump_on_island(x2, y2)
 
                                 # We'll favour more to
                                 # conquer from large islands
                                 if vastustajan_saaren_vahvuus[1]:
-                                    rekursiotulos += len(vastustajan_saaren_vahvuus[1]) / 5  # noqa: E501
+                                    rekursiotulos += len(vastustajan_saaren_vahvuus[1]) / 5
 
                                 # Is there an actor at target land?
                                 defender = self.board.actorat(x2, y2)
                                 if defender:
                                     # There is an actor at target land,
                                     # we'll add it into moves points
-                                    if defender.dump and current_actor.level > 1:  # noqa: E501
+                                    if defender.dump and current_actor.level > 1:
                                         rekursiotulos += 5
                                         rekursiotulos += defender.supplies / 2
-                                        rekursiotulos += (defender.income - defender.expends)  # noqa: E501
+                                        rekursiotulos += (defender.income - defender.expends)
                                     else:
                                         rekursiotulos += defender.level * 2
 
@@ -134,18 +134,18 @@ class TAi:
                                         # Found no move...
                                         # This shouldn't be never executed
                                         m_x = None
-                                        found_not_brute_force_solution = True  # noqa: E501
-                                        own_soldier_actor_set.discard(current_actor)  # noqa: E501
+                                        found_not_brute_force_solution = True
+                                        own_soldier_actor_set.discard(current_actor)
                                     # If the current found move is better than
                                     # anyone else, we'll choose it
                                     if rekursiotulos > max(pisteet):
                                         m_p = rekursiotulos
                                         m_x = x2
                                         m_y = y2
-                                        act_list[self.board.gct(current_actor.x, current_actor.y)] = self.board.gct(m_x, m_y)  # noqa: E501
-                                        self.board.try_to_conquer(current_actor, m_x, m_y, False)   # noqa: E501
+                                        act_list[self.board.gct(current_actor.x, current_actor.y)] = self.board.gct(m_x, m_y)
+                                        self.board.try_to_conquer(current_actor, m_x, m_y, False) 
                                         found_not_brute_force_solution = True
-                                        own_soldier_actor_set.discard(current_actor)  # noqa: E501
+                                        own_soldier_actor_set.discard(current_actor)
                                     # Too much used time here
                                     loppulaskija += 1
                                     if loppulaskija == depth:
@@ -153,19 +153,19 @@ class TAi:
                                         m_p = max(pisteet)
                                         m_x = koords[pisteet.index(m_p)][0]
                                         m_y = koords[pisteet.index(m_p)][1]
-                                        act_list[self.board.gct(current_actor.x, current_actor.y)] = self.board.gct(m_x, m_y)  # noqa: E501
-                                        self.board.try_to_conquer(current_actor, m_x, m_y, False)  # noqa: E501
+                                        act_list[self.board.gct(current_actor.x, current_actor.y)] = self.board.gct(m_x, m_y)
+                                        self.board.try_to_conquer(current_actor, m_x, m_y, False)
                                         varmuuskopio = self.board.data.copy()
                                         found_not_brute_force_solution = True
-                                        own_soldier_actor_set.discard(current_actor)  # noqa: E501
+                                        own_soldier_actor_set.discard(current_actor)
                     if m_x and found_not_brute_force_solution is False:
                         # Normally we shouldn't end up here, but if we
                         # do, we choose the best current move.
                         m_p = max(pisteet)
                         m_x = koords[pisteet.index(m_p)][0]
                         m_y = koords[pisteet.index(m_p)][1]
-                        act_list[self.board.gct(current_actor.x, current_actor.y)] = self.board.gct(m_x, m_y)  # noqa: E501
-                        self.board.try_to_conquer(current_actor, m_x, m_y, False)  # noqa: E501
+                        act_list[self.board.gct(current_actor.x, current_actor.y)] = self.board.gct(m_x, m_y)
+                        self.board.try_to_conquer(current_actor, m_x, m_y, False)
                         varmuuskopio = self.board.data.copy()
                         own_soldier_actor_set.discard(current_actor)
         # Return dictionary of made moves

@@ -11,9 +11,9 @@ import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
-from jackmanimation.dbfunctions.mysqlfunctions import open_mysql  # noqa: E402
-from jackmanimation.dbfunctions.mysqlfunctions import mysqlquery  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
+from jackmanimation.dbfunctions.mysqlfunctions import open_mysql
+from jackmanimation.dbfunctions.mysqlfunctions import mysqlquery
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 0.01 $"
