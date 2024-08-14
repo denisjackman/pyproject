@@ -24,7 +24,7 @@ CAPTION = "Jackmanimation [SpriteSheet]"
 ICON_FILE = 'y:/Resources/jackmanimation.png'
 WHITE = (255, 255, 255)
 FILEPATH = Path(__file__).parent
-SHEET_NAME = "Z:/Resources/roguelike/Spritesheet/rogueLikeSheet_Transparent.png"  # noqa: E501
+SHEET_NAME = "Z:/Resources/roguelike/Spritesheet/rogueLikeSheet_Transparent.png"
 
 pygame.init()
 window = pygame.display.set_mode((WIDTH, HEIGHT))

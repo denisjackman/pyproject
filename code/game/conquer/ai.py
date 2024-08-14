@@ -143,7 +143,7 @@ class TAi:
                                         m_x = x2
                                         m_y = y2
                                         act_list[self.board.gct(current_actor.x, current_actor.y)] = self.board.gct(m_x, m_y)
-                                        self.board.try_to_conquer(current_actor, m_x, m_y, False) 
+                                        self.board.try_to_conquer(current_actor, m_x, m_y, False)
                                         found_not_brute_force_solution = True
                                         own_soldier_actor_set.discard(current_actor)
                                     # Too much used time here

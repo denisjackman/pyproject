@@ -17,12 +17,12 @@ def sid2user(sid):
     ''' convert SID to username '''
     targetdir = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\\"
     try:
-        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE,  # pylint: disable=E0606  # noqa: E501
+        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE,  # pylint: disable=E0606
                              f'{targetdir}{sid}')
         (value, _) = winreg.QueryValueEx(key, 'ProfileImagePath')
         user = value.split('\\')[-1]
         return user
-    except WindowsError:  # pylint: disable=E0602  # noqa: F841
+    except WindowsError:  # pylint: disable=E0602
         return sid
 
 

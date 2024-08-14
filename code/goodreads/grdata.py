@@ -22,7 +22,7 @@ def write_item_list(item_list):
                   'Publisher': item['Publisher'],
                   'Binding': item['Binding'],
                   'Year Published': item['Year Published'],
-                  'Original Publication Year': item['Original Publication Year'],  # noqa: E501
+                  'Original Publication Year': item['Original Publication Year'],
                   'Date Read': item['Date Added'],
                   'Date Added': item['Date Added'],
                   'Bookshelves': item['Bookshelves'],
@@ -42,7 +42,7 @@ def convert_books(cbbooks_list):
 
         try:
             isbn_number = isbn_app.isbn_from_words(item['Title'])
-        except Exception as my_error:  # noqa: F841
+        except Exception as my_error:
             isbn_number = ''
             time.sleep(30)
 
@@ -110,7 +110,7 @@ def main():
     try:
         book_meta = isbn_app.meta(notfound_file[0]['ISBN'])
     except Exception as my_error:
-        print(f'[-] This is the error: {my_error} for {notfound_file[0]["ISBN"]}')  # noqa: E501
+        print(f'[-] This is the error: {my_error} for {notfound_file[0]["ISBN"]}')
         book_meta = 'not found'
         time.sleep(30)
 

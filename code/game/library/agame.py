@@ -42,7 +42,7 @@ def main():
                     # user pressed ESC
                     # # print the framerate and
                     # PLAYTIME into the pygame window title
-        pygame.display.set_caption(f'frame rate: {clock.get_fps()} frames per second, PLAYTIME: {PLAYTIME} seconds')  # noqa: E501
+        pygame.display.set_caption(f'frame rate: {clock.get_fps()} frames per second, PLAYTIME: {PLAYTIME} seconds')
         pygame.display.flip()
         # flip the screen like in a flip book
     print(f"This 'game' was played for {PLAYTIME} seconds")

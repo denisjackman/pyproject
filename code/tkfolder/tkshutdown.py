@@ -15,5 +15,5 @@ def shut():
     os.system("shutdown /s /t 1")
 
 
-TTK = tkinter.Button(root, text="SHUT DOWN", command=shut).pack()  # pylint: disable=E1111  # noqa: E501
+TTK = tkinter.Button(root, text="SHUT DOWN", command=shut).pack()  # pylint: disable=E1111
 root.mainloop()

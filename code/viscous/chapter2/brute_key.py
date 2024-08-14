@@ -10,7 +10,7 @@ import threading
 import pexpect
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('.'))
-import vpconfig  # pylint: disable=E0401  # noqa: E402
+import vpconfig  # pylint: disable=E0401
 
 connection_lock = threading.BoundedSemaphore(value=vpconfig.MAX_CONNECTIONS)
 
@@ -47,9 +47,9 @@ def connect(user, host, keyfile, release):
 
 def main():
     ''' main function '''
-    parser = argparse.ArgumentParser(usage='brute_key.py -H TARGET_HOST -u USER -d DIRECTORY')  # noqa: E501
-    parser.add_argument('-H', dest='tgtHost', type=str, help='specify target host')  # noqa: E501
-    parser.add_argument('-d', dest='passDir', type=str, help='specify directory with keys')  # noqa: E501
+    parser = argparse.ArgumentParser(usage='brute_key.py -H TARGET_HOST -u USER -d DIRECTORY')
+    parser.add_argument('-H', dest='tgtHost', type=str, help='specify target host')
+    parser.add_argument('-d', dest='passDir', type=str, help='specify directory with keys')
     parser.add_argument('-u', dest='user', type=str, help='specify the user')
     args = parser.parse_args()
     host = args.tgtHost

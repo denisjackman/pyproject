@@ -13,7 +13,7 @@ window = pygame.display.set_mode(((DISPLAY_W, DISPLAY_H)))
 RUNNING = True
 WHITE = (255, 255, 255)
 
-my_spritesheet = Spritesheet(r'Z:\Resources\development\sprite_sheet\trainer_sheet_two.png')  # noqa: E501
+my_spritesheet = Spritesheet(r'Z:\Resources\development\sprite_sheet\trainer_sheet_two.png')
 trainer = [my_spritesheet.parse_sprite('trainer1.png'),
            my_spritesheet.parse_sprite('trainer2.png'),
            my_spritesheet.parse_sprite('trainer3.png'),

@@ -1,0 +1,19 @@
+CREATE DATABASE player_ranking_db;
+
+USE player_ranking_db;
+
+CREATE TABLE players (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    rating FLOAT DEFAULT 1000,
+    games_played INT DEFAULT 0,
+    games_won INT DEFAULT 0
+);
+
+-- Example inserts
+INSERT INTO players (name) VALUES ('Player 1');
+INSERT INTO players (name) VALUES ('Player 2');
+INSERT INTO players (name) VALUES ('Player 3');
+
+-- Select all players
+SELECT * FROM players;

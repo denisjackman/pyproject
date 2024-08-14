@@ -1,6 +1,6 @@
 '''Tests for flat_topped_hex.py'''
 import unittest
-from flat_topped_hex import *  # pylint: disable=wildcard-import,unused-wildcard-import 
+from flat_topped_hex import *  # pylint: disable=wildcard-import,unused-wildcard-import
 from updown_tri import tri_center
 
 
@@ -60,7 +60,7 @@ class TestFlatToppedHex(unittest.TestCase):
         '''Test hex_line_intersect'''
         x1, y1 = hex_center(0, 0, 0)
         x2, y2 = hex_center(4, -3, -1)
-        self.assertListEqual(list(hex_line_intersect(x1, 
+        self.assertListEqual(list(hex_line_intersect(x1,
                                                      y1,
                                                      x2,
                                                      y2)), [

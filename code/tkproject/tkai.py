@@ -6,7 +6,7 @@ from openai import OpenAI
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
 
 MODEL_ENGINE = "gpt-3.5-turbo-instruct"
 ASSISTANT_ENGINE = "gpt-4-turbo-preview"
@@ -67,9 +67,9 @@ def create_assistant(ca_client, ca_name, ca_intruction):
     ca_result = ''
     try:
         ca_assistant = ca_client.beta.assistants.create(name=ca_name,
-                                                        instructions=ca_intruction,  # noqa: E501
+                                                        instructions=ca_intruction,
                                                         model=ASSISTANT_ENGINE,
-                                                        tools=[{"type": "file_search"}])  # noqa: E501
+                                                        tools=[{"type": "file_search"}])
     except Exception as e:
         ca_result = f'Error in creating assistant : {e}'
     if ca_result == '':
@@ -89,8 +89,8 @@ def create_vector_store(cvs_client, cvs_name, cvs_filelist):
     cvs_file_paths = cvs_filelist
     with open(cvs_file_paths[0], "rb") as cvs_file_stream:
         try:
-            cvs_file = cvs_client.beta.vector_stores.files.upload(cvs_vector_store.id,  # noqa: E501
-                                                                  file=cvs_file_stream)  # noqa: E501
+            cvs_file = cvs_client.beta.vector_stores.files.upload(cvs_vector_store.id,
+                                                                  file=cvs_file_stream)
         except Exception as e:
             cvs_result = f'Error in uploading file : {e}'
     if cvs_result != '':
@@ -143,18 +143,18 @@ def main():
         print(f'[x] Error in creating vector store : {e}')
 
     try:
-        mw_assistant = mw_client.beta.assistants.update(assistant_id=mw_assistant.id,  # noqa: E501
-                                                        tool_resources={"file_search": {"vector_store_ids": [mw_vector_store.id]}})  # noqa: E501
+        mw_assistant = mw_client.beta.assistants.update(assistant_id=mw_assistant.id,
+                                                        tool_resources={"file_search": {"vector_store_ids": [mw_vector_store.id]}})
     except Exception as e:
         print(f'[x] Error in updating assistant : {e}')
-    mw_image_check = 'https://images.nightcafe.studio/jobs/KEW9N1NcIb4xiejYM4oH/KEW9N1NcIb4xiejYM4oH--1--ci4ap.jpg'  # noqa: E501
+    mw_image_check = 'https://images.nightcafe.studio/jobs/KEW9N1NcIb4xiejYM4oH/KEW9N1NcIb4xiejYM4oH--1--ci4ap.jpg'
 
     mw_message = [
         {
             "role": "user",
             "content": [
                 {"type": "text",
-                 "text": "Analyse this image and generate a prompt for dall-e-3"},  # noqa: E501
+                 "text": "Analyse this image and generate a prompt for dall-e-3"},
                 {"type": "image_url",
                  "image_url": {
                      "url": mw_image_check,
@@ -163,12 +163,12 @@ def main():
                 ],
             }
         ]
-    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_image.txt",  # noqa: E501
+    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_image.txt",
                       mw_image)
-    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_response.txt",  # noqa: E501
+    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_response.txt",
                       mw_response)
     mw_response = chat_response(mw_client, mw_message)
-    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_prompt.txt",  # noqa: E501
+    write_output_file(f"Z:/Store/{TODAY}_{mw_credid['OpenAI_Org_ID']}_prompt.txt",
                       mw_response)
     print('[*] main: end')
 

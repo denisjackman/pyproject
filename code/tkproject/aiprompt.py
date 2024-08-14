@@ -5,7 +5,7 @@ from openai import OpenAI
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
 
 
 def summarize_text_with_openai(text, model="text-davinci-003"):
@@ -38,7 +38,7 @@ def generate_prompt(directory, file_count, openai_api_key):
             print(f"Failed to process {file_name}: {str(e)}")
             continue
 
-    prompt = "Generate a discussion based on these summaries: " + " ".join(prompt_parts)  # noqa: E501
+    prompt = "Generate a discussion based on these summaries: " + " ".join(prompt_parts)
     return prompt
 
 

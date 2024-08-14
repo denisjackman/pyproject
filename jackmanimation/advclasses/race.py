@@ -106,7 +106,7 @@ class Troll(Race):
         self.alignment = "Chaotic"
         self.darkvision = True
 
-    # taken from http://www.onrpg.com/boards/threads/14942-Basic-Races-and-Classes  # noqa: E501
+    # taken from http://www.onrpg.com/boards/threads/14942-Basic-Races-and-Classes
     # Name
     # Human
     # Dwarf

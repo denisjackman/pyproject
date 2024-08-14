@@ -36,7 +36,7 @@ def gethorses(horselist):
         else:
             hstake = result[item["horse"]][2] + float(item["stake"])
             hreturn = result[item["horse"]][3] + float(item["return"])
-            hpotreturn = result[item["horse"]][4] + float(item["odds"])*float(item["stake"])  # noqa: E501
+            hpotreturn = result[item["horse"]][4] + float(item["odds"])*float(item["stake"])
             hfreebet = result[item["horse"]][5] + float(item["freebet_amount"])
             hcount = result[item["horse"]][6] + 1
             result[item["horse"]] = [item["horse"],
@@ -96,7 +96,7 @@ def main():
             else:
                 mdetails["mstake"] += float(item["stake"])
                 mdetails["mrev_cust"] += float(item["return"])
-                mdetails["mpot_cust"] += float(item["odds"]) * float(item["stake"])  # noqa: E501
+                mdetails["mpot_cust"] += float(item["odds"]) * float(item["stake"])
         if item["channel"] == "D":
             ddetails["dcount"] += 1
             if item["result"] == 'W':
@@ -111,7 +111,7 @@ def main():
             else:
                 ddetails["dstake"] += float(item["stake"])
                 ddetails["drev_cust"] += float(item["return"])
-                ddetails["dpot_cust"] += float(item["odds"])*float(item["stake"])  # noqa: E501
+                ddetails["dpot_cust"] += float(item["odds"])*float(item["stake"])
     print(f"[-] Dataset row = {dataset[0]}")
     output = f'[-] Total data numbers are count: {count:,},'\
              f' stake: £{mdetails["mstake"]+ddetails["dstake"]:,.2f},'\

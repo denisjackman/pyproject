@@ -111,7 +111,7 @@ def game_loop():
             if len(snk_list) > snake_size:
                 del snk_list[0]
 
-            if snake_x < 0 or snake_x > SCREEN_WIDTH or snake_y < 50 or snake_y > SCREEN_HEIGHT:  # noqa: E501
+            if snake_x < 0 or snake_x > SCREEN_WIDTH or snake_y < 50 or snake_y > SCREEN_HEIGHT:
                 print("Game Over 2")
 
             plot_snake(gameWindow, BLACK, snk_list, snake_size)

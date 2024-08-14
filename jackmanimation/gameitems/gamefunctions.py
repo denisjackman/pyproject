@@ -185,7 +185,7 @@ def combSort(input_list):
         # Compare all elements with current gap
         for item in range(0, note - gap):
             if result[item] > result[item + gap]:
-                result[item], result[item + gap] = result[item + gap], result[item]  # noqa: E501
+                result[item], result[item + gap] = result[item + gap], result[item]
                 swapped = True
     return result
 

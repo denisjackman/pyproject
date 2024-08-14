@@ -26,7 +26,7 @@ def pinger(job_q, results_q):
             subprocess.check_call(['ping', '-c1', ip],
                                   stdout=DEVNULL)
             results_q.put(ip)
-        except:  # pylint: disable=bare-except  # noqa: E722
+        except:  # pylint: disable=bare-except
             pass
 
 
@@ -58,7 +58,7 @@ def map_network(pool_size=255):
     jobs = multiprocessing.Queue()
     results = multiprocessing.Queue()
 
-    pool = [multiprocessing.Process(target=pinger, args=(jobs, results)) for i in range(pool_size)]  # noqa: E501
+    pool = [multiprocessing.Process(target=pinger, args=(jobs, results)) for i in range(pool_size)]
 
     for p in pool:
         p.start()

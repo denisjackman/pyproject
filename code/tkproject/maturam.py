@@ -5,15 +5,15 @@ import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.DndProject.dndother import book_title_generator  # noqa: E402, E501
-from jackmanimation.DndProject.dndother import riddle_generator  # noqa: E402, E501
-from jackmanimation.DndProject.dndother import currency_converter  # noqa: E402, E501
-from jackmanimation.DndProject.dndother import organization_name_generator  # noqa: E402, E501
-from jackmanimation.DndProject.dndnames import dwarven_name  # noqa: E402, E501
-from jackmanimation.DndProject.dndnames import elfname_generator  # noqa: E402, E501
-from jackmanimation.DndProject.dndnames import orc_name_generator  # noqa: E402, E501
-from jackmanimation.DndProject.dndnames import lizardman_name_generator  # noqa: E402, E501
-from jackmanimation.DndProject.dnddice import dice  # noqa: E402, E501
+from jackmanimation.DndProject.dndother import book_title_generator
+from jackmanimation.DndProject.dndother import riddle_generator
+from jackmanimation.DndProject.dndother import currency_converter
+from jackmanimation.DndProject.dndother import organization_name_generator
+from jackmanimation.DndProject.dndnames import dwarven_name
+from jackmanimation.DndProject.dndnames import elfname_generator
+from jackmanimation.DndProject.dndnames import orc_name_generator
+from jackmanimation.DndProject.dndnames import lizardman_name_generator
+from jackmanimation.DndProject.dnddice import dice
 
 
 def organization_name(on_num):

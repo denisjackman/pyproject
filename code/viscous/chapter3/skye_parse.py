@@ -66,8 +66,8 @@ def print_messages(skype_db):
                     msg_direction = 'To ' + str(row[1]) + ': '
                 else:
                     msg_direction = 'From ' + str(row[2]) + ': '
-                print(f'[*] Time: {str(row[0])} {msg_direction} {str(row[3])}')  # noqa: E501
-        except:  # pylint: disable=bare-except  # noqa: E722
+                print(f'[*] Time: {str(row[0])} {msg_direction} {str(row[3])}')
+        except:  # pylint: disable=bare-except
             pass
 
 

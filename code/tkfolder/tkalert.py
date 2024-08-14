@@ -1,5 +1,5 @@
 '''
-    https://levelup.gitconnected.com/10-interesting-python-tkinter-programs-with-code-df52174993e1  # noqa: E501
+    https://levelup.gitconnected.com/10-interesting-python-tkinter-programs-with-code-df52174993e1
 '''
 
 from tkinter import messagebox

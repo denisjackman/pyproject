@@ -12,7 +12,7 @@ def print_pcap(pcap):
             src = socket.inet_ntoa(ip.src)
             dst = socket.inet_ntoa(ip.dst)
             print(f'Source: {src} Destination: {dst}')
-        except:  # pylint: disable=bare-except  # noqa: E722
+        except:  # pylint: disable=bare-except
             pass
 
 

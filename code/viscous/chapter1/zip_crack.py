@@ -11,7 +11,7 @@ def get_args():
     '''
         get the argurments from the command line
     '''
-    st_commands = f'{os.path.basename(__file__)} -v <True/False> -f <Zipfile> -d <Dictionary> -h <help>'  # noqa: E501
+    st_commands = f'{os.path.basename(__file__)} -v <True/False> -f <Zipfile> -d <Dictionary> -h <help>'
     argv = sys.argv[1:]
     commands = "hvf:d:"
     long_commands = ["help", "verbose", "file=", "dictionary="]
@@ -43,7 +43,7 @@ def extract_file(zFile, password):
     result = False
     try:
         zFile.extractall(pwd=password.encode())
-    except Exception as err:  # noqa: F841
+    except Exception as err:
         result = False
     else:
         result = True

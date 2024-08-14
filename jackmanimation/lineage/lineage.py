@@ -16,7 +16,7 @@ import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..'))
 # custom number generator
-from jackmanimation.DndProject.dnddice import number_generator  # noqa: E402
+from jackmanimation.DndProject.dnddice import number_generator
 
 
 def gold_to_silver(amount):
@@ -156,6 +156,6 @@ def production(population,
     ''' this is the production module '''
     factor = 0
     population_check = population / 1000
-    factor = 25 + happieness + global_factors + local_factors + number_generator(5)  # noqa: E501
-    production_factor = int(max(factor/population_check - population_check, 0))  # noqa: E501
+    factor = 25 + happieness + global_factors + local_factors + number_generator(5)
+    production_factor = int(max(factor/population_check - population_check, 0))
     return production_factor

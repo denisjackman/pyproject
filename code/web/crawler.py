@@ -110,7 +110,7 @@ class Crawler():
 
     def _prefix_ok(self, url):
         """Pass if the URL has the correct prefix, or none is specified"""
-        return (self.confine_prefix is None or url.startswith(self.confine_prefix))  # noqa: E501
+        return (self.confine_prefix is None or url.startswith(self.confine_prefix))
 
     def _exclude_ok(self, url):
         """Pass if the URL does not match any exclude patterns"""
@@ -162,11 +162,11 @@ class Crawler():
                 continue
 
             # Apply URL-based filters.
-            do_not_follow = [f for f in self.pre_visit_filters if not f(this_url)]  # noqa: E501
+            do_not_follow = [f for f in self.pre_visit_filters if not f(this_url)]
 
             # Special-case depth 0 (starting URL)
             if depth == 0 and [] != do_not_follow:
-                print(sys.stderr, "Whoops! Starting URL %s rejected by the following filters:", do_not_follow)  # noqa: E501
+                print(sys.stderr, "Whoops! Starting URL %s rejected by the following filters:", do_not_follow)
 
             # If no filters failed
             # (that is, all passed), process URL
@@ -177,12 +177,12 @@ class Crawler():
                     self.num_followed += 1
                     page = Fetcher(this_url)
                     page.fetch()
-                    for link_url in [self._pre_visit_url_condense(item) for item in page.out_links()]:  # noqa: E501
+                    for link_url in [self._pre_visit_url_condense(item) for item in page.out_links()]:
                         if link_url not in self.urls_seen:
                             q.put((link_url, depth+1))
                             self.urls_seen.add(link_url)
 
-                        do_not_remember = [f for f in self.out_url_filters if not f(link_url)]  # noqa: E501
+                        do_not_remember = [f for f in self.out_url_filters if not f(link_url)]
                         if [] == do_not_remember:
                             self.num_links += 1
                             self.urls_remembered.add(link_url)
@@ -190,7 +190,7 @@ class Crawler():
                             if link not in self.links_remembered:
                                 self.links_remembered.add(link)
                 except Exception as e:
-                    print(sys.stderr, f"ERROR: Can't process url {this_url} ({e})")  # noqa: E501
+                    print(sys.stderr, f"ERROR: Can't process url {this_url} ({e})")
 
 
 class OpaqueDataException (Exception):
@@ -224,7 +224,7 @@ class Fetcher():
     def _open(self):
         url = self.url
         try:
-            request = urllib.request.urlopen(url)  # pylint: disable=consider-using-with  # noqa: E501
+            request = urllib.request.urlopen(url)  # pylint: disable=consider-using-with
             handle = urllib.request.build_opener()
         except IOError:
             return None
@@ -240,7 +240,7 @@ class Fetcher():
                 mime_type = data.info().gettype()
                 url = data.geturl()
                 if mime_type != "text/html":
-                    raise OpaqueDataException(f"Not interested in files of type {mime_type} ({url})", mime_type, url)  # noqa: E501
+                    raise OpaqueDataException(f"Not interested in files of type {mime_type} ({url})", mime_type, url)
                 content = data.read()
                 soup = BeautifulSoup(content)
                 tags = soup('a')
@@ -393,7 +393,7 @@ class DotWriter:
         print("digraph Crawl {")
         print("\t edge [K=0.2, len=0.1];")
         for item in links:
-            print("\t" + self._safe_alias(item.src) + " -> " + self._safe_alias(item.dst) + ";")  # noqa: E501
+            print("\t" + self._safe_alias(item.src) + " -> " + self._safe_alias(item.dst) + ";")
         print("}")
 
     def DWName(self):
@@ -436,7 +436,7 @@ def main():
 
     print(sys.stderr, f"Found:    {crawler.num_links}")
     print(sys.stderr, f"Followed: {crawler.num_followed}")
-    print(sys.stderr, f"Stats:    {tTime} after {(int(math.ceil(float(crawler.num_links) / tTime)), tTime)}")  # noqa: E501
+    print(sys.stderr, f"Stats:    {tTime} after {(int(math.ceil(float(crawler.num_links) / tTime)), tTime)}")
 
 
 if __name__ == "__main__":

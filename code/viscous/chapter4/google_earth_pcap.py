@@ -8,7 +8,7 @@ import geoip2.database
 def get_KML(ip):
     ''' return KML string'''
     kml = ''
-    with geoip2.database.Reader(r'Y:\violent-python3\chapter04\geolite2_city.mmdb') as gi:  # noqa: E501
+    with geoip2.database.Reader(r'Y:\violent-python3\chapter04\geolite2_city.mmdb') as gi:
         rec = gi.city(ip)
     try:
         latitude = rec.location.latitude
@@ -43,8 +43,8 @@ def plot_IPs(pcap_file):
 
 def main():
     ''' main function'''
-    parser = argparse.ArgumentParser(usage='python google_earth_pcap.py PCAP_FILE')  # noqa: E501
-    parser.add_argument('pcap_file', type=str, metavar='PCAP_FILE', help='specify pcap filename')  # noqa: E501
+    parser = argparse.ArgumentParser(usage='python google_earth_pcap.py PCAP_FILE')
+    parser.add_argument('pcap_file', type=str, metavar='PCAP_FILE', help='specify pcap filename')
     args = parser.parse_args()
     pcap_file = args.pcap_file
     with open(pcap_file, 'rb') as f:

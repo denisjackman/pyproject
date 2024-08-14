@@ -8,7 +8,7 @@ import geoip2.database
 def ret_geo_str(ip):
     ''' return geo string'''
     try:
-        with geoip2.database.Reader(r'Z:\violent-python3\chapter04\geolite2_city.mmdb') as gi:  # noqa: E501
+        with geoip2.database.Reader(r'Z:\violent-python3\chapter04\geolite2_city.mmdb') as gi:
             rec = gi.city(ip)
             city = rec.city.name
             country = rec.country.name
@@ -30,7 +30,7 @@ def print_pcap(pcap_file):
             ip = eth.data
             src = socket.inet_ntoa(ip.src)
             dst = socket.inet_ntoa(ip.dst)
-            print(f'[+] Source: {ret_geo_str(src)} --> Destination: {ret_geo_str(dst)}')  # noqa: E501
+            print(f'[+] Source: {ret_geo_str(src)} --> Destination: {ret_geo_str(dst)}')
         except Exception as e:
             print(f'{"":>3}[-] Exception: {e.__class__.__name__}')
 
@@ -38,7 +38,7 @@ def print_pcap(pcap_file):
 def main():
     ''' main function'''
     parser = argparse.ArgumentParser(usage='python geo_print.py PCAP_FILE')
-    parser.add_argument('pcap_file', type=str, metavar='PCAP_FILE', help='specify pcap filename')  # noqa: E501
+    parser.add_argument('pcap_file', type=str, metavar='PCAP_FILE', help='specify pcap filename')
     args = parser.parse_args()
     pcap_file = args.pcap_file
     with open(pcap_file, 'rb') as f:

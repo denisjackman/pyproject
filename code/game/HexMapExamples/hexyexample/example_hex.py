@@ -84,7 +84,7 @@ class ExampleHex(hx.HexTile):
         :return: The location to draw this hex so that the center of
         the hex is at `self.position`.
         """
-        draw_position = self.position[0] - [self.image.get_width() / 2, self.image.get_height() / 2]  # noqa: E501
+        draw_position = self.position[0] - [self.image.get_width() / 2, self.image.get_height() / 2]
         return draw_position
 
     def get_position(self):

@@ -11,7 +11,7 @@ from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
 
 
 credid = credscheck('Z:/pyproject/secrets/secrets.json')
@@ -36,7 +36,7 @@ def show_random_joke(message, say):
     user_id = message["user"]
 
     joke = pyjokes.get_joke()
-    logger.info(f"Sent joke < {joke} > to user {user_id}")  # pylint: disable=logging-fstring-interpolation  # noqa: E501
+    logger.info(f"Sent joke < {joke} > to user {user_id}")  # pylint: disable=logging-fstring-interpolation
 
     say(text=joke, channel=dm_channel)
 

@@ -10,7 +10,7 @@ import sys
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.DndProject.dnddice import number_generator  # noqa: E402, E501
+from jackmanimation.DndProject.dnddice import number_generator
 
 BEAST_NAME = 0
 

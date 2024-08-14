@@ -149,7 +149,7 @@ def main():
                    "oracle_prepostion": oracle_preposition,
                    "oracle_adverb": oracle_adverb,
                    "oracle_adjective": oracle_adjective,
-                   "oracle_instransient_verb_phrase": oracle_instransient_verb_phrase,  # noqa: E501
+                   "oracle_instransient_verb_phrase": oracle_instransient_verb_phrase,
                    "oracle_conjuction": oracle_conjuction,
                    "oracle_complete_visions": oracle_complete_visions},
                   file,

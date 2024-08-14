@@ -10,8 +10,8 @@ import zipfile36 as zipfile
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
-from jackmanimation.utilities.fileutility import getargs  # noqa: E402
+from jackmanimation.utilities.fileutility import walk_through
+from jackmanimation.utilities.fileutility import getargs
 
 __author__ = "Denis J Jackman (denis_jackman@hotmail.com)"
 __version__ = "$Revision: 0.01 $"
@@ -37,7 +37,7 @@ def main():
         try:
             with zipfile.ZipFile(arma_file) as archive:
                 archive.extractall(path=ARMA_TARGET_DIR)
-        except:  # pylint: disable=bare-except  # noqa: E722
+        except:  # pylint: disable=bare-except
             continue
     print('[=] armadillo shutting down')
 

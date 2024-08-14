@@ -7,7 +7,7 @@ from pathlib import Path
 import pygame
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.classes.sprite import GameSprite  # noqa: E402
+from jackmanimation.classes.sprite import GameSprite
 
 WIDTH = 800
 HEIGHT = 800

@@ -2,7 +2,7 @@
 ''' pdf to text conversion '''
 from pypdf import PdfReader
 
-INPUTFILE = r"Z:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"  # noqa: E501
+INPUTFILE = r"Z:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"
 OUTPUTFILE = r"Z:/Resources/development/anon.txt"
 
 

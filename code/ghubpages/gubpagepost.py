@@ -7,7 +7,7 @@ from github import Auth
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
 
 
 POST_FOLDER = "Z:/jackmanimationtest/_posts/"
@@ -55,8 +55,8 @@ def open_github():
 
 def write_post(wp_post):
     '''Writes a post to a file.'''
-    wp_file_name = f'{POST_FOLDER}{datetime.datetime.now().strftime("%Y-%m-%d")}-test-post.md'  # noqa E501
-    wp_target = f'_posts/{datetime.datetime.now().strftime("%Y-%m-%d")}-test-post.md'  # noqa E501
+    wp_file_name = f'{POST_FOLDER}{datetime.datetime.now().strftime("%Y-%m-%d")}-test-post.md'
+    wp_target = f'_posts/{datetime.datetime.now().strftime("%Y-%m-%d")}-test-post.md'
     with open(wp_file_name, 'w', encoding='utf-8-sig') as wp_file:
         wp_file.write(wp_post)
     return wp_target
@@ -69,7 +69,7 @@ def main():
     main_github = open_github()
     print("[+] Creating post...")
     for repo in main_github.get_user().get_repos():
-        main_content += f"* [{repo.name}](https://github.com/{repo.owner.login}/{repo.name})\n"  # noqa E501
+        main_content += f"* [{repo.name}](https://github.com/{repo.owner.login}/{repo.name})\n"
     main_post = create_post("Test Post",
                             datetime.datetime.now().strftime("%Y-%m-%d"),
                             main_content)

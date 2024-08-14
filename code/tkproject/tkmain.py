@@ -11,7 +11,7 @@ from PIL import Image, ImageTk
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
+from jackmanimation.utilities.fileutility import walk_through
 
 
 MAIN_WINDOW = tk.Tk()

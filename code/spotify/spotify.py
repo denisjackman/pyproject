@@ -15,7 +15,7 @@ from requests import post, get
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
 
 SPOTIFY_SEARCH_URL = 'https://api.spotify.com/v1/'
 SPOTIFY_BASE_URL = 'https://accounts.spotify.com/api/token'
@@ -57,7 +57,7 @@ def search_for_artist(gsa_token, gsa_artist):
 
 def get_songs_by_artist(gsba_token, gsba_artist_id):
     ''' get the songs by the artist '''
-    gsba_search_url = f'{SPOTIFY_SEARCH_URL}artists/{gsba_artist_id}/top-tracks?country=GB'  # noqa: E501
+    gsba_search_url = f'{SPOTIFY_SEARCH_URL}artists/{gsba_artist_id}/top-tracks?country=GB'
     gsba_headers = get_auth_header(gsba_token)
     gsba_result = get(gsba_search_url, headers=gsba_headers, timeout=5)
     gsba_json_result = json.loads(gsba_result.content)["tracks"]

