@@ -3,7 +3,7 @@
 '''
 from pdf2docx import Converter
 
-INPUT_PDF_FILE = "Z:/temp/The_Fifth_Edition_Gamemasters_Survival_Guide_-_v1.8.pdf"  # noqa: E501
+INPUT_PDF_FILE = "Z:/temp/The_Fifth_Edition_Gamemasters_Survival_Guide_-_v1.8.pdf"
 OUTPUT_DOC_FILE = "Z:/temp/example.docx"
 
 

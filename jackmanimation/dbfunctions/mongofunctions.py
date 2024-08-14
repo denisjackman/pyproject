@@ -6,7 +6,7 @@ from pymongo.server_api import ServerApi
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
 
 
 def open_mongo():
@@ -15,7 +15,7 @@ def open_mongo():
     mongodbuser = dbdid["BotUsername"]
     mongodbpassword = dbdid["MongoPassword"]
     mongodbconnection = dbdid["MongoDatabase"]
-    conn_str = f"mongodb+srv://{mongodbuser}:{mongodbpassword}@{mongodbconnection}/?retryWrites=true&w=majority"  # noqa: E501
+    conn_str = f"mongodb+srv://{mongodbuser}:{mongodbpassword}@{mongodbconnection}/?retryWrites=true&w=majority"
     client = MongoClient(conn_str, server_api=ServerApi('1'))
     return client
 
@@ -50,7 +50,7 @@ def updateData(client, database, collection, itemid, field, value):
     print("[=] MongoDB update data start")
     dbname = get_mongodb(client, database)
     collection_name = dbname[collection]
-    update_result = collection_name.update_one({"_id": itemid}, {"$set": {field: value}})  # noqa: E501
+    update_result = collection_name.update_one({"_id": itemid}, {"$set": {field: value}})
     print("[=] MongoDB update data Finish")
     return update_result
 

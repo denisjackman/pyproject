@@ -360,7 +360,7 @@ class TGB:  # pylint: disable=R0904
             self.generate_map(50, random.randint(13, 27))
         else:
             # Read a scenario
-            self.load_map(os.path.join(self.gamepath, "scenarios") + os.sep + scenariofile) 
+            self.load_map(os.path.join(self.gamepath, "scenarios") + os.sep + scenariofile)
 
         # Add resource dumps
         self.fill_dumps()
@@ -1062,7 +1062,7 @@ class TGB:  # pylint: disable=R0904
             kolorissi = (self.sc["unit_status_text_color"][0],
                          self.sc["unit_status_text_color"][1],
                          self.sc["unit_status_text_color"][2])
-            x1, y1 = self.sc["unit_status_text_topleft_corner"][0], self.sc["unit_status_text_topleft_corner"][1] 
+            x1, y1 = self.sc["unit_status_text_topleft_corner"][0], self.sc["unit_status_text_topleft_corner"][1]
             self.text_at("Resource dump",
                          (x1, y1+30),
                          fontti=font4,
@@ -1348,7 +1348,7 @@ class TGB:  # pylint: disable=R0904
                                                       xy[1]+edm[i][1])] != self.turn:
                                     a_searched.append(self.gct(xy[0]+edm[i][0],
                                                                xy[1]+edm[i][1]))
-                                    urpo.x, urpo.y, side = xy[0], xy[1], self.turn,F841
+                                    urpo.x, urpo.y, side = xy[0], xy[1], self.turn
                                     found_hardguy = soldiercounter
                                     for haastaja in levellista:
                                         urpo.level = haastaja

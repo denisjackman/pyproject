@@ -27,7 +27,7 @@ label.pack()
 BUTTON1 = tkinter.Button(root,  # pylint: disable=E1111
                          text="Generate",
                          font=('arial', 40, 'bold'),
-                         command=gen). place(x=100, y=200)  # noqa: E501
+                         command=gen). place(x=100, y=200)
 root.geometry("500x500")
 root.title("password ")
 root.mainloop()

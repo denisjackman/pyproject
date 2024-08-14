@@ -9,7 +9,7 @@ def port_scan(tgt_host, tgt_ports):
     ''' Scan ports on target host '''
     try:
         tgt_ip = socket.gethostbyname(tgt_host)
-    except:  # pylint: disable=bare-except  # noqa: E722
+    except:  # pylint: disable=bare-except
         print(f"[-] Cannot resolve '{tgt_host}': Unknown host")
         return
     try:
@@ -54,7 +54,7 @@ def main():
               '\nexample: python3 port_scan.py -H scanme.nmap.org -p 21,80')
 
     parser.add_argument('-H', type=str, metavar='TARGET_HOST',
-                        help='specify target host (IP address or domain name)')  # noqa: E501
+                        help='specify target host (IP address or domain name)')
     parser.add_argument('-p',
                         required=True,
                         type=str,

@@ -18,7 +18,7 @@ from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
 
 credid = credscheck('Z:/pyproject/secrets/secrets.json')
 SLACK_APP_TOKEN = credid["BoltKrakenToken"]
@@ -43,7 +43,7 @@ def show_kraken(message, say):
     channel_type = message["channel_type"]
     dm_channel = message["channel"]
     user_id = message["user"]
-    broadcast = "Releasing the Kraken! Beware we are coming for you!\n 3 \n 2 \n 1 \n Kraken Released!"  # noqa: E501
+    broadcast = "Releasing the Kraken! Beware we are coming for you!\n 3 \n 2 \n 1 \n Kraken Released!"
 
     if channel_type != "im":
         say(text=f'DM: {broadcast}', channel=dm_channel)
@@ -51,7 +51,7 @@ def show_kraken(message, say):
         say(text=f'IM: {broadcast}', channel=dm_channel)
 
     for channel_id in SLACK_CHANNELS:
-        say(f"[-] <@{user_id}> asked for the Kraken:\n[{broadcast}]\n {message}", channel=channel_id)  # noqa: E501
+        say(f"[-] <@{user_id}> asked for the Kraken:\n[{broadcast}]\n {message}", channel=channel_id)
 
 
 @app.message(re.compile("^marsys", re.IGNORECASE))  # type: ignore
@@ -69,7 +69,7 @@ def show_marsys(message, say):
         say(text=f'IM: {broadcast}', channel=dm_channel)
 
     for channel_id in SLACK_CHANNELS:
-        say(f"[-] <@{user_id}> asked for the Kraken:\n[{broadcast}]\n {message}", channel=channel_id)  # noqa: E501
+        say(f"[-] <@{user_id}> asked for the Kraken:\n[{broadcast}]\n {message}", channel=channel_id)
 
 
 @app.message(re.compile("^joke$", re.IGNORECASE))  # type: ignore

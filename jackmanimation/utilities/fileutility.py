@@ -11,7 +11,7 @@ __date__ = "$Date: 2023/07/02 00:00:00 $"
 __copyright__ = "Copyright (c) 2023 Denis J Jackman"
 __license__ = "Python"
 
-DIRECTORYLIST = ["C:\\", "F:\\", "G:\\", "V:\\", "W:\\", "X:\\", "Y:\\", "Z:\\"]  # noqa: E501
+DIRECTORYLIST = ["C:\\", "F:\\", "G:\\", "V:\\", "W:\\", "X:\\", "Y:\\", "Z:\\"]
 DIRECTORYLISTFILE = "Z:/Resources/development/directorylist.txt"
 DIRECTORYSUMMARY = "Z:/Resources/development/directorysummary.txt"
 
@@ -42,7 +42,7 @@ def check_file_for_name(cff_root, cff_name, cff_command_args):
         if cff_name == name:
             if cff_command_args["deletemode"]:
                 if cff_command_args["verbosemode"]:
-                    print(f'[FOUND] {os.path.join(cff_root, cff_name)} is to be deleted')  # noqa: E501
+                    print(f'[FOUND] {os.path.join(cff_root, cff_name)} is to be deleted')
                 result = True
     return result
 
@@ -51,7 +51,7 @@ def getargs():
     '''
         get the arguements from the command line
     '''
-    system_commands = f'{os.path.basename(__file__)} -v <True/False> -d <True/False> DIRECTORY "."'  # noqa: E501
+    system_commands = f'{os.path.basename(__file__)} -v <True/False> -d <True/False> DIRECTORY "."'
     argv = sys.argv[1:]
     commands = "hvds:t:"
     long_commands = ["verbose", "delete", "start=", "help", "target="]
@@ -60,7 +60,7 @@ def getargs():
     start_directory = "."
     target_directory = "."
     try:
-        command_line_options, args = getopt.getopt(argv, commands, long_commands)  # noqa: E501
+        command_line_options, args = getopt.getopt(argv, commands, long_commands)
     except getopt.GetoptError:
         print(system_commands)
         sys.exit(2)

@@ -7,7 +7,7 @@ import mysql.connector
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: E402
+from jackmanimation.gameitems.gamefunctions import credscheck
 
 
 def check_database(checkdb, checkusername):
@@ -32,7 +32,7 @@ def insert_row(insertdb, insertusername, insertdate):
     ''' insert the row into the database'''
     result = False
     cursor = insertdb.cursor()
-    query = f"INSERT INTO posts(postdate, username) VALUES ('{insertdate}', '{insertusername}')"  # noqa: E501
+    query = f"INSERT INTO posts(postdate, username) VALUES ('{insertdate}', '{insertusername}')"
     try:
         cursor.execute(query)
         insertdb.commit()
@@ -82,7 +82,7 @@ def main():
             user_agent='Meerkatbot by jackmanimation',
             username=credid['OredditUsername'])
         # pylint: disable=W0702
-    except:  # noqa: E722
+    except:
         print("Reddit login failed")
         sys.exit(1)
 
@@ -94,7 +94,7 @@ def main():
 
     for submission in subreddit.stream.submissions():
         author = submission.author
-        itemdate = datetime.utcfromtimestamp(submission.created_utc).strftime('%Y-%m-%d')  # noqa: E501
+        itemdate = datetime.utcfromtimestamp(submission.created_utc).strftime('%Y-%m-%d')
         submissiondate = datetime.utcfromtimestamp(submission.created_utc)
         timenow = datetime.utcnow()
         timenow = timenow.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -104,13 +104,13 @@ def main():
                                                 microsecond=0)
         timediff = timenow - submissiondate
         if author is None:
-            print(f"[-] '{submission.title}' Author: None created: {itemdate} ago: {timediff.days}")  # noqa: E501
+            print(f"[-] '{submission.title}' Author: None created: {itemdate} ago: {timediff.days}")
         else:
             if check_database(use_db, author.name):
-                print(f"[-] Author: {submission.author.name} Created: {itemdate} - NOT ADDED")  # noqa: E501
+                print(f"[-] Author: {submission.author.name} Created: {itemdate} - NOT ADDED")
             else:
                 insert_row(use_db, author.name, itemdate)
-                print(f"[-] Author: {submission.author.name} Created: {itemdate} - ADDED")  # noqa: E501
+                print(f"[-] Author: {submission.author.name} Created: {itemdate} - ADDED")
     print("[+] Meerkatbot is shutting down")
 
 

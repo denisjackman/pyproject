@@ -3,7 +3,7 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import getargs  # noqa: E402
+from jackmanimation.utilities.fileutility import getargs
 
 
 def main():

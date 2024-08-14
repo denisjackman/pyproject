@@ -9,7 +9,7 @@ import json
 COMMANDS = "hvds:x:"
 LONG_COMMANDS = ["verbose", "debug", "start=", "help", "xmode="]
 PROGRAM_NAME = sys.argv[0][2:].replace(".py", "")
-STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -s DIRECTORY -x XMODE "."'  # noqa: E501
+STANDARD_COMMANDS = f'{PROGRAM_NAME} -v <True/False> -d <True/False> -s DIRECTORY -x XMODE "."'
 FILEPATH = Path(__file__).parent
 
 
@@ -36,7 +36,7 @@ def getargs():
     startdirectory = "."
     xmode = ""
     try:
-        command_line_optionss, args = getopt.getopt(argv, COMMANDS, LONG_COMMANDS)  # noqa: E501
+        command_line_optionss, args = getopt.getopt(argv, COMMANDS, LONG_COMMANDS)
     except getopt.GetoptError:
         print(f'The commands are : {STANDARD_COMMANDS}')
         sys.exit(2)
@@ -68,7 +68,7 @@ def dir_example(ex_command_args):
         print(f'DEBUG: rootdir - {rootdir}')
     for dirName, subdirList, fileList in os.walk(rootdir):
         if debug:
-            print(f'DEBUG: Found directory: {dirName} - {subdirList} - {fileList} - {len(fileList)}')  # noqa: E501
+            print(f'DEBUG: Found directory: {dirName} - {subdirList} - {fileList} - {len(fileList)}')
         for fname in fileList:
             temp = f'{FILEPATH}\\{fname}'
             if debug:
@@ -130,7 +130,7 @@ def main():
         exttype = check_file_extension(item,
                                        mainargs["debugmode"],
                                        mainargs["verbosemode"])
-        print(f'{check_file_mime(itemtype[0], mainargs["debugmode"], mainargs["verbosemode"])}')  # noqa: E501
+        print(f'{check_file_mime(itemtype[0], mainargs["debugmode"], mainargs["verbosemode"])}')
         print(f'{item} - {itemtype} - {exttype} -{itemtype[0]}')
 
 

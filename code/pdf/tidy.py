@@ -8,7 +8,7 @@ from colorama import Fore
 TARGET_DIRECTORY = r"Z:/Store/Zips"
 NEW_DIRECTORY = r"Z:/Store/Zip"
 TARGET_CHECK = '.zip'
-PDF_FILENAME = r"Z:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"  # noqa: E501
+PDF_FILENAME = r"Z:/pyproject/code/viscous/chapter3/data/ANONOPS_The_Press_Release.pdf"
 WORKBOOK_FILE = r'Z:/Resources/zip.xlsx'
 
 
@@ -118,7 +118,7 @@ def main():
         if check_file(item, check):
             try:
                 with zipfile.ZipFile(item, 'r') as archive:
-                    print(Fore.YELLOW + f"Processing {item} - {len(archive.namelist())}")  # noqa: E501
+                    print(Fore.YELLOW + f"Processing {item} - {len(archive.namelist())}")
             except zipfile.BadZipFile as error:
                 print(Fore.RED + f"Bad zip file {item} - {error}")
     excel_store(allfiles)

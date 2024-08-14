@@ -14,7 +14,7 @@ def print_downloads(download_db):
         \'unixepoch\') FROM moz_downloads;')
         print('[*] --- Files Downloaded --- ')
         for row in c:
-            print(f'[+] File: {str(row[0])} from source: {str(row[1])} at: {str(row[2])}')  # noqa: E501
+            print(f'[+] File: {str(row[0])} from source: {str(row[1])} at: {str(row[2])}')
 
 
 def print_cookies(cookies_db):
@@ -78,8 +78,8 @@ def print_google(places_db):
 def main():
     ''' main function '''
     print('[-] Firefox parse started')
-    parser = argparse.ArgumentParser(description='Firefox History Parser',  # noqa: E501
-                                     usage='firefox_parse.py --fireprofile <path to firefox profile>')  # noqa: E501
+    parser = argparse.ArgumentParser(description='Firefox History Parser',
+                                     usage='firefox_parse.py --fireprofile <path to firefox profile>')
     parser.add_argument('--fireprofile',
                         type=str,
                         metavar='FIREFOX_PROFILE',

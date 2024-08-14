@@ -50,7 +50,7 @@ def title_work():
     title_work_result = create_surface(col.RED, (800, 50))
     titlefont = font_title.render('Game Title', True, col.BLACK)
     xwidth = (title_work_result.get_width() / 2) - (titlefont.get_width() / 2)
-    yheight = (title_work_result.get_height() / 2) - (titlefont.get_height() / 2)  # noqa: E501
+    yheight = (title_work_result.get_height() / 2) - (titlefont.get_height() / 2)
 
     title_work_result.blit(titlefont, (xwidth, yheight))
     return title_work_result

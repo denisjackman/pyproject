@@ -173,11 +173,11 @@ def site_name_generator():
         data = json.load(file)
     roll = Dice.dice(3)
     if roll == 1:
-        result = f"{choice(data['site_place'])} of {choice(data['site_thing'])}"  # noqa: E501
+        result = f"{choice(data['site_place'])} of {choice(data['site_thing'])}"
     elif roll == 2:
         result = f"{choice(data['site_adj'])} {choice(data['site_place'])}"
     else:
-        result = f"{choice(data['site_adj'])} {choice(data['site_place'])} of {choice(data['site_thing'])}"  # noqa: E501
+        result = f"{choice(data['site_adj'])} {choice(data['site_place'])} of {choice(data['site_thing'])}"
     return result
 
 

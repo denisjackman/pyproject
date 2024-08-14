@@ -11,7 +11,7 @@ class GameSprite:
         self.animation_count = 0
         for item in range(6):
             add_str = str(item + 38)
-            asset = f"{os.path.join('Z:/tower-defense/tim-tower/game_assets/archer-tower-game-assets/PNG')}/{add_str}.png"  # noqa: E501
+            asset = f"{os.path.join('Z:/tower-defense/tim-tower/game_assets/archer-tower-game-assets/PNG')}/{add_str}.png"
             asset_store = pygame.image.load(asset)
             self.images.append(asset_store)
         self.x = x/2 - self.images[0].get_width()/2

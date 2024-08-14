@@ -58,11 +58,11 @@ def smbBrute(configFile, tgtHost, passwdFile, lhost, lport):
 def main():
     ''' main function'''
     with open('meta.rc', 'w', encoding='utf-8-sig') as configFile:
-        parser = argparse.ArgumentParser(usage='conficker.py -H <RHOST[s]> -l <LHOST> [-p <LPORT> -F <Password File>]')  # noqa: E501
-        parser.add_argument('-H', type='string', help='specify the target address[es]')  # noqa: E501
-        parser.add_argument('-p', type='string', help='specify the listen port')  # noqa: E501
-        parser.add_argument('-l', type='string', help='specify the listen address')  # noqa: E501
-        parser.add_argument('-F', type='string', help='password file for SMB brute force attempt')  # noqa: E501
+        parser = argparse.ArgumentParser(usage='conficker.py -H <RHOST[s]> -l <LHOST> [-p <LPORT> -F <Password File>]')
+        parser.add_argument('-H', type='string', help='specify the target address[es]')
+        parser.add_argument('-p', type='string', help='specify the listen port')
+        parser.add_argument('-l', type='string', help='specify the listen address')
+        parser.add_argument('-F', type='string', help='password file for SMB brute force attempt')
         args = parser.parse_args()
         args.tgtHost = str(args.H)
         args.lport = str(args.p)

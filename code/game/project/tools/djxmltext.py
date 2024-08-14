@@ -5,7 +5,7 @@ import math
 
 def main():
     ''' main'''
-    hexxmldoc = xml.dom.minidom.parse('Z:/pyproject/Resources/development/project/hexagonAll_sheet.xml')  # noqa: E501
+    hexxmldoc = xml.dom.minidom.parse('Z:/pyproject/Resources/development/project/hexagonAll_sheet.xml')
     print(f'hexxmldoc: {hexxmldoc}')
     print(f'hexxmldoc.nodeName: {hexxmldoc.nodeName}')
     print(f'hexxmldoc.childNodes: {hexxmldoc.childNodes}')

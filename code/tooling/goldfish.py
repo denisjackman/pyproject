@@ -5,8 +5,8 @@ import datetime
 from tqdm import tqdm
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
-from jackmanimation.utilities.fileutility import getargs  # noqa: E402
+from jackmanimation.utilities.fileutility import walk_through
+from jackmanimation.utilities.fileutility import getargs
 
 SEARCH_LIST = [".DS_Store",
                ".AppleDouble",

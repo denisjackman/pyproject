@@ -148,7 +148,7 @@ class ExampleHexMap:
         hexes = []
         num_shown_hexes = np.random.binomial(len(all_coordinates), .95)
         axial_coordinates = hx.cube_to_axial(all_coordinates)
-        axial_coordinates = axial_coordinates[np.random.choice(len(axial_coordinates), num_shown_hexes, replace=False)]  # noqa: E501
+        axial_coordinates = axial_coordinates[np.random.choice(len(axial_coordinates), num_shown_hexes, replace=False)]
 
         for i, axial in enumerate(axial_coordinates):
             hex_color = list(COLORS[COL_IDX[i]])
@@ -217,10 +217,10 @@ class ExampleHexMap:
         # pylint: disable=too-many-locals
         # show all hexes
         hexagons = list(self.hex_map.values())
-        hex_positions = np.array([hexagon.get_draw_position() for hexagon in hexagons])  # noqa: E501
+        hex_positions = np.array([hexagon.get_draw_position() for hexagon in hexagons])
         sorted_indexes = np.argsort(hex_positions[:, 1])
         for index in sorted_indexes:
-            self.main_surf.blit(hexagons[index].image, hex_positions[index] + self.center)  # noqa: E501
+            self.main_surf.blit(hexagons[index].image, hex_positions[index] + self.center)
 
         # draw numbers on the hexes
         for hexagon in list(self.hex_map.values()):
@@ -251,11 +251,11 @@ class ExampleHexMap:
 
         # draw "HUD"
         selection_type_text = self.font.render(
-                "(Right Click To Change) Selection Type: " + Selection.Type.to_string(self.selection_type.value),  # noqa: E501
+                "(Right Click To Change) Selection Type: " + Selection.Type.to_string(self.selection_type.value),
                 True,
                 (50, 50, 50))
         radius_text = self.font.render(
-                "(Scroll Mouse Wheel To Change) Radius: " + str(self.rad.value),  # noqa: E501
+                "(Scroll Mouse Wheel To Change) Radius: " + str(self.rad.value),
                 True,
                 (50, 50, 50))
         fps_text = self.font.render(" FPS: " + str(int(self.clock.get_fps())),

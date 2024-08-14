@@ -44,7 +44,7 @@ def get_google_credentials(ggc_scope):
         if ggc_creds and ggc_creds.expired and ggc_creds.refresh_token:
             ggc_creds.refresh(Request())
         else:
-            ggc_flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE,  # noqa E501
+            ggc_flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE,
                                                                  ggc_scope)
             ggc_creds = ggc_flow.run_local_server(port=0)
         # Save the credentials for the next run
@@ -68,7 +68,7 @@ def get_gmail_message(ggm_creds, ggm_message_id):
     '''get gmail message'''
     ggm_service = build('gmail', 'v1', credentials=ggm_creds)
     ggm_message = ggm_service.users().messages().get(userId='me',
-                                                     id=ggm_message_id).execute()  # noqa E501
+                                                     id=ggm_message_id).execute()
     return ggm_message
 
 
@@ -105,7 +105,7 @@ def send_gmail_message(sgm_creds,
                                      sgm_subject,
                                      sgm_message_text)
     sgm_sent_message = sgm_service.users().messages().send(userId='me',
-                                                           body=sgm_message).execute()  # noqa E501
+                                                           body=sgm_message).execute()
     return sgm_sent_message
 
 
@@ -130,7 +130,7 @@ def create_message_with_attachment(cmwa_sender,
         cmwa_mime_base.set_payload(cmwa_file.read())
         encoders.encode_base64(cmwa_mime_base)
         cmwa_mime_base.add_header('Content-Disposition',
-                                  f'attachment; filename={os.path.basename(cmwa_file_path)}')  # noqa E501
+                                  f'attachment; filename={os.path.basename(cmwa_file_path)}')
         cmwa_message.attach(cmwa_mime_base)
 
     cmwa_raw = base64.urlsafe_b64encode(cmwa_message.as_bytes())

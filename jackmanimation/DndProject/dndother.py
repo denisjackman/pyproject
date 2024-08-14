@@ -617,7 +617,7 @@ def coatofarms_generator():
         blaz2blaz1 = choice(data["blazon1"])
         if blaz2blaz1 == "Creature":
             blaz2blaz1 = choice(data["creatures"])
-        blazon2 = f' and {blaz2numwords} {plural(choice(data["colour"]))} {blaz2blaz1} '  # noqa E501
+        blazon2 = f' and {blaz2numwords} {plural(choice(data["colour"]))} {blaz2blaz1} '
     else:
         blazon2 = ' '
 
@@ -633,7 +633,7 @@ def coatofarms_generator():
         blaz2blaz1 = choice(data["blazon1"])
         if blaz2blaz1 == "Creature":
             blaz2blaz1 = choice(data["creatures"])
-        blazon3 = f' and {blaz2numwords} {choice(data["colour"])} {plural(blaz2blaz1)} '  # noqa E501
+        blazon3 = f' and {blaz2numwords} {choice(data["colour"])} {plural(blaz2blaz1)} '
     else:
         blazon3 = ' '
 
@@ -645,9 +645,9 @@ def coatofarms_generator():
     elif roll <= 4:
         result = f'{aoran(colour)} {blazon1}{blazon3}on a {metal} field'
     elif roll <= 5:
-        result = f'{numwords} {metal} {plural(blazon1)}{blazon2}on a {colour} field'  # noqa E501
+        result = f'{numwords} {metal} {plural(blazon1)}{blazon2}on a {colour} field'
     else:
-        result = f'{numwords} {colour} {plural(blazon1)}{blazon3}on a {metal} field'  # noqa E501
+        result = f'{numwords} {colour} {plural(blazon1)}{blazon3}on a {metal} field'
 
     return result
 
@@ -670,15 +670,15 @@ def herb_name_generator():
     if roll <= 5:
         result = f"{choice(data['herb_pref'])}{appsuff}"
     elif roll <= 7:
-        result = f"{choice(data['herb_color'])}{choice(data['herb_pref'])}{appsuff}"  # noqa E501
+        result = f"{choice(data['herb_color'])}{choice(data['herb_pref'])}{appsuff}"
     elif roll <= 9:
         result = f"{choice(data['herb_color'])}{choice(data['herb_misc'])}"
     elif roll <= 10:
         result = f"{choice(data['herb_color'])}{choice(data['herb_suff'])}"
     elif roll <= 11:
-        result = f"St. {choice(data['herb_name'])}'s {choice(data['herb_misc'])}"  # noqa E501
+        result = f"St. {choice(data['herb_name'])}'s {choice(data['herb_misc'])}"
     elif roll <= 12:
-        result = f"{choice(data['herb_creature'])}'s {choice(data['herb_misc'])}"  # noqa E501
+        result = f"{choice(data['herb_creature'])}'s {choice(data['herb_misc'])}"
     elif roll <= 13:
         result = f"{choice(data['herb_thing'])}'s {choice(data['herb_misc'])}"
     else:
@@ -731,7 +731,7 @@ def adventure_name_generator():
     elif roll == 5:
         result = f"{adjective.capitalize()} {item.capitalize()} of {name}"
     elif roll == 6:
-        result = f"{building.capitalize()}  of {adjective.capitalize()} {element.title()}"  # noqa E501
+        result = f"{building.capitalize()}  of {adjective.capitalize()} {element.title()}"
     elif roll == 7:
         result = f"{building.capitalize()} of {element.capitalize()}"
     elif roll == 8:
@@ -749,11 +749,11 @@ def adventure_name_generator():
     elif roll == 14:
         result = f"{building.capitalize()} of the {region}"
     elif roll == 15:
-        result = f"{building.capitalize()}'s of the {monster.title()} {ruler.capitalize()}"  # noqa E501
+        result = f"{building.capitalize()}'s of the {monster.title()} {ruler.capitalize()}"
     elif roll == 16:
         result = f"{colour} {item} {geography.title()}"
     elif roll == 17:
-        result = f"{escape.capitalize()} from {name}'s {building.capitalize()}"  # noqa E501
+        result = f"{escape.capitalize()} from {name}'s {building.capitalize()}"
     elif roll == 18:
         result = f"{escape.capitalize()} from {name} {building.capitalize()}"
     elif roll == 19:

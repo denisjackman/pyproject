@@ -16,7 +16,7 @@ def main():
     """
     main
     """
-    wiki = "http://en.wikipedia.org/wiki/List_of_state_and_union_territory_capitals_in_India"  # noqa: E501
+    wiki = "http://en.wikipedia.org/wiki/List_of_state_and_union_territory_capitals_in_India"
     page = urllib3.urlopen(wiki)
     soup = BeautifulSoup(page)
     print(soup.prettify())

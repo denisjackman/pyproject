@@ -24,7 +24,7 @@ def metadefinition():
     '''
     meta = ''
     meta += "<meta charset='utf-8-sig'>"
-    meta += '<meta name="viewport" content="width=device-width, initial-scale=1.0">'  # noqa: E501
+    meta += '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
     meta += '<meta http-equiv="X-UA-Compatible" content="ie=edge">'
     meta += '<meta name="description" content="Python Scripting example">'
     meta += '<meta name="keywords" content="HTML, CSS, JavaScript">'
@@ -185,7 +185,7 @@ def pagebody():
     webpage += buildlink("https://www.w3schools.com",
                          'This is a link')
     webpage += breakline()
-    webpage += buildimage("https://www.w3schools.com/images/w3schools_green.jpg",  # noqa: E501
+    webpage += buildimage("https://www.w3schools.com/images/w3schools_green.jpg",
                           'This is an image')
     webpage += breakline()
     webpage += divend()
@@ -197,7 +197,7 @@ def pagebody():
     webpage += buildlink("https://www.w3schools.com",
                          f'This is a {bold("link")} in the sidebar')
     webpage += breakline()
-    webpage += buildimage("https://www.w3schools.com/images/w3schools_green.jpg",  # noqa: E501
+    webpage += buildimage("https://www.w3schools.com/images/w3schools_green.jpg",
                           'This is an image in the sidebar')
     webpage += breakline()
     webpage += divend()

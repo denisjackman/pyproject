@@ -7,8 +7,8 @@ import pypdf
 from tqdm import tqdm
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('..\\..'))
-from jackmanimation.utilities.fileutility import walk_through  # noqa: E402
-from jackmanimation.utilities.fileutility import extract_file_extension  # noqa: E402, E501
+from jackmanimation.utilities.fileutility import walk_through
+from jackmanimation.utilities.fileutility import extract_file_extension
 
 TARGETDIRECTORY = r"Z:\Library"
 TARGETSTRING = "Python"
@@ -43,7 +43,7 @@ def main():
     targetlist = []
     errorlist = []
 
-    totallist.extend(walk_through({"verbosemode": False, "deletemode": False, "startdirectory": TARGETDIRECTORY}))  # noqa: E501
+    totallist.extend(walk_through({"verbosemode": False, "deletemode": False, "startdirectory": TARGETDIRECTORY}))
     print(f"[-] Records found {len(totallist):,}")
     for item in tqdm(totallist, total=len(totallist), unit=' item'):
         tmpext = extract_file_extension(item)
@@ -60,7 +60,7 @@ def main():
             if pdf_reader.metadata is None:
                 debug_mode(f"[*] PDF file is {pdfitem} -- title (NO TITLE) --")
             else:
-                debug_mode(f"[*] PDF file is {pdfitem} -- title {pdf_reader.metadata.title} --")  # noqa: E501
+                debug_mode(f"[*] PDF file is {pdfitem} -- title {pdf_reader.metadata.title} --")
             try:
                 pagecount = len(pdf_reader.pages)
             except Exception as err:
@@ -73,7 +73,7 @@ def main():
                     text = pagetext.extract_text()
                     if TARGETSTRING in text:
                         targetlist.append(pdfitem)
-                        debug_mode(f"[-] Found target string {TARGETSTRING} in {pdfitem} ")  # noqa: E501
+                        debug_mode(f"[-] Found target string {TARGETSTRING} in {pdfitem} ")
                 except Exception as err:
                     debug_mode(f'[=] Parsing Error {err} in {pdfitem}')
                     errorlist.append(f'[-] Error {err} in {pdfitem}')

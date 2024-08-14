@@ -16,9 +16,9 @@ def nmap_scan(tgt_host, tgt_ports):
 def main():
     ''' Main function '''
     print('[-] nmap scanner starting')
-    parser = argparse.ArgumentParser(usage='nmap_scan.py -H TARGET_HOST -p TARGET_PORT')  # noqa: E501
-    parser.add_argument('-H', metavar='TARGET_HOST', type=str, help='specify target host')  # noqa: E501
-    parser.add_argument('-p', metavar='TARGET_PORT', type=str, help='specify target port[s] separated by comma')  # noqa: E501
+    parser = argparse.ArgumentParser(usage='nmap_scan.py -H TARGET_HOST -p TARGET_PORT')
+    parser.add_argument('-H', metavar='TARGET_HOST', type=str, help='specify target host')
+    parser.add_argument('-p', metavar='TARGET_PORT', type=str, help='specify target port[s] separated by comma')
     args = parser.parse_args()
     args.tgtHost = str(args.H)
     args.tgtPorts = str(args.p).split(',')

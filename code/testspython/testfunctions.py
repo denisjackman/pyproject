@@ -5,7 +5,7 @@ import os
 import sys
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.genfunctions.searchutils import bubble_sort  # noqa: E402
+from jackmanimation.genfunctions.searchutils import bubble_sort
 
 
 def main():

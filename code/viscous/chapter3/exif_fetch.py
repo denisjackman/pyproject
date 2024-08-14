@@ -27,14 +27,14 @@ def downloadImage(imgTag):
         print('[-] Dowloading image...')
         imgSrc = imgTag['src']
         print(f"[+] Image: {imgSrc}")
-        imgContent = urllib.request.urlopen(imgSrc).read()  # pylint: disable=R1732  # noqa: E501
+        imgContent = urllib.request.urlopen(imgSrc).read()  # pylint: disable=R1732
         print(f'[+] Downloaded image: {basename(urlsplit(imgSrc))}')
         imgFileName = f'data//{basename(urlsplit(imgSrc)[2])}'
         imgFile = open(imgFileName, 'wb')  # pylint: disable=R1732
         imgFile.write(imgContent)
         imgFile.close()
         return imgFileName
-    except:  # pylint: disable=W0702  # noqa: E722
+    except:  # pylint: disable=W0702
         return ''
 
 
@@ -51,14 +51,14 @@ def test_for_exif(imgFileName):
                 exifData[decoded] = value
                 if decoded == 'GPSInfo':
                     print('[*] ' + str(decoded) + ': ' + str(value))
-    except:  # pylint: disable=W0702  # noqa: E722
+    except:  # pylint: disable=W0702
         pass
 
 
 def main():
     ''' Main function'''
-    parser = argparse.ArgumentParser(usage='exifetch.py -u <target url>')  # noqa: E501
-    parser.add_argument('-u', dest='url', type=str, help='specify url address')  # noqa: E501
+    parser = argparse.ArgumentParser(usage='exifetch.py -u <target url>')
+    parser.add_argument('-u', dest='url', type=str, help='specify url address')
     args = parser.parse_args()
     url = args.url
     if url is None:

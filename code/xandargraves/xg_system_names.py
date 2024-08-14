@@ -62,7 +62,7 @@ def main():
     print(f'[-] {len(prefix_list)}')
     namelist = []
     for _ in range(1000):
-        namelist.append(f'{generate_names(suffix_list, topper_list, prefix_list)}')  # noqa: E501
+        namelist.append(f'{generate_names(suffix_list, topper_list, prefix_list)}')
     namelist.sort()
     print(f'[-] before {len(namelist)}')
     namelist = list(dict.fromkeys(namelist))

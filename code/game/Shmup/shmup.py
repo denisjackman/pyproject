@@ -43,7 +43,7 @@ player_img = pygame.image.load(os.path.join(IMG_DIR, "player.png")).convert()
 player_mini_img = pygame.transform.scale(player_img, (25, 19))
 player_mini_img.set_colorkey(BLACK)
 
-meteor_img = pygame.image.load(os.path.join(IMG_DIR, "meteorSmall.png")).convert()  # noqa: E501
+meteor_img = pygame.image.load(os.path.join(IMG_DIR, "meteorSmall.png")).convert()
 bullet_img = pygame.image.load(os.path.join(IMG_DIR, "laserRed.png")).convert()
 meteor_images = []
 meteor_list = ["meteorBrown_big1.png", "meteorBrown_big2.png",
@@ -52,7 +52,7 @@ meteor_list = ["meteorBrown_big1.png", "meteorBrown_big2.png",
                "meteorBrown_small1.png", "meteorBrown_small2.png",
                "meteorBrown_tiny1.png", "meteorBrown_tiny2.png"]
 for img in meteor_list:
-    meteor_images.append(pygame.image.load(os.path.join(IMG_DIR, img)).convert())  # noqa: E501
+    meteor_images.append(pygame.image.load(os.path.join(IMG_DIR, img)).convert())
 
 explosion_anim = {}
 explosion_anim['lg'] = []
@@ -74,8 +74,8 @@ for item in range(9):
 
 
 powerup_images = {}
-powerup_images['shield'] = pygame.image.load(os.path.join(IMG_DIR, 'shield_gold.png')).convert()  # noqa: E501
-powerup_images['gun'] = pygame.image.load(os.path.join(IMG_DIR, 'bolt_gold.png')).convert()  # noqa: E501
+powerup_images['shield'] = pygame.image.load(os.path.join(IMG_DIR, 'shield_gold.png')).convert()
+powerup_images['gun'] = pygame.image.load(os.path.join(IMG_DIR, 'bolt_gold.png')).convert()
 powerups = pygame.sprite.Group()
 
 # set up sounds
@@ -84,7 +84,7 @@ shoot_sound = pygame.mixer.Sound(os.path.join(SND_DIR, 'pew.wav'))
 expl_sounds = []
 for snd in ['expl3.wav', 'expl6.wav']:
     expl_sounds.append(pygame.mixer.Sound(os.path.join(SND_DIR, snd)))
-pygame.mixer.music.load(os.path.join(SND_DIR, 'tgfcoder-FrozenJam-SeamlessLoop.ogg'))  # noqa: E501
+pygame.mixer.music.load(os.path.join(SND_DIR, 'tgfcoder-FrozenJam-SeamlessLoop.ogg'))
 pygame.mixer.music.set_volume(0.4)
 
 # set up sprite groups
@@ -186,7 +186,7 @@ class Player(pygame.sprite.Sprite):
             self.hidden = False
             self.rect.centerx = WIDTH / 2
             self.rect.bottom = HEIGHT - 10
-        if self.power >= 2 and pygame.time.get_ticks() - self.power_time > POWERUP_TIME:  # noqa: E501
+        if self.power >= 2 and pygame.time.get_ticks() - self.power_time > POWERUP_TIME:
             self.power -= 1
             self.power_time = pygame.time.get_ticks()
 
@@ -270,7 +270,7 @@ class Mob(pygame.sprite.Sprite):
         self.rotate()
         self.rect.y += self.speedy
         self.rect.x += self.speedx
-        if self.rect.top > HEIGHT + 10 or self .rect.left < -25 or self.rect.right > WIDTH + 25:  # noqa: E501
+        if self.rect.top > HEIGHT + 10 or self .rect.left < -25 or self.rect.right > WIDTH + 25:
             self.rect.x = random.randrange(WIDTH - self.rect.width)
             self.rect.y = random.randrange(-100, -40)
             self.speedy = random.randrange(1, 8)
@@ -382,7 +382,7 @@ def main():
     running = True
     # load all background graphics
     background = pygame.image.load(os.path.join(IMG_DIR,
-                                                "starBackground.png")).convert()  # noqa: E501
+                                                "starBackground.png")).convert()
     background = pygame.transform.scale(background, (WIDTH, HEIGHT))
     background_rect = background.get_rect()
 

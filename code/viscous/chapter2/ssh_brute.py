@@ -31,10 +31,10 @@ def connect(host, user, password, release):
 
 def main():
     ''' main function'''
-    parser = argparse.ArgumentParser(usage='ssh_brute.py -H TARGET_HOST -u TARGET_USER -F PASSWORD_FILE')  # noqa: E501
-    parser.add_argument('-H', metavar='TARGET_HOST', type=str, help='specify target host')  # noqa: E501
-    parser.add_argument('-u', metavar='TARGET_USER', type=str, help='specify the user')  # noqa: E501
-    parser.add_argument('-F', metavar='PASSWORD_FILE', type=str, help='specify password file')  # noqa: E501
+    parser = argparse.ArgumentParser(usage='ssh_brute.py -H TARGET_HOST -u TARGET_USER -F PASSWORD_FILE')
+    parser.add_argument('-H', metavar='TARGET_HOST', type=str, help='specify target host')
+    parser.add_argument('-u', metavar='TARGET_USER', type=str, help='specify the user')
+    parser.add_argument('-F', metavar='PASSWORD_FILE', type=str, help='specify password file')
     args = parser.parse_args()
 
     if args.u is None or args.H is None or args.F is None:

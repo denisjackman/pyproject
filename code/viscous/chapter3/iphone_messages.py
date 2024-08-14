@@ -10,7 +10,7 @@ def is_message_table(iphonedb):
     try:
         with sqlite3.connect(iphonedb) as conn:
             c = conn.cursor()
-            c.execute('SELECT tbl_name FROM sqlite_master WHERE type == "table";')  # noqa: E501
+            c.execute('SELECT tbl_name FROM sqlite_master WHERE type == "table";')
             for row in c:
                 if 'message' in str(row):
                     return True
@@ -25,7 +25,7 @@ def print_message(msgdb):
     try:
         with sqlite3.connect(msgdb) as conn:
             c = conn.cursor()
-            c.execute('SELECT datetime(date, "unixepoch"), address, text FROM message WHERE address > 0;')  # noqa: E501
+            c.execute('SELECT datetime(date, "unixepoch"), address, text FROM message WHERE address > 0;')
             for row in c:
                 date = str(row[0])
                 addr = str(row[1])
@@ -38,7 +38,7 @@ def print_message(msgdb):
 def main():
     ''' main '''
     parser = argparse.ArgumentParser(description='check iphone for messages')
-    parser.add_argument('-p', dest='path', type=str, help='specify iphone backup directory')  # noqa: E501
+    parser.add_argument('-p', dest='path', type=str, help='specify iphone backup directory')
     args = parser.parse_args()
     path = args.path
     if not path:
