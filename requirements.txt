@@ -30,7 +30,7 @@ instagrapi
 isbntools
 matplotlib
 mobi
-mysql-connector-python-rf
+mysql-connector-python
 networkx
 openai
 opencv-python
