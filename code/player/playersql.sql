@@ -1,4 +1,5 @@
 CREATE DATABASE player_ranking_db;
+grant select, insert, update on player_ranking_db.* to 'jackmanimation'@'%' with grant option;
 
 USE player_ranking_db;
 

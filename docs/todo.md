@@ -43,10 +43,22 @@ The list is a list of TODO items broken into Spike, Game and Tools.
 |TODO:|C016|CODE| |TKBOIDS Boids need to "see" each other|
 |TODO:|C017|CODE| |TKBOIDS Unseen boids should be ignored|
 |TODO:|C018|CODE| |TKBOIDS Refer to the original algorithm|
-|TODO:|C019|CODE| |TKBOIDS http://www.red3d.com/cwr/boids/ |
+|TODO:|C019|CODE| |TKBOIDS [Source](http://www.red3d.com/cwr/boids/) |
 |TODO:|C020|CODE| |TKBOIDS  Change updating system to that used by QuizMe|
 |TODO:|C021|CODE| |Breadth First Search|
 |TODO:|C022|CODE| |Depth First Search|
+|TODO:|C023|CODE| |Movie Database API [Open Movie API](https://www.omdbapi.com/) [IMDB](https://developer.themoviedb.org/docs/getting-started)|
+|TODO:|C024|CODE| |News Database API [News Api](https://newsapi.ai/?gad_source=1&gclid=Cj0KCQjwiOy1BhDCARIsADGvQnBoJ7cMqVzK-x_XIjIxbosadutIEmt4bKomgbldzV9uR869nYHJzJ4aAoWzEALw_wcB) |
+|TODO:|C025|CODE| |PDF Processing API [ILovePDF API](https://www.ilovepdf.com/)|
+|TODO:|C026|CODE| |Player Ranking systems |
+|TODO:|C027|CODE| |MARVEL comics API [MARVEL Comics API](https://developer.marvel.com/) |
+|TODO:|C028|CODE| |Football (soccer) API [API-Football](https://www.api-football.com/) |
+|TODO:|C029|CODE| |NASA API [NASA API](https://api.nasa.gov/) |
+|TODO:|C030|CODE| |Pokemon API [Poke API](https://pokeapi.co/docs/v2) |
+|TODO:|C031|CODE| |Yahoo API [API](https://developer.yahoo.com/api/) |
+|TODO:|C032|CODE| |Weather API [Open Weather API](https://openweathermap.org/api) |
+
+
 
 ## Other To-Do Items
 
