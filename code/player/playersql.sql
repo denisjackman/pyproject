@@ -8,7 +8,9 @@ CREATE TABLE players (
     name VARCHAR(100),
     rating FLOAT DEFAULT 1000,
     games_played INT DEFAULT 0,
-    games_won INT DEFAULT 0
+    games_won INT DEFAULT 0,
+    games_lost INT DEFAULT 0,
+    games_percentage FLOAT DEFAULT 0
 );
 
 -- Example inserts

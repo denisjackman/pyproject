@@ -11,6 +11,7 @@ from jackmanimation.gameitems.gamefunctions import credscheck
 K_FACTOR = 32  # k-factor in ELO rating system
 SECRETS_FILE = 'Z:/pyproject/secrets/secrets.json'
 
+
 def main():
     ''' Main function to calculate expected score'''
     print("[+] Starting to Calculate player rankings")
