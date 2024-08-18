@@ -12,6 +12,7 @@ import sys
 import base64
 import json
 from requests import post, get
+import wikipediaapi
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
@@ -54,6 +55,13 @@ def search_for_artist(gsa_token, gsa_artist):
         return None
     return gsa_json_result[0]
 
+def get_details_by_artist(gdba_token, gdba_url):
+    ''' get the details by the artist '''
+    gdba_headers = get_auth_header(gdba_token)
+    gdba_result = get(gdba_url, headers=gdba_headers, timeout=5)
+    gdba_json_result = json.loads(gdba_result.content)
+    return gdba_json_result
+
 
 def get_songs_by_artist(gsba_token, gsba_artist_id):
     ''' get the songs by the artist '''
@@ -80,6 +88,7 @@ def main():
     print(f'[-] client_secret           : {client_secret}')
     print(f'[-] token                   : {token}')
     print(f'[-] search artist           : {result["name"]}')
+    print(f'[-] link                    : {get_details_by_artist(token, result["href"])}')
     print(f'[-] search artist           : {bresult["name"]}')
     if cresult is None:
         print('[-] search artist            : Artist not found')
