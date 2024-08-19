@@ -55,6 +55,7 @@ def search_for_artist(gsa_token, gsa_artist):
         return None
     return gsa_json_result[0]
 
+
 def get_details_by_artist(gdba_token, gdba_url):
     ''' get the details by the artist '''
     gdba_headers = get_auth_header(gdba_token)
