@@ -6,8 +6,8 @@ C) 8.0
 D) 26
 
 the answer is C) 8.0
-the explanation is that the code will convert the two strings 
-the first to a integer 
+the explanation is that the code will convert the two strings
+the first to a integer
 the second to a float
 Then it will add the two numbers together
 As the result is a float, the print statement will print the result as a float
