@@ -13,14 +13,14 @@ and two variable arguments *args and **kwargs.
 '''
 
 
-def foo(a, b, *args, **kwargs):
+def quiz93(a, b, *args, **kwargs):
     ''' Function foo '''
     return a+b+sum(args)+sum(kwargs.values())
 
 
 def main():
     ''' Main function '''
-    print(foo(1, 2, 3, 4, x=5, y=6))
+    print(quiz93(1, 2, 3, 4, x=5, y=6))
 
 
 if __name__ == "__main__":

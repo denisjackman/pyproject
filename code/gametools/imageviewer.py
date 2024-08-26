@@ -97,10 +97,8 @@ def main():
         if game_state == 'Left':
             count -= 1
         # check the count and reset it if it goes out of bounds
-        if count < 0:
-            count = 0
-        if count >= len(totallist):
-            count = len(totallist)
+        count = max(0, count)
+        count = min(count, len(totallist)- 1 )
         # load the image and display it load the text and render it
         img = pygame.image.load(totallist[count])
         img_text = sfont.render(os.path.basename(totallist[count]), True, STATUS_COLOR)

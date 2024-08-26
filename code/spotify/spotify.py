@@ -12,7 +12,7 @@ import sys
 import base64
 import json
 from requests import post, get
-import wikipediaapi
+# import wikipediaapi
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
