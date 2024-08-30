@@ -20,7 +20,6 @@ def main():
         question5()
     except Exception as err:
         print(f'[-] question 5 : {err}')
-    question6()
     print('[*] This is the main function ending')
 
 
