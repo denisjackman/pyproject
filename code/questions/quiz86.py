@@ -9,7 +9,7 @@ d: 24
 the answer is: a
 
 the explanation is:
-the code snippet is a while loop that increments x by 3 
+the code snippet is a while loop that increments x by 3
 until x is greater than 20
 the loop will run 7 times, and the final value of x will be 21
 
