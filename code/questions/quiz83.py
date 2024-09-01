@@ -8,22 +8,13 @@ def question5():
     print(f'[-] question 5 : {d} {r}')
 
 
-def question6():
-    ''' This is a question 6'''
-    print(f'[-] question 6 : {round(1 / 3, 2)} ')
-
-
 def main():
     ''' This is the main function'''
-    print('[*] This is the main function starting')
     try:
         question5()
     except Exception as err:
         print(f'[-] question 5 : {err}')
-    print('[*] This is the main function ending')
 
 
 if __name__ == '__main__':
-    print('[+] This is the questions program starting')
     main()
-    print('[+] This is the questions program ending')
