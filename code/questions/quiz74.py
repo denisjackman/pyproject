@@ -6,10 +6,10 @@ b) 20
 c) 40
 d) 30
 
-The answer is c: 40 
+The answer is c: 40
 
-The explanation is that 
-a is given the value of 5 
+The explanation is that
+a is given the value of 5
 b remain as 2
 c is given the value of 4
 
