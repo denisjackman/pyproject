@@ -25,8 +25,7 @@ def main():
           f'{learning_binary_search(searchlist, 0, len(searchlist)-1, 5)}')
     print('[-] Binary looking for 20 in searchlist '
           f'{learning_binary_search(searchlist, 0, len(searchlist)-1, 20)}')
-  
+
 
 if __name__ == "__main__":
     main()
-
