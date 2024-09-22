@@ -9,3 +9,29 @@ https://github.com/chrisying/TkBoids
 
 docker exec -it test-mysql  bash
 
+Binary Search
+Quick Sort
+Merge Sort
+Depth First Search
+Breadth First Search 
+Dijkstra's Algorithm
+A* Search Algorithm
+Dynamic Programming
+Fibonacci Sequence 
+Longest Common Subsequence 
+Binary Tree Traversals
+(Inorder, Preorder, Postorder)
+Heap Sort 
+Knapsack Problem
+Flyod-Warshall Algorithm 
+Union Find
+Topological Sort
+Kruskals Algorithm
+Prim's Algorithm
+Bellman-Ford Algorithm
+Rabin-Karp Algorithm
+Huffman Coding Compression
+Quickselect
+Kandane's Algorithm
+Flood Fill Algorithm
+Lee Algorithm

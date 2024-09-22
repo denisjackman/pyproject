@@ -1,4 +1,30 @@
 # To-Do list
+* ~~Binary Search~~
+* ~~Quick Sort~~
+* ~~Merge Sort~~
+* ~~Depth First Search~~
+* ~~Breadth First Search~~ 
+* ~~Dijkstra's Algorithm~~
+* ~~A* Search Algorithm~~
+* Dynamic Programming
+* Fibonacci Sequence 
+* Longest Common Subsequence 
+* Binary Tree Traversals
+* (Inorder, Preorder, Postorder)
+* Heap Sort 
+* Knapsack Problem
+* Flyod-Warshall Algorithm 
+* Union Find
+* Topological Sort
+* Kruskals Algorithm
+* Prim's Algorithm
+* Bellman-Ford Algorithm
+* Rabin-Karp Algorithm
+* Huffman Coding Compression
+* Quickselect
+* Kandane's Algorithm
+* Flood Fill Algorithm
+* Lee Algorithm
 
 ## Type Tags
 
@@ -70,5 +96,7 @@ The list is a list of TODO items broken into Spike, Game and Tools.
 * [Data Science Projects](https://python.plainenglish.io/85-data-science-projects-c03c8750599e)
 * [POstGres install](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04)
 * [Roguelike - reddit](https://www.reddit.com/r/roguelikedev/)
+
+
 
 
