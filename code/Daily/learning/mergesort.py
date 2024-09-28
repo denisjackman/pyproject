@@ -50,5 +50,6 @@ def main():
           f'{learning_merge_sort(sortlist)}')
     print(f'[-] {sortlist == resultsortlist}')
 
+
 if __name__ == "__main__":
     main()
