@@ -1,7 +1,7 @@
 ''' medisafe analysis'''
 import pandas as pd
 
-MEDISAFE_CSV_FILE = "Y:/Data/DJ-Medisafe.csv"
+MEDISAFE_CSV_FILE = "Y:/Data/health/DJ-Medisafe.csv"
 
 
 def main():
