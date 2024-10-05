@@ -15,6 +15,8 @@ def main():
     print(f'[-] result is : \n{inner}')
     inner = pd.merge(employees, address, on='empid', how='inner')
     print(f'[-] result is : \n{inner}')
+    left = pd.merge(employees, address, on='empid', how='left')
+    print(f'[-] result is : \n{left}')
 
 
 if __name__ == "__main__":
