@@ -92,6 +92,6 @@ def crawl_website(start_url):
 
 
 if __name__ == "__main__":
-    website_url = "https://beta.the-eye.eu/public/Books/rpg.rem.uz/Traveller/"  
+    website_url = "https://beta.the-eye.eu/public/Books/rpg.rem.uz/Traveller/"
     # Replace with the target URL
     crawl_website(website_url)
