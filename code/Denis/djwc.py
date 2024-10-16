@@ -1,9 +1,9 @@
 ''' djewc '''
 import os
+import shutil
+from urllib.parse import urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse
-import shutil
 
 # Set up headers to mimic a browser request
 HEADERS = {

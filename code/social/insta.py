@@ -60,17 +60,23 @@ def CleanUp():
         print(oserr)
 
 
-client = Client()
-client.login(username, password)
+def main():
+    ''' main function'''
+    client = Client()
+    client.login(username, password)
 
-author = GetMeme()
-hashtags = GenerateCaption()
-caption = f'Credit to {author} \n {hashtags}'
-try:
-    client.photo_upload('Z:/Resources/meme/meme1.jpeg', caption)
-except client.ClientError as err:
-    print(err)
-finally:
-    print('Uploaded')
+    author = GetMeme()
+    hashtags = GenerateCaption()
+    caption = f'Credit to {author} \n {hashtags}'
+    try:
+        client.photo_upload('Z:/Resources/meme/meme1.jpeg', caption)
+    except client.ClientError as err:
+        print(err)
+    finally:
+        print('Uploaded')
 
-CleanUp()
+    CleanUp()
+
+
+if __name__ == "__main__":
+    main()

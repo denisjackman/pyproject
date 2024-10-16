@@ -107,35 +107,35 @@ def merge_sort(input_list):
     '''
     my_list = input_list
     if len(my_list) > 1:
-        mid = len(my_list) // 2
-        left = my_list[:mid]
-        right = my_list[mid:]
+        ms_mid = len(my_list) // 2
+        ms_left = my_list[:ms_mid]
+        ms_right = my_list[ms_mid:]
 
         # recursive call on each half
-        left = merge_sort(left)
-        right = merge_sort(right)
+        ms_left = merge_sort(ms_left)
+        ms_right = merge_sort(ms_right)
 
-        item = 0
-        count = 0
-        loop = 0
+        ms_item = 0
+        ms_count = 0
+        ms_loop = 0
 
-        while item < len(left) and count < len(right):
-            if left[item] <= right[count]:
-                my_list[loop] = left[item]
-                item += 1
+        while ms_item < len(ms_left) and ms_count < len(ms_right):
+            if ms_left[ms_item] <= ms_right[ms_count]:
+                my_list[ms_loop] = ms_left[ms_item]
+                ms_item += 1
             else:
-                my_list[loop] = right[count]
-                count += 1
-            loop += 1
-        while item < len(left):
-            my_list[loop] = left[item]
-            item += 1
-            loop += 1
+                my_list[ms_loop] = ms_right[ms_count]
+                ms_count += 1
+            ms_loop += 1
+        while ms_item < len(ms_left):
+            my_list[ms_loop] = ms_left[ms_item]
+            ms_item += 1
+            ms_loop += 1
 
-        while count < len(right):
-            my_list[loop] = right[count]
-            count += 1
-            loop += 1
+        while ms_count < len(ms_right):
+            my_list[ms_loop] = ms_right[ms_count]
+            ms_count += 1
+            ms_loop += 1
     return my_list
 
 
