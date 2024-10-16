@@ -79,6 +79,7 @@ pyyaml
 rarfile
 rfc3986
 requests
+RedDownloader
 seaborn
 selenium
 six
