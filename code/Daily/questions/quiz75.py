@@ -18,7 +18,7 @@ having three added to b means it is three when printed
 def main():
     ''' main function'''
     a = 5
-    b = (a == 2)
+    b = a == 2
     print(b + 3)
 
 
