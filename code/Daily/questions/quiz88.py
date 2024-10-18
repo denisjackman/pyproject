@@ -25,8 +25,7 @@ def main():
     i = 9
     while i % 5 != 0:
         i = i + 1
-    else:
-        i = i * 2
+    i = i * 2
     print(i)
 
 

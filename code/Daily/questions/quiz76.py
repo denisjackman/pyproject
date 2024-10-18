@@ -17,8 +17,7 @@ def main():
     num = 10
     while num > 4:
         num -= 3
-    else:
-        num += 2
+    num += 2
     print(num)
 
 

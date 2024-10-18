@@ -4,7 +4,7 @@
 def main():
     ''' main function'''
     x, y = 12, 14.0
-    if (x + y == 26):
+    if x + y == 26:
         print("True")
     else:
         print("False")
