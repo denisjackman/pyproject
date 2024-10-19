@@ -11,7 +11,7 @@ HEADERS = {
 }
 
 
-def create_dir_structure(url, base_url):
+def create_dir_structure(url):
     ''' Function to create directory structure to mirror the website '''
     # Parse the URL
     parsed_url = urlparse(url)
@@ -31,7 +31,7 @@ def create_dir_structure(url, base_url):
 def download_page(url, base_url):
     '''Function to download the content of a URL'''
     try:
-        response = requests.get(url, headers=HEADERS)
+        response = requests.get(url, headers=HEADERS, timeout=6)
         response.raise_for_status()
         local_path = create_dir_structure(url, base_url)
         # Write the HTML content to a local file
@@ -46,7 +46,7 @@ def download_page(url, base_url):
 def download_asset(asset_url, base_url):
     '''# Function to download assets (CSS, images, JS files, etc.)'''
     try:
-        response = requests.get(asset_url, headers=HEADERS, stream=True)
+        response = requests.get(asset_url, headers=HEADERS, stream=True, timeout=6)
         response.raise_for_status()
         asset_path = create_dir_structure(asset_url, base_url)
         # Save the asset
@@ -92,6 +92,6 @@ def crawl_website(start_url):
 
 
 if __name__ == "__main__":
-    website_url = "https://beta.the-eye.eu/public/Books/rpg.rem.uz/Traveller/"
+    WEBSITE_URL = "https://beta.the-eye.eu/public/Books/rpg.rem.uz/Traveller/"
     # Replace with the target URL
-    crawl_website(website_url)
+    crawl_website(WEBSITE_URL)
