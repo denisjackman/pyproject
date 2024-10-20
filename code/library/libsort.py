@@ -93,8 +93,8 @@ if __name__ == "__main__":
     time_now = datetime.now().strftime('%Y%m%d')
     SOURCE_DIRECTORY = 'Z:/Nulibrary/Done'
     TARGET_DIRECTORY = 'Z:/Library'
-    csv_file_path = f'Z:/Logs/libsort-{time_now}.csv'
+    CSV_FILE_PATH = f'Z:/Logs/libsort-{time_now}.csv'
 
     move_files_and_generate_csv(SOURCE_DIRECTORY,
                                 TARGET_DIRECTORY,
-                                csv_file_path)
+                                CSV_FILE_PATH)
