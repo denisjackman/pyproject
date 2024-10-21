@@ -28,12 +28,12 @@ def create_dir_structure(url):
     return local_path
 
 
-def download_page(url, base_url):
+def download_page(url):
     '''Function to download the content of a URL'''
     try:
         response = requests.get(url, headers=HEADERS, timeout=6)
         response.raise_for_status()
-        local_path = create_dir_structure(url, base_url)
+        local_path = create_dir_structure(url)
         # Write the HTML content to a local file
         with open(local_path, "wb") as file:
             file.write(response.content)
@@ -43,12 +43,12 @@ def download_page(url, base_url):
         return None
 
 
-def download_asset(asset_url, base_url):
+def download_asset(asset_url):
     '''# Function to download assets (CSS, images, JS files, etc.)'''
     try:
         response = requests.get(asset_url, headers=HEADERS, stream=True, timeout=6)
         response.raise_for_status()
-        asset_path = create_dir_structure(asset_url, base_url)
+        asset_path = create_dir_structure(asset_url)
         # Save the asset
         with open(asset_path, "wb") as file:
             shutil.copyfileobj(response.raw, file)
@@ -61,7 +61,7 @@ def parse_and_download(url, base_url, visited):
     if url in visited:
         return
     visited.add(url)
-    html_content = download_page(url, base_url)
+    html_content = download_page(url)
     if not html_content:
         return
     soup = BeautifulSoup(html_content, "html.parser")
@@ -81,7 +81,7 @@ def parse_and_download(url, base_url, visited):
         elif asset.name == "link" and asset.get("href") and asset["rel"] == ["stylesheet"]:
             asset_url = urljoin(base_url, asset["href"])
         if asset_url:
-            download_asset(asset_url, base_url)
+            download_asset(asset_url)
 
 
 def crawl_website(start_url):

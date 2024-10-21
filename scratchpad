@@ -5,7 +5,7 @@ Root: /usr/local/apache2/htdocs
 docker cp index.html <ContainerID>:"/usr/local/apache2/htdocs/index.html"
 https://github.com/chrisying/TkBoids
 
-
+# pylint: disable=R0917
 
 docker exec -it test-mysql  bash
 
