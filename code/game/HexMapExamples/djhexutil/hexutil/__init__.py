@@ -338,10 +338,12 @@ class HexPathFinder:
         return self.destination.distance(position)
 
     def _compute_path(self, path):
+        cp_start = self.cost
         result = []
         while path:
             pos, path = path
             result.append(pos)
+        cp_start += 1
         return result[::-1]
 
     def run_n(self, n):  # pylint: disable=R0914

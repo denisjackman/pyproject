@@ -83,12 +83,11 @@ def format_value(value, datatype):
     """
     if value is None:
         return ''
-    elif datatype == 's':  # string
+    if datatype == 's':  # string
         return '"%s"' % value.replace('\\', '\\\\').replace('"', '\\"')
-    elif datatype in ('n', 'd'):  # number or date
+    if datatype in ('n', 'd'):  # number or date
         return value
-    else:
-        raise KeyError(f'Unexpected format value: {datatype}')
+    raise KeyError(f'Unexpected format value: {datatype}')
 
 
 def abbreviate(s, enabled=ABBREVIATE):
@@ -99,7 +98,7 @@ def abbreviate(s, enabled=ABBREVIATE):
     return m.group(1) if enabled and m else s
 
 
-class HealthDataExtractor(object):
+class HealthDataExtractor():
     """
     Extract health data from Apple Health App's XML export, export.xml.
     Inputs:
@@ -114,7 +113,7 @@ class HealthDataExtractor(object):
         self.in_path = path
         self.verbose = verbose
         self.directory = os.path.abspath(os.path.split(path)[0])
-        with open(path) as f:
+        with open(path, encoding='utf-8-sig') as f:
             self.report(f'Reading data from {path} . . . ', end='')
             self.data = ElementTree.parse(f)
             self.report('done')
