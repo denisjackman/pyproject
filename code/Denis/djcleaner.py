@@ -49,6 +49,6 @@ def sort_files(start_directory, target_directory):
 
 if __name__ == "__main__":
     # Example usage
-    START_DIR = 'W:/store/2024102-recover/liamjackman'  # Replace with the actual start directory
-    TARGET_DIR = 'Z:/Liam'  # Replace with the actual target directory
+    START_DIR = 'Q:/LiamJackman'  # Replace with the actual start directory
+    TARGET_DIR = 'Q:/store'  # Replace with the actual target directory
     sort_files(START_DIR, TARGET_DIR)
