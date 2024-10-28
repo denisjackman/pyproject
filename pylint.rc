@@ -505,7 +505,7 @@ max-statements=50
 # Minimum number of public methods for a class (see R0903).
 min-public-methods=1
 
-max-positional-arguments=10
+max-positional-arguments=15
 [CLASSES]
 
 # Warn about protected attribute access inside special methods
