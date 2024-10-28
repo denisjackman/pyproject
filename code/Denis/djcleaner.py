@@ -1,8 +1,11 @@
 ''' cleaner script '''
-
 import os
 import shutil
 from datetime import datetime
+from tqdm import tqdm
+
+MOVE_FILES = True
+RENAME_FILES = False
 
 
 def sort_files(start_directory, target_directory):
@@ -21,7 +24,7 @@ def sort_files(start_directory, target_directory):
 
     # Walk through the directory tree recursively
     for root, _, files in os.walk(start_directory):
-        for file_name in files:
+        for file_name in tqdm(files, total=len(files), unit=' file'):
             # Get the file extension and check if it's already tracked
             file_type = file_name.split('.')[-1].lower()
 
@@ -41,14 +44,21 @@ def sort_files(start_directory, target_directory):
 
             # Define the full source and destination file paths
             source_file = os.path.join(root, file_name)
-            destination_file = os.path.join(target_folder, new_file_name)
+
+            if RENAME_FILES:
+                target_file_name = new_file_name
+            else:
+                target_file_name = file_name
+
+            destination_file = os.path.join(target_folder, target_file_name)
 
             # Move and rename the file
-            shutil.move(source_file, destination_file)
+            if MOVE_FILES:
+                shutil.move(source_file, destination_file)
 
 
 if __name__ == "__main__":
     # Example usage
-    START_DIR = 'Q:/LiamJackman'  # Replace with the actual start directory
-    TARGET_DIR = 'Q:/store'  # Replace with the actual target directory
+    START_DIR = 'T:/current'  # Replace with the actual start directory
+    TARGET_DIR = 'T:/store'  # Replace with the actual target directory
     sort_files(START_DIR, TARGET_DIR)
