@@ -14,7 +14,7 @@ def main():
         pyautogui.click()
         time.sleep(1)
         keyboard.press_and_release('enter')
-        
+
     except Exception as err:
         print(f"error in sending {err}")
 
