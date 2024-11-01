@@ -14,12 +14,14 @@ This personal project stores various Python snippets that I am working on. It ut
 - **Trello**: Interaction with Trello using Python.
 - **MySQL**: Database operations with MySQL.
 - **PyGame**: Creating a scrolling background.
+- **Pandas**: handling and management of large data
+- **Matplotlib**: visualising data sets
 
 ## GitHub Actions
 
-### PyLint
+### code_linting
 
-Code is checked with PyLint upon commit to ensure quality.
+Code is checked with PyLint and Flake8 upon commit to ensure quality.
 
 ### pages-build-deployment
 
