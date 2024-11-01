@@ -95,4 +95,3 @@ if __name__ == "__main__":
     WEBSITE_URL = "https://beta.the-eye.eu/public/Books/rpg.rem.uz/Traveller/"
     # Replace with the target URL
     crawl_website(WEBSITE_URL)
-
