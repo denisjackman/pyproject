@@ -18,7 +18,7 @@ def main():
     ps_database = 'test'
     ps_db = open_mysql(ps_username,
                        ps_password,
-                       ps_hostname, 
+                       ps_hostname,
                        ps_database)
     ps_query = "SELECT * FROM fruit"
 
