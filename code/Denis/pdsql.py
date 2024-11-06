@@ -27,8 +27,8 @@ def main():
         return None
 
     pd_query = pd.read_sql(ps_query, ps_db)
-    print(f'{pd_query}')
-
+    pd_query['name'].hist()
+    print(pd_query.info())
 
 if __name__ == '__main__':
     main()
