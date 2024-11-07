@@ -26,9 +26,9 @@ def main():
         print("[-] database issues closing")
         return None
 
-    pd_query = pd.read_sql(ps_query, ps_db)
-    pd_query['name'].hist()
-    print(pd_query.info())
+    pd_query_result = pd.read_sql(ps_query, ps_db)
+    pd_query_result['name'].hist()
+    print(pd_query_result.info())
 
 if __name__ == '__main__':
     main()
