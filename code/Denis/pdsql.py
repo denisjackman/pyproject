@@ -30,5 +30,6 @@ def main():
     pd_query_result['name'].hist()
     print(pd_query_result.info())
 
+
 if __name__ == '__main__':
     main()
