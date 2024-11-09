@@ -5,6 +5,7 @@
 **/secrets/*
 **/.pytest_cache/*
 **/devenv/*
+**/tempwork-env/*
 **/.vscode/*
 
 # Compiled source #
