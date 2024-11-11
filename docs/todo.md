@@ -3,17 +3,17 @@
 * ~~Quick Sort~~
 * ~~Merge Sort~~
 * ~~Depth First Search~~
-* ~~Breadth First Search~~ 
+* ~~Breadth First Search~~
 * ~~Dijkstra's Algorithm~~
 * ~~A* Search Algorithm~~
 * Dynamic Programming
-* Fibonacci Sequence 
-* Longest Common Subsequence 
+* Fibonacci Sequence
+* Longest Common Subsequence
 * Binary Tree Traversals
 * (Inorder, Preorder, Postorder)
-* Heap Sort 
+* Heap Sort
 * Knapsack Problem
-* Flyod-Warshall Algorithm 
+* Flyod-Warshall Algorithm
 * Union Find
 * Topological Sort
 * Kruskals Algorithm

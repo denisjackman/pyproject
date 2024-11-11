@@ -6,7 +6,9 @@ import pandas as pd
 sys.path.append(os.path.realpath('../..'))
 from jackmanimation.gameitems.gamefunctions import credscheck
 from jackmanimation.dbfunctions.mysqlfunctions import open_mysql
-from jackmanimation.dbfunctions.mysqlfunctions import mysqlquery
+
+OUTPUT_FILE = "Z:/Logs/djoutput.csv"
+INPUT_FILE = "Z:/Logs/djinput.csv"
 
 
 def main():
@@ -27,8 +29,7 @@ def main():
         return None
 
     pd_query_result = pd.read_sql(ps_query, ps_db)
-    pd_query_result['name'].hist()
-    print(pd_query_result.info())
+    pd_query_result.to_csv(OUTPUT_FILE)
 
 
 if __name__ == '__main__':
