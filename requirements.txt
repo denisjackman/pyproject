@@ -92,6 +92,7 @@ sortedcontainers
 sounddevice
 soundfile
 speechrecognition
+sqlalchemy
 statsmodels
 tk
 tomli
