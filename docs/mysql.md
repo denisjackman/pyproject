@@ -49,8 +49,8 @@ This section covers how to perform mysql database operations using MySQL in Pyth
 
 `grant select, insert, update on test.* to 'jackmanimation'@'localhost' with grant option;`
 `grant select, insert, update on test.* to 'jackmanimation'@'Denis-PC.lan' with grant option;`
-`grant select, insert, update on test.* to 'jackmanimation'@'Gerialt.lan' with grant option;`
-`grant select, insert, update on test.* to 'jackmanimation'@'%' with grant option;`
+`grant select, insert, update on test.* to 'jackmanimation'@'Gerialtgrant select, insert, update on test.* to 'jackmanimation'@'%' with grant option;.lan' with grant option;`
+``
 
 `grant select, insert, update on employees.* to 'jackmanimation'@'localhost' with grant option;`
 `grant select, insert, update on employees.* to 'jackmanimation'@'Denis-PC.lan' with grant option;`
