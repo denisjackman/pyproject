@@ -1,3 +1,4 @@
-# GIT how to
+# GIT Tutorials
 
-![Git Cheat Sheet](assets/git001.png)
+* [Git How to](https://githowto.com/)
+* ![Git Cheat Sheet](assets/git001.png)
