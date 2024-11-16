@@ -10,6 +10,11 @@ This is a list of tools that I am using to work on this project with.
 * [Notion](https://www.notion.so/)
 * [Obsidian](https://obsidian.md/)
 
+## Other 
+* [Crontab Guru](https://crontab.guru/)
+* [RGB Color Wheel](https://www.colorspire.com/rgb-color-wheel/)
+* [Hex Editor](https://hex-works.com/eng)
+
 ## Homemade Tools 
 * Pathmaker : Pathmaker is a tool I have developed to help me with my building paths for python games 
 * SpriteChecker: SpriteChecker is a tool I have developed to help with looking at sprites 
@@ -19,11 +24,9 @@ This is a list of tools that I am using to work on this project with.
 * [Tiled](https://www.mapeditor.org/)
 * [Ascii art Generator ](http://patorjk.com/software/taag/#p=display&f=Ogre&t=Jackmanimation)
 * [Bob Sprite](https://www.bobsprite.com/editor)
-* [RGB Color Wheel](https://www.colorspire.com/rgb-color-wheel/)
-* [Hex Editor](https://hex-works.com/eng)
 * [Image Compressor](https://www.iloveimg.com/compress-image)
 * [PDF Compressor](https://pdfcompressor.com/)
 * [Atom](https://atom.io/)
 * [Sublime](https://www.sublimetext.com/)
 * [Pycharm](https://www.jetbrains.com/pycharm/)
-* [Crontab Guru](https://crontab.guru/)
+
