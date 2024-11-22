@@ -16,6 +16,7 @@ dronekit-sitl
 dumper
 ExifRead
 faker
+flask
 folium
 geocoder
 geoip2
@@ -80,6 +81,7 @@ pywhatkit
 pyyaml
 rarfile
 rfc3986
+redis
 requests
 RedDownloader
 seaborn
