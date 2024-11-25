@@ -20,7 +20,6 @@ flask
 folium
 geocoder
 geoip2
-googletrans
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
@@ -28,7 +27,6 @@ gspread
 hexy
 huggingface_hub
 importlib-metadata
-instagrapi
 isbntools
 keyboard
 langchain-community
