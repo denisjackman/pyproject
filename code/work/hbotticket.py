@@ -10,7 +10,8 @@ def main():
     total_helptickets = len(hbdf)
     total_columns = hbdf.columns
     for item in hbdf:
-        print(f"{item}" )
+        print(f"{item}")
+
 
 if __name__ == "__main__":
     main()
