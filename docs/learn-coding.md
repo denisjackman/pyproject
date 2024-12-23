@@ -87,3 +87,36 @@ Understanding algorithms and data structures is crucial for efficient coding and
 ## Conclusion
 
 Keep practicing and building projects. Stay curious and continue learning. Happy coding!
+
+## Other 
+Top YouTube channels for web developers👨🏻‍💻📝
+
+CSS:
+* Kevin Powell
+* Online Tutorials
+* Coding Tech
+* DesignCourse
+
+Javascript:
+* CoolProjectsOnly
+* Dev Ed
+* Fireship
+* Web Dev Simplified
+* Steve Griffith
+* Academind
+* CodeWithHarry
+
+React/NodeJs/Python/VueJs:
+* Traversy Media
+* The Net Ninja
+* Programming with Mosh
+* Free Code Camp
+* Red Stapler
+* Tech with Tim
+* Corey Schafer
+* Web Dev Simplified
+
+Dynamic Programming
+* [harish devlops](https://www.youtube.com/@Harishdevlops)
+
+
