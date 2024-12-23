@@ -42,3 +42,9 @@ connection_url = URL.create("mssql+pyodbc", query={"odbc_connect": connection_st
 
 from sqlalchemy import create_engine
 engine = create_engine(connection_url)
+
+
+https://www.youtube.com/watch?v=K2AXS5S9DOw
+https://medium.com/@nanditasahu031/getting-started-with-argocd-b5a02353e144
+https://preettheman.medium.com/lets-build-a-comic-reading-website-with-flask-python-37ffbb7f48f8
+https://learn.nextwork.org/projects/aws-account-setup?track=low
