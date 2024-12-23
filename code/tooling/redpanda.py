@@ -3,6 +3,8 @@ redpanda.py
 
 This is a os utility tool
 
+Which takes all the file sin one directory and renames them into another directory 
+
 '''
 import os
 import sys
@@ -21,6 +23,7 @@ __license__ = "Python"
 RP_TARGET_DIR = 'Z:/Chatgpt/store'
 RP_SOURCE_DIR = 'C:/Users/denis/Downloads'
 RP_NAME = 'chatgpt-20241223-'
+
 
 def main():
     '''
