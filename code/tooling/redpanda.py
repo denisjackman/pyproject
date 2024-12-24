@@ -3,12 +3,11 @@ redpanda.py
 
 This is a os utility tool
 
-Which takes all the file sin one directory and renames them into another directory 
+Which takes all the files in one directory and renames them into another directory
 
 '''
 import os
 import sys
-
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
