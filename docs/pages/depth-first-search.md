@@ -1,4 +1,4 @@
-# Depth First Search (DFS) 
+# Depth First Search (DFS)
 
 ## Recursive DFS
 
@@ -64,14 +64,15 @@ graph = {
 dfs_iterative(graph, 'A')
 ```
 
-## Explanation:
-### Recursive DFS:
+## Explanation
+
+### Alternate Recursive DFS
 
 This function explores each node recursively.
 It uses a set visited to track which nodes have been visited.
 Each node and its neighbors are explored recursively.
 
-### Iterative DFS:
+### Alternate Iterative DFS
 
 This uses a stack (a Last In First Out structure) to simulate the recursion.
 It starts from the initial node and explores as deep as possible by popping from the stack.
@@ -80,14 +81,15 @@ You can choose between the two depending on your preference and use case. Both m
 
 Depth First Search (DFS) is a graph traversal algorithm used to explore nodes and edges of a graph. It works by starting at a given node and explores as far as possible along each branch before backtracking. DFS can be used to solve a variety of problems, such as pathfinding, cycle detection, or finding connected components.
 
-**Steps for Using Depth First Search (DFS)**:
+#### Steps for Using Depth First Search (DFS)
+
 * **Choose a Starting Node**: Begin at any arbitrary node in the graph from which you want to explore.
 * **Visit the Node**: Mark the starting node as visited (typically by adding it to a visited set) to ensure that you do not visit the same node again.
 * **Explore Neighbors**: For each unvisited neighbor of the current node, move to that neighbor and repeat the DFS process.
 * **Backtrack**: If a node has no unvisited neighbors, backtrack to the previous node and explore its remaining neighbors (if any).
 * **Repeat Until All Nodes are Visited**: Continue exploring and backtracking until you have visited all nodes in the connected component of the graph (or the entire graph, if it's connected).
 
-## When to Use DFS:
+## When to Use DFS
 
 * **Pathfinding**: DFS can be used to find a path between two nodes.
 * **Cycle Detection**: DFS can help identify cycles in a graph.
@@ -96,6 +98,7 @@ Depth First Search (DFS) is a graph traversal algorithm used to explore nodes an
 * **Maze Solving**: DFS can help explore all possible paths in a maze, although it does not guarantee the shortest path.
 
 ## DFS Example Walkthrough
+
 Given a graph represented as an adjacency list like this:
 
 ```
@@ -138,7 +141,7 @@ Visit 'C'.
 The neighbor of 'C' is 'F', but 'F' has already been visited, so backtrack.
 The DFS traversal order is: A -> B -> D -> E -> F -> C.
 
-## Practical Applications of DFS:
+## Practical Applications of DFS
 
 * **Pathfinding**: In games or AI problems, DFS can be used to explore all potential paths from one point to another.
 * **Solving Puzzles**: DFS is commonly used in puzzle-solving, like exploring all possible moves in a maze.
@@ -146,14 +149,13 @@ The DFS traversal order is: A -> B -> D -> E -> F -> C.
 * **Topological Sorting**: In scheduling problems or course prerequisites, DFS helps in performing topological sorting of DAGs.
 * **Connected Components**: DFS can find all the nodes in a connected component of a graph, useful for network analysis.
 
-### DFS Complexity:
+### DFS Complexity
 
 * **Time Complexity**: O(V + E) where V is the number of vertices (nodes) and E is the number of edges. This is because each node is visited once, and each edge is explored once.
 * **Space Complexity**: O(V) due to the recursion stack in the recursive implementation (or the explicit stack in the iterative version).
 
-### Key Points:
+### Key Points
 
 DFS explores as deep as possible before backtracking, which contrasts with Breadth First Search (BFS), which explores neighbors level by level.
 DFS can be implemented either recursively or iteratively using a stack.
 DFS is useful for exploring large, deep graphs but may not find the shortest path in unweighted graphs. For shortest paths, BFS or Dijkstra’s algorithm are typically used.
-

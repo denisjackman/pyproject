@@ -1,4 +1,5 @@
 # To-Do list
+
 * ~~Binary Search~~
 * ~~Quick Sort~~
 * ~~Merge Sort~~
@@ -34,6 +35,7 @@
 * __CONCEPT__: this is a concept tag
 
 ## Status Tag
+
 * __COMPLETE__: this is a complete tag
 * __INPROGRESS__: this is an in progress tag  
 * __REMOVED__: this is a removed tag
@@ -84,8 +86,6 @@ The list is a list of TODO items broken into Spike, Game and Tools.
 |TODO:|C031|CODE| |Yahoo API [API](https://developer.yahoo.com/api/) |
 |TODO:|C032|CODE| |Weather API [Open Weather API](https://openweathermap.org/api) |
 
-
-
 ## Other To-Do Items
 
 * ![Part 1](assets/image-1-4.jpeg)
@@ -96,7 +96,3 @@ The list is a list of TODO items broken into Spike, Game and Tools.
 * [Data Science Projects](https://python.plainenglish.io/85-data-science-projects-c03c8750599e)
 * [POstGres install](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04)
 * [Roguelike - reddit](https://www.reddit.com/r/roguelikedev/)
-
-
-
-

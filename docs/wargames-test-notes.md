@@ -1,16 +1,20 @@
 # Wargames Project - Notes
+
 ## Introduction 
+
 This is a generic wargames project to build classes for handling wargames of all types.
 For fantasy wargames we will use "Fantasy Waragming" by Martin Hackett as a reference.
 We will base races and modifiers from the tables therin.
 
 From a technical stand point we will use the following:
+
 * Python to prototype the game.
 * Pygame as the base game engine.
 * Pygame GUI as the base GUI engine.
 * Open Source assets for the game. These will be credited here and in the game.
 
 ## To Do
+
 * Create a basic game engine.
 * Create a basic GUI engine.
 * Create a basic map engine.
@@ -21,7 +25,9 @@ From a technical stand point we will use the following:
 * map out the game play
 
 ## Classes
+
 This will contain a list of the available classes and their purpose
+
 * creature - This is the base class for all creatures in the game.
 * gamemap - This is the base class for the game map.
 * map - This is the base class for the map.
@@ -31,10 +37,10 @@ This will contain a list of the available classes and their purpose
 * worldmap - this is the base class for the worldmap 
 
 ## Screen Notes 
+
 This is based on a tile which is 16 pixel wide and 16 pixels high.
 You will need to calculate the number of tiles required for the screen size.
 And readjust the number if the tiles are bigger than 16x16 pixels.
-
 
 |Screen Width |Screen Height |Tile Width |Tile Height |Notes |
 |----|----|----|----|----|
@@ -47,9 +53,10 @@ And readjust the number if the tiles are bigger than 16x16 pixels.
 | 1600 | 800 | 100 | 50 |  |
 | 1920 | 1072 | 120 | 67 |  |
 
-
 ## Map Notes
+
 ### Tile Notes
+
 | Tile ID | Tile | Filename | Notes |
 |----|----|----|----|
 | 0 | GRASS_TILE_01 | ![Grass 1](assets/game-assets/tiles/grass001.png) |  |
@@ -74,4 +81,4 @@ And readjust the number if the tiles are bigger than 16x16 pixels.
 | 19 | WATER_TOP_LEFT | ![Water Top Left](assets/game-assets/tiles/water-topleft.png) | |
 | 20 | WATER_TOP_RIGHT | ![Water Top Right](assets/game-assets/tiles/water-topright.png) | |
 
-## Notes 
+## Notes

@@ -1,8 +1,8 @@
-# Dijkstra’s Algorithm.
+# Dijkstra’s Algorithm
 
 This algorithm finds the shortest path between nodes in a graph, which is often represented using an adjacency list or matrix. Below is a sample implementation using an adjacency list and a priority queue to efficiently select the next node to visit:
 
-## Dijkstra's Algorithm in Python:
+## Dijkstra's Algorithm in Python
 
 ```
 import heapq
@@ -46,7 +46,7 @@ distances = dijkstra(graph, start_node)
 print(f"Shortest distances from {start_node}: {distances}")
 ```
 
-## Explanation:
+## Explanation
 
 * **Graph Representation**:The graph is represented as an adjacency list where each key is a node and the value is a list of tuples representing neighboring nodes and the weight (or distance) to them.
 * **Priority Queue**: We use heapq to implement a priority queue that always processes the node with the smallest known distance.
