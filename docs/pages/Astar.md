@@ -104,7 +104,7 @@ path = a_star_search(start, goal, grid)
 print(f"Path: {path}")
 ```
 
-## Explanation:
+## Explanation
 
 * **Grid**: A 2D array where 0 represents a free space, and 1 represents an obstacle.
 * **Node**: A class to represent each point in the grid with properties for the path cost g, heuristic h, and total cost f.
