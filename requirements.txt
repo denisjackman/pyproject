@@ -1,10 +1,6 @@
-﻿BeautifulSoup4
-Pillow
-PySocks
-RedDownloader
-SimpleGUITK
-ansible
+﻿ansible
 beautifulsoup4
+boto3
 chatgpt
 colorama
 configparser
@@ -67,6 +63,7 @@ PyGithub
 pyjokes
 pylint
 pymongo
+pymysql
 pyopenssl
 pyparsing
 pypdf
@@ -79,6 +76,7 @@ python-magic
 python-nmap
 python-pptx
 pyttsx3
+PySocks
 pywhatkit
 pyyaml
 rarfile
@@ -88,6 +86,7 @@ requests
 RedDownloader
 seaborn
 selenium
+SimpleGUITK
 six
 slack-bolt
 slack-sdk

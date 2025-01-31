@@ -1,11 +1,7 @@
 # Specific Project files
 # this group would typically contain sensitive info
 #####################################################
-**/data/*
-**/secrets/*
 **/.pytest_cache/*
-**/devenv/*
-**/tempwork-env/*
 **/.vscode/*
 
 # Compiled source #
@@ -51,4 +47,12 @@ config.py
 **/.idea/*
 **/__pycache__/*
 **/.pytest_cache/*
-client_secrets.json
+
+
+# Other misc files #
+####################
+**/data/*
+**/secrets/*
+**/devenv/*
+**/tempwork-env/*
+client_secret.json
