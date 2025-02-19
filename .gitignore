@@ -1,0 +1,58 @@
+# Specific Project files
+# this group would typically contain sensitive info
+#####################################################
+**/.pytest_cache/*
+**/.vscode/*
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+config.py
+#IDE Generated files #
+######################
+**/.idea/*
+**/__pycache__/*
+**/.pytest_cache/*
+
+
+# Other misc files #
+####################
+**/data/*
+**/secrets/*
+**/devenv/*
+**/tempwork-env/*
+client_secret.json
