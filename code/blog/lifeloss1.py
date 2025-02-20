@@ -20,7 +20,7 @@ if auth_response.status_code != 200:
     exit()
 
 token = auth_response.json().get("token")
-print(f"Authenticated! Token received.")
+print("Authenticated! Token received.")
 
 # Set Authorization Header
 headers = {

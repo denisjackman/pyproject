@@ -1,13 +1,16 @@
+''' Extract all blog post URLs from a blogspot.com blog '''
+
 import requests
 from bs4 import BeautifulSoup
 
 # Define the blog URL
 BLOG_URL = "https://ttmadness.blogspot.com/"
 
+
 def get_blog_post_links(blog_url):
     ''' Extract all blog post URLs from a blogspot.com blog '''
     # Send an HTTP GET request
-    response = requests.get(blog_url)
+    response = requests.get(blog_url, timeout=5)
     if response.status_code != 200:
         print(f"Failed to retrieve the page, status code: {response.status_code}")
         return []
@@ -23,6 +26,7 @@ def get_blog_post_links(blog_url):
             post_links.add(href)
 
     return sorted(post_links)
+
 
 # Fetch and display blog post URLs
 if __name__ == "__main__":

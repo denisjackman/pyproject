@@ -23,7 +23,7 @@ def main():
             break
 
         posts = response.json()
-        
+
         if not posts:
             break  # No more posts to fetch
 
@@ -40,6 +40,7 @@ def main():
         print(f"Link: {post['link']}\n")
 
     print(f"Total posts retrieved: {len(all_posts)}")
-    
+
+
 if __name__ == '__main__':
     main()
