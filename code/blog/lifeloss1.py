@@ -1,25 +1,29 @@
-import requests
+''' This script fetches all ll1_posts from a WordPress site using the WordPress REST API.
+    It requires the requests library to be installed. '''
 import time
+import sys
+import requests
+
 
 # Configuration
-site_url = "https://lifeloss.wordpress.com/wp-json/wp/v2/posts"
-auth_url = "https://lifeloss.wordpress.com/wp-json/jwt-auth/v1/token"
-username = "username"  # Replace with your WordPress username
-password = "password"  # Replace with your WordPress password
+SITE_URL = "https://lifeloss.wordpress.com/wp-json/wp/v2/ll1_posts"
+AUTH_URL = "https://lifeloss.wordpress.com/wp-json/jwt-auth/v1/token"
+USERNAME = "USERNAME"  # Replace with your WordPress USERNAME
+PASSWORD = "PASSWORD"  # Replace with your WordPress PASSWORD
 
 # Get JWT Token
 auth_payload = {
-    "username": username,
-    "password": password
+    "USERNAME": USERNAME,
+    "PASSWORD": PASSWORD
 }
 
-auth_response = requests.post(auth_url, json=auth_payload)
+auth_ll1_response = requests.post(AUTH_URL, json=auth_payload, timeout=10)
 
-if auth_response.status_code != 200:
-    print(f"Authentication failed: {auth_response.status_code} - {auth_response.text}")
-    exit()
+if auth_ll1_response.status_code != 200:
+    print(f"Authentication failed: {auth_ll1_response.status_code} - {auth_ll1_response.text}")
+    sys.exit()
 
-token = auth_response.json().get("token")
+token = auth_ll1_response.json().get("token")
 print("Authenticated! Token received.")
 
 # Set Authorization Header
@@ -28,7 +32,7 @@ headers = {
     "Content-Type": "application/json"
 }
 
-# Fetch posts
+# Fetch ll1_posts
 params = {
     "per_page": 100,
     "page": 1,
@@ -36,30 +40,30 @@ params = {
     "order": "asc"
 }
 
-all_posts = []
+all_ll1_posts = []
 
 while True:
-    response = requests.get(site_url, headers=headers, params=params)
+    ll1_response = requests.get(SITE_URL, headers=headers, params=params, timeout=10)
 
-    if response.status_code != 200:
-        print(f"Failed to fetch posts: {response.status_code}")
+    if ll1_response.status_code != 200:
+        print(f"Failed to fetch posts: {ll1_response.status_code}")
         break
 
-    posts = response.json()
+    ll1_posts = ll1_response.json()
 
-    if not posts:
+    if not ll1_posts:
         break
 
-    all_posts.extend(posts)
-    print(f"Fetched {len(posts)} posts from page {params['page']}")
+    all_ll1_posts.extend(ll1_posts)
+    print(f"Fetched {len(ll1_posts)} ll1_posts from page {params['page']}")
 
     params["page"] += 1
     time.sleep(1)
 
-# Print posts
-for post in all_posts:
-    print(f"Title: {post['title']['rendered']}")
-    print(f"Date: {post['date']}")
-    print(f"Link: {post['link']}\n")
+# Print ll1_posts
+for ll1_post in all_ll1_posts:
+    print(f"Title: {ll1_post['title']['rendered']}")
+    print(f"Date: {ll1_post['date']}")
+    print(f"Link: {ll1_post['link']}\n")
 
-print(f"Total posts retrieved: {len(all_posts)}")
+print(f"Total posts retrieved: {len(all_ll1_posts)}")
