@@ -1,0 +1,8 @@
+title: PyProject
+description: A personal python project. Bookmark this to keep updated.
+email: denis_jackman@hotmail.com
+show_downloads: false
+google_analytics:
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme
