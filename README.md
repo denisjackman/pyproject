@@ -37,5 +37,6 @@ finally do a test run of the code
 
 These command precheck the complete code repository locally prior to commiting it to the repository.
 
-' flake8 $(git ls-files | grep .py$) '> ./mnt/y/store/flake8.txt '
-' pylint $(git ls-files | grep .py$) '> ./mnt/y/store/pylint.txt '
+` flake8 $(git ls-files | grep .py$) > ./mnt/y/store/flake8.txt `
+
+` pylint $(git ls-files | grep .py$) > ./mnt/y/store/pylint.txt `
