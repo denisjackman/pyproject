@@ -29,5 +29,6 @@ This action builds and deploys the GitHub Pages site upon each commit.
 
 ## Current Project Status
 
-- [![pages-build-deployment](https://github.com/denisjackman/pyproject/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/denisjackman/pyproject/actions/workflows/pages/pages-build-deployment)
+
 - [![Linting (Pylint & Flake8)](https://github.com/denisjackman/pyproject/actions/workflows/code_linting.yml/badge.svg)](https://github.com/denisjackman/pyproject/actions/workflows/code_linting.yml)
+- [![pages-build-deployment](https://github.com/denisjackman/pyproject/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/denisjackman/pyproject/actions/workflows/jekyll-gh-pages.yml)
