@@ -1,10 +1,11 @@
 ''' Extract all the blogs from a website '''
 
-import requests
 import time
+import requests
 
 
 def main():
+    ''' Extract all the blogs from a website '''
     # WordPress API URL
     site_url = "https://lifeloss.wordpress.com/wp-json/wp/v2/posts"
     # site_url = "https://lifeloss.wordpress.com/""
@@ -16,7 +17,7 @@ def main():
     all_posts = []
 
     while True:
-        response = requests.get(site_url, params=params)
+        response = requests.get(site_url, params=params, timeout=5)
 
         if response.status_code != 200:
             print(f"Failed to fetch data: {response.status_code}")
