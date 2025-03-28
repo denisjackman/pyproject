@@ -31,7 +31,7 @@ DB_SCRIPT = ('USE newclassicmodels;',
              'commit;'
              )
 
-
+ 
 def dockersqlmain():
     """ This is the main routine for the program """
     dsm_dbredid = credscheck('Z:/pyproject/secrets/secrets.json')
