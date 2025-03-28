@@ -34,3 +34,4 @@ This is a list of tools that I am using to work on this project with.
 * [Atom](https://atom.io/)
 * [Sublime](https://www.sublimetext.com/)
 * [Pycharm](https://www.jetbrains.com/pycharm/)
+* [Markdown cheatsheet](https://www.markdownguide.org/basic-syntax/)

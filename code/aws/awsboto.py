@@ -1,7 +1,8 @@
-import pymysql
-import sys
-import boto3
+''' Aws python example '''
+
 import os
+import pymysql
+import boto3
 
 ENDPOINT = "jackmanimation-dbserver.cniy4i088yxc.eu-west-1.rds.amazonaws.com"
 PORT = "3306"
@@ -33,4 +34,4 @@ try:
     query_results = cur.fetchall()
     print(query_results)
 except Exception as e:
-    print("Database connection failed due to {}".format(e))
+    print(f"Database connection failed due to {e}")

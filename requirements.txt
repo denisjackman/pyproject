@@ -12,6 +12,7 @@ dronekit-sitl
 dumper
 ExifRead
 faker
+ffmpeg
 flask
 folium
 geocoder
@@ -33,6 +34,7 @@ matplotlib
 mobi
 mysql-connector-python
 networkx
+openai-whisper
 opencv-python
 openpyxl
 osmnx
