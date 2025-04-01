@@ -5,4 +5,3 @@ if response.status_code == requests.codes.ok:
     print(response.text)
 else:
     print("Error:", response.status_code, response.text)
-    
