@@ -79,14 +79,14 @@ def docker_information():
 
     di_client.containers.run("ubuntu",
                              ["sleep",
-                             "infinity"],
+                              "infinity"],
                              detach=True,
                              ports={'80/tcp': 8080},
                              name="Xavi-play-one")
     for _ in range(10):
         di_client.containers.run("ubuntu",
                                  ["sleep",
-                                 "infinity"],
+                                  "infinity"],
                                  detach=True)
     di_client.close()
 

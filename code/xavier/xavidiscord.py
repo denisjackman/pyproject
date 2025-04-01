@@ -26,7 +26,7 @@ sys.path.append(os.path.realpath('../..'))
 
 maincredid = get_secrets('../../secrets/nusecrets.json')
 
-QUOTES_API= "https://api.api-ninjas.com/v1/quotes"
+QUOTES_API = "https://api.api-ninjas.com/v1/quotes"
 
 TOKEN = maincredid["discordbottoken"]
 QUOTES_API_KEY = maincredid["ninjaapikey"]
