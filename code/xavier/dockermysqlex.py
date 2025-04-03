@@ -16,14 +16,14 @@ https://pypi.org/project/openpyxl/
 (Although I would recommend using pretty much any other data source instead of using Excel)
 
 """
-import os
+
 import sys
 import json
 import mysql.connector
 import docker
+import os
 
 sys.path.append(os.path.realpath('../..'))
-
 
 def open_mysql_db(omd_mysqlusername,
                   omd_mysqlpassword,
@@ -42,7 +42,6 @@ def open_mysql_db(omd_mysqlusername,
         return None
     return omd_client
 
-
 def get_secrets(gs_file_details):
     """
         This function gathers the credentials needed to open anything
@@ -56,7 +55,6 @@ def get_secrets(gs_file_details):
         return []
     gs_secrets_file.close()
     return gs_secrets
-
 
 def mysql_query(mq_connection, mq_query):
     ''' mysql query'''
