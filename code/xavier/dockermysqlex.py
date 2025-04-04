@@ -13,14 +13,13 @@ For reading from Excel:
 
 https://pypi.org/project/openpyxl/
 
-(Although I would recommend using pretty much any other data source instead of using Excel)
-
 """
-import os
+
 import sys
 import json
 import mysql.connector
 import docker
+import os
 
 sys.path.append(os.path.realpath('../..'))
 
@@ -109,7 +108,9 @@ def main():
         print("[-] oops baby nothing to do ")
         return None
 
-    mycursor = mysql_query(mysqlclient, "select count(*) as numemployees from employees;")
+    main_query = "select count(*) as numemployees from employees;"
+    mycursor = mysql_query(mysqlclient,
+                           main_query)
     print(f'{mycursor.fetchall()[0]["numemployees"]}')
     mycursor.close()
 
