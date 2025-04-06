@@ -6,9 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Set up headers to mimic a browser request
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"
-}
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"}  # noqa flake8: E501
 
 
 def create_dir_structure(url):
@@ -19,7 +17,8 @@ def create_dir_structure(url):
     # Replace '/' with system's path separator to create local directories
     local_path = path.lstrip("/").replace("/", os.sep)
     if not local_path.endswith(('.html', '.htm')):
-        local_path = os.path.join(local_path, "index.html")  # Default to index.html for non-file paths
+        # Default to index.html for non-file paths
+        local_path = os.path.join(local_path, "index.html")
     local_folder = os.path.dirname(local_path)
     # Create the directory structure
     if not os.path.exists(local_folder):
@@ -46,7 +45,10 @@ def download_page(url):
 def download_asset(asset_url):
     '''# Function to download assets (CSS, images, JS files, etc.)'''
     try:
-        response = requests.get(asset_url, headers=HEADERS, stream=True, timeout=6)
+        response = requests.get(asset_url,
+                                headers=HEADERS,
+                                stream=True,
+                                timeout=6)
         response.raise_for_status()
         asset_path = create_dir_structure(asset_url)
         # Save the asset
@@ -57,7 +59,9 @@ def download_asset(asset_url):
 
 
 def parse_and_download(url, base_url, visited):
-    '''# Function to parse the page, find links and assets, and recursively download'''
+    '''# Function to parse the page,
+         find links and assets,
+         and recursively download'''
     if url in visited:
         return
     visited.add(url)
@@ -78,7 +82,7 @@ def parse_and_download(url, base_url, visited):
             asset_url = urljoin(base_url, asset["src"])
         elif asset.name == "script" and asset.get("src"):
             asset_url = urljoin(base_url, asset["src"])
-        elif asset.name == "link" and asset.get("href") and asset["rel"] == ["stylesheet"]:
+        elif asset.name == "link" and asset.get("href") and asset["rel"] == ["stylesheet"]:  # noqa: flake8 E501
             asset_url = urljoin(base_url, asset["href"])
         if asset_url:
             download_asset(asset_url)

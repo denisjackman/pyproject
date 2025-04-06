@@ -16,7 +16,7 @@ import requests
 
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck
+from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: flake8 E402, E501
 
 filelist = ["y:/pyproject/resources/work.txt",
             "y:/pyproject/resources/chores.txt",]

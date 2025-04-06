@@ -4,7 +4,7 @@ import sys
 import zipfile36 as zipfile
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.utilities.fileutility import walk_through
+from jackmanimation.utilities.fileutility import walk_through  # noqa: flake8 E402, E501
 
 BASE_DIR = "Y:/Data/Goodreads/"
 TARGET_DIR = "Y:/Data/Temp/"

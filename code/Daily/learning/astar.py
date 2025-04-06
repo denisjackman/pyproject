@@ -24,7 +24,8 @@ def a_star_search(start, goal, grid):
 
     :param start: Tuple representing the start position (row, col)
     :param goal: Tuple representing the goal position (row, col)
-    :param grid: 2D list representing the grid (0 for free space, 1 for obstacles)
+    :param grid: 2D list representing the grid (0 for free space,
+                 1 for obstacles)
     :return: List of tuples representing the path from start to goal
     '''
 
@@ -57,10 +58,11 @@ def a_star_search(start, goal, grid):
         # Generate neighbors (4 possible directions: up, down, left, right)
         neighbors = [(0, -1), (0, 1), (-1, 0), (1, 0)]
         for n in neighbors:
-            neighbor_pos = (current_node.position[0] + n[0], current_node.position[1] + n[1])
+            neighbor_pos = (current_node.position[0] + n[0],
+                            current_node.position[1] + n[1])
 
             # Check if the neighbor is within the grid bounds
-            if neighbor_pos[0] < 0 or neighbor_pos[0] >= len(grid) or neighbor_pos[1] < 0 or neighbor_pos[1] >= len(grid[0]):
+            if neighbor_pos[0] < 0 or neighbor_pos[0] >= len(grid) or neighbor_pos[1] < 0 or neighbor_pos[1] >= len(grid[0]):  # noqa flake8: E501
                 continue
 
             # Check if the neighbor is an obstacle
@@ -80,7 +82,7 @@ def a_star_search(start, goal, grid):
             neighbor_node.f = neighbor_node.g + neighbor_node.h
 
             # Check if the neighbor is already in the open list with a lower f
-            if any(neighbor_node == open_node and neighbor_node.f >= open_node.f for open_node in open_list):
+            if any(neighbor_node == open_node and neighbor_node.f >= open_node.f for open_node in open_list):  # noqa flake8: E501
                 continue
 
             # Add the neighbor to the open list
