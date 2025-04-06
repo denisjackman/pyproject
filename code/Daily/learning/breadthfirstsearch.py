@@ -21,7 +21,8 @@ def breadth_first_search(graph, start):
 
         # Get all adjacent nodes (neighbors)
         for neighbor in graph[node]:
-            # If the neighbor hasn't been visited, enqueue it and mark as visited
+            # If the neighbor hasn't been visited,
+            # enqueue it and mark as visited
             if neighbor not in visited:
                 queue.append(neighbor)
                 visited.add(neighbor)

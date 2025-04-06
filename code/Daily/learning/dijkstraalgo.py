@@ -4,7 +4,8 @@ import heapq
 
 def dijkstra(graph, start):
     ''' Dijkstra's Algo '''
-    # Initialize distances dictionary, setting the distance to the start node as 0 and all others as infinity
+    # Initialize distances dictionary,
+    # setting the distance to the start node as 0 and all others as infinity
     distances = {node: float('infinity') for node in graph}
     distances[start] = 0
 

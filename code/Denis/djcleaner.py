@@ -29,18 +29,26 @@ def sort_files(start_directory, target_directory):
             file_type = file_name.split('.')[-1].lower()
 
             if file_type not in file_counters:
-                file_counters[file_type] = 0  # Initialize the counter for new file types
-            file_counters[file_type] += 1  # Increment the counter for the current file type
+                # Initialize the counter for new file types
+                file_counters[file_type] = 0
+            # Increment the counter for the current file type
+            file_counters[file_type] += 1
 
             # Generate the new filename using the provided format
             date_str = datetime.now().strftime('%Y%m%d')
-            new_file_name = f"{file_type.upper()}-{date_str}-{file_counters[file_type]:05d}.{file_type}"
+            # Format the new file name with the file type, date, and counter
+
+            new_file_name = f"{file_type.upper()}"
+            new_file_name += f"-{date_str}"
+            new_file_name += f"-{file_counters[file_type]:05d}"
+            new_file_name += f".{file_type}"
 
             # Create the target folder based on the file type
             target_folder = os.path.join(target_directory, file_type.upper())
 
             if not os.path.exists(target_folder):
-                os.makedirs(target_folder)  # Create the folder if it doesn't exist
+                # Create the folder if it doesn't exist
+                os.makedirs(target_folder)
 
             # Define the full source and destination file paths
             source_file = os.path.join(root, file_name)

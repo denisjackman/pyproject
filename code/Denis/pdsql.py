@@ -6,7 +6,7 @@ import pandas as pd
 import sqlalchemy
 # pylint: disable=C0413
 sys.path.append(os.path.realpath('../..'))
-from jackmanimation.gameitems.gamefunctions import credscheck
+from jackmanimation.gameitems.gamefunctions import credscheck  # noqa: flake8 E402, E501
 
 OUTPUT_FILE = "Z:/Logs/djoutput.csv"
 INPUT_FILE = "Z:/Logs/djinput.csv"
@@ -24,7 +24,7 @@ def main():
     ps_password = ps_creds["BotPassword"]
     ps_hostname = ps_creds["hostname2"]
     ps_database = DATABASE_NAME
-    ps_db = sqlalchemy.create_engine(f'mysql+mysqlconnector://{ps_username}:{ps_password}@{ps_hostname}:3306/{ps_database}')
+    ps_db = sqlalchemy.create_engine(f'mysql+mysqlconnector://{ps_username}:{ps_password}@{ps_hostname}:3306/{ps_database}')  # noqa: flake8 E501
 
     ps_query = "SELECT * FROM fruit"
 
@@ -37,10 +37,16 @@ def main():
         for file in ps_files:
             temp_df = pd.read_csv(file)
             book_df = pd.concat([book_df, temp_df])
-        book_df.to_sql(con=ps_db, name='sf_books', if_exists='replace', index=False)
+        book_df.to_sql(con=ps_db,
+                       name='sf_books',
+                       if_exists='replace',
+                       index=False)
 
         new_boof_df = pd.read_csv(NEW_BOOK_FILE)
-        new_boof_df.to_sql(con=ps_db, name='other_books', if_exists='replace', index=False)
+        new_boof_df.to_sql(con=ps_db,
+                           name='other_books',
+                           if_exists='replace',
+                           index=False)
 
 
 if __name__ == '__main__':
